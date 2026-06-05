@@ -317,7 +317,9 @@ Window {
     Connections {
         target: HikvisionISAPI
         function onSearchFinished(recorderIp, channelId, startTime, segments) {
-            var dateKey = getDateKey(startTime);
+            var targetDate = new Date(startTime);
+            targetDate.setDate(targetDate.getDate() + 1);
+            var dateKey = getDateKey(targetDate);
             var cacheKey = recorderIp + "_" + channelId + "_" + dateKey;
             var fetchKey = recorderIp + "_" + channelId + "_" + dateKey;
             
@@ -339,7 +341,9 @@ Window {
             playbackWindow.isSearchingRecordings = isAnyCameraSearching();
         }
         function onSearchFailed(recorderIp, channelId, startTime, error) {
-            var dateKey = getDateKey(startTime);
+            var targetDate = new Date(startTime);
+            targetDate.setDate(targetDate.getDate() + 1);
+            var dateKey = getDateKey(targetDate);
             var cacheKey = recorderIp + "_" + channelId + "_" + dateKey;
             var fetchKey = recorderIp + "_" + channelId + "_" + dateKey;
             
@@ -453,6 +457,7 @@ Window {
             var viewDurationMs = zoomHours * 3600000
             if (autoFollowEnabled && !mouseArea.isDraggingPlayhead && (currentPlayheadMs < panOffsetMs || currentPlayheadMs > panOffsetMs + viewDurationMs)) {
                 panOffsetMs = currentPlayheadMs - viewDurationMs / 2
+                searchRecordingsForDate(currentDate)
             }
             
             timeline.requestPaint()
@@ -520,38 +525,80 @@ Window {
             timeline.segments = [];
         }
         
-        var start = new Date(date)
-        start.setHours(0,0,0,0)
-        start.setDate(start.getDate() - 1)
+        // Find all visible days on the timeline to fetch
+        var viewDurationMs = zoomHours * 3600000
+        var sodTime = currentDate.getTime()
         
-        var end = new Date(date)
-        end.setHours(23,59,59,999)
-        end.setDate(end.getDate() + 1)
+        var startDate = new Date(sodTime + panOffsetMs)
+        startDate.setHours(0, 0, 0, 0)
+        var endDate = new Date(sodTime + panOffsetMs + viewDurationMs)
+        endDate.setHours(0, 0, 0, 0)
+        
+        // Build a unique list of dates to search
+        var datesToSearch = [];
+        // 1. Always include the passed date
+        var targetD = new Date(date);
+        targetD.setHours(0, 0, 0, 0);
+        datesToSearch.push(targetD);
+        
+        // 2. Include all visible dates
+        for (var d = new Date(startDate); d.getTime() <= endDate.getTime(); d.setDate(d.getDate() + 1)) {
+            var exists = false;
+            for (var j = 0; j < datesToSearch.length; j++) {
+                if (datesToSearch[j].getTime() === d.getTime()) {
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists) {
+                datesToSearch.push(new Date(d));
+            }
+        }
         
         var tempFetching = Object.assign({}, activePlayersFetching);
-        for (var i = 0; i < activePlayersList.length; i++) {
-            var cam = activePlayersList[i];
-            if (!cam) continue; // Safety check for empty placeholders
+        var changedFetching = false;
+        
+        for (var dIdx = 0; dIdx < datesToSearch.length; dIdx++) {
+            var currentSearchDate = datesToSearch[dIdx];
+            var searchDateKey = getDateKey(currentSearchDate);
             
-            var cacheKey = cam.ip + "_" + cam.channelId + "_" + dateKey;
-            var fetchKey = cam.ip + "_" + cam.channelId + "_" + dateKey;
-            
-            if (rootWindow.playbackSegmentsCache[cacheKey] !== undefined || tempFetching[fetchKey] === true) {
-                continue;
+            for (var i = 0; i < activePlayersList.length; i++) {
+                var cam = activePlayersList[i];
+                if (!cam) continue; // Safety check for empty placeholders
+                
+                var cacheKey = cam.ip + "_" + cam.channelId + "_" + searchDateKey;
+                var fetchKey = cam.ip + "_" + cam.channelId + "_" + searchDateKey;
+                
+                if (rootWindow.playbackSegmentsCache[cacheKey] !== undefined || tempFetching[fetchKey] === true) {
+                    continue;
+                }
+                
+                tempFetching[fetchKey] = true;
+                changedFetching = true;
+                
+                var start = new Date(currentSearchDate)
+                start.setHours(0,0,0,0)
+                start.setDate(start.getDate() - 1)
+                
+                var end = new Date(currentSearchDate)
+                end.setHours(23,59,59,999)
+                end.setDate(end.getDate() + 1)
+                
+                var recorderInfoForCam = {
+                    "ip": cam.ip,
+                    "port": cam.port || 8000,
+                    "username": cam.username,
+                    "password": cam.password
+                };
+                HikvisionISAPI.searchRecordings(recorderInfoForCam, cam.channelId, start, end);
             }
-            
-            tempFetching[fetchKey] = true;
-            
-            var recorderInfoForCam = {
-                "ip": cam.ip,
-                "port": cam.port || 8000,
-                "username": cam.username,
-                "password": cam.password
-            };
-            HikvisionISAPI.searchRecordings(recorderInfoForCam, cam.channelId, start, end);
         }
-        activePlayersFetching = tempFetching;
-        playbackWindow.isSearchingRecordings = isAnyCameraSearching();
+        
+        if (changedFetching) {
+            activePlayersFetching = tempFetching;
+            playbackWindow.isSearchingRecordings = isAnyCameraSearching();
+        }
+        
         fetchMonthAvailability(date.getFullYear(), date.getMonth())
     }
 
@@ -1851,30 +1898,49 @@ Window {
                             var N = activeCams.length
                             var barsTotalHeight = N * 16
                             
+                            // Find the start date and end date of the visible range
+                            var startDate = new Date(sodTime + panOffsetMs)
+                            startDate.setHours(0, 0, 0, 0)
+                            var endDate = new Date(sodTime + panOffsetMs + viewDurationMs)
+                            endDate.setHours(0, 0, 0, 0)
+                            
                             // Draw stacked timeline segments for all active viewports
                             for (var i = 0; i < N; i++) {
                                 var cam = activeCams[i]
-                                var cacheKey = cam.ip + "_" + cam.channelId + "_" + getDateKey(currentDate)
-                                var camSegments = rootWindow.playbackSegmentsCache[cacheKey]
-                                if (!Array.isArray(camSegments)) {
-                                    camSegments = []
-                                }
                                 var barColor = colors[i % colors.length]
                                 var barY = height - (N - i) * 16
                                 
                                 ctx.fillStyle = barColor
-                                for (var k = 0; k < camSegments.length; k++) {
-                                    var seg = camSegments[k]
-                                    var startOffset = seg.startTime - sodTime
-                                    var endOffset = seg.endTime - sodTime
+                                
+                                // Loop through all visible days
+                                for (var d = new Date(startDate); d.getTime() <= endDate.getTime(); d.setDate(d.getDate() + 1)) {
+                                    var cacheKey = cam.ip + "_" + cam.channelId + "_" + getDateKey(d)
+                                    var camSegments = rootWindow.playbackSegmentsCache[cacheKey]
+                                    if (!Array.isArray(camSegments)) {
+                                        continue
+                                    }
                                     
-                                    var x1 = (startOffset - panOffsetMs) / msPerPixel
-                                    var x2 = (endOffset - panOffsetMs) / msPerPixel
+                                    var dayStartMs = d.getTime()
+                                    var dayEndMs = dayStartMs + 86400000
                                     
-                                    if (x2 >= 0 && x1 <= width) {
-                                        var drawX = Math.max(0, x1)
-                                        var drawW = Math.max(1, Math.min(width - drawX, x2 - drawX))
-                                        ctx.fillRect(drawX, barY, drawW, 12)
+                                    for (var k = 0; k < camSegments.length; k++) {
+                                        var seg = camSegments[k]
+                                        // Only draw segments whose startTime is on this day
+                                        if (seg.startTime < dayStartMs || seg.startTime >= dayEndMs) {
+                                            continue
+                                        }
+                                        
+                                        var startOffset = seg.startTime - sodTime
+                                        var endOffset = seg.endTime - sodTime
+                                        
+                                        var x1 = (startOffset - panOffsetMs) / msPerPixel
+                                        var x2 = (endOffset - panOffsetMs) / msPerPixel
+                                        
+                                        if (x2 >= 0 && x1 <= width) {
+                                            var drawX = Math.max(0, x1)
+                                            var drawW = Math.max(1, Math.min(width - drawX, x2 - drawX))
+                                            ctx.fillRect(drawX, barY, drawW, 12)
+                                        }
                                     }
                                 }
                                 
@@ -2037,6 +2103,7 @@ Window {
                                      var dx = mouse.x - lastMouseX
                                      panOffsetMs -= dx * msPerPixel
                                      normalizePanOffset()
+                                     searchRecordingsForDate(currentDate)
                                      lastMouseX = mouse.x
                                      timeline.requestPaint()
                                  } else if (pressedButtons & Qt.LeftButton && pressX >= 0) {
@@ -2045,6 +2112,7 @@ Window {
                                          isPanning = true
                                          panOffsetMs = pressPanOffsetMs - dxL * msPerPixel
                                          normalizePanOffset()
+                                         searchRecordingsForDate(currentDate)
                                          timeline.requestPaint()
                                      }
                                  }
@@ -2085,6 +2153,7 @@ Window {
                                  var newMsPerPixel = (zoomHours * 3600000) / width
                                  panOffsetMs = msAtMouse - (wheel.x * newMsPerPixel)
                                  normalizePanOffset()
+                                 searchRecordingsForDate(currentDate)
                                  timeline.requestPaint()
                                  wheel.accepted = true
                              }
