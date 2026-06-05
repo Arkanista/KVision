@@ -37,7 +37,7 @@ Window {
 
     color: "#0a0f14"
 
-    property var monthNames: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"]
+    property var monthNames: [qsTr("Styczeń"), qsTr("Luty"), qsTr("Marzec"), qsTr("Kwiecień"), qsTr("Maj"), qsTr("Czerwiec"), qsTr("Lipiec"), qsTr("Sierpień"), qsTr("Wrzesień"), qsTr("Październik"), qsTr("Listopad"), qsTr("Grudzień")]
 
     property bool isSearchingRecordings: false
     property var monthAvailabilityFetching: ({})
@@ -2282,7 +2282,21 @@ Window {
                                 ctx.strokeStyle = "rgba(0, 245, 212, 0.6)"
                                 ctx.lineWidth = 1
                                 ctx.beginPath()
-                                ctx.roundRect(boxX, boxY, boxW, boxH, 12)
+                                if (typeof ctx.roundRect === "function") {
+                                    ctx.roundRect(boxX, boxY, boxW, boxH, 12)
+                                } else {
+                                    var r = 12
+                                    ctx.moveTo(boxX + r, boxY)
+                                    ctx.lineTo(boxX + boxW - r, boxY)
+                                    ctx.arcTo(boxX + boxW, boxY, boxX + boxW, boxY + r, r)
+                                    ctx.lineTo(boxX + boxW, boxY + boxH - r, boxY + r)
+                                    ctx.arcTo(boxX + boxW, boxY + boxH, boxX + boxW - r, boxY + boxH, r)
+                                    ctx.lineTo(boxX + r, boxY + boxH)
+                                    ctx.arcTo(boxX, boxY + boxH, boxX, boxY + boxH - r, r)
+                                    ctx.lineTo(boxX, boxY + r)
+                                    ctx.arcTo(boxX, boxY, boxX + r, boxY, r)
+                                    ctx.closePath()
+                                }
                                 ctx.fill()
                                 ctx.stroke()
 

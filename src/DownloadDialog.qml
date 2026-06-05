@@ -67,7 +67,7 @@ Popup {
         
         property int viewYear: targetDate.getFullYear()
         property int viewMonth: targetDate.getMonth()
-        property var monthNames: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"]
+        property var monthNames: [qsTr("Styczeń"), qsTr("Luty"), qsTr("Marzec"), qsTr("Kwiecień"), qsTr("Maj"), qsTr("Czerwiec"), qsTr("Lipiec"), qsTr("Sierpień"), qsTr("Wrzesień"), qsTr("Październik"), qsTr("Listopad"), qsTr("Grudzień")]
         
         function updateDaysModel() {
             var firstDay = new Date(viewYear, viewMonth, 1)

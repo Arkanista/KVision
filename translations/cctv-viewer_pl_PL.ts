@@ -119,6 +119,57 @@
     </message>
 </context>
 <context>
+    <name>DownloadDialog</name>
+    <message>
+        <source>Styczeń</source>
+        <translation>Styczeń</translation>
+    </message>
+    <message>
+        <source>Luty</source>
+        <translation>Luty</translation>
+    </message>
+    <message>
+        <source>Marzec</source>
+        <translation>Marzec</translation>
+    </message>
+    <message>
+        <source>Kwiecień</source>
+        <translation>Kwiecień</translation>
+    </message>
+    <message>
+        <source>Maj</source>
+        <translation>Maj</translation>
+    </message>
+    <message>
+        <source>Czerwiec</source>
+        <translation>Czerwiec</translation>
+    </message>
+    <message>
+        <source>Lipiec</source>
+        <translation>Lipiec</translation>
+    </message>
+    <message>
+        <source>Sierpień</source>
+        <translation>Sierpień</translation>
+    </message>
+    <message>
+        <source>Wrzesień</source>
+        <translation>Wrzesień</translation>
+    </message>
+    <message>
+        <source>Październik</source>
+        <translation>Październik</translation>
+    </message>
+    <message>
+        <source>Listopad</source>
+        <translation>Listopad</translation>
+    </message>
+    <message>
+        <source>Grudzień</source>
+        <translation>Grudzień</translation>
+    </message>
+</context>
+<context>
     <name>NvrCamerasWindow</name>
     <message>
         <source>Cameras on %1</source>
@@ -277,6 +328,54 @@
     <message>
         <source>Wybierz datę archiwalną</source>
         <translation>Wybierz datę archiwalną</translation>
+    </message>
+    <message>
+        <source>Styczeń</source>
+        <translation>Styczeń</translation>
+    </message>
+    <message>
+        <source>Luty</source>
+        <translation>Luty</translation>
+    </message>
+    <message>
+        <source>Marzec</source>
+        <translation>Marzec</translation>
+    </message>
+    <message>
+        <source>Kwiecień</source>
+        <translation>Kwiecień</translation>
+    </message>
+    <message>
+        <source>Maj</source>
+        <translation>Maj</translation>
+    </message>
+    <message>
+        <source>Czerwiec</source>
+        <translation>Czerwiec</translation>
+    </message>
+    <message>
+        <source>Lipiec</source>
+        <translation>Lipiec</translation>
+    </message>
+    <message>
+        <source>Sierpień</source>
+        <translation>Sierpień</translation>
+    </message>
+    <message>
+        <source>Wrzesień</source>
+        <translation>Wrzesień</translation>
+    </message>
+    <message>
+        <source>Październik</source>
+        <translation>Październik</translation>
+    </message>
+    <message>
+        <source>Listopad</source>
+        <translation>Listopad</translation>
+    </message>
+    <message>
+        <source>Grudzień</source>
+        <translation>Grudzień</translation>
     </message>
 </context>
 <context>
