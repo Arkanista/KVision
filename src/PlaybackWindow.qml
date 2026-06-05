@@ -370,9 +370,16 @@ Window {
     }
 
     Component.onCompleted: {
-        var d = new Date()
-        d.setHours(0, 0, 0, 0)
-        currentDate = d
+        // Set default playback start time to 15 minutes before now
+        var now = new Date()
+        var targetTime = new Date(now.getTime() - 15 * 60 * 1000)
+        var dStart = new Date(targetTime)
+        dStart.setHours(0, 0, 0, 0)
+        currentDate = dStart
+        playheadTimeMs = targetTime.getTime()
+        
+        var viewDurationMs = zoomHours * 3600000
+        panOffsetMs = currentPlayheadMs - viewDurationMs / 2
         
         loadRecordersList();
         
@@ -388,23 +395,14 @@ Window {
                 "recorderName": recName
             }]
             
-            // Set playback start time to 15 minutes before now
-            var now = new Date()
-            var targetTime = new Date(now.getTime() - 15 * 60 * 1000)
-            var dStart = new Date(targetTime)
-            dStart.setHours(0, 0, 0, 0)
-            currentDate = dStart
-            playheadTimeMs = targetTime.getTime()
-            
-            var viewDurationMs = zoomHours * 3600000
-            panOffsetMs = currentPlayheadMs - viewDurationMs / 2
-            
             playbackWindow.isPlaying = true
             
             searchRecordingsForDate(currentDate)
         } else {
             // When opened empty, pad the active players list to grid size with nulls
             resizeActivePlayersList(gridLayoutColumns * gridLayoutRows);
+            // Auto-start playing so newly added cameras play instantly
+            playbackWindow.isPlaying = true
         }
     }
 
@@ -597,18 +595,17 @@ Window {
 
     function zoomToLast(hours) {
         var now = new Date()
-        if (currentDate.toDateString() !== now.toDateString()) {
-            var d = new Date()
-            d.setHours(0, 0, 0, 0)
-            currentDate = d
-            searchRecordingsForDate(currentDate)
-        }
+        var d = new Date(now)
+        d.setHours(0, 0, 0, 0)
+        currentDate = d
         
         var msSinceMidnight = now.getHours() * 3600000 + now.getMinutes() * 60000 + now.getSeconds() * 1000
         zoomHours = hours
         var viewDurationMs = zoomHours * 3600000
         panOffsetMs = msSinceMidnight - viewDurationMs
-        timeline.requestPaint()
+        
+        searchRecordingsForDate(currentDate)
+        playAtTime(currentDate, msSinceMidnight)
     }
 
     Popup {
@@ -720,8 +717,10 @@ Window {
                             onClicked: {
                                 var d = new Date(calendarPopup.viewYear, calendarPopup.viewMonth, modelData)
                                 d.setHours(0, 0, 0, 0)
+                                var timeOfDay = currentPlayheadMs
                                 currentDate = d
                                 searchRecordingsForDate(currentDate)
+                                playAtTime(currentDate, timeOfDay)
                                 calendarPopup.close()
                             }
                         }
@@ -1610,8 +1609,10 @@ Window {
                                 onClicked: {
                                     var d = new Date(currentDate.getTime() - 86400000)
                                     d.setHours(0, 0, 0, 0)
+                                    var timeOfDay = currentPlayheadMs
                                     currentDate = d
                                     searchRecordingsForDate(currentDate)
+                                    playAtTime(currentDate, timeOfDay)
                                 }
                             }
                             CctvButton {
@@ -1632,8 +1633,10 @@ Window {
                                 onClicked: {
                                     var d = new Date(currentDate.getTime() + 86400000)
                                     d.setHours(0, 0, 0, 0)
+                                    var timeOfDay = currentPlayheadMs
                                     currentDate = d
                                     searchRecordingsForDate(currentDate)
+                                    playAtTime(currentDate, timeOfDay)
                                 }
                             }
                             CctvButton {
@@ -1642,8 +1645,10 @@ Window {
                                 onClicked: {
                                     var d = new Date()
                                     d.setHours(0, 0, 0, 0)
+                                    var timeOfDay = currentPlayheadMs
                                     currentDate = d
                                     searchRecordingsForDate(currentDate)
+                                    playAtTime(currentDate, timeOfDay)
                                 }
                             }
                             CctvButton {
