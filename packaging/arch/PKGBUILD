@@ -18,7 +18,7 @@ sha256sums=('SKIP')
 prepare() {
   cd "$srcdir/cctv-viewer2"
   git submodule init
-  git -c protocol.file.allow=always -C src/qmlav fetch --all
+  git config submodule.src/qmlav.url "${startdir}/../../src/qmlav"
   git -c protocol.file.allow=always submodule update --recursive
 }
 
