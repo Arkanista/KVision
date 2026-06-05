@@ -252,7 +252,11 @@
     </message>
     <message>
         <source>Pobieranie dostępności...</source>
-        <translation type="unfinished"></translation>
+        <translation>Fetching availability...</translation>
+    </message>
+    <message>
+        <source>Wybierz datę archiwalną</source>
+        <translation>Select archive date</translation>
     </message>
 </context>
 <context>

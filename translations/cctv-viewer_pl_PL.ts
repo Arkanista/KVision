@@ -272,7 +272,11 @@
     </message>
     <message>
         <source>Pobieranie dostępności...</source>
-        <translation type="unfinished"></translation>
+        <translation>Pobieranie dostępności...</translation>
+    </message>
+    <message>
+        <source>Wybierz datę archiwalną</source>
+        <translation>Wybierz datę archiwalną</translation>
     </message>
 </context>
 <context>

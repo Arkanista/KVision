@@ -27,7 +27,11 @@ Window {
     property bool autoFollowEnabled: true
     property int playbackSpeed: 1
 
-    property var daysWithRecords: []
+    property var daysWithRecords: {
+        if (typeof rootWindow === 'undefined' || !rootWindow || !recorderInfo) return [];
+        var key = recorderInfo.ip + "_" + channelId + "_" + currentDate.getFullYear() + "-" + currentDate.getMonth();
+        return rootWindow.monthAvailabilitiesCache[key] || [];
+    }
     property int fetchedYear: -1
     property int fetchedMonth: -1
 
@@ -36,7 +40,8 @@ Window {
     property var monthNames: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"]
 
     property bool isSearchingRecordings: false
-    property bool isSearchingMonth: false
+    property var monthAvailabilityFetching: ({})
+    property bool isSearchingMonth: Object.keys(monthAvailabilityFetching).length > 0
 
     onIsSearchingRecordingsChanged: {
         timeline.requestPaint()
@@ -46,6 +51,7 @@ Window {
     property var activePlayersList: []
     onActivePlayersListChanged: {
         timeline.requestPaint();
+        prefetchActiveCameras();
     }
     property int selectedPlayerIndex: 0
     property var recordersList: []
@@ -366,12 +372,13 @@ Window {
             tempAvails[key] = daysWithRecords;
             rootWindow.monthAvailabilitiesCache = tempAvails;
             
-            if (playbackWindow.recorderInfo && recorderIp === playbackWindow.recorderInfo.ip && channelId === playbackWindow.channelId) {
-                playbackWindow.isSearchingMonth = false;
-                if (year === fetchedYear && (month - 1) === fetchedMonth) {
-                    playbackWindow.daysWithRecords = daysWithRecords;
-                }
-            }
+            var tempFetching = Object.assign({}, monthAvailabilityFetching);
+            delete tempFetching[key];
+            monthAvailabilityFetching = tempFetching;
+
+            timeline.requestPaint();
+
+            prefetchActiveCameras();
         }
     }
 
@@ -464,23 +471,70 @@ Window {
         }
     }
 
-    function fetchMonthAvailability(y, m) {
-        fetchedYear = y;
-        fetchedMonth = m;
-        if (!recorderInfo) {
-            playbackWindow.daysWithRecords = [];
-            isSearchingMonth = false;
-            return;
-        }
-        var key = recorderInfo.ip + "_" + channelId + "_" + y + "-" + m;
+    function fetchMonthAvailabilityForCamera(recInfo, chId, y, m) {
+        if (!recInfo) return;
+        var ip = recInfo.ip;
+        var key = ip + "_" + chId + "_" + y + "-" + m;
+        
         if (rootWindow.monthAvailabilitiesCache[key] !== undefined) {
-            playbackWindow.daysWithRecords = rootWindow.monthAvailabilitiesCache[key];
-            isSearchingMonth = false;
             return;
         }
-        playbackWindow.daysWithRecords = [];
-        isSearchingMonth = true;
-        HikvisionISAPI.searchMonthAvailability(recorderInfo, channelId, y, m + 1);
+        
+        if (monthAvailabilityFetching[key] === true) {
+            return;
+        }
+        
+        var tempFetching = Object.assign({}, monthAvailabilityFetching);
+        tempFetching[key] = true;
+        monthAvailabilityFetching = tempFetching;
+        
+        var recorderInfoForCam = {
+            "ip": ip,
+            "port": recInfo.port || 8000,
+            "username": recInfo.username,
+            "password": recInfo.password
+        };
+        
+        HikvisionISAPI.searchMonthAvailability(recorderInfoForCam, chId, y, m + 1);
+    }
+
+    function continuePrefetchingForCamera(cam) {
+        if (!cam) return;
+        var now = new Date();
+        var currentY = now.getFullYear();
+        var currentM = now.getMonth();
+        
+        // Fetch up to 120 months (10 years) backwards sequentially
+        for (var i = 0; i < 120; i++) {
+            var d = new Date(currentY, currentM - i, 1);
+            var y = d.getFullYear();
+            var m = d.getMonth();
+            var key = cam.ip + "_" + cam.channelId + "_" + y + "-" + m;
+            
+            if (rootWindow.monthAvailabilitiesCache[key] !== undefined) {
+                continue;
+            }
+            
+            if (monthAvailabilityFetching[key] === true) {
+                return;
+            }
+            
+            fetchMonthAvailabilityForCamera(cam, cam.channelId, y, m);
+            return;
+        }
+    }
+
+    function prefetchActiveCameras() {
+        for (var i = 0; i < activePlayersList.length; i++) {
+            var cam = activePlayersList[i];
+            if (cam) {
+                continuePrefetchingForCamera(cam);
+            }
+        }
+    }
+
+    function fetchMonthAvailability(y, m) {
+        prefetchActiveCameras();
     }
 
     function searchRecordingsForCamera(cam, date) {
@@ -496,7 +550,25 @@ Window {
         activePlayersFetching = tempFetching;
         
         playbackWindow.isSearchingRecordings = isAnyCameraSearching();
-        fetchMonthAvailability(date.getFullYear(), date.getMonth())
+        prefetchActiveCameras();
+        
+        var monthKey = cam.ip + "_" + cam.channelId + "_" + date.getFullYear() + "-" + date.getMonth();
+        var monthAvail = rootWindow.monthAvailabilitiesCache[monthKey];
+        if (monthAvail !== undefined) {
+            if (monthAvail.indexOf(date.getDate()) === -1) {
+                var tempSegments = Object.assign({}, rootWindow.playbackSegmentsCache);
+                tempSegments[cacheKey] = [];
+                rootWindow.playbackSegmentsCache = tempSegments;
+                
+                var tempFetching2 = Object.assign({}, activePlayersFetching);
+                delete tempFetching2[fetchKey];
+                activePlayersFetching = tempFetching2;
+                
+                playbackWindow.isSearchingRecordings = isAnyCameraSearching();
+                timeline.requestPaint();
+                return;
+            }
+        }
         
         var start = new Date(date)
         start.setHours(0,0,0,0)
@@ -525,23 +597,19 @@ Window {
             timeline.segments = [];
         }
         
-        // Find all visible days on the timeline to fetch
-        var viewDurationMs = zoomHours * 3600000
-        var sodTime = currentDate.getTime()
+        var viewDurationMs = zoomHours * 3600000;
+        var sodTime = currentDate.getTime();
         
-        var startDate = new Date(sodTime + panOffsetMs)
-        startDate.setHours(0, 0, 0, 0)
-        var endDate = new Date(sodTime + panOffsetMs + viewDurationMs)
-        endDate.setHours(0, 0, 0, 0)
+        var startDate = new Date(sodTime + panOffsetMs);
+        startDate.setHours(0, 0, 0, 0);
+        var endDate = new Date(sodTime + panOffsetMs + viewDurationMs);
+        endDate.setHours(0, 0, 0, 0);
         
-        // Build a unique list of dates to search
         var datesToSearch = [];
-        // 1. Always include the passed date
         var targetD = new Date(date);
         targetD.setHours(0, 0, 0, 0);
         datesToSearch.push(targetD);
         
-        // 2. Include all visible dates
         for (var d = new Date(startDate); d.getTime() <= endDate.getTime(); d.setDate(d.getDate() + 1)) {
             var exists = false;
             for (var j = 0; j < datesToSearch.length; j++) {
@@ -555,6 +623,9 @@ Window {
             }
         }
         
+        // Ensure all active cameras pre-fetch their availability in the background
+        prefetchActiveCameras();
+        
         var tempFetching = Object.assign({}, activePlayersFetching);
         var changedFetching = false;
         
@@ -564,13 +635,25 @@ Window {
             
             for (var i = 0; i < activePlayersList.length; i++) {
                 var cam = activePlayersList[i];
-                if (!cam) continue; // Safety check for empty placeholders
+                if (!cam) continue;
                 
                 var cacheKey = cam.ip + "_" + cam.channelId + "_" + searchDateKey;
                 var fetchKey = cam.ip + "_" + cam.channelId + "_" + searchDateKey;
                 
                 if (rootWindow.playbackSegmentsCache[cacheKey] !== undefined || tempFetching[fetchKey] === true) {
                     continue;
+                }
+                
+                // Optimize: If month availability is cached and has no records for this day, skip search!
+                var monthKey = cam.ip + "_" + cam.channelId + "_" + currentSearchDate.getFullYear() + "-" + currentSearchDate.getMonth();
+                var monthAvail = rootWindow.monthAvailabilitiesCache[monthKey];
+                if (monthAvail !== undefined) {
+                    if (monthAvail.indexOf(currentSearchDate.getDate()) === -1) {
+                        var tempSegments = Object.assign({}, rootWindow.playbackSegmentsCache);
+                        tempSegments[cacheKey] = [];
+                        rootWindow.playbackSegmentsCache = tempSegments;
+                        continue;
+                    }
                 }
                 
                 tempFetching[fetchKey] = true;
@@ -599,7 +682,10 @@ Window {
             playbackWindow.isSearchingRecordings = isAnyCameraSearching();
         }
         
-        fetchMonthAvailability(date.getFullYear(), date.getMonth())
+        if (playbackWindow.recorderInfo) {
+            var activeCacheKey = playbackWindow.recorderInfo.ip + "_" + playbackWindow.channelId + "_" + dateKey;
+            timeline.segments = rootWindow.playbackSegmentsCache[activeCacheKey] || [];
+        }
     }
 
     function playAtTime(date, msSinceMidnight) {
@@ -676,8 +762,8 @@ Window {
 
     Popup {
         id: calendarPopup
-        width: 320
-        height: 380
+        width: 620
+        height: 410
         background: Rectangle { 
             color: "#151d24"
             border.color: "#00f5d4"
@@ -697,9 +783,14 @@ Window {
         property int viewYear: currentDate.getFullYear()
         property int viewMonth: currentDate.getMonth()
         
-        function updateDaysModel() {
-            var firstDay = new Date(viewYear, viewMonth, 1)
-            var lastDay = new Date(viewYear, viewMonth + 1, 0)
+        readonly property int rightYear: viewYear
+        readonly property int rightMonth: viewMonth
+        readonly property int leftYear: rightMonth === 0 ? rightYear - 1 : rightYear
+        readonly property int leftMonth: rightMonth === 0 ? 11 : rightMonth - 1
+
+        function getDaysModel(year, month) {
+            var firstDay = new Date(year, month, 1)
+            var lastDay = new Date(year, month + 1, 0)
             var startOffset = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1 // 0 = Mon
             var totalDays = lastDay.getDate()
             
@@ -707,87 +798,244 @@ Window {
             for (var i = 0; i < startOffset; i++) cells.push(0)
             for (var d = 1; d <= totalDays; d++) cells.push(d)
             while (cells.length % 7 !== 0) cells.push(0)
-            
-            daysRepeater.model = cells
+            return cells
+        }
+
+        function updateDaysModel() {
+            leftDaysRepeater.model = getDaysModel(leftYear, leftMonth)
+            rightDaysRepeater.model = getDaysModel(rightYear, rightMonth)
         }
 
         onOpened: {
             viewYear = currentDate.getFullYear()
             viewMonth = currentDate.getMonth()
             updateDaysModel()
-            playbackWindow.fetchMonthAvailability(viewYear, viewMonth)
+            playbackWindow.fetchMonthAvailabilityForCamera(playbackWindow.recorderInfo, playbackWindow.channelId, leftYear, leftMonth)
+            playbackWindow.fetchMonthAvailabilityForCamera(playbackWindow.recorderInfo, playbackWindow.channelId, rightYear, rightMonth)
         }
         
         ColumnLayout {
             anchors.fill: parent
             anchors.margins: 15
+            spacing: 10
             
-            Text {
-                text: playbackWindow.monthNames[calendarPopup.viewMonth] + " " + calendarPopup.viewYear
-                color: "white"
-                font.bold: true
-                font.pixelSize: 18
+            RowLayout {
                 Layout.fillWidth: true
-                horizontalAlignment: Text.AlignHCenter
-                Layout.bottomMargin: 10
-            }
-            
-            GridLayout {
-                columns: 7
-                rowSpacing: 5
-                columnSpacing: 5
-                Layout.alignment: Qt.AlignHCenter
                 
-                Repeater {
-                    model: ["Pn", "Wt", "Śr", "Cz", "Pt", "So", "Nd"]
-                    Text { 
-                        text: modelData; color: "#8898a6"; font.bold: true; 
-                        horizontalAlignment: Text.AlignHCenter; 
-                        Layout.preferredWidth: 36 
+                CctvButton {
+                    text: "< Poprzedni"
+                    iconSource: ""
+                    onClicked: {
+                        if (calendarPopup.viewMonth === 0) { 
+                            calendarPopup.viewMonth = 11; 
+                            calendarPopup.viewYear--; 
+                        } else { 
+                            calendarPopup.viewMonth--; 
+                        }
+                        calendarPopup.updateDaysModel()
+                        playbackWindow.fetchMonthAvailabilityForCamera(playbackWindow.recorderInfo, playbackWindow.channelId, calendarPopup.leftYear, calendarPopup.leftMonth)
+                        playbackWindow.fetchMonthAvailabilityForCamera(playbackWindow.recorderInfo, playbackWindow.channelId, calendarPopup.rightYear, calendarPopup.rightMonth)
                     }
                 }
                 
-                Repeater {
-                    id: daysRepeater
-                    model: []
+                Text {
+                    text: qsTr("Wybierz datę archiwalną")
+                    color: "#8898a6"
+                    font.bold: true
+                    font.pixelSize: 15
+                    Layout.fillWidth: true
+                    horizontalAlignment: Text.AlignHCenter
+                }
+                
+                CctvButton {
+                    text: "Następny >"
+                    iconSource: ""
+                    onClicked: {
+                        if (calendarPopup.viewMonth === 11) { 
+                            calendarPopup.viewMonth = 0; 
+                            calendarPopup.viewYear++; 
+                        } else { 
+                            calendarPopup.viewMonth++; 
+                        }
+                        calendarPopup.updateDaysModel()
+                        playbackWindow.fetchMonthAvailabilityForCamera(playbackWindow.recorderInfo, playbackWindow.channelId, calendarPopup.leftYear, calendarPopup.leftMonth)
+                        playbackWindow.fetchMonthAvailabilityForCamera(playbackWindow.recorderInfo, playbackWindow.channelId, calendarPopup.rightYear, calendarPopup.rightMonth)
+                    }
+                }
+            }
+            
+            RowLayout {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                spacing: 15
+                
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: 8
                     
-                    Rectangle {
-                        Layout.preferredWidth: 36
-                        Layout.preferredHeight: 36
-                        color: {
-                            if (modelData === 0) return "transparent"
-                            var isCurrent = (calendarPopup.viewYear === currentDate.getFullYear() && calendarPopup.viewMonth === currentDate.getMonth() && modelData === currentDate.getDate())
-                            if (isCurrent) return "#33ffffff"
-                            return "transparent"
-                        }
-                        border.color: {
-                            if (modelData === 0) return "transparent"
-                            var hasRecords = (playbackWindow.daysWithRecords.indexOf(modelData) !== -1)
-                            if (hasRecords) return "#00f5d4"
-                            return "transparent"
-                        }
-                        border.width: 1
-                        radius: 4
+                    Text {
+                        text: playbackWindow.monthNames[calendarPopup.leftMonth] + " " + calendarPopup.leftYear
+                        color: "white"
+                        font.bold: true
+                        font.pixelSize: 16
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    
+                    GridLayout {
+                        columns: 7
+                        rowSpacing: 4
+                        columnSpacing: 4
+                        Layout.alignment: Qt.AlignHCenter
                         
-                        Text {
-                            text: modelData > 0 ? modelData : ""
-                            anchors.centerIn: parent
-                            color: "white"
-                            font.bold: (playbackWindow.daysWithRecords.indexOf(modelData) !== -1)
+                        Repeater {
+                            model: ["Pn", "Wt", "Śr", "Cz", "Pt", "So", "Nd"]
+                            Text { 
+                                text: modelData; color: "#8898a6"; font.bold: true; 
+                                horizontalAlignment: Text.AlignHCenter; 
+                                Layout.preferredWidth: 34
+                            }
                         }
                         
-                        MouseArea {
-                            anchors.fill: parent
-                            enabled: modelData > 0
-                            cursorShape: Qt.PointingHandCursor
-                            onClicked: {
-                                var d = new Date(calendarPopup.viewYear, calendarPopup.viewMonth, modelData)
-                                d.setHours(0, 0, 0, 0)
-                                var timeOfDay = currentPlayheadMs
-                                currentDate = d
-                                searchRecordingsForDate(currentDate)
-                                playAtTime(currentDate, timeOfDay)
-                                calendarPopup.close()
+                        Repeater {
+                            id: leftDaysRepeater
+                            model: []
+                            
+                            Rectangle {
+                                Layout.preferredWidth: 34
+                                Layout.preferredHeight: 34
+                                color: {
+                                    if (modelData === 0) return "transparent"
+                                    var isCurrent = (calendarPopup.leftYear === currentDate.getFullYear() && calendarPopup.leftMonth === currentDate.getMonth() && modelData === currentDate.getDate())
+                                    if (isCurrent) return "#33ffffff"
+                                    return "transparent"
+                                }
+                                border.color: {
+                                    if (modelData === 0) return "transparent"
+                                    var key = (playbackWindow.recorderInfo ? playbackWindow.recorderInfo.ip : "") + "_" + playbackWindow.channelId + "_" + calendarPopup.leftYear + "-" + calendarPopup.leftMonth;
+                                    var monthAvail = rootWindow.monthAvailabilitiesCache[key] || [];
+                                    var hasRecords = (monthAvail.indexOf(modelData) !== -1);
+                                    if (hasRecords) return "#00f5d4"
+                                    return "transparent"
+                                }
+                                border.width: 1
+                                radius: 4
+                                
+                                Text {
+                                    text: modelData > 0 ? modelData : ""
+                                    anchors.centerIn: parent
+                                    color: "white"
+                                    font.bold: {
+                                        if (modelData === 0) return false;
+                                        var key = (playbackWindow.recorderInfo ? playbackWindow.recorderInfo.ip : "") + "_" + playbackWindow.channelId + "_" + calendarPopup.leftYear + "-" + calendarPopup.leftMonth;
+                                        var monthAvail = rootWindow.monthAvailabilitiesCache[key] || [];
+                                        return (monthAvail.indexOf(modelData) !== -1);
+                                    }
+                                }
+                                
+                                MouseArea {
+                                    anchors.fill: parent
+                                    enabled: modelData > 0
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: {
+                                        var d = new Date(calendarPopup.leftYear, calendarPopup.leftMonth, modelData)
+                                        d.setHours(0, 0, 0, 0)
+                                        var timeOfDay = currentPlayheadMs
+                                        currentDate = d
+                                        searchRecordingsForDate(currentDate)
+                                        playAtTime(currentDate, timeOfDay)
+                                        calendarPopup.close()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                Rectangle {
+                    width: 1
+                    Layout.fillHeight: true
+                    color: "#445566"
+                }
+                
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: 8
+                    
+                    Text {
+                        text: playbackWindow.monthNames[calendarPopup.rightMonth] + " " + calendarPopup.rightYear
+                        color: "white"
+                        font.bold: true
+                        font.pixelSize: 16
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    
+                    GridLayout {
+                        columns: 7
+                        rowSpacing: 4
+                        columnSpacing: 4
+                        Layout.alignment: Qt.AlignHCenter
+                        
+                        Repeater {
+                            model: ["Pn", "Wt", "Śr", "Cz", "Pt", "So", "Nd"]
+                            Text { 
+                                text: modelData; color: "#8898a6"; font.bold: true; 
+                                horizontalAlignment: Text.AlignHCenter; 
+                                Layout.preferredWidth: 34
+                            }
+                        }
+                        
+                        Repeater {
+                            id: rightDaysRepeater
+                            model: []
+                            
+                            Rectangle {
+                                Layout.preferredWidth: 34
+                                Layout.preferredHeight: 34
+                                color: {
+                                    if (modelData === 0) return "transparent"
+                                    var isCurrent = (calendarPopup.rightYear === currentDate.getFullYear() && calendarPopup.rightMonth === currentDate.getMonth() && modelData === currentDate.getDate())
+                                    if (isCurrent) return "#33ffffff"
+                                    return "transparent"
+                                }
+                                border.color: {
+                                    if (modelData === 0) return "transparent"
+                                    var key = (playbackWindow.recorderInfo ? playbackWindow.recorderInfo.ip : "") + "_" + playbackWindow.channelId + "_" + calendarPopup.rightYear + "-" + calendarPopup.rightMonth;
+                                    var monthAvail = rootWindow.monthAvailabilitiesCache[key] || [];
+                                    var hasRecords = (monthAvail.indexOf(modelData) !== -1);
+                                    if (hasRecords) return "#00f5d4"
+                                    return "transparent"
+                                }
+                                border.width: 1
+                                radius: 4
+                                
+                                Text {
+                                    text: modelData > 0 ? modelData : ""
+                                    anchors.centerIn: parent
+                                    color: "white"
+                                    font.bold: {
+                                        if (modelData === 0) return false;
+                                        var key = (playbackWindow.recorderInfo ? playbackWindow.recorderInfo.ip : "") + "_" + playbackWindow.channelId + "_" + calendarPopup.rightYear + "-" + calendarPopup.rightMonth;
+                                        var monthAvail = rootWindow.monthAvailabilitiesCache[key] || [];
+                                        return (monthAvail.indexOf(modelData) !== -1);
+                                    }
+                                }
+                                
+                                MouseArea {
+                                    anchors.fill: parent
+                                    enabled: modelData > 0
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: {
+                                        var d = new Date(calendarPopup.rightYear, calendarPopup.rightMonth, modelData)
+                                        d.setHours(0, 0, 0, 0)
+                                        var timeOfDay = currentPlayheadMs
+                                        currentDate = d
+                                        searchRecordingsForDate(currentDate)
+                                        playAtTime(currentDate, timeOfDay)
+                                        calendarPopup.close()
+                                    }
+                                }
                             }
                         }
                     }
@@ -795,8 +1043,7 @@ Window {
             }
             
             Item {
-                Layout.fillHeight: true
-                Layout.preferredHeight: 20
+                Layout.preferredHeight: 18
                 Layout.alignment: Qt.AlignHCenter
                 
                 RowLayout {
@@ -813,41 +1060,6 @@ Window {
                         text: qsTr("Pobieranie dostępności...")
                         color: "#8898a6"
                         font.pixelSize: 11
-                    }
-                }
-            } // spacer
-            
-            RowLayout {
-                Layout.fillWidth: true
-                Layout.alignment: Qt.AlignHCenter
-                spacing: 20
-                
-                CctvButton {
-                    text: "< Poprzedni"
-                    iconSource: ""
-                    onClicked: {
-                        if (calendarPopup.viewMonth === 0) { 
-                            calendarPopup.viewMonth = 11; 
-                            calendarPopup.viewYear--; 
-                        } else { 
-                            calendarPopup.viewMonth--; 
-                        }
-                        calendarPopup.updateDaysModel()
-                        playbackWindow.fetchMonthAvailability(calendarPopup.viewYear, calendarPopup.viewMonth)
-                    }
-                }
-                CctvButton {
-                    text: "Następny >"
-                    iconSource: ""
-                    onClicked: {
-                        if (calendarPopup.viewMonth === 11) { 
-                            calendarPopup.viewMonth = 0; 
-                            calendarPopup.viewYear++; 
-                        } else { 
-                            calendarPopup.viewMonth++; 
-                        }
-                        calendarPopup.updateDaysModel()
-                        playbackWindow.fetchMonthAvailability(calendarPopup.viewYear, calendarPopup.viewMonth)
                     }
                 }
             }
@@ -1870,28 +2082,33 @@ Window {
                             var viewDurationMs = zoomHours * 3600000
                             var msPerPixel = viewDurationMs / width
                             var sodTime = currentDate.getTime()
-                            
-                            // Draw month availability days as a background hint
-                            if (playbackWindow.daysWithRecords) {
-                                ctx.fillStyle = "rgba(0, 245, 212, 0.1)" // Faint turquoise highlight
-                                for (var j = 0; j < playbackWindow.daysWithRecords.length; j++) {
-                                    var dayNum = playbackWindow.daysWithRecords[j]
-                                    var d = new Date(currentDate.getFullYear(), currentDate.getMonth(), dayNum)
-                                    var dayStartMs = d.getTime()
-                                    var dayEndMs = dayStartMs + 86400000
-                                    
-                                    var x1m = (dayStartMs - sodTime - panOffsetMs) / msPerPixel
-                                    var x2m = (dayEndMs - sodTime - panOffsetMs) / msPerPixel
-                                    
-                                    if (x2m >= 0 && x1m <= width) {
-                                        var drawXm = Math.max(0, x1m)
-                                        var drawWm = Math.min(width - drawXm, x2m - drawXm)
-                                        if (drawWm > 0) {
-                                            ctx.fillRect(drawXm, 0, Math.max(1, drawWm), height)
-                                        }
-                                    }
-                                }
-                            }
+                             if (playbackWindow.recorderInfo) {
+                                 ctx.fillStyle = "rgba(0, 245, 212, 0.08)"
+                                 var bgStartDate = new Date(sodTime + panOffsetMs)
+                                 bgStartDate.setHours(0, 0, 0, 0)
+                                 var bgEndDate = new Date(sodTime + panOffsetMs + viewDurationMs)
+                                 bgEndDate.setHours(0, 0, 0, 0)
+                                 
+                                 for (var d = new Date(bgStartDate); d.getTime() <= bgEndDate.getTime(); d.setDate(d.getDate() + 1)) {
+                                     var key = playbackWindow.recorderInfo.ip + "_" + playbackWindow.channelId + "_" + d.getFullYear() + "-" + d.getMonth();
+                                     var monthAvail = rootWindow.monthAvailabilitiesCache[key];
+                                     if (Array.isArray(monthAvail) && monthAvail.indexOf(d.getDate()) !== -1) {
+                                         var dayStartMs = d.getTime()
+                                         var dayEndMs = dayStartMs + 86400000
+                                         
+                                         var x1m = (dayStartMs - sodTime - panOffsetMs) / msPerPixel
+                                         var x2m = (dayEndMs - sodTime - panOffsetMs) / msPerPixel
+                                         
+                                         if (x2m >= 0 && x1m <= width) {
+                                             var drawXm = Math.max(0, x1m)
+                                             var drawWm = Math.min(width - drawXm, x2m - drawXm)
+                                             if (drawWm > 0) {
+                                                 ctx.fillRect(drawXm, 0, Math.max(1, drawWm), height)
+                                             }
+                                         }
+                                     }
+                                 }
+                             }
                             
                             var colors = ["#00f5d4", "#e0aaff", "#70e000", "#ff5c8a"]
                             var activeCams = getLoadedCameras()
@@ -1916,12 +2133,31 @@ Window {
                                 for (var d = new Date(startDate); d.getTime() <= endDate.getTime(); d.setDate(d.getDate() + 1)) {
                                     var cacheKey = cam.ip + "_" + cam.channelId + "_" + getDateKey(d)
                                     var camSegments = rootWindow.playbackSegmentsCache[cacheKey]
-                                    if (!Array.isArray(camSegments)) {
-                                        continue
-                                    }
                                     
                                     var dayStartMs = d.getTime()
                                     var dayEndMs = dayStartMs + 86400000
+                                    
+                                    if (camSegments === undefined) {
+                                        var monthKey = cam.ip + "_" + cam.channelId + "_" + d.getFullYear() + "-" + d.getMonth();
+                                        var monthAvail = rootWindow.monthAvailabilitiesCache[monthKey];
+                                        if (Array.isArray(monthAvail) && monthAvail.indexOf(d.getDate()) !== -1) {
+                                            var startOffset = dayStartMs - sodTime;
+                                            var endOffset = dayEndMs - sodTime;
+                                            var x1 = (startOffset - panOffsetMs) / msPerPixel;
+                                            var x2 = (endOffset - panOffsetMs) / msPerPixel;
+                                            
+                                            if (x2 >= 0 && x1 <= width) {
+                                                var drawX = Math.max(0, x1);
+                                                var drawW = Math.max(1, Math.min(width - drawX, x2 - drawX));
+                                                ctx.save();
+                                                ctx.globalAlpha = 0.25;
+                                                ctx.fillStyle = barColor;
+                                                ctx.fillRect(drawX, barY, drawW, 12);
+                                                ctx.restore();
+                                            }
+                                        }
+                                        continue;
+                                    }
                                     
                                     for (var k = 0; k < camSegments.length; k++) {
                                         var seg = camSegments[k]
