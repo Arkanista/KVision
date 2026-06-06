@@ -1304,7 +1304,7 @@ ApplicationWindow {
             }
 
             Text {
-                text: qsTr("NET: ") + (SystemStats.netUsage >= 1.0 ? SystemStats.netUsage.toFixed(1) + " MB/s" : (SystemStats.netUsage * 1024.0).toFixed(0) + " KB/s")
+                text: qsTr("NET: ") + (SystemStats.netUsage >= 1.0 ? SystemStats.netUsage.toFixed(1) + " Mbps" : (SystemStats.netUsage * 1000.0).toFixed(0) + " kbps")
                 color: "#00ff66"
                 font.pixelSize: 11
                 font.bold: true
@@ -1344,7 +1344,7 @@ ApplicationWindow {
                     ctx.stroke();
 
                     // Find max value in history to scale Y-axis
-                    var maxVal = 0.5; // minimum scale is 0.5 MB/s
+                    var maxVal = 4.0; // minimum scale is 4.0 Mbps
                     if (statsPanel.netHistory) {
                         for (var i = 0; i < statsPanel.netHistory.length; i++) {
                             if (statsPanel.netHistory[i] > maxVal) {

@@ -4,6 +4,18 @@
 #include <QBrush>
 #include <QDebug>
 #include <cmath>
+#include <atomic>
+
+extern std::atomic<qint64> g_networkBytesAccumulator;
+
+static void CALLBACK playerRealDataCallBack(LONG lPlayHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void* pUser)
+{
+    Q_UNUSED(lPlayHandle);
+    Q_UNUSED(dwDataType);
+    Q_UNUSED(pBuffer);
+    Q_UNUSED(pUser);
+    g_networkBytesAccumulator.fetch_add(dwBufSize, std::memory_order_relaxed);
+}
 
 HikvisionPlayer::HikvisionPlayer(QQuickItem *parent)
     : QQuickPaintedItem(parent)
@@ -30,6 +42,10 @@ HikvisionPlayer::~HikvisionPlayer()
 
 void HikvisionPlayer::onFrameTimerTick()
 {
+    if (!isVisible()) {
+        return;
+    }
+
     m_frameCounter++;
     
     // Simulate real-time bitrate fluctuations
@@ -41,6 +57,13 @@ void HikvisionPlayer::onFrameTimerTick()
         m_simulatedBitrate = 180 + (std::sin(m_frameCounter * 0.15) * 30) + (std::rand() % 10);
     }
     
+    // Calculate bytes for this 40ms frame tick
+    // m_simulatedBitrate is in kbps (1 kbps = 1000 bits/sec)
+    // 1000 bits/sec = 125 bytes/sec
+    // 125 bytes/sec * 0.040 sec = 5 bytes per frame tick per kbps
+    int simulatedBytes = static_cast<int>(m_simulatedBitrate * 5);
+    g_networkBytesAccumulator.fetch_add(simulatedBytes, std::memory_order_relaxed);
+
     // Force repaint
     update();
 }
@@ -69,7 +92,7 @@ void HikvisionPlayer::restartStream()
     previewInfo.hPlayWnd = 0;
     previewInfo.bBlocked = FALSE;
 
-    m_playHandle = NET_DVR_RealPlay_V40(m_userId, &previewInfo, nullptr, nullptr);
+    m_playHandle = NET_DVR_RealPlay_V40(m_userId, &previewInfo, playerRealDataCallBack, nullptr);
 }
 
 void HikvisionPlayer::paint(QPainter *painter)

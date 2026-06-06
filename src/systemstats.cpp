@@ -325,5 +325,7 @@ void StatsWorker::calculateNetUsage(double &net)
     qint64 elapsedMs = m_netTimer.restart();
     if (elapsedMs <= 0) elapsedMs = 1000;
 
-    net = (static_cast<double>(diffBytes) / (1024.0 * 1024.0)) / (elapsedMs / 1000.0);
+    // Convert to Megabits per second (Mbps)
+    double bps = (static_cast<double>(diffBytes) * 8.0) / (elapsedMs / 1000.0);
+    net = bps / 1000000.0;
 }
