@@ -110,6 +110,7 @@ To build and run the application, the following packages are required:
   - `qt5-multimedia` (Qt5 Multimedia module)
   - `qt5-quickcontrols` (Qt5 Quick Controls 1)
   - `qt5-quickcontrols2` (Qt5 Quick Controls 2)
+  - `qt5-graphicaleffects` (Qt5 Graphical Effects)
   - `qt5-svg` (Qt5 SVG icon rendering)
   - `ffmpeg` (for media demuxing and decoding)
   - *Note: Hikvision SDK shared libraries are pre-bundled under `src/hikvision_sdk/lib/` and automatically set up via the build configuration or Pacman package.*
@@ -127,6 +128,42 @@ To clone this repository, make sure you include the submodules:
 ```bash
 git clone --recurse-submodules https://github.com/arkanista/cctv-viewer2.git
 ```
+
+### Building from Source (Arch Linux / CachyOS)
+
+The easiest and recommended way to build and install the application on Arch-based distributions is by using `makepkg`, which automatically resolves and installs all required dependencies.
+
+1. Navigate to the Arch packaging directory:
+   ```bash
+   cd cctv-viewer2/packaging/arch
+   ```
+2. Build the package (the `-s` flag will automatically download and install all missing dependencies via `pacman`, and `-i` will install the built package):
+   ```bash
+   makepkg -si
+   ```
+
+### Manual Build using CMake (Any Linux distribution)
+
+If you are not using Arch Linux, you can build the application manually using CMake.
+
+1. **Install Dependencies:** Ensure you have installed all required runtime and build dependencies listed above using your distribution's package manager.
+   For Arch/CachyOS:
+   ```bash
+   sudo pacman -S base-devel cmake qt5-declarative qt5-multimedia qt5-quickcontrols qt5-quickcontrols2 qt5-svg qt5-graphicaleffects qt5-tools ffmpeg git
+   ```
+2. **Configure the build directory:**
+   ```bash
+   cd cctv-viewer2
+   cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+   ```
+3. **Compile the project:**
+   ```bash
+   cmake --build build -j$(nproc)
+   ```
+4. **Install the application:**
+   ```bash
+   sudo cmake --install build
+   ```
 
 For detailed usage instructions, check out the documentation files:
 - [English User Manual (INSTRUCTIONS.md)](file:///home/arkanis/cctv/cctv-viewer2/INSTRUCTIONS.md)
