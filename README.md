@@ -108,6 +108,8 @@ To build and run the application, the following packages are required:
 * **Runtime Dependencies:**
   - `qt5-declarative` (Qt5 QML module)
   - `qt5-multimedia` (Qt5 Multimedia module)
+  - `qt5-quickcontrols` (Qt5 Quick Controls 1)
+  - `qt5-quickcontrols2` (Qt5 Quick Controls 2)
   - `qt5-svg` (Qt5 SVG icon rendering)
   - `ffmpeg` (for media demuxing and decoding)
   - *Note: Hikvision SDK shared libraries are pre-bundled under `src/hikvision_sdk/lib/` and automatically set up via the build configuration or Pacman package.*
