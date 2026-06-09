@@ -34,6 +34,8 @@ public:
     Q_INVOKABLE void startAuxiliaryProcess();
 
     Q_INVOKABLE bool mkpath(const QString &dirPath) const;
+    Q_INVOKABLE bool dirExists(const QString &dirPath) const;
+    Q_INVOKABLE QString homePath() const;
 
 signals:
     void languageChanged();

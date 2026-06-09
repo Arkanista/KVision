@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QDir>
 #include <QSettings>
+#include <QFileInfo>
 #include <QCoreApplication>
 #include <QLocale>
 #include "context.h"
@@ -187,4 +188,17 @@ QString Context::getLanguage() const
 bool Context::mkpath(const QString &dirPath) const
 {
     return QDir().mkpath(dirPath);
+}
+
+bool Context::dirExists(const QString &dirPath) const
+{
+    if (dirPath.isEmpty())
+        return false;
+    QFileInfo info(dirPath);
+    return info.exists() && info.isDir() && info.isReadable();
+}
+
+QString Context::homePath() const
+{
+    return QDir::homePath();
 }

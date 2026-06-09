@@ -1752,8 +1752,13 @@ FocusScope {
                                             border.color: "#2a3540"
                                         }
                                         onClicked: {
-                                            snapshotFolderDialog.folder = "file://" + generalSettings.snapshotPath
-                                            snapshotFolderDialog.open()
+                                            var path = snapshotPathField.text;
+                                            if (Context.dirExists(path)) {
+                                                snapshotFolderDialog.folder = "file://" + path;
+                                            } else {
+                                                snapshotFolderDialog.folder = "file://" + Context.homePath();
+                                            }
+                                            snapshotFolderDialog.open();
                                         }
                                     }
                                 }
@@ -1809,8 +1814,13 @@ FocusScope {
                                             border.color: "#2a3540"
                                         }
                                         onClicked: {
-                                            videoFolderDialog.folder = "file://" + generalSettings.videoPath
-                                            videoFolderDialog.open()
+                                            var path = videoPathField.text;
+                                            if (Context.dirExists(path)) {
+                                                videoFolderDialog.folder = "file://" + path;
+                                            } else {
+                                                videoFolderDialog.folder = "file://" + Context.homePath();
+                                            }
+                                            videoFolderDialog.open();
                                         }
                                     }
                                 }
