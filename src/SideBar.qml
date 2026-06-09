@@ -1751,17 +1751,7 @@ FocusScope {
                                             radius: 4
                                             border.color: "#2a3540"
                                         }
-                                        onClicked: {
-                                            var path = snapshotPathField.text;
-                                            if (Context.dirExists(path)) {
-                                                snapshotFolderDialog.currentFolder = Context.pathToUrl(path);
-                                                snapshotFolderDialog.folder = Context.pathToUrl(path);
-                                            } else {
-                                                snapshotFolderDialog.currentFolder = Context.pathToUrl(Context.homePath());
-                                                snapshotFolderDialog.folder = Context.pathToUrl(Context.homePath());
-                                            }
-                                            snapshotFolderDialog.open();
-                                        }
+                                        onClicked: snapshotFolderDialog.open()
                                     }
                                 }
                             }
@@ -1815,17 +1805,7 @@ FocusScope {
                                             radius: 4
                                             border.color: "#2a3540"
                                         }
-                                        onClicked: {
-                                            var path = videoPathField.text;
-                                            if (Context.dirExists(path)) {
-                                                videoFolderDialog.currentFolder = Context.pathToUrl(path);
-                                                videoFolderDialog.folder = Context.pathToUrl(path);
-                                            } else {
-                                                videoFolderDialog.currentFolder = Context.pathToUrl(Context.homePath());
-                                                videoFolderDialog.folder = Context.pathToUrl(Context.homePath());
-                                            }
-                                            videoFolderDialog.open();
-                                        }
+                                        onClicked: videoFolderDialog.open()
                                     }
                                 }
                             }
@@ -1997,6 +1977,8 @@ FocusScope {
     Platform.FolderDialog {
         id: snapshotFolderDialog
         title: qsTr("Wybierz folder dla stopklatek")
+        currentFolder: Context.dirExists(snapshotPathField.text) ? Context.pathToUrl(snapshotPathField.text) : Context.pathToUrl(Context.homePath())
+        folder: currentFolder
         onAccepted: {
             var path = snapshotFolderDialog.folder.toString();
             if (path.indexOf("file://") === 0) path = path.substring(7);
@@ -2008,6 +1990,8 @@ FocusScope {
     Platform.FolderDialog {
         id: videoFolderDialog
         title: qsTr("Wybierz folder dla nagrań")
+        currentFolder: Context.dirExists(videoPathField.text) ? Context.pathToUrl(videoPathField.text) : Context.pathToUrl(Context.homePath())
+        folder: currentFolder
         onAccepted: {
             var path = videoFolderDialog.folder.toString();
             if (path.indexOf("file://") === 0) path = path.substring(7);
