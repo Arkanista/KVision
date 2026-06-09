@@ -240,8 +240,15 @@ Dialog {
                     Button {
                         text: "..."
                         onClicked: {
-                            snapshotFolderDialog.folder = "file://" + snapshotPathField.text
-                            snapshotFolderDialog.open()
+                            var path = snapshotPathField.text;
+                            if (Context.dirExists(path)) {
+                                snapshotFolderDialog.currentFolder = "file://" + path;
+                                snapshotFolderDialog.folder = "file://" + path;
+                            } else {
+                                snapshotFolderDialog.currentFolder = "file://" + Context.homePath();
+                                snapshotFolderDialog.folder = "file://" + Context.homePath();
+                            }
+                            snapshotFolderDialog.open();
                         }
                     }
                 }
@@ -261,8 +268,15 @@ Dialog {
                     Button {
                         text: "..."
                         onClicked: {
-                            videoFolderDialog.folder = "file://" + videoPathField.text
-                            videoFolderDialog.open()
+                            var path = videoPathField.text;
+                            if (Context.dirExists(path)) {
+                                videoFolderDialog.currentFolder = "file://" + path;
+                                videoFolderDialog.folder = "file://" + path;
+                            } else {
+                                videoFolderDialog.currentFolder = "file://" + Context.homePath();
+                                videoFolderDialog.folder = "file://" + Context.homePath();
+                            }
+                            videoFolderDialog.open();
                         }
                     }
                 }

@@ -1754,8 +1754,10 @@ FocusScope {
                                         onClicked: {
                                             var path = snapshotPathField.text;
                                             if (Context.dirExists(path)) {
+                                                snapshotFolderDialog.currentFolder = "file://" + path;
                                                 snapshotFolderDialog.folder = "file://" + path;
                                             } else {
+                                                snapshotFolderDialog.currentFolder = "file://" + Context.homePath();
                                                 snapshotFolderDialog.folder = "file://" + Context.homePath();
                                             }
                                             snapshotFolderDialog.open();
@@ -1816,8 +1818,10 @@ FocusScope {
                                         onClicked: {
                                             var path = videoPathField.text;
                                             if (Context.dirExists(path)) {
+                                                videoFolderDialog.currentFolder = "file://" + path;
                                                 videoFolderDialog.folder = "file://" + path;
                                             } else {
+                                                videoFolderDialog.currentFolder = "file://" + Context.homePath();
                                                 videoFolderDialog.folder = "file://" + Context.homePath();
                                             }
                                             videoFolderDialog.open();
