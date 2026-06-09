@@ -6,6 +6,9 @@
 #include <QFileInfo>
 #include <QCoreApplication>
 #include <QLocale>
+#include <QFileDialog>
+#include <QApplication>
+#include <QWidget>
 #include "context.h"
 
 Context::~Context()
@@ -214,4 +217,16 @@ QUrl Context::pathToUrl(const QString &path) const
         return QUrl::fromLocalFile(p);
     }
     return QUrl::fromLocalFile(path);
+}
+
+QString Context::selectFolder(const QString &title, const QString &initialPath) const
+{
+    QWidget *parent = QApplication::activeWindow();
+    QString dir = QFileDialog::getExistingDirectory(
+        parent,
+        title,
+        initialPath,
+        QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
+    );
+    return dir;
 }

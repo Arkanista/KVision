@@ -38,6 +38,7 @@ public:
     Q_INVOKABLE bool dirExists(const QString &dirPath) const;
     Q_INVOKABLE QString homePath() const;
     Q_INVOKABLE QUrl pathToUrl(const QString &path) const;
+    Q_INVOKABLE QString selectFolder(const QString &title, const QString &initialPath) const;
 
 signals:
     void languageChanged();

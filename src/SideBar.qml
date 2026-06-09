@@ -1753,11 +1753,15 @@ FocusScope {
                                             border.color: "#2a3540"
                                         }
                                         onClicked: {
-                                             var path = snapshotPathField.text;
-                                             var folderUrl = Context.dirExists(path) ? Context.pathToUrl(path) : Context.pathToUrl(Context.homePath());
-                                             snapshotFolderDialog.folder = folderUrl;
-                                             snapshotFolderDialog.currentFolder = folderUrl;
-                                             snapshotFolderDialog.open();
+                                             var initial = snapshotPathField.text;
+                                             if (!Context.dirExists(initial)) {
+                                                 initial = Context.homePath();
+                                             }
+                                             var selected = Context.selectFolder(qsTr("Wybierz folder dla stopklatek"), initial);
+                                             if (selected && selected !== "") {
+                                                 generalSettings.snapshotPath = selected;
+                                                 Context.mkpath(selected);
+                                             }
                                          }
                                     }
                                 }
@@ -1813,11 +1817,15 @@ FocusScope {
                                             border.color: "#2a3540"
                                         }
                                         onClicked: {
-                                             var path = videoPathField.text;
-                                             var folderUrl = Context.dirExists(path) ? Context.pathToUrl(path) : Context.pathToUrl(Context.homePath());
-                                             videoFolderDialog.folder = folderUrl;
-                                             videoFolderDialog.currentFolder = folderUrl;
-                                             videoFolderDialog.open();
+                                             var initial = videoPathField.text;
+                                             if (!Context.dirExists(initial)) {
+                                                 initial = Context.homePath();
+                                             }
+                                             var selected = Context.selectFolder(qsTr("Wybierz folder dla nagrań"), initial);
+                                             if (selected && selected !== "") {
+                                                 generalSettings.videoPath = selected;
+                                                 Context.mkpath(selected);
+                                             }
                                          }
                                     }
                                 }
@@ -1987,33 +1995,5 @@ FocusScope {
         onAccepted: layoutsCollectionModel.remove(index)
     }
 
-    Platform.FolderDialog {
-        id: snapshotFolderDialog
-        title: qsTr("Wybierz folder dla stopklatek")
-        options: Platform.FolderDialog.DontUseNativeDialog
-        onAccepted: {
-            var path = snapshotFolderDialog.folder.toString();
-            if (path.indexOf("file://") === 0) path = path.substring(7);
-            if (path.length > 1 && (path.endsWith("/") || path.endsWith("\\"))) {
-                path = path.substring(0, path.length - 1);
-            }
-            generalSettings.snapshotPath = path;
-            Context.mkpath(path);
-        }
-    }
 
-    Platform.FolderDialog {
-        id: videoFolderDialog
-        title: qsTr("Wybierz folder dla nagrań")
-        options: Platform.FolderDialog.DontUseNativeDialog
-        onAccepted: {
-            var path = videoFolderDialog.folder.toString();
-            if (path.indexOf("file://") === 0) path = path.substring(7);
-            if (path.length > 1 && (path.endsWith("/") || path.endsWith("\\"))) {
-                path = path.substring(0, path.length - 1);
-            }
-            generalSettings.videoPath = path;
-            Context.mkpath(path);
-        }
-    }
 }
