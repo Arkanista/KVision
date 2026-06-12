@@ -126,11 +126,12 @@ FocusScope {
         var newUrl = "";
         var newCameraId = "";
 
+        parseUri(source);
+
         if (!isHikvision) {
             newUrl = source;
             newCameraId = source;
         } else {
-            parseHikvisionUri(source);
             if (hikPlayerSettings.useRealStreams) {
                 var streamSuffix = isSubStream ? "02" : "01";
                 newUrl = "rtsp://" + username + ":" + password + "@" + recorderIp + ":554/Streaming/Channels/" + channelId + streamSuffix;
@@ -896,6 +897,80 @@ FocusScope {
         qmlAvPlayer2.source = "";
         activeStreamUrl = "";
         activeCameraId = "";
+    }
+
+    function parseUri(uri) {
+        var s = String(uri);
+        if (s.indexOf("hikvision://") !== -1) {
+            parseHikvisionUri(uri);
+        } else if (s.indexOf("rtsp://") !== -1) {
+            parseRtspUri(uri);
+        }
+    }
+
+    function parseRtspUri(uri) {
+        var s = String(uri);
+        var idx = s.indexOf("rtsp://");
+        if (idx === -1) return;
+
+        var content = s.substring(idx + 7); // after "rtsp://"
+
+        // Split at "/" for path
+        var parts = content.split("/");
+        if (parts.length > 1) {
+            // Find channel ID from path, e.g. "Streaming/Channels/401"
+            var channelMatch = parts[parts.length - 1].match(/(\d+)/);
+            if (channelMatch) {
+                var chanNum = parseInt(channelMatch[1]);
+                if (chanNum >= 100) {
+                    channelId = Math.floor(chanNum / 100);
+                } else {
+                    channelId = chanNum;
+                }
+            } else {
+                channelId = 1;
+            }
+        }
+
+        var mainPart = parts[0]; // "username:password@ip:port"
+
+        // Split at "@" for credentials and address
+        var addrParts = mainPart.split("@");
+        var addrPort = "";
+        if (addrParts.length > 1) {
+            var creds = addrParts[0].split(":");
+            username = creds[0] || "";
+            password = creds[1] || "";
+            addrPort = addrParts[1];
+        } else {
+            addrPort = addrParts[0];
+            username = "";
+            password = "";
+        }
+
+        // Split at ":" for ip and port
+        var ipPort = addrPort.split(":");
+        recorderIp = ipPort[0] || "";
+
+        // Resolve SDK port by searching in configured recorders
+        recorderPort = 8000; // Default
+        try {
+            var jsonStr = rootWindow.hikvisionRecordersJson;
+            if (jsonStr) {
+                var recordersList = JSON.parse(jsonStr);
+                for (var i = 0; i < recordersList.length; ++i) {
+                    var rec = recordersList[i];
+                    if (rec.ip === recorderIp) {
+                        recorderPort = parseInt(rec.port) || 8000;
+                        if (!username && rec.username) username = rec.username;
+                        if (!password && rec.password) password = rec.password;
+                        break;
+                    }
+                }
+            }
+        } catch (e) {
+            console.log("[Player QML Error] Failed to resolve recorder port from JSON:", e);
+        }
     }
 
     function parseHikvisionUri(uri) {

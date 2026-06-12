@@ -608,7 +608,7 @@
     </message>
     <message>
         <source>📂 ARCHIWUM</source>
-        <translation type="vanished">📂 ARCHIVE</translation>
+        <translation>📂 ARCHIVE</translation>
     </message>
     <message>
         <source>📊 STATYSTYKI</source>
