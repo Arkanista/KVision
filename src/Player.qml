@@ -635,262 +635,265 @@ FocusScope {
             border.width: 1
         }
 
-        HoverHandler {
-            id: playerHoverHandler
-        }
+        MouseArea {
+            id: playerHoverArea
+            anchors.fill: parent
+            hoverEnabled: true
+            acceptedButtons: Qt.NoButton
 
-        // Symmetrically placed magnifying glass button overlay on the bottom right (no fill tło, gray border, white icon by default, color-coded modes)
-        Row {
-            anchors {
-                right: parent.right
-                bottom: parent.bottom
-                margins: 6
-            }
-            spacing: 6
-            visible: (root.source !== "") && (!viewSettings.hoverControlIcons || playerHoverHandler.hovered)
-
-            Control {
-                id: snapshotBadge
-
-                property bool isSavingSnapshot: false
-
-                Timer {
-                    id: snapshotBadgeTimer
-                    interval: 1000
-                    onTriggered: snapshotBadge.isSavingSnapshot = false
+            // Symmetrically placed magnifying glass button overlay on the bottom right (no fill tło, gray border, white icon by default, color-coded modes)
+            Row {
+                anchors {
+                    right: parent.right
+                    bottom: parent.bottom
+                    margins: 6
                 }
+                spacing: 6
+                visible: (root.source !== "") && (!viewSettings.hoverControlIcons || playerHoverArea.containsMouse)
 
-                implicitWidth: 16
-                implicitHeight: 16
-                visible: root.source !== ""
+                Control {
+                    id: snapshotBadge
 
-                background: Rectangle {
-                    radius: 2
-                    color: snapshotMouseAreaBtn.pressed ? "#22ffffff" : (snapshotMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent")
-                }
+                    property bool isSavingSnapshot: false
 
-                contentItem: Image {
-                    anchors.centerIn: parent
-                    width: 10
-                    height: 10
-                    source: snapshotBadge.isSavingSnapshot ?
-                        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff7a00' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'></path><circle cx='12' cy='13' r='4'></circle></svg>" :
-                        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'></path><circle cx='12' cy='13' r='4'></circle></svg>"
-                }
-
-                MouseArea {
-                    id: snapshotMouseAreaBtn
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: {
-                        var d = new Date();
-                        var dateStr = Qt.formatDateTime(d, "yyyy-MM-dd_HH-mm-ss");
-                        var activeOutput = null;
-                        var nativeWidth = 1920;
-                        var nativeHeight = 1080;
-                        var camName = root.cameraNameInfo ? root.cameraNameInfo.replace(/ /g, "_").replace(/[^a-zA-Z0-9_\-\.]/g, "") : "Camera";
-
-                        if (root.isHikvision && !hikPlayerSettings.useRealStreams) {
-                            activeOutput = hikPlayer;
-                        } else if (activePlayerIndex === 1) {
-                            activeOutput = videoOutput1;
-                            nativeWidth = videoOutput1.sourceRect.width > 0 ? videoOutput1.sourceRect.width : 1920;
-                            nativeHeight = videoOutput1.sourceRect.height > 0 ? videoOutput1.sourceRect.height : 1080;
-                        } else {
-                            activeOutput = videoOutput2;
-                            nativeWidth = videoOutput2.sourceRect.width > 0 ? videoOutput2.sourceRect.width : 1920;
-                            nativeHeight = videoOutput2.sourceRect.height > 0 ? videoOutput2.sourceRect.height : 1080;
-                        }
-
-                        var path = "";
-                        if (typeof generalSettings !== "undefined" && generalSettings.snapshotPath !== "") {
-                            path = generalSettings.snapshotPath;
-                        } else {
-                            path = Platform.StandardPaths.writableLocation(Platform.StandardPaths.PicturesLocation).toString();
-                            if (path.indexOf("file://") === 0) path = path.substring(7);
-                            path = path + "/CCTV";
-                        }
-                        Context.mkpath(path);
-                        path = path + "/" + camName + "_LIVE_" + dateStr + ".jpg";
-
-                        snapshotBadge.isSavingSnapshot = true;
-                        snapshotBadgeTimer.restart();
-                        activeOutput.grabToImage(function(result) {
-                            result.saveToFile(path);
-                            console.log("Saved snapshot to", path);
-                        }, Qt.size(nativeWidth, nativeHeight));
+                    Timer {
+                        id: snapshotBadgeTimer
+                        interval: 1000
+                        onTriggered: snapshotBadge.isSavingSnapshot = false
                     }
-                }
 
-                ToolTip.delay: Compact.toolTipDelay
-                ToolTip.timeout: Compact.toolTipTimeout
-                ToolTip.visible: snapshotMouseAreaBtn.containsMouse
-                ToolTip.text: qsTr("Wykonaj stopklatkę w pełnej rozdzielczości")
-            }
+                    implicitWidth: 16
+                    implicitHeight: 16
+                    visible: root.source !== ""
 
-            Control {
-                id: playbackBadge
-                
-                implicitWidth: 16
-                implicitHeight: 16
-                visible: root.source !== "" && root.isHikvision
-                
-                background: Rectangle {
-                    radius: 2
-                    color: playbackMouseAreaBtn.pressed ? "#22ffffff" : (playbackMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent")
-                }
-                
-                contentItem: Image {
-                    anchors.centerIn: parent
-                    source: "qrc:/images/play.svg"
-                    width: 10
-                    height: 10
-                    sourceSize: Qt.size(10, 10)
-                }
-                
-                MouseArea {
-                    id: playbackMouseAreaBtn
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: {
-                        var recInfo = {
-                            "ip": root.recorderIp,
-                            "port": root.recorderPort,
-                            "username": root.username,
-                            "password": root.password
-                        };
-                        var camName = root.cameraNameInfo || ("Camera " + root.channelId);
-                        
-                        var component = Qt.createComponent("qrc:/src/PlaybackWindow.qml");
-                        if (component.status === Component.Ready) {
-                            var win = component.createObject(rootWindow, {
-                                "recorderInfo": recInfo,
-                                "channelId": root.channelId,
-                                "cameraName": camName,
-                                "width": rootWindow.width * 0.9,
-                                "height": rootWindow.height * 0.9
-                            });
-                            win.show();
-                        } else if (component.status === Component.Error) {
-                            console.log("Error creating PlaybackWindow:", component.errorString());
-                        } else {
-                            component.statusChanged.connect(function() {
-                                if (component.status === Component.Ready) {
-                                    var win = component.createObject(rootWindow, {
-                                        "recorderInfo": recInfo,
-                                        "channelId": root.channelId,
-                                        "cameraName": camName,
-                                        "width": rootWindow.width * 0.9,
-                                        "height": rootWindow.height * 0.9
-                                    });
-                                    win.show();
-                                } else if (component.status === Component.Error) {
-                                    console.log("Error creating PlaybackWindow async:", component.errorString());
-                                }
-                            });
+                    background: Rectangle {
+                        radius: 2
+                        color: snapshotMouseAreaBtn.pressed ? "#22ffffff" : (snapshotMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent")
+                    }
+
+                    contentItem: Image {
+                        anchors.centerIn: parent
+                        width: 10
+                        height: 10
+                        source: snapshotBadge.isSavingSnapshot ?
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff7a00' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'></path><circle cx='12' cy='13' r='4'></circle></svg>" :
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'></path><circle cx='12' cy='13' r='4'></circle></svg>"
+                    }
+
+                    MouseArea {
+                        id: snapshotMouseAreaBtn
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            var d = new Date();
+                            var dateStr = Qt.formatDateTime(d, "yyyy-MM-dd_HH-mm-ss");
+                            var activeOutput = null;
+                            var nativeWidth = 1920;
+                            var nativeHeight = 1080;
+                            var camName = root.cameraNameInfo ? root.cameraNameInfo.replace(/ /g, "_").replace(/[^a-zA-Z0-9_\-\.]/g, "") : "Camera";
+
+                            if (root.isHikvision && !hikPlayerSettings.useRealStreams) {
+                                activeOutput = hikPlayer;
+                            } else if (activePlayerIndex === 1) {
+                                activeOutput = videoOutput1;
+                                nativeWidth = videoOutput1.sourceRect.width > 0 ? videoOutput1.sourceRect.width : 1920;
+                                nativeHeight = videoOutput1.sourceRect.height > 0 ? videoOutput1.sourceRect.height : 1080;
+                            } else {
+                                activeOutput = videoOutput2;
+                                nativeWidth = videoOutput2.sourceRect.width > 0 ? videoOutput2.sourceRect.width : 1920;
+                                nativeHeight = videoOutput2.sourceRect.height > 0 ? videoOutput2.sourceRect.height : 1080;
+                            }
+
+                            var path = "";
+                            if (typeof generalSettings !== "undefined" && generalSettings.snapshotPath !== "") {
+                                path = generalSettings.snapshotPath;
+                            } else {
+                                path = Platform.StandardPaths.writableLocation(Platform.StandardPaths.PicturesLocation).toString();
+                                if (path.indexOf("file://") === 0) path = path.substring(7);
+                                path = path + "/CCTV";
+                            }
+                            Context.mkpath(path);
+                            path = path + "/" + camName + "_LIVE_" + dateStr + ".jpg";
+
+                            snapshotBadge.isSavingSnapshot = true;
+                            snapshotBadgeTimer.restart();
+                            activeOutput.grabToImage(function(result) {
+                                result.saveToFile(path);
+                                console.log("Saved snapshot to", path);
+                            }, Qt.size(nativeWidth, nativeHeight));
                         }
                     }
-                }
-                
-                ToolTip.delay: Compact.toolTipDelay
-                ToolTip.timeout: Compact.toolTipTimeout
-                ToolTip.visible: playbackMouseAreaBtn.containsMouse
-                ToolTip.text: qsTr("Archiwum nagrań")
-            }
 
-            Control {
-                id: oneToOneBadge
-                
-                implicitWidth: 16
-                implicitHeight: 16
-                visible: root.source !== ""
-                
-                background: Rectangle {
-                    radius: 2
-                    color: root.isOneToOne ? "#3300f5d4" : (oneToOneMouseAreaBtn.pressed ? "#22ffffff" : (oneToOneMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent"))
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: snapshotMouseAreaBtn.containsMouse
+                    ToolTip.text: qsTr("Wykonaj stopklatkę w pełnej rozdzielczości")
                 }
-                
-                contentItem: Image {
-                    id: oneToOneIcon
-                    anchors.centerIn: parent
-                    width: 15
-                    height: 15
-                    source: root.isOneToOne ?
-                        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.5' font-family='sans-serif' font-size='12' font-weight='900' text-anchor='middle' fill='%2300f5d4'>1:1</text></svg>" :
-                        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.5' font-family='sans-serif' font-size='12' font-weight='900' text-anchor='middle' fill='%23ffffff'>1:1</text></svg>"
-                }
-                
-                MouseArea {
-                    id: oneToOneMouseAreaBtn
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: {
-                        root.isOneToOne = !root.isOneToOne;
-                    }
-                }
-                
-                ToolTip.delay: Compact.toolTipDelay
-                ToolTip.timeout: Compact.toolTipTimeout
-                ToolTip.visible: oneToOneMouseAreaBtn.containsMouse
-                ToolTip.text: root.isOneToOne ? qsTr("Wyłącz tryb 1:1") : qsTr("Włącz tryb 1:1 (piksel w piksel)")
-            }
 
-            Control {
-                id: zoomBadge
-                
-                implicitWidth: 16
-                implicitHeight: 16
-                visible: root.source !== ""
-            
-            font.pixelSize: 9
-            
-            background: Rectangle {
-                radius: 2
-                color: root.isZoomSelectionMode ? "#3300f5d4" : (zoomMouseAreaBtn.pressed ? "#22ffffff" : (zoomMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent"))
-            }
-            
-            contentItem: Image {
-                id: zoomIcon
-                anchors.centerIn: parent
-                width: 10
-                height: 10
-                source: root.isZoomed ? 
-                    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff3333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line><line x1='8' y1='11' x2='14' y2='11'></line></svg>" :
-                    (root.isZoomSelectionMode ?
-                        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line><line x1='11' y1='8' x2='11' y2='14'></line><line x1='8' y1='11' x2='14' y2='11'></line></svg>" :
-                        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line><line x1='11' y1='8' x2='11' y2='14'></line><line x1='8' y1='11' x2='14' y2='11'></line></svg>"
-                    )
-            }
-            
-            MouseArea {
-                id: zoomMouseAreaBtn
-                anchors.fill: parent
-                hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
-                onClicked: {
-                    if (root.isZoomed) {
-                        // Reset zoom
-                        root.zoomX = 0;
-                        root.zoomY = 0;
-                        root.zoomWidth = 1;
-                        root.zoomHeight = 1;
-                        root.isZoomed = false;
-                        root.isZoomSelectionMode = false;
-                    } else {
-                        // Toggle selection mode
-                        root.isZoomSelectionMode = !root.isZoomSelectionMode;
+                Control {
+                    id: playbackBadge
+                    
+                    implicitWidth: 16
+                    implicitHeight: 16
+                    visible: root.source !== "" && root.isHikvision
+                    
+                    background: Rectangle {
+                        radius: 2
+                        color: playbackMouseAreaBtn.pressed ? "#22ffffff" : (playbackMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent")
                     }
+                    
+                    contentItem: Image {
+                        anchors.centerIn: parent
+                        source: "qrc:/images/play.svg"
+                        width: 10
+                        height: 10
+                        sourceSize: Qt.size(10, 10)
+                    }
+                    
+                    MouseArea {
+                        id: playbackMouseAreaBtn
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            var recInfo = {
+                                "ip": root.recorderIp,
+                                "port": root.recorderPort,
+                                "username": root.username,
+                                "password": root.password
+                            };
+                            var camName = root.cameraNameInfo || ("Camera " + root.channelId);
+                            
+                            var component = Qt.createComponent("qrc:/src/PlaybackWindow.qml");
+                            if (component.status === Component.Ready) {
+                                var win = component.createObject(rootWindow, {
+                                    "recorderInfo": recInfo,
+                                    "channelId": root.channelId,
+                                    "cameraName": camName,
+                                    "width": rootWindow.width * 0.9,
+                                    "height": rootWindow.height * 0.9
+                                });
+                                win.show();
+                            } else if (component.status === Component.Error) {
+                                console.log("Error creating PlaybackWindow:", component.errorString());
+                            } else {
+                                component.statusChanged.connect(function() {
+                                    if (component.status === Component.Ready) {
+                                        var win = component.createObject(rootWindow, {
+                                            "recorderInfo": recInfo,
+                                            "channelId": root.channelId,
+                                            "cameraName": camName,
+                                            "width": rootWindow.width * 0.9,
+                                            "height": rootWindow.height * 0.9
+                                        });
+                                        win.show();
+                                    } else if (component.status === Component.Error) {
+                                        console.log("Error creating PlaybackWindow async:", component.errorString());
+                                    }
+                                });
+                            }
+                        }
+                    }
+                    
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: playbackMouseAreaBtn.containsMouse
+                    ToolTip.text: qsTr("Archiwum nagrań")
+                }
+
+                Control {
+                    id: oneToOneBadge
+                    
+                    implicitWidth: 16
+                    implicitHeight: 16
+                    visible: root.source !== ""
+                    
+                    background: Rectangle {
+                        radius: 2
+                        color: root.isOneToOne ? "#3300f5d4" : (oneToOneMouseAreaBtn.pressed ? "#22ffffff" : (oneToOneMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent"))
+                    }
+                    
+                    contentItem: Image {
+                        id: oneToOneIcon
+                        anchors.centerIn: parent
+                        width: 15
+                        height: 15
+                        source: root.isOneToOne ?
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.5' font-family='sans-serif' font-size='12' font-weight='900' text-anchor='middle' fill='%2300f5d4'>1:1</text></svg>" :
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.5' font-family='sans-serif' font-size='12' font-weight='900' text-anchor='middle' fill='%23ffffff'>1:1</text></svg>"
+                    }
+                    
+                    MouseArea {
+                        id: oneToOneMouseAreaBtn
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            root.isOneToOne = !root.isOneToOne;
+                        }
+                    }
+                    
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: oneToOneMouseAreaBtn.containsMouse
+                    ToolTip.text: root.isOneToOne ? qsTr("Wyłącz tryb 1:1") : qsTr("Włącz tryb 1:1 (piksel w piksel)")
+                }
+
+                Control {
+                    id: zoomBadge
+                    
+                    implicitWidth: 16
+                    implicitHeight: 16
+                    visible: root.source !== ""
+                
+                    font.pixelSize: 9
+                
+                    background: Rectangle {
+                        radius: 2
+                        color: root.isZoomSelectionMode ? "#3300f5d4" : (zoomMouseAreaBtn.pressed ? "#22ffffff" : (zoomMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent"))
+                    }
+                
+                    contentItem: Image {
+                        id: zoomIcon
+                        anchors.centerIn: parent
+                        width: 10
+                        height: 10
+                        source: root.isZoomed ? 
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff3333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line><line x1='8' y1='11' x2='14' y2='11'></line></svg>" :
+                            (root.isZoomSelectionMode ?
+                                "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line><line x1='11' y1='8' x2='11' y2='14'></line><line x1='8' y1='11' x2='14' y2='11'></line></svg>" :
+                                "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line><line x1='11' y1='8' x2='11' y2='14'></line><line x1='8' y1='11' x2='14' y2='11'></line></svg>"
+                            )
+                    }
+                
+                    MouseArea {
+                        id: zoomMouseAreaBtn
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            if (root.isZoomed) {
+                                // Reset zoom
+                                root.zoomX = 0;
+                                root.zoomY = 0;
+                                root.zoomWidth = 1;
+                                root.zoomHeight = 1;
+                                root.isZoomed = false;
+                                root.isZoomSelectionMode = false;
+                            } else {
+                                // Toggle selection mode
+                                root.isZoomSelectionMode = !root.isZoomSelectionMode;
+                            }
+                        }
+                    }
+                
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: zoomMouseAreaBtn.containsMouse
+                    ToolTip.text: root.isZoomed ? qsTr("Reset Zoom") : (root.isZoomSelectionMode ? qsTr("Click and drag on camera feed to zoom") : qsTr("Select region to zoom"))
                 }
             }
-            
-            ToolTip.delay: Compact.toolTipDelay
-            ToolTip.timeout: Compact.toolTipTimeout
-            ToolTip.visible: zoomMouseAreaBtn.containsMouse
-            ToolTip.text: root.isZoomed ? qsTr("Reset Zoom") : (root.isZoomSelectionMode ? qsTr("Click and drag on camera feed to zoom") : qsTr("Select region to zoom"))
-        }
         }
     }
 
