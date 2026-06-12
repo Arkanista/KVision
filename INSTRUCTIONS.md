@@ -140,6 +140,7 @@ From the Playback Archive window, you can download selected segments of recordin
 | **M** | Mute / unmute audio (works for the active camera with audio). |
 | **Space** | Play / Pause playback in the Playback Archive window. |
 | **Alt + 1** to **Alt + 9** | Quick switch to a preset/layout at indices 1 to 9. |
+| **+** / **-** | Zoom in / Zoom out (PTZ-capable Hikvision cameras). |
 | **Esc** | Exit Full Screen mode. |
 
 ### Mouse interaction:

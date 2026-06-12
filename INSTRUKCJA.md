@@ -140,6 +140,7 @@ Z poziomu okna Playback Archive możesz pobierać wybrane fragmenty nagrań bezp
 | **M** | Wyciszenie / odciszenie dźwięku (działa dla aktywnej kamery posiadającej audio). |
 | **Spacja** | Start / Pauza odtwarzania w oknie Playback Archive. |
 | **Alt + 1** do **Alt + 9** | Szybkie przełączenie na dany preset/układ o indeksie od 1 do 9. |
+| **+** / **-** | Zbliżenie / Oddalenie (kamery Hikvision obsługujące PTZ). |
 | **Esc** | Wyjście z trybu pełnoekranowego. |
 
 ### Interakcja myszą:
