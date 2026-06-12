@@ -681,7 +681,7 @@
     </message>
     <message>
         <source>📂 ARCHIWUM</source>
-        <translation>📂 ARCHIWUM</translation>
+        <translation type="vanished">📂 ARCHIWUM</translation>
     </message>
     <message>
         <source>📊 STATYSTYKI</source>

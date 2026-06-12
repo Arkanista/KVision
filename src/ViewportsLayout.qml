@@ -5,6 +5,7 @@ import QtMultimedia 5.12
 import CCTV_Viewer.Core 1.0
 import CCTV_Viewer.Utils 1.0
 import CCTV_Viewer.Models 1.0
+import CCTV_Viewer.Hikvision 1.0
 import QtQuick.Controls 2.12
 
 FocusScope {
