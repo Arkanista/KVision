@@ -6,6 +6,9 @@
 #include <QVariantMap>
 #include <QHash>
 #include <mutex>
+#include <queue>
+#include <condition_variable>
+#include <thread>
 #include "hcnetsdk_compat.h"
 
 class HikvisionManager : public QObject
@@ -53,6 +56,24 @@ private:
     QHash<QString, SharedSession> m_sharedSessions;
     std::mutex m_sharedSessionsMutex;
     bool m_initialized;
+
+    struct PtzCommand {
+        QString ip;
+        int port;
+        QString username;
+        QString password;
+        int channelId;
+        int command;
+        bool stop;
+    };
+
+    std::queue<PtzCommand> m_ptzQueue;
+    std::mutex m_ptzMutex;
+    std::condition_variable m_ptzCond;
+    std::thread m_ptzWorker;
+    bool m_ptzWorkerStop = false;
+
+    void ptzWorkerLoop();
 };
 
 #endif // HIKVISIONMANAGER_H

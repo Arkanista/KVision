@@ -17,10 +17,22 @@ HikvisionManager::HikvisionManager(QObject *parent)
     } else {
         qWarning() << "[Hikvision] Failed to initialize HCNetSDK.";
     }
+    // Start background worker thread for PTZ commands
+    m_ptzWorker = std::thread(&HikvisionManager::ptzWorkerLoop, this);
 }
 
 HikvisionManager::~HikvisionManager()
 {
+    // Stop the worker thread cleanly first
+    {
+        std::lock_guard<std::mutex> lock(m_ptzMutex);
+        m_ptzWorkerStop = true;
+    }
+    m_ptzCond.notify_all();
+    if (m_ptzWorker.joinable()) {
+        m_ptzWorker.join();
+    }
+
     // Logout all active sessions
     for (auto it = m_sessions.begin(); it != m_sessions.end(); ++it) {
         NET_DVR_Logout(it.value());
@@ -322,25 +334,46 @@ LONG HikvisionManager::getSession(const QString &ip, int port, const QString &us
 
 bool HikvisionManager::ptzZoom(const QString &ip, int port, const QString &username, const QString &password, int channelId, int command, bool stop)
 {
-    LONG lUserID = getSession(ip, port, username, password);
-    if (lUserID < 0) {
-        qWarning() << "[Hikvision] PTZ Zoom failed: Could not get active session for IP:" << ip;
-        return false;
+    {
+        std::lock_guard<std::mutex> lock(m_ptzMutex);
+        m_ptzQueue.push({ip, port, username, password, channelId, command, stop});
     }
-
-    DWORD dwStop = stop ? 1 : 0;
-    // Command is expected to be ZOOM_IN (11) or ZOOM_OUT (12)
-    BOOL ret = NET_DVR_PTZControl_Other(lUserID, static_cast<LONG>(channelId), static_cast<DWORD>(command), dwStop);
-    if (!ret) {
-        DWORD err = NET_DVR_GetLastError();
-        qWarning() << "[Hikvision] PTZ Control failed for IP:" << ip << "Channel:" << channelId 
-                   << "Command:" << command << "Stop:" << stop << "Error:" << err;
-        return false;
-    }
-
-    qDebug() << "[Hikvision] PTZ Control succeeded for IP:" << ip << "Channel:" << channelId 
-             << "Command:" << command << "Stop:" << stop;
+    m_ptzCond.notify_one();
     return true;
+}
+
+void HikvisionManager::ptzWorkerLoop()
+{
+    while (true) {
+        PtzCommand cmd;
+        {
+            std::unique_lock<std::mutex> lock(m_ptzMutex);
+            m_ptzCond.wait(lock, [this]() { return m_ptzWorkerStop || !m_ptzQueue.empty(); });
+            if (m_ptzWorkerStop && m_ptzQueue.empty()) {
+                break;
+            }
+            cmd = m_ptzQueue.front();
+            m_ptzQueue.pop();
+        }
+
+        // Process the command asynchronously
+        LONG lUserID = getSession(cmd.ip, cmd.port, cmd.username, cmd.password);
+        if (lUserID < 0) {
+            qWarning() << "[Hikvision PTZ Worker] Failed to get session for IP:" << cmd.ip;
+            continue;
+        }
+
+        DWORD dwStop = cmd.stop ? 1 : 0;
+        BOOL ret = NET_DVR_PTZControl_Other(lUserID, static_cast<LONG>(cmd.channelId), static_cast<DWORD>(cmd.command), dwStop);
+        if (!ret) {
+            DWORD err = NET_DVR_GetLastError();
+            qWarning() << "[Hikvision PTZ Worker] PTZ Control failed for IP:" << cmd.ip << "Channel:" << cmd.channelId 
+                       << "Command:" << cmd.command << "Stop:" << cmd.stop << "Error:" << err;
+        } else {
+            qDebug() << "[Hikvision PTZ Worker] PTZ Control succeeded for IP:" << cmd.ip << "Channel:" << cmd.channelId 
+                     << "Command:" << cmd.command << "Stop:" << cmd.stop;
+        }
+    }
 }
 
 LONG HikvisionManager::loginShared(const QString &ip, int port, const QString &username, const QString &password, NET_DVR_DEVICEINFO_V40 &deviceInfo)
