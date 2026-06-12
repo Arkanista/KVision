@@ -530,22 +530,54 @@ ColumnLayout {
                         }
 
                         onClicked: {
-                            HikvisionManager.logout(modelData.ip);
-                            
-                            // Remove from active recorders list
-                            var arr = rootPanel.recorders.slice();
-                            arr.splice(index, 1);
-                            rootPanel.recorders = arr;
-                            rootPanel.saveRecorders();
-
-                            // Automatically remove corresponding NVR view layout(s)
-                            for (var j = layoutsCollectionModel.count - 1; j >= 0; --j) {
-                                var l = layoutsCollectionModel.get(j);
-                                if (l && l.isNvr && l.nvrIp === modelData.ip) {
-                                    layoutsCollectionModel.remove(j);
-                                }
-                            }
+                            deleteConfirmDialog1.targetIndex = index;
+                            deleteConfirmDialog1.targetIp = modelData.ip;
+                            deleteConfirmDialog1.open();
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    ConfirmDialog {
+        id: deleteConfirmDialog1
+        title: qsTr("Confirm NVR Deletion")
+        iconSource: "qrc:/images/icon-warning.svg"
+        message: qsTr("Are you sure you want to delete this NVR?")
+        property int targetIndex: -1
+        property string targetIp: ""
+        
+        onAccepted: {
+            deleteConfirmDialog2.targetIndex = targetIndex;
+            deleteConfirmDialog2.targetIp = targetIp;
+            deleteConfirmDialog2.open();
+        }
+    }
+
+    ConfirmDialog {
+        id: deleteConfirmDialog2
+        title: qsTr("Warning!")
+        iconSource: "qrc:/images/icon-warning.svg"
+        message: qsTr("Are you absolutely sure and aware of what you are doing?")
+        property int targetIndex: -1
+        property string targetIp: ""
+        
+        onAccepted: {
+            if (targetIndex >= 0 && targetIndex < rootPanel.recorders.length) {
+                HikvisionManager.logout(targetIp);
+                
+                // Remove from active recorders list
+                var arr = rootPanel.recorders.slice();
+                arr.splice(targetIndex, 1);
+                rootPanel.recorders = arr;
+                rootPanel.saveRecorders();
+
+                // Automatically remove corresponding NVR view layout(s)
+                for (var j = layoutsCollectionModel.count - 1; j >= 0; --j) {
+                    var l = layoutsCollectionModel.get(j);
+                    if (l && l.isNvr && l.nvrIp === targetIp) {
+                        layoutsCollectionModel.remove(j);
                     }
                 }
             }

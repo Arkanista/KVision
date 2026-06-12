@@ -278,6 +278,22 @@
         <source>Green: Active SDK session (PTZ/Archive). Red: No active session (RTSP stream works independently).</source>
         <translation>Green: Active SDK session (PTZ/Archive). Red: No active session (RTSP stream works independently).</translation>
     </message>
+    <message>
+        <source>Confirm NVR Deletion</source>
+        <translation>Confirm NVR Deletion</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete this NVR?</source>
+        <translation>Are you sure you want to delete this NVR?</translation>
+    </message>
+    <message>
+        <source>Warning!</source>
+        <translation>Warning!</translation>
+    </message>
+    <message>
+        <source>Are you absolutely sure and aware of what you are doing?</source>
+        <translation>Are you absolutely sure and aware of what you are doing?</translation>
+    </message>
 </context>
 <context>
     <name>PlaybackWindow</name>

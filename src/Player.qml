@@ -95,11 +95,11 @@ FocusScope {
     }
     
     onSourceChanged: {
-        updateSource();
+        Qt.callLater(updateSource);
     }
 
     onIsSubStreamChanged: {
-        updateSource();
+        Qt.callLater(updateSource);
     }
 
     // Shared Hikvision Settings to sync real/mock stream toggle in real-time
