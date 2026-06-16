@@ -90,14 +90,21 @@ It is designed for Linux users who need a robust, lightweight, and smooth altern
 
 ## Screenshots
 
-### Main Window Grid & Settings
-![Main Window Grid & Settings](images/screenshot_main.png)
+| Main Window Grid (5x5) | Main Window (Obfuscated Feeds) |
+| :---: | :---: |
+| <a href="images/screenshot_main_grid.png"><img src="images/screenshot_main_grid.png" width="350" alt="Main Window Grid"/></a> | <a href="images/screenshot_main_obfuscated.png"><img src="images/screenshot_main_obfuscated.png" width="350" alt="Main Window Obfuscated"/></a> |
 
-### System Statistics Panel (Sliding Overlay)
-![System Statistics Panel](images/screenshot_stats.png)
+| Playback Archive Timeline | System Statistics Panel (Slide-out) |
+| :---: | :---: |
+| <a href="images/screenshot_archive_playback.png"><img src="images/screenshot_archive_playback.png" width="350" alt="Playback Archive"/></a> | <a href="images/screenshot_stats_overlay.png"><img src="images/screenshot_stats_overlay.png" width="350" alt="System Statistics"/></a> |
 
-### Playback Archive Timeline
-![Playback Archive Timeline](images/screenshot_playback.png)
+| NVR Settings & Recorders | NVR Cameras List |
+| :---: | :---: |
+| <a href="images/screenshot_nvr_settings.png"><img src="images/screenshot_nvr_settings.png" width="350" alt="NVR Settings"/></a> | <a href="images/screenshot_nvr_cameras.png"><img src="images/screenshot_nvr_cameras.png" width="350" alt="NVR Cameras"/></a> |
+
+| Archive Timeframe Selection | General Application Settings |
+| :---: | :---: |
+| <a href="images/screenshot_archive_setup.png"><img src="images/screenshot_archive_setup.png" width="350" alt="Archive Setup"/></a> | <a href="images/screenshot_app_settings.png"><img src="images/screenshot_app_settings.png" width="350" alt="App Settings"/></a> |
 
 ---
 
