@@ -45,7 +45,6 @@
         <file alias="Compact/CheckBox.qml">src/imports/CCTV_Viewer/Themes/Compact/CheckBox.qml</file>
         <file alias="Compact/ToolTip.qml">src/imports/CCTV_Viewer/Themes/Compact/ToolTip.qml</file>
         <file>images/github.svg</file>
-        <file>src/PresetIndicator.qml</file>
         <file>src/NvrSettingsPanel.qml</file>
         <file>src/NvrCamerasWindow.qml</file>
         <file>src/PlaybackWindow.qml</file>

@@ -16,6 +16,15 @@ Window {
     height: 600
     color: "#0f151b"
 
+    property bool closeAccepted: false
+
+    onClosing: {
+        if (!closeAccepted) {
+            close.accepted = false;
+            quitConfirmDialog.open();
+        }
+    }
+
     property var layoutsModel
     property var generalSettings
     property var layoutsCollectionSettings
@@ -596,6 +605,9 @@ Window {
         confirmButtonText: qsTr("TAK")
         cancelButtonText: qsTr("NIE")
         isDanger: true
-        onAccepted: Qt.quit()
+        onAccepted: {
+            auxWindow.closeAccepted = true;
+            Qt.quit();
+        }
     }
 }

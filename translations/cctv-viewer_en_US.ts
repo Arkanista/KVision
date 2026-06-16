@@ -809,6 +809,22 @@
         <source>Wybierz widok z menu na górnym pasku, aby rozpocząć wyświetlanie kamer.</source>
         <translation>Select a view from the top menu to start displaying cameras.</translation>
     </message>
+    <message>
+        <source>Odepnij pasek górny</source>
+        <translation>Unpin top bar</translation>
+    </message>
+    <message>
+        <source>Przypnij pasek górny</source>
+        <translation>Pin top bar</translation>
+    </message>
+    <message>
+        <source>Zablokuj zmianę rozmiaru siatki</source>
+        <translation>Lock grid size changes</translation>
+    </message>
+    <message>
+        <source>Minimalizuj okno</source>
+        <translation>Minimize window</translation>
+    </message>
 </context>
 <context>
     <name>SettingsDialog</name>
@@ -903,6 +919,10 @@
     <message>
         <source>Show info fields only when hovering</source>
         <translation>Show info fields only when hovering</translation>
+    </message>
+    <message>
+        <source>Automatically collapse top bar</source>
+        <translation>Automatically collapse top bar</translation>
     </message>
 </context>
 <context>
@@ -1214,6 +1234,10 @@
     <message>
         <source>Show info fields only when hovering</source>
         <translation>Show info fields only when hovering</translation>
+    </message>
+    <message>
+        <source>Automatically collapse top bar</source>
+        <translation>Automatically collapse top bar</translation>
     </message>
 </context>
 <context>

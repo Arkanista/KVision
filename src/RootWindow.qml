@@ -18,6 +18,65 @@ ApplicationWindow {
 
     visible: true
     visibility: Context.config.fullScreen ? Window.FullScreen : Window.Windowed
+
+    property bool isWindowMinimized: rootWindow.visibility === Window.Minimized
+    property int lastNonMinimizedVisibility: Window.Windowed
+    property bool closeAccepted: false
+
+    onClosing: {
+        if (!closeAccepted) {
+            close.accepted = false;
+            quitConfirmDialog.open();
+        }
+    }
+
+    Timer {
+        id: restoreVisibilityTimer
+        interval: 150
+        repeat: false
+        property int targetVisibility: Window.Windowed
+        onTriggered: {
+            if (targetVisibility === Window.FullScreen) {
+                rootWindow.showFullScreen();
+            } else if (targetVisibility === Window.Maximized) {
+                rootWindow.showMaximized();
+            } else {
+                rootWindow.showNormal();
+            }
+        }
+    }
+
+    onVisibilityChanged: {
+        if (visibility === Window.Minimized) {
+            isWindowMinimized = true;
+            return;
+        }
+
+        if (isWindowMinimized) {
+            return;
+        }
+
+        if (visibility === Window.FullScreen) {
+            Context.config.fullScreen = true;
+        } else if (visibility === Window.Windowed || visibility === Window.Maximized) {
+            lastNonMinimizedVisibility = visibility;
+            if (active) {
+                Context.config.fullScreen = false;
+            }
+        }
+    }
+
+    Connections {
+        target: Context.config
+        function onFullScreenChanged() {
+            if (Context.config.fullScreen) {
+                rootWindow.visibility = Window.FullScreen;
+            } else {
+                rootWindow.visibility = (rootWindow.lastNonMinimizedVisibility === Window.Maximized) ? Window.Maximized : Window.Windowed;
+            }
+        }
+    }
+
     width: rootWindowSettings.width
     height: rootWindowSettings.height
 
@@ -52,6 +111,14 @@ ApplicationWindow {
     onActiveChanged: {
         if (active) {
             rootWindow.activeLayoutWindow = rootWindow;
+            
+            if (isWindowMinimized) {
+                isWindowMinimized = false;
+                if (Context.config.fullScreen) {
+                    restoreVisibilityTimer.targetVisibility = Window.FullScreen;
+                    restoreVisibilityTimer.start();
+                }
+            }
         }
     }
 
@@ -109,7 +176,7 @@ ApplicationWindow {
         property int width: 1280 + 48 // SideBar compact width
         property int height: 720
         property bool fullScreen
-        property bool sidebarAutoCollapse: true
+        property bool topBarAutoCollapse: true
 
         Component.onCompleted: {
             // Do not initialize "fullScreen" if option "-f" is set
@@ -166,16 +233,6 @@ ApplicationWindow {
         property bool unmuteWhenFullScreen: false
     }
 
-    Settings {
-        id: presetsSettings
-
-        fileName: Context.config.fileName
-        category: "Presets"
-
-        property bool carouselRunning: false
-        property int carouselInterval: 15000 // ms
-    }
-
     Shortcut {
         sequence: "M"
         onActivated: {
@@ -211,11 +268,6 @@ ApplicationWindow {
                 onActivated: stackLayout.currentIndex = index
             }
         }
-    }
-    Shortcut {
-        sequence: "Space"
-        enabled: presetsSettings.carouselRunning
-        onActivated: carouselTimer.paused = !carouselTimer.paused
     }
     Shortcut {
         sequences: ["F11", StandardKey.FullScreen]
@@ -350,7 +402,7 @@ ApplicationWindow {
         z: 9999
 
         // Slide animation based on hover states of the top edge or the bar itself
-        y: (hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? 0 : -height
+        y: (!rootWindowSettings.topBarAutoCollapse || hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? 0 : -height
 
         Behavior on y {
             NumberAnimation {
@@ -408,6 +460,123 @@ ApplicationWindow {
                 onClicked: {
                     quitConfirmDialog.open();
                 }
+            }
+
+            Button {
+                id: pinButton
+                Layout.preferredWidth: 30
+                Layout.preferredHeight: 30
+                Layout.alignment: Qt.AlignVCenter
+
+                property bool isPinned: !rootWindowSettings.topBarAutoCollapse
+
+                contentItem: Image {
+                    anchors.centerIn: parent
+                    width: 16
+                    height: 16
+                    rotation: pinButton.isPinned ? 0 : -45
+
+                    Behavior on rotation {
+                        NumberAnimation { duration: 150; easing.type: Easing.InOutQuad }
+                    }
+
+                    source: {
+                        var colorStr = pinButton.hovered ? "white" : "%238898a6";
+                        if (pinButton.isPinned) {
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='" + colorStr + "' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='12' x2='12' y1='17' y2='22'></line><path d='M5 17h14v-1.76a2 2 0 0 0-.44-1.24l-2.78-3.56A2 2 0 0 1 15 9.2V5a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4.2a2 2 0 0 1-.78 1.24L5.44 14a2 2 0 0 0-.44 1.24Z'></path></svg>";
+                        } else {
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='12' x2='12' y1='17' y2='22'></line><path d='M5 17h14v-1.76a2 2 0 0 0-.44-1.24l-2.78-3.56A2 2 0 0 1 15 9.2V5a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4.2a2 2 0 0 1-.78 1.24L5.44 14a2 2 0 0 0-.44 1.24Z'></path></svg>";
+                        }
+                    }
+                }
+
+                background: Rectangle {
+                    color: pinButton.pressed ? "#cc121214" : (pinButton.hovered ? "#3a4550" : "#1c242c")
+                    radius: 15
+                    border.color: pinButton.hovered ? "#8898a6" : "#2a3540"
+                    border.width: 1
+                }
+
+                onClicked: {
+                    rootWindowSettings.topBarAutoCollapse = !rootWindowSettings.topBarAutoCollapse;
+                }
+
+                ToolTip.delay: Compact.toolTipDelay
+                ToolTip.timeout: Compact.toolTipTimeout
+                ToolTip.visible: pinButton.hovered
+                ToolTip.text: pinButton.isPinned ? qsTr("Odepnij pasek górny") : qsTr("Przypnij pasek górny")
+            }
+
+            Button {
+                id: fullScreenBtn
+                Layout.preferredWidth: 30
+                Layout.preferredHeight: 30
+                Layout.alignment: Qt.AlignVCenter
+
+                property bool isActive: Context.config.fullScreen
+
+                contentItem: Image {
+                    anchors.centerIn: parent
+                    width: 16
+                    height: 16
+                    source: {
+                        var colorStr = fullScreenBtn.hovered ? "%2300ff66" : (fullScreenBtn.isActive ? "%2300ff66" : "%2300cc52");
+                        if (fullScreenBtn.isActive) {
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='m14 10 7-7m-7 7h6m-6 0V4M10 14 3 21m7-7H4m6 0v6M14 14l7 7m-7-7v6m0-6h6M10 10 3 3m7 7V4m0 6H4'></path></svg>";
+                        } else {
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='m21 21-6-6m6 6V15m0 6h-6M3 3l6 6M3 3v6M3 3h6M3 21l6-6M3 21v-6M3 21h6M21 3l-6 6M21 3v6M21 3h-6'></path></svg>";
+                        }
+                    }
+                }
+
+                background: Rectangle {
+                    color: fullScreenBtn.pressed ? "#cc121214" : (fullScreenBtn.hovered ? "#3a4550" : "#1c242c")
+                    radius: 15
+                    border.color: fullScreenBtn.hovered ? "#00ff66" : "#2a3540"
+                    border.width: 1
+                }
+
+                onClicked: {
+                    Context.config.fullScreen = !Context.config.fullScreen;
+                }
+
+                ToolTip.delay: Compact.toolTipDelay
+                ToolTip.timeout: Compact.toolTipTimeout
+                ToolTip.visible: fullScreenBtn.hovered
+                ToolTip.text: qsTr("Toggle Full Screen")
+            }
+
+            Button {
+                id: minimizeButton
+                Layout.preferredWidth: 30
+                Layout.preferredHeight: 30
+                Layout.alignment: Qt.AlignVCenter
+
+                contentItem: Image {
+                    anchors.centerIn: parent
+                    width: 16
+                    height: 16
+                    source: {
+                        var colorStr = minimizeButton.hovered ? "%2333ccff" : "%2300c8ff";
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='19' x2='19' y2='19'></line><line x1='12' y1='5' x2='12' y2='14'></line><polyline points='7 10 12 15 17 10'></polyline></svg>";
+                    }
+                }
+
+                background: Rectangle {
+                    color: minimizeButton.pressed ? "#cc121214" : (minimizeButton.hovered ? "#3a4550" : "#1c242c")
+                    radius: 15
+                    border.color: minimizeButton.hovered ? "#00c8ff" : "#2a3540"
+                    border.width: 1
+                }
+
+                onClicked: {
+                    rootWindow.showMinimized();
+                }
+
+                ToolTip.delay: Compact.toolTipDelay
+                ToolTip.timeout: Compact.toolTipTimeout
+                ToolTip.visible: minimizeButton.hovered
+                ToolTip.text: qsTr("Minimalizuj okno")
             }
 
             Button {
@@ -548,59 +717,12 @@ ApplicationWindow {
                 Layout.alignment: Qt.AlignVCenter
             }
 
-            Text {
-                text: qsTr("Siatka widoku:")
-                color: "#8898a6"
-                font.bold: true
-                font.pixelSize: 11
-                Layout.alignment: Qt.AlignVCenter
-            }
-
             RowLayout {
                 spacing: 6
-
-                Button {
-                    id: fullScreenBtn
-                    Layout.preferredWidth: 28
-                    Layout.preferredHeight: 28
-
-                    property bool isActive: Context.config.fullScreen
-
-                    contentItem: Image {
-                        anchors.centerIn: parent
-                        width: 14
-                        height: 14
-                        source: {
-                            var colorStr = fullScreenBtn.isActive ? "white" : (fullScreenBtn.hovered ? "white" : "%238898a6");
-                            if (fullScreenBtn.isActive) {
-                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M4 10h6V4m10 6h-6V4M4 14h6v6m10-6h-6v6'></path></svg>";
-                            } else {
-                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3'></path></svg>";
-                            }
-                        }
-                    }
-
-                    background: Rectangle {
-                        color: fullScreenBtn.isActive ? "#ff7a00" : (fullScreenBtn.pressed ? "#cc121214" : (fullScreenBtn.hovered ? "#3a4550" : "#1c242c"))
-                        radius: 4
-                        border.color: fullScreenBtn.isActive ? "#ff9e00" : (fullScreenBtn.hovered ? "#8898a6" : "#2a3540")
-                        border.width: 1
-                    }
-
-                    onClicked: {
-                        Context.config.fullScreen = !Context.config.fullScreen;
-                    }
-
-                    ToolTip.delay: Compact.toolTipDelay
-                    ToolTip.timeout: Compact.toolTipTimeout
-                    ToolTip.visible: fullScreenBtn.hovered
-                    ToolTip.text: qsTr("Toggle Full Screen")
-                }
 
                 Switch {
                     id: lockGridSwitch
                     checked: generalSettings.lockGridSize
-                    text: qsTr("🔒 Blokuj zmianę")
 
                     Layout.preferredHeight: 28
                     Layout.alignment: Qt.AlignVCenter
@@ -629,18 +751,14 @@ ApplicationWindow {
                         }
                     }
 
-                    contentItem: Text {
-                        text: lockGridSwitch.text
-                        font.bold: true
-                        font.pixelSize: 10
-                        color: lockGridSwitch.checked ? "white" : (lockGridSwitch.hovered ? "#ffffff" : "#8898a6")
-                        verticalAlignment: Text.AlignVCenter
-                        leftPadding: lockGridSwitch.indicator.width + 6
-                    }
-
                     onCheckedChanged: {
                         generalSettings.lockGridSize = checked;
                     }
+
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: lockGridSwitch.hovered
+                    ToolTip.text: qsTr("Zablokuj zmianę rozmiaru siatki")
                 }
 
                 Repeater {
@@ -696,18 +814,18 @@ ApplicationWindow {
 
                 Button {
                     id: moreOptionsButton
-                    text: qsTr("Więcej opcji")
-
-                    Layout.preferredWidth: 84
+                    Layout.preferredWidth: 28
                     Layout.preferredHeight: 28
+                    Layout.alignment: Qt.AlignVCenter
 
-                    contentItem: Text {
-                        text: moreOptionsButton.text
-                        font.bold: true
-                        font.pixelSize: 10
-                        color: "white"
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
+                    contentItem: Image {
+                        anchors.centerIn: parent
+                        width: 14
+                        height: 14
+                        source: {
+                            var colorStr = moreOptionsButton.hovered ? "white" : "%238898a6";
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='3' y1='12' x2='21' y2='12'></line><line x1='3' y1='6' x2='21' y2='6'></line><line x1='3' y1='18' x2='21' y2='18'></line></svg>";
+                        }
                     }
 
                     background: Rectangle {
@@ -724,20 +842,16 @@ ApplicationWindow {
                             toolsWindow.requestActivate();
                         }
                     }
+
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: moreOptionsButton.hovered
+                    ToolTip.text: qsTr("Więcej opcji")
                 }
             }
 
             Item {
                 Layout.fillWidth: true // Spacer to push existing views to the right
-            }
-
-            // Right-aligned Existing Views/Presets selector
-            Text {
-                text: qsTr("Wybór widoku:")
-                color: "#8898a6"
-                font.bold: true
-                font.pixelSize: 11
-                Layout.alignment: Qt.AlignVCenter
             }
 
             RowLayout {
@@ -867,9 +981,6 @@ ApplicationWindow {
 
             onCurrentIndexChanged: {
                 layoutsCollectionSettings.currentIndex = currentIndex;
-                if (carouselTimer.running) {
-                    carouselTimer.restart();
-                }
             }
 
             Repeater {
@@ -879,25 +990,6 @@ ApplicationWindow {
                 ViewportsLayout {
                     model: layoutModel
                     focus: true
-                }
-            }
-
-            Timer {
-                id: carouselTimer
-
-                repeat: true
-                interval: presetsSettings.carouselInterval
-                running: presetsSettings.carouselRunning && !paused
-
-                property bool paused: false
-
-                onTriggered: {
-                    // Scrolling carousel to right
-                    if (stackLayout.currentIndex < layoutsCollectionModel.count - 1) {
-                        ++stackLayout.currentIndex
-                    } else {
-                        stackLayout.currentIndex = 0;
-                    }
                 }
             }
         }
@@ -1019,7 +1111,10 @@ ApplicationWindow {
         confirmButtonText: qsTr("TAK")
         cancelButtonText: qsTr("NIE")
         isDanger: true
-        onAccepted: Qt.quit()
+        onAccepted: {
+            rootWindow.closeAccepted = true;
+            Qt.quit();
+        }
     }
 
     ToolsWindow {

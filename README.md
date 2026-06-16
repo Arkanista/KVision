@@ -75,13 +75,14 @@ It is designed for Linux users who need a robust, lightweight, and smooth altern
 * **Stutter-Free Video Rendering**: Calculations are performed on a separate thread (`StatsWorker`) to guarantee zero frames are dropped during 60 FPS video rendering.
 
 ### 🛠️ Global Application Settings & UI
-* **Auto-Collapsing Sidebar**: The left side options panel automatically collapses when the mouse leaves its boundary, maximizing video workspace (toggleable in Settings).
-* **Layout Carousel (Tour)**: Enable cyclic automatic switching of camera grid presets in a loop, with configurable switching intervals. You can exclude specific presets from the tour.
+* **Auto-Collapsing Top Bar**: The top options toolbar automatically collapses when the mouse leaves its boundary to maximize video workspace. This behavior is toggleable in Settings or directly using the pin icon on the top bar.
+* **Top Bar Controls**: Compact layout controls on the top bar: fullscreen button (with green visual state), window minimize button (with cyan/blue icon), grid locking switch, options, and a hamburger menu for advanced options.
+* **Close Confirmation**: Intercepts both system window close buttons and exit button actions, requesting a Polish/English confirmation before quitting.
 * **Custom Layout Presets**: Create custom layout presets with configurable row and column counts (e.g., 2x2, 3x3, 4x4).
 * **Global Shortcuts**: Complete control via keyboard hotkeys:
-  * `F` or `Esc`: Toggle fullscreen.
+  * `F11`: Toggle fullscreen.
   * `M`: Mute/unmute active viewport audio.
-  * `Space`: Play/pause playback archive.
+  * `Alt + Left` / `Alt + Right`: Switch layouts.
   * `Alt + 1` to `Alt + 9`: Instant preset switching.
 * **Multilingual UI**: Live translation switching between English and Polish.
 
@@ -165,11 +166,11 @@ git clone --recurse-submodules https://github.com/arkanista/cctv-viewer2.git
 
 If you are running Arch Linux or CachyOS, you can skip compilation and install the pre-compiled Pacman package directly from the latest release:
 
-* **[Download cctv-viewer2-2.0.6-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/cctv-viewer2/releases/download/v2.0.6/cctv-viewer2-2.0.6-1-x86_64.pkg.tar.zst)**
+* **[Download cctv-viewer2-2.0.7-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/cctv-viewer2/releases/download/v2.0.7/cctv-viewer2-2.0.7-1-x86_64.pkg.tar.zst)**
 
 To install the downloaded package:
 ```bash
-sudo pacman -U cctv-viewer2-2.0.6-1-x86_64.pkg.tar.zst
+sudo pacman -U cctv-viewer2-2.0.7-1-x86_64.pkg.tar.zst
 ```
 
 ### Building from Source (Arch Linux / CachyOS)

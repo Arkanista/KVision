@@ -834,6 +834,22 @@
         <source>Wybierz widok z menu na górnym pasku, aby rozpocząć wyświetlanie kamer.</source>
         <translation>Wybierz widok z menu na górnym pasku, aby rozpocząć wyświetlanie kamer.</translation>
     </message>
+    <message>
+        <source>Odepnij pasek górny</source>
+        <translation>Odepnij pasek górny</translation>
+    </message>
+    <message>
+        <source>Przypnij pasek górny</source>
+        <translation>Przypnij pasek górny</translation>
+    </message>
+    <message>
+        <source>Zablokuj zmianę rozmiaru siatki</source>
+        <translation>Zablokuj zmianę rozmiaru siatki</translation>
+    </message>
+    <message>
+        <source>Minimalizuj okno</source>
+        <translation>Minimalizuj okno</translation>
+    </message>
 </context>
 <context>
     <name>SettingsDialog</name>
@@ -932,6 +948,10 @@
     <message>
         <source>Show info fields only when hovering</source>
         <translation>Pokazuj pola informacyjne tylko po najechaniu kursorem</translation>
+    </message>
+    <message>
+        <source>Automatically collapse top bar</source>
+        <translation>Automatycznie zwijaj pasek górny</translation>
     </message>
 </context>
 <context>
@@ -1263,6 +1283,10 @@
     <message>
         <source>Show info fields only when hovering</source>
         <translation>Pokazuj pola informacyjne tylko po najechaniu kursorem</translation>
+    </message>
+    <message>
+        <source>Automatically collapse top bar</source>
+        <translation>Automatycznie zwijaj pasek górny</translation>
     </message>
 </context>
 <context>

@@ -43,9 +43,9 @@ Dialog {
                 }
 
                 CheckBox {
-                    id: sidebarAutoCollapseCheckBox
+                    id: topBarAutoCollapseCheckBox
 
-                    text: qsTr("Automatically collapse sidebar") 
+                    text: qsTr("Automatically collapse top bar") 
                 }
 
                 CheckBox {
@@ -199,52 +199,6 @@ Dialog {
             }
         }
 
-        GroupBox {
-            title: qsTr("Presets")
-
-            Layout.fillWidth: true
-
-            ColumnLayout {
-                width: parent.width
-
-                RowLayout  {
-                    width: parent.width
-
-                    CheckBox {
-                        id: carouselRunningCheckBox
-
-                        text: qsTr("Run presets carousel with interval (sec.):")
-
-                        Layout.fillWidth: true
-                    }
-
-                    SpinBox {
-                        id: carouselIntervalSpinBox
-
-                        property int valueFactor: 1000
-
-                        enabled: carouselRunningCheckBox.checked
-
-                        stepSize: 100
-                        from: stepSize
-                        to: 300 * stepSize
-                        editable: true
-
-                        validator: DoubleValidator {
-                            decimals: 2
-                            bottom: Math.min(carouselIntervalSpinBox.from, carouselIntervalSpinBox.to)
-                            top:  Math.max(carouselIntervalSpinBox.from, carouselIntervalSpinBox.to)
-                        }
-                        textFromValue: function(value, locale) {
-                            return Number(value / valueFactor).toLocaleString(locale, 'f', validator.decimals)
-                        }
-                        valueFromText: function(text, locale) {
-                            return Number.fromLocaleString(locale, text) * valueFactor
-                        }
-                    }
-                }
-            }
-        }
 
         GroupBox {
             title: qsTr("Zapis")
@@ -315,7 +269,7 @@ Dialog {
     function loadSettings() {
         singleApplicationCheckBox.checked = !generalSettings.singleApplication;
         
-        sidebarAutoCollapseCheckBox.checked = rootWindowSettings.sidebarAutoCollapse;
+        topBarAutoCollapseCheckBox.checked = rootWindowSettings.topBarAutoCollapse;
         
         allowSwappingViewportsCheckBox.checked = generalSettings.allowSwappingViewports;
 
@@ -328,9 +282,6 @@ Dialog {
         showCameraInfoCheckBox.checked = viewSettings.showCameraInfo;
         hoverControlIconsCheckBox.checked = viewSettings.hoverControlIcons;
         showInfoOnHoverOnlyCheckBox.checked = viewSettings.showInfoOnHoverOnly;
-
-        carouselRunningCheckBox.checked = presetsSettings.carouselRunning;
-        carouselIntervalSpinBox.value = presetsSettings.carouselInterval;
 
         var snapPath = generalSettings.snapshotPath;
         if (snapPath === "") {
@@ -362,7 +313,7 @@ Dialog {
     function saveSettings() {
         generalSettings.singleApplication = !singleApplicationCheckBox.checked;
         
-        rootWindowSettings.sidebarAutoCollapse = sidebarAutoCollapseCheckBox.checked;
+        rootWindowSettings.topBarAutoCollapse = topBarAutoCollapseCheckBox.checked;
         
         generalSettings.allowSwappingViewports = allowSwappingViewportsCheckBox.checked;
 
@@ -375,9 +326,6 @@ Dialog {
         viewSettings.showCameraInfo = showCameraInfoCheckBox.checked;
         viewSettings.hoverControlIcons = hoverControlIconsCheckBox.checked;
         viewSettings.showInfoOnHoverOnly = showInfoOnHoverOnlyCheckBox.checked;
-
-        presetsSettings.carouselRunning = carouselRunningCheckBox.checked;
-        presetsSettings.carouselInterval = carouselIntervalSpinBox.value;
 
         generalSettings.snapshotPath = snapshotPathField.text;
         generalSettings.videoPath = videoPathField.text;

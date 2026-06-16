@@ -24,7 +24,7 @@ The program has been optimized for stability, smooth operation (60 FPS), and min
 ### Installing on Arch Linux (Pacman)
 To install the program from the prepared binary package, go to the `packaging/arch/` directory and run:
 ```bash
-sudo pacman -U cctv-viewer2-2.0.6-1-x86_64.pkg.tar.zst
+sudo pacman -U cctv-viewer2-2.0.7-1-x86_64.pkg.tar.zst
 ```
 The package will automatically install the program, the `.desktop` activation file, and the required Hikvision SDK libraries to the system path `/usr/lib/cctv-viewer2`.
 
@@ -76,9 +76,8 @@ To configure the connection to a Hikvision recorder:
 The main window of the program displays the live feed:
 * **Camera Grid**: Displays RTSP streams or feeds directly from the Hikvision SDK.
 * **Stream Quality Selection**: By right-clicking a camera viewport, you can select the **Main Stream** for highest resolution, or the **Sub Stream** to reduce network and graphics card load.
-* **Auto-hiding Sidebar**: The options sidebar (SideBar) can automatically collapse to the edge of the screen when the mouse cursor leaves its area (this option is configurable in Settings -> *„Automatically collapse sidebar”*).
+* **Auto-hiding Top Bar**: The top options toolbar (topToolBar) can automatically collapse to the top edge of the screen when the mouse cursor leaves its area (this option is configurable in Settings -> *„Automatically collapse top bar”* or directly using the pin icon on the top bar).
 * **Multi-Monitor & Auxiliary Windows**: You can open independent additional (auxiliary) windows to run different grid layouts simultaneously on multiple screens or monitors. To open a new window, use the `Ctrl+N` keyboard shortcut, or click the **"New Window"** button on the hover-slide top toolbar. Each window can be configured with its own grid size and selected preset layout.
-
 
 ---
 
@@ -87,10 +86,14 @@ The main window of the program displays the live feed:
 Layouts allow you to organize the arrangement of cameras on the screen. From the **Presets** tab (star icon) you can:
 * **Create New Presets**: Add your own layout with any configuration of columns and rows (e.g., 2x2, 3x3, 4x4).
 * **Assign Cameras**: Click on a viewport in the grid layout to select it, then open the NVR cameras window and click the **"+" (Add)** button on the desired camera tile. You can also swap viewport positions using the right-click context menu (*„Zamień miejscami”* / *„Swap viewports”*) of the source viewport and then clicking on the target viewport.
-* **Layout Carousel (Layout Tour)**:
-  * You can enable the cyclic, automatic switching of active layouts in a loop in the settings.
-  * Set the desired switching interval (e.g., every 15 seconds).
-  * Layouts that should be ignored by the carousel can be deselected in the **Visible** column of the sidebar.
+* **Top Bar Controls**:
+  * **Pin Button**: Toggle locking the top bar open (pinned state) or allowing it to slide away automatically (unpinned state).
+  * **Full Screen (green icon)**: Toggle fullscreen mode (expand arrows) and windowed mode (collapse arrows).
+  * **Minimize (cyan/blue icon)**: Minimize the application window to the taskbar. Restoring it will return to the exact previous state (maximized, fullscreen, or normal).
+  * **Grid Lock Switch**: Lock/unlock grid size modifications (pure switch toggle with tooltip).
+  * **Hamburger Menu (three lines)**: Open the Tools Window for more options.
+  * **Close Confirmation**: Intercepts the OS/system title bar close window event, requesting confirmation before quitting.
+
 
 ---
 

@@ -1462,9 +1462,9 @@ FocusScope {
                             }
 
                             CheckBox {
-                                text: qsTr("Automatically collapse sidebar")
-                                checked: rootWindowSettings.sidebarAutoCollapse
-                                onCheckedChanged: rootWindowSettings.sidebarAutoCollapse = checked
+                                text: qsTr("Automatically collapse top bar")
+                                checked: rootWindowSettings.topBarAutoCollapse
+                                onCheckedChanged: rootWindowSettings.topBarAutoCollapse = checked
                                 Layout.fillWidth: true
                             }
                         }
@@ -1930,60 +1930,6 @@ FocusScope {
                                     }
                                     onEditingFinished: {
                                         layoutsCollectionSettings.defaultAVFormatOptions = JSON.stringify(Utils.parseOptions(text));
-                                    }
-                                }
-                            }
-
-                            Rectangle {
-                                Layout.fillWidth: true
-                                height: 1
-                                color: "#2a3540"
-                            }
-
-                            ColumnLayout {
-                                Layout.fillWidth: true
-                                spacing: 8
-
-                                CheckBox {
-                                    id: setCarouselCheck
-                                    text: qsTr("Enable cyclic layouts carousel tour")
-                                    checked: presetsSettings.carouselRunning
-                                    onCheckedChanged: presetsSettings.carouselRunning = checked
-                                    Layout.fillWidth: true
-                                }
-
-                                RowLayout {
-                                    Layout.fillWidth: true
-                                    spacing: 12
-                                    visible: setCarouselCheck.checked
-
-                                    Text {
-                                        text: qsTr("Interval cycle (seconds):")
-                                        color: "white"
-                                        font.pixelSize: 11
-                                    }
-
-                                    SpinBox {
-                                        id: mainCarouselIntervalSpin
-                                        property int valueFactor: 1000
-                                        stepSize: 100
-                                        from: stepSize
-                                        to: 300 * stepSize
-                                        editable: true
-                                        value: presetsSettings.carouselInterval
-                                        onValueChanged: presetsSettings.carouselInterval = value
-
-                                        validator: DoubleValidator {
-                                            decimals: 2
-                                            bottom: Math.min(mainCarouselIntervalSpin.from, mainCarouselIntervalSpin.to)
-                                            top:  Math.max(mainCarouselIntervalSpin.from, mainCarouselIntervalSpin.to)
-                                        }
-                                        textFromValue: function(val, locale) {
-                                            return Number(val / valueFactor).toLocaleString(locale, 'f', validator.decimals)
-                                        }
-                                        valueFromText: function(txt, locale) {
-                                            return Number.fromLocaleString(locale, txt) * valueFactor
-                                        }
                                     }
                                 }
                             }

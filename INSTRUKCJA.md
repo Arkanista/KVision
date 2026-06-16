@@ -24,7 +24,7 @@ Program został zoptymalizowany pod kątem stabilności, płynności działania 
 ### Instalacja pakietu Arch Linux (Pacman)
 Aby zainstalować program z przygotowanej paczki binarnej, przejdź do katalogu `packaging/arch/` i wykonaj:
 ```bash
-sudo pacman -U cctv-viewer2-2.0.6-1-x86_64.pkg.tar.zst
+sudo pacman -U cctv-viewer2-2.0.7-1-x86_64.pkg.tar.zst
 ```
 Pakiet automatycznie zainstaluje program, plik aktywacyjny `.desktop` oraz wymagane biblioteki Hikvision SDK w systemowej ścieżce `/usr/lib/cctv-viewer2`.
 
@@ -76,9 +76,8 @@ Aby skonfigurować połączenie z rejestratorem Hikvision:
 Okno główne programu odpowiada za wyświetlanie obrazu na żywo:
 * **Siatka kamer**: Wyświetla jednocześnie strumienie RTSP lub bezpośrednio z SDK Hikvision.
 * **Wybór jakości strumienia**: Klikając prawym przyciskiem myszy na dany kafelek kamery, możesz wybrać strumień główny (**Main Stream**) o najwyższej rozdzielczości lub pomocniczy (**Sub Stream**) w celu zmniejszenia obciążenia sieci i karty graficznej.
-* **Auto-ukrywanie paska**: Pasek boczny opcji (SideBar) może automatycznie zwijać się do krawędzi ekranu po zjechaniu z niego kursorem myszy (opcja konfigurowalna w zakładce Ustawienia -> *„Automatically collapse sidebar”*).
-* **Obsługa wielu monitorów i okien pomocniczych**: Aplikacja pozwala na otwieranie niezależnych, dodatkowych okien pomocniczych (tzw. Auxiliary Windows), co ułatwia jednoczesny podgląd różnych siatek kamer na wielu monitorach lub ekranach. Aby otworzyć nowe okno pomocnicze, użyj skrótu klawiszowego `Ctrl+N` lub kliknij przycisk **„NOWE OKNO”** na wysuwanym pasku narzędzi u góry ekranu. Każde z okien może mieć własny rozmiar siatki oraz wybrany układ presetów.
-
+* **Auto-ukrywanie paska górnego**: Pasek górny (topToolBar) może automatycznie zwijać się do górnej krawędzi ekranu po zjechaniu z niego kursorem myszy (opcja konfigurowalna w zakładce Ustawienia -> *„Automatycznie zwijaj pasek górny”* lub bezpośrednio za pomocą przycisku pinezki na pasku górnym).
+* **Obsługa wielu monitorów i okien pomocniczych**: Aplikacja pozwala na otwieranie niezależnych, dodatkowych okien pomocniczych (tzw. Auxiliary Windows), co ułatwia jednoczesny podgląd różnych siatek kamer na wielu monitorach lub ekranach. Aby otworzyć nowe okno pomocnicze, użyj skrótu klawiszowego `Ctrl+N` lub kliknij przycisk **„NOWE OKNO”** na pasku narzędzi u góry ekranu. Każde z okien może mieć własny rozmiar siatki oraz wybrany układ presetów.
 
 ---
 
@@ -87,10 +86,14 @@ Okno główne programu odpowiada za wyświetlanie obrazu na żywo:
 Układy pozwalają organizować rozmieszczenie kamer na ekranie. Z poziomu zakładki **Układy** (ikona gwiazdki) możesz:
 * **Tworzyć nowe presety**: Dodaj własny układ o dowolnej konfiguracji kolumn i wierszy (np. 2x2, 3x3, 4x4).
 * **Przypisywać kamery**: Kliknij na wybrany kafelek w siatce głównej, aby go zaznaczyć (zostanie wyróżniony ramką), a następnie w oknie kamer NVR najedź na wybraną kamerę i kliknij przycisk **„+” (Dodaj)**. Pozycje kamer można również zamieniać, wybierając opcję **„Zamień miejscami”** z menu podręcznego (prawy przycisk myszy) na kafelki źródłowym, a następnie klikając lewym przyciskiem myszy na kafelek docelowy.
-* **Karuzela Układów (Layout Tour)**: 
-  * W ustawieniach możesz włączyć funkcję cyklicznego, automatycznego przełączania aktywnych układów w pętli.
-  * Ustaw odpowiedni interwał czasu przełączania (np. co 15 sekund).
-  * Układy, które mają być ignorowane przez karuzelę, można odznaczyć w kolumnie **Widoczny (Visible)** w panelu bocznym.
+* **Elementy Kontroli paska górnego**:
+  * **Pinezka**: Służy do zablokowania paska górnego w stanie wysuniętym (wbita pineska) lub włączenia automatycznego zwijania (pochylona pineska).
+  * **Pełen ekran (zielona ikona)**: Przełącza tryb pełnoekranowy (strzałki rozszerzające) i okienkowy (strzałki zwężające).
+  * **Minimalizuj (błękitna ikona)**: Minimalizuje okno programu na pasek zadań. Po przywróceniu okno powróci dokładnie do poprzedniego stanu (np. pełnego ekranu lub zmaksymalizowanego).
+  * **Przełącznik blokady siatki**: Pozwala zablokować możliwość zmiany rozmiaru siatki (kłódeczka/przełącznik z tooltipem).
+  * **Hamburger menu (trzy kreski)**: Otwiera dodatkowe narzędzia i opcje systemowe.
+  * **Potwierdzenie zamknięcia**: Przechwytuje również kliknięcie systemowego przycisku zamknięcia okna na pasku tytułowym i wyświetla zapytanie o potwierdzenie.
+
 
 ---
 
