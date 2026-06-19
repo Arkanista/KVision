@@ -58,6 +58,15 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.1.1",
+            date: "19.06.2026",
+            changes: [
+                qsTr("Zastąpiono słabo widoczną czarną ikonę emoji 📺 w pustym widoku eleganckim seledynowym monitorem wektorowym SVG High-DPI."),
+                qsTr("Zwiększono czytelność pasków rejestratorów w oknie archiwum (wysokość zwiększona z 22px do 28px, powiększona czcionka z 9px do 11px, większa strzałka rozwijania)."),
+                qsTr("Dodano pełny, dynamiczny efekt hover dla pasków rejestratorów z wyraźną zmianą kolorystyki tła, tekstu oraz ikon na seledynowy/biały.")
+            ]
+        },
+        {
             version: "v2.1.0",
             date: "19.06.2026",
             changes: [

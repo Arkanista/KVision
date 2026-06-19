@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>📺 NOWE OKNO</source>
-        <translation>📺 NOWE OKNO</translation>
+        <translation type="vanished">📺 NOWE OKNO</translation>
     </message>
     <message>
         <source>Widok:</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>⚙️ OPCJE</source>
-        <translation>⚙️ OPCJE</translation>
+        <translation type="vanished">⚙️ OPCJE</translation>
     </message>
     <message>
         <source>Siatka widoku:</source>
@@ -818,7 +818,7 @@
     </message>
     <message>
         <source>⚙️ OPCJE</source>
-        <translation>⚙️ OPCJE</translation>
+        <translation type="vanished">⚙️ OPCJE</translation>
     </message>
     <message>
         <source>Siatka widoku:</source>
@@ -858,7 +858,7 @@
     </message>
     <message>
         <source>📺 NOWE OKNO</source>
-        <translation>📺 NOWE OKNO</translation>
+        <translation type="vanished">📺 NOWE OKNO</translation>
     </message>
     <message>
         <source>Zamknij program</source>
@@ -894,7 +894,7 @@
     </message>
     <message>
         <source>📊 STATYSTYKI</source>
-        <translation>📊 STATYSTYKI</translation>
+        <translation type="vanished">📊 STATYSTYKI</translation>
     </message>
     <message>
         <source>📊 SYSTEM STATS</source>
@@ -926,7 +926,7 @@
     </message>
     <message>
         <source>ARCHIVE</source>
-        <translation>ARCHIWUM</translation>
+        <translation type="vanished">ARCHIWUM</translation>
     </message>
     <message>
         <source>Nie wybrano widoku, wybierz widok</source>
@@ -1224,7 +1224,7 @@
     </message>
     <message>
         <source>Activate</source>
-        <translation>Aktywuj</translation>
+        <translation type="vanished">Aktywuj</translation>
     </message>
     <message>
         <source>➕ Add Preset Layout</source>

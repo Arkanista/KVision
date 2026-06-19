@@ -641,7 +641,13 @@ FocusScope {
             hoverEnabled: true
             acceptedButtons: Qt.NoButton
 
-            // Symmetrically placed magnifying glass button overlay on the bottom right (no fill tło, gray border, white icon by default, color-coded modes)
+            readonly property bool isHovered: containsMouse ||
+                                              snapshotMouseAreaBtn.containsMouse ||
+                                              (playbackBadge.visible && playbackMouseAreaBtn.containsMouse) ||
+                                              oneToOneMouseAreaBtn.containsMouse ||
+                                              zoomMouseAreaBtn.containsMouse
+
+            // Symmetrically placed magnifying glass button overlay on the bottom right
             Row {
                 anchors {
                     right: parent.right
@@ -649,7 +655,7 @@ FocusScope {
                     margins: 6
                 }
                 spacing: 6
-                visible: (root.source !== "") && (!viewSettings.hoverControlIcons || playerHoverArea.containsMouse)
+                visible: (root.source !== "") && (!viewSettings.hoverControlIcons || playerHoverArea.isHovered)
 
                 Control {
                     id: snapshotBadge
@@ -662,22 +668,30 @@ FocusScope {
                         onTriggered: snapshotBadge.isSavingSnapshot = false
                     }
 
-                    implicitWidth: 16
-                    implicitHeight: 16
+                    implicitWidth: 24
+                    implicitHeight: 24
+                    padding: 5
                     visible: root.source !== ""
 
                     background: Rectangle {
-                        radius: 2
-                        color: snapshotMouseAreaBtn.pressed ? "#22ffffff" : (snapshotMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent")
+                        radius: 12
+                        color: snapshotBadge.isSavingSnapshot ?
+                            (snapshotMouseAreaBtn.pressed ? "#44ff7a00" : (snapshotMouseAreaBtn.containsMouse ? "#33ff7a00" : "#22ff7a00")) :
+                            (snapshotMouseAreaBtn.pressed ? "#4a5560" : (snapshotMouseAreaBtn.containsMouse ? "#3a4550" : "#cc121214"))
+                        border.color: snapshotBadge.isSavingSnapshot ?
+                            "#ccff7a00" :
+                            ((snapshotMouseAreaBtn.containsMouse || snapshotMouseAreaBtn.pressed) ? "#cc8898a6" : "#802a3540")
+                        border.width: 1
                     }
 
                     contentItem: Image {
-                        anchors.centerIn: parent
-                        width: 10
-                        height: 10
+                        sourceSize: Qt.size(32, 32)
+                        fillMode: Image.PreserveAspectFit
                         source: snapshotBadge.isSavingSnapshot ?
-                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff7a00' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'></path><circle cx='12' cy='13' r='4'></circle></svg>" :
-                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'></path><circle cx='12' cy='13' r='4'></circle></svg>"
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff7a00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'></path><circle cx='12' cy='13' r='4'></circle></svg>" :
+                            (snapshotMouseAreaBtn.containsMouse ?
+                                "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'></path><circle cx='12' cy='13' r='4'></circle></svg>" :
+                                "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'></path><circle cx='12' cy='13' r='4'></circle></svg>")
                     }
 
                     MouseArea {
@@ -737,24 +751,27 @@ FocusScope {
 
                 Control {
                     id: playbackBadge
-                    
-                    implicitWidth: 16
-                    implicitHeight: 16
+
+                    implicitWidth: 24
+                    implicitHeight: 24
+                    padding: 5
                     visible: root.source !== "" && root.isHikvision
-                    
+
                     background: Rectangle {
-                        radius: 2
-                        color: playbackMouseAreaBtn.pressed ? "#22ffffff" : (playbackMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent")
+                        radius: 12
+                        color: playbackMouseAreaBtn.pressed ? "#4a5560" : (playbackMouseAreaBtn.containsMouse ? "#3a4550" : "#cc121214")
+                        border.color: (playbackMouseAreaBtn.containsMouse || playbackMouseAreaBtn.pressed) ? "#cc8898a6" : "#802a3540"
+                        border.width: 1
                     }
-                    
+
                     contentItem: Image {
-                        anchors.centerIn: parent
-                        source: "qrc:/images/play.svg"
-                        width: 10
-                        height: 10
-                        sourceSize: Qt.size(10, 10)
+                        sourceSize: Qt.size(32, 32)
+                        fillMode: Image.PreserveAspectFit
+                        source: playbackMouseAreaBtn.containsMouse ?
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='5 3 19 12 5 21 5 3'></polygon></svg>" :
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='5 3 19 12 5 21 5 3'></polygon></svg>"
                     }
-                    
+
                     MouseArea {
                         id: playbackMouseAreaBtn
                         anchors.fill: parent
@@ -768,7 +785,7 @@ FocusScope {
                                 "password": root.password
                             };
                             var camName = root.cameraNameInfo || ("Camera " + root.channelId);
-                            
+
                             var component = Qt.createComponent("qrc:/src/PlaybackWindow.qml");
                             if (component.status === Component.Ready) {
                                 var win = component.createObject(rootWindow, {
@@ -799,7 +816,7 @@ FocusScope {
                             }
                         }
                     }
-                    
+
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: playbackMouseAreaBtn.containsMouse
@@ -808,26 +825,31 @@ FocusScope {
 
                 Control {
                     id: oneToOneBadge
-                    
-                    implicitWidth: 16
-                    implicitHeight: 16
+
+                    implicitWidth: 24
+                    implicitHeight: 24
+                    padding: 5
                     visible: root.source !== ""
-                    
+
                     background: Rectangle {
-                        radius: 2
-                        color: root.isOneToOne ? "#3300f5d4" : (oneToOneMouseAreaBtn.pressed ? "#22ffffff" : (oneToOneMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent"))
+                        radius: 12
+                        color: root.isOneToOne ?
+                            (oneToOneMouseAreaBtn.pressed ? "#4400f5d4" : (oneToOneMouseAreaBtn.containsMouse ? "#3300f5d4" : "#2200f5d4")) :
+                            (oneToOneMouseAreaBtn.pressed ? "#4a5560" : (oneToOneMouseAreaBtn.containsMouse ? "#3a4550" : "#cc121214"))
+                        border.color: root.isOneToOne ?
+                            "#cc00f5d4" :
+                            ((oneToOneMouseAreaBtn.containsMouse || oneToOneMouseAreaBtn.pressed) ? "#cc8898a6" : "#802a3540")
+                        border.width: 1
                     }
-                    
+
                     contentItem: Image {
-                        id: oneToOneIcon
-                        anchors.centerIn: parent
-                        width: 15
-                        height: 15
-                        source: root.isOneToOne ?
-                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.5' font-family='sans-serif' font-size='12' font-weight='900' text-anchor='middle' fill='%2300f5d4'>1:1</text></svg>" :
-                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.5' font-family='sans-serif' font-size='12' font-weight='900' text-anchor='middle' fill='%23ffffff'>1:1</text></svg>"
+                        sourceSize: Qt.size(32, 32)
+                        fillMode: Image.PreserveAspectFit
+                        source: (root.isOneToOne || oneToOneMouseAreaBtn.containsMouse) ?
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 8.5L8 7v10M16 8.5L18 7v10'></path><circle cx='12' cy='10' r='1' fill='%2300f5d4' stroke='none'></circle><circle cx='12' cy='14' r='1' fill='%2300f5d4' stroke='none'></circle></svg>" :
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 8.5L8 7v10M16 8.5L18 7v10'></path><circle cx='12' cy='10' r='1' fill='%23ffffff' stroke='none'></circle><circle cx='12' cy='14' r='1' fill='%23ffffff' stroke='none'></circle></svg>"
                     }
-                    
+
                     MouseArea {
                         id: oneToOneMouseAreaBtn
                         anchors.fill: parent
@@ -837,7 +859,7 @@ FocusScope {
                             root.isOneToOne = !root.isOneToOne;
                         }
                     }
-                    
+
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: oneToOneMouseAreaBtn.containsMouse
@@ -846,31 +868,40 @@ FocusScope {
 
                 Control {
                     id: zoomBadge
-                    
-                    implicitWidth: 16
-                    implicitHeight: 16
+
+                    implicitWidth: 24
+                    implicitHeight: 24
+                    padding: 5
                     visible: root.source !== ""
-                
-                    font.pixelSize: 9
-                
+
                     background: Rectangle {
-                        radius: 2
-                        color: root.isZoomSelectionMode ? "#3300f5d4" : (zoomMouseAreaBtn.pressed ? "#22ffffff" : (zoomMouseAreaBtn.containsMouse ? "#11ffffff" : "transparent"))
-                    }
-                
-                    contentItem: Image {
-                        id: zoomIcon
-                        anchors.centerIn: parent
-                        width: 10
-                        height: 10
-                        source: root.isZoomed ? 
-                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff3333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line><line x1='8' y1='11' x2='14' y2='11'></line></svg>" :
+                        radius: 12
+                        color: root.isZoomed ?
+                            (zoomMouseAreaBtn.pressed ? "#44ff3333" : (zoomMouseAreaBtn.containsMouse ? "#33ff3333" : "#22121214")) :
                             (root.isZoomSelectionMode ?
+                                (zoomMouseAreaBtn.pressed ? "#4400f5d4" : (zoomMouseAreaBtn.containsMouse ? "#3300f5d4" : "#2200f5d4")) :
+                                (zoomMouseAreaBtn.pressed ? "#4a5560" : (zoomMouseAreaBtn.containsMouse ? "#3a4550" : "#cc121214"))
+                            )
+                        border.color: root.isZoomed ?
+                            (zoomMouseAreaBtn.containsMouse ? "#ccff3333" : "#80ff3333") :
+                            (root.isZoomSelectionMode ?
+                                "#cc00f5d4" :
+                                ((zoomMouseAreaBtn.containsMouse || zoomMouseAreaBtn.pressed) ? "#cc8898a6" : "#802a3540")
+                            )
+                        border.width: 1
+                    }
+
+                    contentItem: Image {
+                        sourceSize: Qt.size(32, 32)
+                        fillMode: Image.PreserveAspectFit
+                        source: root.isZoomed ?
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff3333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line><line x1='8' y1='11' x2='14' y2='11'></line></svg>" :
+                            ((root.isZoomSelectionMode || zoomMouseAreaBtn.containsMouse) ?
                                 "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line><line x1='11' y1='8' x2='11' y2='14'></line><line x1='8' y1='11' x2='14' y2='11'></line></svg>" :
                                 "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line><line x1='11' y1='8' x2='11' y2='14'></line><line x1='8' y1='11' x2='14' y2='11'></line></svg>"
                             )
                     }
-                
+
                     MouseArea {
                         id: zoomMouseAreaBtn
                         anchors.fill: parent
@@ -891,7 +922,7 @@ FocusScope {
                             }
                         }
                     }
-                
+
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: zoomMouseAreaBtn.containsMouse

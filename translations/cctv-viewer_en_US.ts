@@ -17,11 +17,11 @@
     </message>
     <message>
         <source>⚙️ OPCJE</source>
-        <translation>⚙️ OPTIONS</translation>
+        <translation type="vanished">⚙️ OPTIONS</translation>
     </message>
     <message>
         <source>📺 NOWE OKNO</source>
-        <translation>📺 NEW WINDOW</translation>
+        <translation type="vanished">📺 NEW WINDOW</translation>
     </message>
     <message>
         <source>Siatka widoku:</source>
@@ -809,11 +809,11 @@
     </message>
     <message>
         <source>⚙️ OPCJE</source>
-        <translation>⚙️ OPTIONS</translation>
+        <translation type="vanished">⚙️ OPTIONS</translation>
     </message>
     <message>
         <source>📺 NOWE OKNO</source>
-        <translation>📺 NEW WINDOW</translation>
+        <translation type="vanished">📺 NEW WINDOW</translation>
     </message>
     <message>
         <source>📂 ARCHIWUM</source>
@@ -821,7 +821,7 @@
     </message>
     <message>
         <source>📊 STATYSTYKI</source>
-        <translation>📊 STATISTICS</translation>
+        <translation type="vanished">📊 STATISTICS</translation>
     </message>
     <message>
         <source>Siatka widoku:</source>
@@ -901,7 +901,7 @@
     </message>
     <message>
         <source>ARCHIVE</source>
-        <translation>ARCHIVE</translation>
+        <translation type="vanished">ARCHIVE</translation>
     </message>
     <message>
         <source>Nie wybrano widoku, wybierz widok</source>
@@ -1203,7 +1203,7 @@
     </message>
     <message>
         <source>Activate</source>
-        <translation>Activate</translation>
+        <translation type="vanished">Activate</translation>
     </message>
     <message>
         <source>Add Preset Layout</source>

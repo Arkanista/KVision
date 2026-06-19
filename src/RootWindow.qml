@@ -1010,10 +1010,13 @@ ApplicationWindow {
                 anchors.centerIn: parent
                 spacing: 12
 
-                Text {
-                    text: "📺"
-                    font.pixelSize: 48
+                Image {
+                    Layout.preferredWidth: 64
+                    Layout.preferredHeight: 64
                     Layout.alignment: Qt.AlignHCenter
+                    sourceSize: Qt.size(64, 64)
+                    fillMode: Image.PreserveAspectFit
+                    source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='3' width='20' height='14' rx='2' ry='2'></rect><line x1='8' y1='21' x2='16' y2='21'></line><line x1='12' y1='17' x2='12' y2='21'></line></svg>"
                 }
 
                 Text {
