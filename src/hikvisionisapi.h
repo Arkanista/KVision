@@ -42,7 +42,7 @@ public:
 signals:
     void searchFinished(const QString &recorderIp, int channelId, const QDateTime &startTime, const QVariantList &segments);
     void searchFailed(const QString &recorderIp, int channelId, const QDateTime &startTime, const QString &error);
-    void monthAvailabilityFinished(const QString &recorderIp, int channelId, int year, int month, const QVariantList &daysWithRecords);
+    void monthAvailabilityFinished(const QString &recorderIp, int channelId, int year, int month, const QVariantList &daysWithRecords, bool success);
 
 private slots:
     void onAuthenticationRequired(QNetworkReply *reply, QAuthenticator *authenticator);

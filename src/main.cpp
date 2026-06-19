@@ -44,11 +44,6 @@ void registerQmlTypes()
                                                       return new Clipboard();
                                                   });
 
-    qmlRegisterSingletonType<HikvisionManager>("CCTV_Viewer.Hikvision", 1, 0, "HikvisionManager",
-                                               []([[maybe_unused]] QQmlEngine *engine,
-                                                  [[maybe_unused]] QJSEngine *scriptEngine) -> QObject * {
-        return new HikvisionManager();
-    });
     qmlRegisterType<HikvisionPlayer>("CCTV_Viewer.Hikvision", 1, 0, "HikvisionPlayer");
     qmlRegisterType<HikvisionArchivePlayer>("CCTV_Viewer.Hikvision", 1, 0, "HikvisionArchivePlayer");
     qmlRegisterType<HikvisionDownloader>("CCTV_Viewer.Hikvision", 1, 0, "HikvisionDownloader");
@@ -104,6 +99,8 @@ int main(int argc, char *argv[])
         Context::initLanguage();
         QQmlApplicationEngine engine;
         Context::setEngine(&engine);
+        auto *hikvisionManager = new HikvisionManager();
+        qmlRegisterSingletonInstance("CCTV_Viewer.Hikvision", 1, 0, "HikvisionManager", hikvisionManager);
         engine.addImportPath(":/src/imports");
         const QUrl url(QStringLiteral("qrc:/src/SingleInstanceWarning.qml"));
         QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, &app, [url](QObject *obj, const QUrl &objUrl) {
@@ -120,6 +117,9 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     Context::setEngine(&engine);
     engine.rootContext()->setContextProperty("SingleApplication", &singleApp);
+
+    auto *hikvisionManager = new HikvisionManager();
+    qmlRegisterSingletonInstance("CCTV_Viewer.Hikvision", 1, 0, "HikvisionManager", hikvisionManager);
 
     // Thumbnail provider for camera previews
     auto *thumbnailProvider = new ThumbnailProvider();

@@ -57,3 +57,21 @@ Projekt został w całości przebudowany w katalogu `./build/`:
 * **[Player.qml](src/Player.qml)**: Zmodyfikowano warunki widoczności plakietki strumienia `streamInfoBadge` (lewy górny róg) oraz plakietki kamery `cameraInfoBadge` (lewy dolny róg), dodając zależność od najechania myszką (`playerHoverArea.containsMouse`), gdy opcja `showInfoOnHoverOnly` jest aktywna.
 * **[SettingsDialog.qml](src/SettingsDialog.qml)** oraz **[SideBar.qml](src/SideBar.qml)**: Dodano checkbox „Pokazuj pola informacyjne tylko po najechaniu kursorem” (ang. „Show info fields only when hovering”) w sekcji „Ustawienia interfejsu użytkownika” (User Interface Settings), powiązany z zapisem/odczytem tej opcji.
 * **Aktualizacja tłumaczeń**: Przetłumaczono nowe opcje na język polski i angielski we wszystkich katalogach tłumaczeń.
+
+### 8. Nowe UI w panelu konfiguracji
+* Zmodyfikowano plik `NvrSettingsPanel.qml`, dodając właściwość `isDiscovering`. 
+* W czasie wyszukiwania kamer cały formularz oraz przyciski są blokowane (`enabled: !isDiscovering`).
+* Wewnątrz przycisku wyszukiwania wyświetlana jest obracająca się animowana ikona SVG, a tekst przycisku zmienia się na `"Wyszukiwanie..."` (`"Discovering..."`).
+* Zsynchronizowano pliki tłumaczeń i w pełni przetłumaczono nowo dodane komunikaty w wersjach PL i EN.
+
+### 11. Asynchroniczna inicjalizacja SDK Hikvision i eliminacja przywieszenia okna Opcje (v2.0.7-8)
+* **Wątek roboczy dla inicjalizacji SDK**: Przeniesiono blokujące wywołanie `NET_DVR_Init()` (trwające ok. 3 sekundy) do asynchronicznego, odłączonego wątku w tle (`std::thread`) w konstruktorze `HikvisionManager`.
+* **Bezpieczna synchronizacja wątków**: Wprowadzono metodę `ensureInitialized() const` przy użyciu `std::mutex` oraz `std::condition_variable`. Zapewnia ona, że wszystkie metody wchodzące w bezpośrednią interakcję z SDK (takie jak `getSession`, `loginShared`, `logout` oraz destruktor) będą w razie potrzeby w bezpieczny i wielowątkowy sposób oczekiwać na pełną gotowość SDK bez ryzyka wywołania funkcji przed inicjalizacją.
+* **Wczesna rejestracja singletonu w `main.cpp`**: Zastąpiono leniwą rejestrację typu QML rejestracją instancji `qmlRegisterSingletonInstance` zaraz po starcie aplikacji i utworzeniu `QApplication`. Dzięki temu asynchroniczna inicjalizacja rozpoczyna się natychmiast po włączeniu programu i zazwyczaj kończy zanim użytkownik zdąży wejść w menu opcji, eliminując całkowicie jakiekolwiek zamarzanie interfejsu (GUI Freeze).
+
+### 12. Naprawa odświeżania i zaznaczania dostępności nagrań w kalendarzu (v2.0.9)
+* **Przestrzeń nazw i poprawne tagowanie XML**: Dodano atrybut przestrzeni nazw `xmlns="http://www.hikvision.com/ver20/XMLSchema"` do głównego tagu `<CMSearchDescription>` w zapytaniach wyszukiwania Hikvision ISAPI. Rozwiązuje to błąd `Invalid XML Content` (`badXmlContent`) występujący na bardziej restrykcyjnych rejestratorach takich jak R5.
+* **Obsługa specyfiki firmware (paginacja)**: Przywrócono oryginalny, specyficzny dla firmware Hikvision tag `<searchResultPostion>` (z literówką, bez litery „i”), ponieważ poprawne gramatycznie `<searchResultPosition>` jest ignorowane przez urządzenia, co blokowało paginację i wywoływało pętlę zapytań.
+* **Flaga powodzenia w sygnale dostępności**: Rozszerzono sygnał `monthAvailabilityFinished` o parametr `bool success`. W przypadku błędu sieciowego, autoryzacji lub parsowania XML przekazywana jest wartość `false`, a QML nie zapisuje pustej listy w keszu, zapobiegając trwałemu blokowaniu odpytywania o dany miesiąc.
+* **Przycisk „Odśwież” w QML**: Zaimplementowano funkcję `clearCacheForCamera(ip, channelId)` w pliku `PlaybackWindow.qml`, która w pełni czyści kesz dostępności miesięcy oraz kesz segmentów dla wybranej kamery. Podpięto ją pod przycisk „Odśwież”, co pozwala użytkownikowi w dowolnym momencie wymusić ponowne pobranie aktualnych danych o dostępności z rejestratora.
+* **Optymalizacja kolejki sieciowej (Prefetch)**: Zmniejszono głębokość pobierania wstecznego miesięcy z 120 (10 lat) do 12 miesięcy (1 rok) w `continuePrefetchingForCamera` w pliku `PlaybackWindow.qml`. Eliminuje to setki niepotrzebnych zapytań o przedawnione nagrania i drastycznie przyspiesza start odtwarzania.

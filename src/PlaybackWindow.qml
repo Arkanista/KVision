@@ -367,16 +367,21 @@ Window {
 
             playbackWindow.isSearchingRecordings = isAnyCameraSearching();
         }
-        function onMonthAvailabilityFinished(recorderIp, channelId, year, month, daysWithRecords) {
+        function onMonthAvailabilityFinished(recorderIp, channelId, year, month, daysWithRecords, success) {
             var key = recorderIp + "_" + channelId + "_" + year + "-" + (month - 1);
-            var tempAvails = Object.assign({}, rootWindow.monthAvailabilitiesCache);
-            tempAvails[key] = daysWithRecords;
-            rootWindow.monthAvailabilitiesCache = tempAvails;
             
             var tempFetching = Object.assign({}, monthAvailabilityFetching);
             delete tempFetching[key];
             monthAvailabilityFetching = tempFetching;
 
+            if (success === false) {
+                return;
+            }
+
+            var tempAvails = Object.assign({}, rootWindow.monthAvailabilitiesCache);
+            tempAvails[key] = daysWithRecords;
+            rootWindow.monthAvailabilitiesCache = tempAvails;
+            
             timeline.requestPaint();
 
             prefetchActiveCameras();
@@ -506,8 +511,8 @@ Window {
         var currentY = now.getFullYear();
         var currentM = now.getMonth();
         
-        // Fetch up to 120 months (10 years) backwards sequentially
-        for (var i = 0; i < 120; i++) {
+        // Fetch up to 12 months (1 year) backwards sequentially
+        for (var i = 0; i < 12; i++) {
             var d = new Date(currentY, currentM - i, 1);
             var y = d.getFullYear();
             var m = d.getMonth();
@@ -532,6 +537,34 @@ Window {
             if (cam) {
                 continuePrefetchingForCamera(cam);
             }
+        }
+    }
+
+    function clearCacheForCamera(ip, channelId) {
+        var prefix = ip + "_" + channelId + "_";
+        
+        var tempAvails = Object.assign({}, rootWindow.monthAvailabilitiesCache);
+        var changedAvails = false;
+        for (var key in tempAvails) {
+            if (key.indexOf(prefix) === 0) {
+                delete tempAvails[key];
+                changedAvails = true;
+            }
+        }
+        if (changedAvails) {
+            rootWindow.monthAvailabilitiesCache = tempAvails;
+        }
+        
+        var tempSegments = Object.assign({}, rootWindow.playbackSegmentsCache);
+        var changedSegments = false;
+        for (var key2 in tempSegments) {
+            if (key2.indexOf(prefix) === 0) {
+                delete tempSegments[key2];
+                changedSegments = true;
+            }
+        }
+        if (changedSegments) {
+            rootWindow.playbackSegmentsCache = tempSegments;
         }
     }
 
@@ -2007,6 +2040,12 @@ Window {
                                 text: qsTr("Odśwież")
                                 isSmall: true
                                 onClicked: {
+                                    for (var i = 0; i < activePlayersList.length; i++) {
+                                        var cam = activePlayersList[i];
+                                        if (cam) {
+                                            clearCacheForCamera(cam.ip, cam.channelId);
+                                        }
+                                    }
                                     searchRecordingsForDate(currentDate)
                                 }
                             }

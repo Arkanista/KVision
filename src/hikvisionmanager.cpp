@@ -15,15 +15,25 @@ HikvisionManager::HikvisionManager(QObject *parent)
     m_instance = this;
     if (Context::isAuxiliary()) {
         qDebug() << "[Hikvision] Skipping HCNetSDK initialization in auxiliary mode.";
+        m_initCompleted = true;
         return;
     }
 
-    if (NET_DVR_Init()) {
-        m_initialized = true;
-        qDebug() << "[Hikvision] HCNetSDK Initialized successfully.";
-    } else {
-        qWarning() << "[Hikvision] Failed to initialize HCNetSDK.";
-    }
+    std::thread initThread([this]() {
+        if (NET_DVR_Init()) {
+            m_initialized = true;
+            qDebug() << "[Hikvision] HCNetSDK Initialized successfully in background.";
+        } else {
+            qWarning() << "[Hikvision] Failed to initialize HCNetSDK.";
+        }
+        {
+            std::lock_guard<std::mutex> lock(m_initMutex);
+            m_initCompleted = true;
+        }
+        m_initCond.notify_all();
+    });
+    initThread.detach();
+
     // Start background worker thread for PTZ commands
     m_ptzWorker = std::thread(&HikvisionManager::ptzWorkerLoop, this);
 }
@@ -39,6 +49,8 @@ HikvisionManager::~HikvisionManager()
     if (m_ptzWorker.joinable()) {
         m_ptzWorker.join();
     }
+
+    ensureInitialized();
 
     // Logout all active sessions
     for (auto it = m_sessions.begin(); it != m_sessions.end(); ++it) {
@@ -276,6 +288,7 @@ void HikvisionManager::logout(const QString &ip)
         isLoggedNow = isLoggedInternal(ip);
     }
     if (lUserID >= 0) {
+        ensureInitialized();
         NET_DVR_Logout(lUserID);
         qDebug() << "[Hikvision] Logged out from IP:" << ip << "UserID:" << lUserID;
     }
@@ -327,6 +340,8 @@ LONG HikvisionManager::getSession(const QString &ip, int port, const QString &us
     }
 
     // 2. Not logged in, log in
+    ensureInitialized();
+
     if (!m_initialized) {
         qWarning() << "[Hikvision] Cannot get session: SDK not initialized.";
         return -1;
@@ -445,6 +460,13 @@ LONG HikvisionManager::loginShared(const QString &ip, int port, const QString &u
 
     qDebug() << "[Hikvision Shared] Creating NEW session for IP:" << ip << ":" << port;
 
+    ensureInitialized();
+
+    if (!m_initialized) {
+        qWarning() << "[Hikvision Shared] Cannot login: SDK not initialized.";
+        return -1;
+    }
+
     NET_DVR_USER_LOGIN_INFO loginInfo;
     std::memset(&loginInfo, 0, sizeof(NET_DVR_USER_LOGIN_INFO));
     std::strncpy(loginInfo.sDeviceAddress, ip.toUtf8().constData(), sizeof(loginInfo.sDeviceAddress) - 1);
@@ -505,6 +527,7 @@ void HikvisionManager::logoutShared(const QString &ip)
     }
 
     if (lUserIDToLogout >= 0) {
+        ensureInitialized();
         NET_DVR_Logout(lUserIDToLogout);
         qDebug() << "[Hikvision Shared] Logged out session for IP:" << ip << "UserID:" << lUserIDToLogout;
     }
@@ -512,4 +535,10 @@ void HikvisionManager::logoutShared(const QString &ip)
     if (wasLogged != isLoggedNow) {
         emit sessionStatusChanged(ip, isLoggedNow);
     }
+}
+
+void HikvisionManager::ensureInitialized() const
+{
+    std::unique_lock<std::mutex> lock(m_initMutex);
+    m_initCond.wait(lock, [this]() { return m_initCompleted; });
 }

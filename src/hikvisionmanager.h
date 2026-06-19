@@ -82,6 +82,11 @@ private:
     bool m_ptzWorkerStop = false;
 
     void ptzWorkerLoop();
+    void ensureInitialized() const;
+
+    mutable std::mutex m_initMutex;
+    mutable std::condition_variable m_initCond;
+    bool m_initCompleted = false;
 };
 
 #endif // HIKVISIONMANAGER_H

@@ -79,7 +79,7 @@ void HikvisionISAPI::doSearchRequest(const QString &sessionId)
 
     QString xmlPayload = QString(
         "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-        "<CMSearchDescription>\n"
+        "<CMSearchDescription xmlns=\"http://www.hikvision.com/ver20/XMLSchema\">\n"
         "  <searchID>%1</searchID>\n"
         "  <trackList>\n"
         "    <trackID>%2</trackID>\n"
@@ -140,7 +140,7 @@ void HikvisionISAPI::onReplyFinished()
         if (session.isMonthSearch) {
             QVariantList daysList;
             for (int d : session.accumulatedDays) daysList.append(d);
-            emit monthAvailabilityFinished(recorderIp, session.channelId, session.year, session.month, daysList);
+            emit monthAvailabilityFinished(recorderIp, session.channelId, session.year, session.month, daysList, false);
         } else {
             if (session.accumulatedSegments.count() > 0) {
                 emit searchFinished(recorderIp, session.channelId, session.startTime, session.accumulatedSegments);
@@ -208,7 +208,20 @@ void HikvisionISAPI::onReplyFinished()
         }
     }
 
-    if (xml.hasError() || matchItemsCount == 0) {
+    if (xml.hasError()) {
+        qWarning() << "[ISAPI] XML parsing error:" << xml.errorString();
+        if (session.isMonthSearch) {
+            QVariantList daysList;
+            for (int d : session.accumulatedDays) daysList.append(d);
+            emit monthAvailabilityFinished(recorderIp, session.channelId, session.year, session.month, daysList, false);
+        } else {
+            emit searchFailed(recorderIp, session.channelId, session.startTime, xml.errorString());
+        }
+        m_sessions.remove(sessionId);
+        return;
+    }
+
+    if (matchItemsCount == 0) {
         // Done paginating
         if (session.isMonthSearch) {
             QVariantList daysList;
@@ -216,7 +229,7 @@ void HikvisionISAPI::onReplyFinished()
                 daysList.append(d);
             }
             qDebug() << "[ISAPI] Month availability finished (no more matches) for channel:" << session.channelId << "days:" << daysList;
-            emit monthAvailabilityFinished(recorderIp, session.channelId, session.year, session.month, daysList);
+            emit monthAvailabilityFinished(recorderIp, session.channelId, session.year, session.month, daysList, true);
         } else {
             qDebug() << "[ISAPI] Day search finished (no more matches) for channel:" << session.channelId << "segments:" << session.accumulatedSegments.count();
             emit searchFinished(recorderIp, session.channelId, session.startTime, session.accumulatedSegments);
@@ -238,7 +251,7 @@ void HikvisionISAPI::onReplyFinished()
                 daysList.append(d);
             }
             qDebug() << "[ISAPI] Month availability finished for channel:" << session.channelId << "days:" << daysList;
-            emit monthAvailabilityFinished(recorderIp, session.channelId, session.year, session.month, daysList);
+            emit monthAvailabilityFinished(recorderIp, session.channelId, session.year, session.month, daysList, true);
         } else {
             qDebug() << "[ISAPI] Day search finished for channel:" << session.channelId << "segments:" << session.accumulatedSegments.count();
             emit searchFinished(recorderIp, session.channelId, session.startTime, session.accumulatedSegments);
