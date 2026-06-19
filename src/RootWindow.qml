@@ -300,6 +300,7 @@ ApplicationWindow {
     }
 
     function openAuxiliaryWindow(initialState) {
+        loadingTimer.start();
         Context.startAuxiliaryProcess();
     }
 
@@ -1552,6 +1553,53 @@ ApplicationWindow {
                 }
             }
         }
+    }
+
+    // Loading overlay for auxiliary window
+    Rectangle {
+        id: loadingOverlay
+        anchors.centerIn: parent
+        width: 220
+        height: 80
+        color: "#cc121214"
+        border.color: "#00f5d4"
+        border.width: 1.5
+        radius: 8
+        z: 999999
+        visible: loadingTimer.running
+
+        RowLayout {
+            anchors.centerIn: parent
+            spacing: 16
+
+            Image {
+                source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2.5' stroke-linecap='round'><path d='M12 2a10 10 0 1 0 10 10'></path></svg>"
+                Layout.preferredWidth: 24
+                Layout.preferredHeight: 24
+                fillMode: Image.PreserveAspectFit
+
+                RotationAnimation on rotation {
+                    from: 0
+                    to: 360
+                    duration: 1000
+                    loops: Animation.Infinite
+                    running: loadingOverlay.visible
+                }
+            }
+
+            Text {
+                text: qsTr("Ładowanie nowego okna...")
+                color: "white"
+                font.bold: true
+                font.pixelSize: 13
+            }
+        }
+    }
+
+    Timer {
+        id: loadingTimer
+        interval: 2000
+        repeat: false
     }
 
     CursorShape {

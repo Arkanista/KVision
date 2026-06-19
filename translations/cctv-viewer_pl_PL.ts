@@ -906,6 +906,10 @@
         <source>Minimalizuj okno</source>
         <translation>Minimalizuj okno</translation>
     </message>
+    <message>
+        <source>Ładowanie nowego okna...</source>
+        <translation>Ładowanie nowego okna...</translation>
+    </message>
 </context>
 <context>
     <name>SettingsDialog</name>

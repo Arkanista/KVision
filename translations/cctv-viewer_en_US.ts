@@ -881,6 +881,10 @@
         <source>Minimalizuj okno</source>
         <translation>Minimize window</translation>
     </message>
+    <message>
+        <source>Ładowanie nowego okna...</source>
+        <translation>Loading new window...</translation>
+    </message>
 </context>
 <context>
     <name>SettingsDialog</name>
