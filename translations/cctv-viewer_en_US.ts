@@ -77,15 +77,15 @@
     </message>
     <message>
         <source>Opcje i ustawienia panelu bocznego</source>
-        <translation type="unfinished"></translation>
+        <translation>Options and settings of the sidebar panel</translation>
     </message>
     <message>
         <source>Otwórz nowe okno pomocnicze</source>
-        <translation type="unfinished"></translation>
+        <translation>Open new auxiliary window</translation>
     </message>
     <message>
         <source>Instrukcja obsługi programu</source>
-        <translation type="unfinished"></translation>
+        <translation>Program user manual</translation>
     </message>
 </context>
 <context>
@@ -941,27 +941,27 @@
     </message>
     <message>
         <source>Opcje i ustawienia panelu bocznego</source>
-        <translation type="unfinished"></translation>
+        <translation>Options and settings of the sidebar panel</translation>
     </message>
     <message>
         <source>Otwórz nowe okno pomocnicze</source>
-        <translation type="unfinished"></translation>
+        <translation>Open new auxiliary window</translation>
     </message>
     <message>
         <source>Archiwum nagrań i odtwarzacz</source>
-        <translation type="unfinished"></translation>
+        <translation>Recording archive and player</translation>
     </message>
     <message>
         <source>Instrukcja obsługi programu</source>
-        <translation type="unfinished"></translation>
+        <translation>Program user manual</translation>
     </message>
     <message>
         <source>Wyłącz statystyki zużycia zasobów</source>
-        <translation type="unfinished"></translation>
+        <translation>Disable resource usage statistics</translation>
     </message>
     <message>
         <source>Włącz statystyki zużycia zasobów</source>
-        <translation type="unfinished"></translation>
+        <translation>Enable resource usage statistics</translation>
     </message>
 </context>
 <context>
@@ -1483,67 +1483,79 @@
     </message>
     <message>
         <source>Aktywuj ten układ podglądu</source>
-        <translation type="unfinished"></translation>
+        <translation>Activate this preview layout</translation>
     </message>
     <message>
         <source>Usuń ten układ podglądu</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete this preview layout</translation>
     </message>
     <message>
         <source>Aktywuj ten widok kamer NVR</source>
-        <translation type="unfinished"></translation>
+        <translation>Activate this NVR cameras view</translation>
     </message>
     <message>
         <source>Usuń ten widok kamer NVR</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete this NVR cameras view</translation>
     </message>
     <message>
         <source>Aktywuj ten preset kamer NVR</source>
-        <translation type="unfinished"></translation>
+        <translation>Activate this NVR cameras preset</translation>
     </message>
     <message>
         <source>Usuń ten preset kamer NVR</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete this NVR cameras preset</translation>
     </message>
     <message>
         <source>Ujednolicono przyciski wyboru siatki (1x1-9x9) do spójnych okrągłych przycisków 30x30px.</source>
-        <translation type="unfinished"></translation>
+        <translation>Unified grid selection buttons (1x1-9x9) into consistent 30x30px circular buttons.</translation>
     </message>
     <message>
         <source>Wymuszono automatyczne wyświetlanie nazw widoków wielkimi literami (Uppercase).</source>
-        <translation type="unfinished"></translation>
+        <translation>Enforced automatic uppercase display for view names.</translation>
     </message>
     <message>
         <source>Poprawiono czytelność i kontrast aktywnego przycisku widoku – ciemny tekst (#121214) na jasnym seledynowym tle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Improved readability and contrast of the active view button – dark text (#121214) on a bright seledyn background.</translation>
     </message>
     <message>
         <source>Zastąpiono tekstowe przyciski akcji na górnym pasku (Opcje, Nowe okno, Archiwum, Instrukcje) dedykowanymi, kolorowymi ikonami SVG z pomocniczymi dymkami (Tooltip).</source>
-        <translation type="unfinished"></translation>
+        <translation>Replaced text action buttons on the top bar (Options, New window, Archive, Instructions) with dedicated, colored SVG icons with helpful tooltips.</translation>
     </message>
     <message>
         <source>Zastąpiono przełącznik statystyk interaktywną ikoną SVG odzwierciedlającą stan aktywności monitora systemowego.</source>
-        <translation type="unfinished"></translation>
+        <translation>Replaced the system stats toggle with an interactive SVG icon reflecting the system monitor activity state.</translation>
     </message>
     <message>
         <source>Dodano pionową linię rozdzielającą (separator) sekcję opcji od sekcji wyboru siatki.</source>
-        <translation type="unfinished"></translation>
+        <translation>Added a vertical separator line between the options section and the grid selection section.</translation>
     </message>
     <message>
         <source>Przebudowano przyciski widoków do eleganckiego, zaokrąglonego kształtu pigułki o wysokości 30px z zachowaniem marginesów bocznych.</source>
-        <translation type="unfinished"></translation>
+        <translation>Redesigned view buttons to an elegant, rounded pill shape with 30px height, preserving side margins.</translation>
     </message>
     <message>
         <source>Ujednolicono i poprawiono ikony usuwania na liście rejestratorów i widoków oraz przycisk aktywacji presetu na ikony SVG z dymkami (Tooltip).</source>
-        <translation type="unfinished"></translation>
+        <translation>Unified and improved delete icons on the recorders and views list and the preset activation button into SVG icons with tooltips.</translation>
     </message>
     <message>
         <source>Zmniejszono odległości między przyciskami na górnym pasku w celu optymalizacji przestrzeni interfejsu.</source>
-        <translation type="unfinished"></translation>
+        <translation>Decreased spacing between top bar buttons to optimize interface space.</translation>
     </message>
     <message>
         <source>Przywrócono brakującą ikonę minimalizowania w oknie pomocniczym.</source>
-        <translation type="unfinished"></translation>
+        <translation>Restored the missing minimize icon in the auxiliary window.</translation>
+    </message>
+    <message>
+        <source>Zastąpiono słabo widoczną czarną ikonę emoji 📺 w pustym widoku eleganckim seledynowym monitorem wektorowym SVG High-DPI.</source>
+        <translation>Replaced the low-contrast black emoji 📺 in empty views with an elegant seledyn High-DPI vector monitor SVG.</translation>
+    </message>
+    <message>
+        <source>Zwiększono czytelność pasków rejestratorów w oknie archiwum (wysokość zwiększona z 22px do 28px, powiększona czcionka z 9px do 11px, większa strzałka rozwijania).</source>
+        <translation>Improved readability of recorder bars in the archive window (height increased from 22px to 28px, font size from 9px to 11px, larger expand arrow).</translation>
+    </message>
+    <message>
+        <source>Dodano pełny, dynamiczny efekt hover dla pasków rejestratorów z wyraźną zmianą kolorystyki tła, tekstu oraz ikon na seledynowy/biały.</source>
+        <translation>Added full, dynamic hover effects for recorder bars with distinct changes in background, text, and icon colors to seledyn/white.</translation>
     </message>
 </context>
 <context>

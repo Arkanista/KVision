@@ -1594,6 +1594,18 @@
         <source>Przywrócono brakującą ikonę minimalizowania w oknie pomocniczym.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Zastąpiono słabo widoczną czarną ikonę emoji 📺 w pustym widoku eleganckim seledynowym monitorem wektorowym SVG High-DPI.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zwiększono czytelność pasków rejestratorów w oknie archiwum (wysokość zwiększona z 22px do 28px, powiększona czcionka z 9px do 11px, większa strzałka rozwijania).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dodano pełny, dynamiczny efekt hover dla pasków rejestratorów z wyraźną zmianą kolorystyki tła, tekstu oraz ikon na seledynowy/biały.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>
