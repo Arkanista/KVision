@@ -1559,8 +1559,8 @@ ApplicationWindow {
     Rectangle {
         id: loadingOverlay
         anchors.centerIn: parent
-        width: 220
-        height: 80
+        width: loadingRow.implicitWidth + 40
+        height: loadingRow.implicitHeight + 24
         color: "#cc121214"
         border.color: "#00f5d4"
         border.width: 1.5
@@ -1569,6 +1569,7 @@ ApplicationWindow {
         visible: loadingTimer.running
 
         RowLayout {
+            id: loadingRow
             anchors.centerIn: parent
             spacing: 16
 
