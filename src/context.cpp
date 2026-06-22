@@ -35,15 +35,18 @@ void Context::init()
     QCommandLineOption kioskModeOption({{"k", "kiosk"}, tr("Kiosk mode functionality.")});
     QCommandLineOption logOption({{"l", "log"}, tr("Log level [%1...%2].").arg(Config::LogBeginRange).arg(Config::LogEndRange), "level"});
     QCommandLineOption auxiliaryOption(QStringList("auxiliary"), tr("Start as an auxiliary window."));
+    QCommandLineOption verboseOption("verbose", tr("Pokaż szczegółowe logi w konsoli (verbose logging)."));
 
     parseCommandLineOptions({configOption,
                             presetOption,
                             fullScreenOption,
                             kioskModeOption,
                             logOption,
-                            auxiliaryOption});
+                            auxiliaryOption,
+                            verboseOption});
 
     m_isAuxiliary = m_commandLineParser.isSet(auxiliaryOption);
+    m_enableLogs = m_commandLineParser.isSet(verboseOption);
 
     if (m_commandLineParser.isSet(configOption)) {
         m_config = new Config(m_commandLineParser.value(configOption));
@@ -230,3 +233,35 @@ QString Context::selectFolder(const QString &title, const QString &initialPath) 
     );
     return dir;
 }
+
+QString Context::readLocalFile(const QString &filePath) const
+{
+    QString path = filePath;
+    if (path.startsWith("qrc:/")) {
+        path = path.mid(3); // convert "qrc:/..." to ":/..."
+    }
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        return QString();
+    }
+    return QString::fromUtf8(file.readAll());
+}
+
+#ifdef __linux__
+#include <malloc.h>
+#endif
+
+void Context::trimMemory()
+{
+    if (m_engine) {
+        qDebug() << "[Context] Aggressively trimming QML component cache, singletons, and collecting JS garbage...";
+        m_engine->collectGarbage();
+        m_engine->trimComponentCache();
+    }
+#ifdef __linux__
+    qDebug() << "[Context] Manual memory trim triggered. Releasing free heap arenas to OS...";
+    malloc_trim(0);
+#endif
+}
+
+

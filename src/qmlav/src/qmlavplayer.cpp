@@ -1,4 +1,5 @@
 #include "qmlavplayer.h"
+#include <QDateTime>
 
 QmlAVPlayer::QmlAVPlayer(QObject *parent)
     : QObject(parent)
@@ -66,6 +67,12 @@ void QmlAVPlayer::stop()
     }
 
     m_audioIODevice.clear();
+    if (m_fps != 0) {
+        m_fps = 0;
+        m_fpsCounter = 0;
+        m_lastFpsTime = 0;
+        emit fpsChanged();
+    }
 
     setPlaybackState(QMediaPlayer::StoppedState);
     setHasVideo(false);
@@ -123,9 +130,26 @@ void QmlAVPlayer::frameHandler(const std::shared_ptr<QmlAVFrame> frame)
                 }
 
                 if (m_videoSurface->isActive()) {
-                    if (!m_videoSurface->present(qvf)) {
+                    if (m_videoSurface->present(qvf)) {
+                        m_fpsCounter++;
+                    } else {
                         stop();
                     }
+                }
+
+                qint64 nowMs = QDateTime::currentMSecsSinceEpoch();
+                if (m_lastFpsTime == 0) {
+                    m_lastFpsTime = nowMs;
+                }
+                qint64 elapsedMs = nowMs - m_lastFpsTime;
+                if (elapsedMs >= 1000) {
+                    int calculatedFps = qRound(m_fpsCounter * 1000.0 / elapsedMs);
+                    if (m_fps != calculatedFps) {
+                        m_fps = calculatedFps;
+                        emit fpsChanged();
+                    }
+                    m_fpsCounter = 0;
+                    m_lastFpsTime = nowMs;
                 }
             }
         } else if (frame->type() == QmlAVFrame::TypeAudio) {

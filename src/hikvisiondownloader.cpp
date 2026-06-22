@@ -24,7 +24,26 @@ HikvisionDownloader::HikvisionDownloader(QObject *parent)
 
 HikvisionDownloader::~HikvisionDownloader()
 {
+    // Ensure the search thread is interrupted and safely joined/deleted to prevent use-after-free crashes
+    QThread* threadToWait = nullptr;
+    {
+        std::lock_guard<std::mutex> lock(m_searchMutex);
+        if (m_searchThread) {
+            threadToWait = m_searchThread;
+            m_searchThread = nullptr;
+        }
+    }
+    if (threadToWait) {
+        threadToWait->requestInterruption();
+        threadToWait->disconnect();
+    }
+
     stopDownload();
+
+    if (threadToWait) {
+        threadToWait->wait();
+        delete threadToWait;
+    }
 }
 
 bool HikvisionDownloader::isDownloading() const
@@ -63,144 +82,187 @@ void HikvisionDownloader::startDownload(const QVariantMap &recorderInfo, int cha
     m_recorderInfo = recorderInfo;
     m_channelId = channelId;
 
-    QString ip = recorderInfo["ip"].toString();
-    int port = recorderInfo["port"].toInt();
-    QString username = recorderInfo["username"].toString();
-    QString password = recorderInfo["password"].toString();
+    m_isDownloading = true;
+    m_progress = 0;
+    m_statusText = tr("Inicjalizacja wyszukiwania plików...");
+    emit isDownloadingChanged();
+    emit progressChanged();
+    emit overallProgressChanged();
+    emit statusTextChanged();
 
-    NET_DVR_USER_LOGIN_INFO loginInfo;
-    std::memset(&loginInfo, 0, sizeof(NET_DVR_USER_LOGIN_INFO));
-    std::strncpy(loginInfo.sDeviceAddress, ip.toUtf8().constData(), sizeof(loginInfo.sDeviceAddress) - 1);
-    loginInfo.wPort = static_cast<WORD>(port);
-    std::strncpy(loginInfo.sUserName, username.toUtf8().constData(), sizeof(loginInfo.sUserName) - 1);
-    std::strncpy(loginInfo.sPassword, password.toUtf8().constData(), sizeof(loginInfo.sPassword) - 1);
+    QThread *thread = QThread::create([this, recorderInfo, channelId, start, end, saveFilePath]() {
+        QString ip = recorderInfo["ip"].toString();
+        int port = recorderInfo["port"].toInt();
+        QString username = recorderInfo["username"].toString();
+        QString password = recorderInfo["password"].toString();
 
-    NET_DVR_DEVICEINFO_V40 deviceInfo;
-    std::memset(&deviceInfo, 0, sizeof(NET_DVR_DEVICEINFO_V40));
+        NET_DVR_USER_LOGIN_INFO loginInfo;
+        std::memset(&loginInfo, 0, sizeof(NET_DVR_USER_LOGIN_INFO));
+        std::strncpy(loginInfo.sDeviceAddress, ip.toUtf8().constData(), sizeof(loginInfo.sDeviceAddress) - 1);
+        loginInfo.wPort = static_cast<WORD>(port);
+        std::strncpy(loginInfo.sUserName, username.toUtf8().constData(), sizeof(loginInfo.sUserName) - 1);
+        std::strncpy(loginInfo.sPassword, password.toUtf8().constData(), sizeof(loginInfo.sPassword) - 1);
 
-    m_lUserID = NET_DVR_Login_V40(&loginInfo, &deviceInfo);
-    if (m_lUserID < 0) {
-        emit downloadFinished(false, tr("Błąd logowania do urządzenia: %1").arg(NET_DVR_GetLastError()));
-        return;
-    }
+        NET_DVR_DEVICEINFO_V40 deviceInfo;
+        std::memset(&deviceInfo, 0, sizeof(NET_DVR_DEVICEINFO_V40));
 
-    int realSdkChannel = channelId;
-    if (deviceInfo.struDeviceV30.byChanNum == 0 && deviceInfo.struDeviceV30.byIPChanNum > 0) {
-        realSdkChannel = channelId + deviceInfo.struDeviceV30.byStartDChan - 1;
-    } else if (deviceInfo.struDeviceV30.byChanNum > 0 && channelId > deviceInfo.struDeviceV30.byChanNum) {
-        realSdkChannel = deviceInfo.struDeviceV30.byStartDChan + (channelId - deviceInfo.struDeviceV30.byChanNum) - 1;
-    } else if (deviceInfo.struDeviceV30.byChanNum > 0 && channelId <= deviceInfo.struDeviceV30.byChanNum) {
-        realSdkChannel = channelId + deviceInfo.struDeviceV30.byStartChan - 1;
-    }
-    m_realSdkChannel = realSdkChannel;
-
-    // Find all physical recording files in this time range
-    NET_DVR_FILECOND_V40 findCond;
-    std::memset(&findCond, 0, sizeof(NET_DVR_FILECOND_V40));
-    findCond.lChannel = static_cast<LONG>(realSdkChannel);
-    findCond.dwFileType = 0xFF; // All types
-    findCond.dwIsLocked = 0xFF; // All locks
-    findCond.dwUseCardNo = 0;
-    
-    findCond.struStartTime.dwYear = start.date().year();
-    findCond.struStartTime.dwMonth = start.date().month();
-    findCond.struStartTime.dwDay = start.date().day();
-    findCond.struStartTime.dwHour = start.time().hour();
-    findCond.struStartTime.dwMinute = start.time().minute();
-    findCond.struStartTime.dwSecond = start.time().second();
-
-    findCond.struStopTime.dwYear = end.date().year();
-    findCond.struStopTime.dwMonth = end.date().month();
-    findCond.struStopTime.dwDay = end.date().day();
-    findCond.struStopTime.dwHour = end.time().hour();
-    findCond.struStopTime.dwMinute = end.time().minute();
-    findCond.struStopTime.dwSecond = end.time().second();
-
-    m_segments.clear();
-    LONG lFindHandle = NET_DVR_FindFile_V40(m_lUserID, &findCond);
-    if (lFindHandle >= 0) {
-        NET_DVR_FINDDATA_V50 findData;
-        while (true) {
-            int state = NET_DVR_FindNextFile_V50(lFindHandle, &findData);
-            if (state == 1000) { // NET_DVR_FILE_SUCCESS
-                QDateTime fileStart(QDate(findData.struStartTime.wYear, findData.struStartTime.byMonth, findData.struStartTime.byDay),
-                                    QTime(findData.struStartTime.byHour, findData.struStartTime.byMinute, findData.struStartTime.bySecond));
-                QDateTime fileEnd(QDate(findData.struStopTime.wYear, findData.struStopTime.byMonth, findData.struStopTime.byDay),
-                                  QTime(findData.struStopTime.byHour, findData.struStopTime.byMinute, findData.struStopTime.bySecond));
-                
-                QDateTime intersectStart = fileStart > start ? fileStart : start;
-                QDateTime intersectEnd = fileEnd < end ? fileEnd : end;
-                
-                if (intersectStart < intersectEnd) {
-                    DownloadSegment seg;
-                    seg.startTime = intersectStart;
-                    seg.endTime = intersectEnd;
-                    m_segments.append(seg);
-                }
-            } else if (state == 1002) { // NET_DVR_ISFINDING
-                QThread::msleep(10);
-            } else {
-                break;
-            }
+        LONG lUserID = NET_DVR_Login_V40(&loginInfo, &deviceInfo);
+        if (lUserID < 0) {
+            int err = NET_DVR_GetLastError();
+            QMetaObject::invokeMethod(this, [this, err]() {
+                m_isDownloading = false;
+                emit isDownloadingChanged();
+                emit downloadFinished(false, tr("Błąd logowania do urządzenia: %1").arg(err));
+            });
+            return;
         }
-        NET_DVR_FindClose_V30(lFindHandle);
-    }
 
-    if (m_segments.isEmpty()) {
-        emit downloadFinished(false, tr("Brak nagrań w wybranym przedziale czasowym dla tej kamery."));
-        NET_DVR_Logout(m_lUserID);
-        m_lUserID = -1;
-        return;
-    }
+        int realSdkChannel = channelId;
+        if (deviceInfo.struDeviceV30.byChanNum == 0 && deviceInfo.struDeviceV30.byIPChanNum > 0) {
+            realSdkChannel = channelId + deviceInfo.struDeviceV30.byStartDChan - 1;
+        } else if (deviceInfo.struDeviceV30.byChanNum > 0 && channelId > deviceInfo.struDeviceV30.byChanNum) {
+            realSdkChannel = deviceInfo.struDeviceV30.byStartDChan + (channelId - deviceInfo.struDeviceV30.byChanNum) - 1;
+        } else if (deviceInfo.struDeviceV30.byChanNum > 0 && channelId <= deviceInfo.struDeviceV30.byChanNum) {
+            realSdkChannel = channelId + deviceInfo.struDeviceV30.byStartChan - 1;
+        }
 
-    // Sort segments chronologically
-    std::sort(m_segments.begin(), m_segments.end(), [](const DownloadSegment &a, const DownloadSegment &b) {
-        return a.startTime < b.startTime;
+        // Find all physical recording files in this time range
+        NET_DVR_FILECOND_V40 findCond;
+        std::memset(&findCond, 0, sizeof(NET_DVR_FILECOND_V40));
+        findCond.lChannel = static_cast<LONG>(realSdkChannel);
+        findCond.dwFileType = 0xFF; // All types
+        findCond.dwIsLocked = 0xFF; // All locks
+        findCond.dwUseCardNo = 0;
+        
+        findCond.struStartTime.dwYear = start.date().year();
+        findCond.struStartTime.dwMonth = start.date().month();
+        findCond.struStartTime.dwDay = start.date().day();
+        findCond.struStartTime.dwHour = start.time().hour();
+        findCond.struStartTime.dwMinute = start.time().minute();
+        findCond.struStartTime.dwSecond = start.time().second();
+
+        findCond.struStopTime.dwYear = end.date().year();
+        findCond.struStopTime.dwMonth = end.date().month();
+        findCond.struStopTime.dwDay = end.date().day();
+        findCond.struStopTime.dwHour = end.time().hour();
+        findCond.struStopTime.dwMinute = end.time().minute();
+        findCond.struStopTime.dwSecond = end.time().second();
+
+        QList<DownloadSegment> foundSegments;
+        LONG lFindHandle = NET_DVR_FindFile_V40(lUserID, &findCond);
+        if (lFindHandle >= 0) {
+            NET_DVR_FINDDATA_V50 findData;
+            while (true) {
+                if (QThread::currentThread()->isInterruptionRequested()) {
+                    break;
+                }
+                int state = NET_DVR_FindNextFile_V50(lFindHandle, &findData);
+                if (state == 1000) { // NET_DVR_FILE_SUCCESS
+                    QDateTime fileStart(QDate(findData.struStartTime.wYear, findData.struStartTime.byMonth, findData.struStartTime.byDay),
+                                        QTime(findData.struStartTime.byHour, findData.struStartTime.byMinute, findData.struStartTime.bySecond));
+                    QDateTime fileEnd(QDate(findData.struStopTime.wYear, findData.struStopTime.byMonth, findData.struStopTime.byDay),
+                                      QTime(findData.struStopTime.byHour, findData.struStopTime.byMinute, findData.struStopTime.bySecond));
+                    
+                    QDateTime intersectStart = fileStart > start ? fileStart : start;
+                    QDateTime intersectEnd = fileEnd < end ? fileEnd : end;
+                    
+                    if (intersectStart < intersectEnd) {
+                        DownloadSegment seg;
+                        seg.startTime = intersectStart;
+                        seg.endTime = intersectEnd;
+                        foundSegments.append(seg);
+                    }
+                } else if (state == 1002) { // NET_DVR_ISFINDING
+                    QThread::msleep(10);
+                } else {
+                    break;
+                }
+            }
+            NET_DVR_FindClose_V30(lFindHandle);
+        }
+
+        // Post result back to main thread
+        QMetaObject::invokeMethod(this, [this, lUserID, realSdkChannel, foundSegments, saveFilePath]() {
+            if (!m_isDownloading) {
+                // Download was stopped while searching! Logout and abort.
+                NET_DVR_Logout(lUserID);
+                return;
+            }
+            m_lUserID = lUserID;
+            m_realSdkChannel = realSdkChannel;
+            m_segments = foundSegments;
+
+            if (m_segments.isEmpty()) {
+                NET_DVR_Logout(m_lUserID);
+                m_lUserID = -1;
+                m_isDownloading = false;
+                emit isDownloadingChanged();
+                emit downloadFinished(false, tr("Brak nagrań w wybranym przedziale czasowym dla tej kamery."));
+                return;
+            }
+
+            // Sort segments chronologically
+            std::sort(m_segments.begin(), m_segments.end(), [](const DownloadSegment &a, const DownloadSegment &b) {
+                return a.startTime < b.startTime;
+            });
+
+            // Generate filenames for segments
+            QString baseFinal = saveFilePath;
+            QString baseTemp = saveFilePath;
+            if (baseTemp.endsWith(".mp4", Qt::CaseInsensitive)) {
+                baseTemp.replace(baseTemp.length() - 4, 4, ".pspart");
+            }
+
+            int totalParts = m_segments.size();
+            int padWidth = 1;
+            if (totalParts > 99) {
+                padWidth = 3;
+            } else if (totalParts > 9) {
+                padWidth = 2;
+            }
+
+            for (int i = 0; i < totalParts; ++i) {
+                QString segFinal = baseFinal;
+                QString segTemp = baseTemp;
+                if (totalParts > 1) {
+                    int partNum = i + 1;
+                    QString suffix = QString("_%1").arg(partNum, padWidth, 10, QChar('0'));
+                    if (segFinal.endsWith(".mp4", Qt::CaseInsensitive)) {
+                        segFinal.insert(segFinal.length() - 4, suffix);
+                    } else {
+                        segFinal += suffix;
+                    }
+                    if (segTemp.endsWith(".pspart", Qt::CaseInsensitive)) {
+                        segTemp.insert(segTemp.length() - 7, suffix);
+                    } else {
+                        segTemp += suffix;
+                    }
+                }
+                m_segments[i].finalPath = segFinal;
+                m_segments[i].tempPath = segTemp;
+            }
+
+            m_currentSegmentIndex = 0;
+            m_totalSegmentsCount = m_segments.size();
+            m_convertedSegmentsCount = 0;
+
+            startNextSegment();
+        });
     });
 
-    // Generate filenames for segments
-    QString baseFinal = saveFilePath;
-    QString baseTemp = saveFilePath;
-    if (baseTemp.endsWith(".mp4", Qt::CaseInsensitive)) {
-        baseTemp.replace(baseTemp.length() - 4, 4, ".pspart");
+    {
+        std::lock_guard<std::mutex> lock(m_searchMutex);
+        m_searchThread = thread;
     }
 
-    int totalParts = m_segments.size();
-    int padWidth = 1;
-    if (totalParts > 99) {
-        padWidth = 3;
-    } else if (totalParts > 9) {
-        padWidth = 2;
-    }
-
-    for (int i = 0; i < totalParts; ++i) {
-        QString segFinal = baseFinal;
-        QString segTemp = baseTemp;
-        if (totalParts > 1) {
-            int partNum = i + 1;
-            QString suffix = QString("_%1").arg(partNum, padWidth, 10, QChar('0'));
-            if (segFinal.endsWith(".mp4", Qt::CaseInsensitive)) {
-                segFinal.insert(segFinal.length() - 4, suffix);
-            } else {
-                segFinal += suffix;
-            }
-            if (segTemp.endsWith(".pspart", Qt::CaseInsensitive)) {
-                segTemp.insert(segTemp.length() - 7, suffix);
-            } else {
-                segTemp += suffix;
-            }
+    connect(thread, &QThread::finished, this, [this, thread]() {
+        std::lock_guard<std::mutex> lock(m_searchMutex);
+        if (m_searchThread == thread) {
+            m_searchThread = nullptr;
         }
-        m_segments[i].finalPath = segFinal;
-        m_segments[i].tempPath = segTemp;
-    }
-
-    m_isDownloading = true;
-    m_currentSegmentIndex = 0;
-    m_totalSegmentsCount = m_segments.size();
-    m_convertedSegmentsCount = 0;
-    emit isDownloadingChanged();
-
-    startNextSegment();
+    });
+    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
+    thread->start();
 }
 
 void HikvisionDownloader::startNextSegment()
@@ -310,6 +372,14 @@ void HikvisionDownloader::stopDownload()
     m_timer->stop();
     m_segments.clear();
 
+    // Interrupt search thread if running
+    {
+        std::lock_guard<std::mutex> lock(m_searchMutex);
+        if (m_searchThread) {
+            m_searchThread->requestInterruption();
+        }
+    }
+
     if (m_ffmpegProcess->state() != QProcess::NotRunning) {
         m_ffmpegProcess->kill();
         m_ffmpegProcess->waitForFinished(1000);
@@ -320,6 +390,11 @@ void HikvisionDownloader::stopDownload()
     if (m_lFileHandle >= 0) {
         NET_DVR_StopGetFile(m_lFileHandle);
         m_lFileHandle = -1;
+    }
+
+    // Clean up temporary download file if exists
+    if (!m_tempFilePath.isEmpty()) {
+        QFile::remove(m_tempFilePath);
     }
 
     if (m_lUserID >= 0) {
@@ -392,6 +467,9 @@ void HikvisionDownloader::checkProgress()
             if (m_lUserID >= 0) {
                 NET_DVR_Logout(m_lUserID);
                 m_lUserID = -1;
+            }
+            if (!m_tempFilePath.isEmpty()) {
+                QFile::remove(m_tempFilePath);
             }
             m_isDownloading = false;
             m_isConverting = false;

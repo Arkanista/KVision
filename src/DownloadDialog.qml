@@ -231,8 +231,8 @@ Popup {
             filename = filename.replace(/ /g, "_").replace(/[^a-zA-Z0-9_\-\.]/g, "");
             
             var moviesPath = "";
-            if (typeof generalSettings !== "undefined" && generalSettings.videoPath !== "") {
-                moviesPath = generalSettings.videoPath;
+            if (typeof rootWindow !== "undefined" && rootWindow.generalSettings && rootWindow.generalSettings.videoPath !== "") {
+                moviesPath = rootWindow.generalSettings.videoPath;
             } else {
                 moviesPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.MoviesLocation).toString();
                 if (moviesPath.indexOf("file://") === 0) {
@@ -637,9 +637,9 @@ Popup {
         nameFilters: ["Filmy MP4 (*.mp4)", "Wszystkie pliki (*)"]
         defaultSuffix: "mp4"
         folder: {
-            if (typeof generalSettings !== "undefined" && generalSettings.videoPath !== "") {
-                Context.mkpath(generalSettings.videoPath);
-                return "file://" + generalSettings.videoPath;
+            if (typeof rootWindow !== "undefined" && rootWindow.generalSettings && rootWindow.generalSettings.videoPath !== "") {
+                Context.mkpath(rootWindow.generalSettings.videoPath);
+                return "file://" + rootWindow.generalSettings.videoPath;
             }
             var mLoc = Platform.StandardPaths.writableLocation(Platform.StandardPaths.MoviesLocation).toString();
             if (mLoc.indexOf("file://") === 0) mLoc = mLoc.substring(7);

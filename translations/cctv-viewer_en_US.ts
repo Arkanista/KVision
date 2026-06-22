@@ -129,6 +129,10 @@
         <source>Start as an auxiliary window.</source>
         <translation>Start as an auxiliary window.</translation>
     </message>
+    <message>
+        <source>Pokaż szczegółowe logi w konsoli (verbose logging).</source>
+        <translation>Show verbose logs in console (verbose logging).</translation>
+    </message>
 </context>
 <context>
     <name>DownloadDialog</name>
@@ -291,6 +295,10 @@
         <source>Konwersja części %1 na MP4 nie powiodła się: %2</source>
         <translation>Conversion of part %1 to MP4 failed: %2</translation>
     </message>
+    <message>
+        <source>Inicjalizacja wyszukiwania plików...</source>
+        <translation>Initializing file search...</translation>
+    </message>
 </context>
 <context>
     <name>HikvisionManager</name>
@@ -379,6 +387,10 @@
     <message>
         <source>Odśwież miniaturę kamery</source>
         <translation>Refresh camera thumbnail</translation>
+    </message>
+    <message>
+        <source>Cameras</source>
+        <translation>Cameras</translation>
     </message>
 </context>
 <context>
@@ -1580,6 +1592,22 @@
     <message>
         <source>Powiększono i odwrócono kolory przycisku plus (+) na kafelkach kamer (seledynowe tło) dla lepszej widoczności, dodając wyraźne stany hover/pressed.</source>
         <translation>Enlarged and inverted colors of the plus button (+) on camera tiles (mint background) for better visibility, with clear hover/pressed states.</translation>
+    </message>
+    <message>
+        <source>Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum poprzez wieloetapowe oczyszczanie sterty oraz optymalizację pamięci podręcznej silnika QML.</source>
+        <translation>Resolved the residual RAM usage (20-30 MB) after closing the Archive window through multi-step heap cleanup and QML engine cache optimizations.</translation>
+    </message>
+    <message>
+        <source>Zoptymalizowano zużycie pamięci RAM przy skalowaniu i powiększaniu widoku kamer w viewportach, zapobiegając nadmiernemu wzrostowi alokacji pamięci podczas ciągłej zmiany rozmiaru okien strumieni wideo.</source>
+        <translation>Optimized RAM usage during camera scaling and viewport resizing/zooming, preventing excessive memory accumulation during continuous video stream layout changes.</translation>
+    </message>
+    <message>
+        <source>Dodano precyzyjny, rzeczywisty wskaźnik klatek na sekundę (FPS) w lewym górnym rogu każdego viewportu dla strumieni na żywo i odtwarzacza archiwalnego.</source>
+        <translation>Added a precise, real-time frames per second (FPS) indicator in the upper-left corner of each viewport for both live and archive playback streams.</translation>
+    </message>
+    <message>
+        <source>Wdrożono bezpieczne zamykanie i zwalnianie wątków pobierania plików w downloaderze Hikvision, zapewniając stabilne i natychmiastowe zamykanie programu bez blokowania zasobów systemowych.</source>
+        <translation>Implemented safe termination and release of download threads in the Hikvision downloader, ensuring stable and immediate application shutdown without blocking system resources.</translation>
     </message>
 </context>
 <context>

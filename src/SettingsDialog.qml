@@ -196,6 +196,7 @@ Dialog {
                     id: showInfoOnHoverOnlyCheckBox
                     text: qsTr("Show info fields only when hovering")
                 }
+
             }
         }
 
@@ -338,7 +339,7 @@ Dialog {
 
     Connections {
         target: Context
-        onLanguageChanged: {
+        function onLanguageChanged() {
             var lang = Context.getLanguage();
             for (var i = 0; i < languageComboBox.model.length; ++i) {
                 if (languageComboBox.model[i].value === lang) {

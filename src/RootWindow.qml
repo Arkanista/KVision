@@ -101,12 +101,38 @@ ApplicationWindow {
     property alias hikvisionRecordersJson: hikvisionSettings.recordersJson
     property alias layoutRepeater: layoutRepeater
     property alias layoutIndex: stackLayout.currentIndex
+    property alias generalSettings: generalSettings
+    property alias viewSettings: viewSettings
     property var auxWindowsList: []
     property var activeLayoutWindow: rootWindow
     
     // Permanent caches for NVR searches to avoid constantly reloading from network
     property var monthAvailabilitiesCache: ({})
     property var playbackSegmentsCache: ({})
+
+    // Multi-stage Deferred Garbage Collection and Memory Trimming to prevent memory accumulation / leaks
+    Timer {
+        id: gcTimer
+        interval: 1000
+        repeat: true
+        property int tickCount: 0
+        onTriggered: {
+            tickCount++;
+            console.log("[Root] Multi-stage deferred GC and memory trim (tick " + tickCount + "/5)...");
+            gc();
+            Context.trimMemory();
+            if (tickCount >= 5) {
+                stop();
+            }
+        }
+        function restartGC() {
+            tickCount = 0;
+            restart();
+        }
+    }
+    function triggerGcDeferred() {
+        gcTimer.restartGC();
+    }
 
     onActiveChanged: {
         if (active) {
@@ -304,31 +330,29 @@ ApplicationWindow {
         Context.startAuxiliaryProcess();
     }
 
-    function openPlaybackWindowEmpty() {
-        var component = Qt.createComponent("qrc:/src/PlaybackWindow.qml");
-        if (component.status === Component.Ready) {
-            var win = component.createObject(rootWindow, {
-                "recorderInfo": null,
-                "channelId": -1,
-                "cameraName": "",
+    function openPlaybackWindow(recInfo, channelId, cameraName) {
+        if (playbackWindowLoader.active) {
+            if (playbackWindowLoader.item) {
+                playbackWindowLoader.item.recorderInfo = recInfo;
+                playbackWindowLoader.item.channelId = channelId;
+                playbackWindowLoader.item.cameraName = cameraName;
+                playbackWindowLoader.item.show();
+                playbackWindowLoader.item.raise();
+            }
+        } else {
+            playbackWindowLoader.setSource("qrc:/src/PlaybackWindow.qml", {
+                "recorderInfo": recInfo,
+                "channelId": channelId,
+                "cameraName": cameraName,
                 "width": rootWindow.width * 0.9,
                 "height": rootWindow.height * 0.9
             });
-            win.show();
-        } else {
-            component.statusChanged.connect(function() {
-                if (component.status === Component.Ready) {
-                    var win = component.createObject(rootWindow, {
-                        "recorderInfo": null,
-                        "channelId": -1,
-                        "cameraName": "",
-                        "width": rootWindow.width * 0.9,
-                        "height": rootWindow.height * 0.9
-                    });
-                    win.show();
-                }
-            });
+            playbackWindowLoader.active = true;
         }
+    }
+
+    function openPlaybackWindowEmpty() {
+        openPlaybackWindow(null, -1, "");
     }
 
 
@@ -1045,6 +1069,7 @@ ApplicationWindow {
 
             onCurrentIndexChanged: {
                 layoutsCollectionSettings.currentIndex = currentIndex;
+                rootWindow.triggerGcDeferred();
             }
 
             Repeater {
@@ -1132,7 +1157,7 @@ ApplicationWindow {
 
     Connections {
         target: SingleApplication
-        onMessageReceived: {
+        function onMessageReceived(message) {
             if (message === "openNewWindow") {
                 rootWindow.openAuxiliaryWindow();
             }
@@ -1669,6 +1694,15 @@ ApplicationWindow {
         id: loadingTimer
         interval: 2000
         repeat: false
+    }
+
+    Loader {
+        id: playbackWindowLoader
+        active: false
+        onLoaded: {
+            item.show();
+            item.raise();
+        }
     }
 
     CursorShape {

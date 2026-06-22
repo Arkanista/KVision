@@ -28,17 +28,21 @@ public:
 
     static Config *config() { return m_config; }
     static bool isAuxiliary() { return m_isAuxiliary; }
+    static bool enableLogs() { return m_enableLogs; }
 
     Q_INVOKABLE void setLanguage(const QString &lang);
     Q_INVOKABLE QString getLanguage() const;
 
     Q_INVOKABLE void startAuxiliaryProcess();
 
+    Q_INVOKABLE void trimMemory();
+
     Q_INVOKABLE bool mkpath(const QString &dirPath) const;
     Q_INVOKABLE bool dirExists(const QString &dirPath) const;
     Q_INVOKABLE QString homePath() const;
     Q_INVOKABLE QUrl pathToUrl(const QString &path) const;
     Q_INVOKABLE QString selectFolder(const QString &title, const QString &initialPath) const;
+    Q_INVOKABLE QString readLocalFile(const QString &filePath) const;
 
 signals:
     void languageChanged();
@@ -50,6 +54,7 @@ private:
     inline static Config *m_config = nullptr;
     inline static QCommandLineParser m_commandLineParser;
     inline static bool m_isAuxiliary = false;
+    inline static bool m_enableLogs = false;
     inline static QList<QProcess*> m_childProcesses;
     inline static QMap<QProcess*, QString> m_childTempConfigs;
     inline static QQmlEngine *m_engine = nullptr;

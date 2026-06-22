@@ -283,6 +283,18 @@ FocusScope {
         updateSource();
     }
 
+    Component.onDestruction: {
+        timer.stop();
+        qmlAvPlayer1.autoPlay = false;
+        qmlAvPlayer2.autoPlay = false;
+        qmlAvPlayer1.stop();
+        qmlAvPlayer2.stop();
+        qmlAvPlayer1.source = "";
+        qmlAvPlayer2.source = "";
+        activeStreamUrl = "";
+        activeCameraId = "";
+    }
+
     signal mediaError(string errorSource)
 
     Timer {
@@ -489,6 +501,34 @@ FocusScope {
                     height: 7
                     color: root.isSubStream ? "#44ff7a00" : "#4400f5d4"
                     anchors.verticalCenter: parent.verticalCenter
+                }
+                
+                Text {
+                    text: {
+                        var fpsVal = 0;
+                        if (root.isHikvision) {
+                            if (hikPlayerSettings.useRealStreams) {
+                                fpsVal = (root.activePlayerIndex === 1 ? qmlAvPlayer1.fps : qmlAvPlayer2.fps);
+                            } else {
+                                fpsVal = hikPlayer.fps;
+                            }
+                        } else {
+                            fpsVal = (root.activePlayerIndex === 1 ? qmlAvPlayer1.fps : qmlAvPlayer2.fps);
+                        }
+                        return fpsVal + " FPS";
+                    }
+                    color: "#eeeeee"
+                    font {
+                        pixelSize: 8
+                        bold: true
+                    }
+                }
+                
+                Rectangle {
+                    width: 1
+                    height: 7
+                    color: root.isSubStream ? "#44ff7a00" : "#4400f5d4"
+                    anchors.verticalCenter: parent.verticalCenter
                     visible: !root.isHikvision || hikPlayerSettings.useRealStreams
                 }
                 
@@ -641,11 +681,18 @@ FocusScope {
             hoverEnabled: true
             acceptedButtons: Qt.NoButton
 
-            readonly property bool isHovered: containsMouse ||
-                                              snapshotMouseAreaBtn.containsMouse ||
-                                              (playbackBadge.visible && playbackMouseAreaBtn.containsMouse) ||
-                                              oneToOneMouseAreaBtn.containsMouse ||
-                                              zoomMouseAreaBtn.containsMouse
+            property bool isHovered: false
+
+            function updateHoverState() {
+                isHovered = containsMouse ||
+                            snapshotMouseAreaBtn.containsMouse ||
+                            (playbackBadge.visible && playbackMouseAreaBtn.containsMouse) ||
+                            oneToOneMouseAreaBtn.containsMouse ||
+                            zoomMouseAreaBtn.containsMouse;
+            }
+
+            onContainsMouseChanged: updateHoverState()
+            Component.onCompleted: updateHoverState()
 
             // Symmetrically placed magnifying glass button overlay on the bottom right
             Row {
@@ -699,6 +746,7 @@ FocusScope {
                         anchors.fill: parent
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
+                        onContainsMouseChanged: playerHoverArea.updateHoverState()
                         onClicked: {
                             var d = new Date();
                             var dateStr = Qt.formatDateTime(d, "yyyy-MM-dd_HH-mm-ss");
@@ -756,6 +804,7 @@ FocusScope {
                     implicitHeight: 24
                     padding: 5
                     visible: root.source !== "" && root.isHikvision
+                    onVisibleChanged: playerHoverArea.updateHoverState()
 
                     background: Rectangle {
                         radius: 12
@@ -777,6 +826,7 @@ FocusScope {
                         anchors.fill: parent
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
+                        onContainsMouseChanged: playerHoverArea.updateHoverState()
                         onClicked: {
                             var recInfo = {
                                 "ip": root.recorderIp,
@@ -786,34 +836,7 @@ FocusScope {
                             };
                             var camName = root.cameraNameInfo || ("Camera " + root.channelId);
 
-                            var component = Qt.createComponent("qrc:/src/PlaybackWindow.qml");
-                            if (component.status === Component.Ready) {
-                                var win = component.createObject(rootWindow, {
-                                    "recorderInfo": recInfo,
-                                    "channelId": root.channelId,
-                                    "cameraName": camName,
-                                    "width": rootWindow.width * 0.9,
-                                    "height": rootWindow.height * 0.9
-                                });
-                                win.show();
-                            } else if (component.status === Component.Error) {
-                                console.log("Error creating PlaybackWindow:", component.errorString());
-                            } else {
-                                component.statusChanged.connect(function() {
-                                    if (component.status === Component.Ready) {
-                                        var win = component.createObject(rootWindow, {
-                                            "recorderInfo": recInfo,
-                                            "channelId": root.channelId,
-                                            "cameraName": camName,
-                                            "width": rootWindow.width * 0.9,
-                                            "height": rootWindow.height * 0.9
-                                        });
-                                        win.show();
-                                    } else if (component.status === Component.Error) {
-                                        console.log("Error creating PlaybackWindow async:", component.errorString());
-                                    }
-                                });
-                            }
+                            rootWindow.openPlaybackWindow(recInfo, root.channelId, camName);
                         }
                     }
 
@@ -855,6 +878,7 @@ FocusScope {
                         anchors.fill: parent
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
+                        onContainsMouseChanged: playerHoverArea.updateHoverState()
                         onClicked: {
                             root.isOneToOne = !root.isOneToOne;
                         }
@@ -907,6 +931,7 @@ FocusScope {
                         anchors.fill: parent
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
+                        onContainsMouseChanged: playerHoverArea.updateHoverState()
                         onClicked: {
                             if (root.isZoomed) {
                                 // Reset zoom

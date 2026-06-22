@@ -51,7 +51,7 @@ ColumnLayout {
 
     Connections {
         target: rootWindow
-        onHikvisionRecordersJsonChanged: {
+        function onHikvisionRecordersJsonChanged() {
             rootPanel.loadRecorders();
         }
     }

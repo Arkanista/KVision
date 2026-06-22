@@ -12,12 +12,15 @@ Window {
     width: 900
     height: 600
     color: "#0f151b"
-    title: recorder.name ? qsTr("Cameras on %1").arg(recorder.name) : qsTr("Cameras on %1").arg(recorder.ip)
+    title: (recorder && recorder.ip) ? (recorder.name ? qsTr("Cameras on %1").arg(recorder.name) : qsTr("Cameras on %1").arg(recorder.ip)) : qsTr("Cameras")
 
     property var recorder: ({})
 
     onClosing: {
         camerasWin.destroy();
+        if (typeof rootWindow !== "undefined" && rootWindow) {
+            rootWindow.triggerGcDeferred();
+        }
     }
 
     // Track thumbnail refresh counters per cache key
@@ -80,14 +83,14 @@ Window {
                 Layout.fillWidth: true
 
                 Text {
-                    text: recorder.name ? recorder.name : recorder.ip
+                    text: recorder.name ? recorder.name : (recorder.ip ? recorder.ip : "")
                     color: "white"
                     font.bold: true
                     font.pixelSize: 13
                 }
 
                 Text {
-                    text: qsTr("IP: %1 | Port: %2 | %3 channels").arg(recorder.ip).arg(recorder.port).arg(recorder.cameras ? recorder.cameras.length : 0)
+                    text: (recorder && recorder.ip) ? qsTr("IP: %1 | Port: %2 | %3 channels").arg(recorder.ip).arg(recorder.port || 0).arg(recorder.cameras ? recorder.cameras.length : 0) : ""
                     color: "#8898a6"
                     font.pixelSize: 9
                 }

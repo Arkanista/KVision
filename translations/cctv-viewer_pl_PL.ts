@@ -93,15 +93,15 @@
     </message>
     <message>
         <source>Opcje i ustawienia panelu bocznego</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcje i ustawienia panelu bocznego</translation>
     </message>
     <message>
         <source>Otwórz nowe okno pomocnicze</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwórz nowe okno pomocnicze</translation>
     </message>
     <message>
         <source>Instrukcja obsługi programu</source>
-        <translation type="unfinished"></translation>
+        <translation>Instrukcja obsługi programu</translation>
     </message>
 </context>
 <context>
@@ -144,6 +144,10 @@
     <message>
         <source>Start as an auxiliary window.</source>
         <translation>Uruchom jako okno pomocnicze.</translation>
+    </message>
+    <message>
+        <source>Pokaż szczegółowe logi w konsoli (verbose logging).</source>
+        <translation>Pokaż szczegółowe logi w konsoli (verbose logging).</translation>
     </message>
 </context>
 <context>
@@ -307,6 +311,10 @@
         <source>Konwersja części %1 na MP4 nie powiodła się: %2</source>
         <translation>Konwersja części %1 na MP4 nie powiodła się: %2</translation>
     </message>
+    <message>
+        <source>Inicjalizacja wyszukiwania plików...</source>
+        <translation>Inicjalizacja wyszukiwania plików...</translation>
+    </message>
 </context>
 <context>
     <name>HikvisionManager</name>
@@ -399,6 +407,10 @@
     <message>
         <source>Odśwież miniaturę kamery</source>
         <translation>Odśwież miniaturę kamery</translation>
+    </message>
+    <message>
+        <source>Cameras</source>
+        <translation>Cameras</translation>
     </message>
 </context>
 <context>
@@ -974,27 +986,27 @@
     </message>
     <message>
         <source>Opcje i ustawienia panelu bocznego</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcje i ustawienia panelu bocznego</translation>
     </message>
     <message>
         <source>Otwórz nowe okno pomocnicze</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwórz nowe okno pomocnicze</translation>
     </message>
     <message>
         <source>Archiwum nagrań i odtwarzacz</source>
-        <translation type="unfinished"></translation>
+        <translation>Archiwum nagrań i odtwarzacz</translation>
     </message>
     <message>
         <source>Instrukcja obsługi programu</source>
-        <translation type="unfinished"></translation>
+        <translation>Instrukcja obsługi programu</translation>
     </message>
     <message>
         <source>Wyłącz statystyki zużycia zasobów</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyłącz statystyki zużycia zasobów</translation>
     </message>
     <message>
         <source>Włącz statystyki zużycia zasobów</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącz statystyki zużycia zasobów</translation>
     </message>
 </context>
 <context>
@@ -1540,79 +1552,79 @@
     </message>
     <message>
         <source>Aktywuj ten układ podglądu</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktywuj ten układ podglądu</translation>
     </message>
     <message>
         <source>Usuń ten układ podglądu</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń ten układ podglądu</translation>
     </message>
     <message>
         <source>Aktywuj ten widok kamer NVR</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktywuj ten widok kamer NVR</translation>
     </message>
     <message>
         <source>Usuń ten widok kamer NVR</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń ten widok kamer NVR</translation>
     </message>
     <message>
         <source>Aktywuj ten preset kamer NVR</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktywuj ten preset kamer NVR</translation>
     </message>
     <message>
         <source>Usuń ten preset kamer NVR</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń ten preset kamer NVR</translation>
     </message>
     <message>
         <source>Ujednolicono przyciski wyboru siatki (1x1-9x9) do spójnych okrągłych przycisków 30x30px.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ujednolicono przyciski wyboru siatki (1x1-9x9) do spójnych okrągłych przycisków 30x30px.</translation>
     </message>
     <message>
         <source>Wymuszono automatyczne wyświetlanie nazw widoków wielkimi literami (Uppercase).</source>
-        <translation type="unfinished"></translation>
+        <translation>Wymuszono automatyczne wyświetlanie nazw widoków wielkimi literami (Uppercase).</translation>
     </message>
     <message>
         <source>Poprawiono czytelność i kontrast aktywnego przycisku widoku – ciemny tekst (#121214) na jasnym seledynowym tle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Poprawiono czytelność i kontrast aktywnego przycisku widoku – ciemny tekst (#121214) na jasnym seledynowym tle.</translation>
     </message>
     <message>
         <source>Zastąpiono tekstowe przyciski akcji na górnym pasku (Opcje, Nowe okno, Archiwum, Instrukcje) dedykowanymi, kolorowymi ikonami SVG z pomocniczymi dymkami (Tooltip).</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastąpiono tekstowe przyciski akcji na górnym pasku (Opcje, Nowe okno, Archiwum, Instrukcje) dedykowanymi, kolorowymi ikonami SVG z pomocniczymi dymkami (Tooltip).</translation>
     </message>
     <message>
         <source>Zastąpiono przełącznik statystyk interaktywną ikoną SVG odzwierciedlającą stan aktywności monitora systemowego.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastąpiono przełącznik statystyk interaktywną ikoną SVG odzwierciedlającą stan aktywności monitora systemowego.</translation>
     </message>
     <message>
         <source>Dodano pionową linię rozdzielającą (separator) sekcję opcji od sekcji wyboru siatki.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodano pionową linię rozdzielającą (separator) sekcję opcji od sekcji wyboru siatki.</translation>
     </message>
     <message>
         <source>Przebudowano przyciski widoków do eleganckiego, zaokrąglonego kształtu pigułki o wysokości 30px z zachowaniem marginesów bocznych.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przebudowano przyciski widoków do eleganckiego, zaokrąglonego kształtu pigułki o wysokości 30px z zachowaniem marginesów bocznych.</translation>
     </message>
     <message>
         <source>Ujednolicono i poprawiono ikony usuwania na liście rejestratorów i widoków oraz przycisk aktywacji presetu na ikony SVG z dymkami (Tooltip).</source>
-        <translation type="unfinished"></translation>
+        <translation>Ujednolicono i poprawiono ikony usuwania na liście rejestratorów i widoków oraz przycisk aktywacji presetu na ikony SVG z dymkami (Tooltip).</translation>
     </message>
     <message>
         <source>Zmniejszono odległości między przyciskami na górnym pasku w celu optymalizacji przestrzeni interfejsu.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmniejszono odległości między przyciskami na górnym pasku w celu optymalizacji przestrzeni interfejsu.</translation>
     </message>
     <message>
         <source>Przywrócono brakującą ikonę minimalizowania w oknie pomocniczym.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przywrócono brakującą ikonę minimalizowania w oknie pomocniczym.</translation>
     </message>
     <message>
         <source>Zastąpiono słabo widoczną czarną ikonę emoji 📺 w pustym widoku eleganckim seledynowym monitorem wektorowym SVG High-DPI.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastąpiono słabo widoczną czarną ikonę emoji 📺 w pustym widoku eleganckim seledynowym monitorem wektorowym SVG High-DPI.</translation>
     </message>
     <message>
         <source>Zwiększono czytelność pasków rejestratorów w oknie archiwum (wysokość zwiększona z 22px do 28px, powiększona czcionka z 9px do 11px, większa strzałka rozwijania).</source>
-        <translation type="unfinished"></translation>
+        <translation>Zwiększono czytelność pasków rejestratorów w oknie archiwum (wysokość zwiększona z 22px do 28px, powiększona czcionka z 9px do 11px, większa strzałka rozwijania).</translation>
     </message>
     <message>
         <source>Dodano pełny, dynamiczny efekt hover dla pasków rejestratorów z wyraźną zmianą kolorystyki tła, tekstu oraz ikon na seledynowy/biały.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodano pełny, dynamiczny efekt hover dla pasków rejestratorów z wyraźną zmianą kolorystyki tła, tekstu oraz ikon na seledynowy/biały.</translation>
     </message>
     <message>
         <source>Poprawiono przesunięcie paska dostępności nagrań o 2-3 godziny w oknie odtwarzacza archiwum, synchronizując oś czasu ze strefą czasową klienta (z poprawną obsługą czasu letniego/zimowego DST).</source>
@@ -1629,6 +1641,46 @@
     <message>
         <source>Powiększono i odwrócono kolory przycisku plus (+) na kafelkach kamer (seledynowe tło) dla lepszej widoczności, dodając wyraźne stany hover/pressed.</source>
         <translation>Powiększono i odwrócono kolory przycisku plus (+) na kafelkach kamer (seledynowe tło) dla lepszej widoczności, dodając wyraźne stany hover/pressed.</translation>
+    </message>
+    <message>
+        <source>Limit video framerate to 30 FPS (saves CPU and power)</source>
+        <translation type="vanished">Ogranicz klatkaż wideo do 30 FPS (oszczędza CPU i prąd)</translation>
+    </message>
+    <message>
+        <source>Wyeliminowano krytyczny błąd crash (Segmentation Fault) przy dynamicznym przełączaniu widoków i siatek kamer poprzez bezpieczną sekwencję uwalniania pamięci podręcznej komponentów QML.</source>
+        <translation type="vanished">Wyeliminowano krytyczny błąd crash (Segmentation Fault) przy dynamicznym przełączaniu widoków i siatek kamer poprzez bezpieczną sekwencję uwalniania pamięci podręcznej komponentów QML.</translation>
+    </message>
+    <message>
+        <source>Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum, wdrażając wieloetapowy mechanizm oczyszczania sterty i uwalniania bytecode&apos;u (trimComponentCache po collectGarbage).</source>
+        <translation type="vanished">Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum, wdrażając wieloetapowy mechanizm oczyszczania sterty i uwalniania bytecode&apos;u (trimComponentCache po collectGarbage).</translation>
+    </message>
+    <message>
+        <source>Zabezpieczono zamykanie okna Archiwum poprzez asynchroniczne odpięcie Loadera przy użyciu Qt.callLater, eliminując błędy referencji silnika QML.</source>
+        <translation type="vanished">Zabezpieczono zamykanie okna Archiwum poprzez asynchroniczne odpięcie Loadera przy użyciu Qt.callLater, eliminując błędy referencji silnika QML.</translation>
+    </message>
+    <message>
+        <source>Dodano precyzyjny, rzeczywisty wskaźnik klatek na sekundę (FPS) w lewym górnym rogu każdego viewportu dla widoku na żywo oraz odtwarzacza archiwalnego.</source>
+        <translation type="vanished">Dodano precyzyjny, rzeczywisty wskaźnik klatek na sekundę (FPS) w lewym górnym rogu każdego viewportu dla widoku na żywo oraz odtwarzacza archiwalnego.</translation>
+    </message>
+    <message>
+        <source>Wdrożono synchroniczne, bezpieczne niszczenie i uwalnianie wątków pobierania plików w klasie HikvisionDownloader, eliminując okazjonalne błędy przy zamykaniu programu.</source>
+        <translation type="vanished">Wdrożono synchroniczne, bezpieczne niszczenie i uwalnianie wątków pobierania plików w klasie HikvisionDownloader, eliminując okazjonalne błędy przy zamykaniu programu.</translation>
+    </message>
+    <message>
+        <source>Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum poprzez wieloetapowe oczyszczanie sterty oraz optymalizację pamięci podręcznej silnika QML.</source>
+        <translation>Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum poprzez wieloetapowe oczyszczanie sterty oraz optymalizację pamięci podręcznej silnika QML.</translation>
+    </message>
+    <message>
+        <source>Zoptymalizowano zużycie pamięci RAM przy skalowaniu i powiększaniu widoku kamer w viewportach, zapobiegając nadmiernemu wzrostowi alokacji pamięci podczas ciągłej zmiany rozmiaru okien strumieni wideo.</source>
+        <translation>Zoptymalizowano zużycie pamięci RAM przy skalowaniu i powiększaniu widoku kamer w viewportach, zapobiegając nadmiernemu wzrostowi alokacji pamięci podczas ciągłej zmiany rozmiaru okien strumieni wideo.</translation>
+    </message>
+    <message>
+        <source>Dodano precyzyjny, rzeczywisty wskaźnik klatek na sekundę (FPS) w lewym górnym rogu każdego viewportu dla strumieni na żywo i odtwarzacza archiwalnego.</source>
+        <translation>Dodano precyzyjny, rzeczywisty wskaźnik klatek na sekundę (FPS) w lewym górnym rogu każdego viewportu dla strumieni na żywo i odtwarzacza archiwalnego.</translation>
+    </message>
+    <message>
+        <source>Wdrożono bezpieczne zamykanie i zwalnianie wątków pobierania plików w downloaderze Hikvision, zapewniając stabilne i natychmiastowe zamykanie programu bez blokowania zasobów systemowych.</source>
+        <translation>Wdrożono bezpieczne zamykanie i zwalnianie wątków pobierania plików w downloaderze Hikvision, zapewniając stabilne i natychmiastowe zamykanie programu bez blokowania zasobów systemowych.</translation>
     </message>
 </context>
 <context>

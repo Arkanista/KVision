@@ -102,6 +102,7 @@ void HikvisionISAPI::doSearchRequest(const QString &sessionId)
     reply->setProperty("sessionId", sessionId);
     reply->setProperty("username", m_currentUser);
     reply->setProperty("password", m_currentPassword);
+    m_activeReplies[sessionId] = reply;
     connect(reply, &QNetworkReply::finished, this, &HikvisionISAPI::onReplyFinished);
 }
 
@@ -126,6 +127,7 @@ void HikvisionISAPI::onReplyFinished()
     if (!reply) return;
 
     QString sessionId = reply->property("sessionId").toString();
+    m_activeReplies.remove(sessionId);
     reply->deleteLater();
 
     if (!m_sessions.contains(sessionId)) {
@@ -259,3 +261,24 @@ void HikvisionISAPI::onReplyFinished()
         m_sessions.remove(sessionId);
     }
 }
+
+void HikvisionISAPI::cancelAllSearches()
+{
+    qDebug() << "[ISAPI] cancelAllSearches called. Cancelling" << m_sessions.size() << "active search sessions.";
+    m_sessions.clear();
+    
+    // Copy the replies to a local list first to avoid iterator invalidation when they are aborted/deleted
+    QList<QNetworkReply*> repliesToAbort = m_activeReplies.values();
+    m_activeReplies.clear();
+
+    for (auto* reply : repliesToAbort) {
+        if (reply) {
+            // Disconnect all signals to prevent onReplyFinished or authentication requests
+            // from being triggered synchronously during reply->abort()
+            reply->disconnect(this);
+            reply->abort();
+            reply->deleteLater();
+        }
+    }
+}
+

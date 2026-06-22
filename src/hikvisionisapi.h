@@ -38,6 +38,7 @@ public:
     // start, end: the date range to query
     Q_INVOKABLE void searchRecordings(const QVariantMap &recorderInfo, int channelId, const QDateTime &start, const QDateTime &end);
     Q_INVOKABLE void searchMonthAvailability(const QVariantMap &recorderInfo, int channelId, int year, int month);
+    Q_INVOKABLE void cancelAllSearches();
 
 signals:
     void searchFinished(const QString &recorderIp, int channelId, const QDateTime &startTime, const QVariantList &segments);
@@ -55,6 +56,7 @@ private:
     QString m_currentUser;
     QString m_currentPassword;
     QMap<QString, HikvisionSearchSession> m_sessions;
+    QMap<QString, QNetworkReply*> m_activeReplies;
 };
 
 #endif // HIKVISIONISAPI_H

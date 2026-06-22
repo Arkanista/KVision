@@ -64,6 +64,9 @@ void ThumbnailFetchWorker::fetchFrame(const QString &rtspUrl, const QString &cac
     icb.timeout_ms = timeoutMs; // total fetch timeout
 
     fmtCtx->interrupt_callback.callback = [](void *ctx) -> int {
+        if (QThread::currentThread()->isInterruptionRequested()) {
+            return 1;
+        }
         InterruptCb *icb = static_cast<InterruptCb*>(ctx);
         return (av_gettime() - icb->start_time) > (icb->timeout_ms * 1000LL) ? 1 : 0;
     };
@@ -178,6 +181,9 @@ void ThumbnailFetchWorker::fetchFrame(const QString &rtspUrl, const QString &cac
     int maxPackets = 150; // Safety limit
 
     while (!gotFrame && maxPackets-- > 0) {
+        if (QThread::currentThread()->isInterruptionRequested()) {
+            break;
+        }
         ret = av_read_frame(fmtCtx, pkt);
         if (ret < 0) break;
 
@@ -249,8 +255,9 @@ ThumbnailProvider::ThumbnailProvider(QObject *parent)
 ThumbnailProvider::~ThumbnailProvider()
 {
     cancelAll();
+    m_workerThread.requestInterruption();
     m_workerThread.quit();
-    m_workerThread.wait(3000);
+    m_workerThread.wait();
 }
 
 void ThumbnailProvider::requestThumbnail(const QString &rtspUrl, const QString &cacheKey, int timeoutMs, bool prepend)

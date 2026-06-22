@@ -9,12 +9,9 @@
 #include <atomic>
 #include <memory>
 #include <vector>
-#include <chrono>
-#include <condition_variable>
-#include <thread>
 #include "hcnetsdk_compat.h"
 
-
+class YV12ToRGBTask;
 
 class HikvisionArchivePlayer : public QQuickPaintedItem
 {
@@ -28,6 +25,7 @@ class HikvisionArchivePlayer : public QQuickPaintedItem
     Q_PROPERTY(bool isPlaying READ isPlaying NOTIFY playingChanged)
     Q_PROPERTY(int videoWidth READ videoWidth NOTIFY videoSizeChanged)
     Q_PROPERTY(int videoHeight READ videoHeight NOTIFY videoSizeChanged)
+    Q_PROPERTY(int fps READ fps NOTIFY fpsChanged)
 
 public:
     explicit HikvisionArchivePlayer(QQuickItem *parent = nullptr);
@@ -40,7 +38,7 @@ public:
 
     int channelId() const;
     void setChannelId(int id);
-    
+
     int port() const;
     void setPort(int port);
 
@@ -54,6 +52,7 @@ public:
     bool isPlaying() const;
     int videoWidth() const;
     int videoHeight() const;
+    int fps() const { return m_fps; }
 
     Q_INVOKABLE void playAtTime(const QDateTime &dateTime);
     Q_INVOKABLE void setPlaybackSpeed(int speedMultiplier); // 1, 2, 4, 8, -1, -2, -4, -8
@@ -74,11 +73,12 @@ signals:
     void playheadChanged();
     void playingChanged();
     void videoSizeChanged();
+    void fpsChanged();
 
 private:
     void updateImage(const QImage &img);
     static void PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void *pUser);
-    static void DisplayCallBack(long nPort, char *pBuf, long nSize, long nWidth, long nHeight, long nStamp, long nType, long nReserved);
+    static void DecCallBack(long nPort, char *pBuf, long nSize, FRAME_INFO *pFrameInfo, long nReserved1, long nReserved2);
 
     void cleanupPlayback();
     bool ensureLogin();
@@ -99,8 +99,9 @@ private:
 
     QImage m_currentImage;
     mutable std::mutex m_imageMutex;
+    mutable std::mutex m_stateMutex;
 
-
+    friend class YV12ToRGBTask;
 
 public:
     struct FrameBuffer {
@@ -116,34 +117,13 @@ private:
 
     std::vector<std::shared_ptr<FrameBuffer>> m_frameBufferPool;
     std::mutex m_poolMutex;
-
+    std::atomic<int> m_pendingTasks{0};
     std::atomic<bool> m_sysHeadReceived{false};
-    std::atomic<int> m_playbackSpeed{1};
-    std::atomic<int> m_currentNvrSpeed{1};
-    void applyPlaybackSpeed();
 
-    std::atomic<bool> m_pacingInitialized{false};
-    std::chrono::steady_clock::time_point m_pacingStartTime;
-    std::atomic<long> m_pacingStartStamp{0};
-    std::atomic<bool> m_stopPacing{false};
-    std::atomic<int> m_activeDisplayCallbacks{0};
-
-    std::atomic<long> m_lastStamp{0};
-    std::chrono::steady_clock::time_point m_lastFrameRealTime;
-    std::atomic<int> m_zeroStampCount{0};
-
-    struct QueueFrame {
-        std::vector<unsigned char> yv12Data;
-        int width = 0;
-        int height = 0;
-        long stamp = 0;
-    };
-    std::vector<QueueFrame> m_frameQueue;
-    std::mutex m_queueMutex;
-    std::condition_variable m_queueCond;
-    std::thread m_presentationThread;
-    std::atomic<bool> m_runPresentation{false};
-    void presentationLoop();
+    // FPS counter members (accessed on GUI thread in updateImage)
+    int m_fps = 0;
+    int m_fpsCounter = 0;
+    qint64 m_lastFpsTime = 0;
 };
 
 #endif // HIKVISIONARCHIVEPLAYER_H

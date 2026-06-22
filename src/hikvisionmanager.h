@@ -5,6 +5,8 @@
 #include <QVariantList>
 #include <QVariantMap>
 #include <QHash>
+#include <QList>
+#include <QThread>
 #include <mutex>
 #include <queue>
 #include <condition_variable>
@@ -87,6 +89,9 @@ private:
     mutable std::mutex m_initMutex;
     mutable std::condition_variable m_initCond;
     bool m_initCompleted = false;
+
+    QList<QThread*> m_discoveryThreads;
+    std::mutex m_discoveryMutex;
 };
 
 #endif // HIKVISIONMANAGER_H

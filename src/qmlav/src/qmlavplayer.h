@@ -19,6 +19,7 @@ class QmlAVPlayer : public QObject, public QQmlParserStatus
     Q_INTERFACES(QQmlParserStatus)
 
     Q_PROPERTY(QAbstractVideoSurface *videoSurface READ videoSurface WRITE setVideoSurface)
+    Q_PROPERTY(int fps READ fps NOTIFY fpsChanged)
 
     QMLAV_PROPERTY_DECL(QVariantMap, avOptions, setAVOptions, avOptionsChanged);
     QMLAV_PROPERTY_DECL(bool, autoLoad, setAutoLoad, autoLoadChanged) = true;
@@ -40,8 +41,12 @@ public:
     ~QmlAVPlayer() override;
 
     QAbstractVideoSurface *videoSurface() const { return m_videoSurface; }
+    int fps() const { return m_fps; }
     virtual void classBegin() override {}
     virtual void componentComplete() override;
+
+signals:
+    void fpsChanged();
 
 public slots:
     void play();
@@ -67,6 +72,9 @@ private:
 
     QmlAVAudioIODevice m_audioIODevice;
     QAudioOutput *m_audioOutput;
+    int m_fps = 0;
+    int m_fpsCounter = 0;
+    qint64 m_lastFpsTime = 0;
 };
 
 #endif // QMLAVPLAYER_H

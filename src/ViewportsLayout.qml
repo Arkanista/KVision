@@ -143,7 +143,7 @@ FocusScope {
         Repeater {
             id: repeater
 
-            model: root.model
+            model: root.visible ? root.model : null
 
             onCountChanged: {
                 if (d.fullScreenIndex >= count) {

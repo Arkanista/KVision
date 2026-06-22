@@ -26,28 +26,21 @@ Window {
     // Reload when language changes
     Connections {
         target: Context
-        onLanguageChanged: {
+        function onLanguageChanged() {
             loadInstructions();
         }
     }
 
     function loadInstructions() {
-        var xhr = new XMLHttpRequest();
         // Use a translated resource string to select correct file based on active locale
         var fileUrl = qsTr("qrc:/INSTRUKCJA.md");
-        
-        xhr.open("GET", fileUrl);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200 || xhr.status === 0) {
-                    rawMarkdownText = xhr.responseText;
-                    instructionsText.text = markdownToHtml(xhr.responseText);
-                } else {
-                    instructionsText.text = "<p style='color: #ff4d4d;'>" + qsTr("Błąd ładowania instrukcji.") + "</p>";
-                }
-            }
+        var content = Context.readLocalFile(fileUrl);
+        if (content) {
+            rawMarkdownText = content;
+            instructionsText.text = markdownToHtml(content);
+        } else {
+            instructionsText.text = "<p style='color: #ff4d4d;'>" + qsTr("Błąd ładowania instrukcji.") + "</p>";
         }
-        xhr.send();
     }
 
     function findHeaderIndex(anchor) {

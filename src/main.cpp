@@ -31,6 +31,35 @@ void custom_ffmpeg_log_callback(void* ptr, int level, const char* fmt, va_list v
     Q_UNUSED(vl);
 }
 
+void customMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+    Q_UNUSED(context);
+    if (!Context::enableLogs()) {
+        if (type == QtDebugMsg || type == QtInfoMsg || type == QtWarningMsg) {
+            return;
+        }
+    }
+
+    QByteArray localMsg = msg.toLocal8Bit();
+    switch (type) {
+    case QtDebugMsg:
+        fprintf(stderr, "%s\n", localMsg.constData());
+        break;
+    case QtInfoMsg:
+        fprintf(stderr, "%s\n", localMsg.constData());
+        break;
+    case QtWarningMsg:
+        fprintf(stderr, "Warning: %s\n", localMsg.constData());
+        break;
+    case QtCriticalMsg:
+        fprintf(stderr, "Critical: %s\n", localMsg.constData());
+        break;
+    case QtFatalMsg:
+        fprintf(stderr, "Fatal: %s\n", localMsg.constData());
+        abort();
+    }
+}
+
 void registerQmlTypes()
 {
     qmlRegisterSingletonType<Context>("CCTV_Viewer.Core", 1, 0, "Context",
@@ -70,6 +99,7 @@ void registerQmlTypes()
 
 int main(int argc, char *argv[])
 {
+    qInstallMessageHandler(customMessageHandler);
     av_log_set_callback(custom_ffmpeg_log_callback);
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
@@ -86,8 +116,6 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain(QLatin1String(ORG_DOMAIN));
 #endif
 
-    qInfo() << "CCTV Viewer version:" << APP_VERSION;
-
     registerQmlTypes();
 
     QApplication app(argc, argv);
@@ -96,6 +124,7 @@ int main(int argc, char *argv[])
     SingleApplication singleApp;
     if (singleApp.isRunning()) {
         Context::init();
+        qInfo() << "CCTV Viewer version:" << APP_VERSION;
         Context::initLanguage();
         QQmlApplicationEngine engine;
         Context::setEngine(&engine);
@@ -112,6 +141,7 @@ int main(int argc, char *argv[])
     }
 
     Context::init();
+    qInfo() << "CCTV Viewer version:" << APP_VERSION;
     Context::initLanguage();
 
     QQmlApplicationEngine engine;

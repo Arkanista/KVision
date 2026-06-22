@@ -8,6 +8,10 @@
 #include <QFileInfo>
 #include <QCoreApplication>
 #include <QSettings>
+#ifdef Q_OS_UNIX
+#include <unistd.h>
+#include <sys/types.h>
+#endif
 
 class SingleApplication : public QObject
 {
@@ -16,7 +20,11 @@ class SingleApplication : public QObject
 public:
     explicit SingleApplication(QObject *parent = nullptr)
         : QObject(parent),
+#ifdef Q_OS_UNIX
+          m_socketName(QFileInfo(QCoreApplication::applicationFilePath()).fileName() + "-cctv-viewer-socket-" + QString::number(getuid()))
+#else
           m_socketName(QFileInfo(QCoreApplication::applicationFilePath()).fileName() + "-cctv-viewer-socket")
+#endif
     {
         // Read configuration to check if single application mode is enabled
         QSettings settings(QSettings().fileName(), QSettings::NativeFormat);

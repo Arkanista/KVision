@@ -8,6 +8,8 @@
 #include <QProcess>
 #include <QList>
 #include <QPair>
+#include <QThread>
+#include <mutex>
 #include "hcnetsdk_compat.h"
 
 class HikvisionDownloader : public QObject
@@ -74,6 +76,9 @@ private:
     QVariantMap m_recorderInfo;
     int m_channelId;
     int m_realSdkChannel;
+
+    QThread *m_searchThread = nullptr;
+    std::mutex m_searchMutex;
 };
 
 #endif // HIKVISIONDOWNLOADER_H

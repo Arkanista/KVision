@@ -6,6 +6,8 @@ import CCTV_Viewer.Hikvision 1.0
 import QtGraphicalEffects 1.12
 import CCTV_Viewer.Core 1.0
 import CCTV_Viewer.Utils 1.0
+import CCTV_Viewer.Themes 1.0
+import Qt.labs.settings 1.0
 import Qt.labs.platform 1.1 as Platform
 
 
@@ -104,6 +106,7 @@ Window {
 
     function cameraMatches(cameraObj, query, recorderObj) {
         if (!query) return true;
+        if (!cameraObj) return false;
         if (recorderObj) {
             var recName = (recorderObj.name || "").toLowerCase();
             var recIp = (recorderObj.ip || "").toLowerCase();
@@ -480,7 +483,25 @@ Window {
 
     onClosing: {
         stopAllPlayers();
-        playbackWindow.destroy();
+        activePlayersList = [];
+        selectedPlayerIndex = -1;
+        HikvisionISAPI.cancelAllSearches();
+        rootWindow.playbackSegmentsCache = {};
+        rootWindow.monthAvailabilitiesCache = {};
+        // We defer the loader unloading and GC triggering to ensure the close sequence finishes cleanly.
+        Qt.callLater(function() {
+            if (typeof playbackWindowLoader !== "undefined" && playbackWindowLoader) {
+                playbackWindowLoader.active = false;
+            }
+            if (typeof rootWindow !== "undefined" && rootWindow) {
+                rootWindow.triggerGcDeferred();
+            }
+        });
+    }
+
+    Component.onDestruction: {
+        activePlayersList = [];
+        selectedPlayerIndex = -1;
     }
 
     DownloadDialog {
@@ -564,8 +585,8 @@ Window {
         var currentY = now.getFullYear();
         var currentM = now.getMonth();
         
-        // Fetch up to 12 months (1 year) backwards sequentially
-        for (var i = 0; i < 12; i++) {
+        // Fetch up to 2 months (current and previous) backwards sequentially
+        for (var i = 0; i < 2; i++) {
             var d = new Date(currentY, currentM - i, 1);
             var y = d.getFullYear();
             var m = d.getMonth();
@@ -585,8 +606,8 @@ Window {
     }
 
     function prefetchActiveCameras() {
-        for (var i = 0; i < activePlayersList.length; i++) {
-            var cam = activePlayersList[i];
+        if (selectedPlayerIndex >= 0 && selectedPlayerIndex < activePlayersList.length) {
+            var cam = activePlayersList[selectedPlayerIndex];
             if (cam) {
                 continuePrefetchingForCamera(cam);
             }
@@ -722,6 +743,7 @@ Window {
             var searchDateKey = getDateKey(currentSearchDate);
             
             for (var i = 0; i < activePlayersList.length; i++) {
+                if (i !== selectedPlayerIndex) continue; // Only load day segments for the selected camera!
                 var cam = activePlayersList[i];
                 if (!cam) continue;
                 
@@ -1744,16 +1766,43 @@ Window {
                                         }
                                     }
 
-                                    MouseArea {
+                                    Item {
                                         id: playerHoverArea
+                                        property bool isHovered: false
+                                        function updateHoverState() {
+                                            isHovered = playerHoverAreaMouseArea.containsMouse ||
+                                                        snapshotMouseAreaBtn.containsMouse ||
+                                                        oneToOneMouseAreaBtn.containsMouse ||
+                                                        zoomMouseAreaBtn.containsMouse;
+                                        }
+                                        Component.onCompleted: updateHoverState()
+                                        Connections {
+                                            target: playerHoverAreaMouseArea
+                                            function onContainsMouseChanged() { playerHoverArea.updateHoverState() }
+                                        }
+                                        Connections {
+                                            target: snapshotMouseAreaBtn
+                                            function onContainsMouseChanged() { playerHoverArea.updateHoverState() }
+                                        }
+                                        Connections {
+                                            target: oneToOneMouseAreaBtn
+                                            function onContainsMouseChanged() { playerHoverArea.updateHoverState() }
+                                        }
+                                        Connections {
+                                            target: zoomMouseAreaBtn
+                                            function onContainsMouseChanged() { playerHoverArea.updateHoverState() }
+                                        }
+                                        Connections {
+                                            target: tileContainer
+                                            function onVisibleChanged() { playerHoverArea.updateHoverState() }
+                                        }
+                                    }
+
+                                    MouseArea {
+                                        id: playerHoverAreaMouseArea
                                         anchors.fill: parent
                                         hoverEnabled: true
                                         acceptedButtons: Qt.NoButton
-
-                                        readonly property bool isHovered: containsMouse ||
-                                                                          snapshotMouseAreaBtn.containsMouse ||
-                                                                          oneToOneMouseAreaBtn.containsMouse ||
-                                                                          zoomMouseAreaBtn.containsMouse
                                     }
 
                                     // Controls overlay on the bottom right
@@ -1821,8 +1870,8 @@ Window {
                                                     var camName = rawCamName.replace(/ /g, "_").replace(/[^a-zA-Z0-9_\-\.]/g, "");
 
                                                     var path = "";
-                                                    if (typeof generalSettings !== "undefined" && generalSettings.snapshotPath !== "") {
-                                                        path = generalSettings.snapshotPath;
+                                                    if (typeof rootWindow !== "undefined" && rootWindow.generalSettings && rootWindow.generalSettings.snapshotPath !== "") {
+                                                        path = rootWindow.generalSettings.snapshotPath;
                                                     } else {
                                                         path = Platform.StandardPaths.writableLocation(Platform.StandardPaths.PicturesLocation).toString();
                                                         if (path.indexOf("file://") === 0) path = path.substring(7);
@@ -2041,8 +2090,8 @@ Window {
                                     }
                                     radius: 4
                                     
-                                    implicitWidth: cameraInfoContent.width + 12
-                                    implicitHeight: cameraInfoContent.height + 6
+                                    implicitWidth: cameraInfoContent.implicitWidth + 12
+                                    implicitHeight: cameraInfoContent.implicitHeight + 6
                                     
                                     RowLayout {
                                         id: cameraInfoContent
@@ -2059,6 +2108,22 @@ Window {
                                         Text {
                                             text: modelData ? (modelData.cameraName + " (" + modelData.recorderName + " CH " + (modelData.channelId < 10 ? "0" + modelData.channelId : modelData.channelId) + ")") : ""
                                             color: (index === selectedPlayerIndex) ? "#00f5d4" : "#eeeeee"
+                                            font {
+                                                pixelSize: 8
+                                                bold: true
+                                            }
+                                        }
+                                        
+                                        Rectangle {
+                                            width: 1
+                                            height: 7
+                                            color: (index === selectedPlayerIndex) ? "#4400f5d4" : "#448898a6"
+                                            Layout.alignment: Qt.AlignVCenter
+                                        }
+                                        
+                                        Text {
+                                            text: (playerItem ? playerItem.fps : 0) + " FPS"
+                                            color: "#eeeeee"
                                             font {
                                                 pixelSize: 8
                                                 bold: true

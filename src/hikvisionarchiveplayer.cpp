@@ -1,4 +1,7 @@
 #include "hikvisionarchiveplayer.h"
+#ifdef __linux__
+#include <malloc.h>
+#endif
 #include "hikvisionmanager.h"
 #include "qmlav/src/qmlavdemuxer.h"
 #include <QPainter>
@@ -7,26 +10,146 @@
 #include <QThreadPool>
 #include <QRunnable>
 #include <iostream>
-#include <thread>
-#include <chrono>
+#include <set>
 
 // Hikvision PlayM4 decoder constants (usually YV12)
 #define T_YV12 3
 
-#include <fstream>
-#include <iomanip>
-#include <mutex>
+class YV12ToRGBTask : public QRunnable
+{
+public:
+    YV12ToRGBTask(QPointer<HikvisionArchivePlayer> player, std::shared_ptr<HikvisionArchivePlayer::FrameBuffer> frame, LONG playHandle)
+        : m_player(player), m_frame(frame), m_taskPlayHandle(playHandle)
+    {
+        setAutoDelete(true);
+    }
 
-static void logToFile(const std::string& /*message*/) {
-    // Disabled for production release
-}
+    void run() override
+    {
+        if (!m_player) {
+            return;
+        }
+        if (!m_frame) {
+            m_player->m_pendingTasks--;
+            return;
+        }
 
+        // Check if session has changed before starting expensive RGB conversion
+        if (m_player->m_lPlayHandle.load() != m_taskPlayHandle) {
+            m_frame->inUse = false;
+            m_player->m_pendingTasks--;
+            return;
+        }
 
+        int width = m_frame->width;
+        int height = m_frame->height;
 
+        if (width <= 0 || height <= 0) {
+            m_frame->inUse = false;
+            m_player->m_pendingTasks--;
+            return;
+        }
+
+        const unsigned char* yPlane = m_frame->yv12Data.data();
+        const unsigned char* vPlane = yPlane + width * height;
+        const unsigned char* uPlane = vPlane + (width * height) / 4;
+
+        unsigned char* destData = m_frame->rgbData.data();
+        int destStride = width * 4;
+        int halfWidth = width / 2;
+
+        for (int y = 0; y < height; y++) {
+            QRgb* scanLine = reinterpret_cast<QRgb*>(destData + (y * destStride));
+            const unsigned char* yRow = yPlane + (y * width);
+            const unsigned char* uRow = uPlane + ((y / 2) * halfWidth);
+            const unsigned char* vRow = vPlane + ((y / 2) * halfWidth);
+
+            for (int x = 0; x < width; x += 2) {
+                int uv_x = x >> 1;
+                int U = uRow[uv_x] - 128;
+                int V = vRow[uv_x] - 128;
+
+                int r_diff = V + (V >> 2) + (V >> 3) + (V >> 5);
+                int g_diff = - ((U >> 2) + (U >> 4) + (U >> 5)) - ((V >> 1) + (V >> 3) + (V >> 4) + (V >> 5));
+                int b_diff = U + (U >> 1) + (U >> 2) + (U >> 6);
+
+                // Pixel 1 (x)
+                {
+                    int Y = yRow[x];
+                    int r = Y + r_diff;
+                    int g = Y + g_diff;
+                    int b = Y + b_diff;
+
+                    r = std::min(255, std::max(0, r));
+                    g = std::min(255, std::max(0, g));
+                    b = std::min(255, std::max(0, b));
+
+                    scanLine[x] = (0xff000000 | (r << 16) | (g << 8) | b);
+                }
+
+                // Pixel 2 (x + 1)
+                {
+                    int Y = yRow[x + 1];
+                    int r = Y + r_diff;
+                    int g = Y + g_diff;
+                    int b = Y + b_diff;
+
+                    r = std::min(255, std::max(0, r));
+                    g = std::min(255, std::max(0, g));
+                    b = std::min(255, std::max(0, b));
+
+                    scanLine[x + 1] = (0xff000000 | (r << 16) | (g << 8) | b);
+                }
+            }
+        }
+
+        if (!m_player || m_player->m_lPlayHandle.load() != m_taskPlayHandle) {
+            m_frame->inUse = false;
+            if (m_player) {
+                m_player->m_pendingTasks--;
+            }
+            return;
+        }
+
+        // Wrap RGB buffer in a QImage
+        auto* pShared = new std::shared_ptr<HikvisionArchivePlayer::FrameBuffer>(m_frame);
+        QImage img(m_frame->rgbData.data(), width, height, destStride, QImage::Format_RGB32, [](void* info) {
+            auto* pShared = static_cast<std::shared_ptr<HikvisionArchivePlayer::FrameBuffer>*>(info);
+            if (pShared) {
+                (*pShared)->inUse = false;
+                delete pShared;
+            }
+        }, pShared);
+
+        QPointer<HikvisionArchivePlayer> pPlayer = m_player;
+        if (pPlayer) {
+            QMetaObject::invokeMethod(pPlayer.data(), [pPlayer, img, playHandle = m_taskPlayHandle]() {
+                if (pPlayer) {
+                    if (pPlayer->m_lPlayHandle.load() == playHandle) {
+                        pPlayer->updateImage(img);
+                    }
+                    pPlayer->m_pendingTasks--;
+                }
+            }, Qt::QueuedConnection);
+        }
+    }
+
+private:
+    QPointer<HikvisionArchivePlayer> m_player;
+    std::shared_ptr<HikvisionArchivePlayer::FrameBuffer> m_frame;
+    LONG m_taskPlayHandle;
+};
+
+static std::mutex s_activePlayersMutex;
+static std::set<HikvisionArchivePlayer*> s_activePlayers;
 
 HikvisionArchivePlayer::HikvisionArchivePlayer(QQuickItem *parent)
     : QQuickPaintedItem(parent)
 {
+    {
+        std::lock_guard<std::mutex> lock(s_activePlayersMutex);
+        s_activePlayers.insert(this);
+    }
     // The Hikvision SDK (HCNetSDK) requires NET_DVR_Init(). 
     // HikvisionManager already calls it.
     qDebug() << "[HikArchive] Component created";
@@ -36,6 +159,22 @@ HikvisionArchivePlayer::~HikvisionArchivePlayer()
 {
     qDebug() << "[HikArchive] ~HikvisionArchivePlayer() DESTRUCTOR CALLED!";
     cleanupPlayback();
+
+    // Wait for all background YV12ToRGBTask tasks to complete
+    int waitCount = 0;
+    while (m_pendingTasks.load() > 0 && waitCount < 100) { // max 500ms safeguard
+        QThread::msleep(5);
+        waitCount++;
+    }
+    if (m_pendingTasks.load() > 0) {
+        qWarning() << "[HikArchive] Destructor timed out waiting for pending tasks:" << m_pendingTasks.load();
+    }
+    
+    {
+        std::lock_guard<std::mutex> lock(s_activePlayersMutex);
+        s_activePlayers.erase(this);
+    }
+
     if (m_lUserID >= 0) {
         if (HikvisionManager::instance()) {
             HikvisionManager::instance()->logoutShared(m_recorderIp);
@@ -44,6 +183,10 @@ HikvisionArchivePlayer::~HikvisionArchivePlayer()
         }
         m_lUserID = -1;
     }
+
+#ifdef __linux__
+    malloc_trim(0);
+#endif
 }
 
 std::mutex s_portMapMutex;
@@ -51,46 +194,44 @@ static std::map<LONG, HikvisionArchivePlayer*> s_portMap;
 
 void HikvisionArchivePlayer::cleanupPlayback()
 {
-    qDebug() << "[HikArchive] cleanupPlayback: m_lPlayHandle=" << m_lPlayHandle << "m_nPort=" << m_nPort << "m_lUserID=" << m_lUserID;
-
-    m_stopPacing = true;
-    m_pacingInitialized = false;
-    m_lastStamp.store(0);
-    m_zeroStampCount.store(0);
-    m_sysHeadReceived.store(false);
-
-    m_runPresentation = false;
-    m_queueCond.notify_all();
-    if (m_presentationThread.joinable()) {
-        m_presentationThread.join();
-    }
-
+    LONG playHandle = -1;
+    LONG port = -1;
     {
-        std::lock_guard<std::mutex> lock(m_queueMutex);
-        m_frameQueue.clear();
+        std::lock_guard<std::mutex> lock(m_stateMutex);
+        playHandle = m_lPlayHandle.exchange(-1);
+        port = m_nPort.exchange(-1);
     }
 
-    // Wait for any active display callbacks to finish (they will exit quickly as m_stopPacing is true)
-    while (m_activeDisplayCallbacks.load() > 0) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    qDebug() << "[HikArchive] cleanupPlayback: playHandle=" << playHandle << "port=" << port << "m_lUserID=" << m_lUserID;
+
+    if (playHandle >= 0) {
+        if (!NET_DVR_StopPlayBack(playHandle)) {
+            qWarning() << "[HikArchive] NET_DVR_StopPlayBack FAILED. Error:" << NET_DVR_GetLastError();
+        } else {
+            qDebug() << "[HikArchive] NET_DVR_StopPlayBack OK";
+        }
     }
 
-    m_currentNvrSpeed.store(1);
-
-    if (m_lPlayHandle >= 0) {
-        NET_DVR_StopPlayBack(m_lPlayHandle);
-        m_lPlayHandle = -1;
-    }
-
-    if (m_nPort >= 0) {
+    if (port >= 0) {
         {
             std::lock_guard<std::mutex> lock(s_portMapMutex);
-            s_portMap.erase(m_nPort);
+            s_portMap.erase(port);
         }
-        PlayM4_Stop(m_nPort);
-        PlayM4_CloseStream(m_nPort);
-        PlayM4_FreePort(m_nPort);
-        m_nPort = -1;
+        if (!PlayM4_Stop(port)) {
+            qWarning() << "[HikArchive] PlayM4_Stop FAILED. Error:" << PlayM4_GetLastError(port);
+        } else {
+            qDebug() << "[HikArchive] PlayM4_Stop OK";
+        }
+        if (!PlayM4_CloseStream(port)) {
+            qWarning() << "[HikArchive] PlayM4_CloseStream FAILED. Error:" << PlayM4_GetLastError(port);
+        } else {
+            qDebug() << "[HikArchive] PlayM4_CloseStream OK";
+        }
+        if (!PlayM4_FreePort(port)) {
+            qWarning() << "[HikArchive] PlayM4_FreePort FAILED. Error:" << PlayM4_GetLastError(port);
+        } else {
+            qDebug() << "[HikArchive] PlayM4_FreePort OK";
+        }
     }
     
     {
@@ -106,6 +247,13 @@ void HikvisionArchivePlayer::cleanupPlayback()
 
     m_isPlaying = false;
     emit playingChanged();
+
+    if (m_fps != 0) {
+        m_fps = 0;
+        m_fpsCounter = 0;
+        m_lastFpsTime = 0;
+        emit fpsChanged();
+    }
 }
 
 QString HikvisionArchivePlayer::recorderIp() const { return m_recorderIp; }
@@ -257,10 +405,7 @@ void HikvisionArchivePlayer::playAtTime(const QDateTime &dateTime)
              << "logical channelId=" << m_channelId
              << "username=" << m_username;
 
-    logToFile("[HikArchive] playAtTime called with: " + dateTime.toString("yyyy-MM-dd hh:mm:ss").toStdString() + ", recorderIp=" + m_recorderIp.toStdString() + ", logical channelId=" + std::to_string(m_channelId));
-
     cleanupPlayback();
-    m_stopPacing = false;
 
     if (!ensureLogin()) {
         qWarning() << "[HikArchive] Cannot play - login failed";
@@ -288,105 +433,73 @@ void HikvisionArchivePlayer::playAtTime(const QDateTime &dateTime)
     qDebug() << "[HikArchive] Stop:" << stopTime.dwYear << "-" << stopTime.dwMonth << "-" << stopTime.dwDay
              << stopTime.dwHour << ":" << stopTime.dwMinute << ":" << stopTime.dwSecond;
 
-    m_lPlayHandle = NET_DVR_PlayBackByTime(m_lUserID, m_realSdkChannel, &startTime, &stopTime, 0);
-    if (m_lPlayHandle < 0) {
+    LONG playHandle = NET_DVR_PlayBackByTime(m_lUserID, m_realSdkChannel, &startTime, &stopTime, 0);
+    if (playHandle < 0) {
         DWORD err = NET_DVR_GetLastError();
         qWarning() << "[HikArchive] PlayBackByTime FAILED. Error:" << err << "Channel used:" << m_realSdkChannel;
         return;
     }
-    qDebug() << "[HikArchive] PlayBackByTime SUCCESS. Handle:" << m_lPlayHandle;
+    qDebug() << "[HikArchive] PlayBackByTime SUCCESS. Handle:" << playHandle;
 
     // Allocate a free port for decoding
     LONG tempPort = -1;
     if (!PlayM4_GetPort(&tempPort)) {
         qWarning() << "[HikArchive] PlayM4_GetPort FAILED.";
+        NET_DVR_StopPlayBack(playHandle);
         return;
     }
-    m_nPort = tempPort;
-    qDebug() << "[HikArchive] PlayM4 port allocated:" << m_nPort;
+    qDebug() << "[HikArchive] PlayM4 port allocated:" << tempPort;
 
-    if (!PlayM4_SetStreamOpenMode(m_nPort, STREAME_FILE)) {
+    {
+        std::lock_guard<std::mutex> lock(m_stateMutex);
+        m_lPlayHandle = playHandle;
+        m_nPort = tempPort;
+    }
+
+    if (!PlayM4_SetStreamOpenMode(tempPort, STREAME_FILE)) {
         qWarning() << "[HikArchive] PlayM4_SetStreamOpenMode FAILED.";
     }
 
     // Set network stream callback to pump data into the PlayM4 decoder
-    if (!NET_DVR_SetPlayDataCallBack_V40(m_lPlayHandle, PlayDataCallBack, this)) {
+    if (!NET_DVR_SetPlayDataCallBack_V40(playHandle, PlayDataCallBack, this)) {
         DWORD err = NET_DVR_GetLastError();
         qWarning() << "[HikArchive] SetPlayDataCallBack_V40 FAILED. Error:" << err;
+        cleanupPlayback();
         return;
     }
     qDebug() << "[HikArchive] PlayDataCallBack registered.";
     
     // Start playback control
-    if (!NET_DVR_PlayBackControl_V40(m_lPlayHandle, NET_DVR_PLAYSTART, nullptr, 0, nullptr, nullptr)) {
+    if (!NET_DVR_PlayBackControl_V40(playHandle, NET_DVR_PLAYSTART, nullptr, 0, nullptr, nullptr)) {
         DWORD err = NET_DVR_GetLastError();
         qWarning() << "[HikArchive] NET_DVR_PLAYSTART FAILED. Error:" << err;
+        cleanupPlayback();
         return;
     }
     qDebug() << "[HikArchive] Playback STARTED successfully!";
 
-    m_sysHeadReceived = false;
-    m_isPlaying = true;
-
-    m_runPresentation = true;
-    m_presentationThread = std::thread(&HikvisionArchivePlayer::presentationLoop, this);
-
+    {
+        std::lock_guard<std::mutex> lock(m_stateMutex);
+        m_sysHeadReceived = false;
+        m_isPlaying = true;
+    }
     emit playingChanged();
 }
 
 void HikvisionArchivePlayer::setPlaybackSpeed(int speedMultiplier)
 {
-    qDebug() << "[HikArchive] setPlaybackSpeed requested:" << speedMultiplier;
-    logToFile("[HikArchive] setPlaybackSpeed requested: " + std::to_string(speedMultiplier));
-    m_playbackSpeed.store(speedMultiplier);
-    m_pacingInitialized = false;
-    m_lastStamp.store(0);
-    m_zeroStampCount.store(0);
-
-    {
-        std::lock_guard<std::mutex> lock(m_queueMutex);
-        m_frameQueue.clear();
-    }
-
-    applyPlaybackSpeed();
-}
-
-void HikvisionArchivePlayer::applyPlaybackSpeed()
-{
     if (m_lPlayHandle < 0) return;
 
-    int speedMultiplier = m_playbackSpeed.load();
-
-    // If port isn't opened and syshead isn't received, we cannot apply speed to PlayM4 yet.
-    // We defer applying it until SYSHEAD callback arrives.
-    if (m_nPort < 0 || !m_sysHeadReceived.load()) {
-        qDebug() << "[HikArchive] applyPlaybackSpeed deferred: port =" << m_nPort << "syshead =" << m_sysHeadReceived.load();
-        return;
-    }
-
-    qDebug() << "[HikArchive] applyPlaybackSpeed executing: speed =" << speedMultiplier << "port =" << m_nPort;
-
-    // CRITICAL: If both desired and currently applied speeds are 1, completely skip sending any NVR controls.
-    // This preserves default paced streaming at startup/restart on picky NVRs (like Recorder 07).
-    if (speedMultiplier == 1 && m_currentNvrSpeed.load() == 1) {
-        PlayM4_Play(m_nPort, 0);
-        qDebug() << "[HikArchive] applyPlaybackSpeed: already in paced 1x state, skipping NVR controls";
-        return;
-    }
+    qDebug() << "[HikArchive] setPlaybackSpeed:" << speedMultiplier;
 
     // 1. Reset NVR speed to normal (always 1x first to clear any FAST/SLOW states)
     if (!NET_DVR_PlayBackControl_V40(m_lPlayHandle, NET_DVR_PLAYNORMAL, nullptr, 0, nullptr, nullptr)) {
-        qWarning() << "[HikArchive] applyPlaybackSpeed NORMAL failed:" << NET_DVR_GetLastError();
+        qWarning() << "[HikArchive] setPlaybackSpeed NORMAL failed:" << NET_DVR_GetLastError();
     }
 
     // 2. Reset PlayM4 speed to normal
-    PlayM4_Play(m_nPort, 0);
-
-    // CRITICAL FIX: If speed is 1x, do NOT send NET_DVR_PLAY_FORWARD as it disables pacing on some NVRs!
-    if (speedMultiplier == 1) {
-        qDebug() << "[HikArchive] applyPlaybackSpeed: speed is 1x, early exit to keep paced stream";
-        m_currentNvrSpeed.store(1);
-        return;
+    if (m_nPort != -1) {
+        PlayM4_Play(m_nPort, 0);
     }
 
     // 3. Set the direction on the NVR stream and PlayM4 decoder
@@ -395,15 +508,19 @@ void HikvisionArchivePlayer::applyPlaybackSpeed()
             qWarning() << "[HikArchive] NET_DVR_PLAY_REVERSE failed:" << NET_DVR_GetLastError();
         }
         // Keep decoding forward! The NVR will reverse and stream the frames sequentially.
-        if (!PlayM4_Play(m_nPort, 0)) {
-            qWarning() << "[HikArchive] PlayM4_Play forward (for reverse) failed:" << PlayM4_GetLastError(m_nPort);
+        if (m_nPort != -1) {
+            if (!PlayM4_Play(m_nPort, 0)) {
+                qWarning() << "[HikArchive] PlayM4_Play forward (for reverse) failed:" << PlayM4_GetLastError(m_nPort);
+            }
         }
     } else {
         if (!NET_DVR_PlayBackControl_V40(m_lPlayHandle, NET_DVR_PLAY_FORWARD, nullptr, 0, nullptr, nullptr)) {
             qWarning() << "[HikArchive] NET_DVR_PLAY_FORWARD failed:" << NET_DVR_GetLastError();
         }
-        if (!PlayM4_Play(m_nPort, 0)) {
-            qWarning() << "[HikArchive] PlayM4_Play forward failed:" << PlayM4_GetLastError(m_nPort);
+        if (m_nPort != -1) {
+            if (!PlayM4_Play(m_nPort, 0)) {
+                qWarning() << "[HikArchive] PlayM4_Play forward failed:" << PlayM4_GetLastError(m_nPort);
+            }
         }
     }
 
@@ -413,15 +530,14 @@ void HikvisionArchivePlayer::applyPlaybackSpeed()
         int steps = (absSpeed == 2) ? 1 : ((absSpeed == 4) ? 2 : 3);
         for (int i = 0; i < steps; ++i) {
             if (!NET_DVR_PlayBackControl_V40(m_lPlayHandle, NET_DVR_PLAYFAST, nullptr, 0, nullptr, nullptr)) {
-                qWarning() << "[HikArchive] applyPlaybackSpeed FAST step" << i << "failed:" << NET_DVR_GetLastError();
+                qWarning() << "[HikArchive] setPlaybackSpeed FAST step" << i << "failed:" << NET_DVR_GetLastError();
             }
-            PlayM4_Fast(m_nPort);
+            if (m_nPort != -1) {
+                PlayM4_Fast(m_nPort);
+            }
         }
     }
-
-    m_currentNvrSpeed.store(speedMultiplier);
 }
-
 
 void HikvisionArchivePlayer::pause()
 {
@@ -429,14 +545,14 @@ void HikvisionArchivePlayer::pause()
         if (m_nPort != -1) PlayM4_Pause(m_nPort, 1);
         NET_DVR_PlayBackControl_V40(m_lPlayHandle, NET_DVR_PLAYPAUSE, nullptr, 0, nullptr, nullptr);
         m_isPlaying = false;
-        m_pacingInitialized = false;
-
-        {
-            std::lock_guard<std::mutex> lock(m_queueMutex);
-            m_frameQueue.clear();
-        }
-
         emit playingChanged();
+
+        if (m_fps != 0) {
+            m_fps = 0;
+            m_fpsCounter = 0;
+            m_lastFpsTime = 0;
+            emit fpsChanged();
+        }
     }
 }
 
@@ -445,15 +561,8 @@ void HikvisionArchivePlayer::resume()
     if (m_lPlayHandle >= 0) {
         if (m_nPort != -1) PlayM4_Pause(m_nPort, 0);
         NET_DVR_PlayBackControl_V40(m_lPlayHandle, NET_DVR_PLAYRESTART, nullptr, 0, nullptr, nullptr);
-        
-        // Avoid sending PLAYNORMAL to NVR if we are already in normal paced 1x speed mode
-        if (m_currentNvrSpeed.load() != 1) {
-            NET_DVR_PlayBackControl_V40(m_lPlayHandle, NET_DVR_PLAYNORMAL, nullptr, 0, nullptr, nullptr);
-            m_currentNvrSpeed.store(1);
-        }
-        
+        NET_DVR_PlayBackControl_V40(m_lPlayHandle, NET_DVR_PLAYNORMAL, nullptr, 0, nullptr, nullptr);
         m_isPlaying = true;
-        m_pacingInitialized = false;
         emit playingChanged();
     }
 }
@@ -483,19 +592,35 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
 {
     g_networkBytesAccumulator.fetch_add(dwBufSize, std::memory_order_relaxed);
 
-    auto* player = static_cast<HikvisionArchivePlayer*>(pUser);
+    HikvisionArchivePlayer* player = nullptr;
+    {
+        std::lock_guard<std::mutex> lock(s_activePlayersMutex);
+        if (s_activePlayers.find(static_cast<HikvisionArchivePlayer*>(pUser)) != s_activePlayers.end()) {
+            player = static_cast<HikvisionArchivePlayer*>(pUser);
+        }
+    }
+
     if (!player) {
-        qWarning() << "[HikArchive] PlayDataCallBack: player is NULL!";
         return;
     }
 
-    LONG activeHandle = player->m_lPlayHandle.load();
-    if (static_cast<int32_t>(lPlayHandle) != static_cast<int32_t>(activeHandle) || activeHandle < 0) {
+    LONG activeHandle = -1;
+    LONG activePort = -1;
+    bool sysHeadReceived = false;
+    bool isPlaying = false;
+
+    {
+        std::lock_guard<std::mutex> lock(player->m_stateMutex);
+        activeHandle = player->m_lPlayHandle.load();
+        activePort = player->m_nPort.load();
+        sysHeadReceived = player->m_sysHeadReceived.load();
+        isPlaying = player->m_isPlaying;
+    }
+
+    if (lPlayHandle != activeHandle || activeHandle < 0) {
         // Discard late data from a previously stopped session to prevent stream/decoder corruption
         return;
     }
-
-    LONG activePort = player->m_nPort.load();
 
     int count = ++s_dataCallbackCount;
     if (count <= 5 || count % 100 == 0) {
@@ -505,26 +630,18 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
     }
 
     if (dwDataType == NET_DVR_SYSHEAD) {
-        if (player->m_sysHeadReceived.load()) {
-            // Subsequent SYSHEAD (e.g. from segment boundaries on NVR 07).
-            // Do NOT re-open the stream or re-apply playback speed as it bombards the NVR.
-            // Just input the header bytes directly into the PlayM4 decoder.
-            if (activePort >= 0) {
-                PlayM4_InputData(activePort, pBuffer, dwBufSize);
-            }
-            return;
+        {
+            std::lock_guard<std::mutex> lock(player->m_stateMutex);
+            player->m_sysHeadReceived = true;
         }
-
-        player->m_sysHeadReceived = true;
-        qDebug() << "[HikArchive] Got FIRST SYSHEAD (stream header), size=" << dwBufSize;
-        logToFile("[HikArchive] PlayDataCallBack got FIRST SYSHEAD, size=" + std::to_string(dwBufSize) + ", port=" + std::to_string(activePort));
+        qDebug() << "[HikArchive] Got SYSHEAD (stream header), size=" << dwBufSize;
 
         if (activePort < 0) {
             qWarning() << "[HikArchive] SYSHEAD received but activePort is invalid!";
             return;
         }
 
-        if (!PlayM4_OpenStream(activePort, pBuffer, dwBufSize, 80 * 1024 * 1024)) {
+        if (!PlayM4_OpenStream(activePort, pBuffer, dwBufSize, 4 * 1024 * 1024)) {
             DWORD playErr = PlayM4_GetLastError(activePort);
             qWarning() << "[HikArchive] PlayM4_OpenStream FAILED. PlayM4 error:" << playErr;
             return;
@@ -543,11 +660,11 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
             s_portMap[activePort] = player;
         }
 
-        if (!PlayM4_SetDisplayCallBack(activePort, DisplayCallBack)) {
+        if (!PlayM4_SetDecCallBack(activePort, DecCallBack)) {
             DWORD playErr = PlayM4_GetLastError(activePort);
-            qWarning() << "[HikArchive] PlayM4_SetDisplayCallBack FAILED. PlayM4 error:" << playErr;
+            qWarning() << "[HikArchive] PlayM4_SetDecCallBack FAILED. PlayM4 error:" << playErr;
         } else {
-            qDebug() << "[HikArchive] PlayM4_SetDisplayCallBack OK";
+            qDebug() << "[HikArchive] PlayM4_SetDecCallBack OK";
         }
         
         if (!PlayM4_Play(activePort, 0)) {
@@ -555,10 +672,9 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
             qWarning() << "[HikArchive] PlayM4_Play FAILED. PlayM4 error:" << playErr;
         } else {
             qDebug() << "[HikArchive] PlayM4_Play OK - decoder started!";
-            player->applyPlaybackSpeed();
         }
     } else if (dwDataType == NET_DVR_STREAMDATA) {
-        if (!player->m_sysHeadReceived) {
+        if (!sysHeadReceived) {
             return; // Ignore late data from a previous stopped playback session
         }
         if (activePort < 0) {
@@ -566,7 +682,16 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
         }
         int retryCount = 0;
         while (!PlayM4_InputData(activePort, pBuffer, dwBufSize)) {
-            if (player->m_lPlayHandle.load() != activeHandle || player->m_nPort.load() != activePort || !player->m_isPlaying) {
+            LONG currentHandle = -1;
+            LONG currentPort = -1;
+            bool currentIsPlaying = false;
+            {
+                std::lock_guard<std::mutex> lock(player->m_stateMutex);
+                currentHandle = player->m_lPlayHandle.load();
+                currentPort = player->m_nPort.load();
+                currentIsPlaying = player->m_isPlaying;
+            }
+            if (currentHandle != activeHandle || currentPort != activePort || !currentIsPlaying) {
                 break;
             }
             DWORD playErr = PlayM4_GetLastError(activePort);
@@ -575,11 +700,6 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
                 retryCount++;
                 if (retryCount % 200 == 0) {
                     qDebug() << "[HikArchive] PlayM4_InputData buffer full, retrying..." << retryCount;
-                    static int bufOverLogCount = 0;
-                    if (bufOverLogCount < 10000) {
-                        bufOverLogCount++;
-                        logToFile("[HikArchive] PlayM4_InputData buffer full (PLAYM4_BUF_OVER) on port " + std::to_string(activePort) + ", retried " + std::to_string(retryCount) + " times.");
-                    }
                 }
                 continue;
             }
@@ -604,103 +724,64 @@ struct FRAME_INFO_32 {
     uint32_t dwFrameNum;
 };
 
-void HikvisionArchivePlayer::DisplayCallBack(long nPort, char *pBuf, long nSize, long nWidth, long nHeight, long nStamp, long nType, long nReserved)
+void HikvisionArchivePlayer::DecCallBack(long nPort, char *pBuf, long nSize, FRAME_INFO *pFrameInfo, long nReserved1, long nReserved2)
 {
-    Q_UNUSED(nReserved);
-
-    int32_t cleanPort = static_cast<int32_t>(nPort);
-    int32_t size = static_cast<int32_t>(nSize);
-    int32_t width = static_cast<int32_t>(nWidth);
-    int32_t height = static_cast<int32_t>(nHeight);
-    int32_t stamp = static_cast<int32_t>(nStamp);
-    int32_t type = static_cast<int32_t>(nType);
+    Q_UNUSED(nReserved1);
+    Q_UNUSED(nReserved2);
 
     HikvisionArchivePlayer* player = nullptr;
     {
         std::lock_guard<std::mutex> lock(s_portMapMutex);
-        auto it = s_portMap.find(cleanPort);
+        auto it = s_portMap.find(nPort);
         if (it != s_portMap.end()) {
             player = it->second;
         }
     }
 
-    if (!player) return;
-
-    // RAII guard to safely track active callbacks so cleanupPlayback/destructor can wait for them to exit
-    struct CallbackGuard {
-        HikvisionArchivePlayer* p;
-        CallbackGuard(HikvisionArchivePlayer* player) : p(player) {
-            p->m_activeDisplayCallbacks++;
+    if (player) {
+        std::lock_guard<std::mutex> lock(s_activePlayersMutex);
+        if (s_activePlayers.find(player) == s_activePlayers.end()) {
+            player = nullptr;
         }
-        ~CallbackGuard() {
-            p->m_activeDisplayCallbacks--;
-        }
-    };
-    CallbackGuard guard(player);
-
-    if (player->m_stopPacing.load()) {
-        return;
     }
+
+    if (!player || !pFrameInfo) return;
+
+    FRAME_INFO_32* info = reinterpret_cast<FRAME_INFO_32*>(pFrameInfo);
 
     int count = ++s_decCallbackCount;
     if (count <= 3 || count % 100 == 0) {
-        qDebug() << "[HikArchive] DisplayCallBack #" << count
-                 << "type=" << type
-                 << "size=" << size
-                 << "w=" << width
-                 << "h=" << height
-                 << "stamp=" << stamp;
+        qDebug() << "[HikArchive] DecCallBack #" << count
+                 << "type=" << info->nType
+                 << "size=" << nSize
+                 << "w=" << info->nWidth
+                 << "h=" << info->nHeight;
     }
 
-    if (type == T_YV12) {
-        if (width <= 0 || height <= 0 || size < width * height * 3 / 2) {
-            qWarning() << "[HikArchive] DisplayCallBack: invalid frame dimensions w=" << width << "h=" << height << "size=" << size;
+    if (info->nType == T_YV12) {
+        int width = info->nWidth;
+        int height = info->nHeight;
+        
+        if (width <= 0 || height <= 0 || nSize < width * height * 3 / 2) {
+            qWarning() << "[HikArchive] DecCallBack: invalid frame dimensions w=" << width << "h=" << height << "size=" << nSize;
             return;
         }
 
-        // Enforce healthy queue backpressure: if queue has >= 30 frames, sleep for 5ms inside DisplayCallBack
-        // to slow down the PlayM4 decoder thread, but don't stall completely.
-        int backpressureSleeps = 0;
-        while (true) {
-            if (player->m_stopPacing.load()) {
-                return;
-            }
-            size_t queueSize = 0;
-            {
-                std::lock_guard<std::mutex> lock(player->m_queueMutex);
-                queueSize = player->m_frameQueue.size();
-            }
-            if (queueSize < 30) {
-                break;
-            }
-            std::this_thread::sleep_for(std::chrono::milliseconds(5));
-            backpressureSleeps++;
-        }
-        if (backpressureSleeps > 0) {
-            static int bpLogCount = 0;
-            if (bpLogCount < 10000) {
-                bpLogCount++;
-                logToFile("[HikArchive] DisplayCallBack backpressure throttled decoder thread (slept " + std::to_string(backpressureSleeps * 5) + "ms, queue size >= 30).");
-            }
-        }
-
-        // Copy raw YV12 data to a QueueFrame and push it to the queue
-        QueueFrame qf;
-        try {
-            qf.yv12Data.assign(pBuf, pBuf + size);
-        } catch (const std::exception& e) {
-            qWarning() << "[HikArchive] Failed to allocate QueueFrame memory:" << e.what();
+        if (player->m_pendingTasks.load() >= 5) {
+            // Drop frame to prevent thread pools/queues from filling up
             return;
         }
-        qf.width = width;
-        qf.height = height;
-        qf.stamp = stamp;
+        
+        std::shared_ptr<FrameBuffer> fb = player->getOrCreateFrameBuffer(width, height);
+        if (!fb) return;
 
-        {
-            std::lock_guard<std::mutex> lock(player->m_queueMutex);
-            player->m_frameQueue.push_back(std::move(qf));
-        }
-        player->m_queueCond.notify_one();
+        // Copy raw YV12 data to the frame buffer
+        std::memcpy(fb->yv12Data.data(), pBuf, nSize);
+
+        player->m_pendingTasks++;
+
+        auto* task = new YV12ToRGBTask(player, fb, player->m_lPlayHandle.load());
+        QThreadPool::globalInstance()->start(task);
     }
 }
 
@@ -747,6 +828,24 @@ void HikvisionArchivePlayer::updateImage(const QImage &img)
     if (sizeChanged) {
         emit videoSizeChanged();
     }
+
+    // Compute display FPS on the GUI thread
+    m_fpsCounter++;
+    qint64 nowMs = QDateTime::currentMSecsSinceEpoch();
+    if (m_lastFpsTime == 0) {
+        m_lastFpsTime = nowMs;
+    }
+    qint64 elapsedMs = nowMs - m_lastFpsTime;
+    if (elapsedMs >= 1000) {
+        int calculatedFps = qRound(m_fpsCounter * 1000.0 / elapsedMs);
+        if (m_fps != calculatedFps) {
+            m_fps = calculatedFps;
+            emit fpsChanged();
+        }
+        m_fpsCounter = 0;
+        m_lastFpsTime = nowMs;
+    }
+
     update();
 }
 
@@ -794,264 +893,5 @@ bool HikvisionArchivePlayer::saveCurrentFrame(const QString &path) const
         return false;
     }
     return m_currentImage.save(path, "JPG", 98);
-}
-
-void HikvisionArchivePlayer::presentationLoop()
-{
-    qDebug() << "[HikArchive] Presentation thread started";
-    logToFile("[HikArchive] Presentation thread started");
-
-    int frameCount = 0;
-    long long totalStampDelta = 0;
-    int anomalyCount = 0;
-    int fallbackCount = 0;
-    double totalSleepMs = 0.0;
-    size_t maxQueueSizeSeen = 0;
-
-    while (m_runPresentation.load()) {
-        QueueFrame frame;
-        {
-            std::unique_lock<std::mutex> lock(m_queueMutex);
-            m_queueCond.wait(lock, [this]() {
-                return !m_runPresentation.load() || !m_frameQueue.empty();
-            });
-            if (!m_runPresentation.load()) {
-                break;
-            }
-            if (m_frameQueue.empty()) {
-                continue;
-            }
-            frame = std::move(m_frameQueue.front());
-            m_frameQueue.erase(m_frameQueue.begin());
-        }
-
-        if (m_stopPacing.load()) {
-            continue;
-        }
-
-        // --- PACING LOGIC ON PRESENTATION THREAD ---
-        long stamp = frame.stamp;
-        long stampDelta = 0;
-        bool isFlat = false;
-
-        if (stamp == 0) {
-            isFlat = true;
-        } else if (m_pacingInitialized.load()) {
-            long lastStamp = m_lastStamp.load();
-            stampDelta = stamp - lastStamp;
-            if (stampDelta >= 0 && stampDelta < 15) {
-                isFlat = true;
-            }
-        }
-
-        if (isFlat) {
-            m_zeroStampCount++;
-        } else {
-            if (m_zeroStampCount.load() > 10) {
-                // Transitioning from Steady Fallback back to normal mode:
-                // Reset pacing initialization so normal mode can re-calibrate.
-                m_pacingInitialized.store(false);
-                logToFile("[HikArchive] Pacing transitioning from Steady Fallback back to normal mode.");
-            }
-            m_zeroStampCount.store(0);
-        }
-
-        bool useSteadyFallback = (m_zeroStampCount.load() > 10);
-        double interval_ms = 40.0; // Default fallback to 25 fps
-
-        if (useSteadyFallback) {
-            interval_ms = 40.0;
-            fallbackCount++;
-        } else {
-            if (!m_pacingInitialized.load()) {
-                m_pacingStartTime = std::chrono::steady_clock::now();
-                m_pacingStartStamp.store(stamp);
-                m_lastStamp.store(stamp);
-                m_lastFrameRealTime = m_pacingStartTime;
-                m_pacingInitialized.store(true);
-                interval_ms = 0.0; // Display first frame immediately
-                logToFile("[HikArchive] Pacing initialized. Start stamp: " + std::to_string(stamp));
-            } else {
-                long lastStamp = m_lastStamp.load();
-                stampDelta = stamp - lastStamp;
-
-                // Handle timestamp discontinuity (gap or seek)
-                if (stampDelta > 2000) {
-                    m_pacingStartTime = std::chrono::steady_clock::now();
-                    m_pacingStartStamp.store(stamp);
-                    m_lastFrameRealTime = m_pacingStartTime;
-                    interval_ms = 0.0; // Display immediately
-                    anomalyCount++;
-                    logToFile("[HikArchive] Major gap detected (stampDelta: " + std::to_string(stampDelta) + "). Pacing reset. New stamp: " + std::to_string(stamp));
-                } else if (stampDelta < 0) {
-                    // Jitter / B-Frame: Do NOT reset pacing baseline!
-                    // Just use 40ms interval and keep playing from the existing baseline.
-                    interval_ms = 40.0;
-                    anomalyCount++;
-                    
-                    static int jitterLogCount = 0;
-                    if (jitterLogCount < 10000) {
-                        jitterLogCount++;
-                        logToFile("[HikArchive] Negative jitter detected (stampDelta: " + std::to_string(stampDelta) + ", stamp: " + std::to_string(stamp) + ", lastStamp: " + std::to_string(lastStamp) + "). Kept baseline, using 40ms fallback.");
-                    }
-                } else if (stampDelta == 0) {
-                    interval_ms = 5.0; // Small delay to avoid hot-looping
-                } else {
-                    interval_ms = static_cast<double>(stampDelta);
-                    totalStampDelta += stampDelta;
-                }
-            }
-        }
-        m_lastStamp.store(stamp);
-
-        double speed = std::abs(m_playbackSpeed.load());
-        if (speed <= 0) speed = 1.0;
-
-        // Apply speed multiplier
-        interval_ms /= speed;
-
-        auto now = std::chrono::steady_clock::now();
-        auto targetRealTime = m_lastFrameRealTime + std::chrono::milliseconds(static_cast<long long>(interval_ms));
-        double sleep_ms = std::chrono::duration<double, std::milli>(targetRealTime - now).count();
-
-        if (sleep_ms > 2000.0) {
-            // Safety guard: if drift is too large, reset tracking to now
-            m_pacingStartTime = now;
-            m_lastFrameRealTime = now;
-            logToFile("[HikArchive] Sleep drift too large (sleep_ms: " + std::to_string(sleep_ms) + "). Reset baseline.");
-        } else if (sleep_ms > 0.0) {
-            double remaining_ms = sleep_ms;
-            while (remaining_ms > 0.0) {
-                if (!m_runPresentation.load() || m_stopPacing.load()) {
-                    break;
-                }
-                double chunk = std::min(remaining_ms, 5.0);
-                std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<long long>(chunk)));
-                remaining_ms -= chunk;
-            }
-            m_lastFrameRealTime = targetRealTime;
-            totalSleepMs += sleep_ms;
-        } else {
-            // Behind schedule (rendering/decoding was slow or backlog processing). Align baseline to now.
-            m_lastFrameRealTime = now;
-        }
-
-        if (!m_runPresentation.load() || m_stopPacing.load()) {
-            continue;
-        }
-
-        int width = frame.width;
-        int height = frame.height;
-        if (width <= 0 || height <= 0) {
-            continue;
-        }
-
-        std::shared_ptr<FrameBuffer> fb = getOrCreateFrameBuffer(width, height);
-        if (!fb) {
-            continue;
-        }
-
-        const unsigned char* yPlane = frame.yv12Data.data();
-        const unsigned char* vPlane = yPlane + width * height;
-        const unsigned char* uPlane = vPlane + (width * height) / 4;
-
-        unsigned char* destData = fb->rgbData.data();
-        int destStride = width * 4;
-        int halfWidth = width / 2;
-
-        for (int y = 0; y < height; y++) {
-            QRgb* scanLine = reinterpret_cast<QRgb*>(destData + (y * destStride));
-            const unsigned char* yRow = yPlane + (y * width);
-            const unsigned char* uRow = uPlane + ((y / 2) * halfWidth);
-            const unsigned char* vRow = vPlane + ((y / 2) * halfWidth);
-
-            for (int x = 0; x < width; x += 2) {
-                int uv_x = x >> 1;
-                int U = uRow[uv_x] - 128;
-                int V = vRow[uv_x] - 128;
-
-                int r_diff = V + (V >> 2) + (V >> 3) + (V >> 5);
-                int g_diff = - ((U >> 2) + (U >> 4) + (U >> 5)) - ((V >> 1) + (V >> 3) + (V >> 4) + (V >> 5));
-                int b_diff = U + (U >> 1) + (U >> 2) + (U >> 6);
-
-                // Pixel 1 (x)
-                {
-                     int Y = yRow[x];
-                     int r = Y + r_diff;
-                     int g = Y + g_diff;
-                     int b = Y + b_diff;
-
-                     r = std::min(255, std::max(0, r));
-                     g = std::min(255, std::max(0, g));
-                     b = std::min(255, std::max(0, b));
-
-                     scanLine[x] = (0xff000000 | (r << 16) | (g << 8) | b);
-                }
-
-                // Pixel 2 (x + 1)
-                {
-                     int Y = yRow[x + 1];
-                     int r = Y + r_diff;
-                     int g = Y + g_diff;
-                     int b = Y + b_diff;
-
-                     r = std::min(255, std::max(0, r));
-                     g = std::min(255, std::max(0, g));
-                     b = std::min(255, std::max(0, b));
-
-                     scanLine[x + 1] = (0xff000000 | (r << 16) | (g << 8) | b);
-                }
-            }
-        }
-
-        // Wrap RGB buffer in a QImage
-        auto* pShared = new std::shared_ptr<FrameBuffer>(fb);
-        QImage img(fb->rgbData.data(), width, height, destStride, QImage::Format_RGB32, [](void* info) {
-            auto* pShared = static_cast<std::shared_ptr<FrameBuffer>*>(info);
-            if (pShared) {
-                (*pShared)->inUse = false;
-                delete pShared;
-            }
-        }, pShared);
-
-        LONG activeHandle = m_lPlayHandle.load();
-        QMetaObject::invokeMethod(this, [this, img, activeHandle]() {
-            if (m_lPlayHandle.load() == activeHandle) {
-                updateImage(img);
-            }
-        }, Qt::QueuedConnection);
-
-        // Stats aggregation
-        frameCount++;
-        size_t currentQueueSize = 0;
-        {
-            std::lock_guard<std::mutex> lock(m_queueMutex);
-            currentQueueSize = m_frameQueue.size();
-        }
-        if (currentQueueSize > maxQueueSizeSeen) {
-            maxQueueSizeSeen = currentQueueSize;
-        }
-
-        if (frameCount >= 100) {
-            double avgStampDelta = frameCount > 0 ? (double)totalStampDelta / frameCount : 0.0;
-            std::string logMsg = "[HikArchive] Presentation loop stats (100 frames): avg stampDelta=" + std::to_string(avgStampDelta) 
-                + "ms, anomalies=" + std::to_string(anomalyCount) 
-                + ", fallbackCount=" + std::to_string(fallbackCount)
-                + ", avgSleep=" + std::to_string(totalSleepMs / frameCount)
-                + "ms, maxQueueSize=" + std::to_string(maxQueueSizeSeen)
-                + ", speedMultiplier=" + std::to_string(m_playbackSpeed.load());
-            logToFile(logMsg);
-            
-            // Reset stats
-            frameCount = 0;
-            totalStampDelta = 0;
-            anomalyCount = 0;
-            fallbackCount = 0;
-            totalSleepMs = 0.0;
-            maxQueueSizeSeen = currentQueueSize;
-        }
-    }
-    qDebug() << "[HikArchive] Presentation thread stopped";
-    logToFile("[HikArchive] Presentation thread stopped");
 }
 

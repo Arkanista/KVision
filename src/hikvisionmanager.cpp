@@ -35,6 +35,16 @@ HikvisionManager::HikvisionManager(QObject *parent)
 
 HikvisionManager::~HikvisionManager()
 {
+    // Wait for all active async discovery threads to finish
+    {
+        std::lock_guard<std::mutex> lock(m_discoveryMutex);
+        for (QThread *thread : m_discoveryThreads) {
+            thread->disconnect(this); // Disconnect all signals connected to this
+            thread->wait();
+        }
+        m_discoveryThreads.clear();
+    }
+
     // Stop the worker thread cleanly first
     {
         std::lock_guard<std::mutex> lock(m_ptzMutex);
@@ -265,6 +275,17 @@ void HikvisionManager::discoverCamerasAsync(const QString &ip, int port, const Q
         QString errorMsg = success ? "" : tr("Login failed or no cameras discovered.");
         emit discoveryFinished(ip, cameras, success, errorMsg);
     });
+
+    {
+        std::lock_guard<std::mutex> lock(m_discoveryMutex);
+        m_discoveryThreads.append(thread);
+    }
+
+    connect(thread, &QThread::finished, this, [this, thread]() {
+        std::lock_guard<std::mutex> lock(m_discoveryMutex);
+        m_discoveryThreads.removeOne(thread);
+    });
+
     connect(thread, &QThread::finished, thread, &QThread::deleteLater);
     thread->start();
 }

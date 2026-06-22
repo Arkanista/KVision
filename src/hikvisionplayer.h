@@ -12,6 +12,7 @@ class HikvisionPlayer : public QQuickPaintedItem
 
     Q_PROPERTY(QString recorderIp READ recorderIp WRITE setRecorderIp NOTIFY recorderIpChanged)
     Q_PROPERTY(int recorderPort READ recorderPort WRITE setRecorderPort NOTIFY recorderPortChanged)
+    Q_PROPERTY(int fps READ fps NOTIFY fpsChanged)
     Q_PROPERTY(QString username READ username WRITE setUsername NOTIFY usernameChanged)
     Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
     Q_PROPERTY(int channelId READ channelId WRITE setChannelId NOTIFY channelIdChanged)
@@ -20,6 +21,8 @@ class HikvisionPlayer : public QQuickPaintedItem
 public:
     explicit HikvisionPlayer(QQuickItem *parent = nullptr);
     ~HikvisionPlayer() override;
+
+    int fps() const { return 25; }
 
     // Painting routine
     void paint(QPainter *painter) override;
@@ -50,6 +53,7 @@ signals:
     void passwordChanged();
     void channelIdChanged();
     void streamTypeChanged();
+    void fpsChanged();
 
 private slots:
     void onFrameTimerTick();

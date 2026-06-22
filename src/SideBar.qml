@@ -58,6 +58,16 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.1.4",
+            date: "23.06.2026",
+            changes: [
+                qsTr("Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum poprzez wieloetapowe oczyszczanie sterty oraz optymalizację pamięci podręcznej silnika QML."),
+                qsTr("Zoptymalizowano zużycie pamięci RAM przy skalowaniu i powiększaniu widoku kamer w viewportach, zapobiegając nadmiernemu wzrostowi alokacji pamięci podczas ciągłej zmiany rozmiaru okien strumieni wideo."),
+                qsTr("Dodano precyzyjny, rzeczywisty wskaźnik klatek na sekundę (FPS) w lewym górnym rogu każdego viewportu dla strumieni na żywo i odtwarzacza archiwalnego."),
+                qsTr("Wdrożono bezpieczne zamykanie i zwalnianie wątków pobierania plików w downloaderze Hikvision, zapewniając stabilne i natychmiastowe zamykanie programu bez blokowania zasobów systemowych.")
+            ]
+        },
+        {
             version: "v2.1.3",
             date: "22.06.2026",
             changes: [
@@ -1859,7 +1869,7 @@ FocusScope {
 
                                     Connections {
                                         target: Context
-                                        onLanguageChanged: {
+                                        function onLanguageChanged() {
                                             var lang = Context.getLanguage();
                                             for (var i = 0; i < sidebarLanguageCombo.model.length; ++i) {
                                                 if (sidebarLanguageCombo.model[i].value === lang) {
