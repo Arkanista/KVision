@@ -58,6 +58,15 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.1.3",
+            date: "22.06.2026",
+            changes: [
+                qsTr("Dodano dynamiczną wyszukiwarkę kamer w oknie archiwum z przyciskiem resetowania i automatycznym rozwijaniem pasujących rejestratorów."),
+                qsTr("Włączono zawijanie zbyt długich nazw kamer na kafelkach listy w archiwum."),
+                qsTr("Powiększono i odwrócono kolory przycisku plus (+) na kafelkach kamer (seledynowe tło) dla lepszej widoczności, dodając wyraźne stany hover/pressed.")
+            ]
+        },
+        {
             version: "v2.1.2",
             date: "19.06.2026",
             changes: [

@@ -1618,6 +1618,18 @@
         <source>Poprawiono przesunięcie paska dostępności nagrań o 2-3 godziny w oknie odtwarzacza archiwum, synchronizując oś czasu ze strefą czasową klienta (z poprawną obsługą czasu letniego/zimowego DST).</source>
         <translation>Poprawiono przesunięcie paska dostępności nagrań o 2-3 godziny w oknie odtwarzacza archiwum, synchronizując oś czasu ze strefą czasową klienta (z poprawną obsługą czasu letniego/zimowego DST).</translation>
     </message>
+    <message>
+        <source>Dodano dynamiczną wyszukiwarkę kamer w oknie archiwum z przyciskiem resetowania i automatycznym rozwijaniem pasujących rejestratorów.</source>
+        <translation>Dodano dynamiczną wyszukiwarkę kamer w oknie archiwum z przyciskiem resetowania i automatycznym rozwijaniem pasujących rejestratorów.</translation>
+    </message>
+    <message>
+        <source>Włączono zawijanie zbyt długich nazw kamer na kafelkach listy w archiwum.</source>
+        <translation>Włączono zawijanie zbyt długich nazw kamer na kafelkach listy w archiwum.</translation>
+    </message>
+    <message>
+        <source>Powiększono i odwrócono kolory przycisku plus (+) na kafelkach kamer (seledynowe tło) dla lepszej widoczności, dodając wyraźne stany hover/pressed.</source>
+        <translation>Powiększono i odwrócono kolory przycisku plus (+) na kafelkach kamer (seledynowe tło) dla lepszej widoczności, dodając wyraźne stany hover/pressed.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>

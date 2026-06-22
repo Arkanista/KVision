@@ -1569,6 +1569,18 @@
         <source>Poprawiono przesunięcie paska dostępności nagrań o 2-3 godziny w oknie odtwarzacza archiwum, synchronizując oś czasu ze strefą czasową klienta (z poprawną obsługą czasu letniego/zimowego DST).</source>
         <translation>Fixed the 2-3 hour shift of the recording availability timeline bar in the archive player window, synchronizing the timeline with the client&apos;s local timezone (with correct daylight saving time DST support).</translation>
     </message>
+    <message>
+        <source>Dodano dynamiczną wyszukiwarkę kamer w oknie archiwum z przyciskiem resetowania i automatycznym rozwijaniem pasujących rejestratorów.</source>
+        <translation>Added a dynamic camera search field in the archive window with a reset button and auto-expanding matching recorders.</translation>
+    </message>
+    <message>
+        <source>Włączono zawijanie zbyt długich nazw kamer na kafelkach listy w archiwum.</source>
+        <translation>Enabled wrapping of long camera names on list tiles in the archive.</translation>
+    </message>
+    <message>
+        <source>Powiększono i odwrócono kolory przycisku plus (+) na kafelkach kamer (seledynowe tło) dla lepszej widoczności, dodając wyraźne stany hover/pressed.</source>
+        <translation>Enlarged and inverted colors of the plus button (+) on camera tiles (mint background) for better visibility, with clear hover/pressed states.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>
