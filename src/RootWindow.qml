@@ -670,15 +670,15 @@ ApplicationWindow {
                     sourceSize.height: 16
                     fillMode: Image.PreserveAspectFit
                     source: {
-                        var colorStr = archiveButton.hovered ? "%2300f5d4" : "%2300bfa5";
+                        var colorStr = "%23121214";
                         return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><ellipse cx='12' cy='5' rx='9' ry='3'></ellipse><path d='M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5'></path><path d='M3 12c0 1.66 4 3 9 3s9-1.34 9-3'></path></svg>";
                     }
                 }
 
                 background: Rectangle {
-                    color: archiveButton.pressed ? "#cc121214" : (archiveButton.hovered ? "#3a4550" : "#1c242c")
+                    color: archiveButton.pressed ? "#00ccb0" : (archiveButton.hovered ? "#00ffd8" : "#00f5d4")
                     radius: 15
-                    border.color: archiveButton.hovered ? "#00f5d4" : "#2a3540"
+                    border.color: archiveButton.pressed ? "#00ccb0" : (archiveButton.hovered ? "#00ffd8" : "#00f5d4")
                     border.width: 1
                 }
 
