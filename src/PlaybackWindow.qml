@@ -1455,53 +1455,54 @@ Window {
                                             ColumnLayout {
                                                 Layout.fillWidth: true
                                                 spacing: 2
-                                                
-                                                Text {
-                                                    text: modelData.customName || modelData.name || ("Kamera " + modelData.channelId)
-                                                    color: isCameraInGrid(parentRecorder.ip, modelData.channelId) ? "#00f5d4" : "white"
-                                                    font.pixelSize: 11
-                                                    font.bold: isCameraInGrid(parentRecorder.ip, modelData.channelId)
-                                                    elide: Text.ElideRight
-                                                    Layout.fillWidth: true
-                                                }
-                                                
-                                                Text {
-                                                    text: "CH " + (modelData.channelId < 10 ? "0" + modelData.channelId : modelData.channelId)
-                                                    color: "#8898a6"
-                                                    font.pixelSize: 9
-                                                }
-                                            }
+                                                                                   Text {
+                                                     text: modelData.customName || modelData.name || ("Kamera " + modelData.channelId)
+                                                     color: isCameraInGrid(parentRecorder.ip, modelData.channelId) ? "#00f5d4" : "white"
+                                                     font.pixelSize: 11
+                                                     font.bold: isCameraInGrid(parentRecorder.ip, modelData.channelId)
+                                                     wrapMode: Text.Wrap
+                                                     maximumLineCount: 2
+                                                     elide: Text.ElideRight
+                                                     Layout.fillWidth: true
+                                                 }
+                                                 
+                                                 Text {
+                                                     text: "CH " + (modelData.channelId < 10 ? "0" + modelData.channelId : modelData.channelId)
+                                                     color: "#8898a6"
+                                                     font.pixelSize: 9
+                                                 }
+                                             }
 
-                                            // Dedicated "+" button to add camera to selected viewport in the grid
-                                            Rectangle {
-                                                id: addButton
-                                                width: 20
-                                                height: 20
-                                                radius: 10
-                                                color: addButtonMouseArea.containsMouse ? "#2200f5d4" : "transparent"
-                                                border.color: isCameraInGrid(parentRecorder.ip, modelData.channelId) ? "#00f5d4" : (addButtonMouseArea.containsMouse ? "#00f5d4" : "#44ffffff")
-                                                border.width: 1
-                                                Layout.alignment: Qt.AlignVCenter
-                                                Layout.rightMargin: 6
+                                             // Dedicated "+" button to add camera to selected viewport in the grid
+                                             Rectangle {
+                                                 id: addButton
+                                                 width: 24
+                                                 height: 24
+                                                 radius: 12
+                                                 color: addButtonMouseArea.pressed ? "#00ccb0" : (addButtonMouseArea.containsMouse ? "#00ffd8" : "#00f5d4")
+                                                 border.color: color
+                                                 border.width: 1
+                                                 Layout.alignment: Qt.AlignVCenter
+                                                 Layout.rightMargin: 6
 
-                                                Text {
-                                                    text: "+"
-                                                    color: isCameraInGrid(parentRecorder.ip, modelData.channelId) ? "#00f5d4" : (addButtonMouseArea.containsMouse ? "#00f5d4" : "#8898a6")
-                                                    font.pixelSize: 12
-                                                    font.bold: true
-                                                    anchors.centerIn: parent
-                                                    anchors.verticalCenterOffset: -1 // Visually center the plus character
-                                                }
+                                                 Text {
+                                                     text: "+"
+                                                     color: "#121214"
+                                                     font.pixelSize: 14
+                                                     font.bold: true
+                                                     anchors.centerIn: parent
+                                                     anchors.verticalCenterOffset: -1 // Visually center the plus character
+                                                 }
 
-                                                MouseArea {
-                                                    id: addButtonMouseArea
-                                                    anchors.fill: parent
-                                                    hoverEnabled: true
-                                                    cursorShape: Qt.PointingHandCursor
-                                                    onClicked: {
-                                                        addCameraToGrid(parentRecorder, modelData);
-                                                    }
-                                                }
+                                                 MouseArea {
+                                                     id: addButtonMouseArea
+                                                     anchors.fill: parent
+                                                     hoverEnabled: true
+                                                     cursorShape: Qt.PointingHandCursor
+                                                     onClicked: {
+                                                         addCameraToGrid(parentRecorder, modelData);
+                                                     }
+                                                 }               
                                             }
                                         }
                                     }
