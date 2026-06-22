@@ -746,6 +746,14 @@
         <source>Wykonaj stopklatkę w pełnej rozdzielczości</source>
         <translation>Wykonaj stopklatkę w pełnej rozdzielczości</translation>
     </message>
+    <message>
+        <source>Szukaj kamery...</source>
+        <translation>Szukaj kamery...</translation>
+    </message>
+    <message>
+        <source>Wyczyść wyszukiwanie</source>
+        <translation>Wyczyść wyszukiwanie</translation>
+    </message>
 </context>
 <context>
     <name>Player</name>

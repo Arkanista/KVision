@@ -102,6 +102,43 @@ Window {
         return false;
     }
 
+    function cameraMatches(cameraObj, query, recorderObj) {
+        if (!query) return true;
+        if (recorderObj) {
+            var recName = (recorderObj.name || "").toLowerCase();
+            var recIp = (recorderObj.ip || "").toLowerCase();
+            if (recName.indexOf(query) !== -1 || recIp.indexOf(query) !== -1) {
+                return true;
+            }
+        }
+        var name = (cameraObj.customName || cameraObj.name || "").toLowerCase();
+        var defaultName = ("kamera " + cameraObj.channelId).toLowerCase();
+        var chName = "ch " + (cameraObj.channelId < 10 ? "0" + cameraObj.channelId : cameraObj.channelId);
+        var chSimple = "ch" + cameraObj.channelId;
+        var chNum = "" + cameraObj.channelId;
+        return name.indexOf(query) !== -1 ||
+               defaultName.indexOf(query) !== -1 ||
+               chName.indexOf(query) !== -1 ||
+               chSimple.indexOf(query) !== -1 ||
+               chNum.indexOf(query) !== -1;
+    }
+
+    function hasMatchingCameras(recorderObj, query) {
+        if (!query) return true;
+        var recName = (recorderObj.name || "").toLowerCase();
+        var recIp = (recorderObj.ip || "").toLowerCase();
+        if (recName.indexOf(query) !== -1 || recIp.indexOf(query) !== -1) {
+            return true;
+        }
+        if (!recorderObj.cameras) return false;
+        for (var i = 0; i < recorderObj.cameras.length; i++) {
+            if (cameraMatches(recorderObj.cameras[i], query, recorderObj)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     function isAnyCameraSearching() {
         for (var i = 0; i < activePlayersList.length; i++) {
             var cam = activePlayersList[i];
@@ -1221,6 +1258,68 @@ Window {
                     }
                 }
                 
+                RowLayout {
+                    Layout.fillWidth: true
+                    Layout.topMargin: 4
+                    Layout.bottomMargin: 4
+                    spacing: 8
+
+                    TextField {
+                        id: cameraSearchField
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 30
+                        placeholderText: qsTr("Szukaj kamery...")
+                        selectByMouse: true
+                        color: "white"
+                        font.pixelSize: 11
+                        
+                        background: Rectangle {
+                            color: "#0f151b"
+                            radius: 4
+                            border.color: cameraSearchField.activeFocus ? "#00f5d4" : "#2a3540"
+                            border.width: 1
+                        }
+                    }
+
+                    Button {
+                        id: clearSearchButton
+                        Layout.preferredWidth: 30
+                        Layout.preferredHeight: 30
+                        Layout.alignment: Qt.AlignVCenter
+                        enabled: cameraSearchField.text.trim() !== ""
+
+                        contentItem: Image {
+                            anchors.centerIn: parent
+                            width: 14
+                            height: 14
+                            sourceSize.width: 14
+                            sourceSize.height: 14
+                            fillMode: Image.PreserveAspectFit
+                            source: {
+                                var colorStr = !clearSearchButton.enabled ? "%23445464" : (clearSearchButton.hovered ? "%23ff4d4d" : "%238898a6");
+                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='18' y1='6' x2='6' y2='18'></line><line x1='6' y1='6' x2='18' y2='18'></line></svg>";
+                            }
+                        }
+
+                        background: Rectangle {
+                            color: !clearSearchButton.enabled ? "transparent" : (clearSearchButton.pressed ? "#cc121214" : (clearSearchButton.hovered ? "#20ff0000" : "#1c242c"))
+                            radius: 15
+                            border.color: !clearSearchButton.enabled ? "#1c242c" : (clearSearchButton.hovered ? "#ff4d4d" : "#2a3540")
+                            border.width: 1
+                        }
+
+                        onClicked: {
+                            cameraSearchField.text = "";
+                            cameraSearchField.forceActiveFocus();
+                        }
+
+                        ToolTip.delay: Compact.toolTipDelay
+                        ToolTip.timeout: Compact.toolTipTimeout
+                        ToolTip.visible: clearSearchButton.hovered && clearSearchButton.enabled
+                        ToolTip.text: qsTr("Wyczyść wyszukiwanie")
+                    }
+                }
+                
                 ScrollView {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -1237,9 +1336,28 @@ Window {
                                 id: recorderGroup
                                 Layout.fillWidth: true
                                 spacing: 4
+                                visible: hasMatchingCameras(recorderObj, cameraSearchField.text.trim().toLowerCase())
                                 
                                 property var recorderObj: modelData
-                                property bool expanded: isRecorderInGrid(recorderObj.ip)
+                                property bool userExpanded: isRecorderInGrid(recorderObj.ip)
+                                property bool userCollapsedDuringSearch: false
+                                
+                                property bool expanded: {
+                                    var query = cameraSearchField.text.trim().toLowerCase();
+                                    if (query !== "") {
+                                        return hasMatchingCameras(recorderObj, query) && !userCollapsedDuringSearch;
+                                    }
+                                    return userExpanded;
+                                }
+                                
+                                Connections {
+                                    target: cameraSearchField
+                                    function onTextChanged() {
+                                        if (cameraSearchField.text.trim() === "") {
+                                            recorderGroup.userCollapsedDuringSearch = false;
+                                        }
+                                    }
+                                }
                                 
                                 // Recorder Section Header with Click to Expand/Collapse
                                 Rectangle {
@@ -1274,7 +1392,12 @@ Window {
                                         hoverEnabled: true
                                         cursorShape: Qt.PointingHandCursor
                                         onClicked: {
-                                            recorderGroup.expanded = !recorderGroup.expanded;
+                                            var query = cameraSearchField.text.trim().toLowerCase();
+                                            if (query !== "") {
+                                                recorderGroup.userCollapsedDuringSearch = !recorderGroup.userCollapsedDuringSearch;
+                                            } else {
+                                                recorderGroup.userExpanded = !recorderGroup.userExpanded;
+                                            }
                                         }
                                     }
                                 }
@@ -1285,8 +1408,8 @@ Window {
                                     
                                     delegate: Rectangle {
                                         Layout.fillWidth: true
-                                        height: 62
-                                        visible: recorderGroup.expanded
+                                        visible: recorderGroup.expanded && cameraMatches(modelData, cameraSearchField.text.trim().toLowerCase(), recorderGroup.recorderObj)
+                                        height: visible ? 62 : 0
                                         color: itemMouseArea.containsMouse ? "#1c242c" : "transparent"
                                         radius: 4
                                         

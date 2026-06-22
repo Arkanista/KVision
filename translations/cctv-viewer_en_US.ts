@@ -726,6 +726,14 @@
         <source>Wykonaj stopklatkę w pełnej rozdzielczości</source>
         <translation>Take snapshot in full resolution</translation>
     </message>
+    <message>
+        <source>Szukaj kamery...</source>
+        <translation>Search camera...</translation>
+    </message>
+    <message>
+        <source>Wyczyść wyszukiwanie</source>
+        <translation>Clear search</translation>
+    </message>
 </context>
 <context>
     <name>Player</name>
@@ -1559,7 +1567,7 @@
     </message>
     <message>
         <source>Poprawiono przesunięcie paska dostępności nagrań o 2-3 godziny w oknie odtwarzacza archiwum, synchronizując oś czasu ze strefą czasową klienta (z poprawną obsługą czasu letniego/zimowego DST).</source>
-        <translation>Fixed the 2-3 hour shift of the recording availability timeline bar in the archive player window, synchronizing the timeline with the client's local timezone (with correct daylight saving time DST support).</translation>
+        <translation>Fixed the 2-3 hour shift of the recording availability timeline bar in the archive player window, synchronizing the timeline with the client&apos;s local timezone (with correct daylight saving time DST support).</translation>
     </message>
 </context>
 <context>
