@@ -242,6 +242,84 @@ ApplicationWindow {
                     console.log("[Sync] Error parsing updated layouts:", e);
                 }
             }
+
+            // 3. Check and live-reload General Settings
+            var diskAllowSwapping = Context.readSetting("", "allowSwappingViewports", true);
+            if (generalSettings.allowSwappingViewports !== diskAllowSwapping) {
+                generalSettings.allowSwappingViewports = diskAllowSwapping;
+            }
+            var diskEnableChangeViewport = Context.readSetting("", "enableChangeViewportSettings", true);
+            if (generalSettings.enableChangeViewportSettings !== diskEnableChangeViewport) {
+                generalSettings.enableChangeViewportSettings = diskEnableChangeViewport;
+            }
+            var diskEnableStreamSel = Context.readSetting("", "enableStreamSelection", true);
+            if (generalSettings.enableStreamSelection !== diskEnableStreamSel) {
+                generalSettings.enableStreamSelection = diskEnableStreamSel;
+            }
+            var diskSnapshotPath = Context.readSetting("", "snapshotPath", "");
+            if (generalSettings.snapshotPath !== diskSnapshotPath) {
+                generalSettings.snapshotPath = diskSnapshotPath;
+            }
+            var diskVideoPath = Context.readSetting("", "videoPath", "");
+            if (generalSettings.videoPath !== diskVideoPath) {
+                generalSettings.videoPath = diskVideoPath;
+            }
+            var diskEnableContextMenu = Context.readSetting("", "enableContextMenu", true);
+            if (generalSettings.enableContextMenu !== diskEnableContextMenu) {
+                generalSettings.enableContextMenu = diskEnableContextMenu;
+            }
+            var diskEnableRemoveCamera = Context.readSetting("", "enableRemoveCamera", true);
+            if (generalSettings.enableRemoveCamera !== diskEnableRemoveCamera) {
+                generalSettings.enableRemoveCamera = diskEnableRemoveCamera;
+            }
+            var diskLockGridSize = Context.readSetting("", "lockGridSize", true);
+            if (generalSettings.lockGridSize !== diskLockGridSize) {
+                generalSettings.lockGridSize = diskLockGridSize;
+            }
+
+            // 4. Check and live-reload View Settings
+            var diskHideCursor = Context.readSetting("View", "hideCursorWhenFullScreen", true);
+            if (viewSettings.hideCursorWhenFullScreen !== diskHideCursor) {
+                viewSettings.hideCursorWhenFullScreen = diskHideCursor;
+            }
+            var diskShowChannelStatus = Context.readSetting("View", "showChannelStatus", true);
+            if (viewSettings.showChannelStatus !== diskShowChannelStatus) {
+                viewSettings.showChannelStatus = diskShowChannelStatus;
+            }
+            var diskShowCameraInfo = Context.readSetting("View", "showCameraInfo", true);
+            if (viewSettings.showCameraInfo !== diskShowCameraInfo) {
+                viewSettings.showCameraInfo = diskShowCameraInfo;
+            }
+            var diskHoverControlIcons = Context.readSetting("View", "hoverControlIcons", true);
+            if (viewSettings.hoverControlIcons !== diskHoverControlIcons) {
+                viewSettings.hoverControlIcons = diskHoverControlIcons;
+            }
+            var diskShowInfoOnHoverOnly = Context.readSetting("View", "showInfoOnHoverOnly", false);
+            if (viewSettings.showInfoOnHoverOnly !== diskShowInfoOnHoverOnly) {
+                viewSettings.showInfoOnHoverOnly = diskShowInfoOnHoverOnly;
+            }
+            var diskUnmuteWhenFullScreen = Context.readSetting("Viewport", "unmuteWhenFullScreen", false);
+            if (viewportSettings.unmuteWhenFullScreen !== diskUnmuteWhenFullScreen) {
+                viewportSettings.unmuteWhenFullScreen = diskUnmuteWhenFullScreen;
+            }
+            var diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", "{\"analyzeduration\":0,\"probesize\":500000}");
+            if (layoutsCollectionSettings.defaultAVFormatOptions !== diskDefaultAVFormatOptions) {
+                layoutsCollectionSettings.defaultAVFormatOptions = diskDefaultAVFormatOptions;
+            }
+
+            // 5. Check and live-reload Root Window top bar collapse setting
+            var windowCategory = Context.isAuxiliary ? "AuxiliaryWindow_" + Context.auxiliaryId : "RootWindow";
+            var diskTopBarCollapse = Context.readSetting(windowCategory, "topBarAutoCollapse", true);
+            if (rootWindowSettings.topBarAutoCollapse !== diskTopBarCollapse) {
+                rootWindowSettings.topBarAutoCollapse = diskTopBarCollapse;
+            }
+
+            // 6. Check and live-reload Application Language
+            var diskLang = Context.readSetting("", "language", "system");
+            if (Context.getLanguage() !== diskLang) {
+                console.log("[Sync] Live-reloading language to:", diskLang);
+                Context.setLanguage(diskLang);
+            }
         }
     }
 

@@ -348,6 +348,11 @@ Dialog {
                 }
             }
         }
+        function onConfigFileChanged() {
+            if (visible) {
+                loadSettings();
+            }
+        }
     }
 
 

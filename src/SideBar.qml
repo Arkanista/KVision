@@ -2311,5 +2311,15 @@ FocusScope {
         onAccepted: layoutsCollectionModel.remove(index)
     }
 
+    Connections {
+        target: generalSettings
+        function onSnapshotPathChanged() {
+            snapshotPathField.text = generalSettings.snapshotPath;
+        }
+        function onVideoPathChanged() {
+            videoPathField.text = generalSettings.videoPath;
+        }
+    }
+
 
 }
