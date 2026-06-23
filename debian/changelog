@@ -1,3 +1,18 @@
+cctv-viewer (2.1.9-1) jammy; urgency=medium
+
+  * Refactored main and archive window top toolbars into floating centered docks (main dock dynamically resizes)
+  * Relocated grid layout selection buttons in the archive window to the left next to other options
+  * Added vertical line separators in the docks between grid options and layout options
+  * Increased transparency of archive top and bottom bars in windowed (60%) and fullscreen (26%) modes
+  * Simplified playback speed icons to bold text (1x, 2x, 4x) and removed the unstable 8x speed option
+  * Replaced month navigation text buttons inside calendar popups with graphical chevron icons
+  * Relocated camera viewport close button from top-right corner to bottom-right controls area
+  * Corrected selected grid layout button text contrast (dark text on active celadon background) in the archive window
+  * Converted the system statistics panel into a premium semi-transparent draggable panel with a grab handle icon, maintaining click-through functionality
+  * Resolved critical layout deletion synchronization bug causing UI freeze and deleted layouts to reappear
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Tue, 23 Jun 2026 21:10:00 +0200
+
 cctv-viewer (2.1.8-1) jammy; urgency=medium
 
   * Enlarged playback control icons (speed, zoom, VCR controls) in the archive window for improved visibility and legibility

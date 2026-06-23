@@ -169,7 +169,7 @@ Available by clicking the clock/play icon next to a specific camera or recorder.
   * **Refresh icon**: Forces a fresh search of recordings. Clicking it sweeps the local cache of recording availability segments for all active channels and submits new queries to the NVR, which is highly useful to load files recorded just a few moments ago (replacing the old text button).
   * **Today (Today's date/number) icon**: Instantly jumps back to the current day (replacing the old text button).
 * **Playback Speed Shortcuts**:
-  * **„1x”, „2x”, „4x”, and „8x” icons**: Instantly change the playback speed multiplier.
+  * **„1x”, „2x”, and „4x” icons**: Instantly change the playback speed multiplier.
 * **VCR Jump Buttons**:
   * **„15”, „45”, and „60” icons with circular arrows**: Let you quickly skip backward or forward by the specified number of seconds.
 * **Recording Availability Bars**: Colored bars representing the found video segments on the recorder's disk are rendered below the timeline. A caching system prevents them from flickering while dragging.

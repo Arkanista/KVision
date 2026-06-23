@@ -168,5 +168,32 @@ Wdrożyliśmy następujące poprawki wyglądu i spójności interfejsu paska ste
    - Za pomocą narzędzia `lupdate` wyeksportowaliśmy wszystkie nowo dodane etykiety tooltipów i uzupełniliśmy kompletne tłumaczenia w plikach lokalizacyjnych `translations/cctv-viewer_en_US.ts` oraz `translations/cctv-viewer_pl_PL.ts`.
    - Zbudowaliśmy pliki binarne tłumaczeń `.qm`, które są automatycznie kompilowane i integrowane z zasobami aplikacji przy budowaniu CMake.
 
+---
 
+## 14. Pływające Doki, Przeciągalne Statystyki, Poprawki Archiwum i Wydanie v2.1.9-1
 
+W wersji `v2.1.9-1` wprowadziliśmy szereg optymalizacji i poprawek wizualnych oraz funkcjonalnych w oknach LIVE i ARCHIWUM, a także naprawiliśmy krytyczny błąd synchronizacji przy usuwaniu układów:
+
+### 1. Centrowane Pływające Doki (LIVE & ARCHIWUM)
+* **LIVE:** Zintegrowano górny pasek narzędzi w estetyczny, zaokrąglony i pływający dok (dock) o dynamicznie dopasowującej się szerokości zależnej od liczby widocznych layoutów.
+* **ARCHIWUM:** Zintegrowano górny pasek w pływający dok o zaokrąglonych dolnych narożnikach. Dok ten jest domyślnie przypięty po otwarciu okna.
+* **Separatory pionowe:** Dodano pionowe linie separujące opcje siatki od zdefiniowanych widoków.
+* **Wizualna spójność przycisków:** Zastosowano jednolity styl kolorystyczny dla przycisków wyboru układu w oknie ARCHIWUM (tożsamy z LIVE), poprawiając kontrast tekstu zaznaczonej siatki (ciemny tekst na seledynowym tle).
+
+### 2. Panel Statystyk Systemowych
+* Przekształcono wysuwane okno statystyk w półprzezroczysty, pływający panel.
+* Panel pozostaje click-through (kliknięcia przenikają pod spód), ale dodano dedykowaną ikonę uchwytu w lewym górnym rogu.
+* Użytkownik może przesuwać panel wyłącznie poprzez kliknięcie, przytrzymanie i przeciągnięcie tej ikony.
+
+### 3. Zmiany w Oknie Archiwum i Kalendarzu
+* **Przezroczystość pasków:** Zwiększono przezroczystość paska górnego oraz dolnego w trybie pełnoekranowym (26%) i okienkowym (60%). Oś czasu zyskała przezroczyste tło.
+* **Uproszczona kontrola prędkości:** Zastąpiono ikony prędkości odtwarzania boldowanym tekstem (`1x`, `2x`, `4x`) i całkowicie usunięto niestabilną prędkość `8x`.
+* **Ikony Chevronów:** Przyciski przewijania miesięcy w kalendarzu popapów zamieniono na graficzne strzałki (chevrony).
+* **Bezpieczne usuwanie kamer:** Przycisk usuwania kamery przeniesiono z prawego górnego rogu wideo na dolny pasek kontrolny viewportów, zapobiegając przypadkowym kliknięciom podczas zamykania viewportu.
+
+### 4. Naprawa Błędu Usuwania Układów (Freeze & Loop Fix)
+* Rozwiązano problem z pętlą synchronizacji zapisów konfiguracji przy usuwaniu układów podglądu w oknie ustawień, co powodowało kilkusekundowe zamrożenie interfejsu i ponowne pojawianie się usuniętych układów.
+
+### 5. Kompilacja i Pakietowanie
+* Zaktualizowano bilingualne pliki tłumaczeń (`.ts`) i wygenerowano pliki `.qm` bez nieprzetłumaczonych wpisów.
+* Zbudowano pakiet dla systemu Arch Linux (`2.1.9-1`) i opublikowano wydanie na GitHubie.

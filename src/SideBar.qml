@@ -58,6 +58,21 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.1.9",
+            date: "23.06.2026",
+            changes: [
+                qsTr("Przekształcono górny pasek narzędzi w oknach LIVE i ARCHIWUM w wyśrodkowane pływające doki (dok LIVE ma dynamiczną szerokość)."),
+                qsTr("Dodano pionowy separator oddzielający opcje siatki od widoków w dokach na pasku górnym."),
+                qsTr("Zwiększono przezroczystość pasków górnego i dolnego w archiwum (60% w oknie, 26% na pełnym ekranie) oraz ustawiono przezroczyste tło osi czasu."),
+                qsTr("Uproszczono ikony prędkości odtwarzania w archiwum do czytelnego tekstu (1x, 2x, 4x) i usunięto niestabilną prędkość 8x."),
+                qsTr("Zastąpiono tekstowe przyciski nawigacji miesięcy w kalendarzu archiwum i pobierania graficznymi strzałkami (chevronami)."),
+                qsTr("Przeniesiono przycisk usuwania kamery z prawego górnego rogu wideo na dolny pasek kontrolny viewportów, zapobiegając przypadkowym kliknięciom."),
+                qsTr("Zoptymalizowano kontrast tekstu przycisków wyboru siatki w archiwum (ciemny tekst na seledynowym tle)."),
+                qsTr("Przekształcono panel statystyk w okno pływające i przeciągane za pomocą nowego dedykowanego uchwytu (z zachowaniem click-through)."),
+                qsTr("Naprawiono krytyczny błąd synchronizacji i pętli zwrotnej zapisu konfiguracyjnego przy usuwaniu układów podglądu.")
+            ]
+        },
+        {
             version: "v2.1.8",
             date: "23.06.2026",
             changes: [

@@ -169,7 +169,7 @@ Dostępny po kliknięciu ikony zegara/odtwarzania przy danej kamerze lub rejestr
   * **Ikona odświeżenia**: Wymusza ponowne wyszukiwanie nagrań. Czyści lokalną pamięć podręczną (cache) i wysyła nowe zapytania do rejestratora (zastępuje dawny przycisk tekstowy „Odśwież”).
   * **Ikona dzisiejszego dnia (numer dnia)**: Natychmiast przestawia aktywną datę i kalendarz na bieżący dzień dzisiejszy (zastępuje dawny przycisk tekstowy „Dzisiaj”).
 * **Skróty prędkości odtwarzania**:
-  * **Ikony „1x”, „2x”, „4x” oraz „8x”**: Pozwalają na natychmiastową zmianę mnożnika prędkości odtwarzania (zastępują dawne przyciski tekstowe).
+  * **Ikony „1x”, „2x” oraz „4x”**: Pozwalają na natychmiastową zmianę mnożnika prędkości odtwarzania (zastępują dawne przyciski tekstowe).
 * **Przyciski skoku VCR**:
   * **Ikony ze strzałkami „15”, „45” oraz „60” sekund**: Pozwalają na szybkie cofnięcie lub przewinięcie nagrania o wskazaną liczbę sekund.
 * **Paski Dostępności Nagrań**: Pod osią czasu renderowane są kolorowe paski reprezentujące znalezione segmenty wideo na dysku rejestratora. System cache zapobiega ich migotaniu podczas przesuwania osi.

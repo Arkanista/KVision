@@ -169,7 +169,12 @@ Popup {
                 spacing: 20
                 
                 CctvButton {
-                    text: qsTr("< Poprzedni")
+                    text: ""
+                    isSmall: true
+                    iconSource: {
+                        var colorStr = hovered ? "%2300f5d4" : "%238898a6"
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='15 18 9 12 15 6'></polyline></svg>"
+                    }
                     onClicked: {
                         if (calendarPopup.viewMonth === 0) { 
                             calendarPopup.viewMonth = 11; 
@@ -179,9 +184,18 @@ Popup {
                         }
                         calendarPopup.updateDaysModel()
                     }
+                    ToolTip.delay: 500
+                    ToolTip.timeout: 5000
+                    ToolTip.visible: hovered
+                    ToolTip.text: qsTr("Poprzedni miesiąc")
                 }
                 CctvButton {
-                    text: qsTr("Następny >")
+                    text: ""
+                    isSmall: true
+                    iconSource: {
+                        var colorStr = hovered ? "%2300f5d4" : "%238898a6"
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='9 18 15 12 9 6'></polyline></svg>"
+                    }
                     onClicked: {
                         if (calendarPopup.viewMonth === 11) { 
                             calendarPopup.viewMonth = 0; 
@@ -191,6 +205,10 @@ Popup {
                         }
                         calendarPopup.updateDaysModel()
                     }
+                    ToolTip.delay: 500
+                    ToolTip.timeout: 5000
+                    ToolTip.visible: hovered
+                    ToolTip.text: qsTr("Następny miesiąc")
                 }
             }
         }

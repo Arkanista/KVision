@@ -22,6 +22,8 @@ ApplicationWindow {
     property bool isWindowMinimized: rootWindow.visibility === Window.Minimized
     property int lastNonMinimizedVisibility: Window.Windowed
     property bool closeAccepted: false
+    property string lastLoadedModelsJson: ""
+    property string lastSavedModelsJson: ""
 
     onClosing: {
         if (!closeAccepted) {
@@ -233,13 +235,23 @@ ApplicationWindow {
 
             // 2. Check and live-reload Viewport Layouts definitions
             var diskModels = Context.readSetting("ViewportsLayoutsCollection", "models", "");
-            if (diskModels !== layoutsCollectionSettings.models && diskModels !== "") {
-                console.log("[Sync] Live-reloading Viewports Layouts list...");
-                layoutsCollectionSettings.models = diskModels;
-                try {
-                    layoutsCollectionModel.fromJSValue(JSON.parse(diskModels));
-                } catch(e) {
-                    console.log("[Sync] Error parsing updated layouts:", e);
+            if (diskModels !== "") {
+                if (diskModels === rootWindow.lastSavedModelsJson) {
+                    // Disk has caught up to our latest save, or we are in sync.
+                    rootWindow.lastLoadedModelsJson = diskModels;
+                } else if (diskModels === rootWindow.lastLoadedModelsJson) {
+                    // Disk is still showing the old state before our latest save. Ignore it.
+                } else {
+                    // External change!
+                    console.log("[Sync] Live-reloading Viewports Layouts list due to external change...");
+                    rootWindow.lastLoadedModelsJson = diskModels;
+                    rootWindow.lastSavedModelsJson = diskModels;
+                    layoutsCollectionSettings.models = diskModels;
+                    try {
+                        layoutsCollectionModel.fromJSValue(JSON.parse(diskModels));
+                    } catch(e) {
+                        console.log("[Sync] Error parsing updated layouts:", e);
+                    }
                 }
             }
 
@@ -485,16 +497,22 @@ ApplicationWindow {
             get(0).get(0).url = "rtmp://live.a71.ru/demo/0";
             get(0).get(1).url = "rtmp://live.a71.ru/demo/1";
 
+            var initialModels = "";
             try {
                 if (!layoutsCollectionSettings.models.isEmpty()) {
-                    fromJSValue(JSON.parse(layoutsCollectionSettings.models));
+                    initialModels = layoutsCollectionSettings.models;
+                    fromJSValue(JSON.parse(initialModels));
                 }
             } catch(err) {
                 Utils.log_error(qsTr("Error reading configuration!"));
             }
+            rootWindow.lastLoadedModelsJson = initialModels;
+            rootWindow.lastSavedModelsJson = initialModels;
 
             layoutsCollectionModel.changed.connect(function () {
-                layoutsCollectionSettings.models = JSON.stringify(toJSValue());
+                var json = JSON.stringify(toJSValue());
+                rootWindow.lastSavedModelsJson = json;
+                layoutsCollectionSettings.models = json;
             });
 
             if (Context.isAuxiliary) {
@@ -525,17 +543,19 @@ ApplicationWindow {
         }
     }
 
-    // Sleek premium horizontal top bar for settings and grid layout options
+    // Sleek premium horizontal top bar for settings and grid layout options (DOCK)
     Rectangle {
         id: topToolBar
-        height: 44
-        anchors.left: parent.left
-        anchors.right: parent.right
-        color: "#cc121214"
+        height: 56
+        width: topRowLayout.implicitWidth + 24
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: (rootWindow.visibility === Window.FullScreen) ? "#44121214" : "#99121214"
         z: 9999
+        radius: 12
 
-        // Slide animation based on hover states of the top edge or the bar itself
-        y: (!rootWindowSettings.topBarAutoCollapse || hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? 0 : -height
+        // Slides down to y: -12 so that the top 12px (containing top rounded corners) is off-screen,
+        // leaving only the bottom rounded corners visible at the top edge of the window.
+        y: (!rootWindowSettings.topBarAutoCollapse || hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? -12 : -height
 
         Behavior on y {
             NumberAnimation {
@@ -544,17 +564,12 @@ ApplicationWindow {
             }
         }
 
-        Rectangle {
-            anchors.bottom: parent.bottom
-            width: parent.width
-            height: 1
-            color: "#2a3540"
-            z: 10 // draw line on top of background
-        }
-
         MouseArea {
             id: topToolBarMouseArea
-            anchors.fill: parent
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            height: 44
             hoverEnabled: true
             onContainsMouseChanged: {
                 if (containsMouse) {
@@ -565,10 +580,14 @@ ApplicationWindow {
             }
 
             RowLayout {
-            anchors.fill: parent
-            anchors.leftMargin: 8
-            anchors.rightMargin: 8
-            spacing: 6
+                id: topRowLayout
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 12
+                anchors.rightMargin: 12
+                height: 44
+                spacing: 6
 
             Button {
                 id: quitButton
@@ -1041,8 +1060,13 @@ ApplicationWindow {
                 }
             }
 
-            Item {
-                Layout.fillWidth: true // Spacer to push existing views to the right
+            Rectangle {
+                width: 1
+                height: 20
+                color: "#2a3540"
+                Layout.alignment: Qt.AlignVCenter
+                Layout.leftMargin: 6
+                Layout.rightMargin: 6
             }
 
             RowLayout {
@@ -1321,81 +1345,19 @@ ApplicationWindow {
         visible: false
     }
 
-    // Light-green line marking the 50px-360px stats panel zone
-    Rectangle {
-        id: statsGreenLine
-        x: 0
-        y: 50
-        width: 1
-        height: 310
-        color: "#00ff66"
-        z: 99999
-        visible: systemStatsSwitch.checked
-    }
-
-    // Hover trigger zone
-    MouseArea {
-        id: statsTriggerArea
-        x: 0
-        y: 50
-        width: (statsPanel.x > -statsPanel.width) ? statsPanel.width : 15
-        height: 310
-        hoverEnabled: true
-        acceptedButtons: Qt.NoButton
-        z: 99998
-        visible: systemStatsSwitch.checked
-    }
-
-    // Slide-out panel for system stats
+    // Premium semi-transparent draggable panel for system stats
     Rectangle {
         id: statsPanel
         width: 400
         height: 310
-        y: 50
+        x: 20
+        y: 60
         color: "#59121214" // 35% opacity dark background for better readability
         border.color: "#00ff66"
         border.width: 1
-        radius: 4
+        radius: 8
         z: 99999
         visible: systemStatsSwitch.checked
-
-        property bool pinned: pinStatsSwitch.checked
-        property bool hovered: statsTriggerArea.containsMouse || panelMouseArea.containsMouse
-        property bool panelActive: false
-
-        onHoveredChanged: {
-            if (hovered) {
-                delayCloseTimer.stop();
-                panelActive = true;
-            } else {
-                delayCloseTimer.start();
-            }
-        }
-
-        x: (pinned || panelActive) ? 0 : -width
-
-        Behavior on x {
-            NumberAnimation {
-                duration: 250
-                easing.type: Easing.OutCubic
-            }
-        }
-
-        Timer {
-            id: delayCloseTimer
-            interval: 1500 // comfortable 1.5s delay before closing panel
-            repeat: false
-            onTriggered: {
-                statsPanel.panelActive = false;
-            }
-        }
-
-        MouseArea {
-            id: panelMouseArea
-            anchors.fill: parent
-            hoverEnabled: true
-            acceptedButtons: Qt.NoButton
-        }
 
         property var cpuHistory: []
         property var gpuHistory: []
@@ -1453,38 +1415,41 @@ ApplicationWindow {
                     Layout.fillWidth: true
                 }
 
-                Switch {
-                    id: pinStatsSwitch
-                    checked: false
-                    text: qsTr("Nie chowaj")
+                Image {
+                    id: dragHandle
+                    width: 24
+                    height: 24
+                    sourceSize.width: 24
+                    sourceSize.height: 24
+                    fillMode: Image.PreserveAspectFit
+                    source: {
+                        var colorStr = dragArea.pressed ? "%23ffffff" : (dragArea.hovered ? "%2300ffd8" : "%2300ff66");
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='9' cy='5' r='1.5'></circle><circle cx='9' cy='12' r='1.5'></circle><circle cx='9' cy='19' r='1.5'></circle><circle cx='15' cy='5' r='1.5'></circle><circle cx='15' cy='12' r='1.5'></circle><circle cx='15' cy='19' r='1.5'></circle></svg>";
+                    }
 
-                    indicator: Rectangle {
-                        implicitWidth: 32
-                        implicitHeight: 16
-                        radius: 8
-                        color: pinStatsSwitch.checked ? "#00ff66" : "#1c242c"
-                        border.color: pinStatsSwitch.checked ? "#00cc52" : "#2a3540"
-                        border.width: 1
+                    MouseArea {
+                        id: dragArea
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.SizeAllCursor
 
-                        Rectangle {
-                            x: pinStatsSwitch.checked ? parent.width - width - 2 : 2
-                            y: 2
-                            width: 12
-                            height: 12
-                            radius: 6
-                            color: "white"
-                            Behavior on x { NumberAnimation { duration: 120 } }
+                        property point clickPos: "0,0"
+                        onPressed: {
+                            clickPos = Qt.point(mouse.x, mouse.y)
+                        }
+                        onPositionChanged: {
+                            if (pressed) {
+                                var delta = Qt.point(mouse.x - clickPos.x, mouse.y - clickPos.y)
+                                statsPanel.x = Math.max(0, Math.min(rootWindow.width - statsPanel.width, statsPanel.x + delta.x))
+                                statsPanel.y = Math.max(50, Math.min(rootWindow.height - statsPanel.height, statsPanel.y + delta.y))
+                            }
                         }
                     }
 
-                    contentItem: Text {
-                        text: pinStatsSwitch.text
-                        font.bold: true
-                        font.pixelSize: 9
-                        color: pinStatsSwitch.checked ? "#00ff66" : "#8898a6"
-                        verticalAlignment: Text.AlignVCenter
-                        leftPadding: pinStatsSwitch.indicator.width + 4
-                    }
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: dragArea.hovered
+                    ToolTip.text: qsTr("Przeciągnij panel statystyk")
                 }
             }
 

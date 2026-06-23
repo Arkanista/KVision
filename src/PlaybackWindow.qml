@@ -32,7 +32,7 @@ Window {
     property bool playbackStoppedForDownload: false
 
     property bool sidebarVisible: true
-    property bool topBarAutoCollapse: true
+    property bool topBarAutoCollapse: false
     property bool hideTimelineOption: false
     readonly property bool isBottomPanelFloating: (fullScreenPlayerIndex !== -1) || (playbackWindow.visibility === Window.FullScreen)
 
@@ -988,8 +988,12 @@ Window {
                 Layout.fillWidth: true
                 
                 CctvButton {
-                    text: qsTr("< Poprzedni")
-                    iconSource: ""
+                    text: ""
+                    isSmall: true
+                    iconSource: {
+                        var colorStr = hovered ? "%2300f5d4" : "%238898a6"
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='15 18 9 12 15 6'></polyline></svg>"
+                    }
                     onClicked: {
                         if (calendarPopup.viewMonth === 0) { 
                             calendarPopup.viewMonth = 11; 
@@ -1001,6 +1005,10 @@ Window {
                         playbackWindow.fetchMonthAvailabilityForCamera(playbackWindow.recorderInfo, playbackWindow.channelId, calendarPopup.leftYear, calendarPopup.leftMonth)
                         playbackWindow.fetchMonthAvailabilityForCamera(playbackWindow.recorderInfo, playbackWindow.channelId, calendarPopup.rightYear, calendarPopup.rightMonth)
                     }
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: hovered
+                    ToolTip.text: qsTr("Poprzedni miesiąc")
                 }
                 
                 Text {
@@ -1013,8 +1021,12 @@ Window {
                 }
                 
                 CctvButton {
-                    text: qsTr("Następny >")
-                    iconSource: ""
+                    text: ""
+                    isSmall: true
+                    iconSource: {
+                        var colorStr = hovered ? "%2300f5d4" : "%238898a6"
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='9 18 15 12 9 6'></polyline></svg>"
+                    }
                     onClicked: {
                         if (calendarPopup.viewMonth === 11) { 
                             calendarPopup.viewMonth = 0; 
@@ -1026,6 +1038,10 @@ Window {
                         playbackWindow.fetchMonthAvailabilityForCamera(playbackWindow.recorderInfo, playbackWindow.channelId, calendarPopup.leftYear, calendarPopup.leftMonth)
                         playbackWindow.fetchMonthAvailabilityForCamera(playbackWindow.recorderInfo, playbackWindow.channelId, calendarPopup.rightYear, calendarPopup.rightMonth)
                     }
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: hovered
+                    ToolTip.text: qsTr("Następny miesiąc")
                 }
             }
             
@@ -1810,7 +1826,8 @@ Window {
                                                         snapshotMouseAreaBtn.containsMouse ||
                                                         oneToOneMouseAreaBtn.containsMouse ||
                                                         zoomMouseAreaBtn.containsMouse ||
-                                                        fullScreenMouseAreaBtn.containsMouse;
+                                                        fullScreenMouseAreaBtn.containsMouse ||
+                                                        closeViewportMouseAreaBtn.containsMouse;
                                         }
                                         Component.onCompleted: updateHoverState()
                                         Connections {
@@ -1831,6 +1848,10 @@ Window {
                                         }
                                         Connections {
                                             target: fullScreenMouseAreaBtn
+                                            function onContainsMouseChanged() { playerHoverArea.updateHoverState() }
+                                        }
+                                        Connections {
+                                            target: closeViewportMouseAreaBtn
                                             function onContainsMouseChanged() { playerHoverArea.updateHoverState() }
                                         }
                                         Connections {
@@ -1856,7 +1877,7 @@ Window {
                                          }
                                         spacing: 6
                                         z: 10
-                                        visible: (modelData !== null) && (!rootWindow.viewSettings.hoverControlIcons || playerHoverArea.isHovered)
+                                        visible: modelData !== null
 
                                         Control {
                                              id: snapshotBadge
@@ -2092,6 +2113,41 @@ Window {
                                             ToolTip.visible: fullScreenMouseAreaBtn.containsMouse
                                             ToolTip.text: tileContainer.fullScreen ? qsTr("Przywróć widok siatki") : qsTr("Pokaż na pełnym ekranie")
                                         }
+
+                                        Control {
+                                            id: closeViewportBadge
+                                            implicitWidth: 24
+                                            implicitHeight: 24
+                                            padding: 5
+
+                                            background: Rectangle {
+                                                radius: 12
+                                                color: closeViewportMouseAreaBtn.pressed ? "#44ff3333" : (closeViewportMouseAreaBtn.containsMouse ? "#ccff3333" : "#cc121214")
+                                                border.color: closeViewportMouseAreaBtn.containsMouse ? "#ff3333" : "#802a3540"
+                                                border.width: 1
+                                            }
+
+                                            contentItem: Image {
+                                                sourceSize: Qt.size(32, 32)
+                                                fillMode: Image.PreserveAspectFit
+                                                source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='18' y1='6' x2='6' y2='18'></line><line x1='6' y1='6' x2='18' y2='18'></line></svg>"
+                                            }
+
+                                            MouseArea {
+                                                id: closeViewportMouseAreaBtn
+                                                anchors.fill: parent
+                                                hoverEnabled: true
+                                                cursorShape: Qt.PointingHandCursor
+                                                onClicked: {
+                                                    removeCameraFromGrid(index);
+                                                }
+                                            }
+
+                                            ToolTip.delay: 500
+                                            ToolTip.timeout: 5000
+                                            ToolTip.visible: closeViewportMouseAreaBtn.containsMouse
+                                            ToolTip.text: qsTr("Usuń kamerę z widoku")
+                                        }
                                     }
                                 }
 
@@ -2223,41 +2279,6 @@ Window {
                                     }
                                 }
 
-                                // Free-floating circular Close button
-                                Rectangle {
-                                    id: closeButton
-                                    width: 20
-                                    height: 20
-                                    radius: 10
-                                    z: 15
-                                    anchors {
-                                        top: parent.top
-                                        right: parent.right
-                                        margins: 6
-                                    }
-                                    visible: modelData !== null
-                                    
-                                    color: closeMouseArea.containsMouse ? "#ccff3333" : "#66121214"
-                                    border.color: closeMouseArea.containsMouse ? "#ff3333" : "#8898a6"
-                                    border.width: 1
-                                    
-                                    Image {
-                                        anchors.centerIn: parent
-                                        source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='18' y1='6' x2='6' y2='18'></line><line x1='6' y1='6' x2='18' y2='18'></line></svg>"
-                                        width: 10
-                                        height: 10
-                                    }
-                                    
-                                    MouseArea {
-                                        id: closeMouseArea
-                                        anchors.fill: parent
-                                        hoverEnabled: true
-                                        cursorShape: Qt.PointingHandCursor
-                                        onClicked: {
-                                            removeCameraFromGrid(index);
-                                        }
-                                    }
-                                }
 
                                 // Dynamic bottom-left green recording timestamp badge (styled like camera name but green and larger)
                                 Rectangle {
@@ -2308,7 +2329,7 @@ Window {
                 anchors.right: parent.right
                 y: isBottomPanelShowed ? (parent.height - height) : parent.height
                 height: 70 + Math.max(0, (getLoadedCameras().length - 1) * 8)
-                color: "#aa1c242c"
+                color: (playbackWindow.visibility === Window.FullScreen) ? "#441c242c" : "#991c242c"
                 visible: true
                 z: 200
 
@@ -2534,14 +2555,14 @@ Window {
                             Text { text: qsTr("Prędkość:"); color: "white"; font.bold: true; font.pixelSize: 10 }
                             
                             Repeater {
-                                model: [1, 2, 4, 8]
+                                model: [1, 2, 4]
                                 CctvButton {
                                     id: speedBtn
                                     text: ""
                                     isSmall: true
                                     iconSource: {
                                         var colorStr = speedBtn.hovered ? "%2300f5d4" : (playbackWindow.playbackSpeed === modelData ? "%23ffffff" : "%238898a6")
-                                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3.26 19.74a10 10 0 1 1 17.48 0' opacity='0.4'></path><text x='12' y='15.5' font-family='sans-serif' font-size='9.5' font-weight='bold' fill='" + colorStr + "' stroke='none' text-anchor='middle'>" + modelData + "x</text></svg>"
+                                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text x='12' y='16' font-family='sans-serif' font-size='10.5' font-weight='bold' fill='" + colorStr + "' stroke='none' text-anchor='middle'>" + modelData + "x</text></svg>"
                                     }
                                     isPrimary: playbackWindow.playbackSpeed === modelData
                                     onClicked: {
@@ -2761,7 +2782,7 @@ Window {
                             var ctx = getContext("2d")
                             ctx.clearRect(0, 0, width, height)
                             
-                            ctx.fillStyle = "#660a0f14"
+                            ctx.fillStyle = (playbackWindow.visibility === Window.FullScreen) ? "transparent" : "#660a0f14"
                             ctx.fillRect(0, 0, width, height)
                             
                             var viewDurationMs = zoomHours * 3600000
@@ -3120,17 +3141,19 @@ Window {
         }
     }
 
-    // Sleek premium horizontal top bar for settings and grid layout options
+    // Sleek premium horizontal top bar for settings and grid layout options (DOCK)
     Rectangle {
         id: topToolBar
-        height: 44
-        anchors.left: parent.left
-        anchors.right: parent.right
-        color: "#cc121214"
+        height: 56
+        width: topRowLayout.implicitWidth + 24
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: (playbackWindow.visibility === Window.FullScreen) ? "#44121214" : "#99121214"
         z: 9999
+        radius: 12
 
-        // Slide animation based on hover states of the top edge or the bar itself
-        y: (!playbackWindow.topBarAutoCollapse || hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? 0 : -height
+        // Slides down to y: -12 so that the top 12px (containing top rounded corners) is off-screen,
+        // leaving only the bottom rounded corners visible at the top edge of the window.
+        y: (!playbackWindow.topBarAutoCollapse || hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? -12 : -height
 
         Behavior on y {
             NumberAnimation {
@@ -3139,17 +3162,12 @@ Window {
             }
         }
 
-        Rectangle {
-            anchors.bottom: parent.bottom
-            width: parent.width
-            height: 1
-            color: "#2a3540"
-            z: 10 // draw line on top of background
-        }
-
         MouseArea {
             id: topToolBarMouseArea
-            anchors.fill: parent
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            height: 44
             hoverEnabled: true
             onContainsMouseChanged: {
                 if (containsMouse) {
@@ -3160,9 +3178,13 @@ Window {
             }
 
             RowLayout {
-                anchors.fill: parent
-                anchors.leftMargin: 8
-                anchors.rightMargin: 8
+                id: topRowLayout
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 12
+                anchors.rightMargin: 12
+                height: 44
                 spacing: 6
 
                 Button {
@@ -3375,68 +3397,66 @@ Window {
                     ToolTip.text: playbackWindow.hideTimelineOption ? qsTr("Pokaż oś czasu") : qsTr("Ukryj oś czasu")
                 }
 
-                Item {
-                    Layout.fillWidth: true
+                Rectangle {
+                    width: 1
+                    height: 20
+                    color: "#2a3540"
+                    Layout.alignment: Qt.AlignVCenter
+                    Layout.leftMargin: 6
+                    Layout.rightMargin: 6
                 }
 
-                // Layout buttons on the right
-                RowLayout {
-                    spacing: 4
-                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                    Layout.fillWidth: false
+                Repeater {
+                    model: ["1x1", "1x2", "2x1", "2x2"]
+                    delegate: Button {
+                        id: gridBtn
+                        text: modelData
+                        Layout.preferredWidth: 34
+                        Layout.preferredHeight: 30
+                        Layout.alignment: Qt.AlignVCenter
+                        hoverEnabled: true
 
-                    Repeater {
-                        model: ["1x1", "1x2", "2x1", "2x2"]
-                        delegate: Button {
-                            id: gridBtn
-                            text: modelData
-                            Layout.preferredWidth: 34
-                            Layout.preferredHeight: 30
-                            Layout.alignment: Qt.AlignVCenter
-                            hoverEnabled: true
+                        property bool isActive: {
+                            if (modelData === "1x1") return gridLayoutColumns === 1 && gridLayoutRows === 1;
+                            if (modelData === "1x2") return gridLayoutColumns === 1 && gridLayoutRows === 2;
+                            if (modelData === "2x1") return gridLayoutColumns === 2 && gridLayoutRows === 1;
+                            if (modelData === "2x2") return gridLayoutColumns === 2 && gridLayoutRows === 2;
+                            return false;
+                        }
 
-                            property bool isActive: {
-                                if (modelData === "1x1") return gridLayoutColumns === 1 && gridLayoutRows === 1;
-                                if (modelData === "1x2") return gridLayoutColumns === 1 && gridLayoutRows === 2;
-                                if (modelData === "2x1") return gridLayoutColumns === 2 && gridLayoutRows === 1;
-                                if (modelData === "2x2") return gridLayoutColumns === 2 && gridLayoutRows === 2;
-                                return false;
+                        contentItem: Text {
+                            text: gridBtn.text
+                            font.bold: true
+                            font.pixelSize: 10
+                            color: gridBtn.isActive ? "#121214" : (gridBtn.hovered ? "#ffffff" : "#8898a6")
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+
+                        background: Rectangle {
+                            color: gridBtn.isActive ? "#00f5d4" : (gridBtn.pressed ? "#cc121214" : (gridBtn.hovered ? "#3a4550" : "#1c242c"))
+                            radius: 15
+                            border.color: gridBtn.isActive ? "#00f5d4" : (gridBtn.hovered ? "#8898a6" : "#2a3540")
+                            border.width: 1
+                        }
+
+                        onClicked: {
+                            if (modelData === "1x1") {
+                                gridLayoutColumns = 1;
+                                gridLayoutRows = 1;
+                            } else if (modelData === "1x2") {
+                                gridLayoutColumns = 1;
+                                gridLayoutRows = 2;
+                            } else if (modelData === "2x1") {
+                                gridLayoutColumns = 2;
+                                gridLayoutRows = 1;
+                            } else if (modelData === "2x2") {
+                                gridLayoutColumns = 2;
+                                gridLayoutRows = 2;
                             }
 
-                            contentItem: Text {
-                                text: gridBtn.text
-                                font.bold: true
-                                font.pixelSize: 10
-                                color: gridBtn.isActive ? "white" : (gridBtn.hovered ? "#ffffff" : "#8898a6")
-                                horizontalAlignment: Text.AlignHCenter
-                                verticalAlignment: Text.AlignVCenter
-                            }
-
-                            background: Rectangle {
-                                color: gridBtn.isActive ? "#00f5d4" : (gridBtn.pressed ? "#cc121214" : (gridBtn.hovered ? "#3a4550" : "#1c242c"))
-                                radius: 15
-                                border.color: gridBtn.isActive ? "#00f5d4" : (gridBtn.hovered ? "#8898a6" : "#2a3540")
-                                border.width: 1
-                            }
-
-                            onClicked: {
-                                if (modelData === "1x1") {
-                                    gridLayoutColumns = 1;
-                                    gridLayoutRows = 1;
-                                } else if (modelData === "1x2") {
-                                    gridLayoutColumns = 1;
-                                    gridLayoutRows = 2;
-                                } else if (modelData === "2x1") {
-                                    gridLayoutColumns = 2;
-                                    gridLayoutRows = 1;
-                                } else if (modelData === "2x2") {
-                                    gridLayoutColumns = 2;
-                                    gridLayoutRows = 2;
-                                }
-
-                                var maxCams = gridLayoutColumns * gridLayoutRows;
-                                resizeActivePlayersList(maxCams);
-                            }
+                            var maxCams = gridLayoutColumns * gridLayoutRows;
+                            resizeActivePlayersList(maxCams);
                         }
                     }
                 }

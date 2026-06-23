@@ -513,6 +513,11 @@ void HikvisionArchivePlayer::setPlaybackSpeed(int speedMultiplier)
 {
     if (m_lPlayHandle < 0) return;
 
+    if (std::abs(speedMultiplier) == 8) {
+        qWarning() << "[HikArchive] setPlaybackSpeed: 8x playback speed is disabled because it is never smooth";
+        return;
+    }
+
     qDebug() << "[HikArchive] setPlaybackSpeed:" << speedMultiplier;
 
     // 1. Reset NVR speed to normal (always 1x first to clear any FAST/SLOW states)

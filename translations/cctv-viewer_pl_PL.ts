@@ -206,11 +206,11 @@
     </message>
     <message>
         <source>&lt; Poprzedni</source>
-        <translation>&lt; Poprzedni</translation>
+        <translation type="vanished">&lt; Poprzedni</translation>
     </message>
     <message>
         <source>Następny &gt;</source>
-        <translation>Następny &gt;</translation>
+        <translation type="vanished">Następny &gt;</translation>
     </message>
     <message>
         <source>Pobieranie nagrań</source>
@@ -255,6 +255,14 @@
     <message>
         <source>Zatrzymano</source>
         <translation>Zatrzymano</translation>
+    </message>
+    <message>
+        <source>Poprzedni miesiąc</source>
+        <translation>Poprzedni miesiąc</translation>
+    </message>
+    <message>
+        <source>Następny miesiąc</source>
+        <translation>Następny miesiąc</translation>
     </message>
 </context>
 <context>
@@ -580,11 +588,11 @@
     </message>
     <message>
         <source>Wycentruj</source>
-        <translation>Wycentruj</translation>
+        <translation type="vanished">Wycentruj</translation>
     </message>
     <message>
         <source>Odśwież</source>
-        <translation>Odśwież</translation>
+        <translation type="vanished">Odśwież</translation>
     </message>
     <message>
         <source>Pobieranie dostępności...</source>
@@ -696,11 +704,11 @@
     </message>
     <message>
         <source>&lt; Poprzedni</source>
-        <translation>&lt; Poprzedni</translation>
+        <translation type="vanished">&lt; Poprzedni</translation>
     </message>
     <message>
         <source>Następny &gt;</source>
-        <translation>Następny &gt;</translation>
+        <translation type="vanished">Następny &gt;</translation>
     </message>
     <message>
         <source>Mo</source>
@@ -732,15 +740,15 @@
     </message>
     <message>
         <source>Ostatnia 1h</source>
-        <translation>Ostatnia 1h</translation>
+        <translation type="vanished">Ostatnia 1h</translation>
     </message>
     <message>
         <source>Ostatnie 8h</source>
-        <translation>Ostatnie 8h</translation>
+        <translation type="vanished">Ostatnie 8h</translation>
     </message>
     <message>
         <source>Cały dzień</source>
-        <translation>Cały dzień</translation>
+        <translation type="vanished">Cały dzień</translation>
     </message>
     <message>
         <source>Prędkość:</source>
@@ -752,11 +760,11 @@
     </message>
     <message>
         <source>Pauza</source>
-        <translation>Pauza</translation>
+        <translation type="vanished">Pauza</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation>Play</translation>
+        <translation type="vanished">Play</translation>
     </message>
     <message>
         <source>Wykonaj stopklatkę w pełnej rozdzielczości</source>
@@ -771,48 +779,16 @@
         <translation>Wyczyść wyszukiwanie</translation>
     </message>
     <message>
-        <source>Przywróć widok siatki</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pokaż na pełnym ekranie</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Zamknij okno</source>
-        <translation type="unfinished">Zamknij okno</translation>
-    </message>
-    <message>
-        <source>Pokaż oś czasu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ukryj oś czasu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ukryj pasek boczny</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pokaż pasek boczny</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wyjdź z pełnego ekranu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pełny ekran okna</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamknij okno</translation>
     </message>
     <message>
         <source>Odepnij pasek górny</source>
-        <translation type="unfinished">Odepnij pasek górny</translation>
+        <translation>Odepnij pasek górny</translation>
     </message>
     <message>
         <source>Przypnij pasek górny</source>
-        <translation type="unfinished">Przypnij pasek górny</translation>
+        <translation>Przypnij pasek górny</translation>
     </message>
     <message>
         <source>Poprzedni dzień</source>
@@ -897,6 +873,50 @@
     <message>
         <source>Przypnij pasek dolny</source>
         <translation>Przypnij pasek dolny</translation>
+    </message>
+    <message>
+        <source>Poprzedni miesiąc</source>
+        <translation>Poprzedni miesiąc</translation>
+    </message>
+    <message>
+        <source>Następny miesiąc</source>
+        <translation>Następny miesiąc</translation>
+    </message>
+    <message>
+        <source>Przywróć widok siatki</source>
+        <translation>Przywróć widok siatki</translation>
+    </message>
+    <message>
+        <source>Pokaż na pełnym ekranie</source>
+        <translation>Pokaż na pełnym ekranie</translation>
+    </message>
+    <message>
+        <source>Usuń kamerę z widoku</source>
+        <translation>Usuń kamerę z widoku</translation>
+    </message>
+    <message>
+        <source>Wyjdź z pełnego ekranu</source>
+        <translation>Wyjdź z pełnego ekranu</translation>
+    </message>
+    <message>
+        <source>Pełny ekran okna</source>
+        <translation>Pełny ekran okna</translation>
+    </message>
+    <message>
+        <source>Ukryj pasek boczny</source>
+        <translation>Ukryj pasek boczny</translation>
+    </message>
+    <message>
+        <source>Pokaż pasek boczny</source>
+        <translation>Pokaż pasek boczny</translation>
+    </message>
+    <message>
+        <source>Pokaż oś czasu</source>
+        <translation>Pokaż oś czasu</translation>
+    </message>
+    <message>
+        <source>Ukryj oś czasu</source>
+        <translation>Ukryj oś czasu</translation>
     </message>
 </context>
 <context>
@@ -1070,7 +1090,7 @@
     </message>
     <message>
         <source>Nie chowaj</source>
-        <translation>Nie chowaj</translation>
+        <translation type="vanished">Nie chowaj</translation>
     </message>
     <message>
         <source>NET: </source>
@@ -1139,6 +1159,10 @@
     <message>
         <source>Włącz statystyki zużycia zasobów</source>
         <translation>Włącz statystyki zużycia zasobów</translation>
+    </message>
+    <message>
+        <source>Przeciągnij panel statystyk</source>
+        <translation>Przeciągnij panel statystyk</translation>
     </message>
 </context>
 <context>
@@ -1845,6 +1869,42 @@
     <message>
         <source>Dodano kompletne angielskie i polskie tłumaczenia dla wszystkich tooltipów w oknie archiwum.</source>
         <translation>Dodano kompletne angielskie i polskie tłumaczenia dla wszystkich tooltipów w oknie archiwum.</translation>
+    </message>
+    <message>
+        <source>Przekształcono górny pasek narzędzi w oknach LIVE i ARCHIWUM w wyśrodkowane pływające doki (dok LIVE ma dynamiczną szerokość).</source>
+        <translation>Przekształcono górny pasek narzędzi w oknach LIVE i ARCHIWUM w wyśrodkowane pływające doki (dok LIVE ma dynamiczną szerokość).</translation>
+    </message>
+    <message>
+        <source>Dodano pionowy separator oddzielający opcje siatki od widoków w dokach na pasku górnym.</source>
+        <translation>Dodano pionowy separator oddzielający opcje siatki od widoków w dokach na pasku górnym.</translation>
+    </message>
+    <message>
+        <source>Zwiększono przezroczystość pasków górnego i dolnego w archiwum (60% w oknie, 26% na pełnym ekranie) oraz ustawiono przezroczyste tło osi czasu.</source>
+        <translation>Zwiększono przezroczystość pasków górnego i dolnego w archiwum (60% w oknie, 26% na pełnym ekranie) oraz ustawiono przezroczyste tło osi czasu.</translation>
+    </message>
+    <message>
+        <source>Uproszczono ikony prędkości odtwarzania w archiwum do czytelnego tekstu (1x, 2x, 4x) i usunięto niestabilną prędkość 8x.</source>
+        <translation>Uproszczono ikony prędkości odtwarzania w archiwum do czytelnego tekstu (1x, 2x, 4x) i usunięto niestabilną prędkość 8x.</translation>
+    </message>
+    <message>
+        <source>Zastąpiono tekstowe przyciski nawigacji miesięcy w kalendarzu archiwum i pobierania graficznymi strzałkami (chevronami).</source>
+        <translation>Zastąpiono tekstowe przyciski nawigacji miesięcy w kalendarzu archiwum i pobierania graficznymi strzałkami (chevronami).</translation>
+    </message>
+    <message>
+        <source>Przeniesiono przycisk usuwania kamery z prawego górnego rogu wideo na dolny pasek kontrolny viewportów, zapobiegając przypadkowym kliknięciom.</source>
+        <translation>Przeniesiono przycisk usuwania kamery z prawego górnego rogu wideo na dolny pasek kontrolny viewportów, zapobiegając przypadkowym kliknięciom.</translation>
+    </message>
+    <message>
+        <source>Zoptymalizowano kontrast tekstu przycisków wyboru siatki w archiwum (ciemny tekst na seledynowym tle).</source>
+        <translation>Zoptymalizowano kontrast tekstu przycisków wyboru siatki w archiwum (ciemny tekst na seledynowym tle).</translation>
+    </message>
+    <message>
+        <source>Przekształcono panel statystyk w okno pływające i przeciągane za pomocą nowego dedykowanego uchwytu (z zachowaniem click-through).</source>
+        <translation>Przekształcono panel statystyk w okno pływające i przeciągane za pomocą nowego dedykowanego uchwytu (z zachowaniem click-through).</translation>
+    </message>
+    <message>
+        <source>Naprawiono krytyczny błąd synchronizacji i pętli zwrotnej zapisu konfiguracyjnego przy usuwaniu układów podglądu.</source>
+        <translation>Naprawiono krytyczny błąd synchronizacji i pętli zwrotnej zapisu konfiguracyjnego przy usuwaniu układów podglądu.</translation>
     </message>
 </context>
 <context>
