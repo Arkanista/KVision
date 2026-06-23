@@ -22,7 +22,9 @@ FocusScope {
     readonly property alias pressAndHoldIndex: d.pressAndHoldIndex
     readonly property alias multiselect: d.multiselect
 
-    onVisibleChanged: d.selectionReset()
+    onVisibleChanged: {
+        d.selectionReset()
+    }
 
     QtObject {
         id: d

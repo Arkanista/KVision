@@ -122,7 +122,7 @@ void QmlAVPlayer::frameHandler(const std::shared_ptr<QmlAVFrame> frame)
                                << ", handleType=" << f.handleType() <<  ", yCbCrColorSpace=" << f.yCbCrColorSpace()
                                << ')';
                     if (!m_videoSurface->start(f)) {
-                        logCritical() << "Error starting the video surface presenting frames.";
+                        logDebug() << "Error starting the video surface presenting frames. Waiting for surface to release.";
                         return;
                     }
 

@@ -14,16 +14,18 @@ QmlAVFrame::QmlAVFrame(const AVFramePtr &avFrame, const std::shared_ptr<QmlAVMed
     , m_avFrame(avFrame)
     , m_context(context)
 {
-    assert(m_avFrame && m_context);
+    assert(m_avFrame && !m_context.expired());
 
     decoder()->counters().frameQueueLength += 1;
 }
 
 QmlAVFrame::~QmlAVFrame()
 {
-    if (m_context) {
-        m_context->clock.leftPts = pts();
-        decoder()->counters().frameQueueLength -= 1;
+    if (auto ctx = m_context.lock()) {
+        ctx->clock.leftPts = pts();
+        if (auto dec = decoder()) {
+            dec->counters().frameQueueLength -= 1;
+        }
     }
 }
 

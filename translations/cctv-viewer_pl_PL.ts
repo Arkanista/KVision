@@ -1682,6 +1682,18 @@
         <source>Wdrożono bezpieczne zamykanie i zwalnianie wątków pobierania plików w downloaderze Hikvision, zapewniając stabilne i natychmiastowe zamykanie programu bez blokowania zasobów systemowych.</source>
         <translation>Wdrożono bezpieczne zamykanie i zwalnianie wątków pobierania plików w downloaderze Hikvision, zapewniając stabilne i natychmiastowe zamykanie programu bez blokowania zasobów systemowych.</translation>
     </message>
+    <message>
+        <source>Wyeliminowano problem potencjalnego wycieku wątków i zawieszenia dekoderów wideo FFmpeg podczas zmiany widoków poprzez przejście na bezpieczne odwołania std::weak_ptr dla kontekstu dekodera.</source>
+        <translation>Wyeliminowano problem potencjalnego wycieku wątków i zawieszenia dekoderów wideo FFmpeg podczas zmiany widoków poprzez przejście na bezpieczne odwołania std::weak_ptr dla kontekstu dekodera.</translation>
+    </message>
+    <message>
+        <source>Naprawiono wyciek pamięci modeli układów widoków (ViewportsLayouts) poprzez bezpieczne niszczenie obiektów za pomocą deleteLater().</source>
+        <translation>Naprawiono wyciek pamięci modeli układów widoków (ViewportsLayouts) poprzez bezpieczne niszczenie obiektów za pomocą deleteLater().</translation>
+    </message>
+    <message>
+        <source>Złagodzono błąd uruchamiania powierzchni rysowania wideo OpenGL (start wideo surface) przy bardzo szybkiej zmianie zakładki NVR – logi zostały wyciszone do poziomu Debug, a system w tle ponawia automatycznie próbę renderowania po zwolnieniu buforów karty graficznej.</source>
+        <translation>Złagodzono błąd uruchamiania powierzchni rysowania wideo OpenGL (start wideo surface) przy bardzo szybkiej zmianie zakładki NVR – logi zostały wyciszone do poziomu Debug, a system w tle ponawia automatycznie próbę renderowania po zwolnieniu buforów karty graficznej.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>

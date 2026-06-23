@@ -35,14 +35,15 @@ public:
     int64_t pts() const;
 
 protected:
-    auto &context() { return m_context; }
-    const auto &context() const { return m_context; }
+    std::shared_ptr<QmlAVMediaContextHolder> context() const { return m_context.lock(); }
 
     QmlAVDecoder *decoder() const {
-        if (m_type == TypeVideo) {
-            return m_context->videoDecoder;
-        } else if (m_type == TypeAudio) {
-            return m_context->audioDecoder;
+        if (auto ctx = context()) {
+            if (m_type == TypeVideo) {
+                return ctx->videoDecoder;
+            } else if (m_type == TypeAudio) {
+                return ctx->audioDecoder;
+            }
         }
         return nullptr;
     }
@@ -51,7 +52,7 @@ protected:
 private:
     Type m_type;
     AVFramePtr m_avFrame;
-    std::shared_ptr<QmlAVMediaContextHolder> m_context;
+    std::weak_ptr<QmlAVMediaContextHolder> m_context;
 };
 
 class QmlAVVideoFrame final : public QmlAVFrame

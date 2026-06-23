@@ -1,3 +1,11 @@
+cctv-viewer (2.1.5-0) jammy; urgency=medium
+
+  * Prevent thread leaks and decoder hangs in FFmpeg using std::weak_ptr for media contexts
+  * Fix memory leaks in viewports layout models using deleteLater()
+  * Mitigate OpenGL video surface start errors during rapid layout changes
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Tue, 23 Jun 2026 10:50:00 +0200
+
 cctv-viewer (2.0.0-0) jammy; urgency=medium
 
   * Hikvision SDK integration with native player and archive mounter

@@ -33,11 +33,15 @@ int ViewportsLayoutsCollectionModel::rowCount(const QModelIndex &parent) const
 
 ViewportsLayoutModel *ViewportsLayoutsCollectionModel::set(int index, ViewportsLayoutModel *p)
 {
-    if (p == get(index)) {
+    ViewportsLayoutModel *oldModel = get(index);
+    if (p == oldModel) {
         return p;
     }
 
     if (index >= 0 && index < m_models.size()) {
+        if (oldModel) {
+            oldModel->deleteLater();
+        }
         m_models[index] = p;
 
         QModelIndex modelIndex = QAbstractListModel::index(index, 0);
@@ -50,6 +54,11 @@ ViewportsLayoutModel *ViewportsLayoutsCollectionModel::set(int index, ViewportsL
 void ViewportsLayoutsCollectionModel::clear()
 {
     beginResetModel();
+    for (auto *p : m_models) {
+        if (p) {
+            p->deleteLater();
+        }
+    }
     m_models.clear();
     endResetModel();
 }
@@ -83,6 +92,11 @@ ViewportsLayoutModel *ViewportsLayoutsCollectionModel::insert(int index, Viewpor
 void ViewportsLayoutsCollectionModel::remove(int index, int count)
 {
     beginRemoveRows(QModelIndex(), index, index + count - 1);
+    for (int i = index; i < index + count; ++i) {
+        if (auto *p = m_models.at(i)) {
+            p->deleteLater();
+        }
+    }
     m_models.remove(index, count);
     endRemoveRows();
 

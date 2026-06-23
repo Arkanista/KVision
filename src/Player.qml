@@ -366,7 +366,7 @@ FocusScope {
                 y: -root.zoomY * height
                 width: parent.width / Math.max(0.001, root.zoomWidth)
                 height: parent.height / Math.max(0.001, root.zoomHeight)
-                recorderIp: root.recorderIp
+                recorderIp: (root.visible && root.isHikvision && !hikPlayerSettings.useRealStreams) ? root.recorderIp : ""
                 recorderPort: root.recorderPort
                 username: root.username
                 password: root.password

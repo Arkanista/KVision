@@ -58,6 +58,15 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.1.5",
+            date: "23.06.2026",
+            changes: [
+                qsTr("Wyeliminowano problem potencjalnego wycieku wątków i zawieszenia dekoderów wideo FFmpeg podczas zmiany widoków poprzez przejście na bezpieczne odwołania std::weak_ptr dla kontekstu dekodera."),
+                qsTr("Naprawiono wyciek pamięci modeli układów widoków (ViewportsLayouts) poprzez bezpieczne niszczenie obiektów za pomocą deleteLater()."),
+                qsTr("Złagodzono błąd uruchamiania powierzchni rysowania wideo OpenGL (start wideo surface) przy bardzo szybkiej zmianie zakładki NVR – logi zostały wyciszone do poziomu Debug, a system w tle ponawia automatycznie próbę renderowania po zwolnieniu buforów karty graficznej.")
+            ]
+        },
+        {
             version: "v2.1.4",
             date: "23.06.2026",
             changes: [

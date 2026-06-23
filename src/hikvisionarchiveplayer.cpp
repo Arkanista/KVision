@@ -128,9 +128,9 @@ public:
                     if (pPlayer->m_lPlayHandle.load() == playHandle) {
                         pPlayer->updateImage(img);
                     }
-                    pPlayer->m_pendingTasks--;
                 }
             }, Qt::QueuedConnection);
+            pPlayer->m_pendingTasks--;
         }
     }
 
