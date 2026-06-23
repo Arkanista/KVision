@@ -135,8 +135,22 @@ Aby zagwarantować powrót zużycia pamięci fizycznej (RSS) dokładnie do pozio
 
 ---
 
-## 11. Zatrzymywanie strumieni Hikvision w tle przy przełączaniu widoków (Wyciek RAM i sieci)
+### 11. Zatrzymywanie strumieni Hikvision w tle przy przełączaniu widoków (Wyciek RAM i sieci)
 
 * **Problem:** Komponent `HikvisionPlayer` (wykorzystywany do odtwarzania strumieni na żywo z kamer Hikvision) nie reagował na utratę widoczności. Wyciszał jedynie odświeżanie graficzne, ale połączenie sieciowe TCP (`NET_DVR_RealPlay_V40`) i buforowanie danych przez SDK Hikvision pozostawały w pełni aktywne dla wszystkich historycznie załadowanych siatek (stron `StackLayout`). Powodowało to ciągły wzrost zużycia RAM-u, CPU oraz pasma sieciowego przy przełączaniu widoków.
 * **Rozwiązanie:** Zmodyfikowano deklaratywne powiązanie właściwości `recorderIp` w pliku [Player.qml](file:///home/robert/cctv/cctv-viewer2/src/Player.qml#L369). Jeśli viewport przestaje być widoczny na ekranie, adres IP przekazywany do `HikvisionPlayer` zmienia się na pusty string `""`. Powoduje to natychmiastowe zatrzymanie strumienia sieciowego w C++ za pomocą `NET_DVR_StopRealPlay` i całkowite zwolnienie jego zasobów. Przy powrocie do widoku, adres IP jest automatycznie przywracany, a strumień wznawiany.
+
+---
+
+## 12. Dwukierunkowa Synchronizacja Konfiguracji w Czasie Rzeczywistym i Wydanie v2.1.7-1
+
+W wersji `v2.1.7-1` dodaliśmy zaawansowany system dwukierunkowej synchronizacji ustawień kamer (NVR) oraz układów widoków (ViewportsLayouts) między wszystkimi otwartymi oknami programu w czasie rzeczywistym.
+
+### Opis Mechanizmu Synchronizacji:
+1. **Brak pętli zapisu i niskie zużycie zasobów:** Klasa `Context` monitoruje główny plik konfiguracyjny za pomocą klasy `QFileSystemWatcher`. Na Linuksie wykorzystuje ona natywny mechanizm `inotify` (działający w 100% zdarzeniowo przy 0% obciążeniu procesora w trybie bezczynności). Każda modyfikacja ustawień w dowolnym procesie zapisuje plik na dysk, co natychmiast wyzwala sygnał `configFileChanged` u pozostałych instancji. Aby uniknąć nieskończonej pętli zapisu, każda instancja przed aktualizacją najpierw porównuje nowo wczytaną wartość z wartością w pamięci – jeśli są one identyczne, aktualizacja pamięci i ponowny zapis nie są wykonywane.
+2. **Izolacja konfiguracji okien (Multi-Monitor Support):** Aby wspierać niezależne ekrany i zachować niezależne pozycje okien oraz wybrany aktywny widok (`currentIndex`) dla każdego okna, wprowadziliśmy dynamiczne przydzielanie unikalnych ID dla okien pomocniczych (`AuxiliaryWindow_1`, `AuxiliaryWindow_2` itd.).
+3. **Automatyczne zwalnianie zasobów:** ID okien są przydzielane sekwencyjnie i zwalniane natychmiast po zamknięciu danego okna pomocniczego, co pozwala na bezpieczne i poprawne ponowne użycie tego samego ID w kolejnych sesjach.
+4. **Lokalizacja i kompilacja:** Nowe teksty zostały przetłumaczone w plikach `.ts` (zarówno dla wersji polskiej, jak i angielskiej).
+5. **Budowanie pakietów i wersjonowanie:** Zaktualizowano wersję projektu do `2.1.7-1` w `CMakeLists.txt`, `packaging/arch/PKGBUILD` oraz `debian/changelog`. Cały projekt został z powodzeniem przebudowany, a pakiety binarne `.pkg.tar.zst` wygenerowane za pomocą polecenia `makepkg`.
+
 
