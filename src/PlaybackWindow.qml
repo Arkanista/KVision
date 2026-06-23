@@ -41,6 +41,12 @@ Window {
         interval: 350
         repeat: false
     }
+    Timer {
+        id: bottomKeepVisibleTimer
+        interval: 350
+        repeat: false
+    }
+    readonly property bool isBottomPanelShowed: !playbackWindow.hideTimelineOption || bottomHoverArea.containsMouse || bottomPanelMouseArea.containsMouse || bottomKeepVisibleTimer.running
     property int fullScreenPlayerIndex: -1
 
     onGridLayoutColumnsChanged: fullScreenPlayerIndex = -1
@@ -2297,15 +2303,34 @@ Window {
                 id: bottomPanel
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.bottom: parent.bottom
+                y: isBottomPanelShowed ? (parent.height - height) : parent.height
                 height: 70 + Math.max(0, (getLoadedCameras().length - 1) * 8)
                 color: isBottomPanelFloating ? "#331c242c" : "#1c242c"
-                visible: !playbackWindow.hideTimelineOption
+                visible: true
                 z: 200
-                
-                ColumnLayout {
+
+                Behavior on y {
+                    NumberAnimation {
+                        duration: 200
+                        easing.type: Easing.OutCubic
+                    }
+                }
+
+                MouseArea {
+                    id: bottomPanelMouseArea
                     anchors.fill: parent
-                    spacing: 0
+                    hoverEnabled: true
+                    onContainsMouseChanged: {
+                        if (containsMouse) {
+                            bottomKeepVisibleTimer.stop();
+                        } else if (!bottomHoverArea.containsMouse) {
+                            bottomKeepVisibleTimer.start();
+                        }
+                    }
+
+                    ColumnLayout {
+                        anchors.fill: parent
+                        spacing: 0
                     
                     RowLayout {
                         Layout.fillWidth: true
@@ -2864,6 +2889,80 @@ Window {
                         }
                     }
                 }
+                }
+            }
+
+            MouseArea {
+                id: bottomHoverArea
+                height: 12
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                hoverEnabled: true
+                z: 199
+                onContainsMouseChanged: {
+                    if (containsMouse) {
+                        bottomKeepVisibleTimer.stop();
+                    } else if (!bottomPanelMouseArea.containsMouse) {
+                        bottomKeepVisibleTimer.start();
+                    }
+                }
+            }
+
+            Button {
+                id: bottomPinButton
+                width: 30
+                height: 30
+                z: 201
+                hoverEnabled: true
+
+                anchors.right: parent.right
+                anchors.rightMargin: 15
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: isBottomPanelShowed ? (bottomPanel.height - 35) : 10
+
+                Behavior on anchors.bottomMargin {
+                    NumberAnimation {
+                        duration: 200
+                        easing.type: Easing.OutCubic
+                    }
+                }
+
+                contentItem: Image {
+                    anchors.centerIn: parent
+                    width: 16
+                    height: 16
+                    rotation: (!playbackWindow.hideTimelineOption) ? 0 : -45
+
+                    Behavior on rotation {
+                        NumberAnimation { duration: 150; easing.type: Easing.InOutQuad }
+                    }
+
+                    source: {
+                        var colorStr = bottomPinButton.hovered ? "%23ffb703" : "%23ff7a00";
+                        if (!playbackWindow.hideTimelineOption) {
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='" + colorStr + "' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='12' x2='12' y1='17' y2='22'></line><path d='M5 17h14v-1.76a2 2 0 0 0-.44-1.24l-2.78-3.56A2 2 0 0 1 15 9.2V5a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4.2a2 2 0 0 1-.78 1.24L5.44 14a2 2 0 0 0-.44 1.24Z'></path></svg>";
+                        } else {
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='12' x2='12' y1='17' y2='22'></line><path d='M5 17h14v-1.76a2 2 0 0 0-.44-1.24l-2.78-3.56A2 2 0 0 1 15 9.2V5a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4.2a2 2 0 0 1-.78 1.24L5.44 14a2 2 0 0 0-.44 1.24Z'></path></svg>";
+                        }
+                    }
+                }
+
+                background: Rectangle {
+                    color: bottomPinButton.pressed ? "#cc121214" : (bottomPinButton.hovered ? "#3a4550" : "#1c242c")
+                    radius: 15
+                    border.color: bottomPinButton.hovered ? "#ff9e00" : "#2a3540"
+                    border.width: 1
+                }
+
+                onClicked: {
+                    playbackWindow.hideTimelineOption = !playbackWindow.hideTimelineOption;
+                }
+
+                ToolTip.delay: Compact.toolTipDelay
+                ToolTip.timeout: Compact.toolTipTimeout
+                ToolTip.visible: bottomPinButton.hovered
+                ToolTip.text: (!playbackWindow.hideTimelineOption) ? qsTr("Odepnij pasek dolny") : qsTr("Przypnij pasek dolny")
             }
         }
     }
@@ -2943,6 +3042,155 @@ Window {
                     ToolTip.text: qsTr("Zamknij okno")
                 }
 
+                Button {
+                    id: pinButton
+                    Layout.preferredWidth: 30
+                    Layout.preferredHeight: 30
+                    Layout.alignment: Qt.AlignVCenter
+                    hoverEnabled: true
+
+                    property bool isPinned: !playbackWindow.topBarAutoCollapse
+
+                    contentItem: Image {
+                        anchors.centerIn: parent
+                        width: 16
+                        height: 16
+                        rotation: pinButton.isPinned ? 0 : -45
+
+                        Behavior on rotation {
+                            NumberAnimation { duration: 150; easing.type: Easing.InOutQuad }
+                        }
+
+                        source: {
+                            var colorStr = pinButton.isPinned
+                                ? (pinButton.hovered ? "%23ffb703" : "%23ff7a00")
+                                : (pinButton.hovered ? "%23ffcc66" : "%23e0a96d");
+                            if (pinButton.isPinned) {
+                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='" + colorStr + "' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='12' x2='12' y1='17' y2='22'></line><path d='M5 17h14v-1.76a2 2 0 0 0-.44-1.24l-2.78-3.56A2 2 0 0 1 15 9.2V5a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4.2a2 2 0 0 1-.78 1.24L5.44 14a2 2 0 0 0-.44 1.24Z'></path></svg>";
+                            } else {
+                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='12' x2='12' y1='17' y2='22'></line><path d='M5 17h14v-1.76a2 2 0 0 0-.44-1.24l-2.78-3.56A2 2 0 0 1 15 9.2V5a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4.2a2 2 0 0 1-.78 1.24L5.44 14a2 2 0 0 0-.44 1.24Z'></path></svg>";
+                            }
+                        }
+                    }
+
+                    background: Rectangle {
+                        color: pinButton.pressed ? "#cc121214" : (pinButton.hovered ? "#3a4550" : "#1c242c")
+                        radius: 15
+                        border.color: pinButton.isPinned
+                            ? (pinButton.hovered ? "#ffb703" : "#ff7a00")
+                            : (pinButton.hovered ? "#e0a96d" : "#2a3540")
+                        border.width: 1
+                    }
+
+                    onClicked: {
+                        playbackWindow.topBarAutoCollapse = !playbackWindow.topBarAutoCollapse;
+                    }
+
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: pinButton.hovered
+                    ToolTip.text: pinButton.isPinned ? qsTr("Odepnij pasek górny") : qsTr("Przypnij pasek górny")
+                }
+
+                Button {
+                    id: sidebarToggleBtn
+                    Layout.preferredWidth: 30
+                    Layout.preferredHeight: 30
+                    Layout.alignment: Qt.AlignVCenter
+                    hoverEnabled: true
+
+                    contentItem: Image {
+                        anchors.centerIn: parent
+                        width: 16
+                        height: 16
+                        sourceSize.width: 16
+                        sourceSize.height: 16
+                        fillMode: Image.PreserveAspectFit
+                        source: {
+                            var colorStr = playbackWindow.sidebarVisible
+                                ? (sidebarToggleBtn.hovered ? "%2300f5d4" : "%2300b4d8")
+                                : (sidebarToggleBtn.hovered ? "%238898a6" : "%235a738e");
+                            if (playbackWindow.sidebarVisible) {
+                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2' ry='2'></rect><line x1='9' y1='3' x2='9' y2='21'></line><path d='M3 3h6v18H3z' fill='" + colorStr + "' fill-opacity='0.2'></path></svg>";
+                            } else {
+                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2' ry='2' stroke-dasharray='4,3'></rect></svg>";
+                            }
+                        }
+                    }
+
+                    background: Rectangle {
+                        color: sidebarToggleBtn.pressed ? "#cc121214" : (sidebarToggleBtn.hovered ? "#3a4550" : "#1c242c")
+                        radius: 15
+                        border.color: playbackWindow.sidebarVisible
+                            ? (sidebarToggleBtn.hovered ? "#00f5d4" : "#00b4d8")
+                            : (sidebarToggleBtn.hovered ? "#8898a6" : "#2a3540")
+                        border.width: 1
+                    }
+
+                    onClicked: {
+                        playbackWindow.sidebarVisible = !playbackWindow.sidebarVisible;
+                    }
+
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: sidebarToggleBtn.hovered
+                    ToolTip.text: playbackWindow.sidebarVisible ? qsTr("Ukryj pasek boczny") : qsTr("Pokaż pasek boczny")
+                }
+
+                Button {
+                    id: timelineToggleBtn
+                    Layout.preferredWidth: 30
+                    Layout.preferredHeight: 30
+                    Layout.alignment: Qt.AlignVCenter
+                    hoverEnabled: true
+
+                    contentItem: Image {
+                        anchors.centerIn: parent
+                        width: 16
+                        height: 16
+                        sourceSize.width: 16
+                        sourceSize.height: 16
+                        fillMode: Image.PreserveAspectFit
+                        source: {
+                            var colorStr = !playbackWindow.hideTimelineOption
+                                ? (timelineToggleBtn.hovered ? "%232ecc71" : "%2320bf6b")
+                                : (timelineToggleBtn.hovered ? "%238898a6" : "%235a738e");
+                            if (!playbackWindow.hideTimelineOption) {
+                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><polyline points='12 6 12 12 16 14'></polyline></svg>";
+                            } else {
+                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><polyline points='12 6 12 12 16 14'></polyline><line x1='4' y1='4' x2='20' y2='20'></line></svg>";
+                            }
+                        }
+                    }
+
+                    background: Rectangle {
+                        color: timelineToggleBtn.pressed ? "#cc121214" : (timelineToggleBtn.hovered ? "#3a4550" : "#1c242c")
+                        radius: 15
+                        border.color: !playbackWindow.hideTimelineOption
+                            ? (timelineToggleBtn.hovered ? "#2ecc71" : "#20bf6b")
+                            : (timelineToggleBtn.hovered ? "#8898a6" : "#2a3540")
+                        border.width: 1
+                    }
+
+                    onClicked: {
+                        playbackWindow.hideTimelineOption = !playbackWindow.hideTimelineOption;
+                    }
+
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: timelineToggleBtn.hovered
+                    ToolTip.text: playbackWindow.hideTimelineOption ? qsTr("Pokaż oś czasu") : qsTr("Ukryj oś czasu")
+                }
+
+                Rectangle {
+                    width: 1
+                    height: 20
+                    color: "#2a3540"
+                    Layout.alignment: Qt.AlignVCenter
+                    Layout.leftMargin: 6
+                    Layout.rightMargin: 6
+                }
+
                 // Layout buttons on the left
                 RowLayout {
                     spacing: 4
@@ -3015,77 +3263,6 @@ Window {
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
 
                     Button {
-                        id: timelineToggleBtn
-                        Layout.preferredWidth: 30
-                        Layout.preferredHeight: 30
-                        Layout.alignment: Qt.AlignVCenter
-                        hoverEnabled: true
-
-                        contentItem: Image {
-                            anchors.centerIn: parent
-                            width: 16
-                            height: 16
-                            sourceSize.width: 16
-                            sourceSize.height: 16
-                            fillMode: Image.PreserveAspectFit
-                            source: {
-                                var colorStr = timelineToggleBtn.hovered ? "white" : "%238898a6";
-                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><polyline points='12 6 12 12 16 14'></polyline></svg>";
-                            }
-                        }
-
-                        background: Rectangle {
-                            color: timelineToggleBtn.pressed ? "#cc121214" : (timelineToggleBtn.hovered ? "#3a4550" : "#1c242c")
-                            radius: 15
-                            border.color: timelineToggleBtn.hovered ? "#8898a6" : "#2a3540"
-                            border.width: 1
-                        }
-
-                        onClicked: {
-                            playbackWindow.hideTimelineOption = !playbackWindow.hideTimelineOption;
-                        }
-
-                        ToolTip.delay: Compact.toolTipDelay
-                        ToolTip.timeout: Compact.toolTipTimeout
-                        ToolTip.visible: timelineToggleBtn.hovered
-                        ToolTip.text: playbackWindow.hideTimelineOption ? qsTr("Pokaż oś czasu") : qsTr("Ukryj oś czasu")
-                    }
-
-                    Button {
-                        id: sidebarToggleBtn
-                        Layout.preferredWidth: 30
-                        Layout.preferredHeight: 30
-                        Layout.alignment: Qt.AlignVCenter
-                        hoverEnabled: true
-
-                        contentItem: Image {
-                            anchors.centerIn: parent
-                            width: 16
-                            height: 16
-                            source: {
-                                var colorStr = sidebarToggleBtn.hovered ? "white" : "%238898a6";
-                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2' ry='2'></rect><line x1='9' y1='3' x2='9' y2='21'></line></svg>";
-                            }
-                        }
-
-                        background: Rectangle {
-                            color: sidebarToggleBtn.pressed ? "#cc121214" : (sidebarToggleBtn.hovered ? "#3a4550" : "#1c242c")
-                            radius: 15
-                            border.color: sidebarToggleBtn.hovered ? "#8898a6" : "#2a3540"
-                            border.width: 1
-                        }
-
-                        onClicked: {
-                            playbackWindow.sidebarVisible = !playbackWindow.sidebarVisible;
-                        }
-
-                        ToolTip.delay: Compact.toolTipDelay
-                        ToolTip.timeout: Compact.toolTipTimeout
-                        ToolTip.visible: sidebarToggleBtn.hovered
-                        ToolTip.text: playbackWindow.sidebarVisible ? qsTr("Ukryj pasek boczny") : qsTr("Pokaż pasek boczny")
-                    }
-
-                    Button {
                         id: fullScreenBtn
                         Layout.preferredWidth: 30
                         Layout.preferredHeight: 30
@@ -3123,52 +3300,6 @@ Window {
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: fullScreenBtn.hovered
                         ToolTip.text: fullScreenBtn.isActive ? qsTr("Wyjdź z pełnego ekranu") : qsTr("Pełny ekran okna")
-                    }
-
-                    Button {
-                        id: pinButton
-                        Layout.preferredWidth: 30
-                        Layout.preferredHeight: 30
-                        Layout.alignment: Qt.AlignVCenter
-                        hoverEnabled: true
-
-                        property bool isPinned: !playbackWindow.topBarAutoCollapse
-
-                        contentItem: Image {
-                            anchors.centerIn: parent
-                            width: 16
-                            height: 16
-                            rotation: pinButton.isPinned ? 0 : -45
-
-                            Behavior on rotation {
-                                NumberAnimation { duration: 150; easing.type: Easing.InOutQuad }
-                            }
-
-                            source: {
-                                var colorStr = pinButton.hovered ? "white" : "%238898a6";
-                                if (pinButton.isPinned) {
-                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='" + colorStr + "' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='12' x2='12' y1='17' y2='22'></line><path d='M5 17h14v-1.76a2 2 0 0 0-.44-1.24l-2.78-3.56A2 2 0 0 1 15 9.2V5a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4.2a2 2 0 0 1-.78 1.24L5.44 14a2 2 0 0 0-.44 1.24Z'></path></svg>";
-                                } else {
-                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='12' x2='12' y1='17' y2='22'></line><path d='M5 17h14v-1.76a2 2 0 0 0-.44-1.24l-2.78-3.56A2 2 0 0 1 15 9.2V5a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4.2a2 2 0 0 1-.78 1.24L5.44 14a2 2 0 0 0-.44 1.24Z'></path></svg>";
-                                }
-                            }
-                        }
-
-                        background: Rectangle {
-                            color: pinButton.pressed ? "#cc121214" : (pinButton.hovered ? "#3a4550" : "#1c242c")
-                            radius: 15
-                            border.color: pinButton.hovered ? "#8898a6" : "#2a3540"
-                            border.width: 1
-                        }
-
-                        onClicked: {
-                            playbackWindow.topBarAutoCollapse = !playbackWindow.topBarAutoCollapse;
-                        }
-
-                        ToolTip.delay: Compact.toolTipDelay
-                        ToolTip.timeout: Compact.toolTipTimeout
-                        ToolTip.visible: pinButton.hovered
-                        ToolTip.text: pinButton.isPinned ? qsTr("Odepnij pasek górny") : qsTr("Przypnij pasek górny")
                     }
                 }
             }
