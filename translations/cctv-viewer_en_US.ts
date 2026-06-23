@@ -133,6 +133,10 @@
         <source>Pokaż szczegółowe logi w konsoli (verbose logging).</source>
         <translation>Show verbose logs in console (verbose logging).</translation>
     </message>
+    <message>
+        <source>ID of the auxiliary window.</source>
+        <translation>ID of the auxiliary window.</translation>
+    </message>
 </context>
 <context>
     <name>DownloadDialog</name>
@@ -1624,6 +1628,10 @@
     <message>
         <source>Dodano automatyczne wznawianie sesji (auto-reconnect) w odtwarzaczu archiwum Hikvision po zakończeniu pobierania nagrań lub zerwaniu połączenia przez rejestrator.</source>
         <translation>Added automatic session recovery (auto-reconnect) in the Hikvision archive player after downloads complete or connections are dropped by the recorder.</translation>
+    </message>
+    <message>
+        <source>Wprowadzono dwukierunkową synchronizację konfiguracji w czasie rzeczywistym między oknem głównym a pomocniczymi z obsługą unikalnych, automatycznych ID okien pomocniczych.</source>
+        <translation>Introduced real-time bidirectional configuration synchronization between the main window and auxiliary windows with support for unique, automatic auxiliary window IDs.</translation>
     </message>
 </context>
 <context>

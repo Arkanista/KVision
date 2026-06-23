@@ -58,6 +58,13 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.1.7",
+            date: "23.06.2026",
+            changes: [
+                qsTr("Wprowadzono dwukierunkową synchronizację konfiguracji w czasie rzeczywistym między oknem głównym a pomocniczymi z obsługą unikalnych, automatycznych ID okien pomocniczych.")
+            ]
+        },
+        {
             version: "v2.1.6",
             date: "23.06.2026",
             changes: [

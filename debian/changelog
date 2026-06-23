@@ -1,3 +1,10 @@
+cctv-viewer (2.1.7-1) jammy; urgency=medium
+
+  * Real-time bidirectional configuration synchronization between main and auxiliary windows
+  * Support unique, automatic sequential IDs for auxiliary windows to prevent layout setting collision
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Tue, 23 Jun 2026 14:10:00 +0200
+
 cctv-viewer (2.1.6-0) jammy; urgency=medium
 
   * Add automatic session recovery (auto-reconnect) in Hikvision archive player

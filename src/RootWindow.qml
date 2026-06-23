@@ -198,7 +198,7 @@ ApplicationWindow {
         id: rootWindowSettings
 
         fileName: Context.config.fileName
-        category: "RootWindow"
+        category: Context.isAuxiliary ? "AuxiliaryWindow_" + Context.auxiliaryId : "RootWindow"
         property int width: 1280 + 48 // SideBar compact width
         property int height: 720
         property bool fullScreen
@@ -215,12 +215,42 @@ ApplicationWindow {
     }
 
     Settings {
+        id: windowLayoutSettings
+        fileName: Context.config.fileName
+        category: Context.isAuxiliary ? "AuxiliaryLayout_" + Context.auxiliaryId : "MainLayout"
+        property int currentIndex: 0
+    }
+
+    Connections {
+        target: Context
+        function onConfigFileChanged() {
+            // 1. Check and live-reload Hikvision NVR/Cameras recorders list
+            var diskRecorders = Context.readSetting("Hikvision", "recordersJson", "[]");
+            if (diskRecorders !== hikvisionSettings.recordersJson) {
+                console.log("[Sync] Live-reloading NVR Recorders list...");
+                hikvisionSettings.recordersJson = diskRecorders;
+            }
+
+            // 2. Check and live-reload Viewport Layouts definitions
+            var diskModels = Context.readSetting("ViewportsLayoutsCollection", "models", "");
+            if (diskModels !== layoutsCollectionSettings.models && diskModels !== "") {
+                console.log("[Sync] Live-reloading Viewports Layouts list...");
+                layoutsCollectionSettings.models = diskModels;
+                try {
+                    layoutsCollectionModel.fromJSValue(JSON.parse(diskModels));
+                } catch(e) {
+                    console.log("[Sync] Error parsing updated layouts:", e);
+                }
+            }
+        }
+    }
+
+    Settings {
         id: layoutsCollectionSettings
 
         fileName: Context.config.fileName
         category: "ViewportsLayoutsCollection"
 
-        property int currentIndex
         property string models
         property string defaultAVFormatOptions: "{\"analyzeduration\":0,\"probesize\":500000}"
 
@@ -393,7 +423,7 @@ ApplicationWindow {
                 stackLayout.currentIndex = -1;
             } else {
                 // Force initialize "currentIndex" if option "-p" is set
-                var currentIndex = (Context.config.currentIndex >= 0) ? Context.config.currentIndex : layoutsCollectionSettings.currentIndex;
+                var currentIndex = (Context.config.currentIndex >= 0) ? Context.config.currentIndex : windowLayoutSettings.currentIndex;
                 stackLayout.currentIndex = currentIndex.clamp(0, layoutsCollectionModel.count - 1);
             }
         }
@@ -1068,7 +1098,7 @@ ApplicationWindow {
             anchors.fill: parent
 
             onCurrentIndexChanged: {
-                layoutsCollectionSettings.currentIndex = currentIndex;
+                windowLayoutSettings.currentIndex = currentIndex;
                 rootWindow.triggerGcDeferred();
             }
 

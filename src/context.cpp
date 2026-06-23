@@ -11,20 +11,24 @@
 #include <QWidget>
 #include "context.h"
 
+Context::Context(QObject *parent) : QObject(parent)
+{
+    m_instances.append(this);
+}
+
 Context::~Context()
 {
-    // Terminate all child processes and delete their temporary config files
-    for (QProcess *process : m_childProcesses) {
-        if (process->state() != QProcess::NotRunning) {
-            process->terminate();
-            process->waitForFinished(1000);
+    m_instances.removeOne(this);
+    if (m_instances.isEmpty()) {
+        for (QProcess *process : m_childProcesses) {
+            if (process->state() != QProcess::NotRunning) {
+                process->terminate();
+                process->waitForFinished(1000);
+            }
         }
-        QString tempConfig = m_childTempConfigs.value(process);
-        if (!tempConfig.isEmpty()) {
-            QFile::remove(tempConfig);
-        }
+        delete m_config;
+        m_config = nullptr;
     }
-    delete m_config;
 }
 
 void Context::init()
@@ -35,6 +39,7 @@ void Context::init()
     QCommandLineOption kioskModeOption({{"k", "kiosk"}, tr("Kiosk mode functionality.")});
     QCommandLineOption logOption({{"l", "log"}, tr("Log level [%1...%2].").arg(Config::LogBeginRange).arg(Config::LogEndRange), "level"});
     QCommandLineOption auxiliaryOption(QStringList("auxiliary"), tr("Start as an auxiliary window."));
+    QCommandLineOption auxiliaryIdOption("auxiliary-id", tr("ID of the auxiliary window."), "id");
     QCommandLineOption verboseOption("verbose", tr("Pokaż szczegółowe logi w konsoli (verbose logging)."));
 
     parseCommandLineOptions({configOption,
@@ -43,16 +48,56 @@ void Context::init()
                             kioskModeOption,
                             logOption,
                             auxiliaryOption,
+                            auxiliaryIdOption,
                             verboseOption});
 
     m_isAuxiliary = m_commandLineParser.isSet(auxiliaryOption);
     m_enableLogs = m_commandLineParser.isSet(verboseOption);
+
+    if (m_isAuxiliary && m_commandLineParser.isSet(auxiliaryIdOption)) {
+        m_auxiliaryId = m_commandLineParser.value(auxiliaryIdOption).toInt();
+    } else {
+        m_auxiliaryId = 0;
+    }
 
     if (m_commandLineParser.isSet(configOption)) {
         m_config = new Config(m_commandLineParser.value(configOption));
     } else {
         m_config = new Config();
     }
+
+    // Ensure the config file exists so we can watch it
+    QString configPath = m_config->fileName();
+    QFile file(configPath);
+    if (!file.exists()) {
+        QFileInfo fileInfo(configPath);
+        QDir().mkpath(fileInfo.absolutePath());
+        if (file.open(QIODevice::WriteOnly)) {
+            file.close();
+        }
+    }
+
+    // Configure the File Watcher
+    if (!m_watcher) {
+        m_watcher = new QFileSystemWatcher();
+        m_watcher->addPath(configPath);
+        QObject::connect(m_watcher, &QFileSystemWatcher::fileChanged, [](const QString &path) {
+            // Force reload settings file cache
+            QSettings settings;
+            settings.sync();
+
+            // Re-add to watcher in case the file was recreated/replaced
+            if (m_watcher && !m_watcher->files().contains(path)) {
+                m_watcher->addPath(path);
+            }
+
+            // Emit signal on all active Context instances
+            for (Context *instance : m_instances) {
+                emit instance->configFileChanged();
+            }
+        });
+    }
+
     if (m_commandLineParser.isSet(presetOption)) {
         m_config->setCurrentIndex(m_commandLineParser.value(presetOption).toInt());
     }
@@ -85,33 +130,41 @@ void Context::startAuxiliaryProcess()
     QString exePath = QCoreApplication::applicationFilePath();
     QString mainConfigPath = m_config ? m_config->fileName() : QSettings().fileName();
 
-    // Generate unique temp config file name
-    QString tempConfig = QDir::tempPath() + "/cctv-viewer-aux-" 
-                       + QString::number(QCoreApplication::applicationPid()) + "-" 
-                       + QString::number(QRandomGenerator::global()->generate()) + ".conf";
-
-    // Copy current configuration to the temporary file
-    if (QFile::exists(mainConfigPath)) {
-        QFile::copy(mainConfigPath, tempConfig);
+    int nextId = 1;
+    while (m_childIds.values().contains(nextId)) {
+        nextId++;
     }
 
     QProcess *process = new QProcess();
     QStringList arguments;
-    arguments << "-c" << tempConfig << "--auxiliary";
+    arguments << "-c" << mainConfigPath << "--auxiliary" << "--auxiliary-id" << QString::number(nextId);
 
     connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), 
-            [tempConfig, process](int exitCode, QProcess::ExitStatus exitStatus) {
+            [process](int exitCode, QProcess::ExitStatus exitStatus) {
         Q_UNUSED(exitCode);
         Q_UNUSED(exitStatus);
-        QFile::remove(tempConfig);
-        m_childTempConfigs.remove(process);
+        m_childIds.remove(process);
         m_childProcesses.removeOne(process);
         process->deleteLater();
     });
 
-    m_childTempConfigs[process] = tempConfig;
+    m_childIds[process] = nextId;
     m_childProcesses.append(process);
     process->start(exePath, arguments);
+}
+
+QVariant Context::readSetting(const QString &category, const QString &key, const QVariant &defaultValue) const
+{
+    QString path = m_config ? m_config->fileName() : QSettings().fileName();
+    QSettings settings(path, QSettings::IniFormat);
+    if (!category.isEmpty()) {
+        settings.beginGroup(category);
+    }
+    QVariant val = settings.value(key, defaultValue);
+    if (!category.isEmpty()) {
+        settings.endGroup();
+    }
+    return val;
 }
 
 void Context::initLanguage()

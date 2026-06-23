@@ -8,6 +8,8 @@
 #include <QTranslator>
 #include <QQmlEngine>
 #include <QUrl>
+#include <QFileSystemWatcher>
+#include <QVariant>
 
 #include "config.h"
 
@@ -17,9 +19,10 @@ class Context : public QObject
 
     Q_PROPERTY(Config *config READ config CONSTANT)
     Q_PROPERTY(bool isAuxiliary READ isAuxiliary CONSTANT)
+    Q_PROPERTY(int auxiliaryId READ auxiliaryId CONSTANT)
 
 public:
-    explicit Context(QObject *parent = nullptr) : QObject(parent) { }
+    explicit Context(QObject *parent = nullptr);
     virtual ~Context();
 
     static void init();
@@ -28,6 +31,7 @@ public:
 
     static Config *config() { return m_config; }
     static bool isAuxiliary() { return m_isAuxiliary; }
+    static int auxiliaryId() { return m_auxiliaryId; }
     static bool enableLogs() { return m_enableLogs; }
 
     Q_INVOKABLE void setLanguage(const QString &lang);
@@ -43,9 +47,11 @@ public:
     Q_INVOKABLE QUrl pathToUrl(const QString &path) const;
     Q_INVOKABLE QString selectFolder(const QString &title, const QString &initialPath) const;
     Q_INVOKABLE QString readLocalFile(const QString &filePath) const;
+    Q_INVOKABLE QVariant readSetting(const QString &category, const QString &key, const QVariant &defaultValue = QVariant()) const;
 
 signals:
     void languageChanged();
+    void configFileChanged();
 
 private:
     static void parseCommandLineOptions(const QList<QCommandLineOption> &options);
@@ -54,11 +60,14 @@ private:
     inline static Config *m_config = nullptr;
     inline static QCommandLineParser m_commandLineParser;
     inline static bool m_isAuxiliary = false;
+    inline static int m_auxiliaryId = 0;
     inline static bool m_enableLogs = false;
     inline static QList<QProcess*> m_childProcesses;
-    inline static QMap<QProcess*, QString> m_childTempConfigs;
+    inline static QMap<QProcess*, int> m_childIds; // Track active child process IDs
     inline static QQmlEngine *m_engine = nullptr;
     inline static QTranslator *m_translator = nullptr;
+    inline static QFileSystemWatcher *m_watcher = nullptr;
+    inline static QList<Context*> m_instances;
 };
 
 #endif // CONTEXT_H
