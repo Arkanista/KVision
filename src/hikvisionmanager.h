@@ -46,6 +46,7 @@ public:
 
     LONG loginShared(const QString &ip, int port, const QString &username, const QString &password, NET_DVR_DEVICEINFO_V40 &deviceInfo);
     void logoutShared(const QString &ip);
+    void forceLogoutShared(const QString &ip);
 
 signals:
     void sessionStatusChanged(const QString &ip, bool loggedIn);

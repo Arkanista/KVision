@@ -553,6 +553,35 @@ void HikvisionManager::logoutShared(const QString &ip)
     }
 }
 
+void HikvisionManager::forceLogoutShared(const QString &ip)
+{
+    bool wasLogged = false;
+    bool isLoggedNow = false;
+    LONG lUserIDToLogout = -1;
+
+    {
+        std::lock_guard<std::mutex> lock(m_sharedSessionsMutex);
+        wasLogged = isLoggedInternal(ip);
+        if (m_sharedSessions.contains(ip)) {
+            auto &session = m_sharedSessions[ip];
+            lUserIDToLogout = session.lUserID;
+            m_sharedSessions.remove(ip);
+            qDebug() << "[Hikvision Shared] Force logout requested. Removing session for IP:" << ip << "UserID:" << lUserIDToLogout;
+        }
+        isLoggedNow = isLoggedInternal(ip);
+    }
+
+    if (lUserIDToLogout >= 0) {
+        ensureInitialized();
+        NET_DVR_Logout(lUserIDToLogout);
+        qDebug() << "[Hikvision Shared] Logged out session for IP (force):" << ip << "UserID:" << lUserIDToLogout;
+    }
+
+    if (wasLogged != isLoggedNow) {
+        emit sessionStatusChanged(ip, isLoggedNow);
+    }
+}
+
 void HikvisionManager::ensureInitialized() const
 {
     std::unique_lock<std::mutex> lock(m_initMutex);

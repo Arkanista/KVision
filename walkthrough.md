@@ -126,3 +126,17 @@ Aby zagwarantować powrót zużycia pamięci fizycznej (RSS) dokładnie do pozio
   1. **Synchroniczne i bezpieczne zatrzymanie wątku:** Zaktualizowaliśmy destruktor `~HikvisionDownloader()` w pliku [hikvisiondownloader.cpp](file:///home/arkanis/cctv/cctv-viewer2/src/hikvisiondownloader.cpp). Przed usunięciem downloader pobiera teraz bezpieczną kopię wskaźnika wątku `m_searchThread`, wysyła żądanie przerwania (`requestInterruption()`), odłącza wszelkie powiązane sygnały (`disconnect()`), a następnie wywołuje `wait()`, blokując i czekając na całkowite i bezpieczne zakończenie wątku tła przed dokończeniem destrukcji obiektu C++.
   2. **Usunięcie wycieków zasobów QThread:** Po bezpiecznym doczekaniu na zakończenie wątku, pamięć powiązana z obiektem `QThread` jest natychmiast uwalniana poprzez jawne wywołanie `delete threadToWait`. Zapobiega to jakimkolwiek wyciekom uchwytów systemowych i wątków w systemie operacyjnym.
 
+---
+
+## 10. Likwidacja opóźnienia 500ms (zamrażania GUI) przy zamykaniu odtwarzacza archiwalnego
+
+* **Problem:** Destruktor klasy `HikvisionArchivePlayer` oczekiwał w pętli `while` na wyzerowanie licznika zadań w tle `m_pendingTasks`. Jednak zwalnianie licznika odbywało się wewnątrz lambdy wysyłanej za pomocą `Qt::QueuedConnection` na wątek GUI. Zablokowanie wątku GUI przez destruktor uniemożliwiało wykonanie lambdy, co powodowało, że pętla zawsze osiągała timeout bezpieczeństwa wynoszący 500 ms, odczuwalnie zamrażając interfejs aplikacji.
+* **Rozwiązanie:** Przeniesiono dekrementację `pPlayer->m_pendingTasks--` w klasie [YV12ToRGBTask](file:///home/robert/cctv/cctv-viewer2/src/hikvisionarchiveplayer.cpp#L18) bezpośrednio do wątku tła, poza asynchroniczną lambdę. Zapobiegło to głodzeniu pętli oczekiwania wątku GUI i wyeliminowało 500 ms zamrożenie interfejsu.
+
+---
+
+## 11. Zatrzymywanie strumieni Hikvision w tle przy przełączaniu widoków (Wyciek RAM i sieci)
+
+* **Problem:** Komponent `HikvisionPlayer` (wykorzystywany do odtwarzania strumieni na żywo z kamer Hikvision) nie reagował na utratę widoczności. Wyciszał jedynie odświeżanie graficzne, ale połączenie sieciowe TCP (`NET_DVR_RealPlay_V40`) i buforowanie danych przez SDK Hikvision pozostawały w pełni aktywne dla wszystkich historycznie załadowanych siatek (stron `StackLayout`). Powodowało to ciągły wzrost zużycia RAM-u, CPU oraz pasma sieciowego przy przełączaniu widoków.
+* **Rozwiązanie:** Zmodyfikowano deklaratywne powiązanie właściwości `recorderIp` w pliku [Player.qml](file:///home/robert/cctv/cctv-viewer2/src/Player.qml#L369). Jeśli viewport przestaje być widoczny na ekranie, adres IP przekazywany do `HikvisionPlayer` zmienia się na pusty string `""`. Powoduje to natychmiastowe zatrzymanie strumienia sieciowego w C++ za pomocą `NET_DVR_StopRealPlay` i całkowite zwolnienie jego zasobów. Przy powrocie do widoku, adres IP jest automatycznie przywracany, a strumień wznawiany.
+

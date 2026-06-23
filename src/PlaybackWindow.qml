@@ -29,6 +29,7 @@ Window {
     property bool isPlaying: false
     property bool autoFollowEnabled: true
     property int playbackSpeed: 1
+    property bool playbackStoppedForDownload: false
 
     property var daysWithRecords: {
         if (typeof rootWindow === 'undefined' || !rootWindow || !recorderInfo) return [];
@@ -507,8 +508,18 @@ Window {
     DownloadDialog {
         id: downloadDialog
         onDownloadStarted: {
+            playbackStoppedForDownload = true;
             forEachPlayer(function(p) { p.stop(); });
             isPlaying = false;
+        }
+        onClosed: {
+            if (downloadDialog.isAnyDownloading()) {
+                downloadDialog.stopAllDownloads();
+            }
+            if (playbackStoppedForDownload) {
+                playbackStoppedForDownload = false;
+                playAtTime(currentDate, currentPlayheadMs);
+            }
         }
     }
 

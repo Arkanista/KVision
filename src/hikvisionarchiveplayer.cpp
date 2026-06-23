@@ -437,7 +437,30 @@ void HikvisionArchivePlayer::playAtTime(const QDateTime &dateTime)
     if (playHandle < 0) {
         DWORD err = NET_DVR_GetLastError();
         qWarning() << "[HikArchive] PlayBackByTime FAILED. Error:" << err << "Channel used:" << m_realSdkChannel;
-        return;
+        
+        // Auto-recovery: Force a shared logout, recreate session and retry
+        qDebug() << "[HikArchive] Attempting to force shared relogin and retry playback...";
+        if (m_lUserID >= 0) {
+            if (HikvisionManager::instance()) {
+                HikvisionManager::instance()->forceLogoutShared(m_recorderIp);
+            } else {
+                NET_DVR_Logout(m_lUserID);
+            }
+            m_lUserID = -1;
+        }
+        
+        if (!ensureLogin()) {
+            qWarning() << "[HikArchive] Retry login failed, aborting playback.";
+            return;
+        }
+        
+        qDebug() << "[HikArchive] Retry PlayBackByTime on new UserID:" << m_lUserID << "and Channel:" << m_realSdkChannel;
+        playHandle = NET_DVR_PlayBackByTime(m_lUserID, m_realSdkChannel, &startTime, &stopTime, 0);
+        if (playHandle < 0) {
+            qWarning() << "[HikArchive] Retry PlayBackByTime FAILED. Error:" << NET_DVR_GetLastError();
+            return;
+        }
+        qDebug() << "[HikArchive] Retry PlayBackByTime SUCCESS. Handle:" << playHandle;
     }
     qDebug() << "[HikArchive] PlayBackByTime SUCCESS. Handle:" << playHandle;
 

@@ -1694,6 +1694,10 @@
         <source>Złagodzono błąd uruchamiania powierzchni rysowania wideo OpenGL (start wideo surface) przy bardzo szybkiej zmianie zakładki NVR – logi zostały wyciszone do poziomu Debug, a system w tle ponawia automatycznie próbę renderowania po zwolnieniu buforów karty graficznej.</source>
         <translation>Złagodzono błąd uruchamiania powierzchni rysowania wideo OpenGL (start wideo surface) przy bardzo szybkiej zmianie zakładki NVR – logi zostały wyciszone do poziomu Debug, a system w tle ponawia automatycznie próbę renderowania po zwolnieniu buforów karty graficznej.</translation>
     </message>
+    <message>
+        <source>Dodano automatyczne wznawianie sesji (auto-reconnect) w odtwarzaczu archiwum Hikvision po zakończeniu pobierania nagrań lub zerwaniu połączenia przez rejestrator.</source>
+        <translation>Dodano automatyczne wznawianie sesji (auto-reconnect) w odtwarzaczu archiwum Hikvision po zakończeniu pobierania nagrań lub zerwaniu połączenia przez rejestrator.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>

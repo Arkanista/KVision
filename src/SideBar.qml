@@ -58,6 +58,13 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.1.6",
+            date: "23.06.2026",
+            changes: [
+                qsTr("Dodano automatyczne wznawianie sesji (auto-reconnect) w odtwarzaczu archiwum Hikvision po zakończeniu pobierania nagrań lub zerwaniu połączenia przez rejestrator.")
+            ]
+        },
+        {
             version: "v2.1.5",
             date: "23.06.2026",
             changes: [
