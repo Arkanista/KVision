@@ -197,3 +197,18 @@ W wersji `v2.1.9-1` wprowadziliśmy szereg optymalizacji i poprawek wizualnych o
 ### 5. Kompilacja i Pakietowanie
 * Zaktualizowano bilingualne pliki tłumaczeń (`.ts`) i wygenerowano pliki `.qm` bez nieprzetłumaczonych wpisów.
 * Zbudowano pakiet dla systemu Arch Linux (`2.1.9-1`) i opublikowano wydanie na GitHubie.
+
+---
+
+## 15. Poprawka Tłumaczeń i Wydanie v2.1.9-2
+
+W wersji `v2.1.9-2` naprawiliśmy błąd braku angielskich tłumaczeń wpisów w QML-owym changelogu w panelu bocznym. Wszystkie teksty zostały w pełni przetłumaczone i wbudowane w pliki binarne `.qm`.
+
+---
+
+## 16. Powiększenie Okna Kamer i Nowy Przycisk Miniatur w Wydaniu v2.1.9-3
+
+W wersji `v2.1.9-3` wprowadziliśmy następujące zmiany:
+* **Okno list kamer rejestratora:** Zwiększono jego domyślną wysokość o 40% (z 600px do 840px), co pozwala na wygodniejsze przeglądanie kafelków z podglądem kamer w pionie bez konieczności ciągłego przewijania.
+* **Nowy przycisk generowania miniatur:** Zastąpiono tekstowy przycisk "Generuj miniatury" estetycznym, okrągłym przyciskiem z jaskrawo-seledynowym akcentem (kolor `#00f5d4` zgodny z resztą programu) oraz ikoną SVG przedstawiającą aparat fotograficzny z pętlą odświeżania. Przycisk zyskał również dedykowany tooltip oraz animację przejścia przy najechaniu myszą.
+

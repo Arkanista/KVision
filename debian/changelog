@@ -1,3 +1,10 @@
+cctv-viewer (2.1.9-3) jammy; urgency=medium
+
+  * Increased default camera list window height by 40%
+  * Replaced "Generate thumbnails" text button with a styled round SVG button
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Wed, 24 Jun 2026 11:32:00 +0200
+
 cctv-viewer (2.1.9-2) jammy; urgency=medium
 
   * Resolved missing English translations for QML changelog entries

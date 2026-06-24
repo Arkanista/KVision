@@ -10,7 +10,7 @@ Window {
     id: camerasWin
 
     width: 900
-    height: 600
+    height: 840
     color: "#0f151b"
     title: (recorder && recorder.ip) ? (recorder.name ? qsTr("Cameras on %1").arg(recorder.name) : qsTr("Cameras on %1").arg(recorder.ip)) : qsTr("Cameras")
 
@@ -99,19 +99,36 @@ Window {
             Item { Layout.fillWidth: true }
 
             Button {
-                text: qsTr("Generate thumbnails")
-                onClicked: camerasWin.generateThumbnails()
+                id: generateThumbnailsBtn
+                width: 40
+                height: 40
+
                 background: Rectangle {
-                    color: parent.down ? "#1a232c" : (parent.hovered ? "#2a3540" : "#1c242c")
-                    border.color: "#3a86ff"
-                    radius: 4
+                    color: generateThumbnailsBtn.pressed ? "#00ccb0" : (generateThumbnailsBtn.hovered ? "#33ffd2" : "#00f5d4")
+                    radius: 20
+                    border.color: generateThumbnailsBtn.hovered ? "white" : "#00ccb0"
+                    border.width: 1
+
+                    Behavior on color { ColorAnimation { duration: 150 } }
                 }
-                contentItem: Text {
-                    text: parent.text
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
+
+                contentItem: Image {
+                    anchors.centerIn: parent
+                    width: 24
+                    height: 24
+                    sourceSize: Qt.size(24, 24)
+                    source: {
+                        var strokeColor = "%230f151b"; // Dark color for high contrast on bright celadon background
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + strokeColor + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'></path><circle cx='12' cy='13' r='4'></circle><path d='M21 2a3 3 0 1 0 2.6 1.8M23 1v3h-3'></path></svg>";
+                    }
                 }
+
+                onClicked: camerasWin.generateThumbnails()
+
+                ToolTip.delay: Compact.toolTipDelay
+                ToolTip.timeout: Compact.toolTipTimeout
+                ToolTip.visible: generateThumbnailsBtn.hovered
+                ToolTip.text: qsTr("Generuj miniatury dla wszystkich kamer")
             }
         }
 

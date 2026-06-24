@@ -374,7 +374,7 @@
     </message>
     <message>
         <source>Generate thumbnails</source>
-        <translation>Generuj miniatury</translation>
+        <translation type="vanished">Generuj miniatury</translation>
     </message>
     <message>
         <source>Change Camera Name</source>
@@ -423,6 +423,10 @@
     <message>
         <source>Cameras</source>
         <translation>Cameras</translation>
+    </message>
+    <message>
+        <source>Generuj miniatury dla wszystkich kamer</source>
+        <translation>Generuj miniatury dla wszystkich kamer</translation>
     </message>
 </context>
 <context>
