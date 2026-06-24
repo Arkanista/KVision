@@ -208,6 +208,12 @@ Wyświetla zaawansowane parametry wybranego kafelka siatki. Umożliwia:
 * Wpisanie własnego adresu **głównego strumienia RTSP** (Primary Stream URL) oraz **strumienia zapasowego** (Secondary Backup URL).
 * Włączenie/wyłączenie wyciszenia audio dla wybranej kamery.
 * Wprowadzenie zaawansowanych parametrów dekodowania za pomocą pola **Nadpisanie parametrów FFmpeg** (FFmpeg Options Override).
+  > [!TIP]
+  > Dla najszybszego łączenia ze strumieniem i maksymalnej stabilności dla protokołu RTSP, zalecane parametry to:
+  > ```ini
+  > -analyzeduration 0 -probesize 500000 -rtsp_transport tcp
+  > ```
+
 
 ### 2. Układy i Siatka (Layout & Grid Tools - ikona suwaków)
 Zaawansowane opcje manipulacji siatką ekranu:

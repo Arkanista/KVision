@@ -208,6 +208,12 @@ Displays advanced parameters of the currently selected grid tile. Allows you to:
 * Type a custom **Primary Stream URL** (RTSP/ONVIF) and a **Secondary Backup URL** for manual configurations.
 * Toggle muting/unmuting the audio channel of the selected camera feed.
 * Input advanced decoder overrides in the **FFmpeg Options Override** text box.
+  > [!TIP]
+  > For the fastest stream connection and maximum stability over RTSP, the recommended parameters are:
+  > ```ini
+  > -analyzeduration 0 -probesize 500000 -rtsp_transport tcp
+  > ```
+
 
 ### 2. Layout & Grid Tools (Sliders Icon)
 Advanced screen grid customization options:

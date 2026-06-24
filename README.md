@@ -224,6 +224,17 @@ For detailed usage instructions, check out the documentation files:
 
 ---
 
+## 💡 Recommended FFmpeg Options
+
+For the lowest latency, fastest stream connection, and maximum stability over RTSP, it is highly recommended to use the following flags in the **FFmpeg Options Override** settings box:
+
+```ini
+-analyzeduration 0 -probesize 500000 -rtsp_transport tcp
+```
+
+
+---
+
 ## License
 
 This project is licensed under the GPL v3 License.
