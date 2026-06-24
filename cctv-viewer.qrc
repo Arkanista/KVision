@@ -15,7 +15,6 @@
         <file>src/RootWindow.qml</file>
         <file>src/AuxiliaryWindow.qml</file>
         <file>src/InstructionsWindow.qml</file>
-        <file>src/SettingsDialog.qml</file>
         <file>src/ViewportSettingsDialog.qml</file>
         <file>src/ToolsWindow.qml</file>
         <file>src/Player.qml</file>

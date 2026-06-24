@@ -1319,9 +1319,6 @@ ApplicationWindow {
         Context.mkpath(vidPath);
     }
 
-    SettingsDialog {
-        id: settingsDialog
-    }
 
     InstructionsWindow {
         id: instructionsWindow
@@ -2075,7 +2072,6 @@ ApplicationWindow {
         id: cursorShape
 
         autoHide: rootWindow.activeFocusItem != null && // Disabled when ApplicationWindow is't active
-                  !settingsDialog.visible &&
                   Context.config.fullScreen && viewSettings.hideCursorWhenFullScreen
         autoHideTimeout: 3000
         anchors.fill: parent
