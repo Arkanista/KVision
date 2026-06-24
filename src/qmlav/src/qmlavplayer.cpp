@@ -62,7 +62,7 @@ void QmlAVPlayer::stop()
 
     if (m_audioOutput) {
         m_audioOutput->stop();
-        delete m_audioOutput;
+        m_audioOutput->deleteLater();
         m_audioOutput = nullptr;
     }
 
