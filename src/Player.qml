@@ -12,6 +12,16 @@ import Qt.labs.platform 1.1 as Platform
 FocusScope {
     id: root
 
+    Behavior on scale {
+        NumberAnimation { duration: 100; easing.type: Easing.OutQuad }
+    }
+    Behavior on x {
+        NumberAnimation { duration: 100; easing.type: Easing.OutQuad }
+    }
+    Behavior on y {
+        NumberAnimation { duration: 100; easing.type: Easing.OutQuad }
+    }
+
     property string color: "black"
     property bool isSubStream: false
     property bool isOneToOne: false

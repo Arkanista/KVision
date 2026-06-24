@@ -7,13 +7,116 @@
 #include <QProcess>
 #include <QFileInfo>
 #include <QRegularExpression>
+#include <QLibrary>
 #include <unistd.h>
 #include <sys/types.h>
+
+// NVML Types
+typedef void* nvmlDevice_t;
+typedef enum nvmlReturn_enum {
+    NVML_SUCCESS = 0,
+    NVML_ERROR_NOT_SUPPORTED = 3,
+} nvmlReturn_t;
+
+typedef struct nvmlUtilization_st {
+    unsigned int gpu;
+    unsigned int memory;
+} nvmlUtilization_t;
+
+typedef struct nvmlProcessInfo_st {
+    unsigned int pid;
+    unsigned long long usedGpuMemory;
+} nvmlProcessInfo_t;
+
+typedef struct nvmlProcessUtilizationSample_st {
+    unsigned int pid;
+    unsigned long long timeStamp;
+    unsigned int smUtil;
+    unsigned int memUtil;
+    unsigned int encUtil;
+    unsigned int decUtil;
+} nvmlProcessUtilizationSample_t;
+
+typedef nvmlReturn_t (*fn_nvmlInit)(void);
+typedef nvmlReturn_t (*fn_nvmlShutdown)(void);
+typedef nvmlReturn_t (*fn_nvmlDeviceGetCount)(unsigned int *deviceCount);
+typedef nvmlReturn_t (*fn_nvmlDeviceGetHandleByIndex)(unsigned int index, nvmlDevice_t *device);
+typedef nvmlReturn_t (*fn_nvmlDeviceGetUtilizationRates)(nvmlDevice_t device, nvmlUtilization_t *rates);
+typedef nvmlReturn_t (*fn_nvmlDeviceGetGraphicsRunningProcesses)(nvmlDevice_t device, unsigned int *infoCount, nvmlProcessInfo_t *infos);
+typedef nvmlReturn_t (*fn_nvmlDeviceGetComputeRunningProcesses)(nvmlDevice_t device, unsigned int *infoCount, nvmlProcessInfo_t *infos);
+typedef nvmlReturn_t (*fn_nvmlDeviceGetProcessUtilization)(nvmlDevice_t device, nvmlProcessUtilizationSample_t *utilization, unsigned int *processSamplesCount, unsigned long long lastSeenTimeStamp);
+
+struct StatsWorker::NvmlContext {
+    QLibrary lib;
+    bool initialized = false;
+    bool loadFailed = false;
+
+    fn_nvmlInit nvmlInit = nullptr;
+    fn_nvmlShutdown nvmlShutdown = nullptr;
+    fn_nvmlDeviceGetCount nvmlDeviceGetCount = nullptr;
+    fn_nvmlDeviceGetHandleByIndex nvmlDeviceGetHandleByIndex = nullptr;
+    fn_nvmlDeviceGetUtilizationRates nvmlDeviceGetUtilizationRates = nullptr;
+    fn_nvmlDeviceGetGraphicsRunningProcesses nvmlDeviceGetGraphicsRunningProcesses = nullptr;
+    fn_nvmlDeviceGetComputeRunningProcesses nvmlDeviceGetComputeRunningProcesses = nullptr;
+    fn_nvmlDeviceGetProcessUtilization nvmlDeviceGetProcessUtilization = nullptr;
+
+    ~NvmlContext() {
+        if (initialized && nvmlShutdown) {
+            nvmlShutdown();
+        }
+        if (lib.isLoaded()) {
+            lib.unload();
+        }
+    }
+
+    bool ensureInitialized() {
+        if (initialized) return true;
+        if (loadFailed) return false;
+
+        lib.setFileName("nvidia-ml");
+        if (!lib.load()) {
+            loadFailed = true;
+            return false;
+        }
+
+        nvmlInit = (fn_nvmlInit)lib.resolve("nvmlInit");
+        nvmlShutdown = (fn_nvmlShutdown)lib.resolve("nvmlShutdown");
+        nvmlDeviceGetCount = (fn_nvmlDeviceGetCount)lib.resolve("nvmlDeviceGetCount");
+        nvmlDeviceGetHandleByIndex = (fn_nvmlDeviceGetHandleByIndex)lib.resolve("nvmlDeviceGetHandleByIndex");
+        nvmlDeviceGetUtilizationRates = (fn_nvmlDeviceGetUtilizationRates)lib.resolve("nvmlDeviceGetUtilizationRates");
+        nvmlDeviceGetGraphicsRunningProcesses = (fn_nvmlDeviceGetGraphicsRunningProcesses)lib.resolve("nvmlDeviceGetGraphicsRunningProcesses");
+        nvmlDeviceGetComputeRunningProcesses = (fn_nvmlDeviceGetComputeRunningProcesses)lib.resolve("nvmlDeviceGetComputeRunningProcesses");
+        nvmlDeviceGetProcessUtilization = (fn_nvmlDeviceGetProcessUtilization)lib.resolve("nvmlDeviceGetProcessUtilization");
+
+        if (!nvmlInit || !nvmlShutdown || !nvmlDeviceGetCount || !nvmlDeviceGetHandleByIndex ||
+            !nvmlDeviceGetUtilizationRates || !nvmlDeviceGetGraphicsRunningProcesses || !nvmlDeviceGetComputeRunningProcesses) {
+            lib.unload();
+            loadFailed = true;
+            return false;
+        }
+
+        if (nvmlInit() != NVML_SUCCESS) {
+            lib.unload();
+            loadFailed = true;
+            return false;
+        }
+
+        initialized = true;
+        return true;
+    }
+};
 
 StatsWorker::StatsWorker(QObject *parent)
     : QObject(parent)
 {
     m_netTimer.start();
+    m_gpuTimer.start();
+    m_nvml = new NvmlContext();
+}
+
+StatsWorker::~StatsWorker()
+{
+    delete m_nvml;
 }
 
 void StatsWorker::doWork()
@@ -244,79 +347,190 @@ void StatsWorker::calculateCpuAndRam(const QVector<qint64> &pids, double &cpu, d
 
 void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, double &vram)
 {
-    // Try Nvidia first
-    QFile nvidiaSmi("/usr/bin/nvidia-smi");
-    if (nvidiaSmi.exists()) {
-        // Query overall GPU utilization
-        QProcess procGpu;
-        procGpu.start("nvidia-smi", QStringList() << "--query-gpu=utilization.gpu" << "--format=csv,noheader,nounits");
-        if (procGpu.waitForFinished(500)) {
-            QByteArray out = procGpu.readAllStandardOutput().trimmed();
-            bool ok = false;
-            double val = out.toDouble(&ok);
-            if (ok) {
-                gpu = val;
-            }
-        }
+    gpu = 0.0;
+    vram = 0.0;
 
-        // Query all running GPU processes (graphics & compute) using XML output
-        QProcess procVram;
-        procVram.start("nvidia-smi", QStringList() << "-q" << "-x");
-        if (procVram.waitForFinished(500)) {
-            double vramSum = 0;
-            QString out = QString::fromUtf8(procVram.readAllStandardOutput());
-            
-            QRegularExpression blockRx("<process_info>(.*?)</process_info>", QRegularExpression::DotMatchesEverythingOption);
-            QRegularExpression pidRx("<pid>(\\d+)</pid>");
-            QRegularExpression memRx("<(?:used_memory|used_gpu_memory)>(\\d+)\\s*(MiB|KiB|GiB|B)</(?:used_memory|used_gpu_memory)>");
+    // 1. Try Nvidia NVML first
+    if (m_nvml && m_nvml->ensureInitialized()) {
+        unsigned int devCount = 0;
+        if (m_nvml->nvmlDeviceGetCount(&devCount) == NVML_SUCCESS && devCount > 0) {
+            double vramSum = 0.0;
+            double gpuSum = 0.0;
+            bool processGpuSuccess = false;
 
-            QRegularExpressionMatchIterator it = blockRx.globalMatch(out);
-            while (it.hasNext()) {
-                QRegularExpressionMatch match = it.next();
-                QString blockContent = match.captured(1);
+            for (unsigned int i = 0; i < devCount; ++i) {
+                nvmlDevice_t device = nullptr;
+                if (m_nvml->nvmlDeviceGetHandleByIndex(i, &device) != NVML_SUCCESS) continue;
+
+                // Sum process memory (VRAM)
+                unsigned int procCount = 128;
+                nvmlProcessInfo_t procInfos[128];
                 
-                QRegularExpressionMatch pidMatch = pidRx.match(blockContent);
-                QRegularExpressionMatch memMatch = memRx.match(blockContent);
-                if (pidMatch.hasMatch() && memMatch.hasMatch()) {
-                    qint64 vpid = pidMatch.captured(1).toLongLong();
-                    double memVal = memMatch.captured(1).toDouble();
-                    QString unit = memMatch.captured(2);
-                    if (unit == "KiB") {
-                        memVal /= 1024.0;
-                    } else if (unit == "GiB") {
-                        memVal *= 1024.0;
-                    } else if (unit == "B") {
-                        memVal /= (1024.0 * 1024.0);
+                // Graphics processes
+                if (m_nvml->nvmlDeviceGetGraphicsRunningProcesses(device, &procCount, procInfos) == NVML_SUCCESS) {
+                    for (unsigned int p = 0; p < procCount; ++p) {
+                        if (pids.contains(procInfos[p].pid)) {
+                            vramSum += procInfos[p].usedGpuMemory / (1024.0 * 1024.0); // B to MiB
+                        }
                     }
-                    if (pids.contains(vpid)) {
-                        vramSum += memVal; // in MiB
+                }
+                
+                // Compute processes
+                procCount = 128;
+                if (m_nvml->nvmlDeviceGetComputeRunningProcesses(device, &procCount, procInfos) == NVML_SUCCESS) {
+                    for (unsigned int p = 0; p < procCount; ++p) {
+                        if (pids.contains(procInfos[p].pid)) {
+                            vramSum += procInfos[p].usedGpuMemory / (1024.0 * 1024.0); // B to MiB
+                        }
+                    }
+                }
+
+                // Process specific GPU utilization
+                if (m_nvml->nvmlDeviceGetProcessUtilization) {
+                    unsigned int sampleCount = 128;
+                    nvmlProcessUtilizationSample_t samples[128];
+                    if (m_nvml->nvmlDeviceGetProcessUtilization(device, samples, &sampleCount, 0) == NVML_SUCCESS) {
+                        double devGpuSum = 0.0;
+                        for (unsigned int s = 0; s < sampleCount; ++s) {
+                            if (pids.contains(samples[s].pid)) {
+                                devGpuSum += samples[s].smUtil; // GPU %
+                                processGpuSuccess = true;
+                            }
+                        }
+                        gpuSum += devGpuSum;
                     }
                 }
             }
+
             vram = vramSum;
+
+            if (processGpuSuccess) {
+                gpu = gpuSum;
+                if (gpu > 100.0) gpu = 100.0;
+                return;
+            }
         }
+    }
+
+    // 2. Try DRM Client Stats (for AMD, Intel, and fallback Nvidia)
+    double drmVramSum = 0.0;
+    qint64 totalEngineDeltaNs = 0;
+    QHash<QString, qint64> nextDrmEngineTimes;
+    bool hasDrmClients = false;
+
+    for (qint64 pid : pids) {
+        QString fdInfoPath = QString("/proc/%1/fdinfo").arg(pid);
+        QDir dir(fdInfoPath);
+        if (!dir.exists()) continue;
+
+        QStringList files = dir.entryList(QDir::Files);
+        for (const QString &fdName : files) {
+            QFile f(dir.absoluteFilePath(fdName));
+            if (!f.open(QIODevice::ReadOnly)) continue;
+
+            QTextStream stream(&f);
+            bool isDrm = false;
+            qint64 fdEngineTime = 0;
+
+            while (!stream.atEnd()) {
+                QString line = stream.readLine().trimmed();
+                if (line.startsWith("drm-driver:")) {
+                    isDrm = true;
+                    hasDrmClients = true;
+                } else if (line.startsWith("drm-engine-")) {
+                    QStringList parts = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
+                    if (parts.size() >= 2) {
+                        bool ok = false;
+                        qint64 val = parts[1].toLongLong(&ok);
+                        if (ok) {
+                            fdEngineTime += val;
+                        }
+                    }
+                } else if (line.startsWith("drm-memory-vram:")) {
+                    QStringList parts = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
+                    if (parts.size() >= 2) {
+                        bool ok = false;
+                        double val = parts[1].toDouble(&ok);
+                        if (ok) {
+                            QString unit = (parts.size() >= 3) ? parts[2] : "";
+                            if (unit.trimmed().toLower() == "kib" || unit.isEmpty()) {
+                                val /= 1024.0;
+                            } else if (unit.trimmed().toLower() == "gib") {
+                                val *= 1024.0;
+                            } else if (unit.trimmed().toLower() == "b") {
+                                val /= (1024.0 * 1024.0);
+                            }
+                            drmVramSum += val;
+                        }
+                    }
+                }
+            }
+            f.close();
+
+            if (isDrm) {
+                QString key = QString("%1:%2").arg(pid).arg(fdName);
+                nextDrmEngineTimes[key] = fdEngineTime;
+                if (m_prevDrmEngineTimes.contains(key)) {
+                    qint64 delta = fdEngineTime - m_prevDrmEngineTimes[key];
+                    if (delta > 0) {
+                        totalEngineDeltaNs += delta;
+                    }
+                }
+            }
+        }
+    }
+
+    qint64 elapsedMs = m_gpuTimer.restart();
+    if (elapsedMs <= 0) elapsedMs = 1000;
+
+    m_prevDrmEngineTimes = nextDrmEngineTimes;
+
+    if (hasDrmClients) {
+        if (vram <= 0.0) {
+            vram = drmVramSum;
+        }
+
+        double drmGpu = 0.0;
+        if (totalEngineDeltaNs > 0) {
+            drmGpu = (static_cast<double>(totalEngineDeltaNs) / (elapsedMs * 1000000.0)) * 100.0;
+            if (drmGpu > 100.0) drmGpu = 100.0;
+        }
+        gpu = drmGpu;
         return;
     }
 
-    // Try AMD fallback
+    // 3. Try System-wide NVML Fallback (if we are Nvidia but have no DRM stats / no accounting)
+    if (m_nvml && m_nvml->initialized) {
+        unsigned int devCount = 0;
+        if (m_nvml->nvmlDeviceGetCount(&devCount) == NVML_SUCCESS && devCount > 0) {
+            nvmlDevice_t device = nullptr;
+            if (m_nvml->nvmlDeviceGetHandleByIndex(0, &device) == NVML_SUCCESS) {
+                nvmlUtilization_t utilization;
+                if (m_nvml->nvmlDeviceGetUtilizationRates(device, &utilization) == NVML_SUCCESS) {
+                    gpu = utilization.gpu;
+                    return;
+                }
+            }
+        }
+    }
+
+    // 4. Try AMD/Intel System-wide sysfs fallback
     QFile amdGpuBusy("/sys/class/drm/card0/device/gpu_busy_percent");
     if (amdGpuBusy.exists() && amdGpuBusy.open(QIODevice::ReadOnly)) {
         QTextStream stream(&amdGpuBusy);
         gpu = stream.readAll().trimmed().toDouble();
         amdGpuBusy.close();
 
-        QFile amdVram("/sys/class/drm/card0/device/mem_info_vram_used");
-        if (amdVram.exists() && amdVram.open(QIODevice::ReadOnly)) {
-            QTextStream vramStream(&amdVram);
-            vram = vramStream.readAll().trimmed().toDouble() / (1024.0 * 1024.0); // convert B to MB
-            amdVram.close();
+        if (vram <= 0.0) {
+            QFile amdVram("/sys/class/drm/card0/device/mem_info_vram_used");
+            if (amdVram.exists() && amdVram.open(QIODevice::ReadOnly)) {
+                QTextStream vramStream(&amdVram);
+                vram = vramStream.readAll().trimmed().toDouble() / (1024.0 * 1024.0); // B to MiB
+                amdVram.close();
+            }
         }
         return;
     }
-
-    // Fallback if no GPU stats available
-    gpu = 0.0;
-    vram = 0.0;
 }
 
 void StatsWorker::calculateNetUsage(double &net)

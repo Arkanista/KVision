@@ -8,20 +8,8 @@
         <translation>CCTV Viewer - Auxiliary Window</translation>
     </message>
     <message>
-        <source>Brak wybranego widoku</source>
-        <translation type="vanished">No view selected</translation>
-    </message>
-    <message>
         <source>Wybierz widok z menu na górnym pasku, aby rozpocząć wyświetlanie kamer.</source>
         <translation>Select a view from the top menu to start displaying cameras.</translation>
-    </message>
-    <message>
-        <source>⚙️ OPCJE</source>
-        <translation type="vanished">⚙️ OPTIONS</translation>
-    </message>
-    <message>
-        <source>📺 NOWE OKNO</source>
-        <translation type="vanished">📺 NEW WINDOW</translation>
     </message>
     <message>
         <source>Siatka widoku:</source>
@@ -60,20 +48,8 @@
         <translation>NO</translation>
     </message>
     <message>
-        <source>Nie wybrano widoku</source>
-        <translation type="vanished">No view selected</translation>
-    </message>
-    <message>
         <source>Nie wybrano widoku, wybierz widok</source>
         <translation>No view selected, select a view</translation>
-    </message>
-    <message>
-        <source>📖 INSTRUKCJA</source>
-        <translation type="vanished">📖 INSTRUCTIONS</translation>
-    </message>
-    <message>
-        <source>INSTRUKCJA</source>
-        <translation type="vanished">INSTRUCTIONS</translation>
     </message>
     <message>
         <source>Opcje i ustawienia panelu bocznego</source>
@@ -187,14 +163,6 @@
     <message>
         <source>Grudzień</source>
         <translation>December</translation>
-    </message>
-    <message>
-        <source>&lt; Poprzedni</source>
-        <translation type="vanished">&lt; Previous</translation>
-    </message>
-    <message>
-        <source>Następny &gt;</source>
-        <translation type="vanished">Next &gt;</translation>
     </message>
     <message>
         <source>Pobieranie nagrań</source>
@@ -343,10 +311,6 @@
     <message>
         <source>IP: %1 | Port: %2 | %3 channels</source>
         <translation>IP: %1 | Port: %2 | %3 channels</translation>
-    </message>
-    <message>
-        <source>Generate thumbnails</source>
-        <translation type="vanished">Generate thumbnails</translation>
     </message>
     <message>
         <source>Camera %1</source>
@@ -515,24 +479,8 @@
 <context>
     <name>PlaybackWindow</name>
     <message>
-        <source>Archiwum - </source>
-        <translation type="vanished">Archiwum - </translation>
-    </message>
-    <message>
-        <source>Trwa ładowanie...</source>
-        <translation type="vanished">Loading...</translation>
-    </message>
-    <message>
-        <source>pobieranie informacji o dostępności nagrań</source>
-        <translation type="vanished">retrieving recording availability info</translation>
-    </message>
-    <message>
         <source>Kamery</source>
         <translation>Cameras</translation>
-    </message>
-    <message>
-        <source>Układ siatki (maks. 2x2)</source>
-        <translation type="vanished">Grid layout (max 2x2)</translation>
     </message>
     <message>
         <source>Wyłącz tryb 1:1</source>
@@ -567,14 +515,6 @@
         <translation>Today</translation>
     </message>
     <message>
-        <source>Odśwież</source>
-        <translation type="vanished">Refresh</translation>
-    </message>
-    <message>
-        <source>Wycentruj</source>
-        <translation type="vanished">Center</translation>
-    </message>
-    <message>
         <source>Trwa ładowanie informacji o dostępności nagrania...</source>
         <translation>Loading recording availability info...</translation>
     </message>
@@ -585,54 +525,6 @@
     <message>
         <source>Wybierz datę archiwalną</source>
         <translation>Select archive date</translation>
-    </message>
-    <message>
-        <source>Styczeń</source>
-        <translation type="vanished">January</translation>
-    </message>
-    <message>
-        <source>Luty</source>
-        <translation type="vanished">February</translation>
-    </message>
-    <message>
-        <source>Marzec</source>
-        <translation type="vanished">March</translation>
-    </message>
-    <message>
-        <source>Kwiecień</source>
-        <translation type="vanished">April</translation>
-    </message>
-    <message>
-        <source>Maj</source>
-        <translation type="vanished">May</translation>
-    </message>
-    <message>
-        <source>Czerwiec</source>
-        <translation type="vanished">June</translation>
-    </message>
-    <message>
-        <source>Lipiec</source>
-        <translation type="vanished">July</translation>
-    </message>
-    <message>
-        <source>Sierpień</source>
-        <translation type="vanished">August</translation>
-    </message>
-    <message>
-        <source>Wrzesień</source>
-        <translation type="vanished">September</translation>
-    </message>
-    <message>
-        <source>Październik</source>
-        <translation type="vanished">October</translation>
-    </message>
-    <message>
-        <source>Listopad</source>
-        <translation type="vanished">November</translation>
-    </message>
-    <message>
-        <source>Grudzień</source>
-        <translation type="vanished">December</translation>
     </message>
     <message>
         <source>Archive - </source>
@@ -687,14 +579,6 @@
         <translation>December</translation>
     </message>
     <message>
-        <source>&lt; Poprzedni</source>
-        <translation type="vanished">&lt; Previous</translation>
-    </message>
-    <message>
-        <source>Następny &gt;</source>
-        <translation type="vanished">Next &gt;</translation>
-    </message>
-    <message>
         <source>Mo</source>
         <translation>Mo</translation>
     </message>
@@ -723,32 +607,12 @@
         <translation>Su</translation>
     </message>
     <message>
-        <source>Ostatnia 1h</source>
-        <translation type="vanished">Last 1h</translation>
-    </message>
-    <message>
-        <source>Ostatnie 8h</source>
-        <translation type="vanished">Last 8h</translation>
-    </message>
-    <message>
-        <source>Cały dzień</source>
-        <translation type="vanished">Full day</translation>
-    </message>
-    <message>
         <source>Prędkość:</source>
         <translation>Speed:</translation>
     </message>
     <message>
         <source>Pobierz</source>
         <translation>Download</translation>
-    </message>
-    <message>
-        <source>Pauza</source>
-        <translation type="vanished">Pause</translation>
-    </message>
-    <message>
-        <source>Play</source>
-        <translation type="vanished">Play</translation>
     </message>
     <message>
         <source>Wykonaj stopklatkę w pełnej rozdzielczości</source>
@@ -963,13 +827,6 @@
     </message>
 </context>
 <context>
-    <name>QGuiApplication</name>
-    <message>
-        <source>QT_LAYOUT_DIRECTION</source>
-        <translation type="vanished">LTR</translation>
-    </message>
-</context>
-<context>
     <name>RootWindow</name>
     <message>
         <source>CCTV Viewer</source>
@@ -984,40 +841,12 @@
         <translation>CCTV Viewer - Auxiliary Window</translation>
     </message>
     <message>
-        <source>⚙️ OPCJE</source>
-        <translation type="vanished">⚙️ OPTIONS</translation>
-    </message>
-    <message>
-        <source>📺 NOWE OKNO</source>
-        <translation type="vanished">📺 NEW WINDOW</translation>
-    </message>
-    <message>
-        <source>📂 ARCHIWUM</source>
-        <translation type="vanished">📂 ARCHIVE</translation>
-    </message>
-    <message>
-        <source>📊 STATYSTYKI</source>
-        <translation type="vanished">📊 STATISTICS</translation>
-    </message>
-    <message>
-        <source>Siatka widoku:</source>
-        <translation type="vanished">Grid view:</translation>
-    </message>
-    <message>
         <source>Toggle Full Screen</source>
         <translation>Toggle Full Screen</translation>
     </message>
     <message>
-        <source>🔒 Blokuj zmianę</source>
-        <translation type="vanished">🔒 Lock layout change</translation>
-    </message>
-    <message>
         <source>Więcej opcji</source>
         <translation>More options</translation>
-    </message>
-    <message>
-        <source>Wybór widoku:</source>
-        <translation type="vanished">View selection:</translation>
     </message>
     <message>
         <source>CCTV Viewer - Panel</source>
@@ -1052,10 +881,6 @@
         <translation>📊 SYSTEM STATS</translation>
     </message>
     <message>
-        <source>Nie chowaj</source>
-        <translation type="vanished">Pin panel</translation>
-    </message>
-    <message>
         <source>RAM: </source>
         <translation>RAM: </translation>
     </message>
@@ -1074,10 +899,6 @@
     <message>
         <source>NET: </source>
         <translation>NET: </translation>
-    </message>
-    <message>
-        <source>ARCHIVE</source>
-        <translation type="vanished">ARCHIVE</translation>
     </message>
     <message>
         <source>Nie wybrano widoku, wybierz widok</source>
@@ -1106,14 +927,6 @@
     <message>
         <source>Ładowanie nowego okna...</source>
         <translation>Loading new window...</translation>
-    </message>
-    <message>
-        <source>📖 INSTRUKCJA</source>
-        <translation type="vanished">📖 INSTRUCTIONS</translation>
-    </message>
-    <message>
-        <source>INSTRUKCJA</source>
-        <translation type="vanished">INSTRUCTIONS</translation>
     </message>
     <message>
         <source>Opcje i ustawienia panelu bocznego</source>
@@ -1159,20 +972,8 @@
         <translation>Allow running multiple application instances</translation>
     </message>
     <message>
-        <source>Automatically collapse sidebar</source>
-        <translation type="vanished">Automatically collapse sidebar</translation>
-    </message>
-    <message>
         <source>View</source>
         <translation>View</translation>
-    </message>
-    <message>
-        <source>Presets</source>
-        <translation type="vanished">Presets</translation>
-    </message>
-    <message>
-        <source>Run presets carousel with interval (sec.):</source>
-        <translation type="vanished">Run presets carousel with interval (sec.):</translation>
     </message>
     <message>
         <source>Hide cursor in full screen mode</source>
@@ -1382,10 +1183,6 @@
         <translation>Visible</translation>
     </message>
     <message>
-        <source>Activate</source>
-        <translation type="vanished">Activate</translation>
-    </message>
-    <message>
         <source>Add Preset Layout</source>
         <translation>Add Preset Layout</translation>
     </message>
@@ -1420,10 +1217,6 @@
     <message>
         <source>Allow running multiple application instances</source>
         <translation>Allow running multiple application instances</translation>
-    </message>
-    <message>
-        <source>Automatically collapse sidebar</source>
-        <translation type="vanished">Automatically collapse sidebar</translation>
     </message>
     <message>
         <source>Context Menu Settings</source>
@@ -1476,14 +1269,6 @@
     <message>
         <source>Default FFmpeg command-line options</source>
         <translation>Default FFmpeg command-line options</translation>
-    </message>
-    <message>
-        <source>Enable cyclic layouts carousel tour</source>
-        <translation type="vanished">Enable cyclic layouts carousel tour</translation>
-    </message>
-    <message>
-        <source>Interval cycle (seconds):</source>
-        <translation type="vanished">Interval cycle (seconds):</translation>
     </message>
     <message>
         <source>Confirm Deletion</source>
@@ -1836,6 +1621,18 @@
     <message>
         <source>Naprawiono krytyczny błąd synchronizacji i pętli zwrotnej zapisu konfiguracyjnego przy usuwaniu układów podglądu.</source>
         <translation>Resolved critical settings synchronization loop and UI freeze when deleting viewport layouts.</translation>
+    </message>
+    <message>
+        <source>Zabezpieczono destruktor odtwarzacza archiwalnego przed wyścigami danych przy usuwaniu zadań RGB.</source>
+        <translation>Protected archive player destructor from data races when cleaning up pending RGB tasks.</translation>
+    </message>
+    <message>
+        <source>Wprowadzono pooling odtwarzaczy wideo w celu eliminacji skoków zużycia pamięci i migotania obrazu przy przełączaniu układów kamer.</source>
+        <translation>Implemented video player pooling to eliminate RAM usage spikes and flickering when switching layouts.</translation>
+    </message>
+    <message>
+        <source>Zoptymalizowano monitorowanie obciążenia GPU i pamięci VRAM do trybu procesowego (bez wywołań nvidia-smi) z natywnym wsparciem dla układów NVIDIA, AMD i Intel.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

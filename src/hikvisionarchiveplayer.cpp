@@ -162,7 +162,7 @@ HikvisionArchivePlayer::~HikvisionArchivePlayer()
 
     // Wait for all background YV12ToRGBTask tasks to complete
     int waitCount = 0;
-    while (m_pendingTasks.load() > 0 && waitCount < 100) { // max 500ms safeguard
+    while (m_pendingTasks.load() > 0 && waitCount < 1000) { // max 5000ms safeguard
         QThread::msleep(5);
         waitCount++;
     }

@@ -16,6 +16,129 @@ FocusScope {
     property string color: "black"
     property int pendingSwapSourceIndex: -1
 
+    Component.onDestruction: {
+        playerPool.releaseAll();
+    }
+
+    QtObject {
+        id: playerPool
+
+        property var pool: []
+        property var activePlayersMap: ({}) // index -> Player
+
+        function acquirePlayer(index, parentContainer, viewportItem) {
+            if (activePlayersMap[index] !== undefined) {
+                releasePlayer(index);
+            }
+
+            var player = null;
+            if (pool.length > 0) {
+                player = pool.pop();
+            } else {
+                var component = Qt.createComponent("Player.qml");
+                if (component.status === Component.Ready) {
+                    player = component.createObject(root);
+                } else {
+                    console.error("Failed to create Player: " + component.errorString());
+                    return null;
+                }
+            }
+
+            player.parent = parentContainer;
+
+            // Set bindings
+            player.visible = Qt.binding(function() { return root.visible && parentContainer.visible; });
+            player.index = index;
+            player.color = Qt.binding(function() { return root.color; });
+            player.volume = Qt.binding(function() {
+                var vItem = root.model.get(index);
+                return Math.max(vItem ? vItem.volume : 0, root.fullScreenIndex === index && viewportSettings.unmuteWhenFullScreen);
+            });
+            player.avOptions = Qt.binding(function() {
+                var vItem = root.model.get(index);
+                return vItem ? vItem.avFormatOptions : ({});
+            });
+
+            player.source = Qt.binding(function() {
+                var vItem = root.model.get(index);
+                if (!vItem) return "";
+                var d2Failed = viewportItem.d2SecondaryUrlFailed;
+                if (vItem.streamMode === 1) {
+                    return vItem.url;
+                } else if (vItem.streamMode === 2) {
+                    return (String(vItem.secondaryUrl) !== "" && !d2Failed) ? vItem.secondaryUrl : vItem.url;
+                } else { // Auto (0)
+                    if ((root.size.width > 1 || root.size.height > 1) && !viewportItem.fullScreen && String(vItem.secondaryUrl) !== "" && !d2Failed) {
+                        return vItem.secondaryUrl;
+                    }
+                    return vItem.url;
+                }
+            });
+
+            player.isSubStream = Qt.binding(function() {
+                if (player.isOneToOne) {
+                    return false;
+                }
+                var vItem = root.model.get(index);
+                if (!vItem) return false;
+                var d2Failed = viewportItem.d2SecondaryUrlFailed;
+                if (vItem.streamMode === 1) {
+                    return false;
+                } else if (vItem.streamMode === 2) {
+                    return String(vItem.secondaryUrl) !== "" && !d2Failed;
+                } else { // Auto (0)
+                    return (root.size.width > 1 || root.size.height > 1) && !viewportItem.fullScreen && String(vItem.secondaryUrl) !== "" && !d2Failed;
+                }
+            });
+
+            player.scale = Qt.binding(function() {
+                return viewportItem.zoomEnabled ? viewportItem.zoomScale : 1.0;
+            });
+            player.transformOrigin = Item.TopLeft;
+            player.x = Qt.binding(function() {
+                return viewportItem.zoomEnabled ? viewportItem.panX : 0;
+            });
+            player.y = Qt.binding(function() {
+                return viewportItem.zoomEnabled ? viewportItem.panY : 0;
+            });
+
+            player.width = Qt.binding(function() { return parentContainer.width; });
+            player.height = Qt.binding(function() { return parentContainer.height; });
+            player.loops = MediaPlayer.Infinite;
+
+            // Connect mediaError signal
+            player.mediaError.connect(function(errorSource) {
+                var vItem = root.model.get(index);
+                if (vItem && errorSource === String(vItem.secondaryUrl)) {
+                    viewportItem.d2SecondaryUrlFailed = true;
+                }
+            });
+
+            activePlayersMap[index] = player;
+            return player;
+        }
+
+        function releasePlayer(index) {
+            var player = activePlayersMap[index];
+            if (player) {
+                player.parent = null;
+                try {
+                    player.mediaError.disconnect();
+                } catch(e) {}
+                player.source = "";
+                pool.push(player);
+                delete activePlayersMap[index];
+            }
+        }
+
+        function releaseAll() {
+            var indices = Object.keys(activePlayersMap);
+            for (var i = 0; i < indices.length; i++) {
+                releasePlayer(indices[i]);
+            }
+        }
+    }
+
     readonly property alias fullScreenIndex: d.fullScreenIndex
     readonly property alias focusIndex: d.focusIndex
     readonly property alias activeFocusIndex: d.activeFocusIndex
@@ -198,6 +321,16 @@ FocusScope {
                     property int cursorColumnOffset: 0
                     property int cursorRowOffset: 0
                     property bool fullScreen: false
+
+                    property var player: null
+                    property alias d2SecondaryUrlFailed: d2.secondaryUrlFailed
+
+                    Component.onCompleted: {
+                        player = playerPool.acquirePlayer(model.index, playerContainer, viewport);
+                    }
+                    Component.onDestruction: {
+                        playerPool.releasePlayer(model.index);
+                    }
                     
                     // Zoom properties
                     property real zoomScale: 1.0
@@ -222,7 +355,7 @@ FocusScope {
                     readonly property alias bottomIndex: d2.bottomIndex
                     readonly property alias leftIndex: d2.leftIndex
 
-                    readonly property alias hasAudio: player.hasAudio
+                    readonly property bool hasAudio: player ? player.hasAudio : false
 
                     states: [
                         State {
@@ -381,22 +514,22 @@ FocusScope {
                         case Qt.Key_Plus:
                         case Qt.Key_Equal:
                             if (event.text === "+" || event.key === Qt.Key_Plus) {
-                                if (player.recorderIp !== "") {
-                                    if (!event.isAutoRepeat) {
-                                        HikvisionManager.ptzZoom(player.recorderIp, player.recorderPort, player.username, player.password, player.channelId, 11, false);
-                                    }
-                                    event.accepted = true;
-                                }
+                                if (viewport.player && viewport.player.recorderIp !== "") {
+                                     if (!event.isAutoRepeat) {
+                                         HikvisionManager.ptzZoom(viewport.player.recorderIp, viewport.player.recorderPort, viewport.player.username, viewport.player.password, viewport.player.channelId, 11, false);
+                                     }
+                                     event.accepted = true;
+                                 }
                             }
                             break;
                         case Qt.Key_Minus:
                             if (event.text === "-" || event.key === Qt.Key_Minus) {
-                                if (player.recorderIp !== "") {
-                                    if (!event.isAutoRepeat) {
-                                        HikvisionManager.ptzZoom(player.recorderIp, player.recorderPort, player.username, player.password, player.channelId, 12, false);
-                                    }
-                                    event.accepted = true;
-                                }
+                                if (viewport.player && viewport.player.recorderIp !== "") {
+                                     if (!event.isAutoRepeat) {
+                                         HikvisionManager.ptzZoom(viewport.player.recorderIp, viewport.player.recorderPort, viewport.player.username, viewport.player.password, viewport.player.channelId, 12, false);
+                                     }
+                                     event.accepted = true;
+                                 }
                             }
                             break;
                         }
@@ -407,13 +540,13 @@ FocusScope {
                             return;
                         }
                         if (event.key === Qt.Key_Plus || event.key === Qt.Key_Equal || event.text === "+") {
-                            if (player.recorderIp !== "") {
-                                HikvisionManager.ptzZoom(player.recorderIp, player.recorderPort, player.username, player.password, player.channelId, 11, true);
+                            if (viewport.player && viewport.player.recorderIp !== "") {
+                                HikvisionManager.ptzZoom(viewport.player.recorderIp, viewport.player.recorderPort, viewport.player.username, viewport.player.password, viewport.player.channelId, 11, true);
                                 event.accepted = true;
                             }
                         } else if (event.key === Qt.Key_Minus || event.text === "-") {
-                            if (player.recorderIp !== "") {
-                                HikvisionManager.ptzZoom(player.recorderIp, player.recorderPort, player.username, player.password, player.channelId, 12, true);
+                            if (viewport.player && viewport.player.recorderIp !== "") {
+                                HikvisionManager.ptzZoom(viewport.player.recorderIp, viewport.player.recorderPort, viewport.player.username, viewport.player.password, viewport.player.channelId, 12, true);
                                 event.accepted = true;
                             }
                         }
@@ -483,66 +616,6 @@ FocusScope {
                         color: root.color
                         anchors.fill: parent
                         clip: true
-                        Player {
-                            id: player
-                            visible: root.visible
-                            index: model.index
-
-                            color: root.color
-                            source: {
-                                if (viewport.streamMode === 1) {
-                                    return viewport.url;
-                                } else if (viewport.streamMode === 2) {
-                                    return (String(viewport.secondaryUrl) !== "" && !d2.secondaryUrlFailed) ? viewport.secondaryUrl : viewport.url;
-                                } else { // Auto (0)
-                                    if ((root.size.width > 1 || root.size.height > 1) && !viewport.fullScreen && String(viewport.secondaryUrl) !== "" && !d2.secondaryUrlFailed) {
-                                        return viewport.secondaryUrl;
-                                    }
-                                    return viewport.url;
-                                }
-                            }
-                            volume: Math.max(viewport.volume, root.fullScreenIndex === model.index && viewportSettings.unmuteWhenFullScreen)
-                            avOptions: viewport.avFormatOptions
-                            loops: MediaPlayer.Infinite
-                            isSubStream: {
-                                if (player.isOneToOne) {
-                                    return false;
-                                }
-                                if (viewport.streamMode === 1) {
-                                    return false;
-                                } else if (viewport.streamMode === 2) {
-                                    return String(viewport.secondaryUrl) !== "" && !d2.secondaryUrlFailed;
-                                } else { // Auto (0)
-                                    return (root.size.width > 1 || root.size.height > 1) && !viewport.fullScreen && String(viewport.secondaryUrl) !== "" && !d2.secondaryUrlFailed;
-                                }
-                            }
-
-                            onMediaError: {
-                                if (errorSource === String(viewport.secondaryUrl)) {
-                                    d2.secondaryUrlFailed = true;
-                                }
-                            }
-                            
-                            // Apply zoom transformation when zoom is enabled
-                            scale: viewport.zoomEnabled ? viewport.zoomScale : 1.0
-                            transformOrigin: Item.TopLeft
-                            
-                            x: viewport.zoomEnabled ? viewport.panX : 0
-                            y: viewport.zoomEnabled ? viewport.panY : 0
-                            
-                            width: parent.width
-                            height: parent.height
-                            
-                            Behavior on scale {
-                                NumberAnimation { duration: 100; easing.type: Easing.OutQuad }
-                            }
-                            Behavior on x {
-                                NumberAnimation { duration: 100; easing.type: Easing.OutQuad }
-                            }
-                            Behavior on y {
-                                NumberAnimation { duration: 100; easing.type: Easing.OutQuad }
-                            }
-                        }
                     }
 
                     Rectangle {

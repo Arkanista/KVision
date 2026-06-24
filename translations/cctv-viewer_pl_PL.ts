@@ -8,36 +8,8 @@
         <translation>CCTV Viewer - Okno pomocnicze</translation>
     </message>
     <message>
-        <source>📺 NOWE OKNO</source>
-        <translation type="vanished">📺 NOWE OKNO</translation>
-    </message>
-    <message>
-        <source>Widok:</source>
-        <translation type="vanished">Widok:</translation>
-    </message>
-    <message>
-        <source>Brak widoku</source>
-        <translation type="vanished">Brak widoku</translation>
-    </message>
-    <message>
-        <source>Siatka:</source>
-        <translation type="vanished">Siatka:</translation>
-    </message>
-    <message>
-        <source>🔒 Blokuj</source>
-        <translation type="vanished">🔒 Blokuj</translation>
-    </message>
-    <message>
-        <source>Brak wybranego widoku</source>
-        <translation type="vanished">Brak wybranego widoku</translation>
-    </message>
-    <message>
         <source>Wybierz widok z menu na górnym pasku, aby rozpocząć wyświetlanie kamer.</source>
         <translation>Wybierz widok z menu na górnym pasku, aby rozpocząć wyświetlanie kamer.</translation>
-    </message>
-    <message>
-        <source>⚙️ OPCJE</source>
-        <translation type="vanished">⚙️ OPCJE</translation>
     </message>
     <message>
         <source>Siatka widoku:</source>
@@ -76,20 +48,8 @@
         <translation>NIE</translation>
     </message>
     <message>
-        <source>Nie wybrano widoku</source>
-        <translation type="vanished">Nie wybrano widoku</translation>
-    </message>
-    <message>
         <source>Nie wybrano widoku, wybierz widok</source>
         <translation>Nie wybrano widoku, wybierz widok</translation>
-    </message>
-    <message>
-        <source>📖 INSTRUKCJA</source>
-        <translation type="vanished">📖 INSTRUKCJA</translation>
-    </message>
-    <message>
-        <source>INSTRUKCJA</source>
-        <translation type="vanished">INSTRUKCJA</translation>
     </message>
     <message>
         <source>Opcje i ustawienia panelu bocznego</source>
@@ -203,14 +163,6 @@
     <message>
         <source>Grudzień</source>
         <translation>Grudzień</translation>
-    </message>
-    <message>
-        <source>&lt; Poprzedni</source>
-        <translation type="vanished">&lt; Poprzedni</translation>
-    </message>
-    <message>
-        <source>Następny &gt;</source>
-        <translation type="vanished">Następny &gt;</translation>
     </message>
     <message>
         <source>Pobieranie nagrań</source>
@@ -367,14 +319,6 @@
     <message>
         <source>Assigned camera %1 Ch. %2 to viewport %3</source>
         <translation>Przypisano kamerę %1 kan. %2 do viewportu %3</translation>
-    </message>
-    <message>
-        <source>No signal</source>
-        <translation type="vanished">Brak sygnału</translation>
-    </message>
-    <message>
-        <source>Generate thumbnails</source>
-        <translation type="vanished">Generuj miniatury</translation>
     </message>
     <message>
         <source>Change Camera Name</source>
@@ -535,10 +479,6 @@
 <context>
     <name>PlaybackWindow</name>
     <message>
-        <source>Archiwum - </source>
-        <translation type="vanished">Archiwum - </translation>
-    </message>
-    <message>
         <source>Dzisiaj</source>
         <translation>Dzisiaj</translation>
     </message>
@@ -555,24 +495,12 @@
         <translation>Wybierz obszar do zbliżenia</translation>
     </message>
     <message>
-        <source>Trwa ładowanie...</source>
-        <translation type="vanished">Trwa ładowanie...</translation>
-    </message>
-    <message>
-        <source>pobieranie informacji o dostępności nagrań</source>
-        <translation type="vanished">pobieranie informacji o dostępności nagrań</translation>
-    </message>
-    <message>
         <source>Trwa ładowanie informacji o dostępności nagrania...</source>
         <translation>Trwa ładowanie informacji o dostępności nagrania...</translation>
     </message>
     <message>
         <source>Kamery</source>
         <translation>Kamery</translation>
-    </message>
-    <message>
-        <source>Układ siatki (maks. 2x2)</source>
-        <translation type="vanished">Układ siatki (maks. 2x2)</translation>
     </message>
     <message>
         <source>Wyłącz tryb 1:1</source>
@@ -591,68 +519,12 @@
         <translation>Zaznacz to okno, wybierz kamerę z listy i kliknij + aby ją dodać</translation>
     </message>
     <message>
-        <source>Wycentruj</source>
-        <translation type="vanished">Wycentruj</translation>
-    </message>
-    <message>
-        <source>Odśwież</source>
-        <translation type="vanished">Odśwież</translation>
-    </message>
-    <message>
         <source>Pobieranie dostępności...</source>
         <translation>Pobieranie dostępności...</translation>
     </message>
     <message>
         <source>Wybierz datę archiwalną</source>
         <translation>Wybierz datę archiwalną</translation>
-    </message>
-    <message>
-        <source>Styczeń</source>
-        <translation type="vanished">Styczeń</translation>
-    </message>
-    <message>
-        <source>Luty</source>
-        <translation type="vanished">Luty</translation>
-    </message>
-    <message>
-        <source>Marzec</source>
-        <translation type="vanished">Marzec</translation>
-    </message>
-    <message>
-        <source>Kwiecień</source>
-        <translation type="vanished">Kwiecień</translation>
-    </message>
-    <message>
-        <source>Maj</source>
-        <translation type="vanished">Maj</translation>
-    </message>
-    <message>
-        <source>Czerwiec</source>
-        <translation type="vanished">Czerwiec</translation>
-    </message>
-    <message>
-        <source>Lipiec</source>
-        <translation type="vanished">Lipiec</translation>
-    </message>
-    <message>
-        <source>Sierpień</source>
-        <translation type="vanished">Sierpień</translation>
-    </message>
-    <message>
-        <source>Wrzesień</source>
-        <translation type="vanished">Wrzesień</translation>
-    </message>
-    <message>
-        <source>Październik</source>
-        <translation type="vanished">Październik</translation>
-    </message>
-    <message>
-        <source>Listopad</source>
-        <translation type="vanished">Listopad</translation>
-    </message>
-    <message>
-        <source>Grudzień</source>
-        <translation type="vanished">Grudzień</translation>
     </message>
     <message>
         <source>Archive - </source>
@@ -707,14 +579,6 @@
         <translation>December</translation>
     </message>
     <message>
-        <source>&lt; Poprzedni</source>
-        <translation type="vanished">&lt; Poprzedni</translation>
-    </message>
-    <message>
-        <source>Następny &gt;</source>
-        <translation type="vanished">Następny &gt;</translation>
-    </message>
-    <message>
         <source>Mo</source>
         <translation>Mo</translation>
     </message>
@@ -743,32 +607,12 @@
         <translation>Su</translation>
     </message>
     <message>
-        <source>Ostatnia 1h</source>
-        <translation type="vanished">Ostatnia 1h</translation>
-    </message>
-    <message>
-        <source>Ostatnie 8h</source>
-        <translation type="vanished">Ostatnie 8h</translation>
-    </message>
-    <message>
-        <source>Cały dzień</source>
-        <translation type="vanished">Cały dzień</translation>
-    </message>
-    <message>
         <source>Prędkość:</source>
         <translation>Prędkość:</translation>
     </message>
     <message>
         <source>Pobierz</source>
         <translation>Pobierz</translation>
-    </message>
-    <message>
-        <source>Pauza</source>
-        <translation type="vanished">Pauza</translation>
-    </message>
-    <message>
-        <source>Play</source>
-        <translation type="vanished">Play</translation>
     </message>
     <message>
         <source>Wykonaj stopklatkę w pełnej rozdzielczości</source>
@@ -993,32 +837,8 @@
         <translation>Błąd odczytu konfiguracji!</translation>
     </message>
     <message>
-        <source>⚙️ OPCJE</source>
-        <translation type="vanished">⚙️ OPCJE</translation>
-    </message>
-    <message>
-        <source>Siatka widoku:</source>
-        <translation type="vanished">Siatka widoku:</translation>
-    </message>
-    <message>
-        <source>Wybór widoku:</source>
-        <translation type="vanished">Wybór widoku:</translation>
-    </message>
-    <message>
         <source>CCTV Viewer - Panel</source>
         <translation>CCTV Viewer - Panel</translation>
-    </message>
-    <message>
-        <source>Already running!</source>
-        <translation type="vanished">Aplikacja jest już uruchomiona!</translation>
-    </message>
-    <message>
-        <source>The application is already running!</source>
-        <translation type="vanished">Aplikacja jest już uruchomiona!</translation>
-    </message>
-    <message>
-        <source>Go to the first instance and allow multiple instances of the app to run in Settings.</source>
-        <translation type="vanished">Przejdź do pierwszego uruchomienia i zezwól na uruchamianie wielu instancji w Ustawieniach.</translation>
     </message>
     <message>
         <source>Więcej opcji</source>
@@ -1027,14 +847,6 @@
     <message>
         <source>Toggle Full Screen</source>
         <translation>Przełącz pełny ekran</translation>
-    </message>
-    <message>
-        <source>🔒 Blokuj zmianę</source>
-        <translation type="vanished">🔒 Blokuj zmianę</translation>
-    </message>
-    <message>
-        <source>📺 NOWE OKNO</source>
-        <translation type="vanished">📺 NOWE OKNO</translation>
     </message>
     <message>
         <source>Zamknij program</source>
@@ -1065,14 +877,6 @@
         <translation>Czy na pewno zamknąć to okno?</translation>
     </message>
     <message>
-        <source>📂 ARCHIWUM</source>
-        <translation type="vanished">📂 ARCHIWUM</translation>
-    </message>
-    <message>
-        <source>📊 STATYSTYKI</source>
-        <translation type="vanished">📊 STATYSTYKI</translation>
-    </message>
-    <message>
         <source>📊 SYSTEM STATS</source>
         <translation>📊 STATYSTYKI SYSTEMU</translation>
     </message>
@@ -1093,16 +897,8 @@
         <translation>GPU: </translation>
     </message>
     <message>
-        <source>Nie chowaj</source>
-        <translation type="vanished">Nie chowaj</translation>
-    </message>
-    <message>
         <source>NET: </source>
         <translation>NET: </translation>
-    </message>
-    <message>
-        <source>ARCHIVE</source>
-        <translation type="vanished">ARCHIWUM</translation>
     </message>
     <message>
         <source>Nie wybrano widoku, wybierz widok</source>
@@ -1131,14 +927,6 @@
     <message>
         <source>Ładowanie nowego okna...</source>
         <translation>Ładowanie nowego okna...</translation>
-    </message>
-    <message>
-        <source>📖 INSTRUKCJA</source>
-        <translation type="vanished">📖 INSTRUKCJA</translation>
-    </message>
-    <message>
-        <source>INSTRUKCJA</source>
-        <translation type="vanished">INSTRUKCJA</translation>
     </message>
     <message>
         <source>Opcje i ustawienia panelu bocznego</source>
@@ -1184,10 +972,6 @@
         <translation>Zezwalaj na uruchamianie wielu instancji aplikacji</translation>
     </message>
     <message>
-        <source>Automatically collapse sidebar</source>
-        <translation type="vanished">Automatycznie zwijaj panel boczny</translation>
-    </message>
-    <message>
         <source>Allow swapping viewport places</source>
         <translation>Zezwalaj na zamianę miejsc viewportów</translation>
     </message>
@@ -1200,20 +984,8 @@
         <translation>Widok</translation>
     </message>
     <message>
-        <source>Show preset indicator</source>
-        <translation type="vanished">Pokaż wskaźnik układu</translation>
-    </message>
-    <message>
         <source>Hide cursor in full screen mode</source>
         <translation>Ukryj kursor w trybie pełnoekranowym</translation>
-    </message>
-    <message>
-        <source>Presets</source>
-        <translation type="vanished">Układy</translation>
-    </message>
-    <message>
-        <source>Run presets carousel with interval (sec.):</source>
-        <translation type="vanished">Uruchom karuzelę układów z interwałem (sek.):</translation>
     </message>
     <message>
         <source>Enable stream selection</source>
@@ -1274,14 +1046,6 @@
 </context>
 <context>
     <name>SideBar</name>
-    <message>
-        <source>CCTV Viewer</source>
-        <translation type="vanished">CCTV Viewer</translation>
-    </message>
-    <message>
-        <source>v%1</source>
-        <translation type="vanished">v%1</translation>
-    </message>
     <message>
         <source>Viewport%1</source>
         <translation>Viewport%1</translation>
@@ -1403,14 +1167,6 @@
         <translation>Widoczny</translation>
     </message>
     <message>
-        <source>Activate</source>
-        <translation type="vanished">Aktywuj</translation>
-    </message>
-    <message>
-        <source>➕ Add Preset Layout</source>
-        <translation type="vanished">➕ Dodaj układ</translation>
-    </message>
-    <message>
         <source>NVR View Layouts</source>
         <translation>Układy widoków NVR</translation>
     </message>
@@ -1427,10 +1183,6 @@
         <translation>Układ NVR #%1</translation>
     </message>
     <message>
-        <source>➕ Add NVR Preset</source>
-        <translation type="vanished">➕ Dodaj układ NVR</translation>
-    </message>
-    <message>
         <source>System Settings</source>
         <translation>Ustawienia systemowe</translation>
     </message>
@@ -1441,10 +1193,6 @@
     <message>
         <source>Allow running multiple application instances</source>
         <translation>Zezwalaj na uruchamianie wielu instancji aplikacji</translation>
-    </message>
-    <message>
-        <source>Automatically collapse sidebar</source>
-        <translation type="vanished">Automatycznie zwijaj panel boczny</translation>
     </message>
     <message>
         <source>Context Menu Settings</source>
@@ -1471,10 +1219,6 @@
         <translation>Ustawienia interfejsu i widoku</translation>
     </message>
     <message>
-        <source>Show layout presets indicator</source>
-        <translation type="vanished">Pokaż wskaźnik układów</translation>
-    </message>
-    <message>
         <source>Hide mouse cursor in Full Screen mode</source>
         <translation>Ukryj kursor myszy w trybie pełnoekranowym</translation>
     </message>
@@ -1489,14 +1233,6 @@
     <message>
         <source>Default FFmpeg command-line options</source>
         <translation>Domyślne opcje linii komend FFmpeg</translation>
-    </message>
-    <message>
-        <source>Enable cyclic layouts carousel tour</source>
-        <translation type="vanished">Włącz cykliczną karuzelę układów</translation>
-    </message>
-    <message>
-        <source>Interval cycle (seconds):</source>
-        <translation type="vanished">Czas cyklu (sekundy):</translation>
     </message>
     <message>
         <source>Confirm Deletion</source>
@@ -1803,30 +1539,6 @@
         <translation>Powiększono i odwrócono kolory przycisku plus (+) na kafelkach kamer (seledynowe tło) dla lepszej widoczności, dodając wyraźne stany hover/pressed.</translation>
     </message>
     <message>
-        <source>Limit video framerate to 30 FPS (saves CPU and power)</source>
-        <translation type="vanished">Ogranicz klatkaż wideo do 30 FPS (oszczędza CPU i prąd)</translation>
-    </message>
-    <message>
-        <source>Wyeliminowano krytyczny błąd crash (Segmentation Fault) przy dynamicznym przełączaniu widoków i siatek kamer poprzez bezpieczną sekwencję uwalniania pamięci podręcznej komponentów QML.</source>
-        <translation type="vanished">Wyeliminowano krytyczny błąd crash (Segmentation Fault) przy dynamicznym przełączaniu widoków i siatek kamer poprzez bezpieczną sekwencję uwalniania pamięci podręcznej komponentów QML.</translation>
-    </message>
-    <message>
-        <source>Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum, wdrażając wieloetapowy mechanizm oczyszczania sterty i uwalniania bytecode&apos;u (trimComponentCache po collectGarbage).</source>
-        <translation type="vanished">Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum, wdrażając wieloetapowy mechanizm oczyszczania sterty i uwalniania bytecode&apos;u (trimComponentCache po collectGarbage).</translation>
-    </message>
-    <message>
-        <source>Zabezpieczono zamykanie okna Archiwum poprzez asynchroniczne odpięcie Loadera przy użyciu Qt.callLater, eliminując błędy referencji silnika QML.</source>
-        <translation type="vanished">Zabezpieczono zamykanie okna Archiwum poprzez asynchroniczne odpięcie Loadera przy użyciu Qt.callLater, eliminując błędy referencji silnika QML.</translation>
-    </message>
-    <message>
-        <source>Dodano precyzyjny, rzeczywisty wskaźnik klatek na sekundę (FPS) w lewym górnym rogu każdego viewportu dla widoku na żywo oraz odtwarzacza archiwalnego.</source>
-        <translation type="vanished">Dodano precyzyjny, rzeczywisty wskaźnik klatek na sekundę (FPS) w lewym górnym rogu każdego viewportu dla widoku na żywo oraz odtwarzacza archiwalnego.</translation>
-    </message>
-    <message>
-        <source>Wdrożono synchroniczne, bezpieczne niszczenie i uwalnianie wątków pobierania plików w klasie HikvisionDownloader, eliminując okazjonalne błędy przy zamykaniu programu.</source>
-        <translation type="vanished">Wdrożono synchroniczne, bezpieczne niszczenie i uwalnianie wątków pobierania plików w klasie HikvisionDownloader, eliminując okazjonalne błędy przy zamykaniu programu.</translation>
-    </message>
-    <message>
         <source>Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum poprzez wieloetapowe oczyszczanie sterty oraz optymalizację pamięci podręcznej silnika QML.</source>
         <translation>Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum poprzez wieloetapowe oczyszczanie sterty oraz optymalizację pamięci podręcznej silnika QML.</translation>
     </message>
@@ -1909,6 +1621,18 @@
     <message>
         <source>Naprawiono krytyczny błąd synchronizacji i pętli zwrotnej zapisu konfiguracyjnego przy usuwaniu układów podglądu.</source>
         <translation>Naprawiono krytyczny błąd synchronizacji i pętli zwrotnej zapisu konfiguracyjnego przy usuwaniu układów podglądu.</translation>
+    </message>
+    <message>
+        <source>Zabezpieczono destruktor odtwarzacza archiwalnego przed wyścigami danych przy usuwaniu zadań RGB.</source>
+        <translation>Zabezpieczono destruktor odtwarzacza archiwalnego przed wyścigami danych przy usuwaniu zadań RGB.</translation>
+    </message>
+    <message>
+        <source>Wprowadzono pooling odtwarzaczy wideo w celu eliminacji skoków zużycia pamięci i migotania obrazu przy przełączaniu układów kamer.</source>
+        <translation>Wprowadzono pooling odtwarzaczy wideo w celu eliminacji skoków zużycia pamięci i migotania obrazu przy przełączaniu układów kamer.</translation>
+    </message>
+    <message>
+        <source>Zoptymalizowano monitorowanie obciążenia GPU i pamięci VRAM do trybu procesowego (bez wywołań nvidia-smi) z natywnym wsparciem dla układów NVIDIA, AMD i Intel.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

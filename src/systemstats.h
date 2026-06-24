@@ -14,7 +14,7 @@ class StatsWorker : public QObject
     Q_OBJECT
 public:
     explicit StatsWorker(QObject *parent = nullptr);
-    ~StatsWorker() override = default;
+    ~StatsWorker() override;
 
 public slots:
     void doWork();
@@ -27,6 +27,12 @@ private:
     void calculateCpuAndRam(const QVector<qint64> &pids, double &cpu, double &ram);
     void calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, double &vram);
     void calculateNetUsage(double &net);
+
+    struct NvmlContext;
+    NvmlContext *m_nvml = nullptr;
+
+    QHash<QString, qint64> m_prevDrmEngineTimes;
+    QElapsedTimer m_gpuTimer;
 
     qint64 m_prevTotalCpuTime = 0;
     QHash<qint64, qint64> m_prevProcessCpuTimes;

@@ -61,6 +61,9 @@ FocusScope {
             version: "v2.1.9",
             date: "23.06.2026",
             changes: [
+                qsTr("Zabezpieczono destruktor odtwarzacza archiwalnego przed wyścigami danych przy usuwaniu zadań RGB."),
+                qsTr("Wprowadzono pooling odtwarzaczy wideo w celu eliminacji skoków zużycia pamięci i migotania obrazu przy przełączaniu układów kamer."),
+                qsTr("Zoptymalizowano monitorowanie obciążenia GPU i pamięci VRAM do trybu procesowego (bez wywołań nvidia-smi) z natywnym wsparciem dla układów NVIDIA, AMD i Intel."),
                 qsTr("Przekształcono górny pasek narzędzi w oknach LIVE i ARCHIWUM w wyśrodkowane pływające doki (dok LIVE ma dynamiczną szerokość)."),
                 qsTr("Dodano pionowy separator oddzielający opcje siatki od widoków w dokach na pasku górnym."),
                 qsTr("Zwiększono przezroczystość pasków górnego i dolnego w archiwum (60% w oknie, 26% na pełnym ekranie) oraz ustawiono przezroczyste tło osi czasu."),
