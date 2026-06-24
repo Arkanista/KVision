@@ -65,6 +65,12 @@ Dialog {
 
                     text: qsTr("Enable stream selection")
                 }
+
+                CheckBox {
+                    id: disableAudioCheckBox
+
+                    text: qsTr("Disable audio entirely")
+                }
             }
         }
 
@@ -278,6 +284,8 @@ Dialog {
         
         enableStreamSelectionCheckBox.checked = generalSettings.enableStreamSelection;
         
+        disableAudioCheckBox.checked = generalSettings.disableAudio;
+        
         hideCursorWhenFullScreenCheckBox.checked = viewSettings.hideCursorWhenFullScreen;
         showChannelStatusCheckBox.checked = viewSettings.showChannelStatus;
         showCameraInfoCheckBox.checked = viewSettings.showCameraInfo;
@@ -321,6 +329,8 @@ Dialog {
         generalSettings.enableChangeViewportSettings = enableChangeViewportSettingsCheckBox.checked;
         
         generalSettings.enableStreamSelection = enableStreamSelectionCheckBox.checked;
+        
+        generalSettings.disableAudio = disableAudioCheckBox.checked;
         
         viewSettings.hideCursorWhenFullScreen = hideCursorWhenFullScreenCheckBox.checked;
         viewSettings.showChannelStatus = showChannelStatusCheckBox.checked;

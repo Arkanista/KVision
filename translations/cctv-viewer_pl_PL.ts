@@ -1043,6 +1043,10 @@
         <source>Automatically collapse top bar</source>
         <translation>Automatycznie zwijaj pasek górny</translation>
     </message>
+    <message>
+        <source>Disable audio entirely</source>
+        <translation>Wyłącz obsługę audio całkowicie</translation>
+    </message>
 </context>
 <context>
     <name>SideBar</name>
@@ -1657,6 +1661,10 @@
     <message>
         <source>Dodano resetowanie i zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo w celu zapobiegania wyciekom pamięci w bibliotece libswscale.</source>
         <translation>Dodano resetowanie i zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo w celu zapobiegania wyciekom pamięci w bibliotece libswscale.</translation>
+    </message>
+    <message>
+        <source>Dodano globalną opcję w ustawieniach &apos;Wyłącz obsługę audio całkowicie&apos; (Disable audio entirely), która całkowicie ignoruje przetwarzanie dźwięku w odtwarzaczach wideo, eliminując wszelkie potencjalne narzuty wydajnościowe i wycieki pamięci związane z obsługą audio.</source>
+        <translation>Dodano globalną opcję w ustawieniach &apos;Wyłącz obsługę audio całkowicie&apos; (Disable audio entirely), która całkowicie ignoruje przetwarzanie dźwięku w odtwarzaczach wideo, eliminując wszelkie potencjalne narzuty wydajnościowe i wycieki pamięci związane z obsługą audio.</translation>
     </message>
 </context>
 <context>

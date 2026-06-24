@@ -163,6 +163,7 @@ ApplicationWindow {
         property bool lockGridSize: true
         property string snapshotPath: ""
         property string videoPath: ""
+        property bool disableAudio: false
     }
 
     Settings {

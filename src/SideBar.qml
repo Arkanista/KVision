@@ -58,6 +58,13 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.2.3",
+            date: "25.06.2026",
+            changes: [
+                qsTr("Dodano globalną opcję w ustawieniach 'Wyłącz obsługę audio całkowicie' (Disable audio entirely), która całkowicie ignoruje przetwarzanie dźwięku w odtwarzaczach wideo, eliminując wszelkie potencjalne narzuty wydajnościowe i wycieki pamięci związane z obsługą audio.")
+            ]
+        },
+        {
             version: "v2.2.2",
             date: "25.06.2026",
             changes: [

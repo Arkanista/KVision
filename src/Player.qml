@@ -251,7 +251,7 @@ FocusScope {
 
     property bool muted: false
     property double volume: 1.0
-    readonly property bool hasAudio: activePlayerIndex === 1 ? qmlAvPlayer1.hasAudio : qmlAvPlayer2.hasAudio
+    readonly property bool hasAudio: (typeof generalSettings !== "undefined" && generalSettings.disableAudio) ? false : (activePlayerIndex === 1 ? qmlAvPlayer1.hasAudio : qmlAvPlayer2.hasAudio)
 
     onMutedChanged: {
         if (activePlayerIndex === 1) {
@@ -401,6 +401,9 @@ FocusScope {
             avOptions: {
                 var avOptions = root.avOptions;
                 Object.assignDefault(avOptions, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
+                    avOptions["an"] = true;
+                }
                 return avOptions;
             }
 
@@ -422,6 +425,9 @@ FocusScope {
             avOptions: {
                 var avOptions = root.avOptions;
                 Object.assignDefault(avOptions, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
+                    avOptions["an"] = true;
+                }
                 return avOptions;
             }
 
