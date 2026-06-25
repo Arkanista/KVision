@@ -61,38 +61,13 @@ FocusScope {
             version: "v2.2.5",
             date: "25.06.2026",
             changes: [
-                qsTr("Zoptymalizowano moduł statystyk systemowych, redukując ciągłe zużycie pamięci (wyciek ok. 100-200 KB/s) poprzez buforowanie identyfikatorów procesów i wyeliminowanie alokacji dynamicznych wyrażeń regularnych."),
-                qsTr("Wymuszono agresywne czyszczenie pamięci (Garbage Collection) przy każdej zmianie układu kamer, co ostatecznie eliminuje mniejsze wycieki pamięci interfejsu w silniku QML.")
-            ]
-        },
-        {
-            version: "v2.2.4",
-            date: "25.06.2026",
-            changes: [
-                qsTr("Wyeliminowano wyciek pamięci (ok. 50MB na każde przełączenie układu kamer) poprzez poprawne rozłączanie sygnałów błędu (mediaError) za pomocą oryginalnych funkcji gniazd oraz zerowanie dynamicznych powiązań QML zwolnionego odtwarzacza przed ponownym użyciem z puli.")
-            ]
-        },
-        {
-            version: "v2.2.3",
-            date: "25.06.2026",
-            changes: [
-                qsTr("Dodano globalną opcję w ustawieniach 'Wyłącz obsługę audio całkowicie' (Disable audio entirely), która całkowicie ignoruje przetwarzanie dźwięku w odtwarzaczach wideo, eliminując wszelkie potencjalne narzuty wydajnościowe i wycieki pamięci związane z obsługą audio.")
-            ]
-        },
-        {
-            version: "v2.2.2",
-            date: "25.06.2026",
-            changes: [
-                qsTr("Wyeliminowano wycieki pamięci (ok. 50MB na przełączenie) podczas zamiennego przełączania układów kamer (np. OGÓLNE i ZEWNĘTRZNY) poprzez bezwarunkowe zwalnianie i niszczenie obiektów wyjściowych audio (QAudioOutput) przy zatrzymaniu odtwarzacza."),
-                qsTr("Dodano resetowanie i zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo w celu zapobiegania wyciekom pamięci w bibliotece libswscale.")
-            ]
-        },
-        {
-            version: "v2.2.1",
-            date: "25.06.2026",
-            changes: [
-                qsTr("Zoptymalizowano silnik wyjściowy audio poprzez ponowne użycie (recykling) obiektów QAudioOutput w celu wyeliminowania wycieków pamięci i wątków na systemach Linux."),
-                qsTr("Dodano poprawne czyszczenie pamięci statycznego detektora plików konfiguracyjnych (QFileSystemWatcher) przy wyjściu z aplikacji.")
+                qsTr("Wyeliminowano wycieki pamięci RAM przy przełączaniu układów kamer poprzez automatyczne i poprawne zatrzymywanie powierzchni wideo przed zmianą formatu oraz dopasowanie rozmiaru renderera."),
+                qsTr("Zaimplementowano bezwarunkowe zwalnianie i niszczenie obiektów wyjściowych audio przy zatrzymaniu odtwarzacza oraz wprowadzono ich automatyczny recykling, usuwając wycieki pamięci i wątków w systemie Linux."),
+                qsTr("Rozwiązano problem zablokowania wideo (jednokolorowa plansza po powiększeniu viewportu) poprzez wymuszenie prawidłowego wysyłania sygnału dostępności wideo przy prezentacji pierwszej klatki nowego strumienia."),
+                qsTr("Dodano globalną opcję w ustawieniach 'Wyłącz obsługę audio całkowicie', pozwalającą całkowicie pominąć przetwarzanie dźwięku w celu eliminacji ewentualnego narzutu i wycieków pamięci."),
+                qsTr("Zoptymalizowano moduł statystyk systemowych, wygaszając ciągłe zużycie pamięci poprzez buforowanie identyfikatorów procesów i eliminację alokacji dynamicznych wyrażeń regularnych."),
+                qsTr("Wprowadzono agresywne czyszczenie pamięci (Garbage Collection) przy każdej zmianie układu kamer oraz zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo."),
+                qsTr("Zapewniono poprawne czyszczenie pamięci statycznego detektora zmian plików konfiguracyjnych przy wyjściu z aplikacji.")
             ]
         },
         {

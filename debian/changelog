@@ -1,35 +1,14 @@
 cctv-viewer (2.2.5-1) jammy; urgency=medium
 
-  * Optimized SystemStats to fix a continuous memory leak (100-200 KB/s) by caching PIDs and using static regular expressions.
-  * Enforced aggressive Garbage Collection (gc) upon camera layout switches to eliminate remaining minor UI memory leaks in the QML engine.
+  * Resolved RAM memory leaks when switching camera layouts by automatically stopping video surface format transitions and adjusting renderer dimensions.
+  * Implemented unconditional cleanup and destruction of audio outputs on player stop, recycling audio output objects to eliminate memory and thread leaks on Linux.
+  * Resolved viewport zoom freezing (solid color frame) by forcing correct video availability signaling when presenting the first frame of a new stream.
+  * Added global setting "Disable audio entirely" to bypass audio demuxing and decoding completely, eliminating potential audio-related overhead and leaks.
+  * Optimized SystemStats panel monitoring to eliminate background memory overhead by caching process IDs and using static regular expressions.
+  * Enforced aggressive Garbage Collection (gc) upon layout changes and nullified video scaling contexts (SwsContext) inside video buffers to prevent libswscale leaks.
+  * Corrected resource cleanup of static configuration file watcher (QFileSystemWatcher) upon application exit.
 
- -- arkanis <arkanis@cctv-viewer2.org>  Thu, 25 Jun 2026 02:25:00 +0200
-
-cctv-viewer (2.2.4-1) jammy; urgency=medium
-
-  * Fixed QML layout switching memory leak (approx 50MB per switch) by correctly disconnecting error signals (mediaError) using stored signal slot functions and explicitly clearing dynamic QML bindings on pooled players
-
- -- arkanis <arkanis@cctv-viewer2.org>  Thu, 25 Jun 2026 01:52:00 +0200
-
-cctv-viewer (2.2.3-1) jammy; urgency=medium
-
-  * Added global setting "Disable audio entirely" to bypass audio stream demuxing and decoding completely, resolving any performance overhead or audio-related memory leaks
-
- -- arkanis <arkanis@cctv-viewer2.org>  Thu, 25 Jun 2026 01:12:00 +0200
-
-cctv-viewer (2.2.2-1) jammy; urgency=medium
-
-  * Resolved memory leaks (approx 50MB per layout switch) when switching layouts by unconditionally freeing and destroying QAudioOutput audio output objects upon player stop
-  * Added resetting and nullifying of image scaling context (SwsContext) in video buffers to prevent memory leaks inside libswscale
-
- -- arkanis <arkanis@cctv-viewer2.org>  Thu, 25 Jun 2026 00:46:00 +0200
-
-cctv-viewer (2.2.1-1) jammy; urgency=medium
-
-  * Optimized the audio output engine by recycling QAudioOutput objects to eliminate memory and thread leaks on Linux systems
-  * Added proper cleanup of the static configuration file watcher (QFileSystemWatcher) upon application exit
-
- -- arkanis <arkanis@cctv-viewer2.org>  Thu, 25 Jun 2026 00:30:00 +0200
+ -- arkanis <arkanis@cctv-viewer2.org>  Thu, 25 Jun 2026 11:25:00 +0200
 
 cctv-viewer (2.2.0-1) jammy; urgency=medium
 

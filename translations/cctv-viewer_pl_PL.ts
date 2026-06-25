@@ -113,6 +113,10 @@
         <source>ID of the auxiliary window.</source>
         <translation>ID okna pomocniczego.</translation>
     </message>
+    <message>
+        <source>Włącz śledzenie obiektów w logach dla debugowania wycieków pamięci.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadDialog</name>
@@ -278,6 +282,16 @@
     <message>
         <source>Inicjalizacja wyszukiwania plików...</source>
         <translation>Inicjalizacja wyszukiwania plików...</translation>
+    </message>
+    <message>
+        <source>Podana ścieżka do zapisu jest nieprawidłowa lub brak do niej dostępu:
+%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brak uprawnień do zapisu w katalogu:
+%1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1648,23 +1662,23 @@
     </message>
     <message>
         <source>Zoptymalizowano silnik wyjściowy audio poprzez ponowne użycie (recykling) obiektów QAudioOutput w celu wyeliminowania wycieków pamięci i wątków na systemach Linux.</source>
-        <translation>Zoptymalizowano silnik wyjściowy audio poprzez ponowne użycie (recykling) obiektów QAudioOutput w celu wyeliminowania wycieków pamięci i wątków na systemach Linux.</translation>
+        <translation type="vanished">Zoptymalizowano silnik wyjściowy audio poprzez ponowne użycie (recykling) obiektów QAudioOutput w celu wyeliminowania wycieków pamięci i wątków na systemach Linux.</translation>
     </message>
     <message>
         <source>Dodano poprawne czyszczenie pamięci statycznego detektora plików konfiguracyjnych (QFileSystemWatcher) przy wyjściu z aplikacji.</source>
-        <translation>Dodano poprawne czyszczenie pamięci statycznego detektora plików konfiguracyjnych (QFileSystemWatcher) przy wyjściu z aplikacji.</translation>
+        <translation type="vanished">Dodano poprawne czyszczenie pamięci statycznego detektora plików konfiguracyjnych (QFileSystemWatcher) przy wyjściu z aplikacji.</translation>
     </message>
     <message>
         <source>Wyeliminowano wycieki pamięci (ok. 50MB na przełączenie) podczas zamiennego przełączania układów kamer (np. OGÓLNE i ZEWNĘTRZNY) poprzez bezwarunkowe zwalnianie i niszczenie obiektów wyjściowych audio (QAudioOutput) przy zatrzymaniu odtwarzacza.</source>
-        <translation>Wyeliminowano wycieki pamięci (ok. 50MB na przełączenie) podczas zamiennego przełączania układów kamer (np. OGÓLNE i ZEWNĘTRZNY) poprzez bezwarunkowe zwalnianie i niszczenie obiektów wyjściowych audio (QAudioOutput) przy zatrzymaniu odtwarzacza.</translation>
+        <translation type="vanished">Wyeliminowano wycieki pamięci (ok. 50MB na przełączenie) podczas zamiennego przełączania układów kamer (np. OGÓLNE i ZEWNĘTRZNY) poprzez bezwarunkowe zwalnianie i niszczenie obiektów wyjściowych audio (QAudioOutput) przy zatrzymaniu odtwarzacza.</translation>
     </message>
     <message>
         <source>Dodano resetowanie i zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo w celu zapobiegania wyciekom pamięci w bibliotece libswscale.</source>
-        <translation>Dodano resetowanie i zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo w celu zapobiegania wyciekom pamięci w bibliotece libswscale.</translation>
+        <translation type="vanished">Dodano resetowanie i zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo w celu zapobiegania wyciekom pamięci w bibliotece libswscale.</translation>
     </message>
     <message>
         <source>Dodano globalną opcję w ustawieniach &apos;Wyłącz obsługę audio całkowicie&apos; (Disable audio entirely), która całkowicie ignoruje przetwarzanie dźwięku w odtwarzaczach wideo, eliminując wszelkie potencjalne narzuty wydajnościowe i wycieki pamięci związane z obsługą audio.</source>
-        <translation>Dodano globalną opcję w ustawieniach &apos;Wyłącz obsługę audio całkowicie&apos; (Disable audio entirely), która całkowicie ignoruje przetwarzanie dźwięku w odtwarzaczach wideo, eliminując wszelkie potencjalne narzuty wydajnościowe i wycieki pamięci związane z obsługą audio.</translation>
+        <translation type="vanished">Dodano globalną opcję w ustawieniach &apos;Wyłącz obsługę audio całkowicie&apos; (Disable audio entirely), która całkowicie ignoruje przetwarzanie dźwięku w odtwarzaczach wideo, eliminując wszelkie potencjalne narzuty wydajnościowe i wycieki pamięci związane z obsługą audio.</translation>
     </message>
     <message>
         <source>Disable audio entirely</source>
@@ -1672,15 +1686,35 @@
     </message>
     <message>
         <source>Wyeliminowano wyciek pamięci (ok. 50MB na każde przełączenie układu kamer) poprzez poprawne rozłączanie sygnałów błędu (mediaError) za pomocą oryginalnych funkcji gniazd oraz zerowanie dynamicznych powiązań QML zwolnionego odtwarzacza przed ponownym użyciem z puli.</source>
-        <translation>Wyeliminowano wyciek pamięci (ok. 50MB na każde przełączenie układu kamer) poprzez poprawne rozłączanie sygnałów błędu (mediaError) za pomocą oryginalnych funkcji gniazd oraz zerowanie dynamicznych powiązań QML zwolnionego odtwarzacza przed ponownym użyciem z puli.</translation>
+        <translation type="vanished">Wyeliminowano wyciek pamięci (ok. 50MB na każde przełączenie układu kamer) poprzez poprawne rozłączanie sygnałów błędu (mediaError) za pomocą oryginalnych funkcji gniazd oraz zerowanie dynamicznych powiązań QML zwolnionego odtwarzacza przed ponownym użyciem z puli.</translation>
     </message>
     <message>
-        <source>Zoptymalizowano moduł statystyk systemowych, redukując ciągłe zużycie pamięci (wyciek ok. 100-200 KB/s) poprzez buforowanie identyfikatorów procesów i wyeliminowanie alokacji dynamicznych wyrażeń regularnych.</source>
+        <source>Wyeliminowano wycieki pamięci RAM przy przełączaniu układów kamer poprzez automatyczne i poprawne zatrzymywanie powierzchni wideo przed zmianą formatu oraz dopasowanie rozmiaru renderera.</source>
+        <translation>Wyeliminowano wycieki pamięci RAM przy przełączaniu układów kamer poprzez automatyczne i poprawne zatrzymywanie powierzchni wideo przed zmianą formatu oraz dopasowanie rozmiaru renderera.</translation>
+    </message>
+    <message>
+        <source>Zaimplementowano bezwarunkowe zwalnianie i niszczenie obiektów wyjściowych audio przy zatrzymaniu odtwarzacza oraz wprowadzono ich automatyczny recykling, usuwając wycieki pamięci i wątków w systemie Linux.</source>
+        <translation>Zaimplementowano bezwarunkowe zwalnianie i niszczenie obiektów wyjściowych audio przy zatrzymaniu odtwarzacza oraz wprowadzono ich automatyczny recykling, usuwając wycieki pamięci i wątków w systemie Linux.</translation>
+    </message>
+    <message>
+        <source>Rozwiązano problem zablokowania wideo (jednokolorowa plansza po powiększeniu viewportu) poprzez wymuszenie prawidłowego wysyłania sygnału dostępności wideo przy prezentacji pierwszej klatki nowego strumienia.</source>
+        <translation>Rozwiązano problem zablokowania wideo (jednokolorowa plansza po powiększeniu viewportu) poprzez wymuszenie prawidłowego wysyłania sygnału dostępności wideo przy prezentacji pierwszej klatki nowego strumienia.</translation>
+    </message>
+    <message>
+        <source>Dodano globalną opcję w ustawieniach &apos;Wyłącz obsługę audio całkowicie&apos;, pozwalającą całkowicie pominąć przetwarzanie dźwięku w celu eliminacji ewentualnego narzutu i wycieków pamięci.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Wymuszono agresywne czyszczenie pamięci (Garbage Collection) przy każdej zmianie układu kamer, co ostatecznie eliminuje mniejsze wycieki pamięci interfejsu w silniku QML.</source>
-        <translation type="unfinished"></translation>
+        <source>Zoptymalizowano moduł statystyk systemowych, wygaszając ciągłe zużycie pamięci poprzez buforowanie identyfikatorów procesów i eliminację alokacji dynamicznych wyrażeń regularnych.</source>
+        <translation>Zoptymalizowano moduł statystyk systemowych, wygaszając ciągłe zużycie pamięci poprzez buforowanie identyfikatorów procesów i eliminację alokacji dynamicznych wyrażeń regularnych.</translation>
+    </message>
+    <message>
+        <source>Wprowadzono agresywne czyszczenie pamięci (Garbage Collection) przy każdej zmianie układu kamer oraz zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo.</source>
+        <translation>Wprowadzono agresywne czyszczenie pamięci (Garbage Collection) przy każdej zmianie układu kamer oraz zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo.</translation>
+    </message>
+    <message>
+        <source>Zapewniono poprawne czyszczenie pamięci statycznego detektora zmian plików konfiguracyjnych przy wyjściu z aplikacji.</source>
+        <translation>Zapewniono poprawne czyszczenie pamięci statycznego detektora zmian plików konfiguracyjnych przy wyjściu z aplikacji.</translation>
     </message>
 </context>
 <context>
