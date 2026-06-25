@@ -16,6 +16,8 @@ public:
     explicit StatsWorker(QObject *parent = nullptr);
     ~StatsWorker() override;
 
+    void setUiActive(bool active) { m_uiActive.store(active, std::memory_order_relaxed); }
+
 public slots:
     void doWork();
 
@@ -40,6 +42,8 @@ private:
 
     QVector<qint64> m_cachedPids;
     int m_pidCacheTicks = 0;
+
+    std::atomic<bool> m_uiActive{false};
 };
 
 class SystemStats : public QObject

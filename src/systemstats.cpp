@@ -125,7 +125,11 @@ StatsWorker::~StatsWorker()
         shmDir = QDir::tempPath();
     }
     QString myNetFile = QString("%1/cctv-viewer2-net-%2-%3").arg(shmDir).arg(myUid).arg(selfPid);
+    QString myGpuFile = QString("%1/cctv-viewer2-gpu-%2-%3").arg(shmDir).arg(myUid).arg(selfPid);
+    QString myVramFile = QString("%1/cctv-viewer2-vram-%2-%3").arg(shmDir).arg(myUid).arg(selfPid);
     QFile::remove(myNetFile);
+    QFile::remove(myGpuFile);
+    QFile::remove(myVramFile);
 }
 
 void StatsWorker::doWork()
@@ -137,17 +141,26 @@ void StatsWorker::doWork()
     m_pidCacheTicks--;
 
     QVector<qint64> pids = m_cachedPids;
+    qint64 selfPid = getpid();
+
+    bool active = m_uiActive.load(std::memory_order_relaxed);
+
     double cpu = 0.0;
     double ram = 0.0;
     double gpu = 0.0;
     double vram = 0.0;
     double net = 0.0;
 
-    calculateCpuAndRam(pids, cpu, ram);
-    calculateGpuAndVram(pids, gpu, vram);
-    calculateNetUsage(pids, net);
+    if (active) {
+        calculateCpuAndRam(pids, cpu, ram);
+        calculateGpuAndVram(pids, gpu, vram);
+        calculateNetUsage(pids, net);
 
-    emit workDone(cpu, gpu, ram, vram, net);
+        emit workDone(cpu, gpu, ram, vram, net);
+    } else {
+        calculateGpuAndVram(QVector<qint64>{selfPid}, gpu, vram);
+        calculateNetUsage(QVector<qint64>{selfPid}, net);
+    }
 }
 
 SystemStats::SystemStats(QObject *parent)
@@ -164,7 +177,7 @@ SystemStats::SystemStats(QObject *parent)
     connect(m_worker, &StatsWorker::workDone, this, &SystemStats::onWorkDone);
 
     m_workerThread->start();
-    // Do not start the timer by default, it will be controlled via the 'active' property
+    m_timer->start(1000); // Always run the timer to report background stats!
 }
 
 SystemStats::~SystemStats()
@@ -193,12 +206,11 @@ void SystemStats::setActive(bool active)
 {
     if (m_active == active) return;
     m_active = active;
+    m_worker->setUiActive(active);
 
     if (m_active) {
-        m_timer->start(1000);
         QMetaObject::invokeMethod(m_worker, "doWork", Qt::QueuedConnection);
     } else {
-        m_timer->stop();
         m_cpuUsage = 0.0;
         m_gpuUsage = 0.0;
         m_ramUsage = 0.0;
@@ -424,7 +436,18 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
     gpu = 0.0;
     vram = 0.0;
 
-    // 1. Try Nvidia NVML first
+    qint64 selfPid = getpid();
+    uid_t myUid = getuid();
+    QString shmDir = "/dev/shm";
+    if (!QDir(shmDir).exists() || !QFileInfo(shmDir).isWritable()) {
+        shmDir = QDir::tempPath();
+    }
+
+    // Step A: Calculate OWN GPU and VRAM
+    double ownGpu = 0.0;
+    double ownVram = 0.0;
+
+    // 1. Try Nvidia NVML first for selfPid
     if (m_nvml && m_nvml->ensureInitialized()) {
         unsigned int devCount = 0;
         if (m_nvml->nvmlDeviceGetCount(&devCount) == NVML_SUCCESS && devCount > 0) {
@@ -443,7 +466,7 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
                 // Graphics processes
                 if (m_nvml->nvmlDeviceGetGraphicsRunningProcesses(device, &procCount, procInfos) == NVML_SUCCESS) {
                     for (unsigned int p = 0; p < procCount; ++p) {
-                        if (pids.contains(procInfos[p].pid)) {
+                        if (procInfos[p].pid == selfPid) {
                             vramSum += procInfos[p].usedGpuMemory / (1024.0 * 1024.0); // B to MiB
                         }
                     }
@@ -453,7 +476,7 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
                 procCount = 128;
                 if (m_nvml->nvmlDeviceGetComputeRunningProcesses(device, &procCount, procInfos) == NVML_SUCCESS) {
                     for (unsigned int p = 0; p < procCount; ++p) {
-                        if (pids.contains(procInfos[p].pid)) {
+                        if (procInfos[p].pid == selfPid) {
                             vramSum += procInfos[p].usedGpuMemory / (1024.0 * 1024.0); // B to MiB
                         }
                     }
@@ -466,7 +489,7 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
                     if (m_nvml->nvmlDeviceGetProcessUtilization(device, samples, &sampleCount, 0) == NVML_SUCCESS) {
                         double devGpuSum = 0.0;
                         for (unsigned int s = 0; s < sampleCount; ++s) {
-                            if (pids.contains(samples[s].pid)) {
+                            if (samples[s].pid == selfPid) {
                                 devGpuSum += samples[s].smUtil; // GPU %
                                 processGpuSuccess = true;
                             }
@@ -476,158 +499,208 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
                 }
             }
 
-            vram = vramSum;
+            ownVram = vramSum;
 
             if (processGpuSuccess) {
-                gpu = gpuSum;
-                if (gpu > 100.0) gpu = 100.0;
-                return;
+                ownGpu = gpuSum;
+                if (ownGpu > 100.0) ownGpu = 100.0;
             }
         }
     }
 
-    // 2. Try DRM Client Stats (for AMD, Intel, and fallback Nvidia)
-    double drmVramSum = 0.0;
-    qint64 totalEngineDeltaNs = 0;
-    QHash<QString, qint64> nextDrmEngineTimes;
-    bool hasDrmClients = false;
+    // 2. Try DRM Client Stats (for AMD, Intel, and fallback Nvidia) for selfPid
+    if (ownGpu <= 0.0) {
+        double drmVramSum = 0.0;
+        qint64 totalEngineDeltaNs = 0;
+        QHash<QString, qint64> nextDrmEngineTimes;
+        bool hasDrmClients = false;
 
-    for (qint64 pid : pids) {
-        QString fdInfoPath = QString("/proc/%1/fdinfo").arg(pid);
+        QString fdInfoPath = QString("/proc/%1/fdinfo").arg(selfPid);
         QDir dir(fdInfoPath);
-        if (!dir.exists()) continue;
+        if (dir.exists()) {
+            QStringList files = dir.entryList(QDir::Files);
+            for (const QString &fdName : files) {
+                QFile f(dir.absoluteFilePath(fdName));
+                if (!f.open(QIODevice::ReadOnly)) continue;
 
-        QStringList files = dir.entryList(QDir::Files);
-        for (const QString &fdName : files) {
-            QFile f(dir.absoluteFilePath(fdName));
-            if (!f.open(QIODevice::ReadOnly)) continue;
+                QTextStream stream(&f);
+                bool isDrm = false;
+                qint64 fdEngineTime = 0;
 
-            QTextStream stream(&f);
-            bool isDrm = false;
-            qint64 fdEngineTime = 0;
-
-            while (!stream.atEnd()) {
-                QString line = stream.readLine().trimmed();
-                if (line.startsWith("drm-driver:")) {
-                    isDrm = true;
-                    hasDrmClients = true;
-                } else if (line.startsWith("drm-engine-")) {
-                    int colonIdx = line.indexOf(':');
-                    if (colonIdx != -1) {
-                        QString valStr = line.mid(colonIdx + 1).trimmed();
-                        int spaceIdx = -1;
-                        for (int i = 0; i < valStr.length(); ++i) {
-                            if (valStr[i].isSpace()) {
-                                spaceIdx = i;
-                                break;
+                while (!stream.atEnd()) {
+                    QString line = stream.readLine().trimmed();
+                    if (line.startsWith("drm-driver:")) {
+                        isDrm = true;
+                        hasDrmClients = true;
+                    } else if (line.startsWith("drm-engine-")) {
+                        int colonIdx = line.indexOf(':');
+                        if (colonIdx != -1) {
+                            QString valStr = line.mid(colonIdx + 1).trimmed();
+                            int spaceIdx = -1;
+                            for (int i = 0; i < valStr.length(); ++i) {
+                                if (valStr[i].isSpace()) {
+                                    spaceIdx = i;
+                                    break;
+                                }
+                            }
+                            if (spaceIdx != -1) {
+                                valStr = valStr.left(spaceIdx);
+                            }
+                            bool ok = false;
+                            qint64 val = valStr.toLongLong(&ok);
+                            if (ok) {
+                                fdEngineTime += val;
                             }
                         }
-                        if (spaceIdx != -1) {
-                            valStr = valStr.left(spaceIdx);
-                        }
-                        bool ok = false;
-                        qint64 val = valStr.toLongLong(&ok);
-                        if (ok) {
-                            fdEngineTime += val;
+                    } else if (line.startsWith("drm-memory-vram:")) {
+                        int colonIdx = line.indexOf(':');
+                        if (colonIdx != -1) {
+                            QString valStr = line.mid(colonIdx + 1).trimmed();
+                            QString unit = "";
+                            int spaceIdx = -1;
+                            for (int i = 0; i < valStr.length(); ++i) {
+                                if (valStr[i].isSpace()) {
+                                    spaceIdx = i;
+                                    break;
+                                }
+                            }
+                            if (spaceIdx != -1) {
+                                unit = valStr.mid(spaceIdx + 1).trimmed();
+                                valStr = valStr.left(spaceIdx);
+                            }
+                            bool ok = false;
+                            double val = valStr.toDouble(&ok);
+                            if (ok) {
+                                if (unit.toLower() == "kib" || unit.isEmpty()) {
+                                    val /= 1024.0;
+                                } else if (unit.toLower() == "gib") {
+                                    val *= 1024.0;
+                                } else if (unit.toLower() == "b") {
+                                    val /= (1024.0 * 1024.0);
+                                }
+                                drmVramSum += val;
+                            }
                         }
                     }
-                } else if (line.startsWith("drm-memory-vram:")) {
-                    int colonIdx = line.indexOf(':');
-                    if (colonIdx != -1) {
-                        QString valStr = line.mid(colonIdx + 1).trimmed();
-                        QString unit = "";
-                        int spaceIdx = -1;
-                        for (int i = 0; i < valStr.length(); ++i) {
-                            if (valStr[i].isSpace()) {
-                                spaceIdx = i;
-                                break;
-                            }
-                        }
-                        if (spaceIdx != -1) {
-                            unit = valStr.mid(spaceIdx + 1).trimmed();
-                            valStr = valStr.left(spaceIdx);
-                        }
-                        bool ok = false;
-                        double val = valStr.toDouble(&ok);
-                        if (ok) {
-                            if (unit.toLower() == "kib" || unit.isEmpty()) {
-                                val /= 1024.0;
-                            } else if (unit.toLower() == "gib") {
-                                val *= 1024.0;
-                            } else if (unit.toLower() == "b") {
-                                val /= (1024.0 * 1024.0);
-                            }
-                            drmVramSum += val;
+                }
+                f.close();
+
+                if (isDrm) {
+                    QString key = QString("%1:%2").arg(selfPid).arg(fdName);
+                    nextDrmEngineTimes[key] = fdEngineTime;
+                    if (m_prevDrmEngineTimes.contains(key)) {
+                        qint64 delta = fdEngineTime - m_prevDrmEngineTimes[key];
+                        if (delta > 0) {
+                            totalEngineDeltaNs += delta;
                         }
                     }
                 }
             }
-            f.close();
+        }
 
-            if (isDrm) {
-                QString key = QString("%1:%2").arg(pid).arg(fdName);
-                nextDrmEngineTimes[key] = fdEngineTime;
-                if (m_prevDrmEngineTimes.contains(key)) {
-                    qint64 delta = fdEngineTime - m_prevDrmEngineTimes[key];
-                    if (delta > 0) {
-                        totalEngineDeltaNs += delta;
-                    }
-                }
+        qint64 elapsedMs = m_gpuTimer.restart();
+        if (elapsedMs <= 0) elapsedMs = 1000;
+
+        m_prevDrmEngineTimes = nextDrmEngineTimes;
+
+        if (hasDrmClients) {
+            if (ownVram <= 0.0) {
+                ownVram = drmVramSum;
             }
+
+            double drmGpu = 0.0;
+            if (totalEngineDeltaNs > 0) {
+                drmGpu = (static_cast<double>(totalEngineDeltaNs) / (elapsedMs * 1000000.0)) * 100.0;
+                if (drmGpu > 100.0) drmGpu = 100.0;
+            }
+            ownGpu = drmGpu;
         }
     }
 
-    qint64 elapsedMs = m_gpuTimer.restart();
-    if (elapsedMs <= 0) elapsedMs = 1000;
-
-    m_prevDrmEngineTimes = nextDrmEngineTimes;
-
-    if (hasDrmClients) {
-        if (vram <= 0.0) {
-            vram = drmVramSum;
-        }
-
-        double drmGpu = 0.0;
-        if (totalEngineDeltaNs > 0) {
-            drmGpu = (static_cast<double>(totalEngineDeltaNs) / (elapsedMs * 1000000.0)) * 100.0;
-            if (drmGpu > 100.0) drmGpu = 100.0;
-        }
-        gpu = drmGpu;
-        return;
-    }
-
-    // 3. Try System-wide NVML Fallback (if we are Nvidia but have no DRM stats / no accounting)
-    if (m_nvml && m_nvml->initialized) {
+    // 3. Try System-wide NVML Fallback (if we are Nvidia but have no process stats)
+    if (ownGpu <= 0.0 && m_nvml && m_nvml->initialized) {
         unsigned int devCount = 0;
         if (m_nvml->nvmlDeviceGetCount(&devCount) == NVML_SUCCESS && devCount > 0) {
             nvmlDevice_t device = nullptr;
             if (m_nvml->nvmlDeviceGetHandleByIndex(0, &device) == NVML_SUCCESS) {
                 nvmlUtilization_t utilization;
                 if (m_nvml->nvmlDeviceGetUtilizationRates(device, &utilization) == NVML_SUCCESS) {
-                    gpu = utilization.gpu;
-                    return;
+                    ownGpu = utilization.gpu;
                 }
             }
         }
     }
 
     // 4. Try AMD/Intel System-wide sysfs fallback
-    QFile amdGpuBusy("/sys/class/drm/card0/device/gpu_busy_percent");
-    if (amdGpuBusy.exists() && amdGpuBusy.open(QIODevice::ReadOnly)) {
-        QTextStream stream(&amdGpuBusy);
-        gpu = stream.readAll().trimmed().toDouble();
-        amdGpuBusy.close();
+    if (ownGpu <= 0.0) {
+        QFile amdGpuBusy("/sys/class/drm/card0/device/gpu_busy_percent");
+        if (amdGpuBusy.exists() && amdGpuBusy.open(QIODevice::ReadOnly)) {
+            QTextStream stream(&amdGpuBusy);
+            ownGpu = stream.readAll().trimmed().toDouble();
+            amdGpuBusy.close();
 
-        if (vram <= 0.0) {
-            QFile amdVram("/sys/class/drm/card0/device/mem_info_vram_used");
-            if (amdVram.exists() && amdVram.open(QIODevice::ReadOnly)) {
-                QTextStream vramStream(&amdVram);
-                vram = vramStream.readAll().trimmed().toDouble() / (1024.0 * 1024.0); // B to MiB
-                amdVram.close();
+            if (ownVram <= 0.0) {
+                QFile amdVram("/sys/class/drm/card0/device/mem_info_vram_used");
+                if (amdVram.exists() && amdVram.open(QIODevice::ReadOnly)) {
+                    QTextStream vramStream(&amdVram);
+                    ownVram = vramStream.readAll().trimmed().toDouble() / (1024.0 * 1024.0); // B to MiB
+                    amdVram.close();
+                }
             }
         }
-        return;
     }
+
+    // Step B: Write OWN GPU and VRAM to shared memory files
+    QString myGpuFile = QString("%1/cctv-viewer2-gpu-%2-%3").arg(shmDir).arg(myUid).arg(selfPid);
+    QFile fGpu(myGpuFile);
+    if (fGpu.open(QIODevice::WriteOnly)) {
+        QTextStream stream(&fGpu);
+        stream << QString::number(ownGpu, 'f', 2);
+        fGpu.close();
+    }
+
+    QString myVramFile = QString("%1/cctv-viewer2-vram-%2-%3").arg(shmDir).arg(myUid).arg(selfPid);
+    QFile fVram(myVramFile);
+    if (fVram.open(QIODevice::WriteOnly)) {
+        QTextStream stream(&fVram);
+        stream << QString::number(ownVram, 'f', 2);
+        fVram.close();
+    }
+
+    // Step C: Sum GPU and VRAM of all active PIDs
+    double totalGpu = 0.0;
+    double totalVram = 0.0;
+
+    for (qint64 pid : pids) {
+        if (pid == selfPid) {
+            totalGpu += ownGpu;
+            totalVram += ownVram;
+        } else {
+            QString otherGpuFile = QString("%1/cctv-viewer2-gpu-%2-%3").arg(shmDir).arg(myUid).arg(pid);
+            QFile fOtherGpu(otherGpuFile);
+            if (fOtherGpu.open(QIODevice::ReadOnly)) {
+                double otherGpu = 0.0;
+                QTextStream streamOther(&fOtherGpu);
+                streamOther >> otherGpu;
+                totalGpu += otherGpu;
+                fOtherGpu.close();
+            }
+
+            QString otherVramFile = QString("%1/cctv-viewer2-vram-%2-%3").arg(shmDir).arg(myUid).arg(pid);
+            QFile fOtherVram(otherVramFile);
+            if (fOtherVram.open(QIODevice::ReadOnly)) {
+                double otherVram = 0.0;
+                QTextStream streamOther(&fOtherVram);
+                streamOther >> otherVram;
+                totalVram += otherVram;
+                fOtherVram.close();
+            }
+        }
+    }
+
+    if (totalGpu > 100.0) totalGpu = 100.0;
+    gpu = totalGpu;
+    vram = totalVram;
 }
 
 void StatsWorker::calculateNetUsage(const QVector<qint64> &pids, double &net)
@@ -683,10 +756,33 @@ void StatsWorker::calculateNetUsage(const QVector<qint64> &pids, double &net)
     if (++cleanTicks >= 10) {
         cleanTicks = 0;
         QDir dir(shmDir);
-        QString prefix = QString("cctv-viewer2-net-%1-").arg(myUid);
-        QStringList files = dir.entryList(QStringList() << prefix + "*", QDir::Files);
-        for (const QString &fileName : files) {
-            QString pidPart = fileName.mid(prefix.length());
+        QString prefixNet = QString("cctv-viewer2-net-%1-").arg(myUid);
+        QString prefixGpu = QString("cctv-viewer2-gpu-%1-").arg(myUid);
+        QString prefixVram = QString("cctv-viewer2-vram-%1-").arg(myUid);
+        
+        QStringList netFiles = dir.entryList(QStringList() << prefixNet + "*", QDir::Files);
+        for (const QString &fileName : netFiles) {
+            QString pidPart = fileName.mid(prefixNet.length());
+            bool ok = false;
+            qint64 pid = pidPart.toLongLong(&ok);
+            if (ok && !pids.contains(pid) && pid != selfPid) {
+                dir.remove(fileName);
+            }
+        }
+        
+        QStringList gpuFiles = dir.entryList(QStringList() << prefixGpu + "*", QDir::Files);
+        for (const QString &fileName : gpuFiles) {
+            QString pidPart = fileName.mid(prefixGpu.length());
+            bool ok = false;
+            qint64 pid = pidPart.toLongLong(&ok);
+            if (ok && !pids.contains(pid) && pid != selfPid) {
+                dir.remove(fileName);
+            }
+        }
+
+        QStringList vramFiles = dir.entryList(QStringList() << prefixVram + "*", QDir::Files);
+        for (const QString &fileName : vramFiles) {
+            QString pidPart = fileName.mid(prefixVram.length());
             bool ok = false;
             qint64 pid = pidPart.toLongLong(&ok);
             if (ok && !pids.contains(pid) && pid != selfPid) {
