@@ -62,6 +62,16 @@ ApplicationWindow {
         }
     }
 
+    Timer {
+        id: syncEndTimer
+        interval: 500
+        repeat: false
+        onTriggered: {
+            rootWindow.isSyncing = false;
+            console.log("[Sync] isSyncing set to false after safety delay.");
+        }
+    }
+
     onVisibilityChanged: {
         if (visibility === Window.Minimized) {
             isWindowMinimized = true;
@@ -259,16 +269,16 @@ ApplicationWindow {
                 } else {
                     // External change!
                     console.log("[Sync] Live-reloading Viewports Layouts list due to external change...");
+                    saveTimer.stop();
                     rootWindow.lastLoadedModelsJson = diskModels;
                     rootWindow.lastSavedModelsJson = diskModels;
-                    layoutsCollectionSettings.models = diskModels;
                     rootWindow.isSyncing = true;
                     try {
                         layoutsCollectionModel.fromJSValue(JSON.parse(diskModels));
                     } catch(e) {
                         console.log("[Sync] Error parsing updated layouts:", e);
                     } finally {
-                        rootWindow.isSyncing = false;
+                        syncEndTimer.restart();
                     }
                 }
             }

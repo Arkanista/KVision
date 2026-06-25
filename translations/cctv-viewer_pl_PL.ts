@@ -1716,6 +1716,10 @@
         <source>Zapewniono poprawne czyszczenie pamięci statycznego detektora zmian plików konfiguracyjnych przy wyjściu z aplikacji.</source>
         <translation>Zapewniono poprawne czyszczenie pamięci statycznego detektora zmian plików konfiguracyjnych przy wyjściu z aplikacji.</translation>
     </message>
+    <message>
+        <source>Naprawiono błędy synchronizacji i zawieszania się procesu okna pomocniczego na wolniejszych maszynach przy seryjnym usuwaniu kamer oraz łączeniu i przenoszeniu viewportów.</source>
+        <translation>Naprawiono błędy synchronizacji i zawieszania się procesu okna pomocniczego na wolniejszych maszynach przy seryjnym usuwaniu kamer oraz łączeniu i przenoszeniu viewportów.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>
