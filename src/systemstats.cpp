@@ -121,7 +121,13 @@ StatsWorker::~StatsWorker()
 
 void StatsWorker::doWork()
 {
-    QVector<qint64> pids = getProgramPids();
+    if (m_pidCacheTicks <= 0) {
+        m_cachedPids = getProgramPids();
+        m_pidCacheTicks = 5; // Refresh PID list every 5 seconds to reduce CPU/RAM overhead
+    }
+    m_pidCacheTicks--;
+
+    QVector<qint64> pids = m_cachedPids;
     double cpu = 0.0;
     double ram = 0.0;
     double gpu = 0.0;
@@ -149,10 +155,7 @@ SystemStats::SystemStats(QObject *parent)
     connect(m_worker, &StatsWorker::workDone, this, &SystemStats::onWorkDone);
 
     m_workerThread->start();
-    m_timer->start(1000); // every 1s
-
-    // Trigger first work asynchronously
-    QMetaObject::invokeMethod(m_worker, "doWork", Qt::QueuedConnection);
+    // Do not start the timer by default, it will be controlled via the 'active' property
 }
 
 SystemStats::~SystemStats()
@@ -170,6 +173,31 @@ void SystemStats::onWorkDone(double cpu, double gpu, double ram, double vram, do
     m_vramUsage = vram;
     m_netUsage = net;
     emit statsChanged();
+}
+
+bool SystemStats::active() const
+{
+    return m_active;
+}
+
+void SystemStats::setActive(bool active)
+{
+    if (m_active == active) return;
+    m_active = active;
+
+    if (m_active) {
+        m_timer->start(1000);
+        QMetaObject::invokeMethod(m_worker, "doWork", Qt::QueuedConnection);
+    } else {
+        m_timer->stop();
+        m_cpuUsage = 0.0;
+        m_gpuUsage = 0.0;
+        m_ramUsage = 0.0;
+        m_vramUsage = 0.0;
+        m_netUsage = 0.0;
+        emit statsChanged();
+    }
+    emit activeChanged();
 }
 
 QVector<qint64> StatsWorker::getProgramPids()
@@ -204,17 +232,28 @@ QVector<qint64> StatsWorker::getProgramPids()
         if (statusFile.open(QIODevice::ReadOnly)) {
             QString content = QString::fromUtf8(statusFile.readAll());
             statusFile.close();
+            static const QRegularExpression whitespaceRe("\\s+");
             QStringList lines = content.split('\n');
             for (const QString &line : lines) {
                 if (line.startsWith("Uid:")) {
-                    QStringList parts = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
-                    if (parts.size() > 1) {
-                        info.uid = parts[1].toUInt();
+                    int colonIdx = line.indexOf(':');
+                    if (colonIdx != -1) {
+                        QString valStr = line.mid(colonIdx + 1).trimmed();
+                        int spaceIdx = valStr.indexOf(' ');
+                        if (spaceIdx != -1) {
+                            valStr = valStr.left(spaceIdx);
+                        }
+                        info.uid = valStr.toUInt();
                     }
                 } else if (line.startsWith("PPid:")) {
-                    QStringList parts = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
-                    if (parts.size() > 1) {
-                        info.ppid = parts[1].toLongLong();
+                    int colonIdx = line.indexOf(':');
+                    if (colonIdx != -1) {
+                        QString valStr = line.mid(colonIdx + 1).trimmed();
+                        int spaceIdx = valStr.indexOf(' ');
+                        if (spaceIdx != -1) {
+                            valStr = valStr.left(spaceIdx);
+                        }
+                        info.ppid = valStr.toLongLong();
                     }
                 }
             }
@@ -275,8 +314,9 @@ void StatsWorker::calculateCpuAndRam(const QVector<qint64> &pids, double &cpu, d
         QString line = stream.readLine();
         statFile.close();
         if (line.startsWith("cpu ")) {
-            QStringList parts = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
-            for (int i = 1; i < parts.size() && i <= 8; ++i) { // sum user to dirty/steal
+            QString valStr = line.mid(4).trimmed();
+            QStringList parts = valStr.split(QChar(' '), Qt::SkipEmptyParts);
+            for (int i = 0; i < parts.size() && i < 8; ++i) { // sum user to dirty/steal
                 totalCpuTime += parts[i].toLongLong();
             }
         }
@@ -320,11 +360,15 @@ void StatsWorker::calculateCpuAndRam(const QVector<qint64> &pids, double &cpu, d
             QStringList lines = content.split('\n');
             for (const QString &line : lines) {
                 if (line.startsWith("VmRSS:")) {
-                    QStringList parts = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
-                    if (parts.size() > 1) {
-                        ramUsageSum += parts[1].toDouble() / 1024.0; // convert kB to MB
+                    int colonIdx = line.indexOf(':');
+                    if (colonIdx != -1) {
+                        QString valStr = line.mid(colonIdx + 1).trimmed();
+                        int spaceIdx = valStr.indexOf(' ');
+                        if (spaceIdx != -1) {
+                            valStr = valStr.left(spaceIdx);
+                        }
+                        ramUsageSum += valStr.toDouble() / 1024.0; // convert kB to MB
                     }
-                    break;
                 }
             }
         }
@@ -438,26 +482,49 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
                     isDrm = true;
                     hasDrmClients = true;
                 } else if (line.startsWith("drm-engine-")) {
-                    QStringList parts = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
-                    if (parts.size() >= 2) {
+                    int colonIdx = line.indexOf(':');
+                    if (colonIdx != -1) {
+                        QString valStr = line.mid(colonIdx + 1).trimmed();
+                        int spaceIdx = -1;
+                        for (int i = 0; i < valStr.length(); ++i) {
+                            if (valStr[i].isSpace()) {
+                                spaceIdx = i;
+                                break;
+                            }
+                        }
+                        if (spaceIdx != -1) {
+                            valStr = valStr.left(spaceIdx);
+                        }
                         bool ok = false;
-                        qint64 val = parts[1].toLongLong(&ok);
+                        qint64 val = valStr.toLongLong(&ok);
                         if (ok) {
                             fdEngineTime += val;
                         }
                     }
                 } else if (line.startsWith("drm-memory-vram:")) {
-                    QStringList parts = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
-                    if (parts.size() >= 2) {
+                    int colonIdx = line.indexOf(':');
+                    if (colonIdx != -1) {
+                        QString valStr = line.mid(colonIdx + 1).trimmed();
+                        QString unit = "";
+                        int spaceIdx = -1;
+                        for (int i = 0; i < valStr.length(); ++i) {
+                            if (valStr[i].isSpace()) {
+                                spaceIdx = i;
+                                break;
+                            }
+                        }
+                        if (spaceIdx != -1) {
+                            unit = valStr.mid(spaceIdx + 1).trimmed();
+                            valStr = valStr.left(spaceIdx);
+                        }
                         bool ok = false;
-                        double val = parts[1].toDouble(&ok);
+                        double val = valStr.toDouble(&ok);
                         if (ok) {
-                            QString unit = (parts.size() >= 3) ? parts[2] : "";
-                            if (unit.trimmed().toLower() == "kib" || unit.isEmpty()) {
+                            if (unit.toLower() == "kib" || unit.isEmpty()) {
                                 val /= 1024.0;
-                            } else if (unit.trimmed().toLower() == "gib") {
+                            } else if (unit.toLower() == "gib") {
                                 val *= 1024.0;
-                            } else if (unit.trimmed().toLower() == "b") {
+                            } else if (unit.toLower() == "b") {
                                 val /= (1024.0 * 1024.0);
                             }
                             drmVramSum += val;

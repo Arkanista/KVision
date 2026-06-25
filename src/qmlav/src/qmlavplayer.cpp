@@ -1,5 +1,9 @@
 #include "qmlavplayer.h"
 #include <QDateTime>
+#include <QDebug>
+#include <atomic>
+
+static std::atomic<int> s_qmlAvPlayerCount{0};
 
 QmlAVPlayer::QmlAVPlayer(QObject *parent)
     : QObject(parent)
@@ -8,6 +12,10 @@ QmlAVPlayer::QmlAVPlayer(QObject *parent)
     , m_videoSurface(nullptr)
     , m_audioOutput(nullptr)
 {
+    int current = ++s_qmlAvPlayerCount;
+    if (qgetenv("CCTV_DEBUG_MEMORY") == "1")
+        qDebug() << "[MEM-TRACK] Created QmlAVPlayer. Total active:" << current;
+
     qRegisterMetaType<QList<QVideoFrame::PixelFormat>>();
 
     m_playTimer.setSingleShot(true);
@@ -16,6 +24,10 @@ QmlAVPlayer::QmlAVPlayer(QObject *parent)
 
 QmlAVPlayer::~QmlAVPlayer()
 {
+    int current = --s_qmlAvPlayerCount;
+    if (qgetenv("CCTV_DEBUG_MEMORY") == "1")
+        qDebug() << "[MEM-TRACK] Destroyed QmlAVPlayer. Total active:" << current;
+
     stop();
     if (m_audioOutput) {
         delete m_audioOutput;
@@ -61,6 +73,7 @@ void QmlAVPlayer::stop()
     }
 
     if (m_videoSurface && m_videoSurface->isActive()) {
+        m_videoSurface->present(QVideoFrame());
         m_videoSurface->stop();
     }
 

@@ -287,6 +287,9 @@ FocusScope {
         }
     }
     Component.onCompleted: {
+        if (Qt.application.arguments.indexOf("--debug-memory") !== -1) {
+            console.log("[MEM-TRACK] Created Player.qml component (index: " + index + ")");
+        }
         if (visible) {
             timer.start();
         }
@@ -294,6 +297,9 @@ FocusScope {
     }
 
     Component.onDestruction: {
+        if (Qt.application.arguments.indexOf("--debug-memory") !== -1) {
+            console.log("[MEM-TRACK] Destroyed Player.qml component (index: " + index + ")");
+        }
         timer.stop();
         qmlAvPlayer1.autoPlay = false;
         qmlAvPlayer2.autoPlay = false;

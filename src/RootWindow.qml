@@ -1365,12 +1365,28 @@ ApplicationWindow {
         property var gpuHistory: []
         property var netHistory: []
 
-        Component.onCompleted: {
+        function resetData() {
             var arr = [];
             for (var i = 0; i < 360; ++i) arr.push(0);
-            cpuHistory = arr;
-            gpuHistory = arr;
-            netHistory = arr;
+            statsPanel.cpuHistory = arr;
+            statsPanel.gpuHistory = arr;
+            statsPanel.netHistory = arr;
+            cpuCanvas.requestPaint();
+            gpuCanvas.requestPaint();
+            netCanvas.requestPaint();
+        }
+
+        Component.onCompleted: {
+            resetData();
+            SystemStats.active = visible;
+        }
+
+        onVisibleChanged: {
+            SystemStats.active = visible;
+            if (!visible) {
+                resetData();
+                gc(); // Optionally trigger garbage collection to free memory immediately
+            }
         }
 
         Connections {

@@ -1674,6 +1674,14 @@
         <source>Wyeliminowano wyciek pamięci (ok. 50MB na każde przełączenie układu kamer) poprzez poprawne rozłączanie sygnałów błędu (mediaError) za pomocą oryginalnych funkcji gniazd oraz zerowanie dynamicznych powiązań QML zwolnionego odtwarzacza przed ponownym użyciem z puli.</source>
         <translation>Eliminated a memory leak (approx. 50MB per camera layout switch) by correctly disconnecting error signals (mediaError) using stored signal slot functions and explicitly clearing dynamic QML bindings on released players before reuse from the pool.</translation>
     </message>
+    <message>
+        <source>Zoptymalizowano moduł statystyk systemowych, redukując ciągłe zużycie pamięci (wyciek ok. 100-200 KB/s) poprzez buforowanie identyfikatorów procesów i wyeliminowanie alokacji dynamicznych wyrażeń regularnych.</source>
+        <translation>Optimized the system statistics module, reducing continuous memory consumption (leak of approx. 100-200 KB/s) by caching process identifiers and eliminating dynamic regular expression allocations.</translation>
+    </message>
+    <message>
+        <source>Wymuszono agresywne czyszczenie pamięci (Garbage Collection) przy każdej zmianie układu kamer, co ostatecznie eliminuje mniejsze wycieki pamięci interfejsu w silniku QML.</source>
+        <translation>Forced aggressive memory cleanup (Garbage Collection) on every camera layout change, ultimately eliminating minor interface memory leaks in the QML engine.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>

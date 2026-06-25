@@ -37,11 +37,15 @@ private:
     qint64 m_prevTotalCpuTime = 0;
     QHash<qint64, qint64> m_prevProcessCpuTimes;
     QElapsedTimer m_netTimer;
+
+    QVector<qint64> m_cachedPids;
+    int m_pidCacheTicks = 0;
 };
 
 class SystemStats : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool active READ active WRITE setActive NOTIFY activeChanged)
     Q_PROPERTY(double cpuUsage READ cpuUsage NOTIFY statsChanged)
     Q_PROPERTY(double gpuUsage READ gpuUsage NOTIFY statsChanged)
     Q_PROPERTY(double ramUsage READ ramUsage NOTIFY statsChanged)
@@ -58,7 +62,11 @@ public:
     double vramUsage() const { return m_vramUsage; }
     double netUsage() const { return m_netUsage; }
 
+    bool active() const;
+    void setActive(bool active);
+
 signals:
+    void activeChanged();
     void statsChanged();
 
 private slots:
@@ -70,6 +78,7 @@ private:
     double m_ramUsage = 0.0;
     double m_vramUsage = 0.0;
     double m_netUsage = 0.0;
+    bool m_active = false;
 
     QTimer *m_timer;
     QThread *m_workerThread;

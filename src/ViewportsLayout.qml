@@ -147,9 +147,22 @@ FocusScope {
                 player.width = 0;
                 player.height = 0;
 
-                pool.push(player);
+                if (!root.visible) {
+                    player.destroy();
+                } else {
+                    pool.push(player);
+                }
                 delete activePlayersMap[index];
             }
+        }
+
+        function clearPool() {
+            for (var i = 0; i < pool.length; i++) {
+                if (pool[i]) {
+                    pool[i].destroy();
+                }
+            }
+            pool = [];
         }
 
         function releaseAll() {
@@ -157,6 +170,8 @@ FocusScope {
             for (var i = 0; i < indices.length; i++) {
                 releasePlayer(indices[i]);
             }
+            clearPool();
+            gc(); // Force garbage collection to free detached UI nodes and bindings
         }
     }
 
@@ -168,6 +183,10 @@ FocusScope {
 
     onVisibleChanged: {
         d.selectionReset()
+        if (!visible) {
+            playerPool.clearPool();
+            gc(); // Collect garbage immediately after hiding
+        }
     }
 
     QtObject {

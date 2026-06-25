@@ -58,6 +58,14 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.2.5",
+            date: "25.06.2026",
+            changes: [
+                qsTr("Zoptymalizowano moduł statystyk systemowych, redukując ciągłe zużycie pamięci (wyciek ok. 100-200 KB/s) poprzez buforowanie identyfikatorów procesów i wyeliminowanie alokacji dynamicznych wyrażeń regularnych."),
+                qsTr("Wymuszono agresywne czyszczenie pamięci (Garbage Collection) przy każdej zmianie układu kamer, co ostatecznie eliminuje mniejsze wycieki pamięci interfejsu w silniku QML.")
+            ]
+        },
+        {
             version: "v2.2.4",
             date: "25.06.2026",
             changes: [

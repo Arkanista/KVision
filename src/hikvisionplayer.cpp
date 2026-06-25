@@ -8,6 +8,8 @@
 
 extern std::atomic<qint64> g_networkBytesAccumulator;
 
+static std::atomic<int> s_hikPlayerCount{0};
+
 static void CALLBACK playerRealDataCallBack(LONG lPlayHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void* pUser)
 {
     Q_UNUSED(lPlayHandle);
@@ -27,6 +29,10 @@ HikvisionPlayer::HikvisionPlayer(QQuickItem *parent)
     , m_frameCounter(0)
     , m_simulatedBitrate(250) // Default to 250 kbps for SUB
 {
+    int current = ++s_hikPlayerCount;
+    if (qgetenv("CCTV_DEBUG_MEMORY") == "1")
+        qDebug() << "[MEM-TRACK] Created HikvisionPlayer. Total active:" << current;
+
     // Start simulation timer at 25 FPS (40ms ticks)
     m_timer = new QTimer(this);
     connect(m_timer, &QTimer::timeout, this, &HikvisionPlayer::onFrameTimerTick);
@@ -35,6 +41,10 @@ HikvisionPlayer::HikvisionPlayer(QQuickItem *parent)
 
 HikvisionPlayer::~HikvisionPlayer()
 {
+    int current = --s_hikPlayerCount;
+    if (qgetenv("CCTV_DEBUG_MEMORY") == "1")
+        qDebug() << "[MEM-TRACK] Destroyed HikvisionPlayer. Total active:" << current;
+
     if (m_playHandle >= 0) {
         NET_DVR_StopRealPlay(m_playHandle);
     }

@@ -46,6 +46,7 @@ void Context::init()
     QCommandLineOption auxiliaryOption(QStringList("auxiliary"), tr("Start as an auxiliary window."));
     QCommandLineOption auxiliaryIdOption("auxiliary-id", tr("ID of the auxiliary window."), "id");
     QCommandLineOption verboseOption("verbose", tr("Pokaż szczegółowe logi w konsoli (verbose logging)."));
+    QCommandLineOption debugMemoryOption("debug-memory", tr("Włącz śledzenie obiektów w logach dla debugowania wycieków pamięci."));
 
     parseCommandLineOptions({configOption,
                             presetOption,
@@ -54,7 +55,8 @@ void Context::init()
                             logOption,
                             auxiliaryOption,
                             auxiliaryIdOption,
-                            verboseOption});
+                            verboseOption,
+                            debugMemoryOption});
 
     m_isAuxiliary = m_commandLineParser.isSet(auxiliaryOption);
     m_enableLogs = m_commandLineParser.isSet(verboseOption);

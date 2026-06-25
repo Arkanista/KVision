@@ -1,3 +1,10 @@
+cctv-viewer (2.2.5-1) jammy; urgency=medium
+
+  * Optimized SystemStats to fix a continuous memory leak (100-200 KB/s) by caching PIDs and using static regular expressions.
+  * Enforced aggressive Garbage Collection (gc) upon camera layout switches to eliminate remaining minor UI memory leaks in the QML engine.
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Thu, 25 Jun 2026 02:25:00 +0200
+
 cctv-viewer (2.2.4-1) jammy; urgency=medium
 
   * Fixed QML layout switching memory leak (approx 50MB per switch) by correctly disconnecting error signals (mediaError) using stored signal slot functions and explicitly clearing dynamic QML bindings on pooled players

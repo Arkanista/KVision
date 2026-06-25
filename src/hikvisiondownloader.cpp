@@ -304,10 +304,32 @@ void HikvisionDownloader::startNextSegment()
 
     downloadCond.byStreamType = 0; // Main stream
     downloadCond.byCourseFile = 0;
-    downloadCond.byDownload = 0;
+    downloadCond.byDownload = 1;
 
     QFileInfo fileInfo(m_tempFilePath);
-    QDir().mkpath(fileInfo.absolutePath());
+    QDir dir;
+    if (!dir.mkpath(fileInfo.absolutePath())) {
+        NET_DVR_Logout(m_lUserID);
+        m_lUserID = -1;
+        m_isDownloading = false;
+        emit isDownloadingChanged();
+        emit downloadFinished(false, tr("Podana ścieżka do zapisu jest nieprawidłowa lub brak do niej dostępu:\n%1").arg(fileInfo.absolutePath()));
+        return;
+    }
+    
+    QFileInfo dirInfo(fileInfo.absolutePath());
+    if (!dirInfo.isWritable()) {
+        NET_DVR_Logout(m_lUserID);
+        m_lUserID = -1;
+        m_isDownloading = false;
+        emit isDownloadingChanged();
+        emit downloadFinished(false, tr("Brak uprawnień do zapisu w katalogu:\n%1").arg(fileInfo.absolutePath()));
+        return;
+    }
+
+    if (fileInfo.exists()) {
+        QFile::remove(m_tempFilePath);
+    }
     QByteArray pathBytes = m_tempFilePath.toLocal8Bit();
 
     m_lFileHandle = NET_DVR_GetFileByTime_V40(m_lUserID, pathBytes.data(), &downloadCond);
