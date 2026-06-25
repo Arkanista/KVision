@@ -82,7 +82,6 @@ void QmlAVPlayer::stop()
         blackImg.fill(Qt::black);
         QVideoFrame blackFrame(blackImg);
         m_videoSurface->present(blackFrame);
-        m_videoSurface->stop();
     }
 
     if (m_audioOutput) {
@@ -158,7 +157,7 @@ void QmlAVPlayer::frameHandler(const std::shared_ptr<QmlAVFrame> frame)
                     if (m_videoSurface->present(qvf)) {
                         m_fpsCounter++;
                     } else {
-                        stop();
+                        m_videoSurface->stop();
                     }
                 }
 
