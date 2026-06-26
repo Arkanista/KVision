@@ -659,6 +659,15 @@ FocusScope {
                     }
 
                     Rectangle {
+                        id: emptyViewportBorder
+                        anchors.fill: parent
+                        color: "transparent"
+                        border.width: 1
+                        border.color: "#182026"
+                        visible: model.url === ""
+                    }
+
+                    Rectangle {
                         id: selectionRect
 
                         color: "transparent"

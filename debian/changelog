@@ -1,3 +1,13 @@
+cctv-viewer (2.2.6-1) jammy; urgency=medium
+
+  * Removed "Automatically collapse top bar" option from Settings. Now, the top bar in Live windows (both main and auxiliary) collapses by default on startup, and the pin button pins it volatilely (in-memory) and locally per window without saving to disk or synchronizing across instances.
+  * Implemented Auxiliary Window Limit (configurable 1-9) with a themed limit exceeded warning popup matching SingleInstanceWarning.
+  * Added subtle 1px dark-gray borders around empty viewports in the Live layout grid.
+  * Secured save paths and system media configuration options behind a transient "Uaktywnij zmiany w tej sekcji" (Activate changes in this section) checkbox, which resets on settings window hide or tab switch.
+  * Added highlighted celadon "otwórz folder zapisu" button upon completed recording download in Archive, and always-active quick-open shortcut buttons for snapshot and video paths in Settings (auto-creating directories if missing).
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Fri, 26 Jun 2026 11:26:00 +0200
+
 cctv-viewer (2.2.5-1) jammy; urgency=medium
 
   * Resolved RAM memory leaks when switching camera layouts by automatically stopping video surface format transitions and adjusting renderer dimensions.

@@ -25,6 +25,7 @@ ApplicationWindow {
     property string lastLoadedModelsJson: ""
     property string lastSavedModelsJson: ""
     property bool isSyncing: false
+    property bool topBarAutoCollapse: true
 
     onClosing: {
         if (!closeAccepted) {
@@ -188,6 +189,7 @@ ApplicationWindow {
         property string snapshotPath: ""
         property string videoPath: ""
         property bool disableAudio: false
+        property int auxiliaryLimit: 1
     }
 
     Settings {
@@ -229,7 +231,6 @@ ApplicationWindow {
         property int width: 1280 + 48 // SideBar compact width
         property int height: 720
         property bool fullScreen
-        property bool topBarAutoCollapse: true
 
         Component.onCompleted: {
             // Do not initialize "fullScreen" if option "-f" is set
@@ -316,6 +317,10 @@ ApplicationWindow {
             if (generalSettings.lockGridSize !== diskLockGridSize) {
                 generalSettings.lockGridSize = diskLockGridSize;
             }
+            var diskAuxiliaryLimit = Context.readSetting("", "auxiliaryLimit", 1);
+            if (generalSettings.auxiliaryLimit !== diskAuxiliaryLimit) {
+                generalSettings.auxiliaryLimit = diskAuxiliaryLimit;
+            }
 
             // 4. Check and live-reload View Settings
             var diskHideCursor = Context.readSetting("View", "hideCursorWhenFullScreen", true);
@@ -347,12 +352,6 @@ ApplicationWindow {
                 layoutsCollectionSettings.defaultAVFormatOptions = diskDefaultAVFormatOptions;
             }
 
-            // 5. Check and live-reload Root Window top bar collapse setting
-            var windowCategory = Context.isAuxiliary ? "AuxiliaryWindow_" + Context.auxiliaryId : "RootWindow";
-            var diskTopBarCollapse = Context.readSetting(windowCategory, "topBarAutoCollapse", true);
-            if (rootWindowSettings.topBarAutoCollapse !== diskTopBarCollapse) {
-                rootWindowSettings.topBarAutoCollapse = diskTopBarCollapse;
-            }
 
             // 6. Check and live-reload Application Language
             var diskLang = Context.readSetting("", "language", "system");
@@ -585,7 +584,7 @@ ApplicationWindow {
 
         // Slides down to y: -12 so that the top 12px (containing top rounded corners) is off-screen,
         // leaving only the bottom rounded corners visible at the top edge of the window.
-        y: (!rootWindowSettings.topBarAutoCollapse || hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? -12 : -height
+        y: (!rootWindow.topBarAutoCollapse || hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? -12 : -height
 
         Behavior on y {
             NumberAnimation {
@@ -650,7 +649,7 @@ ApplicationWindow {
                 Layout.preferredHeight: 30
                 Layout.alignment: Qt.AlignVCenter
 
-                property bool isPinned: !rootWindowSettings.topBarAutoCollapse
+                property bool isPinned: !rootWindow.topBarAutoCollapse
 
                 contentItem: Image {
                     anchors.centerIn: parent
@@ -680,7 +679,7 @@ ApplicationWindow {
                 }
 
                 onClicked: {
-                    rootWindowSettings.topBarAutoCollapse = !rootWindowSettings.topBarAutoCollapse;
+                    rootWindow.topBarAutoCollapse = !rootWindow.topBarAutoCollapse;
                 }
 
                 ToolTip.delay: Compact.toolTipDelay
@@ -1255,6 +1254,29 @@ ApplicationWindow {
         visible: false
         color: "#0f151b"
 
+        onVisibleChanged: {
+            if (sideBarLoader.item) {
+                try {
+                    sideBarLoader.item.resetPathChangesCheckbox();
+                } catch(e) {}
+            }
+            if (visible) {
+                if (sideBarLoader.source == "" && !Context.config.kioskMode) {
+                    sideBarLoader.source = "SideBar.qml";
+                }
+                var defaultWidth = Math.round(rootWindow.width * 0.85);
+                var defaultHeight = Math.round(rootWindow.height * 0.85);
+                if (sidebarWindow.width === 320 || sidebarWindow.width <= 0) {
+                    sidebarWindow.width = defaultWidth;
+                }
+                if (sidebarWindow.height === 750 || sidebarWindow.height <= 0) {
+                    sidebarWindow.height = defaultHeight;
+                }
+                sidebarWindow.x = Math.round(rootWindow.x + (rootWindow.width - sidebarWindow.width) / 2);
+                sidebarWindow.y = Math.round(rootWindow.y + (rootWindow.height - sidebarWindow.height) / 2);
+            }
+        }
+
         Settings {
             id: sidebarWindowSettings
             fileName: Context.config.fileName
@@ -1285,23 +1307,7 @@ ApplicationWindow {
             sidebarWindow.visibleChanged.connect(saveGeometry);
         }
 
-        onVisibleChanged: {
-            if (visible) {
-                if (sideBarLoader.source == "" && !Context.config.kioskMode) {
-                    sideBarLoader.source = "SideBar.qml";
-                }
-                var defaultWidth = Math.round(rootWindow.width * 0.85);
-                var defaultHeight = Math.round(rootWindow.height * 0.85);
-                if (sidebarWindow.width === 320 || sidebarWindow.width <= 0) {
-                    sidebarWindow.width = defaultWidth;
-                }
-                if (sidebarWindow.height === 750 || sidebarWindow.height <= 0) {
-                    sidebarWindow.height = defaultHeight;
-                }
-                sidebarWindow.x = Math.round(rootWindow.x + (rootWindow.width - sidebarWindow.width) / 2);
-                sidebarWindow.y = Math.round(rootWindow.y + (rootWindow.height - sidebarWindow.height) / 2);
-            }
-        }
+
 
         function saveGeometry() {
             sidebarWindowSettings.x = sidebarWindow.x;

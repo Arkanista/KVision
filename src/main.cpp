@@ -3,6 +3,12 @@
 #include <QQmlContext>
 #include <QQuickWindow>
 #include <QTranslator>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QSettings>
+#include <unistd.h>
+#include <sys/types.h>
 #include <cstdarg>
 
 extern "C" {
@@ -97,6 +103,81 @@ void registerQmlTypes()
     });
 }
 
+int countAuxiliaryProcesses()
+{
+    qint64 selfPid = getpid();
+    uid_t myUid = getuid();
+    QString selfExe = QFile::symLinkTarget(QString("/proc/%1/exe").arg(selfPid));
+
+    int count = 0;
+    QDir procDir("/proc");
+    QStringList entries = procDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    for (const QString &entry : entries) {
+        bool ok = false;
+        qint64 pid = entry.toLongLong(&ok);
+        if (!ok || pid == selfPid) continue;
+
+        // Check UID
+        QFile statusFile(QString("/proc/%1/status").arg(pid));
+        uid_t procUid = -1;
+        if (statusFile.open(QIODevice::ReadOnly)) {
+            QByteArray content = statusFile.readAll();
+            statusFile.close();
+            int uidIdx = content.indexOf("Uid:");
+            if (uidIdx != -1) {
+                int lineEnd = content.indexOf('\n', uidIdx);
+                QByteArray line = content.mid(uidIdx, lineEnd - uidIdx);
+                QList<QByteArray> parts = line.split('\t');
+                for (const QByteArray &p : parts) {
+                    bool numOk = false;
+                    uint val = p.trimmed().toUInt(&numOk);
+                    if (numOk) {
+                        procUid = val;
+                        break;
+                    }
+                }
+                if (procUid == -1) {
+                    QList<QByteArray> partsSpace = line.split(' ');
+                    for (const QByteArray &p : partsSpace) {
+                        bool numOk = false;
+                        uint val = p.trimmed().toUInt(&numOk);
+                        if (numOk) {
+                            procUid = val;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if (procUid != myUid) continue;
+
+        // Check executable path
+        QString exePath = QFile::symLinkTarget(QString("/proc/%1/exe").arg(pid));
+        if (exePath.isEmpty() || exePath != selfExe) {
+            continue;
+        }
+
+        // Check cmdline
+        QFile cmdFile(QString("/proc/%1/cmdline").arg(pid));
+        if (cmdFile.open(QIODevice::ReadOnly)) {
+            QByteArray cmdline = cmdFile.readAll();
+            cmdFile.close();
+            QList<QByteArray> args = cmdline.split('\0');
+            bool isAux = false;
+            for (const QByteArray &arg : args) {
+                if (arg == "--auxiliary") {
+                    isAux = true;
+                    break;
+                }
+            }
+            if (isAux) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
 int main(int argc, char *argv[])
 {
     qInstallMessageHandler(customMessageHandler);
@@ -143,6 +224,28 @@ int main(int argc, char *argv[])
     Context::init();
     qInfo() << "CCTV Viewer version:" << APP_VERSION;
     Context::initLanguage();
+
+    if (Context::isAuxiliary()) {
+        QString configPath = Context::config() ? Context::config()->fileName() : QSettings().fileName();
+        QSettings settings(configPath, QSettings::IniFormat);
+        int limit = settings.value("auxiliaryLimit", 1).toInt();
+        if (limit < 1) limit = 1;
+        if (limit > 9) limit = 9;
+
+        int activeAuxCount = countAuxiliaryProcesses();
+        if (activeAuxCount >= limit) {
+            QQmlApplicationEngine engine;
+            Context::setEngine(&engine);
+            engine.addImportPath(":/src/imports");
+            const QUrl url(QStringLiteral("qrc:/src/AuxiliaryLimitWarning.qml"));
+            QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, &app, [url](QObject *obj, const QUrl &objUrl) {
+                if (!obj && url == objUrl)
+                    QCoreApplication::exit(-1);
+            }, Qt::QueuedConnection);
+            engine.load(url);
+            return app.exec();
+        }
+    }
 
     QQmlApplicationEngine engine;
     Context::setEngine(&engine);

@@ -274,7 +274,8 @@ Popup {
                 "progress": 0,
                 "overallProgress": 0,
                 "isDownloading": false,
-                "statusText": ""
+                "statusText": "",
+                "downloadSuccess": false
             });
         }
     }
@@ -476,6 +477,7 @@ Popup {
                                 model.isDownloading = false
                                 if (success) {
                                     model.statusText = message
+                                    model.downloadSuccess = true
                                 } else {
                                     model.statusText = qsTr("Błąd:") + " " + message
                                 }
@@ -483,6 +485,7 @@ Popup {
                         }
                         
                         function startRowDownload(recInfo, startDt, endDt) {
+                            model.downloadSuccess = false
                             model.isDownloading = true
                             model.statusText = qsTr("Inicjalizacja...")
                             rowDownloader.startDownload(recInfo, model.channelId, startDt, endDt, model.savePath)
@@ -491,6 +494,7 @@ Popup {
                         function stopRowDownload() {
                             rowDownloader.stopDownload()
                             model.isDownloading = false
+                            model.downloadSuccess = false
                             model.statusText = qsTr("Zatrzymano")
                         }
                         
@@ -588,6 +592,24 @@ Popup {
                                     font.bold: true
                                     style: Text.Outline
                                     styleColor: "#1e2227"
+                                }
+                            }
+
+                            CctvButton {
+                                text: qsTr("otwórz folder zapisu")
+                                isSmall: true
+                                isCeladon: true
+                                visible: !!model.downloadSuccess
+                                onClicked: {
+                                    var path = model.savePath;
+                                    var dirPath = "";
+                                    var idx = path.lastIndexOf("/");
+                                    if (idx !== -1) {
+                                        dirPath = path.substring(0, idx);
+                                    } else {
+                                        dirPath = path;
+                                    }
+                                    Qt.openUrlExternally("file://" + dirPath);
                                 }
                             }
                         }

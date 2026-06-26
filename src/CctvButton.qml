@@ -57,14 +57,14 @@ Button {
 
     background: Rectangle {
         color: control.pressed
-            ? (control.isCeladon ? "#00a33c" : (control.isPrimary ? "#d66600" : "#cc121214"))
+            ? (control.isCeladon ? "#00c2ad" : (control.isPrimary ? "#d66600" : "#cc121214"))
             : (control.hovered
-                ? (control.isCeladon ? "#00ff77" : (control.isPrimary ? "#ff8c00" : "#3a4550"))
-                : (control.isCeladon ? "#00e676" : (control.isPrimary ? "#ff7a00" : "#1c242c")))
+                ? (control.isCeladon ? "#33f7dd" : (control.isPrimary ? "#ff8c00" : "#3a4550"))
+                : (control.isCeladon ? "#00f5d4" : (control.isPrimary ? "#ff7a00" : "#1c242c")))
         radius: height / 2
         border.color: control.hovered
-            ? (control.isCeladon ? "#00ff99" : (control.isPrimary ? "#ff9e00" : "#8898a6"))
-            : (control.isCeladon ? "#00e676" : (control.isPrimary ? "#ff7a00" : "#2a3540"))
+            ? (control.isCeladon ? "#33f7dd" : (control.isPrimary ? "#ff9e00" : "#8898a6"))
+            : (control.isCeladon ? "#00f5d4" : (control.isPrimary ? "#ff7a00" : "#2a3540"))
         border.width: 1
     }
 }
