@@ -76,10 +76,14 @@ FocusScope {
             date: "26.06.2026",
             changes: [
                 qsTr("Wycofano opcję automatycznego zwijania paska górnego z ustawień – odtąd pasek górny w oknach LIVE (głównym i pomocniczym) zwija się domyślnie przy starcie, a pinezka przypina go lokalnie i tymczasowo (w pamięci) bez zapisywania stanu."),
-                qsTr("Wprowadzono limit liczby okien pomocniczych (konfigurowalny w zakresie 1-9) z eleganckim oknem ostrzegawczym o zablokowaniu przy próbie jego przekroczenia."),
+                qsTr("Wprowadzono limit liczby okien pomocniczych (konfigurowalny w zakresie 0-3) z eleganckim oknem ostrzegawczym o zablokowaniu przy próbie jego przekroczenia."),
                 qsTr("Dodano subtelne, ciemnoszare ramki o szerokości 1px wokół nieużywanych viewportów w siatce podglądu LIVE dla lepszego rozgraniczenia pól."),
                 qsTr("Zabezpieczono edycję ścieżek zapisu i konfiguracji multimediów w ustawieniach przejściowym polem wyboru 'Uaktywnij zmiany w tej sekcji', zapobiegając przypadkowym modyfikacjom (stan edycji resetuje się po zamknięciu)."),
-                qsTr("Wprowadzono bezpośrednie skróty 'otwórz folder zapisu' (wyróżniony seledynowym kolorem przy ukończonym pobieraniu w oknie Archiwum) oraz zawsze aktywne przyciski szybkiego otwierania folderów zrzutów i wideo w ustawieniach (z automatycznym tworzeniem katalogu na dysku).")
+                qsTr("Wprowadzono bezpośrednie skróty 'otwórz folder zapisu' (wyróżniony seledynowym kolorem przy ukończonym pobieraniu w oknie Archiwum) oraz zawsze aktywne przyciski szybkiego otwierania folderów zrzutów i wideo w ustawieniach (z automatycznym tworzeniem katalogu na dysku)."),
+                qsTr("Wprowadzono interaktywną walidację przy kliknięciu przycisku 'Pobierz' w oknie pobierania: automatyczna kontrola formatów pól oraz chronologii dat z dymkiem ostrzegawczym i przekierowaniem fokusu na pierwsze błędne pole."),
+                qsTr("Zaimplementowano pełną nawigację klawiaturą (strzałkami góra/dół do zmiany wartości, lewo/prawo do zmiany kolumn) w graficznym selektorze czasu (Clock Picker)."),
+                qsTr("Zapewniono całkowicie czysty start okien pomocniczych (bez automatycznego otwierania panelu opcji) oraz wykluczono zapisywanie ustawień geometrii z okien pomocniczych, eliminując zanieczyszczanie konfiguracji."),
+                qsTr("Dodano pełne wsparcie dla języka angielskiego dla wszystkich nowych komunikatów o błędach walidacji i formatowania w oknie pobierania.")
             ]
         },
         {
@@ -2057,15 +2061,21 @@ FocusScope {
                                     color: "white"
                                     font.pixelSize: 12
                                     maximumLength: 1
-                                    validator: IntValidator { bottom: 1; top: 9 }
+                                    validator: IntValidator { bottom: 0; top: 3 }
                                     background: Rectangle {
                                         color: "#0f151b"
                                         radius: 4
                                         border.color: auxiliaryLimitField.activeFocus ? "#ff7a00" : "#2a3540"
                                     }
+                                    onTextChanged: {
+                                        var val = parseInt(text);
+                                        if (!isNaN(val) && val > 3) {
+                                            text = "3";
+                                        }
+                                    }
                                     onEditingFinished: {
                                         var val = parseInt(text);
-                                        if (!isNaN(val) && val >= 1 && val <= 9) {
+                                        if (!isNaN(val) && val >= 0 && val <= 3) {
                                             generalSettings.auxiliaryLimit = val;
                                         } else {
                                             text = generalSettings.auxiliaryLimit.toString();

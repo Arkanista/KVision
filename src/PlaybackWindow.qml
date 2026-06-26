@@ -60,6 +60,21 @@ Window {
         }
     }
 
+    function getSnapshotPath() {
+        if (typeof rootWindow !== "undefined" && rootWindow.generalSettings) {
+            return rootWindow.generalSettings.snapshotPath;
+        }
+        return "";
+    }
+
+    function getVideoPath() {
+        if (typeof rootWindow !== "undefined" && rootWindow.generalSettings) {
+            return rootWindow.generalSettings.videoPath;
+        }
+        return "";
+    }
+
+
     Shortcut {
         sequences: ["F11", StandardKey.FullScreen]
         onActivated: toggleWindowFullScreen()
@@ -2394,7 +2409,7 @@ Window {
                                 text: Qt.formatDate(currentDate, "yyyy-MM-dd")
                                 iconSource: {
                                     var colorStr = calendarButton.hovered ? "%2300f5d4" : "%238898a6"
-                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2' ry='2'></rect><line x1='16' y1='2' x2='16' y2='6'></line><line x1='8' y1='2' x2='8' y2='6'></line><line x1='3' y1='10' x2='21' y2='10'></line></svg>"
+                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2' ry='2'></rect><line x1='16' y1='2' x2='16' y2='6'></line><line x1='8' y1='2' x2='8' y2='6'></line><line x1='3' y1='10' x2='21' y2='10'></line><path d='M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01'></path></svg>"
                                 }
                                 isSmall: true
                                 onClicked: {
@@ -3395,6 +3410,97 @@ Window {
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: timelineToggleBtn.hovered
                     ToolTip.text: playbackWindow.hideTimelineOption ? qsTr("Pokaż oś czasu") : qsTr("Ukryj oś czasu")
+                }
+
+                Rectangle {
+                    width: 1
+                    height: 20
+                    color: "#2a3540"
+                    Layout.alignment: Qt.AlignVCenter
+                    Layout.leftMargin: 6
+                    Layout.rightMargin: 6
+                }
+
+                Button {
+                    id: openRecordingsFolderBtn
+                    Layout.preferredWidth: 30
+                    Layout.preferredHeight: 30
+                    Layout.alignment: Qt.AlignVCenter
+                    hoverEnabled: true
+
+                    contentItem: Image {
+                        anchors.centerIn: parent
+                        width: 18
+                        height: 18
+                        sourceSize.width: 18
+                        sourceSize.height: 18
+                        fillMode: Image.PreserveAspectFit
+                        source: {
+                            var colorStr = openRecordingsFolderBtn.hovered ? "%2300f5d4" : "%238898a6";
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M23 7l-7 5 7 5V7z'></path><rect x='1' y='5' width='15' height='14' rx='2' ry='2'></rect></svg>";
+                        }
+                    }
+
+                    background: Rectangle {
+                        color: openRecordingsFolderBtn.pressed ? "#cc121214" : (openRecordingsFolderBtn.hovered ? "#3a4550" : "#1c242c")
+                        radius: 15
+                        border.color: openRecordingsFolderBtn.hovered ? "#00f5d4" : "#2a3540"
+                        border.width: 1
+                    }
+
+                    onClicked: {
+                        var path = getVideoPath();
+                        if (path !== "") {
+                            Context.mkpath(path);
+                            Qt.openUrlExternally("file://" + path);
+                        }
+                    }
+
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: openRecordingsFolderBtn.hovered
+                    ToolTip.text: qsTr("Otwórz folder nagrań")
+                }
+
+                Button {
+                    id: openSnapshotsFolderBtn
+                    Layout.preferredWidth: 30
+                    Layout.preferredHeight: 30
+                    Layout.alignment: Qt.AlignVCenter
+                    hoverEnabled: true
+
+                    contentItem: Image {
+                        anchors.centerIn: parent
+                        width: 18
+                        height: 18
+                        sourceSize.width: 18
+                        sourceSize.height: 18
+                        fillMode: Image.PreserveAspectFit
+                        source: {
+                            var colorStr = openSnapshotsFolderBtn.hovered ? "%23ff7a00" : "%238898a6";
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'></path><circle cx='12' cy='13' r='4'></circle></svg>";
+                        }
+                    }
+
+                    background: Rectangle {
+                        color: openSnapshotsFolderBtn.pressed ? "#cc121214" : (openSnapshotsFolderBtn.hovered ? "#3a4550" : "#1c242c")
+                        radius: 15
+                        border.color: openSnapshotsFolderBtn.hovered ? "#ff7a00" : "#2a3540"
+                        border.width: 1
+                    }
+
+                    onClicked: {
+                        var path = getSnapshotPath();
+                        if (path !== "") {
+                            Context.mkpath(path);
+                            Qt.openUrlExternally("file://" + path);
+                        }
+                    }
+
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: openSnapshotsFolderBtn.hovered
+                    ToolTip.text: qsTr("Otwórz folder stopklatek")
                 }
 
                 Rectangle {

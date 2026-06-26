@@ -5,7 +5,9 @@ import QtQuick.Dialogs 1.2
 import CCTV_Viewer.Hikvision 1.0
 import CCTV_Viewer.Utils 1.0
 import CCTV_Viewer.Core 1.0
+import CCTV_Viewer.Themes 1.0
 import Qt.labs.platform 1.1 as Platform
+
 
 Popup {
     id: downloadDialog
@@ -34,6 +36,93 @@ Popup {
 
     ListModel {
         id: downloadModel
+    }
+
+    property bool hasValidationErrors: {
+        var e1 = false, e2 = false, e3 = false, e4 = false;
+        try { e1 = startDateField.hasError; } catch(e) {}
+        try { e2 = endDateField.hasError; } catch(e) {}
+        try { e3 = startTimeField.hasError; } catch(e) {}
+        try { e4 = endTimeField.hasError; } catch(e) {}
+        return e1 || e2 || e3 || e4;
+    }
+
+    function validateAllFields() {
+        startDateField.customErrorText = ""
+        startTimeField.customErrorText = ""
+        endDateField.customErrorText = ""
+        endTimeField.customErrorText = ""
+        
+        startDateField.forceShow = false
+        startTimeField.forceShow = false
+        endDateField.forceShow = false
+        endTimeField.forceShow = false
+
+        var startDtValid = validateDate(startDateField.text)
+        startDateField.hasError = !startDtValid
+        
+        var startTmValid = validateTime(startTimeField.text)
+        startTimeField.hasError = !startTmValid
+        
+        var endDtValid = validateDate(endDateField.text)
+        endDateField.hasError = !endDtValid
+        
+        var endTmValid = validateTime(endTimeField.text)
+        endTimeField.hasError = !endTmValid
+        
+        if (!startDtValid) {
+            startDateField.forceShow = true
+            startDateField.forceActiveFocus()
+            return false
+        }
+        if (!startTmValid) {
+            startTimeField.forceShow = true
+            startTimeField.forceActiveFocus()
+            return false
+        }
+        if (!endDtValid) {
+            endDateField.forceShow = true
+            endDateField.forceActiveFocus()
+            return false
+        }
+        if (!endTmValid) {
+            endTimeField.forceShow = true
+            endTimeField.forceActiveFocus()
+            return false
+        }
+        
+        var startDt = getStartDateTime()
+        var endDt = getEndDateTime()
+        if (startDt >= endDt) {
+            endDateField.hasError = true
+            endDateField.customErrorText = qsTr("Data i czas końcowy muszą być późniejsze niż początkowe!")
+            endDateField.forceShow = true
+            
+            endTimeField.hasError = true
+            endTimeField.customErrorText = qsTr("Data i czas końcowy muszą być późniejsze niż początkowe!")
+            endTimeField.forceShow = true
+            
+            endDateField.forceActiveFocus()
+            return false
+        }
+        
+        return true
+    }
+
+    function validateDate(text) {
+        var dateRegex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/;
+        if (!dateRegex.test(text)) return false;
+        var parts = text.split(".");
+        var day = parseInt(parts[0]);
+        var month = parseInt(parts[1]);
+        var year = parseInt(parts[2]);
+        var d = new Date(year, month - 1, day);
+        return d.getFullYear() === year && d.getMonth() === month - 1 && d.getDate() === day;
+    }
+
+    function validateTime(text) {
+        var timeRegex = /^([01]\d|2[0-3])[:.][0-5]\d[:.][0-5]\d$/;
+        return timeRegex.test(text);
     }
 
     background: Rectangle {
@@ -214,6 +303,311 @@ Popup {
         }
     }
 
+    Popup {
+        id: timePickerPopup
+        width: 320
+        height: 320
+        modal: true
+        focus: true
+        anchors.centerIn: parent
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+        background: Rectangle { 
+            color: "#151d24"
+            border.color: "#2a3540"
+            border.width: 1
+            radius: 6
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    if (timePickerContent) {
+                        timePickerContent.forceActiveFocus()
+                    }
+                }
+            }
+        }
+        
+        enter: Transition {
+            NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: 150; easing.type: Easing.OutQuad }
+            NumberAnimation { property: "scale"; from: 0.95; to: 1.0; duration: 150; easing.type: Easing.OutQuad }
+        }
+        exit: Transition {
+            NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; duration: 100; easing.type: Easing.InQuad }
+            NumberAnimation { property: "scale"; from: 1.0; to: 0.95; duration: 100; easing.type: Easing.InQuad }
+        }
+
+        property var targetField: null
+        property int selectedHour: 0
+        property int selectedMinute: 0
+        property int selectedSecond: 0
+        property int activeColumn: 0 // 0: Godziny, 1: Minuty, 2: Sekundy
+
+        function changeSelectedValue(delta) {
+            if (activeColumn === 0) {
+                selectedHour = (selectedHour + delta + 24) % 24
+                hourListView.positionViewAtIndex(selectedHour, ListView.Center)
+            } else if (activeColumn === 1) {
+                selectedMinute = (selectedMinute + delta + 60) % 60
+                minuteListView.positionViewAtIndex(selectedMinute, ListView.Center)
+            } else if (activeColumn === 2) {
+                selectedSecond = (selectedSecond + delta + 60) % 60
+                secondListView.positionViewAtIndex(selectedSecond, ListView.Center)
+            }
+        }
+
+        function openTimePicker(field) {
+            targetField = field
+            var textVal = field.text
+            var parts = textVal.split(/[:\.]/)
+            var h = 0, m = 0, s = 0
+            if (parts.length >= 3) {
+                h = Math.max(0, Math.min(23, parseInt(parts[0]) || 0))
+                m = Math.max(0, Math.min(59, parseInt(parts[1]) || 0))
+                s = Math.max(0, Math.min(59, parseInt(parts[2]) || 0))
+            }
+            selectedHour = h
+            selectedMinute = m
+            selectedSecond = s
+            activeColumn = 0
+            
+            open()
+            
+            Qt.callLater(function() {
+                hourListView.positionViewAtIndex(h, ListView.Center)
+                minuteListView.positionViewAtIndex(m, ListView.Center)
+                secondListView.positionViewAtIndex(s, ListView.Center)
+                if (timePickerContent) {
+                    timePickerContent.forceActiveFocus()
+                }
+            })
+        }
+
+        function applyTime() {
+            if (targetField) {
+                var hStr = selectedHour < 10 ? "0" + selectedHour : selectedHour.toString()
+                var mStr = selectedMinute < 10 ? "0" + selectedMinute : selectedMinute.toString()
+                var sStr = selectedSecond < 10 ? "0" + selectedSecond : selectedSecond.toString()
+                
+                targetField.text = hStr + ":" + mStr + ":" + sStr
+                targetField.hasError = false
+            }
+            close()
+        }
+
+        ColumnLayout {
+            id: timePickerContent
+            focus: true
+            anchors.fill: parent
+            anchors.margins: 15
+            spacing: 15
+
+            Keys.onLeftPressed: {
+                timePickerPopup.activeColumn = (timePickerPopup.activeColumn - 1 + 3) % 3
+            }
+            Keys.onRightPressed: {
+                timePickerPopup.activeColumn = (timePickerPopup.activeColumn + 1) % 3
+            }
+            Keys.onUpPressed: {
+                timePickerPopup.changeSelectedValue(-1)
+            }
+            Keys.onDownPressed: {
+                timePickerPopup.changeSelectedValue(1)
+            }
+            Keys.onReturnPressed: {
+                timePickerPopup.applyTime()
+            }
+            Keys.onEnterPressed: {
+                timePickerPopup.applyTime()
+            }
+
+            Text {
+                text: qsTr("Wybierz czas")
+                color: "white"
+                font.bold: true
+                font.pixelSize: 16
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            RowLayout {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                spacing: 10
+
+                // Hours Column
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    spacing: 4
+                    Text {
+                        text: qsTr("Godz")
+                        color: timePickerPopup.activeColumn === 0 ? timePickerPopup.palette.highlight : "#8898a6"
+                        font.bold: true
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+                    Rectangle {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        color: timePickerPopup.palette.base
+                        border.color: timePickerPopup.activeColumn === 0 ? timePickerPopup.palette.highlight : "#2a3540"
+                        border.width: timePickerPopup.activeColumn === 0 ? 1.5 : 1
+                        radius: Compact.radius
+                        clip: true
+
+                        ListView {
+                            id: hourListView
+                            anchors.fill: parent
+                            model: 24
+                            clip: true
+                            delegate: Rectangle {
+                                width: parent.width
+                                height: 30
+                                color: timePickerPopup.selectedHour === index ? "#1400f5d4" : "transparent"
+                                border.color: timePickerPopup.selectedHour === index ? "#4400f5d4" : "transparent"
+                                border.width: 1
+                                radius: Compact.radius
+                                Text {
+                                    text: index < 10 ? "0" + index : index.toString()
+                                    color: timePickerPopup.selectedHour === index ? "#00f5d4" : "#8898a6"
+                                    font.bold: timePickerPopup.selectedHour === index
+                                    anchors.centerIn: parent
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: {
+                                        timePickerPopup.selectedHour = index
+                                        timePickerPopup.activeColumn = 0
+                                        timePickerContent.forceActiveFocus()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Minutes Column
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    spacing: 4
+                    Text {
+                        text: qsTr("Min")
+                        color: timePickerPopup.activeColumn === 1 ? timePickerPopup.palette.highlight : "#8898a6"
+                        font.bold: true
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+                    Rectangle {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        color: timePickerPopup.palette.base
+                        border.color: timePickerPopup.activeColumn === 1 ? timePickerPopup.palette.highlight : "#2a3540"
+                        border.width: timePickerPopup.activeColumn === 1 ? 1.5 : 1
+                        radius: Compact.radius
+                        clip: true
+
+                        ListView {
+                            id: minuteListView
+                            anchors.fill: parent
+                            model: 60
+                            clip: true
+                            delegate: Rectangle {
+                                width: parent.width
+                                height: 30
+                                color: timePickerPopup.selectedMinute === index ? "#1400f5d4" : "transparent"
+                                border.color: timePickerPopup.selectedMinute === index ? "#4400f5d4" : "transparent"
+                                border.width: 1
+                                radius: Compact.radius
+                                Text {
+                                    text: index < 10 ? "0" + index : index.toString()
+                                    color: timePickerPopup.selectedMinute === index ? "#00f5d4" : "#8898a6"
+                                    font.bold: timePickerPopup.selectedMinute === index
+                                    anchors.centerIn: parent
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: {
+                                        timePickerPopup.selectedMinute = index
+                                        timePickerPopup.activeColumn = 1
+                                        timePickerContent.forceActiveFocus()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Seconds Column
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    spacing: 4
+                    Text {
+                        text: qsTr("Sek")
+                        color: timePickerPopup.activeColumn === 2 ? timePickerPopup.palette.highlight : "#8898a6"
+                        font.bold: true
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+                    Rectangle {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        color: timePickerPopup.palette.base
+                        border.color: timePickerPopup.activeColumn === 2 ? timePickerPopup.palette.highlight : "#2a3540"
+                        border.width: timePickerPopup.activeColumn === 2 ? 1.5 : 1
+                        radius: Compact.radius
+                        clip: true
+
+                        ListView {
+                            id: secondListView
+                            anchors.fill: parent
+                            model: 60
+                            clip: true
+                            delegate: Rectangle {
+                                width: parent.width
+                                height: 30
+                                color: timePickerPopup.selectedSecond === index ? "#1400f5d4" : "transparent"
+                                border.color: timePickerPopup.selectedSecond === index ? "#4400f5d4" : "transparent"
+                                border.width: 1
+                                radius: Compact.radius
+                                Text {
+                                    text: index < 10 ? "0" + index : index.toString()
+                                    color: timePickerPopup.selectedSecond === index ? "#00f5d4" : "#8898a6"
+                                    font.bold: timePickerPopup.selectedSecond === index
+                                    anchors.centerIn: parent
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: {
+                                        timePickerPopup.selectedSecond = index
+                                        timePickerPopup.activeColumn = 2
+                                        timePickerContent.forceActiveFocus()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: 10
+                CctvButton {
+                    text: qsTr("Anuluj")
+                    Layout.fillWidth: true
+                    onClicked: timePickerPopup.close()
+                }
+                CctvButton {
+                    text: qsTr("Zatwierdź")
+                    isPrimary: true
+                    Layout.fillWidth: true
+                    onClicked: timePickerPopup.applyTime()
+                }
+            }
+        }
+    }
+
     onOpened: {
         var baseDate = targetDate || new Date()
         
@@ -226,7 +620,7 @@ Popup {
         startDateField.text = Qt.formatDateTime(startDate, "dd.MM.yyyy")
         endDateField.text = Qt.formatDateTime(endDate, "dd.MM.yyyy")
         startTimeField.text = "00:00:00"
-        endTimeField.text = "23:59:59"
+        endTimeField.text = "01:00:00"
 
         downloadModel.clear();
         for (var i = 0; i < activeCamerasList.length; i++) {
@@ -317,7 +711,7 @@ Popup {
         if (partsDateStart.length === 3) {
             start.setFullYear(parseInt(partsDateStart[2]), parseInt(partsDateStart[1])-1, parseInt(partsDateStart[0]))
         }
-        var partsStart = startTimeField.text.split(":")
+        var partsStart = startTimeField.text.split(/[:\.]/)
         start.setHours(parseInt(partsStart[0]||"0"), parseInt(partsStart[1]||"0"), parseInt(partsStart[2]||"0"), 0)
         return start
     }
@@ -328,7 +722,7 @@ Popup {
         if (partsDateEnd.length === 3) {
             end.setFullYear(parseInt(partsDateEnd[2]), parseInt(partsDateEnd[1])-1, parseInt(partsDateEnd[0]))
         }
-        var partsEnd = endTimeField.text.split(":")
+        var partsEnd = endTimeField.text.split(/[:\.]/)
         end.setHours(parseInt(partsEnd[0]||"23"), parseInt(partsEnd[1]||"59"), parseInt(partsEnd[2]||"59"), 0)
         return end
     }
@@ -347,15 +741,16 @@ Popup {
         }
 
         GridLayout {
-            columns: 3
+            columns: 4
             rowSpacing: 10
             columnSpacing: 10
             Layout.fillWidth: true
 
-            Text { text: qsTr("Od:"); color: "white" }
+            Text { text: qsTr("Od:"); color: "white"; Layout.alignment: Qt.AlignVCenter }
             RowLayout {
-                Layout.fillWidth: true
                 spacing: 2
+                Layout.preferredWidth: 150
+                Layout.fillWidth: false
                 TextField {
                     id: startDateField
                     Layout.fillWidth: true
@@ -363,9 +758,59 @@ Popup {
                     palette.highlight: "#00f5d4"
                     palette.highlightedText: "#000000"
                     enabled: !downloadDialog.isAnyDownloading()
+                    
+                    property bool hasError: false
+                    property bool forceShow: false
+                    property string customErrorText: ""
+                    onTextChanged: {
+                        forceShow = false
+                        customErrorText = ""
+                        if (text.length === 10) {
+                            hasError = !downloadDialog.validateDate(text)
+                        } else if (text.length > 10) {
+                            hasError = true
+                        } else {
+                            hasError = false
+                        }
+                    }
+                    onActiveFocusChanged: {
+                        if (!activeFocus) {
+                            hasError = !downloadDialog.validateDate(text)
+                        }
+                    }
+                    
+                    background: Rectangle {
+                        color: startDateField.palette.base
+                        radius: Compact.radius
+                        border.color: startDateField.hasError ? "#ff3333" : (startDateField.activeFocus ? startDateField.palette.highlight : startDateField.palette.mid)
+                        border.width: startDateField.activeFocus || startDateField.hasError ? 2 : 1
+                    }
+                    
+                    ToolTip {
+                        id: startDateFieldTip
+                        visible: startDateField.hasError && (startDateField.hovered || startDateField.activeFocus || startDateField.forceShow)
+                        text: startDateField.customErrorText !== "" ? startDateField.customErrorText : qsTr("Błędny format daty! Wymagany format: DD.MM.RRRR (np. 26.06.2026)")
+                        delay: 0
+                        timeout: 5000
+                        background: Rectangle {
+                            color: "#3a1c1e"
+                            border.color: "#ff3333"
+                            radius: Compact.radius
+                        }
+                        contentItem: Text {
+                            text: startDateFieldTip.text
+                            color: "white"
+                            font.bold: true
+                            font.pixelSize: 11
+                            wrapMode: Text.Wrap
+                        }
+                    }
                 }
                 CctvButton {
-                    iconSource: "qrc:/images/calendar.svg"
+                    iconSource: {
+                        var colorStr = hovered ? "%2300f5d4" : "%23ffffff"
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2' ry='2'></rect><line x1='16' y1='2' x2='16' y2='6'></line><line x1='8' y1='2' x2='8' y2='6'></line><line x1='3' y1='10' x2='21' y2='10'></line><path d='M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01'></path></svg>"
+                    }
                     isSmall: true
                     Layout.preferredWidth: 30
                     enabled: !downloadDialog.isAnyDownloading()
@@ -382,19 +827,87 @@ Popup {
                     }
                 }
             }
-            TextField {
-                id: startTimeField
+            RowLayout {
+                spacing: 2
+                Layout.preferredWidth: 130
+                Layout.fillWidth: false
+                TextField {
+                    id: startTimeField
+                    Layout.fillWidth: true
+                    selectByMouse: true
+                    palette.highlight: "#00f5d4"
+                    palette.highlightedText: "#000000"
+                    enabled: !downloadDialog.isAnyDownloading()
+                    
+                    property bool hasError: false
+                    property bool forceShow: false
+                    property string customErrorText: ""
+                    onTextChanged: {
+                        forceShow = false
+                        customErrorText = ""
+                        if (text.length === 8) {
+                            hasError = !downloadDialog.validateTime(text)
+                        } else if (text.length > 8) {
+                            hasError = true
+                        } else {
+                            hasError = false
+                        }
+                    }
+                    onActiveFocusChanged: {
+                        if (!activeFocus) {
+                            hasError = !downloadDialog.validateTime(text)
+                        }
+                    }
+                    
+                    background: Rectangle {
+                        color: startTimeField.palette.base
+                        radius: Compact.radius
+                        border.color: startTimeField.hasError ? "#ff3333" : (startTimeField.activeFocus ? startTimeField.palette.highlight : startTimeField.palette.mid)
+                        border.width: startTimeField.activeFocus || startTimeField.hasError ? 2 : 1
+                    }
+                    
+                    ToolTip {
+                        id: startTimeFieldTip
+                        visible: startTimeField.hasError && (startTimeField.hovered || startTimeField.activeFocus || startTimeField.forceShow)
+                        text: startTimeField.customErrorText !== "" ? startTimeField.customErrorText : qsTr("Błędny format czasu! Wymagany format: HH.MM.SS lub HH:MM:SS (np. 12:30:00 lub 12.30.00)")
+                        delay: 0
+                        timeout: 5000
+                        background: Rectangle {
+                            color: "#3a1c1e"
+                            border.color: "#ff3333"
+                            radius: Compact.radius
+                        }
+                        contentItem: Text {
+                            text: startTimeFieldTip.text
+                            color: "white"
+                            font.bold: true
+                            font.pixelSize: 11
+                            wrapMode: Text.Wrap
+                        }
+                    }
+                }
+                CctvButton {
+                    iconSource: {
+                        var colorStr = hovered ? "%2300f5d4" : "%23ffffff"
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><polyline points='12 6 12 12 16 14'></polyline></svg>"
+                    }
+                    isSmall: true
+                    Layout.preferredWidth: 30
+                    enabled: !downloadDialog.isAnyDownloading()
+                    onClicked: {
+                        timePickerPopup.openTimePicker(startTimeField)
+                    }
+                }
+            }
+            Item {
                 Layout.fillWidth: true
-                selectByMouse: true
-                palette.highlight: "#00f5d4"
-                palette.highlightedText: "#000000"
-                enabled: !downloadDialog.isAnyDownloading()
             }
 
-            Text { text: qsTr("Do:"); color: "white" }
+            Text { text: qsTr("Do:"); color: "white"; Layout.alignment: Qt.AlignVCenter }
             RowLayout {
-                Layout.fillWidth: true
                 spacing: 2
+                Layout.preferredWidth: 150
+                Layout.fillWidth: false
                 TextField {
                     id: endDateField
                     Layout.fillWidth: true
@@ -402,9 +915,59 @@ Popup {
                     palette.highlight: "#00f5d4"
                     palette.highlightedText: "#000000"
                     enabled: !downloadDialog.isAnyDownloading()
+                    
+                    property bool hasError: false
+                    property bool forceShow: false
+                    property string customErrorText: ""
+                    onTextChanged: {
+                        forceShow = false
+                        customErrorText = ""
+                        if (text.length === 10) {
+                            hasError = !downloadDialog.validateDate(text)
+                        } else if (text.length > 10) {
+                            hasError = true
+                        } else {
+                            hasError = false
+                        }
+                    }
+                    onActiveFocusChanged: {
+                        if (!activeFocus) {
+                            hasError = !downloadDialog.validateDate(text)
+                        }
+                    }
+                    
+                    background: Rectangle {
+                        color: endDateField.palette.base
+                        radius: Compact.radius
+                        border.color: endDateField.hasError ? "#ff3333" : (endDateField.activeFocus ? endDateField.palette.highlight : endDateField.palette.mid)
+                        border.width: endDateField.activeFocus || endDateField.hasError ? 2 : 1
+                    }
+                    
+                    ToolTip {
+                        id: endDateFieldTip
+                        visible: endDateField.hasError && (endDateField.hovered || endDateField.activeFocus || endDateField.forceShow)
+                        text: endDateField.customErrorText !== "" ? endDateField.customErrorText : qsTr("Błędny format daty! Wymagany format: DD.MM.RRRR (np. 26.06.2026)")
+                        delay: 0
+                        timeout: 5000
+                        background: Rectangle {
+                            color: "#3a1c1e"
+                            border.color: "#ff3333"
+                            radius: Compact.radius
+                        }
+                        contentItem: Text {
+                            text: endDateFieldTip.text
+                            color: "white"
+                            font.bold: true
+                            font.pixelSize: 11
+                            wrapMode: Text.Wrap
+                        }
+                    }
                 }
                 CctvButton {
-                    iconSource: "qrc:/images/calendar.svg"
+                    iconSource: {
+                        var colorStr = hovered ? "%2300f5d4" : "%23ffffff"
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2' ry='2'></rect><line x1='16' y1='2' x2='16' y2='6'></line><line x1='8' y1='2' x2='8' y2='6'></line><line x1='3' y1='10' x2='21' y2='10'></line><path d='M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01'></path></svg>"
+                    }
                     isSmall: true
                     Layout.preferredWidth: 30
                     enabled: !downloadDialog.isAnyDownloading()
@@ -421,12 +984,80 @@ Popup {
                     }
                 }
             }
-            TextField {
-                id: endTimeField
+            RowLayout {
+                spacing: 2
+                Layout.preferredWidth: 130
+                Layout.fillWidth: false
+                TextField {
+                    id: endTimeField
+                    Layout.fillWidth: true
+                    selectByMouse: true
+                    palette.highlight: "#00f5d4"
+                    palette.highlightedText: "#000000"
+                    enabled: !downloadDialog.isAnyDownloading()
+                    
+                    property bool hasError: false
+                    property bool forceShow: false
+                    property string customErrorText: ""
+                    onTextChanged: {
+                        forceShow = false
+                        customErrorText = ""
+                        if (text.length === 8) {
+                            hasError = !downloadDialog.validateTime(text)
+                        } else if (text.length > 8) {
+                            hasError = true
+                        } else {
+                            hasError = false
+                        }
+                    }
+                    onActiveFocusChanged: {
+                        if (!activeFocus) {
+                            hasError = !downloadDialog.validateTime(text)
+                        }
+                    }
+                    
+                    background: Rectangle {
+                        color: endTimeField.palette.base
+                        radius: Compact.radius
+                        border.color: endTimeField.hasError ? "#ff3333" : (endTimeField.activeFocus ? endTimeField.palette.highlight : endTimeField.palette.mid)
+                        border.width: endTimeField.activeFocus || endTimeField.hasError ? 2 : 1
+                    }
+                    
+                    ToolTip {
+                        id: endTimeFieldTip
+                        visible: endTimeField.hasError && (endTimeField.hovered || endTimeField.activeFocus || endTimeField.forceShow)
+                        text: endTimeField.customErrorText !== "" ? endTimeField.customErrorText : qsTr("Błędny format czasu! Wymagany format: HH.MM.SS lub HH:MM:SS (np. 12:30:00 lub 12.30.00)")
+                        delay: 0
+                        timeout: 5000
+                        background: Rectangle {
+                            color: "#3a1c1e"
+                            border.color: "#ff3333"
+                            radius: Compact.radius
+                        }
+                        contentItem: Text {
+                            text: endTimeFieldTip.text
+                            color: "white"
+                            font.bold: true
+                            font.pixelSize: 11
+                            wrapMode: Text.Wrap
+                        }
+                    }
+                }
+                CctvButton {
+                    iconSource: {
+                        var colorStr = hovered ? "%2300f5d4" : "%23ffffff"
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><polyline points='12 6 12 12 16 14'></polyline></svg>"
+                    }
+                    isSmall: true
+                    Layout.preferredWidth: 30
+                    enabled: !downloadDialog.isAnyDownloading()
+                    onClicked: {
+                        timePickerPopup.openTimePicker(endTimeField)
+                    }
+                }
+            }
+            Item {
                 Layout.fillWidth: true
-                selectByMouse: true
-                palette.highlight: "#00f5d4"
-                palette.highlightedText: "#000000"
             }
         }
           // Cameras List inside a scrollable view with a fixed height layout
@@ -639,6 +1270,10 @@ Popup {
                     if (downloadDialog.isAnyDownloading()) {
                         downloadDialog.stopAllDownloads()
                     } else {
+                        if (!downloadDialog.validateAllFields()) {
+                            return
+                        }
+                        
                         downloadStarted()
                         
                         var startDt = downloadDialog.getStartDateTime()

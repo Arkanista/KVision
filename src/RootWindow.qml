@@ -318,6 +318,8 @@ ApplicationWindow {
                 generalSettings.lockGridSize = diskLockGridSize;
             }
             var diskAuxiliaryLimit = Context.readSetting("", "auxiliaryLimit", 1);
+            if (diskAuxiliaryLimit < 0) diskAuxiliaryLimit = 0;
+            if (diskAuxiliaryLimit > 3) diskAuxiliaryLimit = 3;
             if (generalSettings.auxiliaryLimit !== diskAuxiliaryLimit) {
                 generalSettings.auxiliaryLimit = diskAuxiliaryLimit;
             }
@@ -1298,13 +1300,18 @@ ApplicationWindow {
             sidebarWindow.height = (sidebarWindowSettings.height > 0 && sidebarWindowSettings.height !== 750) ? sidebarWindowSettings.height : defaultHeight;
             sidebarWindow.x = (sidebarWindowSettings.x >= 0 && sidebarWindowSettings.x !== 100) ? sidebarWindowSettings.x : defaultX;
             sidebarWindow.y = (sidebarWindowSettings.y >= 0 && sidebarWindowSettings.y !== 100) ? sidebarWindowSettings.y : defaultY;
-            sidebarWindow.visible = sidebarWindowSettings.visible;
 
-            sidebarWindow.xChanged.connect(saveGeometry);
-            sidebarWindow.yChanged.connect(saveGeometry);
-            sidebarWindow.widthChanged.connect(saveGeometry);
-            sidebarWindow.heightChanged.connect(saveGeometry);
-            sidebarWindow.visibleChanged.connect(saveGeometry);
+            if (Context.isAuxiliary) {
+                sidebarWindow.visible = false;
+            } else {
+                sidebarWindow.visible = sidebarWindowSettings.visible;
+
+                sidebarWindow.xChanged.connect(saveGeometry);
+                sidebarWindow.yChanged.connect(saveGeometry);
+                sidebarWindow.widthChanged.connect(saveGeometry);
+                sidebarWindow.heightChanged.connect(saveGeometry);
+                sidebarWindow.visibleChanged.connect(saveGeometry);
+            }
         }
 
 

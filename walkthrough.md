@@ -225,3 +225,40 @@ W wersji `v2.2.0` wprowadziliśmy zaawansowane poprawki stabilności i wydajnoś
   - W razie braku szczegółowych danych procesowych, aplikacja płynnie przechodzi do odczytu węzłów systemowych sysfs `/sys/class/drm/card0/device/` lub systemowych wskaźników NVML.
 * **Rozszerzanie panelu statystyk systemowych:** Umożliwiono dynamiczną zmianę rozmiaru panelu poprzez przeciąganie za jego krawędzie oraz narożniki. Wykresy CPU, GPU i sieci automatycznie skalują swoją szerokość i wysokość, dopasowując się płynnie do nowych wymiarów panelu w czasie rzeczywistym.
 * **Natychmiastowe zamykanie programu (UX):** Wprowadzono wywołanie `hide()` na oknach przed wywołaniem `Qt.quit()` w oknach dialogowych wyjścia. Sprawia to, że interfejs programu znika natychmiast z ekranu użytkownika, a faktyczne zwalnianie zasobów i wątków w tle odbywa się niezauważalnie.
+
+---
+
+## 18. Optymalizacja Okna Pobierania, Precyzyjne Limity, Selektor Czasu oraz Nowe Ikony
+
+Wprowadziliśmy kompleksową przebudowę interfejsu konfiguracji limitów okien pomocniczych oraz okna pobierania archiwalnego, wzbogacając je o intuicyjne elementy sterujące, dynamiczną walidację oraz spójną identyfikację wizualną:
+
+### 1. Walidacja limitu okien pomocniczych w locie
+* **Zachowanie**: Wprowadzono natychmiastowe sprawdzanie wpisywanej wartości w polu `auxiliaryLimitField` (`SideBar.qml`). Każda cyfra większa niż `3` jest w locie (przy zdarzeniu `onTextChanged`) automatycznie zamieniana na `3`.
+* **Zakres**: Limit został ściśle określony na przedział `0-3` (0 oznacza całkowite zablokowanie otwierania nowych okien pomocniczych).
+* **Bezpieczeństwo startu**: Wprowadzono dodatkową weryfikację odczytu limitu z pliku konfiguracyjnego na dysku w `RootWindow.qml` oraz `main.cpp` w celu zapewnienia prawidłowych granic (0–3) już na starcie aplikacji.
+
+### 2. Przebudowa Układu i Skrócenie Pól w Oknie Pobierania
+* **Estetyka**: Przebudowano układ siatki (`GridLayout`) w oknie `DownloadDialog.qml` na układ 4-kolumnowy, dodając element rozciągający się na końcu każdego wiersza. Zapobiega to rozciąganiu pól tekstowych na całą szerokość dialogu (1200px) i eliminuje nieestetyczne puste przestrzenie.
+* **Szerokości preferowane**: Pola daty i czasu posiadają odtąd stałe szerokości preferowane (odpowiednio `150` dla daty i `130` dla czasu).
+* **Domyślne wartości**: Zmieniono domyślny czas zakończenia pobierania z `23:59:59` na `01:00:00` w bloku inicjalizacyjnym.
+
+### 3. Graficzny Selektor Czasu (Time Picker Popup)
+* **Wizualny przycisk**: Obok każdego pola czasu umieszczono okrągły przycisk szybkiego wyboru z ikoną zegara.
+* **Interfejs wyboru**: Kliknięcie przycisku otwiera modalny `timePickerPopup` z dopasowanym, eleganckim tłem `#0f151b`, który pozwala na płynne przewijanie i precyzyjny wybór godzin (`00-23`), minut (`00-59`) oraz sekund (`00-59`).
+* **Aktywne podświetlenie**: Wybrane wartości są podświetlane na jaskrawy pomarańczowy kolor (`#ff7a00`), a zatwierdzenie wartości przyciskiem "Zatwierdź" automatycznie formatuje czas i wpisuje go do odpowiedniego pola tekstowego.
+* **Automatyczne pozycjonowanie**: Przy otwarciu popupa, kolumny automatycznie przewijają się i pozycjonują (za pomocą `positionViewAtIndex` w bloku `Qt.callLater`) na wartościach aktualnie wpisanych w polu tekstowym.
+
+### 4. Inteligentna Walidacja i Blokada Pobierania
+* **Walidacja w locie**: Pola tekstowe weryfikują poprawność formatu (regex) oraz logikę (np. poprawne dni w miesiącu z uwzględnieniem lat przestępnych) automatycznie przy edycji oraz przy utracie fokusu.
+* **Formaty**: Wspierany jest format daty `DD.MM.RRRR` oraz elastyczny format czasu obsługujący zarówno separatory dwukropkowe, jak i kropkowe (`HH:MM:SS` oraz `HH.MM.SS`).
+* **Sygnalizacja błędów**: Pole zawierające błędne dane zostaje otoczone czerwoną, grubą ramką (`#ff3333`), a najechanie na nie myszą lub aktywacja wyświetla szczegółowy, czerwony tooltip informujący o prawidłowym formacie.
+* **Blokada przycisku**: Przycisk "Pobierz" zostaje automatycznie dezaktywowany (disabled) tak długo, jak długo w dowolnym polu widnieje błąd walidacji.
+
+### 5. Nowoczesne, Spójne Ikony Wyboru Daty (Kalendarza)
+* **Aestetyczna aktualizacja**: Zgodnie z sugestią użytkownika, zaktualizowaliśmy ikony przycisków wyboru daty (kalendarza) do nowoczesnego, szczegółowego inline SVG zawierającego miniaturowy układ siatki dni (kropek).
+* **Zakres**: Zmiana została wprowadzona zarówno w oknie pobierania (`DownloadDialog.qml`), jak i w głównym panelu odtwarzacza archiwalnego na osi czasu (`PlaybackWindow.qml`), co gwarantuje pełną spójność wizualną i premium design całego interfejsu.
+* **Interakcja**: Ikony te dynamicznie reagują na najechanie kursorem (hover), płynnie przechodząc z białego (lub szarego) koloru na seledynowy akcent (`#00f5d4`).
+
+### Wyniki Weryfikacji
+* **Budowanie projektu**: Kompilacja zakończona pełnym sukcesem (`100% Built target cctv-viewer`).
+* **Testy automatyczne**: Wszystkie 16 testów jednostkowych przeszło pomyślnie.

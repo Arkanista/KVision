@@ -229,8 +229,8 @@ int main(int argc, char *argv[])
         QString configPath = Context::config() ? Context::config()->fileName() : QSettings().fileName();
         QSettings settings(configPath, QSettings::IniFormat);
         int limit = settings.value("auxiliaryLimit", 1).toInt();
-        if (limit < 1) limit = 1;
-        if (limit > 9) limit = 9;
+        if (limit < 0) limit = 0;
+        if (limit > 3) limit = 3;
 
         int activeAuxCount = countAuxiliaryProcesses();
         if (activeAuxCount >= limit) {
