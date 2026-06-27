@@ -202,6 +202,7 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
     app.setFont(QFont("DejaVu Sans Condensed"));
+    app.setDesktopFileName(QStringLiteral("kvision"));
 
     SingleApplication singleApp;
     if (singleApp.isRunning()) {
