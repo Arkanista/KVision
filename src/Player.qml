@@ -8,6 +8,7 @@ import CCTV_Viewer.Hikvision 1.0
 import CCTV_Viewer.Core 1.0
 import CCTV_Viewer.Themes 1.0
 import Qt.labs.platform 1.1 as Platform
+import QtGraphicalEffects 1.12
 
 FocusScope {
     id: root
@@ -43,6 +44,8 @@ FocusScope {
 
     property var avOptions: ({})
     property int index: -1
+    property bool isFullScreen: false
+    property var layoutModel: null
 
     property int loops: 1
     onLoopsChanged: {
@@ -150,8 +153,6 @@ FocusScope {
         }
 
         if (newUrl === "") {
-            qmlAvPlayer1.stop();
-            qmlAvPlayer2.stop();
             qmlAvPlayer1.source = "";
             qmlAvPlayer2.source = "";
             activeStreamUrl = "";
@@ -196,12 +197,23 @@ FocusScope {
         var player = playerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
         if (player.status === MediaPlayer.Buffered && (player.hasVideo || player.hasAudio)) {
             console.log("[Player] Seamless switch: Inactive player " + playerIndex + " is ready with frames. Switching.");
+            var oldPlayer = activePlayerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
+            
+            // Critical fix for ALSA device sharing: release the audio output of the old player
+            // immediately before we restore the unmute state of the new player.
+            // This prevents "Device or resource busy" errors from stopping the new stream.
+            oldPlayer.muted = true;
+            
             player.muted = root.muted; // Restore user's mute settings for the now-active player
             
             activePlayerIndex = playerIndex;
             
-            var otherPlayer = playerIndex === 1 ? qmlAvPlayer2 : qmlAvPlayer1;
-            otherPlayer.source = "";
+            var targetIndex = playerIndex;
+            Qt.callLater(function() {
+                if (activePlayerIndex === targetIndex) {
+                    oldPlayer.source = "";
+                }
+            });
         }
     }
 
@@ -221,8 +233,13 @@ FocusScope {
             console.log("[Player] Seamless switch failed: Inactive player " + playerIndex + " failed to load. Switching to show error.");
             activePlayerIndex = playerIndex;
             
-            var otherPlayer = playerIndex === 1 ? qmlAvPlayer2 : qmlAvPlayer1;
-            otherPlayer.source = "";
+            var targetIndex = playerIndex;
+            Qt.callLater(function() {
+                if (activePlayerIndex === targetIndex) {
+                    var oldPlayer = targetIndex === 1 ? qmlAvPlayer2 : qmlAvPlayer1;
+                    oldPlayer.source = "";
+                }
+            });
         }
     }
 
@@ -278,6 +295,16 @@ FocusScope {
         qmlAvPlayer2.volume = volume;
     }
 
+    onActivePlayerIndexChanged: {
+        if (activePlayerIndex === 1) {
+            qmlAvPlayer1.muted = muted;
+            qmlAvPlayer2.muted = true;
+        } else {
+            qmlAvPlayer2.muted = muted;
+            qmlAvPlayer1.muted = true;
+        }
+    }
+
     onVisibleChanged: {
         if (visible) {
             updateSource();
@@ -288,8 +315,6 @@ FocusScope {
             timer.stop();
             qmlAvPlayer1.autoPlay = false;
             qmlAvPlayer2.autoPlay = false;
-            qmlAvPlayer1.stop();
-            qmlAvPlayer2.stop();
             qmlAvPlayer1.source = "";
             qmlAvPlayer2.source = "";
             activeStreamUrl = "";
@@ -313,8 +338,6 @@ FocusScope {
         timer.stop();
         qmlAvPlayer1.autoPlay = false;
         qmlAvPlayer2.autoPlay = false;
-        qmlAvPlayer1.stop();
-        qmlAvPlayer2.stop();
         qmlAvPlayer1.source = "";
         qmlAvPlayer2.source = "";
         activeStreamUrl = "";
@@ -736,7 +759,8 @@ FocusScope {
                             snapshotMouseAreaBtn.containsMouse ||
                             (playbackBadge.visible && playbackMouseAreaBtn.containsMouse) ||
                             oneToOneMouseAreaBtn.containsMouse ||
-                            zoomMouseAreaBtn.containsMouse;
+                            zoomMouseAreaBtn.containsMouse ||
+                            (volumeControl.visible && (muteMouseArea.containsMouse || sliderMouseArea.containsMouse || maxVolMouseArea.containsMouse || volumeSlider.pressed));
             }
 
             onContainsMouseChanged: updateHoverState()
@@ -751,6 +775,164 @@ FocusScope {
                 }
                 spacing: 6
                 visible: (root.source !== "") && (!viewSettings.hoverControlIcons || playerHoverArea.isHovered)
+
+                Row {
+                    id: volumeControl
+                    spacing: 4
+                    visible: root.isFullScreen && root.hasAudio
+
+                    Control {
+                        id: muteButton
+                        implicitWidth: 24
+                        implicitHeight: 24
+                        padding: 5
+                        focusPolicy: Qt.NoFocus
+
+                        background: Rectangle {
+                            radius: 12
+                            color: muteMouseArea.pressed ? "#4a5560" : (muteMouseArea.containsMouse ? "#3a4550" : "#cc121214")
+                            border.color: (muteMouseArea.containsMouse || muteMouseArea.pressed) ? "#cc8898a6" : "#802a3540"
+                            border.width: 1
+                        }
+
+                        contentItem: Image {
+                            sourceSize: Qt.size(32, 32)
+                            fillMode: Image.PreserveAspectFit
+                            source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff3333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='11 5 6 9 2 9 2 15 6 15 11 19 11 5'></polygon><line x1='23' y1='9' x2='17' y2='15'></line><line x1='17' y1='9' x2='23' y2='15'></line></svg>"
+                        }
+
+                        MouseArea {
+                            id: muteMouseArea
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onContainsMouseChanged: playerHoverArea.updateHoverState()
+                            onClicked: {
+                                if (root.layoutModel && root.index !== -1) {
+                                    var vItem = root.layoutModel.get(root.index);
+                                    if (vItem) vItem.volume = 0.0;
+                                } else {
+                                    root.volume = 0.0;
+                                }
+                            }
+                        }
+
+                        ToolTip.delay: Compact.toolTipDelay
+                        ToolTip.timeout: Compact.toolTipTimeout
+                        ToolTip.visible: muteMouseArea.containsMouse
+                        ToolTip.text: qsTr("Wycisz")
+                    }
+
+                    Slider {
+                        id: volumeSlider
+                        width: 110
+                        height: 24
+                        padding: 0
+                        from: 0.0
+                        to: 1.0
+                        value: root.volume
+                        focusPolicy: Qt.NoFocus
+                        onMoved: {
+                            if (root.layoutModel && root.index !== -1) {
+                                var vItem = root.layoutModel.get(root.index);
+                                if (vItem) vItem.volume = value;
+                            } else {
+                                root.volume = value;
+                            }
+                        }
+
+                        background: Rectangle {
+                            x: volumeSlider.leftPadding
+                            y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
+                            implicitWidth: 110
+                            implicitHeight: 4
+                            width: volumeSlider.availableWidth
+                            height: implicitHeight
+                            radius: 2
+                            color: "#1c242c"
+
+                            Rectangle {
+                                width: volumeSlider.visualPosition * parent.width
+                                height: parent.height
+                                color: "#00f5d4"
+                                radius: 2
+                                layer.enabled: true
+                                layer.effect: Glow {
+                                    radius: 4
+                                    samples: 8
+                                    color: "#00f5d4"
+                                    transparentBorder: true
+                                }
+                            }
+                        }
+
+                        handle: Rectangle {
+                            x: volumeSlider.leftPadding + volumeSlider.visualPosition * (volumeSlider.availableWidth - width)
+                            y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
+                            implicitWidth: 12
+                            implicitHeight: 12
+                            radius: 6
+                            color: volumeSlider.pressed ? "#ff9a00" : (sliderMouseArea.containsMouse ? "#ffaa00" : "#ff7a00")
+                            border.color: "#ffffff"
+                            border.width: volumeSlider.pressed ? 2 : 1
+                        }
+
+                        MouseArea {
+                            id: sliderMouseArea
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            acceptedButtons: Qt.NoButton
+                            onContainsMouseChanged: playerHoverArea.updateHoverState()
+                        }
+
+                        Connections {
+                            target: volumeSlider
+                            function onPressedChanged() { playerHoverArea.updateHoverState() }
+                        }
+                    }
+
+                    Control {
+                        id: maxVolButton
+                        implicitWidth: 24
+                        implicitHeight: 24
+                        padding: 5
+                        focusPolicy: Qt.NoFocus
+
+                        background: Rectangle {
+                            radius: 12
+                            color: maxVolMouseArea.pressed ? "#4a5560" : (maxVolMouseArea.containsMouse ? "#3a4550" : "#cc121214")
+                            border.color: (maxVolMouseArea.containsMouse || maxVolMouseArea.pressed) ? "#cc8898a6" : "#802a3540"
+                            border.width: 1
+                        }
+
+                        contentItem: Image {
+                            sourceSize: Qt.size(32, 32)
+                            fillMode: Image.PreserveAspectFit
+                            source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='11 5 6 9 2 9 2 15 6 15 11 19 11 5'></polygon><path d='M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07'></path></svg>"
+                        }
+
+                        MouseArea {
+                            id: maxVolMouseArea
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onContainsMouseChanged: playerHoverArea.updateHoverState()
+                            onClicked: {
+                                if (root.layoutModel && root.index !== -1) {
+                                    var vItem = root.layoutModel.get(root.index);
+                                    if (vItem) vItem.volume = 1.0;
+                                } else {
+                                    root.volume = 1.0;
+                                }
+                            }
+                        }
+
+                        ToolTip.delay: Compact.toolTipDelay
+                        ToolTip.timeout: Compact.toolTipTimeout
+                        ToolTip.visible: maxVolMouseArea.containsMouse
+                        ToolTip.text: qsTr("Maksymalna głośność")
+                    }
+                }
 
                 Control {
                     id: snapshotBadge
@@ -1012,8 +1194,6 @@ FocusScope {
 //    function pause() { mediaPlayer.pause(); }
 //    function seek(position) { mediaPlayer.seek(position); }
     function stop() {
-        qmlAvPlayer1.stop();
-        qmlAvPlayer2.stop();
         qmlAvPlayer1.source = "";
         qmlAvPlayer2.source = "";
         activeStreamUrl = "";

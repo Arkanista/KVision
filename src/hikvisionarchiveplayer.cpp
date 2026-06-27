@@ -213,6 +213,7 @@ void HikvisionArchivePlayer::cleanupPlayback()
     }
 
     if (port >= 0) {
+        PlayM4_StopSoundShare(port);
         {
             std::lock_guard<std::mutex> lock(s_portMapMutex);
             s_portMap.erase(port);
@@ -601,6 +602,46 @@ void HikvisionArchivePlayer::stop()
     cleanupPlayback();
 }
 
+void HikvisionArchivePlayer::setVolume(double volume)
+{
+    if (volume < 0.0) volume = 0.0;
+    if (volume > 1.0) volume = 1.0;
+
+    if (qFuzzyCompare(m_volume, volume)) return;
+
+    m_volume = volume;
+    emit volumeChanged();
+
+    LONG activePort = m_nPort.load();
+    if (activePort >= 0) {
+        PlayM4_SetVolume(activePort, static_cast<WORD>(m_volume * 0xFFFF));
+    }
+}
+
+void HikvisionArchivePlayer::setMuted(bool muted)
+{
+    if (m_muted == muted) return;
+
+    m_muted = muted;
+    emit mutedChanged();
+
+    LONG activePort = m_nPort.load();
+    if (activePort >= 0) {
+        if (m_muted) {
+            PlayM4_StopSoundShare(activePort);
+            qDebug() << "[HikArchive] Audio stopped (muted) on port" << activePort;
+        } else {
+            PlayM4_StopSoundShare(activePort);
+            if (PlayM4_PlaySoundShare(activePort)) {
+                PlayM4_SetVolume(activePort, static_cast<WORD>(m_volume * 0xFFFF));
+                qDebug() << "[HikArchive] Audio started (unmuted) on port" << activePort << "volume" << m_volume;
+            } else {
+                qWarning() << "[HikArchive] PlayM4_PlaySoundShare FAILED on unmute. Error:" << PlayM4_GetLastError(activePort);
+            }
+        }
+    }
+}
+
 bool HikvisionArchivePlayer::hasActiveStream() const
 {
     return m_lPlayHandle >= 0;
@@ -700,6 +741,17 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
             qWarning() << "[HikArchive] PlayM4_Play FAILED. PlayM4 error:" << playErr;
         } else {
             qDebug() << "[HikArchive] PlayM4_Play OK - decoder started!";
+            if (!player->m_muted) {
+                PlayM4_StopSoundShare(activePort);
+                if (PlayM4_PlaySoundShare(activePort)) {
+                    PlayM4_SetVolume(activePort, static_cast<WORD>(player->m_volume * 0xFFFF));
+                    qDebug() << "[HikArchive] Audio initially started on port" << activePort << "volume" << player->m_volume;
+                } else {
+                    qWarning() << "[HikArchive] PlayM4_PlaySoundShare initially FAILED. Error:" << PlayM4_GetLastError(activePort);
+                }
+            } else {
+                qDebug() << "[HikArchive] Player initially muted, not playing audio on port" << activePort;
+            }
         }
     } else if (dwDataType == NET_DVR_STREAMDATA) {
         if (!sysHeadReceived) {

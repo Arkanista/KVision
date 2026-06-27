@@ -1598,6 +1598,13 @@ Window {
                                 
                                 property alias playerInstance: playerItem
                                 property bool isSelected: index === selectedPlayerIndex
+                                property bool userMuted: false
+                                readonly property bool isAudible: {
+                                    if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
+                                        return false;
+                                    }
+                                    return (fullScreenPlayerIndex !== -1) ? fullScreen : false;
+                                }
                                 
                                 property bool isOneToOne: false
                                 property real oneToOneX: 0
@@ -1692,6 +1699,7 @@ Window {
                                         password: modelData ? modelData.password : ""
                                         channelId: modelData ? modelData.channelId : 1
                                         port: modelData ? (modelData.port || 8000) : 8000
+                                        muted: !tileContainer.isAudible || tileContainer.userMuted
                                         
                                         property string lastPlayedKey: ""
                                         
@@ -1837,13 +1845,14 @@ Window {
                                         id: playerHoverArea
                                         property bool isHovered: false
                                         function updateHoverState() {
-                                            isHovered = playerHoverAreaMouseArea.containsMouse ||
-                                                        snapshotMouseAreaBtn.containsMouse ||
-                                                        oneToOneMouseAreaBtn.containsMouse ||
-                                                        zoomMouseAreaBtn.containsMouse ||
-                                                        fullScreenMouseAreaBtn.containsMouse ||
-                                                        closeViewportMouseAreaBtn.containsMouse;
-                                        }
+                                             isHovered = playerHoverAreaMouseArea.containsMouse ||
+                                                         snapshotMouseAreaBtn.containsMouse ||
+                                                         oneToOneMouseAreaBtn.containsMouse ||
+                                                         zoomMouseAreaBtn.containsMouse ||
+                                                         fullScreenMouseAreaBtn.containsMouse ||
+                                                         closeViewportMouseAreaBtn.containsMouse ||
+                                                         (volumeControl.visible && (muteMouseArea.containsMouse || sliderMouseArea.containsMouse || maxVolMouseArea.containsMouse || volumeSlider.pressed));
+                                         }
                                         Component.onCompleted: updateHoverState()
                                         Connections {
                                             target: playerHoverAreaMouseArea
@@ -1873,6 +1882,22 @@ Window {
                                             target: tileContainer
                                             function onVisibleChanged() { playerHoverArea.updateHoverState() }
                                         }
+                                        Connections {
+                                            target: muteMouseArea
+                                            function onContainsMouseChanged() { playerHoverArea.updateHoverState() }
+                                        }
+                                        Connections {
+                                            target: sliderMouseArea
+                                            function onContainsMouseChanged() { playerHoverArea.updateHoverState() }
+                                        }
+                                        Connections {
+                                            target: maxVolMouseArea
+                                            function onContainsMouseChanged() { playerHoverArea.updateHoverState() }
+                                        }
+                                        Connections {
+                                            target: volumeSlider
+                                            function onPressedChanged() { playerHoverArea.updateHoverState() }
+                                        }
                                     }
 
                                     MouseArea {
@@ -1893,6 +1918,145 @@ Window {
                                         spacing: 6
                                         z: 10
                                         visible: modelData !== null
+
+                                        Row {
+                                            id: volumeControl
+                                            spacing: 4
+                                            visible: tileContainer.isAudible
+
+                                            Control {
+                                                id: muteButton
+                                                implicitWidth: 24
+                                                implicitHeight: 24
+                                                padding: 5
+
+                                                background: Rectangle {
+                                                    radius: 12
+                                                    color: muteMouseArea.pressed ? "#4a5560" : (muteMouseArea.containsMouse ? "#3a4550" : "#cc121214")
+                                                    border.color: (muteMouseArea.containsMouse || muteMouseArea.pressed) ? "#cc8898a6" : "#802a3540"
+                                                    border.width: 1
+                                                }
+
+                                                contentItem: Image {
+                                                    sourceSize: Qt.size(32, 32)
+                                                    fillMode: Image.PreserveAspectFit
+                                                    source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff3333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='11 5 6 9 2 9 2 15 6 15 11 19 11 5'></polygon><line x1='23' y1='9' x2='17' y2='15'></line><line x1='17' y1='9' x2='23' y2='15'></line></svg>"
+                                                }
+
+                                                MouseArea {
+                                                    id: muteMouseArea
+                                                    anchors.fill: parent
+                                                    hoverEnabled: true
+                                                    cursorShape: Qt.PointingHandCursor
+                                                    onClicked: {
+                                                        tileContainer.userMuted = true;
+                                                        playerItem.volume = 0.0;
+                                                    }
+                                                }
+
+                                                ToolTip.delay: 500
+                                                ToolTip.timeout: 5000
+                                                ToolTip.visible: muteMouseArea.containsMouse
+                                                ToolTip.text: qsTr("Wycisz")
+                                            }
+
+                                            Slider {
+                                                id: volumeSlider
+                                                width: 110
+                                                height: 24
+                                                padding: 0
+                                                from: 0.0
+                                                to: 1.0
+                                                value: playerItem.volume
+                                                onMoved: {
+                                                    playerItem.volume = value;
+                                                    if (value > 0.0) {
+                                                        tileContainer.userMuted = false;
+                                                    } else {
+                                                        tileContainer.userMuted = true;
+                                                    }
+                                                }
+
+                                                background: Rectangle {
+                                                    x: volumeSlider.leftPadding
+                                                    y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
+                                                    implicitWidth: 110
+                                                    implicitHeight: 4
+                                                    width: volumeSlider.availableWidth
+                                                    height: implicitHeight
+                                                    radius: 2
+                                                    color: "#1c242c"
+
+                                                    Rectangle {
+                                                        width: volumeSlider.visualPosition * parent.width
+                                                        height: parent.height
+                                                        color: "#00f5d4"
+                                                        radius: 2
+                                                        layer.enabled: true
+                                                        layer.effect: Glow {
+                                                            radius: 4
+                                                            samples: 8
+                                                            color: "#00f5d4"
+                                                            transparentBorder: true
+                                                        }
+                                                    }
+                                                }
+
+                                                handle: Rectangle {
+                                                    x: volumeSlider.leftPadding + volumeSlider.visualPosition * (volumeSlider.availableWidth - width)
+                                                    y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
+                                                    implicitWidth: 12
+                                                    implicitHeight: 12
+                                                    radius: 6
+                                                    color: volumeSlider.pressed ? "#ff9a00" : (sliderMouseArea.containsMouse ? "#ffaa00" : "#ff7a00")
+                                                    border.color: "#ffffff"
+                                                    border.width: volumeSlider.pressed ? 2 : 1
+                                                }
+
+                                                MouseArea {
+                                                    id: sliderMouseArea
+                                                    anchors.fill: parent
+                                                    hoverEnabled: true
+                                                    acceptedButtons: Qt.NoButton
+                                                }
+                                            }
+
+                                            Control {
+                                                id: maxVolButton
+                                                implicitWidth: 24
+                                                implicitHeight: 24
+                                                padding: 5
+
+                                                background: Rectangle {
+                                                    radius: 12
+                                                    color: maxVolMouseArea.pressed ? "#4a5560" : (maxVolMouseArea.containsMouse ? "#3a4550" : "#cc121214")
+                                                    border.color: (maxVolMouseArea.containsMouse || maxVolMouseArea.pressed) ? "#cc8898a6" : "#802a3540"
+                                                    border.width: 1
+                                                }
+
+                                                contentItem: Image {
+                                                    sourceSize: Qt.size(32, 32)
+                                                    fillMode: Image.PreserveAspectFit
+                                                    source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='11 5 6 9 2 9 2 15 6 15 11 19 11 5'></polygon><path d='M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07'></path></svg>"
+                                                }
+
+                                                MouseArea {
+                                                    id: maxVolMouseArea
+                                                    anchors.fill: parent
+                                                    hoverEnabled: true
+                                                    cursorShape: Qt.PointingHandCursor
+                                                    onClicked: {
+                                                        tileContainer.userMuted = false;
+                                                        playerItem.volume = 1.0;
+                                                    }
+                                                }
+
+                                                ToolTip.delay: 500
+                                                ToolTip.timeout: 5000
+                                                ToolTip.visible: maxVolMouseArea.containsMouse
+                                                ToolTip.text: qsTr("Maksymalna głośność")
+                                            }
+                                        }
 
                                         Control {
                                              id: snapshotBadge

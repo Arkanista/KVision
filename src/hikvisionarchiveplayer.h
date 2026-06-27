@@ -26,6 +26,8 @@ class HikvisionArchivePlayer : public QQuickPaintedItem
     Q_PROPERTY(int videoWidth READ videoWidth NOTIFY videoSizeChanged)
     Q_PROPERTY(int videoHeight READ videoHeight NOTIFY videoSizeChanged)
     Q_PROPERTY(int fps READ fps NOTIFY fpsChanged)
+    Q_PROPERTY(double volume READ volume WRITE setVolume NOTIFY volumeChanged)
+    Q_PROPERTY(bool muted READ muted WRITE setMuted NOTIFY mutedChanged)
 
 public:
     explicit HikvisionArchivePlayer(QQuickItem *parent = nullptr);
@@ -54,6 +56,12 @@ public:
     int videoHeight() const;
     int fps() const { return m_fps; }
 
+    double volume() const { return m_volume; }
+    void setVolume(double volume);
+
+    bool muted() const { return m_muted; }
+    void setMuted(bool muted);
+
     Q_INVOKABLE void playAtTime(const QDateTime &dateTime);
     Q_INVOKABLE void setPlaybackSpeed(int speedMultiplier); // 1, 2, 4, 8, -1, -2, -4, -8
     Q_INVOKABLE void pause();
@@ -74,6 +82,8 @@ signals:
     void playingChanged();
     void videoSizeChanged();
     void fpsChanged();
+    void volumeChanged();
+    void mutedChanged();
 
 private:
     void updateImage(const QImage &img);
@@ -96,6 +106,8 @@ private:
 
     bool m_isPlaying = false;
     qint64 m_currentPlayheadMs = 0;
+    double m_volume = 1.0;
+    bool m_muted = true;
 
     QImage m_currentImage;
     mutable std::mutex m_imageMutex;

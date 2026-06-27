@@ -65,6 +65,9 @@ void QmlAVPlayer::play()
 
 void QmlAVPlayer::stop()
 {
+    if (m_playbackState == QMediaPlayer::StoppedState) {
+        return;
+    }
     logDebug() << "stop()";
 
     if (m_demuxer) {
@@ -186,6 +189,9 @@ void QmlAVPlayer::frameHandler(const std::shared_ptr<QmlAVFrame> frame)
                 }
             }
         } else if (frame->type() == QmlAVFrame::TypeAudio) {
+            if (m_muted) {
+                return;
+            }
             auto af = std::static_pointer_cast<QmlAVAudioFrame>(frame);
 
             m_audioIODevice.enqueue(af);
@@ -280,6 +286,26 @@ void QmlAVPlayer::setSource(QmlAVPropertyType<QUrl> source)
     reset();
 
     emit sourceChanged(source);
+}
+
+void QmlAVPlayer::setMuted(QmlAVPropertyType<bool> muted)
+{
+    if (m_muted == muted) {
+        return;
+    }
+
+    m_muted = muted;
+
+    if (m_muted) {
+        if (m_audioOutput) {
+            m_audioOutput->stop();
+            delete m_audioOutput;
+            m_audioOutput = nullptr;
+        }
+        m_audioIODevice.clear();
+    }
+
+    emit mutedChanged(muted);
 }
 
 void QmlAVPlayer::setVolume(QmlAVPropertyType<double> volume)

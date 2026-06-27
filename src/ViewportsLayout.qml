@@ -53,7 +53,16 @@ FocusScope {
             player.color = Qt.binding(function() { return root.color; });
             player.volume = Qt.binding(function() {
                 var vItem = root.model.get(index);
-                return Math.max(vItem ? vItem.volume : 0, root.fullScreenIndex === index && viewportSettings.unmuteWhenFullScreen);
+                return vItem ? vItem.volume : 0.0;
+            });
+            player.muted = Qt.binding(function() {
+                if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
+                    return true;
+                }
+                if ((root.size.width > 1 || root.size.height > 1) && !player.isFullScreen) {
+                    return true;
+                }
+                return player.volume <= 0.0;
             });
             player.avOptions = Qt.binding(function() {
                 var vItem = root.model.get(index);
@@ -106,6 +115,8 @@ FocusScope {
             player.width = Qt.binding(function() { return parentContainer.width; });
             player.height = Qt.binding(function() { return parentContainer.height; });
             player.loops = MediaPlayer.Infinite;
+            player.isFullScreen = Qt.binding(function() { return root.fullScreenIndex === index; });
+            player.layoutModel = root.model;
 
             // Connect mediaError signal
             var slot = function(errorSource) {
@@ -434,9 +445,24 @@ FocusScope {
                         fullScreen = false;
                         resetZoom();
                     }
+                    property real preFullScreenVolume: 0.0
+
                     onFullScreenChanged: {
                         d2.setCurrentIndex("fullScreenIndex", fullScreen)
-                        if (!fullScreen) {
+                        var vItem = root.model.get(model.index);
+                        if (vItem) {
+                            if (fullScreen) {
+                                preFullScreenVolume = vItem.volume;
+                                if (viewportSettings.unmuteWhenFullScreen && vItem.volume <= 0.0) {
+                                    vItem.volume = 1.0;
+                                }
+                            } else {
+                                resetZoom();
+                                if (viewportSettings.unmuteWhenFullScreen) {
+                                    vItem.volume = preFullScreenVolume;
+                                }
+                            }
+                        } else if (!fullScreen) {
                             resetZoom();
                         }
                     }

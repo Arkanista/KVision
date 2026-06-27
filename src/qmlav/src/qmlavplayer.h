@@ -29,7 +29,7 @@ class QmlAVPlayer : public QObject, public QQmlParserStatus
     QMLAV_PROPERTY_READONLY(QMediaPlayer::State, playbackState, playbackStateChanged) = QMediaPlayer::StoppedState;
     QMLAV_PROPERTY_READONLY(QMediaPlayer::MediaStatus, status, statusChanged) = QMediaPlayer::NoMedia;
     QMLAV_PROPERTY_READONLY(QVariant, bufferProgress, bufferProgressChanged) = 1.0; // TODO:
-    QMLAV_PROPERTY(bool, muted, setMuted, mutedChanged) = false; // TODO:
+    QMLAV_PROPERTY_DECL(bool, muted, setMuted, mutedChanged) = false;
     QMLAV_PROPERTY_DECL(double, volume, setVolume, volumeChanged) = 0.0;
     QMLAV_PROPERTY_READONLY(bool, hasVideo, hasVideoChanged) = false;
     QMLAV_PROPERTY_READONLY(bool, hasAudio, hasAudioChanged) = false;
