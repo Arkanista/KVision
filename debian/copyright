@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: cctv-viewer
-Source: https://github.com/arkanista/cctv-viewer2
+Source: https://github.com/arkanista/kvision
 
 Files: *
 Copyright: 2017 Evgeny S Maksimov <admin@vragam.net>

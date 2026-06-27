@@ -19,9 +19,9 @@ Build-Depends: debhelper (>= 9),
                cmake,
                pkg-config
 Standards-Version: 3.9.8
-Homepage: https://github.com/arkanista/cctv-viewer2
-Vcs-Git: https://github.com/arkanista/cctv-viewer2.git
-Vcs-Browser: https://github.com/arkanista/cctv-viewer2
+Homepage: https://github.com/arkanista/kvision
+Vcs-Git: https://github.com/arkanista/kvision.git
+Vcs-Browser: https://github.com/arkanista/kvision
 
 Package: cctv-viewer
 Architecture: any

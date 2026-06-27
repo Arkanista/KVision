@@ -168,18 +168,18 @@ To build and run the application, the following packages are required:
 
 To clone this repository, make sure you include the submodules:
 ```bash
-git clone --recurse-submodules https://github.com/arkanista/cctv-viewer2.git
+git clone --recurse-submodules https://github.com/arkanista/kvision.git
 ```
 
 ### Pre-compiled Arch Linux Package (Arch Linux / CachyOS)
 
 If you are running Arch Linux or CachyOS, you can skip compilation and install the pre-compiled Pacman package directly from the latest release:
 
-* **[Download cctv-viewer2-2.2.0-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/cctv-viewer2/releases/download/v2.2.0/cctv-viewer2-2.2.0-1-x86_64.pkg.tar.zst)**
+* **[Download kvision-2.2.6-2-x86_64.pkg.tar.zst](https://github.com/Arkanista/kvision/releases/download/v2.2.6/kvision-2.2.6-2-x86_64.pkg.tar.zst)**
 
 To install the downloaded package:
 ```bash
-sudo pacman -U cctv-viewer2-2.2.0-1-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.2.6-2-x86_64.pkg.tar.zst
 ```
 
 ### Building from Source (Arch Linux / CachyOS)
@@ -188,7 +188,7 @@ The easiest and recommended way to build and install the application from source
 
 1. Navigate to the Arch packaging directory:
    ```bash
-   cd cctv-viewer2/packaging/arch
+   cd kvision/packaging/arch
    ```
 2. Build the package (the `-s` flag will automatically download and install all missing dependencies via `pacman`, and `-i` will install the built package):
    ```bash
@@ -206,7 +206,7 @@ If you are not using Arch Linux, you can build the application manually using CM
    ```
 2. **Configure the build directory:**
    ```bash
-   cd cctv-viewer2
+   cd kvision
    cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
    ```
 3. **Compile the project:**

@@ -12,7 +12,7 @@ set(ORG_DOMAIN "kvision.org")
 
 set(VERSION "${VER_MAJ}.${VER_MIN}.${VER_PAT}")
 
-project(kvision VERSION ${VERSION} HOMEPAGE_URL "https://github.com/arkanista/cctv-viewer2" LANGUAGES C CXX)
+project(kvision VERSION ${VERSION} HOMEPAGE_URL "https://github.com/arkanista/kvision" LANGUAGES C CXX)
 
 if(DEFINED VER_REL AND ${VER_REL} GREATER 0)
     set(VERSION "${VERSION}-${VER_REL}")

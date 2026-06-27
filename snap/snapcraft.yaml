@@ -11,8 +11,8 @@ description: |
   Based on ffmpeg.
 website: https://cctv-viewer2.org
 contact: mailto:arkanista@cctv-viewer2.org
-issues: https://github.com/arkanista/cctv-viewer2/issues
-source-code: https://github.com/arkanista/cctv-viewer2
+issues: https://github.com/arkanista/kvision/issues
+source-code: https://github.com/arkanista/kvision
 
 grade: stable
 confinement: strict
