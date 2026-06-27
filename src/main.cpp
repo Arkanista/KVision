@@ -196,6 +196,7 @@ int main(int argc, char *argv[])
 #if defined(ORG_DOMAIN)
     QCoreApplication::setOrganizationDomain(QLatin1String(ORG_DOMAIN));
 #endif
+    QApplication::setDesktopFileName(QStringLiteral("kvision"));
 
     registerQmlTypes();
 
