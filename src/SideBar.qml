@@ -75,9 +75,12 @@ FocusScope {
             version: "v2.2.7",
             date: "28.06.2026",
             changes: [
-                qsTr("Wyłączono i całkowicie usunięto opcję 'Stopklatka HD' z menu podręcznego viewportów oraz powiązane z nią parametry, liczniki czasowe, nakładki graficzne i procedury przełączania strumienia."),
-                qsTr("Wprowadzono dynamiczne i automatyczne wyznaczanie ścieżki bibliotek współdzielonych (RPATH) za pomocą zmiennej CMAKE_INSTALL_LIBDIR, eliminując crash aplikacji na systemach Ubuntu/Debian przy zachowaniu pełnej kompatybilności z Arch Linux."),
-                qsTr("Zaprojektowano architekturę i zaimplementowano metodologię pobierania i filtracji komunikatów alarmowych detekcji ruchu z rejestratorów za pośrednictwem callbacków i mechanizmu SetupAlarmChan w SDK Hikvision.")
+                qsTr("Usunięto opcję 'Stopklatka HD' z menu viewportów wraz z powiązanymi z nią przełączeniami strumieni i nakładkami graficznymi w celu optymalizacji wydajności."),
+                qsTr("Zrewolucjonizowano obsługę dźwięku PCM: bezpośrednie przekazywanie potoku audio do QAudioOutput, eliminacja zawieszeń interfejsu (ALSA/PulseAudio/Pipewire) przez stabilizację sample rate (debounce po 5 stabilnych ramkach), cooldown 2s na rekreację wyjścia, filtrowanie uszkodzonych parametrów i bufor 64KB redukujący jitter sieciowy."),
+                qsTr("Zaimplementowano automatyczne i natychmiastowe wyciszanie strumieni LIVE w siatce głównej przy otwarciu okna odtwarzania Archiwum, co zapobiega nakładaniu się dźwięków (kakofonii)."),
+                qsTr("Wprowadzono centralny system powiadomień SnapshotSavedDialog o zapisaniu stopklatki (ciemnoszara obudowa, seledynowe krawędzie, auto-zamknięcie po 10 sekundach) z szybkim łączem 'Przeglądaj' do bezpośredniego otwierania folderu w systemowym menedżerze plików."),
+                qsTr("Zaimplementowano dynamiczną ścieżkę bibliotek RPATH w CMakeLists.txt z użyciem GNUInstallDirs, co umożliwia natychmiastowe uruchomienie skompilowanej aplikacji na Ubuntu i Debianie bez konieczności ręcznej konfiguracji /etc/ld.so.conf.d/ i ldconfig."),
+                qsTr("Zaimplementowano architekturę pobierania sygnałów detekcji ruchu z rejestratorów Hikvision w czasie rzeczywistym poprzez SetupAlarmChan i rejestrację callbacków alarmowych w SDK.")
             ]
         },
         {
