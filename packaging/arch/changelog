@@ -1,0 +1,77 @@
+2.2.7-1
+  * PL: Dodano nowe, intuicyjne opcje do menu podręcznego viewportów (pod prawym przyciskiem myszy): 'Stopklatka' (zapis bieżącej klatki) oraz 'Odtwarzaj' (natychmiastowe przejście do archiwalnego odtwarzania danej kamery).
+    EN: Added intuitive viewport right-click menu options ("Stopklatka" and "Odtwarzaj") for rapid viewport snapshot and archive playback operations.
+  * PL: Zrewolucjonizowano i naprawiono obsługę dźwięku PCM: bezpośrednie przekazywanie potoku do QAudioOutput, eliminacja zawieszeń interfejsu (ALSA/PulseAudio/Pipewire) przez stabilizację sample rate (debounce po 5 stabilnych ramkach), cooldown 2s na rekreację wyjścia, filtrowanie uszkodzonych parametrów i bufor 64KB redukujący jitter sieciowy.
+    EN: Overhauled PCM audio handling pipeline: integrated direct streaming to QAudioOutput with a robust 5-frame sample rate estimation debounce rule to prevent rapid recreation thrashing and UI thread deadlocks under ALSA/PulseAudio/Pipewire.
+  * PL: Zaimplementowano interaktywny suwak regulacji głośności HUD bezpośrednio na kafelkach viewportów wraz z opcją szybkiego wyciszenia oraz maksymalizacji głośności jednym kliknięciem.
+    EN: Implemented interactive volume slider HUD and quick-mute/maximize buttons directly on camera viewports with a fullscreen focus safeguard.
+  * PL: Zaimplementowano automatyczne i natychmiastowe wyciszanie strumieni LIVE w siatce głównej przy otwarciu okna odtwarzania Archiwum, co zapobiega nakładaniu się dźwięków (kakofonii).
+    EN: Implemented automated, immediate live view grid muting upon opening the Archive/Playback window, eliminating sound overlapping.
+  * PL: Wprowadzono centralny system powiadomień SnapshotSavedDialog o zapisaniu stopklatki (ciemnoszara obudowa, seledynowe krawędzie, auto-zamknięcie po 10 sekundach) z szybkim łączem 'Przeglądaj' do bezpośredniego otwierania folderu w systemowym menedżerze plików.
+    EN: Introduced standard SnapshotSavedDialog central notifications with custom dark-gray and celadon-bordered styling, a 10-second auto-close timer, and a high-contrast 'Przeglądaj' (Browse) button to open the folder externally in the system's default file manager.
+  * PL: Wzbogacono wbudowane okno pomocy o szczegółowy rozdział 'Opis działania przycisków' z natywnymi, ostrymi ikonami wektorowymi SVG. Okno pomocy otwiera się teraz w pełni automatycznie i wyśrodkowane nad oknem głównym przy pierwszym uruchomieniu programu.
+    EN: Enriched the Help/Instructions window with a detailed 'Opis działania przycisków' (Description of button operations) chapter containing native Base64 vector SVG icons. The Help window is now configured to automatically launch centered on first-time startup.
+  * PL: Wprowadzono domyślne wyświetlanie paska górnego przy uruchomieniu programu/okna oraz dodano w ustawieniach opcję 'Domyślnie pokazuj pasek górny po otwarciu okna', umożliwiającą dostosowanie tego zachowania do własnych preferencji.
+    EN: Changed the default startup behavior to display the floating top toolbar, which can be customized via the new setting 'Domyślnie pokazuj pasek górny po otwarciu okna'.
+  * PL: Zaimplementowano dynamiczną ścieżkę bibliotek RPATH w CMakeLists.txt z użyciem GNUInstallDirs, co umożliwia natychmiastowe uruchomienie skompilowanej aplikacji na Ubuntu i Debianie bez konieczności ręcznej konfiguracji /etc/ld.so.conf.d/ i ldconfig.
+    EN: Resolved application crash at startup on Debian/Ubuntu and other multi-arch derivative distributions by using a dynamic INSTALL_RPATH pointing to CMAKE_INSTALL_LIBDIR/kvision (by moving GNUInstallDirs early), making manual ldconfig hacks obsolete.
+  * PL: Zaimplementowano architekturę pobierania sygnałów detekcji ruchu z rejestratorów Hikvision w czasie rzeczywistym poprzez SetupAlarmChan i rejestrację callbacków alarmowych w SDK.
+    EN: Designed a detailed integration architecture for retrieving real-time camera motion detection/alarm events from Hikvision NVRs using the Hikvision SDK alarm callback services and SetupAlarmChan.
+
+2.2.6-3
+  * PL: Naprawiono okno ostrzegawcze przekroczenia limitu okien pomocniczych (brakujący zasób QML i odczyt z QSettings).
+    EN: Resolved auxiliary window limit check warning popup failing to render by adding the missing QML resource to the QRC bundle.
+  * PL: Poprawiono ścieżkę wyszukiwania konfiguracji QSettings dla limitu okien pomocniczych.
+    EN: Corrected QSettings configuration lookup path for auxiliary limit to look in the default General group.
+  * PL: Naprawiono brakującą ikonę programu pod Waylandem (instalacja w motywie hicolor oraz setDesktopFileName).
+    EN: Fixed application icon under Wayland compositor shells by setting the desktopFileName property on the QApplication instance and installing application icons into standard hicolor icon theme directories.
+
+2.2.6-2
+  * PL: Wprowadzono interaktywną walidację przy kliknięciu przycisku 'Pobierz' w oknie pobierania: automatyczna kontrola formatów pól oraz chronologii dat z dymkiem ostrzegawczym i przekierowaniem fokusu na pierwsze błędne pole.
+    EN: Implemented interactive validation on 'Pobierz' (Download) button click in the download dialog: triggers sequential format and chronological checks, highlights the first invalid field, and forces its red error tooltip to open.
+  * PL: Zaimplementowano pełną nawigację klawiaturą (strzałkami góra/dół do zmiany wartości, lewo/prawo do zmiany kolumn) w graficznym selektorze czasu (Clock Picker).
+    EN: Implemented full keyboard arrow navigation inside the clock picker popup columns (Up/Down to increment/decrement, Left/Right to switch active columns, Return/Enter to apply) to enable rapid time selection.
+  * PL: Zapewniono całkowicie czysty start okien pomocniczych (bez automatycznego otwierania panelu opcji) oraz wykluczono zapisywanie ustawień geometrii z okien pomocniczych, eliminując zanieczyszczanie konfiguracji.
+    EN: Enforced clean auxiliary window launches by suppressing the options sidebar and disabling window geometry state saving in auxiliary windows to prevent shared settings contamination.
+  * PL: Dodano pełne wsparcie językowe (polski/angielski) dla wszystkich nowych komunikatów o błędach walidacji i formatowania w oknie pobierania.
+    EN: Added full bilingual translation support (Polish/English) for all new error and formatting messages in the download dialog.
+
+2.2.6-1
+  * PL: Wycofano opcję automatycznego zwijania paska górnego z ustawień – odtąd pasek górny w oknach LIVE (głównym i pomocniczym) zwija się domyślnie przy starcie, a pinezka przypina go lokalnie i tymczasowo (w pamięci) bez zapisywania stanu.
+    EN: Removed "Automatically collapse top bar" option from Settings. Now, the top bar in Live windows (both main and auxiliary) collapses by default on startup, and the pin button pins it volatilely (in-memory) and locally per window without saving to disk or synchronizing across instances.
+  * PL: Wprowadzono limit liczby okien pomocniczych (konfigurowalny w zakresie 0-3) z eleganckim oknem ostrzegawczym o zablokowaniu przy próbie jego przekroczenia.
+    EN: Implemented Auxiliary Window Limit (configurable 0-3) with a themed limit exceeded warning popup matching SingleInstanceWarning.
+  * PL: Dodano subtelne, ciemnoszare ramki o szerokości 1px wokół nieużywanych viewportów w siatce podglądu LIVE dla lepszego rozgraniczenia pól.
+    EN: Added subtle 1px dark-gray borders around empty viewports in the Live layout grid.
+  * PL: Zabezpieczono edycję ścieżek zapisu i konfiguracji multimediów w ustawieniach przejściowym polem wyboru 'Uaktywnij zmiany w tej sekcji', zapobiegając przypadkowym modyfikacjom (stan edycji resetuje się po zamknięciu).
+    EN: Secured save paths and system media configuration options behind a transient "Uaktywnij zmiany w tej sekcji" (Activate changes in this section) checkbox, which resets on settings window hide or tab switch.
+  * PL: Wprowadzono bezpośrednie skróty 'otwórz folder zapisu' (wyróżniony seledynowym kolorem przy ukończonym pobieraniu w oknie Archiwum) oraz zawsze aktywne przyciski szybkiego otwierania folderów zrzutów i wideo w ustawieniach (z automatycznym tworzeniem katalogu na dysku).
+    EN: Added highlighted celadon "otwórz folder zapisu" button upon completed recording download in Archive, and always-active quick-open shortcut buttons for snapshot and video paths in Settings (auto-creating directories if missing).
+
+2.2.5-1
+  * PL: Wyeliminowano wycieki pamięci RAM przy przełączaniu układów kamer poprzez automatyczne i poprawne zatrzymywanie powierzchni wideo przed zmianą formatu oraz dopasowanie rozmiaru renderera.
+    EN: Resolved RAM memory leaks when switching camera layouts by automatically stopping video surface format transitions and adjusting renderer dimensions.
+  * PL: Zaimplementowano bezwarunkowe zwalnianie i niszczenie obiektów wyjściowych audio przy zatrzymaniu odtwarzacza oraz wprowadzono ich automatyczny recykling, usuwając wycieki pamięci i wątków w systemie Linux.
+    EN: Implemented unconditional cleanup and destruction of audio outputs on player stop, recycling audio output objects to eliminate memory and thread leaks on Linux.
+  * PL: Rozwiązano problem zablokowania wideo (jednokolorowa plansza po powiększeniu viewportu) poprzez wymuszenie prawidłowego wysyłania sygnału dostępności wideo przy prezentacji pierwszej klatki nowego strumienia.
+    EN: Resolved viewport zoom freezing (solid color frame) by forcing correct video availability signaling when presenting the first frame of a new stream.
+  * PL: Dodano globalną opcję w ustawieniach 'Wyłącz obsługę audio całkowicie', pozwalającą całkowicie pominąć przetwarzanie dźwięku w celu eliminacji ewentualnego narzutu i wycieków pamięci.
+    EN: Added global setting "Disable audio entirely" to bypass audio demuxing and decoding completely, eliminating potential audio-related overhead and leaks.
+  * PL: Zoptymalizowano moduł statystyk systemowych, wygaszając ciągłe zużycie pamięci poprzez buforowanie identyfikatorów procesów i eliminację alokacji dynamicznych wyrażeń regularnych.
+    EN: Optimized SystemStats panel monitoring to eliminate background memory overhead by caching process IDs and using static regular expressions.
+  * PL: Wprowadzono agresywne czyszczenie pamięci (Garbage Collection) przy każdej zmianie układu kamer oraz zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo.
+    EN: Enforced aggressive Garbage Collection (gc) upon layout changes and nullified video scaling contexts (SwsContext) inside video buffers to prevent libswscale leaks.
+  * PL: Zapewniono poprawne czyszczenie pamięci statycznego detektora zmian plików konfiguracyjnych przy wyjściu z aplikacji.
+    EN: Corrected resource cleanup of static configuration file watcher (QFileSystemWatcher) upon application exit.
+
+2.2.0-1
+  * PL: Zabezpieczono destruktor odtwarzacza archiwalnego przed wyścigami danych przy usuwaniu zadań RGB.
+    EN: Fixed potential data race/crash in HikvisionArchivePlayer destructor.
+  * PL: Wprowadzono pooling odtwarzaczy wideo w celu eliminacji skoków zużycia pamięci i migotania obrazu przy przełączaniu układów kamer.
+    EN: Implemented Player Pooling to reuse video player components during layout switches.
+  * PL: Zoptymalizowano monitorowanie obciążenia GPU i pamięci VRAM do trybu procesowego (bez wywołań nvidia-smi) z natywnym wsparciem dla układów NVIDIA, AMD i Intel (statystyki dla AMD/Intel są nieprzetestowane).
+    EN: Optimized GPU/VRAM statistics to avoid external process spawning and support NVIDIA/AMD/Intel process-specific tracking (AMD/Intel stats are untested).
+  * PL: Umożliwiono zmianę rozmiaru panelu statystyk systemowych poprzez przeciąganie za jego krawędzie i narożniki z automatycznym skalowaniem wykresów.
+    EN: Allowed resizing the system stats panel by dragging its edges and corners with auto-scaling graphs.
+  * PL: Wprowadzono natychmiastowe ukrywanie okna głównego i pomocniczego przy potwierdzeniu wyjścia, co sprawia, że program zamyka się natychmiastowo dla użytkownika, a zwalnianie wątków i pamięci odbywa się bezpiecznie w tle.
+    EN: Implemented instant window hide on quit confirmation for clean shutdown UX.
