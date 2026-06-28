@@ -458,6 +458,25 @@ Popup {
                             anchors.fill: parent
                             model: 24
                             clip: true
+                            ScrollBar.vertical: ScrollBar {
+                                id: hourScrollBar
+                                policy: ScrollBar.AlwaysOn
+                                hoverEnabled: true
+                                width: 16
+                                padding: 4
+                                contentItem: Rectangle {
+                                    implicitWidth: 8
+                                    radius: 4
+                                    color: hourScrollBar.pressed ? "#00f5d4" : (hourScrollBar.hovered ? "#8800f5d4" : "#4d5e6d")
+                                    Behavior on color {
+                                        ColorAnimation { duration: 150 }
+                                    }
+                                }
+                                background: Rectangle {
+                                    implicitWidth: 16
+                                    color: "transparent"
+                                }
+                            }
                             delegate: Rectangle {
                                 width: parent.width
                                 height: 30
@@ -510,6 +529,25 @@ Popup {
                             anchors.fill: parent
                             model: 60
                             clip: true
+                            ScrollBar.vertical: ScrollBar {
+                                id: minuteScrollBar
+                                policy: ScrollBar.AlwaysOn
+                                hoverEnabled: true
+                                width: 16
+                                padding: 4
+                                contentItem: Rectangle {
+                                    implicitWidth: 8
+                                    radius: 4
+                                    color: minuteScrollBar.pressed ? "#00f5d4" : (minuteScrollBar.hovered ? "#8800f5d4" : "#4d5e6d")
+                                    Behavior on color {
+                                        ColorAnimation { duration: 150 }
+                                    }
+                                }
+                                background: Rectangle {
+                                    implicitWidth: 16
+                                    color: "transparent"
+                                }
+                            }
                             delegate: Rectangle {
                                 width: parent.width
                                 height: 30
@@ -562,6 +600,25 @@ Popup {
                             anchors.fill: parent
                             model: 60
                             clip: true
+                            ScrollBar.vertical: ScrollBar {
+                                id: secondScrollBar
+                                policy: ScrollBar.AlwaysOn
+                                hoverEnabled: true
+                                width: 16
+                                padding: 4
+                                contentItem: Rectangle {
+                                    implicitWidth: 8
+                                    radius: 4
+                                    color: secondScrollBar.pressed ? "#00f5d4" : (secondScrollBar.hovered ? "#8800f5d4" : "#4d5e6d")
+                                    Behavior on color {
+                                        ColorAnimation { duration: 150 }
+                                    }
+                                }
+                                background: Rectangle {
+                                    implicitWidth: 16
+                                    color: "transparent"
+                                }
+                            }
                             delegate: Rectangle {
                                 width: parent.width
                                 height: 30
