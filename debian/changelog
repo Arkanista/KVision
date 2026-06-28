@@ -1,4 +1,4 @@
-cctv-viewer (2.2.6-4) jammy; urgency=medium
+cctv-viewer (2.2.7-1) jammy; urgency=medium
 
   * Removed the 'Stopklatka HD' (HD Snapshot) option and completely pruned it from viewport context menus, properties, timers, and overlays.
   * Resolved application crash at startup on Debian/Ubuntu and other multi-arch derivative distributions by using a dynamic INSTALL_RPATH pointing to CMAKE_INSTALL_LIBDIR/kvision (by moving GNUInstallDirs early).

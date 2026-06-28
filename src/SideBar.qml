@@ -72,7 +72,7 @@ FocusScope {
 
     property var changelogData: [
         {
-            version: "v2.2.6-4",
+            version: "v2.2.7",
             date: "28.06.2026",
             changes: [
                 qsTr("Wyłączono i całkowicie usunięto opcję 'Stopklatka HD' z menu podręcznego viewportów oraz powiązane z nią parametry, liczniki czasowe, nakładki graficzne i procedury przełączania strumienia."),
