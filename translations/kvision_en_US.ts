@@ -1792,7 +1792,7 @@
     </message>
     <message>
         <source>Zaimplementowano architekturę pobierania sygnałów detekcji ruchu z rejestratorów Hikvision w czasie rzeczywistym poprzez SetupAlarmChan i rejestrację callbacków alarmowych w SDK.</source>
-        <translation>Implemented an architecture for real-time motion detection signal retrieval from Hikvision recorders via SetupAlarmChan and alarm callback registration in the SDK.</translation>
+        <translation type="vanished">Implemented an architecture for real-time motion detection signal retrieval from Hikvision recorders via SetupAlarmChan and alarm callback registration in the SDK.</translation>
     </message>
 </context>
 <context>

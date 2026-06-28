@@ -938,7 +938,7 @@
     </message>
     <message>
         <source>Przełączanie strumienia HD...</source>
-        <translation>Przełączanie strumienia HD...</translation>
+        <translation type="vanished">Przełączanie strumienia HD...</translation>
     </message>
 </context>
 <context>
@@ -1921,6 +1921,38 @@
         <source>Audio</source>
         <translation>Audio</translation>
     </message>
+    <message>
+        <source>Dodano nowe, intuicyjne opcje do menu podręcznego viewportów (pod prawym przyciskiem myszy): &apos;Stopklatka&apos; (zapis bieżącej klatki) oraz &apos;Odtwarzaj&apos; (natychmiastowe przejście do archiwalnego odtwarzania danej kamery).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zrewolucjonizowano i naprawiono obsługę dźwięku PCM: bezpośrednie przekazywanie potoku do QAudioOutput, eliminacja zawieszeń interfejsu (ALSA/PulseAudio/Pipewire) przez stabilizację sample rate (debounce po 5 stabilnych ramkach), cooldown 2s na rekreację wyjścia, filtrowanie uszkodzonych parametrów i bufor 64KB redukujący jitter sieciowy.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zaimplementowano interaktywny suwak regulacji głośności HUD bezpośrednio na kafelkach viewportów wraz z opcją szybkiego wyciszenia oraz maksymalizacji głośności jednym kliknięciem.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zaimplementowano automatyczne i natychmiastowe wyciszanie strumieni LIVE w siatce głównej przy otwarciu okna odtwarzania Archiwum, co zapobiega nakładaniu się dźwięków (kakofonii).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wprowadzono centralny system powiadomień SnapshotSavedDialog o zapisaniu stopklatki (ciemnoszara obudowa, seledynowe krawędzie, auto-zamknięcie po 10 sekundach) z szybkim łączem &apos;Przeglądaj&apos; do bezpośredniego otwierania folderu w systemowym menedżerze plików.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wzbogacono wbudowane okno pomocy o szczegółowy rozdział &apos;Opis działania przycisków&apos; z natywnymi, ostrymi ikonami wektorowymi SVG. Okno pomocy otwiera się teraz w pełni automatycznie i wyśrodkowane nad oknem głównym przy pierwszym uruchomieniu programu.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wprowadzono domyślne wyświetlanie paska górnego przy uruchomieniu programu/okna oraz dodano w ustawieniach opcję &apos;Domyślnie pokazuj pasek górny po otwarciu okna&apos;, umożliwiającą dostosowanie tego zachowania do własnych preferencji.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zaimplementowano dynamiczną ścieżkę bibliotek RPATH w CMakeLists.txt z użyciem GNUInstallDirs, co umożliwia natychmiastowe uruchomienie skompilowanej aplikacji na Ubuntu i Debianie bez konieczności ręcznej konfiguracji /etc/ld.so.conf.d/ i ldconfig.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>
@@ -2118,7 +2150,7 @@
     </message>
     <message>
         <source>Stopklatka HD</source>
-        <translation>Stopklatka HD</translation>
+        <translation type="vanished">Stopklatka HD</translation>
     </message>
     <message>
         <source>Odtwarzaj</source>

@@ -82,8 +82,7 @@ FocusScope {
                 qsTr("Wprowadzono centralny system powiadomień SnapshotSavedDialog o zapisaniu stopklatki (ciemnoszara obudowa, seledynowe krawędzie, auto-zamknięcie po 10 sekundach) z szybkim łączem 'Przeglądaj' do bezpośredniego otwierania folderu w systemowym menedżerze plików."),
                 qsTr("Wzbogacono wbudowane okno pomocy o szczegółowy rozdział 'Opis działania przycisków' z natywnymi, ostrymi ikonami wektorowymi SVG. Okno pomocy otwiera się teraz w pełni automatycznie i wyśrodkowane nad oknem głównym przy pierwszym uruchomieniu programu."),
                 qsTr("Wprowadzono domyślne wyświetlanie paska górnego przy uruchomieniu programu/okna oraz dodano w ustawieniach opcję 'Domyślnie pokazuj pasek górny po otwarciu okna', umożliwiającą dostosowanie tego zachowania do własnych preferencji."),
-                qsTr("Zaimplementowano dynamiczną ścieżkę bibliotek RPATH w CMakeLists.txt z użyciem GNUInstallDirs, co umożliwia natychmiastowe uruchomienie skompilowanej aplikacji na Ubuntu i Debianie bez konieczności ręcznej konfiguracji /etc/ld.so.conf.d/ i ldconfig."),
-                qsTr("Zaimplementowano architekturę pobierania sygnałów detekcji ruchu z rejestratorów Hikvision w czasie rzeczywistym poprzez SetupAlarmChan i rejestrację callbacków alarmowych w SDK.")
+                qsTr("Zaimplementowano dynamiczną ścieżkę bibliotek RPATH w CMakeLists.txt z użyciem GNUInstallDirs, co umożliwia natychmiastowe uruchomienie skompilowanej aplikacji na Ubuntu i Debianie bez konieczności ręcznej konfiguracji /etc/ld.so.conf.d/ i ldconfig.")
             ]
         },
         {

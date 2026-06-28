@@ -15,8 +15,6 @@
     EN: Changed the default startup behavior to display the floating top toolbar, which can be customized via the new setting 'Domyślnie pokazuj pasek górny po otwarciu okna'.
   * PL: Zaimplementowano dynamiczną ścieżkę bibliotek RPATH w CMakeLists.txt z użyciem GNUInstallDirs, co umożliwia natychmiastowe uruchomienie skompilowanej aplikacji na Ubuntu i Debianie bez konieczności ręcznej konfiguracji /etc/ld.so.conf.d/ i ldconfig.
     EN: Resolved application crash at startup on Debian/Ubuntu and other multi-arch derivative distributions by using a dynamic INSTALL_RPATH pointing to CMAKE_INSTALL_LIBDIR/kvision (by moving GNUInstallDirs early), making manual ldconfig hacks obsolete.
-  * PL: Zaimplementowano architekturę pobierania sygnałów detekcji ruchu z rejestratorów Hikvision w czasie rzeczywistym poprzez SetupAlarmChan i rejestrację callbacków alarmowych w SDK.
-    EN: Designed a detailed integration architecture for retrieving real-time camera motion detection/alarm events from Hikvision NVRs using the Hikvision SDK alarm callback services and SetupAlarmChan.
 
 2.2.6-3
   * PL: Naprawiono okno ostrzegawcze przekroczenia limitu okien pomocniczych (brakujący zasób QML i odczyt z QSettings).
