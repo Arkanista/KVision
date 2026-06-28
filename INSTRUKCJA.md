@@ -2,25 +2,84 @@
 
 **KVision** to zaawansowana aplikacja przeznaczona do jednoczesnego podglądu strumieni wideo na żywo (RTSP/ONVIF) oraz integracji z rejestratorami NVR/DVR firmy Hikvision (zarówno w trybie Live, jak i odtwarzania archiwum Playback). 
 
-Program został zoptymalizowany pod kątem stabilności, płynności działania (60 FPS) oraz minimalnego obciążenia zasobów systemowych.
+Program został zoptymalizowany pod kątem stabilności, płynności działania (60 FPS) oraz minimalnego obciążenia zasobów systemo## Spis Treści
+1. [Opis Działania Przycisków](#1-opis-działania-przycisków)
+2. [Instalacja i Uruchamianie](#2-instalacja-i-uruchamianie)
+3. [Zarządzanie Rejestratorami NVR/DVR](#3-zarządzanie-rejestratorami-nvrdvr)
+4. [Podgląd na Żywo (Live View) i Nakładki Viewportów](#4-podgląd-na-żywo-live-view-i-nakładki-viewportów)
+5. [Układy Ekranu, Presety oraz Pasek Narzędziowy](#5-układy-ekranu-presety-oraz-pasek-narzędziowy)
+6. [Panel Statystyk Systemowych (System Stats)](#6-panel-statystyk-systemowych-system-stats)
+7. [Odtwarzacz Archiwum Nagrań (Playback Archive)](#7-odtwarzacz-archiwum-nagrań-playback-archive)
+8. [Pobieranie Nagrań (Downloader)](#8-pobieranie-nagrań-downloader)
+9. [Zaawansowane Ustawienia i Personalizacja w Panelu Opcji](#9-zaawansowane-ustawienia-i-personalizacja-w-panelu-opcji)
+10. [Skróty Klawiszowe i Sterowanie Myszami](#10-skróty-klawiszowe-i-sterowanie-myszami)
+11. [Wykonywanie Zrzutów Ekranu (Stopklatek) i Konfiguracja Ścieżek](#11-wykonywanie-zrzutów-ekranu-stopklatek-i-konfiguracja-ścieżek)
 
 ---
 
-## Spis Treści
-1. [Instalacja i Uruchamianie](#1-instalacja-i-uruchamianie)
-2. [Zarządzanie Rejestratorami NVR/DVR](#2-zarządzanie-rejestratorami-nvrdvr)
-3. [Podgląd na Żywo (Live View) i Nakładki Viewportów](#3-podgląd-na-żywo-live-view-i-nakładki-viewportów)
-4. [Układy Ekranu, Presety oraz Pasek Narzędziowy](#4-układy-ekranu-presety-oraz-pasek-narzędziowy)
-5. [Panel Statystyk Systemowych (System Stats)](#5-panel-statystyk-systemowych-system-stats)
-6. [Odtwarzacz Archiwum Nagrań (Playback Archive)](#6-odtwarzacz-archiwum-nagrań-playback-archive)
-7. [Pobieranie Nagrań (Downloader)](#7-pobieranie-nagrań-downloader)
-8. [Zaawansowane Ustawienia i Personalizacja w Panelu Opcji](#8-zaawansowane-ustawienia-i-personalizacja-w-panelu-opcji)
-9. [Skróty Klawiszowe i Sterowanie Myszami](#9-skróty-klawiszowe-i-sterowanie-myszami)
-10. [Wykonywanie Zrzutów Ekranu (Stopklatek) i Konfiguracja Ścieżek](#10-wykonywanie-zrzutów-ekranu-stopklatek-i-konfiguracja-ścieżek)
+## 1. Opis Działania Przycisków
+
+W tej sekcji opisano znaczenie wszystkich ikon i przycisków używanych w aplikacji.
+
+### Pasek Górny (Top Tool Bar)
+* {ICON:quit} **Zamknięcie Okna**: Wyświetla prośbę o potwierdzenie wyjścia i zamyka program.
+* {ICON:pin} **Przypięcie Paska**: Blokuje pasek w pozycji rozwiniętej lub pozwala na jego automatyczne zwijanie.
+* {ICON:fullscreen} **Pełny Ekran**: Przełącza całe okno programu w tryb pełnoekranowy.
+* {ICON:minimize} **Minimalizuj**: Zwija okno programu na systemowy pasek zadań.
+* {ICON:options} **Opcje**: Otwiera lub zamyka wysuwany panel boczny ustawień i rejestratorów.
+* {ICON:new_window} **Nowe Okno**: Otwiera niezależne, dodatkowe okno pomocnicze na podgląd kamer.
+* {ICON:archive} **Archiwum**: Otwiera odtwarzacz archiwum nagrań (Playback Window).
+* {ICON:instructions} **Instrukcja**: Wyświetla to okno z dokumentacją i pomocą techniczną.
+* {ICON:stats} **Statystyki**: Włącza/wyłącza lewy panel monitorujący zasoby systemowe (CPU, RAM, GPU, Sieć).
+* {ICON:lock} **Blokada Siatki**: Blokuje edycję i przypadkową zmianę układu siatki kamer.
+* {ICON:hamburger} **Więcej Opcji**: Otwiera zaawansowane narzędzia asymetrycznego scalania i geometrii siatki.
+
+### Nakładki Viewportów (Kamery)
+* {ICON:snapshot} **Stopklatka**: Wykonuje bezstratny zrzut obrazu w pełnej rozdzielczości do pliku JPEG.
+* {ICON:play} **Archiwum Kamery**: Przechodzi do odtwarzania archiwum tej kamery (offset -15 minut wstecz).
+* {ICON:grid_1x1} **Tryb 1:1**: Wyświetla wideo w jego oryginalnej, natywnej rozdzielczości (bez rozciągania).
+* {ICON:zoom_in} **Powiększenie**: Włącza interaktywne zbliżenie wybranego prostokątem fragmentu wideo.
+* {ICON:zoom_out} **Reset Zoomu**: Wyłącza zbliżenie cyfrowe i przywraca oryginalny kadr kamery.
+* {ICON:speaker_unmute} **Wyciszenie Audio**: Wskazuje odciszony dźwięk; kliknięcie wycisza strumień audio kamery.
+* {ICON:speaker_mute} **Odciszenie Audio**: Wskazuje wyciszony dźwięk; kliknięcie włącza strumień audio kamery.
+
+### Odtwarzacz Archiwum (Playback Window)
+
+**Górny pasek sterowania (Top Bar):**
+* {ICON:close} **Zamknij**: Zamyka okno odtwarzacza archiwum nagrań.
+* {ICON:pin} **Przypięcie paska**: Blokuje górny pasek w pozycji rozwiniętej lub pozwala na jego automatyczne ukrywanie.
+* {ICON:fullscreen} **Pełny ekran**: Przełącza okno odtwarzacza w tryb pełnoekranowy.
+* {ICON:sidebar} **Pokaż/Ukryj panel boczny**: Przełącza widoczność paska bocznego z listą kamer i rejestratorów.
+* {ICON:timeline_show} / {ICON:timeline_hide} **Pokaż/Ukryj oś czasu**: Włącza lub wyłącza dolny panel z osią czasu i elementami nawigacji czasowej.
+* {ICON:video_folder} **Folder nagrań**: Otwiera systemowy folder zawierający pobrane wycinki wideo.
+* {ICON:photo_folder} **Folder zrzutów**: Otwiera systemowy folder zawierający zapisane stopklatki (zrzuty ekranu).
+* przyciski siatki `1x1`, `1x2`, `2x1`, `2x2`: Przełączają układ wyświetlania odtwarzacza na odpowiednio 1, 2 (pionowo/poziomo) lub 4 jednocześnie odtwarzane kamery.
+
+**Dolny pasek i Oś czasu (Bottom Bar & Timeline):**
+* {ICON:prev_day} **Poprzedni dzień**: Przechodzi do odtwarzania nagrań z poprzedniego dnia.
+* {ICON:calendar_select} **Wybór daty (Kalendarz)**: Otwiera interaktywny kalendarz umożliwiający precyzyjny wybór konkretnego dnia.
+* {ICON:next_day} **Następny dzień**: Przechodzi do odtwarzania nagrań z następnego dnia.
+* {ICON:today} **Dzisiaj**: Szybkie przejście do nagrań z bieżącego dnia.
+* {ICON:refresh_recordings} **Odśwież nagrania**: Odświeża siatkę nagrań i ponownie wyszukuje dostępne fragmenty wideo na rejestratorze.
+* {ICON:zoom_1h} / {ICON:zoom_8h} / {ICON:zoom_24h} **Skalowanie osi czasu**: Zmienia przedział widocznego czasu na osi (odpowiednio 1 godzina, 8 godzin lub cała doba dla precyzyjnego pozycjonowania).
+* {ICON:timeline_center} **Wycentruj oś**: Przesuwa widok osi czasu tak, aby aktualny punkt odtwarzania znalazł się dokładnie na środku.
+* {ICON:speed_1x} / {ICON:speed_2x} / {ICON:speed_4x} **Prędkość odtwarzania**: Pozwala przyspieszyć odtwarzanie nagrań (odpowiednio standardowe, dwukrotne lub czterokrotne).
+* {ICON:download} **Pobieranie**: Otwiera narzędzie do wycinania i pobierania wybranego fragmentu wideo na dysk komputera.
+* {ICON:jump_back_60} / {ICON:jump_back_45} / {ICON:jump_back_15} **Skok wstecz**: Cofa odtwarzanie o odpowiednio 60, 45 lub 15 sekund wstecz.
+* {ICON:play} / {ICON:pause} **Odtwarzaj / Pauza**: Uruchamia lub wstrzymuje odtwarzanie strumienia wideo z archiwum.
+* {ICON:jump_forward_15} / {ICON:jump_forward_45} / {ICON:jump_forward_60} **Skok w przód**: Przesuwa odtwarzanie o odpowiednio 15, 45 lub 60 sekund w przód.
+
+**Inne ikony diagnostyczne i kontrolne:**
+* {ICON:calendar} **Kalendarz**: Ogólne oznaczenie operacji kalendarzowych w programie.
+* {ICON:clock} **Czas**: Ogólne oznaczenie nawigacji i wyboru ram czasowych.
+* {ICON:zoom} **Skalowanie**: Reprezentuje operacje skalowania widoków i osi.
+* {ICON:timeline_toggle} **Przełącznik Osi**: Oznaczenie widoczności i odświeżania paska czasu.
+* {ICON:trash} **Usuwanie**: Służy do bezpiecznego usuwania skonfigurowanych rejestratorów lub widoków.
+* {ICON:warning} **Ostrzeżenie**: Pojawia się przy ważnych komunikatach systemowych i oknach usunięcia.
 
 ---
 
-## 1. Instalacja i Uruchamianie
+## 2. Instalacja i Uruchamianie
 
 ### Instalacja pakietu Arch Linux (Pacman)
 Aby zainstalować program z przygotowanej paczki binarnej, przejdź do katalogu `packaging/arch/` i wykonaj:
@@ -57,7 +116,7 @@ kvision
 
 ---
 
-## 2. Zarządzanie Rejestratorami NVR/DVR
+## 3. Zarządzanie Rejestratorami NVR/DVR
 
 Aby skonfigurować połączenie z rejestratorem Hikvision:
 1. Otwórz panel boczny opcji i przejdź do zakładki **Rejestratory** (ikona serwera).
@@ -83,7 +142,7 @@ Aby skonfigurować połączenie z rejestratorem Hikvision:
 
 ---
 
-## 3. Podgląd na Żywo (Live View) i Nakładki Viewportów
+## 4. Podgląd na Żywo (Live View) i Nakładki Viewportów
 
 Okno główne programu odpowiada za wyświetlanie obrazu na żywo:
 * **Siatka kamer**: Wyświetla jednocześnie strumienie RTSP lub bezpośrednio z SDK Hikvision.
@@ -104,7 +163,7 @@ W prawym dolnym rogu każdego kafelka kamery po najechaniu na niego kursorem mys
 
 ---
 
-## 4. Układy Ekranu, Presety oraz Pasek Narzędziowy
+## 5. Układy Ekranu, Presety oraz Pasek Narzędziowy
 
 Układy pozwalają organizować rozmieszczenie kamer na ekranie. Z poziomu zakładki **Układy** (ikona gwiazdki) możesz:
 * **Tworzyć nowe presety**: Dodaj własny układ o dowolnej konfiguracji kolumn i wierszy (np. 2x2, 3x3, 4x4).
@@ -118,7 +177,7 @@ Pasek górny zawiera kompletny zestaw kontrolek nawigacyjnych i funkcyjnych apli
 4. **Minimalizuj (Błękitna ikona minimalizacji)**: Minimalizuje okno programu na pasek zadań systemu operacyjnego. Po przywróceniu okno powraca dokładnie do swojego poprzedniego stanu (np. zmaksymalizowanego lub pełnoekranowego).
 5. **⚙️ OPCJE**: Otwiera wysuwane z lewej krawędzi okno ustawień, rejestratorów, presetów i dziennika zmian. Jeżeli panel boczny jest już otwarty, przycisk zamyka go.
 6. **📺 NOWE OKNO**: Otwiera nowe, niezależne i w pełni konfigurowalne okno pomocnicze (`Auxiliary Window`), idealne do rozciągnięcia podglądu kamer na konfiguracjach wielomonitorowych.
-7. **ARCHIVE**: Otwiera pusty odtwarzacz archiwum nagrań (`PlaybackWindow`) z aktywną osią czasu i kalendarzem, umożliwiając ręczny wybór kanałów i kamer z dowolnego rejestratora z poziomu listy bocznej.
+7. **ARCHIVE**: Otwiera pusty odtwarzacz archiwum nagrań (`PlaybackWindow`) z aktywną osią czasu i kalendarzem, umożliwiając ręczny wybór kanałów i kamer z poziomu listy bocznej.
 8. **INSTRUKCJA**: Uruchamia to okno pomocy technicznej zawierające pełną dokumentację użytkownika w języku polskim lub angielskim (zależnie od wybranej lokalizacji).
 9. **Przełącznik 📊 STATYSTYKI**: Suwak włączający/wyłączający wysuwany z lewej krawędzi ekranu panel monitoringu zużycia zasobów komputera.
 10. **Przełącznik Blokady Siatki (Kłódeczka)**: Przełącznik, który po włączeniu (podświetlenie suwaka na jaskrawy pomarańczowy kolor) blokuje możliwość klikania i zmieniania rozmiaru siatki podglądu za pomocą sąsiednich przycisków siatki, zabezpieczając aktywny układ przed przypadkowym zniekształceniem.
@@ -133,11 +192,11 @@ Po otwarciu panelu hamburgera (Więcej opcji) pojawia się dedykowany przybornik
 3. **Proporcje geometrii siatki (Geometry Ratio)**: Umożliwia wymuszenie proporcji wyświetlania całej siatki:
    * **16:9 Aspect Ratio**: Blokuje i dopasowuje okno siatki do szerokiego formatu kinowego 16:9 (standard dla większości kamer IP).
    * **4:3 Aspect Ratio**: Dopasowuje siatkę do klasycznego formatu kwadratowego 4:3 (częsty dla starszych kamer analogowych/IP).
-4. **Operacje na siatce (Merge Highlighted Cells)**: Umożliwia asymetryczne scalanie komórek (szczegółowo opisane w Sekcji 8.2).
+4. **Operacje na siatce (Merge Highlighted Cells)**: Umożliwia asymetryczne scalanie komórek (szczegółowo opisane w Sekcji 9.2).
 
 ---
 
-## 5. Panel Statystyk Systemowych (System Stats)
+## 6. Panel Statystyk Systemowych (System Stats)
 
 Wysuwany z lewej krawędzi ekranu Live View panel służy do monitorowania kondycji komputera oraz obciążenia generowanego przez aplikację:
 * **Monitorowane parametry**:
@@ -150,7 +209,7 @@ Wysuwany z lewej krawędzi ekranu Live View panel służy do monitorowania kondy
 
 ---
 
-## 6. Odtwarzacz Archiwum Nagrań (Playback Archive)
+## 7. Odtwarzacz Archiwum Nagrań (Playback Archive)
 
 Dostępny po kliknięciu ikony zegara/odtwarzania przy danej kamerze lub rejestratorze. Pozwala na jednoczesne przeglądanie nagrań archiwalnych z wielu kamer Hikvision w pełnej synchronizacji czasowej.
 
@@ -173,7 +232,7 @@ Dostępny po kliknięciu ikony zegara/odtwarzania przy danej kamerze lub rejestr
 * **Przyciski skoku VCR**:
   * **Ikony ze strzałkami „15”, „45” oraz „60” sekund**: Pozwalają na szybkie cofnięcie lub przewinięcie nagrania o wskazaną liczbę sekund.
 * **Paski Dostępności Nagrań**: Pod osią czasu renderowane są kolorowe paski reprezentujące znalezione segmenty wideo na dysku rejestratora. System cache zapobiega ich migotaniu podczas przesuwania osi.
-* **Auto-follow (Śledzenie wskaźnika)**: Wskaźnik odtwarzania (pionowa czerwona linia) jest stale monitorowany. Jeśli wskaźnik wyjdzie poza widoczny zakres osi czasu, widok automatycznie się przesunie i wyśrodkuje. Opcja ta jest inteligentnie blokowana na czas ręcznego przeciągania wskaźnika przez użytkownika.
+* **Auto-follow (Śledzenie wskaźnika)**: Wskaźnik odtwarzania (pionowa czerwona linia) is stale monitorowany. Jeśli wskaźnik wyjdzie poza widoczny zakres osi czasu, widok automatycznie się przesunie i wyśrodkuje. Opcja ta jest inteligentnie blokowana na czas ręcznego przeciągania wskaźnika przez użytkownika.
 
 ### Panel boczny kamer w oknie archiwum
 W prawej części okna odtwarzacza archiwum znajduje się pionowa lista zawierająca wszystkie dodane do programu rejestratory NVR wraz z ich kamerami:
@@ -184,7 +243,7 @@ W prawej części okna odtwarzacza archiwum znajduje się pionowa lista zawieraj
 
 ---
 
-## 7. Pobieranie Nagrań (Downloader)
+## 8. Pobieranie Nagrań (Downloader)
 
 Z poziomu okna Playback Archive możesz pobierać wybrane fragmenty nagrań bezpośrednio na dysk komputera do plików MP4:
 1. Kliknij ikonę pobierania (strzałka w dół) przy wybranej kamerze.
@@ -199,7 +258,7 @@ Z poziomu okna Playback Archive możesz pobierać wybrane fragmenty nagrań bezp
 
 ---
 
-## 8. Zaawansowane Ustawienia i Personalizacja w Panelu Opcji
+## 9. Zaawansowane Ustawienia i Personalizacja w Panelu Opcji
 
 Wysuwany z lewej krawędzi panel opcji (`SideBar`) dzieli się na sześć dedykowanych sekcji konfiguracji:
 
@@ -214,14 +273,13 @@ Wyświetla zaawansowane parametry wybranego kafelka siatki. Umożliwia:
   > -analyzeduration 0 -probesize 500000 -rtsp_transport tcp
   > ```
 
-
 ### 2. Układy i Siatka (Layout & Grid Tools - ikona suwaków)
 Zaawansowane opcje manipulacji siatką ekranu:
 * Szybkie przełączanie pełnego ekranu.
 * **Asymetryczne Scalanie Komórek (Merge Highlighted Cells)**: Jedna z najbardziej zaawansowanych funkcji aplikacji. Umożliwia użytkownikowi zaznaczenie kilku sąsiadujących kafelków w siatce (poprzez kliknięcie z przytrzymanym klawiszem **Ctrl** lub **Shift**, bądź za pomocą klawiatury trzymając **Shift** i nawigując strzałkami), a następnie scalenie ich w jedną, dużą komórkę. Pozwala to na projektowanie dowolnych asymetrycznych układów, gdzie np. jedna ważna kamera jest ogromna, a poboczne są mniejsze.
 
 ### 3. Rejestrator (Recorders - ikona serwera)
-Pełny menedżer konfiguracji połączeń z urządzeniami NVR/DVR Hikvision (szczegółowo opisany w Sekcji 2).
+Pełny menedżer konfiguracji połączeń z urządzeniami NVR/DVR Hikvision (szczegółowo opisany w Sekcji 3).
 
 ### 4. Presety (Presets - ikona gwiazdki)
 Zarządzanie zapisanymi siatkami i konfiguracjami kamer. Umożliwia tworzenie pustych presetów o zadanym rozmiarze siatki, zmianę ich kolejności, ukrywanie ich na pasku górnym (przełącznik „Visible”) oraz ich aktywowanie w bieżącym oknie.
@@ -235,14 +293,14 @@ Pozwala dostosować parametry globalne programu:
 * **Automatyczne odciszanie**: Funkcja automatycznie odciszająca audio kamery po wejściu w tryb pełnoekranowy.
 * **Ukrywanie kursora w trybie pełnoekranowym**: Opcja *„Ukryj kursor w trybie pełnoekranowym”* automatycznie ukrywa kursor myszy po okresie bezczynności, gdy obraz jest wyświetlany w trybie pełnoekranowym, aby nie przesłaniać monitorowanego kadru.
 * **Wybór Języka (Language)**: Pozwala na natychmiastową zmianę języka aplikacji (Domyślny systemowy, Polski, Angielski).
-* **Ustawienia Interfejsu (UI)**: Opisane w Sekcji 10 opcje dostosowania widoczności nakładek informacyjnych na viewportach (np. ukrywanie kontrolek w prawym dolnym rogu viewportu tylko po najechaniu kursorem).
+* **Ustawienia Interfejsu (UI)**: Opisane w Sekcji 11 opcje dostosowania widoczności nakładek informacyjnych na viewportach (np. ukrywanie kontrolek w prawym dolnym rogu viewportu tylko po najechaniu kursorem).
 
 ### 6. Changelog (Dziennik zmian - ikona dokumentu z zegarem)
 Prezentuje interaktywny i uporządkowany rejestr historycznych oraz bieżących aktualizacji, poprawek błędów i nowych funkcji aplikacji, dzięki czemu użytkownik ma zawsze pod ręką pełną wiedzę o zmianach w programie.
 
 ---
 
-## 9. Skróty Klawiszowe i Sterowanie Myszami
+## 10. Skróty Klawiszowe i Sterowanie Myszami
 
 ### Skróty klawiszowe:
 | Klawisz / Kombinacja | Działanie |
@@ -270,19 +328,19 @@ Prezentuje interaktywny i uporządkowany rejestr historycznych oraz bieżących 
 
 ---
 
-## 10. Wykonywanie Zrzutów Ekranu (Stopklatek) i Konfiguracja Ścieżek
+## 11. Wykonywanie Zrzutów Ekranu (Stopklatek) i Konfiguracja Ścieżek
 
 Aplikacja umożliwia szybkie wykonywanie wysokiej jakości stopklatek z dowolnego kafelka kamery w trybie podglądu na żywo oraz odtwarzania archiwum.
 
 ### Wykonywanie Stopklatek:
-1. W prawym dolnym rogu każdego kafelka kamery znajduje się ikona aparatu (szczegółowo opisana w Sekcji 3).
+1. W prawym dolnym rogu każdego kafelka kamery znajduje się ikona aparatu (szczegółowo opisana w Sekcji 4).
 2. Kliknięcie ikony aparatu powoduje wykonanie zrzutu ekranu i zapisanie go jako obraz JPEG (jakość 98 - praktycznie bezstratna).
 3. Pomyślne wykonanie zrzutu jest potwierdzane podświetleniem ikony aparatu na kolor pomarańczowy (`#ff7a00`) przez dokładnie 1 sekundę.
 4. **Pełna rozdzielczość**: W trybie odtwarzania archiwum stopklatki są zapisywane w pełnej, natywnej rozdzielczości strumienia z pamięci podręcznej dekodera, bez względu na aktualną wielkość kafelka na ekranie i skalowanie okna.
 
 ### Konfiguracja Ścieżek Zapisu:
 1. Przejdź do zakładki **Ustawienia** (ikona koła zębatego w panelu bocznym).
-2. W seki **Zapis** znajdziesz pola tekstowe umożliwiające konfigurację domyślnych ścieżek zapisu:
+2. W sekcji **Zapis** znajdziesz pola tekstowe umożliwiające konfigurację domyślnych ścieżek zapisu:
    * **Domyślna ścieżka stopklatek**: Miejsce zapisu zrzutów (domyślnie `~/Obrazy/CCTV`).
    * **Domyślna ścieżka nagrań**: Miejsce zapisu pobieranych wideo (domyślnie `~/Wideo/CCTV`).
 3. Kliknięcie przycisku `...` obok pola tekstowego otwiera natywne okno wyboru folderu systemu operacyjnego (Breeze w KDE).
@@ -290,7 +348,7 @@ Aplikacja umożliwia szybkie wykonywanie wysokiej jakości stopklatek z dowolneg
 
 ### Ustawienia Interfejsu Użytkownika (UI):
 1. Przejdź do zakładki **Ustawienia** (ikona koła zębatego w panelu bocznym) lub otwórz okno **Opcje** u góry ekranu.
-2. In nowo dodanej sekcji **Ustawienia interfejsu użytkownika** możesz dostosować widoczność elementów nakładanych na kafelki kamer (viewporty):
+2. W nowo dodanej sekcji **Ustawienia interfejsu użytkownika** możesz dostosować widoczność elementów nakładanych na kafelki kamer (viewporty):
    * **Pokazuj status kanału w lewym górnym rogu viewportu** (domyślnie włączony) — wyświetla informacje o ładowaniu, odtwarzaniu i statusie połączenia strumienia.
    * **Pokazuj informację o kamerze w dolnym lewym rogu viewportu** (domyślnie włączony) — wyświetla nazwę kamery pobraną z rejestratora Hikvision.
    * **Pokazuj ikony sterowania w dolnym prawym rogu viewportu tylko po najechaniu kursorem na viewport** (domyślnie włączony) — automatycznie ukrywa panel przycisków sterujących (stopklatka, archiwum, tryb 1:1, powiększenie regionu), gdy kursor myszy znajduje się poza danym kafelkiem kamery. Ikony pokazują się natychmiast po przesunięciu wskaźnika myszy nad dany viewport (bez konieczności klikania), co zwiększa estetykę podglądu i nie przesłania detali obrazu. Po opuszczeniu kafelka ikony natychmiast znikają.

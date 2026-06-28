@@ -32,7 +32,7 @@ Window {
     property bool playbackStoppedForDownload: false
 
     property bool sidebarVisible: true
-    property bool topBarAutoCollapse: false
+    property bool topBarAutoCollapse: (typeof rootWindow !== "undefined" && rootWindow) ? !rootWindow.viewSettings.showTopBarByDefault : false
     property bool hideTimelineOption: false
     readonly property bool isBottomPanelFloating: (fullScreenPlayerIndex !== -1) || (playbackWindow.visibility === Window.FullScreen)
 
@@ -72,6 +72,11 @@ Window {
             return rootWindow.generalSettings.videoPath;
         }
         return "";
+    }
+
+    function showSnapshotSaved(path) {
+        rootSnapshotSavedDialog.filePath = path;
+        rootSnapshotSavedDialog.open();
     }
 
 
@@ -1603,7 +1608,16 @@ Window {
                                     if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
                                         return false;
                                     }
-                                    return (fullScreenPlayerIndex !== -1) ? fullScreen : false;
+                                    // Jeśli jest powiększenie pełnoekranowe, dźwięk ma tylko powiększona kamera
+                                    if (fullScreenPlayerIndex !== -1) {
+                                        return fullScreen;
+                                    }
+                                    // Jeśli jesteśmy w siatce 1x1, jedyna kamera automatycznie odtwarza dźwięk i sterowanie głośnością
+                                    if (gridLayoutColumns === 1 && gridLayoutRows === 1) {
+                                        return true;
+                                    }
+                                    // Jeśli siatka jest większa (np. 2x2), dźwięk odtwarza i sterowanie ma tylko aktualnie zaznaczona kamera
+                                    return isSelected;
                                 }
                                 
                                 property bool isOneToOne: false
@@ -2128,11 +2142,13 @@ Window {
                                                     var saved = playerItem.saveCurrentFrame(path);
                                                     if (saved) {
                                                         console.log("Saved full frame snapshot directly to", path);
+                                                        showSnapshotSaved(path);
                                                     } else {
                                                         console.log("Failed saving frame directly, falling back to grabToImage");
                                                         playerItem.grabToImage(function(result) {
                                                             result.saveToFile(path);
                                                             console.log("Saved snapshot (viewport fallback) to", path);
+                                                            showSnapshotSaved(path);
                                                         }, Qt.size(nativeWidth, nativeHeight));
                                                     }
                                                 }
@@ -3750,5 +3766,10 @@ Window {
                 keepVisibleTimer.start();
             }
         }
+    }
+
+    SnapshotSavedDialog {
+        id: rootSnapshotSavedDialog
+        z: 99999
     }
 }

@@ -25,7 +25,8 @@ ApplicationWindow {
     property string lastLoadedModelsJson: ""
     property string lastSavedModelsJson: ""
     property bool isSyncing: false
-    property bool topBarAutoCollapse: true
+    property bool topBarAutoCollapse: !viewSettings.showTopBarByDefault
+    readonly property bool isPlaybackWindowOpen: playbackWindowLoader.active && playbackWindowLoader.item && playbackWindowLoader.item.visible
 
     onClosing: {
         if (!closeAccepted) {
@@ -345,9 +346,13 @@ ApplicationWindow {
             if (viewSettings.showInfoOnHoverOnly !== diskShowInfoOnHoverOnly) {
                 viewSettings.showInfoOnHoverOnly = diskShowInfoOnHoverOnly;
             }
-            var diskUnmuteWhenFullScreen = Context.readSetting("Viewport", "unmuteWhenFullScreen", false);
-            if (viewportSettings.unmuteWhenFullScreen !== diskUnmuteWhenFullScreen) {
-                viewportSettings.unmuteWhenFullScreen = diskUnmuteWhenFullScreen;
+            var diskShowTopBarByDefault = Context.readSetting("View", "showTopBarByDefault", true);
+            if (viewSettings.showTopBarByDefault !== diskShowTopBarByDefault) {
+                viewSettings.showTopBarByDefault = diskShowTopBarByDefault;
+            }
+            var diskNoUnmuteWhenFullScreen = Context.readSetting("Viewport", "noUnmuteWhenFullScreen", false);
+            if (viewportSettings.noUnmuteWhenFullScreen !== diskNoUnmuteWhenFullScreen) {
+                viewportSettings.noUnmuteWhenFullScreen = diskNoUnmuteWhenFullScreen;
             }
             var diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", "{\"analyzeduration\":0,\"probesize\":500000}");
             if (layoutsCollectionSettings.defaultAVFormatOptions !== diskDefaultAVFormatOptions) {
@@ -397,6 +402,7 @@ ApplicationWindow {
         property bool showCameraInfo: true
         property bool hoverControlIcons: true
         property bool showInfoOnHoverOnly: false
+        property bool showTopBarByDefault: true
     }
 
     Settings {
@@ -405,7 +411,7 @@ ApplicationWindow {
         fileName: Context.config.fileName
         category: "Viewport"
 
-        property bool unmuteWhenFullScreen: false
+        property bool noUnmuteWhenFullScreen: false
     }
 
     Shortcut {
@@ -902,6 +908,8 @@ ApplicationWindow {
 
                 onClicked: {
                     instructionsWindow.show();
+                    instructionsWindow.raise();
+                    instructionsWindow.requestActivate();
                 }
 
                 ToolTip.delay: Compact.toolTipDelay
@@ -1359,12 +1367,27 @@ ApplicationWindow {
             generalSettings.videoPath = vidPath;
         }
         Context.mkpath(vidPath);
+
+        if (Context.isFirstRun && !Context.isAuxiliary) {
+            firstRunHelpTimer.start();
+        }
     }
 
 
     InstructionsWindow {
         id: instructionsWindow
         visible: false
+    }
+
+    Timer {
+        id: firstRunHelpTimer
+        interval: 350
+        repeat: false
+        onTriggered: {
+            instructionsWindow.show();
+            instructionsWindow.raise();
+            instructionsWindow.requestActivate();
+        }
     }
 
     ConfirmDialog {
@@ -2143,4 +2166,5 @@ ApplicationWindow {
         autoHideTimeout: 3000
         anchors.fill: parent
     }
+
 }

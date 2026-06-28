@@ -135,9 +135,9 @@ Dialog {
             }
         }
 
-        // Global Viewport Settings
+        // Channel Viewport Settings
         GroupBox {
-            title: qsTr("Global Options")
+            title: qsTr("Channel Options")
             Layout.fillWidth: true
 
             background: Rectangle {
@@ -157,33 +157,18 @@ Dialog {
                 anchors.fill: parent
                 spacing: 12
 
-                CheckBox {
-                    id: unmuteWhenFullScreenCheckBox
-                    text: qsTr("Unmute when the viewport is in full screen mode")
-                    palette.highlight: "#00f5d4"
-                    Layout.fillWidth: true
-                    
-                    contentItem: Text {
-                        text: unmuteWhenFullScreenCheckBox.text
-                        font.pixelSize: 12
-                        color: "white"
-                        verticalAlignment: Text.AlignVCenter
-                        leftPadding: unmuteWhenFullScreenCheckBox.indicator.width + unmuteWhenFullScreenCheckBox.spacing
-                    }
-                }
-
                 ColumnLayout {
                     spacing: 4
                     Layout.fillWidth: true
 
                     Label {
-                        text: qsTr("Default FFmpeg options")
+                        text: qsTr("FFmpeg options")
                         color: "#8898a6"
                         font.pixelSize: 11
                     }
 
                     TextField {
-                        id: defaultAVFormatOptions
+                        id: channelAVFormatOptions
                         selectByMouse: true
                         Layout.fillWidth: true
                         color: "white"
@@ -191,7 +176,7 @@ Dialog {
                         background: Rectangle {
                             color: "#0f151b"
                             radius: 4
-                            border.color: defaultAVFormatOptions.activeFocus ? "#ff7a00" : "#2a3540"
+                            border.color: channelAVFormatOptions.activeFocus ? "#ff7a00" : "#2a3540"
                         }
                     }
                 }
@@ -275,22 +260,22 @@ Dialog {
             if (item) {
                 primaryUrlField.text = item.url;
                 secondaryUrlField.text = item.secondaryUrl;
+
+                var options = Object.assign({}, item.avFormatOptions);
+                if (Object.keys(options).length === 0) {
+                    options = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
+                }
+                channelAVFormatOptions.text = Utils.stringifyOptions(options);
+            } else {
+                primaryUrlField.text = "";
+                secondaryUrlField.text = "";
+                channelAVFormatOptions.text = "";
             }
         } else {
             primaryUrlField.text = "";
             secondaryUrlField.text = "";
+            channelAVFormatOptions.text = "";
         }
-
-        unmuteWhenFullScreenCheckBox.checked = viewportSettings.unmuteWhenFullScreen;
-
-        defaultAVFormatOptions.text = "";
-        var options = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
-        for (var key in options) {
-            if (typeof options[key] === "string" || typeof options[key] === "number") {
-                defaultAVFormatOptions.text += "-%1 %2 ".arg(key).arg(options[key]);
-            }
-        }
-        defaultAVFormatOptions.text = defaultAVFormatOptions.text.trim();
     }
 
     function saveSettings() {
@@ -299,9 +284,22 @@ Dialog {
             if (item) {
                 item.url = primaryUrlField.text;
                 item.secondaryUrl = secondaryUrlField.text;
+
+                var options = Utils.parseOptions(channelAVFormatOptions.text);
+                var defaultOpts = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
+                var identical = true;
+                if (Object.keys(options).length === Object.keys(defaultOpts).length) {
+                    for (var key in options) {
+                        if (defaultOpts[key] === undefined || String(defaultOpts[key]) !== String(options[key])) {
+                            identical = false;
+                            break;
+                        }
+                    }
+                } else {
+                    identical = false;
+                }
+                item.avFormatOptions = identical ? {} : options;
             }
         }
-        viewportSettings.unmuteWhenFullScreen = unmuteWhenFullScreenCheckBox.checked;
-        layoutsCollectionSettings.defaultAVFormatOptions = JSON.stringify(Utils.parseOptions(defaultAVFormatOptions.text));
     }
 }

@@ -11,6 +11,9 @@
 #include <vector>
 #include "hcnetsdk_compat.h"
 
+#include <QAudioOutput>
+#include <QAudioFormat>
+
 class YV12ToRGBTask;
 
 class HikvisionArchivePlayer : public QQuickPaintedItem
@@ -130,12 +133,27 @@ private:
     std::vector<std::shared_ptr<FrameBuffer>> m_frameBufferPool;
     std::mutex m_poolMutex;
     std::atomic<int> m_pendingTasks{0};
+    std::atomic<int> m_guiPendingTasks{0};
+    int m_lastProposedSampleRate = 0;
+    int m_sampleRateConsecutiveCount = 0;
     std::atomic<bool> m_sysHeadReceived{false};
+    std::atomic<bool> m_soundPlaying{false};
 
     // FPS counter members (accessed on GUI thread in updateImage)
     int m_fps = 0;
     int m_fpsCounter = 0;
     qint64 m_lastFpsTime = 0;
+
+    QAudioOutput* m_audioOutput = nullptr;
+    QIODevice* m_audioOutputDevice = nullptr;
+    QAudioFormat m_audioFormat;
+    mutable std::mutex m_audioMutex;
+    std::atomic<long> m_lastAudioStamp{0};
+    std::atomic<uint64_t> m_playbackSessionId{0};
+    qint64 m_lastAudioInitTime = 0;
+
+    Q_INVOKABLE void initAudioOutput(int sampleRate, int channels, uint64_t sessionId);
+    static void AudioCallBack(long nPort, char * pAudioBuf, long nSize, long nStamp, long nType, long nUser);
 };
 
 #endif // HIKVISIONARCHIVEPLAYER_H

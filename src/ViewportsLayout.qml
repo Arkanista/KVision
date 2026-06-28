@@ -59,6 +59,9 @@ FocusScope {
                 if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
                     return true;
                 }
+                if (typeof rootWindow !== "undefined" && rootWindow.isPlaybackWindowOpen) {
+                    return true;
+                }
                 if ((root.size.width > 1 || root.size.height > 1) && !player.isFullScreen) {
                     return true;
                 }
@@ -453,12 +456,12 @@ FocusScope {
                         if (vItem) {
                             if (fullScreen) {
                                 preFullScreenVolume = vItem.volume;
-                                if (viewportSettings.unmuteWhenFullScreen && vItem.volume <= 0.0) {
+                                if (!viewportSettings.noUnmuteWhenFullScreen && vItem.volume <= 0.0) {
                                     vItem.volume = 1.0;
                                 }
                             } else {
                                 resetZoom();
-                                if (viewportSettings.unmuteWhenFullScreen) {
+                                if (!viewportSettings.noUnmuteWhenFullScreen) {
                                     vItem.volume = preFullScreenVolume;
                                 }
                             }
@@ -474,7 +477,9 @@ FocusScope {
                     onFocusChanged: {
                         d2.setCurrentIndex("focusIndex", focus);
                         d2.setCurrentIndex("pressAndHoldIndex", false);
-                        fullScreen = false;
+                        if (!activeFocus) {
+                            fullScreen = false;
+                        }
                     }
                     onActiveFocusChanged: d2.setCurrentIndex("activeFocusIndex", activeFocus)
                     onSelectedChanged: {
@@ -1037,7 +1042,7 @@ FocusScope {
                             id: changeSettingsMenuItem
                             text: qsTr("Zmień ustawienia")
                             visible: generalSettings.enableChangeViewportSettings
-                            enabled: model.url !== "" && model.url.indexOf("hikvision://") !== 0
+                            enabled: model.url !== ""
                             leftPadding: 12
                             
                             contentItem: Text {
@@ -1069,6 +1074,78 @@ FocusScope {
                             onTriggered: {
                                 viewportSettingsDialog.index = model.index;
                                 viewportSettingsDialog.open();
+                            }
+                        }
+
+                        MenuItem {
+                            id: snapshotMenuItem
+                            text: qsTr("Stopklatka")
+                            enabled: model.url !== ""
+                            leftPadding: 12
+                            
+                            contentItem: Text {
+                                text: snapshotMenuItem.text
+                                font { pixelSize: 11; bold: true }
+                                color: snapshotMenuItem.enabled ? (snapshotMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                horizontalAlignment: Text.AlignLeft
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            background: Rectangle {
+                                implicitWidth: 150
+                                implicitHeight: 32
+                                color: snapshotMenuItem.hovered ? "#2a3540" : "transparent"
+                                border.color: snapshotMenuItem.hovered ? "#00f5d4" : "transparent"
+                                border.width: 1
+                                radius: 4
+                            }
+                            
+                            onHoveredChanged: {
+                                if (hovered) {
+                                    streamSubMenu.close();
+                                }
+                            }
+                            
+                            onTriggered: {
+                                var player = playerPool.activePlayersMap[model.index];
+                                if (player) {
+                                    player.takeSnapshot(false);
+                                }
+                            }
+                        }
+
+                        MenuItem {
+                            id: playMenuItem
+                            text: qsTr("Odtwarzaj")
+                            enabled: model.url !== ""
+                            leftPadding: 12
+                            
+                            contentItem: Text {
+                                text: playMenuItem.text
+                                font { pixelSize: 11; bold: true }
+                                color: playMenuItem.enabled ? (playMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                horizontalAlignment: Text.AlignLeft
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            background: Rectangle {
+                                implicitWidth: 150
+                                implicitHeight: 32
+                                color: playMenuItem.hovered ? "#2a3540" : "transparent"
+                                border.color: playMenuItem.hovered ? "#00f5d4" : "transparent"
+                                border.width: 1
+                                radius: 4
+                            }
+                            
+                            onHoveredChanged: {
+                                if (hovered) {
+                                    streamSubMenu.close();
+                                }
+                            }
+                            
+                            onTriggered: {
+                                var player = playerPool.activePlayersMap[model.index];
+                                if (player) {
+                                    player.openPlayback();
+                                }
                             }
                         }
                     }

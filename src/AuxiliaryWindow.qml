@@ -38,6 +38,7 @@ Window {
     property alias stackLayout: stackLayout
     property alias layoutIndex: stackLayout.currentIndex
     property var selectedLayoutModel: null
+    property bool topBarAutoCollapse: rootWindow ? !rootWindow.viewSettings.showTopBarByDefault : true
 
     onLayoutIndexChanged: {
         if (layoutIndex >= 0 && layoutIndex < layoutsModel.count) {
@@ -207,7 +208,7 @@ Window {
         z: 9999
 
         // Slide animation based on hover states of the top edge or the bar itself
-        y: (hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? 0 : -height
+        y: (!topBarAutoCollapse || hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? 0 : -height
 
         Behavior on y {
             NumberAnimation {
@@ -687,4 +688,5 @@ Window {
             Qt.quit();
         }
     }
+
 }

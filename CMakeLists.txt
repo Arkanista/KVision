@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.14)
 set(VER_MAJ 2)
 set(VER_MIN 2)
 set(VER_PAT 6)
-set(VER_REL 3)
+set(VER_REL 4)
 # set(REL_STATUS "alpha")
 
 set(APP_NAME "KVision")
@@ -13,6 +13,8 @@ set(ORG_DOMAIN "kvision.org")
 set(VERSION "${VER_MAJ}.${VER_MIN}.${VER_PAT}")
 
 project(kvision VERSION ${VERSION} HOMEPAGE_URL "https://github.com/arkanista/kvision" LANGUAGES C CXX)
+
+include(GNUInstallDirs)
 
 if(DEFINED VER_REL AND ${VER_REL} GREATER 0)
     set(VERSION "${VERSION}-${VER_REL}")
@@ -215,18 +217,53 @@ target_link_options(kvision PRIVATE
 )
 set_target_properties(kvision PROPERTIES
     BUILD_RPATH "\$ORIGIN/../src/hikvision_sdk/lib"
-    INSTALL_RPATH "\$ORIGIN/../lib/kvision"
+    INSTALL_RPATH "\$ORIGIN/../${CMAKE_INSTALL_LIBDIR}/kvision"
     BUILD_WITH_INSTALL_RPATH FALSE
     INSTALL_RPATH_USE_LINK_PATH FALSE
 )
 if (NOT ANDROID)
     set_target_properties(kvision PROPERTIES OUTPUT_NAME "kvision")
+
+    add_executable(diagnose_archive src/diagnose_archive.cpp)
+    target_include_directories(diagnose_archive PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/inc")
+    target_link_directories(diagnose_archive PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib")
+    target_link_libraries(diagnose_archive PRIVATE hcnetsdk PlayCtrl Qt5::Widgets)
+    target_link_options(diagnose_archive PRIVATE 
+        "LINKER:--disable-new-dtags"
+        "LINKER:-rpath-link,${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib"
+    )
+    set_target_properties(diagnose_archive PROPERTIES
+        BUILD_RPATH "\$ORIGIN/../src/hikvision_sdk/lib"
+    )
+
+    add_executable(diagnose_live src/diagnose_live.cpp)
+    target_include_directories(diagnose_live PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/inc")
+    target_link_directories(diagnose_live PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib")
+    target_link_libraries(diagnose_live PRIVATE hcnetsdk PlayCtrl Qt5::Widgets)
+    target_link_options(diagnose_live PRIVATE 
+        "LINKER:--disable-new-dtags"
+        "LINKER:-rpath-link,${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib"
+    )
+    set_target_properties(diagnose_live PROPERTIES
+        BUILD_RPATH "\$ORIGIN/../src/hikvision_sdk/lib"
+    )
+
+    add_executable(diagnose_compression src/diagnose_compression.cpp)
+    target_include_directories(diagnose_compression PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/inc")
+    target_link_directories(diagnose_compression PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib")
+    target_link_libraries(diagnose_compression PRIVATE hcnetsdk PlayCtrl Qt5::Widgets)
+    target_link_options(diagnose_compression PRIVATE 
+        "LINKER:--disable-new-dtags"
+        "LINKER:-rpath-link,${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib"
+    )
+    set_target_properties(diagnose_compression PROPERTIES
+        BUILD_RPATH "\$ORIGIN/../src/hikvision_sdk/lib"
+    )
 endif()
 
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM true)
 
 if (UNIX AND NOT ANDROID)
-    include(GNUInstallDirs)
     set(CMAKE_INSTALL_PREFIX "/usr")
     install(TARGETS kvision DESTINATION "${CMAKE_INSTALL_BINDIR}")
     install(FILES "images/128.png" DESTINATION "/usr/share/icons/hicolor/128x128/apps" RENAME "kvision.png")

@@ -7,20 +7,83 @@ The program has been optimized for stability, smooth operation (60 FPS), and min
 ---
 
 ## Table of Contents
-1. [Installation and Launching](#1-installation-and-launching)
-2. [Managing NVR/DVR Recorders](#2-managing-nvrdvr-recorders)
-3. [Live View and Viewport Overlays](#3-live-view-and-viewport-overlays)
-4. [Screen Layouts, Presets, and Toolbar](#4-screen-layouts-presets-and-toolbar)
-5. [System Statistics Panel (System Stats)](#5-system-statistics-panel-system-stats)
-6. [Playback Archive Player](#6-playback-archive-player)
-7. [Downloading Recordings (Downloader)](#7-downloading-recordings-downloader)
-8. [Advanced Settings and Customization in Options Sidebar](#8-advanced-settings-and-customization-in-options-sidebar)
-9. [Keyboard Shortcuts and Mouse Controls](#9-keyboard-shortcuts-and-mouse-controls)
-10. [Taking Snapshots and Path Configuration](#10-taking-snapshots-and-path-configuration)
+1. [Description of Button Actions](#1-description-of-button-actions)
+2. [Installation and Launching](#2-installation-and-launching)
+3. [Managing NVR/DVR Recorders](#3-managing-nvrdvr-recorders)
+4. [Live View and Viewport Overlays](#4-live-view-and-viewport-overlays)
+5. [Screen Layouts, Presets, and Toolbar](#5-screen-layouts-presets-and-toolbar)
+6. [System Statistics Panel (System Stats)](#6-system-statistics-panel-system-stats)
+7. [Playback Archive Player](#7-playback-archive-player)
+8. [Downloading Recordings (Downloader)](#8-downloading-recordings-downloader)
+9. [Advanced Settings and Customization in Options Sidebar](#9-advanced-settings-and-customization-in-options-sidebar)
+10. [Keyboard Shortcuts and Mouse Controls](#10-keyboard-shortcuts-and-mouse-controls)
+11. [Taking Snapshots and Path Configuration](#11-taking-snapshots-and-path-configuration)
 
 ---
 
-## 1. Installation and Launching
+## 1. Description of Button Actions
+
+This section describes the meaning of all graphical icons and buttons used in the application.
+
+### Top Tool Bar
+* {ICON:quit} **Close Window**: Prompts for confirmation and closes the active window or application.
+* {ICON:pin} **Pin Bar**: Locks the top bar in an expanded state or enables auto-collapsing.
+* {ICON:fullscreen} **Full Screen**: Toggles the active window into fullscreen mode.
+* {ICON:minimize} **Minimize**: Minimizes the application window to the system taskbar.
+* {ICON:options} **Options**: Opens or closes the sliding configuration sidebar (settings and recorders).
+* {ICON:new_window} **New Window**: Opens a new, independent auxiliary window for camera streams.
+* {ICON:archive} **Archive**: Opens the playback recordings archive window (timeline and calendar).
+* {ICON:instructions} **Instructions**: Opens this user manual and technical assistance window.
+* {ICON:stats} **Stats**: Toggles the sliding system statistics panel (CPU, RAM, GPU, Net).
+* {ICON:lock} **Grid Lock**: Disables grid division adjustments to protect your active layout.
+* {ICON:hamburger} **More Options**: Opens the sliding toolbox for advanced division sizes, ratios, and cell merging.
+
+### Viewport Overlays (Cameras)
+* {ICON:snapshot} **Snapshot**: Captures a lossless full-resolution image and saves it as a JPEG file.
+* {ICON:play} **Camera Archive**: Launches the timeline playback window for this camera (15 minutes backward).
+* {ICON:grid_1x1} **Try 1:1**: Displays the video stream in its original, native resolution without stretching.
+* {ICON:zoom_in} **Interactive Zoom**: Toggles click-and-drag magnification for a selected marquee region.
+* {ICON:zoom_out} **Reset Zoom**: Resets the digital magnification and restores the full camera field of view.
+* {ICON:speaker_unmute} **Mute Audio**: Represents an unmuted audio stream; clicking it mutes the stream.
+* {ICON:speaker_mute} **Unmute Audio**: Represents a muted audio stream; clicking it unmutes the stream.
+
+### Playback Window Controls
+
+**Top Bar Controls:**
+* {ICON:close} **Close**: Closes the playback archive player window.
+* {ICON:pin} **Pin Bar**: Locks the top bar in an expanded state or enables auto-collapsing.
+* {ICON:fullscreen} **Full Screen**: Toggles the playback window into fullscreen mode.
+* {ICON:sidebar} **Show/Hide Sidebar**: Toggles the visibility of the left sidebar containing cameras and recorders.
+* {ICON:timeline_show} / {ICON:timeline_hide} **Show/Hide Timeline**: Shows or hides the bottom panel containing the timeline and playback controls.
+* {ICON:video_folder} **Video Folder**: Opens the local system folder containing downloaded video clips.
+* {ICON:photo_folder} **Snapshot Folder**: Opens the local system folder containing captured snapshots.
+* grid buttons `1x1`, `1x2`, `2x1`, `2x2`: Switches the camera display layout of the playback window to 1, 2 (vertical/horizontal) or 4 concurrent views.
+
+**Bottom Bar & Timeline Controls:**
+* {ICON:prev_day} **Previous Day**: Navigates to recordings of the previous calendar day.
+* {ICON:calendar_select} **Date Picker**: Opens a calendar dialog to select a specific date for playback.
+* {ICON:next_day} **Next Day**: Navigates to recordings of the next calendar day.
+* {ICON:today} **Today**: Instantly shifts the playback focus to the current calendar day.
+* {ICON:refresh_recordings} **Refresh recordings**: Refreshes and re-queries available recording segments from the device.
+* {ICON:zoom_1h} / {ICON:zoom_8h} / {ICON:zoom_24h} **Timeline Zoom Presets**: Scales the visible window of the timeline (to 1 hour, 8 hours, or 24 hours) for high-precision navigation.
+* {ICON:timeline_center} **Center Timeline**: Centers the timeline view precisely around the current playback timestamp.
+* {ICON:speed_1x} / {ICON:speed_2x} / {ICON:speed_4x} **Playback Speed**: Adjusts the video playback multiplier (standard 1x speed, 2x accelerated, or 4x rapid play).
+* {ICON:download} **Download**: Opens the download tool to export a defined video segment from the device.
+* {ICON:jump_back_60} / {ICON:jump_back_45} / {ICON:jump_back_15} **Jump Backward**: Rewinds the playback timestamp by 60, 45, or 15 seconds.
+* {ICON:play} / {ICON:pause} **Play / Pause**: Initiates or pauses the archive video stream playback.
+* {ICON:jump_forward_15} / {ICON:jump_forward_45} / {ICON:jump_forward_60} **Jump Forward**: Advances the playback timestamp by 15, 45, or 60 seconds.
+
+**Other Diagnostic & General Icons:**
+* {ICON:calendar} **Calendar**: Represents calendar/scheduling configurations.
+* {ICON:clock} **Time**: Represents clock or temporal status indicators.
+* {ICON:zoom} **Zoom**: Represents scaling or digital zoom configurations.
+* {ICON:timeline_toggle} **Timeline Toggle**: Represents toggling or refreshing of chronological views.
+* {ICON:trash} **Delete**: Safely removes configured recorders or layouts with confirmation.
+* {ICON:warning} **Warning**: Displayed in dialog boxes for irreversible actions or delete warnings.
+
+---
+
+## 2. Installation and Launching
 
 ### Installing on Arch Linux (Pacman)
 To install the program from the prepared binary package, go to the `packaging/arch/` directory and run:
@@ -57,7 +120,7 @@ kvision
 
 ---
 
-## 2. Managing NVR/DVR Recorders
+## 3. Managing NVR/DVR Recorders
 
 To configure the connection to a Hikvision recorder:
 1. Open the sidebar options panel and go to the **Recorders** tab (server icon).
@@ -83,7 +146,7 @@ To configure the connection to a Hikvision recorder:
 
 ---
 
-## 3. Live View and Viewport Overlays
+## 4. Live View and Viewport Overlays
 
 The main window of the program displays the live feed:
 * **Camera Grid**: Displays RTSP streams or feeds directly from the Hikvision SDK.
@@ -104,7 +167,7 @@ In the bottom-right corner of each camera tile/viewport, a control panel with fo
 
 ---
 
-## 4. Screen Layouts, Presets, and Toolbar
+## 5. Screen Layouts, Presets, and Toolbar
 
 Layouts allow you to organize the arrangement of cameras on the screen. From the **Presets** tab (star icon) you can:
 * **Create New Presets**: Add your own layout with any configuration of columns and rows (e.g., 2x2, 3x3, 4x4).
@@ -133,11 +196,11 @@ Opening the Hamburger (More Options) menu brings up a specialized layout toolbox
 3. **Geometry Ratios**: Allows forcing the grid display to specific aspect ratios:
    * **16:9 Aspect Ratio**: Locks and scales the grid container to widescreen 16:9 format (standard for modern IP cameras).
    * **4:3 Aspect Ratio**: Adapts the grid container to the traditional 4:3 ratio (common in legacy analog/IP cameras).
-4. **Grid Operations (Merge Highlighted Cells)**: Access the asymmetric cell merging feature (detailed in Section 8.2).
+4. **Grid Operations (Merge Highlighted Cells)**: Access the asymmetric cell merging feature (detailed in Section 9.2).
 
 ---
 
-## 5. System Statistics Panel (System Stats)
+## 6. System Statistics Panel (System Stats)
 
 Sliding out from the left edge of the Live View screen, this panel monitors the computer's health and the load generated by the application:
 * **Monitored Parameters**:
@@ -150,7 +213,7 @@ Sliding out from the left edge of the Live View screen, this panel monitors the 
 
 ---
 
-## 6. Playback Archive Player
+## 7. Playback Archive Player
 
 Available by clicking the clock/play icon next to a specific camera or recorder. It allows for simultaneous viewing of archived recordings from multiple Hikvision cameras in full time synchronization.
 
@@ -184,7 +247,7 @@ A vertical side list on the right edge of the player lists all configured NVRs a
 
 ---
 
-## 7. Downloading Recordings (Downloader)
+## 8. Downloading Recordings (Downloader)
 
 From the Playback Archive window, you can download selected segments of recordings directly to your computer's drive as MP4 files:
 1. Click the download icon (downward arrow) next to the selected camera.
@@ -199,7 +262,7 @@ From the Playback Archive window, you can download selected segments of recordin
 
 ---
 
-## 8. Advanced Settings and Customization in Options Sidebar
+## 9. Advanced Settings and Customization in Options Sidebar
 
 The sliding options panel (`SideBar`) consists of six dedicated configuration tabs:
 
@@ -214,14 +277,13 @@ Displays advanced parameters of the currently selected grid tile. Allows you to:
   > -analyzeduration 0 -probesize 500000 -rtsp_transport tcp
   > ```
 
-
 ### 2. Layout & Grid Tools (Sliders Icon)
 Advanced screen grid customization options:
 * Quick toggle for Full Screen mode.
 * **Asymmetric Cell Merging (Merge Highlighted Cells)**: A highly advanced layout editor. Hold **Ctrl** or **Shift** and click to select multiple adjacent tiles on the grid, or use your keyboard by holding **Shift** and navigating with the **Arrow keys**, then click "Merge Highlighted Cells" to fuse them into a single larger viewport. This allows you to create fully custom asymmetric grid designs (e.g., one huge camera panel with smaller feeds surrounding it).
 
 ### 3. Recorders (Server Icon)
-Full configuration manager for connections to Hikvision NVR/DVR devices (described in detail in Section 2).
+Full configuration manager for connections to Hikvision NVR/DVR devices (described in detail in Section 3).
 
 ### 4. Presets (Star Icon)
 Manager for your saved grid layouts and camera assignments. Allows creating empty grid templates, changing their order, toggling their top-bar visibility (via the "Visible" switch), or activating them in the current window.
@@ -242,7 +304,7 @@ Presents an interactive timeline showing the complete release history, updates, 
 
 ---
 
-## 9. Keyboard Shortcuts and Mouse Controls
+## 10. Keyboard Shortcuts and Mouse Controls
 
 ### Keyboard shortcuts:
 | Key / Shortcut | Action |
@@ -270,12 +332,12 @@ Presents an interactive timeline showing the complete release history, updates, 
 
 ---
 
-## 10. Taking Snapshots and Path Configuration
+## 11. Taking Snapshots and Path Configuration
 
 The application allows you to quickly capture high-quality snapshots from any camera viewport in both Live View and Playback Archive mode.
 
 ### Taking Snapshots:
-1. A camera icon overlay button is available in the bottom-right corner of each viewport (detailed in Section 3).
+1. A camera icon overlay button is available in the bottom-right corner of each viewport (detailed in Section 4).
 2. Clicking the camera icon captures the frame and saves it as a JPEG image (quality 98 - virtually lossless).
 3. A successful capture is confirmed by the camera icon flashing orange (`#ff7a00`) for exactly 1 second.
 4. **Full Resolution**: In Playback Archive mode, snapshots are saved at the stream's full native source resolution directly from the decoder's frame buffer, regardless of the active viewport size on screen or display scaling.

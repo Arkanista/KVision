@@ -29,6 +29,7 @@ public:
     QMLAV_PROPERTY(QVariant, volume, setVolume, volumeChanged) = 0.0;
     QMLAV_PROPERTY(QVariantMap, avFormatOptions, setAVFormatOptions, avFormatOptionsChanged);
     QMLAV_PROPERTY(int, streamMode, setStreamMode, streamModeChanged) = 0;
+    QMLAV_PROPERTY(bool, noUnmute, setNoUnmute, noUnmuteChanged) = false;
 
 public:
     explicit ViewportsLayoutItem(QObject *parent = nullptr);

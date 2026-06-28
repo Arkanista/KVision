@@ -144,6 +144,10 @@
         <source>KVision - viewer and mounter video streams.</source>
         <translation>KVision - viewer and mounter video streams.</translation>
     </message>
+    <message>
+        <source>Wymuś zachowanie pierwszego uruchomienia i pokaż instrukcję (Force first run behavior).</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadDialog</name>
@@ -857,6 +861,14 @@
         <source>Otwórz folder stopklatek</source>
         <translation>Open snapshots folder</translation>
     </message>
+    <message>
+        <source>Wycisz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maksymalna głośność</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Player</name>
@@ -915,6 +927,18 @@
     <message>
         <source>Wykonaj stopklatkę w pełnej rozdzielczości</source>
         <translation>Take snapshot in full resolution</translation>
+    </message>
+    <message>
+        <source>Wycisz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maksymalna głośność</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Przełączanie strumienia HD...</source>
+        <translation>Switching HD stream...</translation>
     </message>
 </context>
 <context>
@@ -1064,87 +1088,91 @@
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation>Settings</translation>
+        <translation type="vanished">Settings</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="vanished">General</translation>
     </message>
     <message>
         <source>Allow running multiple application instances</source>
-        <translation>Allow running multiple application instances</translation>
+        <translation type="vanished">Allow running multiple application instances</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>View</translation>
+        <translation type="vanished">View</translation>
     </message>
     <message>
         <source>Hide cursor in full screen mode</source>
-        <translation>Hide cursor in full screen mode</translation>
+        <translation type="vanished">Hide cursor in full screen mode</translation>
     </message>
     <message>
         <source>Allow swapping viewport places</source>
-        <translation>Allow swapping viewport places</translation>
+        <translation type="vanished">Allow swapping viewport places</translation>
     </message>
     <message>
         <source>Allow changing viewport settings</source>
-        <translation>Allow changing viewport settings</translation>
+        <translation type="vanished">Allow changing viewport settings</translation>
     </message>
     <message>
         <source>Enable stream selection</source>
-        <translation>Enable stream selection</translation>
+        <translation type="vanished">Enable stream selection</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation>Language:</translation>
+        <translation type="vanished">Language:</translation>
     </message>
     <message>
         <source>System default</source>
-        <translation>System default</translation>
+        <translation type="vanished">System default</translation>
     </message>
     <message>
         <source>Zapis</source>
-        <translation>Saving</translation>
+        <translation type="vanished">Saving</translation>
     </message>
     <message>
         <source>Domyślna ścieżka stopklatek:</source>
-        <translation>Default snapshot path:</translation>
+        <translation type="vanished">Default snapshot path:</translation>
     </message>
     <message>
         <source>Domyślna ścieżka nagrań:</source>
-        <translation>Default recordings path:</translation>
+        <translation type="vanished">Default recordings path:</translation>
     </message>
     <message>
         <source>Wybierz folder dla stopklatek</source>
-        <translation>Choose folder for snapshots</translation>
+        <translation type="vanished">Choose folder for snapshots</translation>
     </message>
     <message>
         <source>Wybierz folder dla nagrań</source>
-        <translation>Choose folder for recordings</translation>
+        <translation type="vanished">Choose folder for recordings</translation>
     </message>
     <message>
         <source>User Interface Settings</source>
-        <translation>User Interface Settings</translation>
+        <translation type="vanished">User Interface Settings</translation>
     </message>
     <message>
         <source>Show channel status in the top left corner of the viewport</source>
-        <translation>Show channel status in the top left corner of the viewport</translation>
+        <translation type="vanished">Show channel status in the top left corner of the viewport</translation>
     </message>
     <message>
         <source>Show camera info in the bottom left corner of the viewport</source>
-        <translation>Show camera info in the bottom left corner of the viewport</translation>
+        <translation type="vanished">Show camera info in the bottom left corner of the viewport</translation>
     </message>
     <message>
         <source>Show control icons in the bottom right corner of the viewport only when hovering</source>
-        <translation>Show control icons in the bottom right corner of the viewport only when hovering</translation>
+        <translation type="vanished">Show control icons in the bottom right corner of the viewport only when hovering</translation>
     </message>
     <message>
         <source>Show info fields only when hovering</source>
-        <translation>Show info fields only when hovering</translation>
+        <translation type="vanished">Show info fields only when hovering</translation>
+    </message>
+    <message>
+        <source>Show top bar by default when opening window</source>
+        <translation type="vanished">Show top bar by default when opening window</translation>
     </message>
     <message>
         <source>Automatically collapse top bar</source>
-        <translation>Automatically collapse top bar</translation>
+        <translation type="vanished">Automatically collapse top bar</translation>
     </message>
     <message>
         <source>Disable audio entirely</source>
@@ -1187,11 +1215,11 @@
     </message>
     <message>
         <source>Wersja %1</source>
-        <translation>Wersja %1</translation>
+        <translation>Version %1</translation>
     </message>
     <message>
         <source>Oryginalny autor: Evgeny S. Maksimov</source>
-        <translation>Oryginalny autor: Evgeny S. Maksimov</translation>
+        <translation>Original author: Evgeny S. Maksimov</translation>
     </message>
     <message>
         <source>Modyfikacja: arkanista (z pomocą AI)</source>
@@ -1358,8 +1386,8 @@
         <translation>Hide mouse cursor in Full Screen mode</translation>
     </message>
     <message>
-        <source>Automatically unmute when entering Full Screen</source>
-        <translation>Automatically unmute when entering Full Screen</translation>
+        <source>Maximizing camera to full screen does not unmute</source>
+        <translation>Maximizing camera to full screen does not unmute</translation>
     </message>
     <message>
         <source>Language:</source>
@@ -1444,6 +1472,10 @@
     <message>
         <source>Show info fields only when hovering</source>
         <translation>Show info fields only when hovering</translation>
+    </message>
+    <message>
+        <source>Show top bar by default when opening window</source>
+        <translation>Show top bar by default when opening window</translation>
     </message>
     <message>
         <source>Automatically collapse top bar</source>
@@ -1885,6 +1917,18 @@
         <source>Zmieniono nazwę programu na KVision wraz z automatyczną migracją dotychczasowych ustawień użytkownika, nowymi ikonami o wielu rozmiarach (128px, 256px, 512px) oraz wyświetlaniem pełnej wersji w pasku tytułowym.</source>
         <translation>Renamed the program to KVision, introducing automatic user configuration migration, new multi-size icons (128px, 256px, 512px), and full version display in the window title bar.</translation>
     </message>
+    <message>
+        <source>Naprawiono okno ostrzegawcze przekroczenia limitu okien pomocniczych (brakujący zasób QML i odczyt z QSettings).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Naprawiono brakującą ikonę programu pod Waylandem (instalacja w motywie hicolor oraz setDesktopFileName).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>
@@ -1910,6 +1954,25 @@
     <message>
         <source>KVision</source>
         <translation>KVision</translation>
+    </message>
+</context>
+<context>
+    <name>SnapshotSavedDialog</name>
+    <message>
+        <source>Zapisano stopklatkę</source>
+        <translation>Snapshot saved</translation>
+    </message>
+    <message>
+        <source>Zapisano stopklatkę - </source>
+        <translation>Snapshot saved - </translation>
+    </message>
+    <message>
+        <source>Przeglądaj</source>
+        <translation>Browse</translation>
+    </message>
+    <message>
+        <source>Wyjdź</source>
+        <translation>Exit</translation>
     </message>
 </context>
 <context>
@@ -1983,15 +2046,15 @@
     </message>
     <message>
         <source>Global Options</source>
-        <translation>Global Options</translation>
+        <translation type="vanished">Global Options</translation>
     </message>
     <message>
         <source>Unmute when the viewport is in full screen mode</source>
-        <translation>Unmute when the viewport is in full screen mode</translation>
+        <translation type="vanished">Unmute when the viewport is in full screen mode</translation>
     </message>
     <message>
         <source>Default FFmpeg options</source>
-        <translation>Default FFmpeg options</translation>
+        <translation type="vanished">Default FFmpeg options</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2000,6 +2063,18 @@
     <message>
         <source>Save</source>
         <translation>Save</translation>
+    </message>
+    <message>
+        <source>Maximizing camera to full screen does not unmute</source>
+        <translation type="vanished">Maximizing camera to full screen does not unmute</translation>
+    </message>
+    <message>
+        <source>Channel Options</source>
+        <translation>Channel Options</translation>
+    </message>
+    <message>
+        <source>FFmpeg options</source>
+        <translation>FFmpeg options</translation>
     </message>
 </context>
 <context>
@@ -2044,6 +2119,18 @@
     <message>
         <source>Are you sure you want to remove the camera from this viewport?</source>
         <translation>Are you sure you want to remove the camera from this viewport?</translation>
+    </message>
+    <message>
+        <source>Stopklatka</source>
+        <translation>Snapshot</translation>
+    </message>
+    <message>
+        <source>Stopklatka HD</source>
+        <translation>Snapshot HD</translation>
+    </message>
+    <message>
+        <source>Odtwarzaj</source>
+        <translation>Playback</translation>
     </message>
 </context>
 </TS>

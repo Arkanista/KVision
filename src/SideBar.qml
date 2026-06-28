@@ -72,6 +72,15 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.2.6-4",
+            date: "28.06.2026",
+            changes: [
+                qsTr("Wyłączono i całkowicie usunięto opcję 'Stopklatka HD' z menu podręcznego viewportów oraz powiązane z nią parametry, liczniki czasowe, nakładki graficzne i procedury przełączania strumienia."),
+                qsTr("Wprowadzono dynamiczne i automatyczne wyznaczanie ścieżki bibliotek współdzielonych (RPATH) za pomocą zmiennej CMAKE_INSTALL_LIBDIR, eliminując crash aplikacji na systemach Ubuntu/Debian przy zachowaniu pełnej kompatybilności z Arch Linux."),
+                qsTr("Zaprojektowano architekturę i zaimplementowano metodologię pobierania i filtracji komunikatów alarmowych detekcji ruchu z rejestratorów za pośrednictwem callbacków i mechanizmu SetupAlarmChan w SDK Hikvision.")
+            ]
+        },
+        {
             version: "v2.2.6-3",
             date: "27.06.2026",
             changes: [
@@ -890,7 +899,7 @@ FocusScope {
                                 Button {
                                     text: qsTr("Mute / Unmute Audio")
                                     enabled: configUnlockSwitch.checked && (rootSideBar.currentViewportIndex >= 0 && Utils.currentLayout() ? Utils.currentLayout().get(rootSideBar.currentViewportIndex).hasAudio : false)
-                                    highlighted: !(rootSideBar.currentViewportIndex >= 0 && Utils.currentModel() && Utils.currentModel().get(rootSideBar.currentViewportIndex).volume > 0 || viewportSettings.unmuteWhenFullScreen && Utils.currentLayout() && Utils.currentLayout().fullScreenIndex >= 0)
+                                    highlighted: !(rootSideBar.currentViewportIndex >= 0 && Utils.currentModel() && Utils.currentModel().get(rootSideBar.currentViewportIndex).volume > 0 || !viewportSettings.noUnmuteWhenFullScreen && Utils.currentLayout() && Utils.currentLayout().fullScreenIndex >= 0)
                                     Layout.fillWidth: true
                                     onClicked: {
                                         if (rootSideBar.currentViewportIndex >= 0) {
@@ -1772,12 +1781,41 @@ FocusScope {
                                 onCheckedChanged: generalSettings.singleApplication = !checked
                                 Layout.fillWidth: true
                             }
+                        }
+                    }
 
+                    GroupBox {
+                        title: qsTr("Audio")
+                        Layout.fillWidth: true
+
+                        background: Rectangle {
+                            color: "#141a21"
+                            border.color: "#2a3540"
+                            border.width: 1
+                            radius: 8
+                        }
+                        label: Text {
+                            text: parent.title
+                            color: "#00f5d4"
+                            font.bold: true
+                            font.pixelSize: 12
+                        }
+
+                        ColumnLayout {
+                            anchors.fill: parent
+                            spacing: 8
 
                             CheckBox {
                                 text: qsTr("Disable audio entirely")
                                 checked: generalSettings.disableAudio
                                 onCheckedChanged: generalSettings.disableAudio = checked
+                                Layout.fillWidth: true
+                            }
+
+                            CheckBox {
+                                text: qsTr("Maximizing camera to full screen does not unmute")
+                                checked: viewportSettings.noUnmuteWhenFullScreen
+                                onCheckedChanged: viewportSettings.noUnmuteWhenFullScreen = checked
                                 Layout.fillWidth: true
                             }
                         }
@@ -1873,12 +1911,7 @@ FocusScope {
                                 Layout.fillWidth: true
                             }
 
-                            CheckBox {
-                                text: qsTr("Automatically unmute when entering Full Screen")
-                                checked: viewportSettings.unmuteWhenFullScreen
-                                onCheckedChanged: viewportSettings.unmuteWhenFullScreen = checked
-                                Layout.fillWidth: true
-                            }
+
 
                             RowLayout {
                                 Layout.fillWidth: true
@@ -2041,6 +2074,13 @@ FocusScope {
                                 text: qsTr("Show info fields only when hovering")
                                 checked: viewSettings.showInfoOnHoverOnly
                                 onCheckedChanged: viewSettings.showInfoOnHoverOnly = checked
+                                Layout.fillWidth: true
+                            }
+
+                            CheckBox {
+                                text: qsTr("Show top bar by default when opening window")
+                                checked: viewSettings.showTopBarByDefault
+                                onCheckedChanged: viewSettings.showTopBarByDefault = checked
                                 Layout.fillWidth: true
                             }
 

@@ -1,3 +1,11 @@
+cctv-viewer (2.2.6-4) jammy; urgency=medium
+
+  * Removed the 'Stopklatka HD' (HD Snapshot) option and completely pruned it from viewport context menus, properties, timers, and overlays.
+  * Resolved application crash at startup on Debian/Ubuntu and other multi-arch derivative distributions by using a dynamic INSTALL_RPATH pointing to CMAKE_INSTALL_LIBDIR/kvision (by moving GNUInstallDirs early).
+  * Designed a detailed integration architecture for retrieving real-time camera motion detection/alarm events from Hikvision NVRs using the Hikvision SDK alarm callback services.
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Sun, 28 Jun 2026 02:37:00 +0200
+
 cctv-viewer (2.2.6-3) jammy; urgency=medium
 
   * Resolved auxiliary window limit check warning popup failing to render by adding the missing QML resource to the QRC bundle.

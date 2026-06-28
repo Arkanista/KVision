@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="en_US">
 <context>
     <name>AuxiliaryLimitWarning</name>
     <message>
         <location filename="../src/AuxiliaryLimitWarning.qml" line="16"/>
-        <source>CCTV Viewer 2</source>
+        <source>KVision</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23,76 +23,76 @@
     <name>AuxiliaryWindow</name>
     <message>
         <location filename="../src/AuxiliaryWindow.qml" line="14"/>
-        <source>CCTV Viewer - Okno pomocnicze</source>
+        <source>KVision - Okno pomocnicze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="140"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="141"/>
         <source>Nie wybrano widoku, wybierz widok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="148"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="149"/>
         <source>Wybierz widok z menu na górnym pasku, aby rozpocząć wyświetlanie kamer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="309"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="310"/>
         <source>Opcje i ustawienia panelu bocznego</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="345"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="346"/>
         <source>Otwórz nowe okno pomocnicze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="381"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="382"/>
         <source>Instrukcja obsługi programu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="392"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="393"/>
         <source>Siatka widoku:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="441"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="442"/>
         <source>Toggle Full Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="447"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="448"/>
         <source>🔒 Blokuj zmianę</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="581"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="582"/>
         <source>Więcej opcji</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="591"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="592"/>
         <source>Wybór widoku:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="679"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="680"/>
         <source>Zamknij program</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="680"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="681"/>
         <source>Czy na pewno zamknąć program?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="681"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="682"/>
         <source>TAK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/AuxiliaryWindow.qml" line="682"/>
+        <location filename="../src/AuxiliaryWindow.qml" line="683"/>
         <source>NIE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -158,8 +158,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/context.cpp" line="123"/>
-        <source>CCTV Viewer - viewer and mounter video streams.</source>
+        <location filename="../src/context.cpp" line="50"/>
+        <source>Wymuś zachowanie pierwszego uruchomienia i pokaż instrukcję (Force first run behavior).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/context.cpp" line="177"/>
+        <source>KVision - viewer and mounter video streams.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -442,7 +447,7 @@
     <name>InstructionsWindow</name>
     <message>
         <location filename="../src/InstructionsWindow.qml" line="9"/>
-        <source>CCTV Viewer 2 - Instrukcja Obsługi / Instructions</source>
+        <source>KVision - Instrukcja Obsługi / Instructions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -817,237 +822,247 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="1980"/>
+        <location filename="../src/PlaybackWindow.qml" line="1969"/>
+        <source>Wycisz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/PlaybackWindow.qml" line="2066"/>
+        <source>Maksymalna głośność</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/PlaybackWindow.qml" line="2155"/>
         <source>Wykonaj stopklatkę w pełnej rozdzielczości</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2021"/>
+        <location filename="../src/PlaybackWindow.qml" line="2196"/>
         <source>Wyłącz tryb 1:1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2021"/>
+        <location filename="../src/PlaybackWindow.qml" line="2196"/>
         <source>Włącz tryb 1:1 (piksel w piksel)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2080"/>
+        <location filename="../src/PlaybackWindow.qml" line="2255"/>
         <source>Reset Zoom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2080"/>
+        <location filename="../src/PlaybackWindow.qml" line="2255"/>
         <source>Zaznacz obszar żeby przybliżyć</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2080"/>
+        <location filename="../src/PlaybackWindow.qml" line="2255"/>
         <source>Wybierz obszar do zbliżenia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2129"/>
+        <location filename="../src/PlaybackWindow.qml" line="2304"/>
         <source>Przywróć widok siatki</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2129"/>
+        <location filename="../src/PlaybackWindow.qml" line="2304"/>
         <source>Pokaż na pełnym ekranie</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2164"/>
+        <location filename="../src/PlaybackWindow.qml" line="2339"/>
         <source>Usuń kamerę z widoku</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2219"/>
+        <location filename="../src/PlaybackWindow.qml" line="2394"/>
         <source>Pusty viewport</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2227"/>
+        <location filename="../src/PlaybackWindow.qml" line="2402"/>
         <source>Zaznacz to okno, wybierz kamerę z listy i kliknij + aby ją dodać</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2405"/>
+        <location filename="../src/PlaybackWindow.qml" line="2590"/>
         <source>Poprzedni dzień</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2424"/>
+        <location filename="../src/PlaybackWindow.qml" line="2609"/>
         <source>Wybierz datę z kalendarza</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2445"/>
+        <location filename="../src/PlaybackWindow.qml" line="2630"/>
         <source>Następny dzień</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2449"/>
+        <location filename="../src/PlaybackWindow.qml" line="2634"/>
         <source>Dzisiaj</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2466"/>
+        <location filename="../src/PlaybackWindow.qml" line="2651"/>
         <source>Przejdź do dzisiejszego dnia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2488"/>
+        <location filename="../src/PlaybackWindow.qml" line="2673"/>
         <source>Odśwież nagrania</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2508"/>
+        <location filename="../src/PlaybackWindow.qml" line="2693"/>
         <source>Powiększ do ostatniej 1 godziny</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2522"/>
+        <location filename="../src/PlaybackWindow.qml" line="2707"/>
         <source>Powiększ do ostatnich 8 godzin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2540"/>
+        <location filename="../src/PlaybackWindow.qml" line="2725"/>
         <source>Pokaż cały dzień na osi czasu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2560"/>
+        <location filename="../src/PlaybackWindow.qml" line="2745"/>
         <source>Wycentruj oś czasu na aktualnym punkcie odtwarzania</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2570"/>
+        <location filename="../src/PlaybackWindow.qml" line="2755"/>
         <source>Prędkość:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2590"/>
+        <location filename="../src/PlaybackWindow.qml" line="2775"/>
         <source>Ustaw prędkość odtwarzania na %1x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2600"/>
+        <location filename="../src/PlaybackWindow.qml" line="2785"/>
         <source>Pobierz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2615"/>
+        <location filename="../src/PlaybackWindow.qml" line="2800"/>
         <source>Pobierz wycinki wideo z zaznaczonego przedziału czasu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2637"/>
+        <location filename="../src/PlaybackWindow.qml" line="2822"/>
         <source>Cofnij o 60 sekund</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2651"/>
+        <location filename="../src/PlaybackWindow.qml" line="2836"/>
         <source>Cofnij o 45 sekund</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2665"/>
+        <location filename="../src/PlaybackWindow.qml" line="2850"/>
         <source>Cofnij o 15 sekund</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2684"/>
+        <location filename="../src/PlaybackWindow.qml" line="2869"/>
         <source>Wstrzymaj odtwarzanie</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2684"/>
+        <location filename="../src/PlaybackWindow.qml" line="2869"/>
         <source>Rozpocznij odtwarzanie</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2698"/>
+        <location filename="../src/PlaybackWindow.qml" line="2883"/>
         <source>Przewiń o 15 sekund</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2712"/>
+        <location filename="../src/PlaybackWindow.qml" line="2897"/>
         <source>Przewiń o 45 sekund</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2726"/>
+        <location filename="../src/PlaybackWindow.qml" line="2911"/>
         <source>Przewiń o 60 sekund</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2779"/>
+        <location filename="../src/PlaybackWindow.qml" line="2964"/>
         <source>Odepnij pasek dolny</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="2779"/>
+        <location filename="../src/PlaybackWindow.qml" line="2964"/>
         <source>Przypnij pasek dolny</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3039"/>
+        <location filename="../src/PlaybackWindow.qml" line="3224"/>
         <source>Trwa ładowanie informacji o dostępności nagrania...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3232"/>
+        <location filename="../src/PlaybackWindow.qml" line="3417"/>
         <source>Zamknij okno</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3282"/>
+        <location filename="../src/PlaybackWindow.qml" line="3467"/>
         <source>Odepnij pasek górny</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3282"/>
+        <location filename="../src/PlaybackWindow.qml" line="3467"/>
         <source>Przypnij pasek górny</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3322"/>
+        <location filename="../src/PlaybackWindow.qml" line="3507"/>
         <source>Wyjdź z pełnego ekranu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3322"/>
+        <location filename="../src/PlaybackWindow.qml" line="3507"/>
         <source>Pełny ekran okna</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3367"/>
+        <location filename="../src/PlaybackWindow.qml" line="3552"/>
         <source>Ukryj pasek boczny</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3367"/>
+        <location filename="../src/PlaybackWindow.qml" line="3552"/>
         <source>Pokaż pasek boczny</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3412"/>
+        <location filename="../src/PlaybackWindow.qml" line="3597"/>
         <source>Pokaż oś czasu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3412"/>
+        <location filename="../src/PlaybackWindow.qml" line="3597"/>
         <source>Ukryj oś czasu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3462"/>
+        <location filename="../src/PlaybackWindow.qml" line="3647"/>
         <source>Otwórz folder nagrań</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PlaybackWindow.qml" line="3503"/>
+        <location filename="../src/PlaybackWindow.qml" line="3688"/>
         <source>Otwórz folder stopklatek</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1055,73 +1070,88 @@
 <context>
     <name>Player</name>
     <message>
-        <location filename="../src/Player.qml" line="233"/>
+        <location filename="../src/Player.qml" line="265"/>
         <source>No media</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="236"/>
+        <location filename="../src/Player.qml" line="268"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="239"/>
+        <location filename="../src/Player.qml" line="271"/>
         <source>Loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="242"/>
+        <location filename="../src/Player.qml" line="274"/>
         <source>Stalled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="245"/>
+        <location filename="../src/Player.qml" line="277"/>
         <source>Buffering %1%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="251"/>
+        <location filename="../src/Player.qml" line="283"/>
         <source>End of media</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="254"/>
+        <location filename="../src/Player.qml" line="286"/>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="845"/>
+        <location filename="../src/Player.qml" line="937"/>
+        <source>Wycisz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/Player.qml" line="1047"/>
+        <source>Maksymalna głośność</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/Player.qml" line="1102"/>
         <source>Wykonaj stopklatkę w pełnej rozdzielczości</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="894"/>
+        <location filename="../src/Player.qml" line="1151"/>
         <source>Archiwum nagrań</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="938"/>
+        <location filename="../src/Player.qml" line="1195"/>
         <source>Wyłącz tryb 1:1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="938"/>
+        <location filename="../src/Player.qml" line="1195"/>
         <source>Włącz tryb 1:1 (piksel w piksel)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="1002"/>
+        <location filename="../src/Player.qml" line="1259"/>
         <source>Reset Zoom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="1002"/>
+        <location filename="../src/Player.qml" line="1259"/>
         <source>Click and drag on camera feed to zoom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Player.qml" line="1002"/>
+        <location filename="../src/Player.qml" line="1259"/>
         <source>Select region to zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/Player.qml" line="1444"/>
+        <source>Przełączanie strumienia HD...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1129,162 +1159,162 @@
     <name>RootWindow</name>
     <message>
         <location filename="../src/RootWindow.qml" line="17"/>
-        <source>CCTV Viewer - Okno pomocnicze</source>
+        <source>KVision - Okno pomocnicze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/RootWindow.qml" line="17"/>
-        <source>CCTV Viewer</source>
+        <source>KVision</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="382"/>
-        <location filename="../src/RootWindow.qml" line="537"/>
+        <location filename="../src/RootWindow.qml" line="387"/>
+        <location filename="../src/RootWindow.qml" line="543"/>
         <source>Error reading configuration!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="690"/>
+        <location filename="../src/RootWindow.qml" line="696"/>
         <source>Odepnij pasek górny</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="690"/>
+        <location filename="../src/RootWindow.qml" line="696"/>
         <source>Przypnij pasek górny</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="729"/>
+        <location filename="../src/RootWindow.qml" line="735"/>
         <source>Toggle Full Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="762"/>
+        <location filename="../src/RootWindow.qml" line="768"/>
         <source>Minimalizuj okno</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="802"/>
+        <location filename="../src/RootWindow.qml" line="808"/>
         <source>Opcje i ustawienia panelu bocznego</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="838"/>
+        <location filename="../src/RootWindow.qml" line="844"/>
         <source>Otwórz nowe okno pomocnicze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="874"/>
+        <location filename="../src/RootWindow.qml" line="880"/>
         <source>Archiwum nagrań i odtwarzacz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="910"/>
+        <location filename="../src/RootWindow.qml" line="918"/>
         <source>Instrukcja obsługi programu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="941"/>
+        <location filename="../src/RootWindow.qml" line="949"/>
         <source>Wyłącz statystyki zużycia zasobów</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="941"/>
+        <location filename="../src/RootWindow.qml" line="949"/>
         <source>Włącz statystyki zużycia zasobów</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="992"/>
+        <location filename="../src/RootWindow.qml" line="1000"/>
         <source>Zablokuj zmianę rozmiaru siatki</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1090"/>
+        <location filename="../src/RootWindow.qml" line="1098"/>
         <source>Więcej opcji</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1210"/>
+        <location filename="../src/RootWindow.qml" line="1218"/>
         <source>Nie wybrano widoku, wybierz widok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1218"/>
+        <location filename="../src/RootWindow.qml" line="1226"/>
         <source>Wybierz widok z menu na górnym pasku, aby rozpocząć wyświetlanie kamer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1253"/>
-        <source>CCTV Viewer - Panel</source>
+        <location filename="../src/RootWindow.qml" line="1261"/>
+        <source>KVision - Panel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1372"/>
+        <location filename="../src/RootWindow.qml" line="1395"/>
         <source>Zamknij okno</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1372"/>
+        <location filename="../src/RootWindow.qml" line="1395"/>
         <source>Zamknij program</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1373"/>
+        <location filename="../src/RootWindow.qml" line="1396"/>
         <source>Czy na pewno zamknąć to okno?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1373"/>
+        <location filename="../src/RootWindow.qml" line="1396"/>
         <source>Czy na pewno zamknąć program?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1374"/>
+        <location filename="../src/RootWindow.qml" line="1397"/>
         <source>TAK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1375"/>
+        <location filename="../src/RootWindow.qml" line="1398"/>
         <source>NIE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1480"/>
+        <location filename="../src/RootWindow.qml" line="1503"/>
         <source>📊 SYSTEM STATS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1521"/>
+        <location filename="../src/RootWindow.qml" line="1544"/>
         <source>Przeciągnij panel statystyk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1530"/>
+        <location filename="../src/RootWindow.qml" line="1553"/>
         <source>RAM: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1537"/>
+        <location filename="../src/RootWindow.qml" line="1560"/>
         <source>VRAM: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1545"/>
+        <location filename="../src/RootWindow.qml" line="1568"/>
         <source>CPU: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1627"/>
+        <location filename="../src/RootWindow.qml" line="1650"/>
         <source>GPU: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1709"/>
+        <location filename="../src/RootWindow.qml" line="1732"/>
         <source>NET: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="2115"/>
+        <location filename="../src/RootWindow.qml" line="2138"/>
         <source>Ładowanie nowego okna...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1292,842 +1322,887 @@
 <context>
     <name>SideBar</name>
     <message>
-        <location filename="../src/SideBar.qml" line="78"/>
+        <location filename="../src/SideBar.qml" line="81"/>
         <source>Wycofano opcję automatycznego zwijania paska górnego z ustawień – odtąd pasek górny w oknach LIVE (głównym i pomocniczym) zwija się domyślnie przy starcie, a pinezka przypina go lokalnie i tymczasowo (w pamięci) bez zapisywania stanu.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="79"/>
+        <location filename="../src/SideBar.qml" line="82"/>
         <source>Wprowadzono limit liczby okien pomocniczych (konfigurowalny w zakresie 0-3) z eleganckim oknem ostrzegawczym o zablokowaniu przy próbie jego przekroczenia.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="80"/>
+        <location filename="../src/SideBar.qml" line="83"/>
         <source>Dodano subtelne, ciemnoszare ramki o szerokości 1px wokół nieużywanych viewportów w siatce podglądu LIVE dla lepszego rozgraniczenia pól.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="81"/>
+        <location filename="../src/SideBar.qml" line="84"/>
         <source>Zabezpieczono edycję ścieżek zapisu i konfiguracji multimediów w ustawieniach przejściowym polem wyboru &apos;Uaktywnij zmiany w tej sekcji&apos;, zapobiegając przypadkowym modyfikacjom (stan edycji resetuje się po zamknięciu).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="82"/>
+        <location filename="../src/SideBar.qml" line="85"/>
         <source>Wprowadzono bezpośrednie skróty &apos;otwórz folder zapisu&apos; (wyróżniony seledynowym kolorem przy ukończonym pobieraniu w oknie Archiwum) oraz zawsze aktywne przyciski szybkiego otwierania folderów zrzutów i wideo w ustawieniach (z automatycznym tworzeniem katalogu na dysku).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/SideBar.qml" line="86"/>
+        <source>Wprowadzono interaktywną walidację przy kliknięciu przycisku &apos;Pobierz&apos; w oknie pobierania: automatyczna kontrola formatów pól oraz chronologii dat z dymkiem ostrzegawczym i przekierowaniem fokusu na pierwsze błędne pole.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="87"/>
+        <source>Zaimplementowano pełną nawigację klawiaturą (strzałkami góra/dół do zmiany wartości, lewo/prawo do zmiany kolumn) w graficznym selektorze czasu (Clock Picker).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="88"/>
+        <source>Zapewniono całkowicie czysty start okien pomocniczych (bez automatycznego otwierania panelu opcji) oraz wykluczono zapisywanie ustawień geometrii z okien pomocniczych, eliminując zanieczyszczanie konfiguracji.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/SideBar.qml" line="89"/>
-        <source>Wyeliminowano wycieki pamięci RAM przy przełączaniu układów kamer poprzez automatyczne i poprawne zatrzymywanie powierzchni wideo przed zmianą formatu oraz dopasowanie rozmiaru renderera.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SideBar.qml" line="90"/>
-        <source>Zaimplementowano bezwarunkowe zwalnianie i niszczenie obiektów wyjściowych audio przy zatrzymaniu odtwarzacza oraz wprowadzono ich automatyczny recykling, usuwając wycieki pamięci i wątków w systemie Linux.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SideBar.qml" line="91"/>
-        <source>Rozwiązano problem zablokowania wideo (jednokolorowa plansza po powiększeniu viewportu) poprzez wymuszenie prawidłowego wysyłania sygnału dostępności wideo przy prezentacji pierwszej klatki nowego strumienia.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SideBar.qml" line="92"/>
-        <source>Dodano globalną opcję w ustawieniach &apos;Wyłącz obsługę audio całkowicie&apos;, pozwalającą całkowicie pominąć przetwarzanie dźwięku w celu eliminacji ewentualnego narzutu i wycieków pamięci.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SideBar.qml" line="93"/>
-        <source>Zoptymalizowano moduł statystyk systemowych, wygaszając ciągłe zużycie pamięci poprzez buforowanie identyfikatorów procesów i eliminację alokacji dynamicznych wyrażeń regularnych.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SideBar.qml" line="94"/>
-        <source>Wprowadzono agresywne czyszczenie pamięci (Garbage Collection) przy każdej zmianie układu kamer oraz zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SideBar.qml" line="95"/>
-        <source>Zapewniono poprawne czyszczenie pamięci statycznego detektora zmian plików konfiguracyjnych przy wyjściu z aplikacji.</source>
+        <source>Dodano pełne wsparcie dla języka angielskiego dla wszystkich nowych komunikatów o błędach walidacji i formatowania w oknie pobierania.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/SideBar.qml" line="96"/>
-        <source>Naprawiono błędy synchronizacji i zawieszania się procesu okna pomocniczego na wolniejszych maszynach przy seryjnym usuwaniu kamer oraz łączeniu i przenoszeniu viewportów.</source>
+        <source>Wyeliminowano wycieki pamięci RAM przy przełączaniu układów kamer poprzez automatyczne i poprawne zatrzymywanie powierzchni wideo przed zmianą formatu oraz dopasowanie rozmiaru renderera.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/SideBar.qml" line="97"/>
-        <source>Naprawiono agregację statystyk obciążenia GPU, pamięci VRAM oraz pasma sieciowego ze wszystkich procesów aplikacji przy wykorzystaniu pamięci współdzielonej (/dev/shm) w tle.</source>
+        <source>Zaimplementowano bezwarunkowe zwalnianie i niszczenie obiektów wyjściowych audio przy zatrzymaniu odtwarzacza oraz wprowadzono ich automatyczny recykling, usuwając wycieki pamięci i wątków w systemie Linux.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="98"/>
+        <source>Rozwiązano problem zablokowania wideo (jednokolorowa plansza po powiększeniu viewportu) poprzez wymuszenie prawidłowego wysyłania sygnału dostępności wideo przy prezentacji pierwszej klatki nowego strumienia.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="99"/>
+        <source>Dodano globalną opcję w ustawieniach &apos;Wyłącz obsługę audio całkowicie&apos;, pozwalającą całkowicie pominąć przetwarzanie dźwięku w celu eliminacji ewentualnego narzutu i wycieków pamięci.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="100"/>
+        <source>Zoptymalizowano moduł statystyk systemowych, wygaszając ciągłe zużycie pamięci poprzez buforowanie identyfikatorów procesów i eliminację alokacji dynamicznych wyrażeń regularnych.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="101"/>
+        <source>Wprowadzono agresywne czyszczenie pamięci (Garbage Collection) przy każdej zmianie układu kamer oraz zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="102"/>
+        <source>Zapewniono poprawne czyszczenie pamięci statycznego detektora zmian plików konfiguracyjnych przy wyjściu z aplikacji.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="103"/>
+        <source>Naprawiono błędy synchronizacji i zawieszania się procesu okna pomocniczego na wolniejszych maszynach przy seryjnym usuwaniu kamer oraz łączeniu i przenoszeniu viewportów.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/SideBar.qml" line="104"/>
+        <source>Naprawiono agregację statystyk obciążenia GPU, pamięci VRAM oraz pasma sieciowego ze wszystkich procesów aplikacji przy wykorzystaniu pamięci współdzielonej (/dev/shm) w tle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="111"/>
         <source>Zabezpieczono destruktor odtwarzacza archiwalnego przed wyścigami danych przy usuwaniu zadań RGB.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="105"/>
+        <location filename="../src/SideBar.qml" line="112"/>
         <source>Wprowadzono pooling odtwarzaczy wideo w celu eliminacji skoków zużycia pamięci i migotania obrazu przy przełączaniu układów kamer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="106"/>
+        <location filename="../src/SideBar.qml" line="113"/>
         <source>Zoptymalizowano monitorowanie obciążenia GPU i pamięci VRAM do trybu procesowego (bez wywołań nvidia-smi) z natywnym wsparciem dla układów NVIDIA, AMD i Intel (statystyki dla AMD/Intel są nieprzetestowane).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="107"/>
+        <location filename="../src/SideBar.qml" line="114"/>
         <source>Umożliwiono zmianę rozmiaru panelu statystyk systemowych poprzez przeciąganie za jego krawędzie i narożniki z automatycznym skalowaniem wykresów.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="108"/>
+        <location filename="../src/SideBar.qml" line="115"/>
         <source>Wprowadzono natychmiastowe ukrywanie okna głównego i pomocniczego przy potwierdzeniu wyjścia, co sprawia, że program zamyka się natychmiastowo dla użytkownika, a zwalnianie wątków i pamięci odbywa się bezpiecznie w tle.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="115"/>
+        <location filename="../src/SideBar.qml" line="122"/>
         <source>Przekształcono górny pasek narzędzi w oknach LIVE i ARCHIWUM w wyśrodkowane pływające doki (dok LIVE ma dynamiczną szerokość).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="116"/>
+        <location filename="../src/SideBar.qml" line="123"/>
         <source>Dodano pionowy separator oddzielający opcje siatki od widoków w dokach na pasku górnym.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="117"/>
+        <location filename="../src/SideBar.qml" line="124"/>
         <source>Zwiększono przezroczystość pasków górnego i dolnego w archiwum (60% w oknie, 26% na pełnym ekranie) oraz ustawiono przezroczyste tło osi czasu.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="118"/>
+        <location filename="../src/SideBar.qml" line="125"/>
         <source>Uproszczono ikony prędkości odtwarzania w archiwum do czytelnego tekstu (1x, 2x, 4x) i usunięto niestabilną prędkość 8x.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="119"/>
+        <location filename="../src/SideBar.qml" line="126"/>
         <source>Zastąpiono tekstowe przyciski nawigacji miesięcy w kalendarzu archiwum i pobierania graficznymi strzałkami (chevronami).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="120"/>
+        <location filename="../src/SideBar.qml" line="127"/>
         <source>Przeniesiono przycisk usuwania kamery z prawego górnego rogu wideo na dolny pasek kontrolny viewportów, zapobiegając przypadkowym kliknięciom.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="121"/>
+        <location filename="../src/SideBar.qml" line="128"/>
         <source>Zoptymalizowano kontrast tekstu przycisków wyboru siatki w archiwum (ciemny tekst na seledynowym tle).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="122"/>
+        <location filename="../src/SideBar.qml" line="129"/>
         <source>Przekształcono panel statystyk w okno pływające i przeciągane za pomocą nowego dedykowanego uchwytu (z zachowaniem click-through).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="123"/>
+        <location filename="../src/SideBar.qml" line="130"/>
         <source>Naprawiono krytyczny błąd synchronizacji i pętli zwrotnej zapisu konfiguracyjnego przy usuwaniu układów podglądu.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="130"/>
+        <location filename="../src/SideBar.qml" line="137"/>
         <source>Powiększono ikony sterowania prędkością, zoomem i VCR w archiwum w celu poprawy ich czytelności, a także zwiększono napisy wewnątrz ikon SVG.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="131"/>
+        <location filename="../src/SideBar.qml" line="138"/>
         <source>Usunięto zduplikowane przyciski tekstowe dla skrótów zoomu w archiwum, zastępując je w pełni ikonami okrągłymi.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="132"/>
+        <location filename="../src/SideBar.qml" line="139"/>
         <source>Dodano kompletne angielskie i polskie tłumaczenia dla wszystkich tooltipów w oknie archiwum.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="139"/>
+        <location filename="../src/SideBar.qml" line="146"/>
         <source>Wprowadzono dwukierunkową synchronizację konfiguracji w czasie rzeczywistym między oknem głównym a pomocniczymi z obsługą unikalnych, automatycznych ID okien pomocniczych.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="146"/>
+        <location filename="../src/SideBar.qml" line="153"/>
         <source>Dodano automatyczne wznawianie sesji (auto-reconnect) w odtwarzaczu archiwum Hikvision po zakończeniu pobierania nagrań lub zerwaniu połączenia przez rejestrator.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="153"/>
+        <location filename="../src/SideBar.qml" line="160"/>
         <source>Wyeliminowano problem potencjalnego wycieku wątków i zawieszenia dekoderów wideo FFmpeg podczas zmiany widoków poprzez przejście na bezpieczne odwołania std::weak_ptr dla kontekstu dekodera.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="154"/>
+        <location filename="../src/SideBar.qml" line="161"/>
         <source>Naprawiono wyciek pamięci modeli układów widoków (ViewportsLayouts) poprzez bezpieczne niszczenie obiektów za pomocą deleteLater().</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="155"/>
+        <location filename="../src/SideBar.qml" line="162"/>
         <source>Złagodzono błąd uruchamiania powierzchni rysowania wideo OpenGL (start wideo surface) przy bardzo szybkiej zmianie zakładki NVR – logi zostały wyciszone do poziomu Debug, a system w tle ponawia automatycznie próbę renderowania po zwolnieniu buforów karty graficznej.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="162"/>
+        <location filename="../src/SideBar.qml" line="169"/>
         <source>Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum poprzez wieloetapowe oczyszczanie sterty oraz optymalizację pamięci podręcznej silnika QML.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="163"/>
+        <location filename="../src/SideBar.qml" line="170"/>
         <source>Zoptymalizowano zużycie pamięci RAM przy skalowaniu i powiększaniu widoku kamer w viewportach, zapobiegając nadmiernemu wzrostowi alokacji pamięci podczas ciągłej zmiany rozmiaru okien strumieni wideo.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="164"/>
+        <location filename="../src/SideBar.qml" line="171"/>
         <source>Dodano precyzyjny, rzeczywisty wskaźnik klatek na sekundę (FPS) w lewym górnym rogu każdego viewportu dla strumieni na żywo i odtwarzacza archiwalnego.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="165"/>
+        <location filename="../src/SideBar.qml" line="172"/>
         <source>Wdrożono bezpieczne zamykanie i zwalnianie wątków pobierania plików w downloaderze Hikvision, zapewniając stabilne i natychmiastowe zamykanie programu bez blokowania zasobów systemowych.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="172"/>
+        <location filename="../src/SideBar.qml" line="179"/>
         <source>Dodano dynamiczną wyszukiwarkę kamer w oknie archiwum z przyciskiem resetowania i automatycznym rozwijaniem pasujących rejestratorów.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="173"/>
+        <location filename="../src/SideBar.qml" line="180"/>
         <source>Włączono zawijanie zbyt długich nazw kamer na kafelkach listy w archiwum.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="174"/>
+        <location filename="../src/SideBar.qml" line="181"/>
         <source>Powiększono i odwrócono kolory przycisku plus (+) na kafelkach kamer (seledynowe tło) dla lepszej widoczności, dodając wyraźne stany hover/pressed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="181"/>
+        <location filename="../src/SideBar.qml" line="188"/>
         <source>Poprawiono przesunięcie paska dostępności nagrań o 2-3 godziny w oknie odtwarzacza archiwum, synchronizując oś czasu ze strefą czasową klienta (z poprawną obsługą czasu letniego/zimowego DST).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="188"/>
+        <location filename="../src/SideBar.qml" line="195"/>
         <source>Zastąpiono słabo widoczną czarną ikonę emoji 📺 w pustym widoku eleganckim seledynowym monitorem wektorowym SVG High-DPI.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="189"/>
+        <location filename="../src/SideBar.qml" line="196"/>
         <source>Zwiększono czytelność pasków rejestratorów w oknie archiwum (wysokość zwiększona z 22px do 28px, powiększona czcionka z 9px do 11px, większa strzałka rozwijania).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="190"/>
+        <location filename="../src/SideBar.qml" line="197"/>
         <source>Dodano pełny, dynamiczny efekt hover dla pasków rejestratorów z wyraźną zmianą kolorystyki tła, tekstu oraz ikon na seledynowy/biały.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="197"/>
+        <location filename="../src/SideBar.qml" line="204"/>
         <source>Zastąpiono tekstowe przyciski akcji na górnym pasku (Opcje, Nowe okno, Archiwum, Instrukcje) dedykowanymi, kolorowymi ikonami SVG z pomocniczymi dymkami (Tooltip).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="198"/>
+        <location filename="../src/SideBar.qml" line="205"/>
         <source>Zastąpiono przełącznik statystyk interaktywną ikoną SVG odzwierciedlającą stan aktywności monitora systemowego.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="199"/>
+        <location filename="../src/SideBar.qml" line="206"/>
         <source>Ujednolicono przyciski wyboru siatki (1x1-9x9) do spójnych okrągłych przycisków 30x30px.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="200"/>
+        <location filename="../src/SideBar.qml" line="207"/>
         <source>Dodano pionową linię rozdzielającą (separator) sekcję opcji od sekcji wyboru siatki.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="201"/>
+        <location filename="../src/SideBar.qml" line="208"/>
         <source>Przebudowano przyciski widoków do eleganckiego, zaokrąglonego kształtu pigułki o wysokości 30px z zachowaniem marginesów bocznych.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="202"/>
+        <location filename="../src/SideBar.qml" line="209"/>
         <source>Wymuszono automatyczne wyświetlanie nazw widoków wielkimi literami (Uppercase).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="203"/>
+        <location filename="../src/SideBar.qml" line="210"/>
         <source>Poprawiono czytelność i kontrast aktywnego przycisku widoku – ciemny tekst (#121214) na jasnym seledynowym tle.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="204"/>
+        <location filename="../src/SideBar.qml" line="211"/>
         <source>Ujednolicono i poprawiono ikony usuwania na liście rejestratorów i widoków oraz przycisk aktywacji presetu na ikony SVG z dymkami (Tooltip).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="205"/>
+        <location filename="../src/SideBar.qml" line="212"/>
         <source>Zmniejszono odległości między przyciskami na górnym pasku w celu optymalizacji przestrzeni interfejsu.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="206"/>
+        <location filename="../src/SideBar.qml" line="213"/>
         <source>Przywrócono brakującą ikonę minimalizowania w oknie pomocniczym.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="213"/>
+        <location filename="../src/SideBar.qml" line="220"/>
         <source>Poprawka logowania i działania archiwum w oknach pomocniczych.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="214"/>
+        <location filename="../src/SideBar.qml" line="221"/>
         <source>Naprawa stanu przycisków siatki (1x1 vs 2x2) przy bezpośrednim otwieraniu archiwum z kamery.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="221"/>
+        <location filename="../src/SideBar.qml" line="228"/>
         <source>Dodano poprawną przestrzeń nazw XML w zapytaniach Hikvision ISAPI (eliminacja błędu &apos;Invalid XML Content&apos; na nowszym oprogramowaniu układowym rejestratorów).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="222"/>
+        <location filename="../src/SideBar.qml" line="229"/>
         <source>Naprawa obsługi paginacji wyników wyszukiwania (obsługa tagu searchResultPostion).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="223"/>
+        <location filename="../src/SideBar.qml" line="230"/>
         <source>Przycisk &apos;Odśwież&apos; w oknie archiwum pozwalający na ręczne wyczyszczenie pamięci podręcznej i ponowne pobranie danych o dostępności nagrań.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="224"/>
+        <location filename="../src/SideBar.qml" line="231"/>
         <source>Optymalizacja kolejki sieciowej (Prefetch) – ograniczenie pobierania wstecznego do 12 miesięcy, co eliminuje setki zbędnych zapytań o przedawnione nagrania i znacznie przyspiesza start odtwarzania.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="231"/>
+        <location filename="../src/SideBar.qml" line="238"/>
         <source>Asynchroniczna inicjalizacja SDK Hikvision w osobnym wątku, co całkowicie wyeliminowało zawieszanie się interfejsu (GUI Freeze) przy otwieraniu opcji.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="232"/>
+        <location filename="../src/SideBar.qml" line="239"/>
         <source>Bezpieczna wielowątkowa synchronizacja dostępu do metod SDK Hikvision.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="239"/>
+        <location filename="../src/SideBar.qml" line="246"/>
         <source>Oczyszczanie nazw pobieranych plików i zrzutów ekranu z adresów IP rejestratorów.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="240"/>
+        <location filename="../src/SideBar.qml" line="247"/>
         <source>Elegancki styl paska postępu pobierania w kolorze jasnoturkusowym (#00f5d4) z nałożonym wycentrowanym tekstem z czarnym obrysem.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="241"/>
+        <location filename="../src/SideBar.qml" line="248"/>
         <source>Obliczanie globalnego postępu pobierania (overallProgress) dla nagrań składających się z wielu części.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="242"/>
+        <location filename="../src/SideBar.qml" line="249"/>
         <source>Zmiana rozszerzenia plików tymczasowych pobierania z &apos;.ps&apos; na &apos;.pspart&apos;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="243"/>
+        <location filename="../src/SideBar.qml" line="250"/>
         <source>Opcja i przycisk &apos;Pokazuj pola informacyjne tylko po najechaniu kursorem&apos; w ustawieniach interfejsu użytkownika.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="244"/>
+        <location filename="../src/SideBar.qml" line="251"/>
         <source>Wizualna informacja o procesie wyszukiwania kamer w panelu konfiguracji (obracająca się ikona, blokowanie formularza, tekst &apos;Wyszukiwanie...&apos;).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="245"/>
+        <location filename="../src/SideBar.qml" line="252"/>
         <source>Pełna wielojęzyczność (dodanie oficjalnego wsparcia dla języków polskiego i angielskiego).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="246"/>
+        <location filename="../src/SideBar.qml" line="253"/>
         <source>Optymalizacja czasu uruchamiania okna pomocniczego – skrócenie startu z 3 sekund do poniżej 300 ms.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="247"/>
+        <location filename="../src/SideBar.qml" line="254"/>
         <source>Estetyczna stylizacja pustego pola w oknie pomocniczym (&apos;Nie wybrano widoku&apos;) z seledynową ramką.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="254"/>
+        <location filename="../src/SideBar.qml" line="261"/>
         <source>Integracja z SDK Hikvision w trybie Live oraz odtwarzania archiwum.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="255"/>
+        <location filename="../src/SideBar.qml" line="262"/>
         <source>Odtwarzacz nagrań archiwalnych z wieloma kamerami naraz, automatycznie pozycjonowaną i centrowaną osią czasu.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="256"/>
+        <location filename="../src/SideBar.qml" line="263"/>
         <source>Wielowątkowy Monitor Systemowy (statystyki procesora, pamięci RAM, karty graficznej, pamięci VRAM oraz sieci).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="257"/>
+        <location filename="../src/SideBar.qml" line="264"/>
         <source>Śledzenie wykorzystania pasma sieciowego w czasie rzeczywistym.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="258"/>
+        <location filename="../src/SideBar.qml" line="265"/>
         <source>Nowa ikona aplikacji w wysokiej rozdzielczości oraz dopracowany ciemny motyw interfejsu.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="259"/>
+        <location filename="../src/SideBar.qml" line="266"/>
         <source>Automatyczny skrypt budowania pakietu Pacman dla systemu Arch Linux.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="319"/>
-        <source>CCTV Viewer 2</source>
+        <location filename="../src/SideBar.qml" line="2410"/>
+        <source>Historia ulepszeń, poprawek błędów i nowych funkcji w programie KVision.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="330"/>
+        <location filename="../src/SideBar.qml" line="337"/>
         <source>Wersja %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Version %1</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="341"/>
+        <location filename="../src/SideBar.qml" line="348"/>
         <source>Oryginalny autor: Evgeny S. Maksimov</source>
-        <translation type="unfinished"></translation>
+        <translation>Original author: Evgeny S. Maksimov</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="349"/>
+        <location filename="../src/SideBar.qml" line="356"/>
         <source>Modyfikacja: arkanista (z pomocą AI)</source>
-        <translation type="unfinished"></translation>
+        <translation>Modification: arkanista (with AI assistance)</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="428"/>
+        <location filename="../src/SideBar.qml" line="435"/>
         <source>Viewport%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="428"/>
+        <location filename="../src/SideBar.qml" line="435"/>
         <source> #%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="488"/>
+        <location filename="../src/SideBar.qml" line="495"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="547"/>
+        <location filename="../src/SideBar.qml" line="554"/>
         <source>Recorders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="606"/>
+        <location filename="../src/SideBar.qml" line="613"/>
         <source>Presets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="665"/>
+        <location filename="../src/SideBar.qml" line="672"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="724"/>
+        <location filename="../src/SideBar.qml" line="731"/>
         <source>Changelog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="779"/>
+        <location filename="../src/SideBar.qml" line="786"/>
         <source>Viewport Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="789"/>
+        <location filename="../src/SideBar.qml" line="796"/>
         <source>Please select a viewport in the main grid to customize its settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="806"/>
+        <location filename="../src/SideBar.qml" line="813"/>
         <source>Unlock config pane</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="813"/>
+        <location filename="../src/SideBar.qml" line="820"/>
         <source>Active Stream Connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="835"/>
+        <location filename="../src/SideBar.qml" line="842"/>
         <source>Primary Stream URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="849"/>
+        <location filename="../src/SideBar.qml" line="856"/>
         <source>Secondary Backup URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="863"/>
+        <location filename="../src/SideBar.qml" line="870"/>
         <source>Audio &amp; Rendering Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="884"/>
+        <location filename="../src/SideBar.qml" line="891"/>
         <source>Mute / Unmute Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="904"/>
+        <location filename="../src/SideBar.qml" line="911"/>
         <source>FFmpeg Options Override</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="959"/>
+        <location filename="../src/SideBar.qml" line="966"/>
         <source>Layout &amp; Grid Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="969"/>
+        <location filename="../src/SideBar.qml" line="976"/>
         <source>Unlock tools pane</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="976"/>
+        <location filename="../src/SideBar.qml" line="983"/>
         <source>Window Division</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1026"/>
+        <location filename="../src/SideBar.qml" line="1033"/>
         <source>Error reading configuration!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1078"/>
+        <location filename="../src/SideBar.qml" line="1085"/>
         <source>Hold to edit division value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1106"/>
+        <location filename="../src/SideBar.qml" line="1113"/>
         <source>x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1120"/>
+        <location filename="../src/SideBar.qml" line="1127"/>
         <source>Geometry Ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1170"/>
+        <location filename="../src/SideBar.qml" line="1177"/>
         <source>Toggle Full Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1179"/>
+        <location filename="../src/SideBar.qml" line="1186"/>
         <source>Grid Operations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1201"/>
+        <location filename="../src/SideBar.qml" line="1208"/>
         <source>Merge Highlighted Cells</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1225"/>
+        <location filename="../src/SideBar.qml" line="1232"/>
         <source>NVR / Hikvision Recorders Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1253"/>
+        <location filename="../src/SideBar.qml" line="1260"/>
         <source>Presets &amp; Quick Layout Views</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1263"/>
+        <location filename="../src/SideBar.qml" line="1270"/>
         <source>ONVIF and RTSP Layout settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1305"/>
+        <location filename="../src/SideBar.qml" line="1312"/>
         <source>Layout %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1323"/>
-        <location filename="../src/SideBar.qml" line="1484"/>
-        <location filename="../src/SideBar.qml" line="1616"/>
+        <location filename="../src/SideBar.qml" line="1330"/>
+        <location filename="../src/SideBar.qml" line="1491"/>
+        <location filename="../src/SideBar.qml" line="1623"/>
         <source>Visible</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1360"/>
+        <location filename="../src/SideBar.qml" line="1367"/>
         <source>Aktywuj ten układ podglądu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1392"/>
+        <location filename="../src/SideBar.qml" line="1399"/>
         <source>Usuń ten układ podglądu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1399"/>
+        <location filename="../src/SideBar.qml" line="1406"/>
         <source>Add Preset Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1426"/>
+        <location filename="../src/SideBar.qml" line="1433"/>
         <source>NVR View Layouts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1467"/>
+        <location filename="../src/SideBar.qml" line="1474"/>
         <source>NVR View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1520"/>
+        <location filename="../src/SideBar.qml" line="1527"/>
         <source>Aktywuj ten widok kamer NVR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1550"/>
+        <location filename="../src/SideBar.qml" line="1557"/>
         <source>Usuń ten widok kamer NVR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1559"/>
+        <location filename="../src/SideBar.qml" line="1566"/>
         <source>NVR Presets (Grid views)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1599"/>
+        <location filename="../src/SideBar.qml" line="1606"/>
         <source>NVR Preset #%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1652"/>
+        <location filename="../src/SideBar.qml" line="1659"/>
         <source>Aktywuj ten preset kamer NVR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1682"/>
+        <location filename="../src/SideBar.qml" line="1689"/>
         <source>Usuń ten preset kamer NVR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1689"/>
+        <location filename="../src/SideBar.qml" line="1696"/>
         <source>Add NVR Preset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1732"/>
+        <location filename="../src/SideBar.qml" line="1739"/>
         <source>System Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1741"/>
+        <location filename="../src/SideBar.qml" line="1748"/>
         <source>General Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1762"/>
+        <location filename="../src/SideBar.qml" line="1769"/>
         <source>Allow running multiple application instances</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1771"/>
+        <location filename="../src/SideBar.qml" line="1779"/>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="1800"/>
         <source>Disable audio entirely</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1780"/>
+        <location filename="../src/SideBar.qml" line="1816"/>
         <source>Context Menu Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1801"/>
+        <location filename="../src/SideBar.qml" line="1837"/>
         <source>Enable right-click context menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1808"/>
+        <location filename="../src/SideBar.qml" line="1844"/>
         <source>Allow swapping viewport places</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1816"/>
+        <location filename="../src/SideBar.qml" line="1852"/>
         <source>Enable &apos;Remove camera&apos; option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1824"/>
+        <location filename="../src/SideBar.qml" line="1860"/>
         <source>Allow changing viewport settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1832"/>
+        <location filename="../src/SideBar.qml" line="1868"/>
         <source>Enable &apos;Stream selection&apos; option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1842"/>
+        <location filename="../src/SideBar.qml" line="1878"/>
         <source>Interface &amp; View Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1863"/>
+        <location filename="../src/SideBar.qml" line="1899"/>
         <source>Hide mouse cursor in Full Screen mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1870"/>
-        <source>Automatically unmute when entering Full Screen</source>
+        <location filename="../src/SideBar.qml" line="1807"/>
+        <source>Maximizing camera to full screen does not unmute</source>
+        <translation type="unfinished">Maximizing camera to full screen does not unmute</translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="78"/>
+        <source>Zmieniono nazwę programu na KVision wraz z automatyczną migracją dotychczasowych ustawień użytkownika, nowymi ikonami o wielu rozmiarach (128px, 256px, 512px) oraz wyświetlaniem pełnej wersji w pasku tytułowym.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1881"/>
+        <location filename="../src/SideBar.qml" line="79"/>
+        <source>Naprawiono okno ostrzegawcze przekroczenia limitu okien pomocniczych (brakujący zasób QML i odczyt z QSettings).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="80"/>
+        <source>Naprawiono brakującą ikonę programu pod Waylandem (instalacja w motywie hicolor oraz setDesktopFileName).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="326"/>
+        <source>KVision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="1912"/>
         <source>Language:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1890"/>
+        <location filename="../src/SideBar.qml" line="1921"/>
         <source>System default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1992"/>
+        <location filename="../src/SideBar.qml" line="2023"/>
         <source>User Interface Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2013"/>
+        <location filename="../src/SideBar.qml" line="2044"/>
         <source>Show channel status in the top left corner of the viewport</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2020"/>
+        <location filename="../src/SideBar.qml" line="2051"/>
         <source>Show camera info in the bottom left corner of the viewport</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2027"/>
+        <location filename="../src/SideBar.qml" line="2058"/>
         <source>Show control icons in the bottom right corner of the viewport only when hovering</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2034"/>
+        <location filename="../src/SideBar.qml" line="2065"/>
         <source>Show info fields only when hovering</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2045"/>
+        <location filename="../src/SideBar.qml" line="2072"/>
+        <source>Show top bar by default when opening window</source>
+        <translation>Show top bar by default when opening window</translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="2083"/>
         <source>Ogranicz liczbę okien pomocniczych do:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2090"/>
+        <location filename="../src/SideBar.qml" line="2128"/>
         <source>Zapis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2112"/>
-        <location filename="../src/SideBar.qml" line="2304"/>
+        <location filename="../src/SideBar.qml" line="2150"/>
+        <location filename="../src/SideBar.qml" line="2342"/>
         <source>Uaktywnij zmiany w tej sekcji</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2128"/>
+        <location filename="../src/SideBar.qml" line="2166"/>
         <source>Domyślna ścieżka stopklatek:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2177"/>
+        <location filename="../src/SideBar.qml" line="2215"/>
         <source>Wybierz folder dla stopklatek</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2192"/>
+        <location filename="../src/SideBar.qml" line="2230"/>
         <source>Domyślna ścieżka nagrań:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2241"/>
+        <location filename="../src/SideBar.qml" line="2279"/>
         <source>Wybierz folder dla nagrań</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2257"/>
+        <location filename="../src/SideBar.qml" line="2295"/>
         <source>otwórz folder obrazów</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2268"/>
+        <location filename="../src/SideBar.qml" line="2306"/>
         <source>otwórz folder wideo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2282"/>
+        <location filename="../src/SideBar.qml" line="2320"/>
         <source>System Media Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2320"/>
+        <location filename="../src/SideBar.qml" line="2358"/>
         <source>Default FFmpeg command-line options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2363"/>
+        <location filename="../src/SideBar.qml" line="2401"/>
         <source>Dziennik zmian (Changelog)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2372"/>
-        <source>Historia ulepszeń, poprawek błędów i nowych funkcji w programie CCTV Viewer 2.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SideBar.qml" line="2448"/>
-        <location filename="../src/SideBar.qml" line="2465"/>
-        <location filename="../src/SideBar.qml" line="2482"/>
+        <location filename="../src/SideBar.qml" line="2486"/>
+        <location filename="../src/SideBar.qml" line="2503"/>
+        <location filename="../src/SideBar.qml" line="2520"/>
         <source>Confirm Deletion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2454"/>
+        <location filename="../src/SideBar.qml" line="2492"/>
         <source>Are you sure you want to delete preset &quot;%1&quot;? This action is completely irreversible.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2457"/>
+        <location filename="../src/SideBar.qml" line="2495"/>
         <source>Are you sure you want to delete preset #%1? This action is completely irreversible.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2471"/>
+        <location filename="../src/SideBar.qml" line="2509"/>
         <source>Are you sure you want to delete NVR view &quot;%1&quot;? This action is completely irreversible.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2474"/>
+        <location filename="../src/SideBar.qml" line="2512"/>
         <source>Are you sure you want to delete this NVR view layout? This action is completely irreversible.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2488"/>
+        <location filename="../src/SideBar.qml" line="2526"/>
         <source>Are you sure you want to delete NVR Preset &quot;%1&quot;? This action is completely irreversible.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2491"/>
+        <location filename="../src/SideBar.qml" line="2529"/>
         <source>Are you sure you want to delete this NVR Preset? This action is completely irreversible.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2144,7 +2219,7 @@
     <name>SingleInstanceWarning</name>
     <message>
         <location filename="../src/SingleInstanceWarning.qml" line="16"/>
-        <source>CCTV Viewer 2</source>
+        <source>KVision</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2156,6 +2231,29 @@
         <location filename="../src/SingleInstanceWarning.qml" line="97"/>
         <source>ZAMKNIJ</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnapshotSavedDialog</name>
+    <message>
+        <location filename="../src/SnapshotSavedDialog.qml" line="65"/>
+        <source>Zapisano stopklatkę</source>
+        <translation>Snapshot saved</translation>
+    </message>
+    <message>
+        <location filename="../src/SnapshotSavedDialog.qml" line="82"/>
+        <source>Zapisano stopklatkę - </source>
+        <translation>Snapshot saved - </translation>
+    </message>
+    <message>
+        <location filename="../src/SnapshotSavedDialog.qml" line="100"/>
+        <source>Przeglądaj</source>
+        <translation>Browse</translation>
+    </message>
+    <message>
+        <location filename="../src/SnapshotSavedDialog.qml" line="126"/>
+        <source>Wyjdź</source>
+        <translation>Exit</translation>
     </message>
 </context>
 <context>
@@ -2246,26 +2344,25 @@
     </message>
     <message>
         <location filename="../src/ViewportSettingsDialog.qml" line="140"/>
-        <source>Global Options</source>
-        <translation type="unfinished"></translation>
+        <source>Channel Options</source>
+        <translation>Channel Options</translation>
     </message>
     <message>
-        <location filename="../src/ViewportSettingsDialog.qml" line="162"/>
-        <source>Unmute when the viewport is in full screen mode</source>
-        <translation type="unfinished"></translation>
+        <location filename="../src/ViewportSettingsDialog.qml" line="165"/>
+        <source>FFmpeg options</source>
+        <translation>FFmpeg options</translation>
     </message>
     <message>
-        <location filename="../src/ViewportSettingsDialog.qml" line="180"/>
-        <source>Default FFmpeg options</source>
-        <translation type="unfinished"></translation>
+        <source>Maximizing camera to full screen does not unmute</source>
+        <translation type="vanished">Maximizing camera to full screen does not unmute</translation>
     </message>
     <message>
-        <location filename="../src/ViewportSettingsDialog.qml" line="228"/>
+        <location filename="../src/ViewportSettingsDialog.qml" line="213"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewportSettingsDialog.qml" line="249"/>
+        <location filename="../src/ViewportSettingsDialog.qml" line="234"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2273,53 +2370,68 @@
 <context>
     <name>ViewportsLayout</name>
     <message>
-        <location filename="../src/ViewportsLayout.qml" line="468"/>
+        <location filename="../src/ViewportsLayout.qml" line="499"/>
         <source>F</source>
         <comment>Shortcut</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewportsLayout.qml" line="881"/>
+        <location filename="../src/ViewportsLayout.qml" line="912"/>
         <source>Zamień miejscami</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewportsLayout.qml" line="920"/>
+        <location filename="../src/ViewportsLayout.qml" line="951"/>
         <source>Wybór streamu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewportsLayout.qml" line="973"/>
+        <location filename="../src/ViewportsLayout.qml" line="1004"/>
         <source>Usuń kamerę</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewportsLayout.qml" line="1012"/>
+        <location filename="../src/ViewportsLayout.qml" line="1043"/>
         <source>Zmień ustawienia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewportsLayout.qml" line="1075"/>
+        <location filename="../src/ViewportsLayout.qml" line="1082"/>
+        <source>Stopklatka</source>
+        <translation>Snapshot</translation>
+    </message>
+    <message>
+        <location filename="../src/ViewportsLayout.qml" line="1118"/>
+        <source>Stopklatka HD</source>
+        <translation>Snapshot HD</translation>
+    </message>
+    <message>
+        <location filename="../src/ViewportsLayout.qml" line="1154"/>
+        <source>Odtwarzaj</source>
+        <translation>Playback</translation>
+    </message>
+    <message>
+        <location filename="../src/ViewportsLayout.qml" line="1214"/>
         <source>Automatycznie</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewportsLayout.qml" line="1124"/>
+        <location filename="../src/ViewportsLayout.qml" line="1263"/>
         <source>Tylko MAIN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewportsLayout.qml" line="1173"/>
+        <location filename="../src/ViewportsLayout.qml" line="1312"/>
         <source>Tylko SUB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewportsLayout.qml" line="1408"/>
+        <location filename="../src/ViewportsLayout.qml" line="1547"/>
         <source>Confirm Camera Removal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewportsLayout.qml" line="1410"/>
+        <location filename="../src/ViewportsLayout.qml" line="1549"/>
         <source>Are you sure you want to remove the camera from this viewport?</source>
         <translation type="unfinished"></translation>
     </message>

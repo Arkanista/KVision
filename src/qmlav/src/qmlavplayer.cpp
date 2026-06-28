@@ -65,10 +65,11 @@ void QmlAVPlayer::play()
 
 void QmlAVPlayer::stop()
 {
+    setStatus(QMediaPlayer::NoMedia);
     if (m_playbackState == QMediaPlayer::StoppedState) {
         return;
     }
-    logDebug() << "stop()";
+    qDebug() << "[QmlAVPlayer]" << this << "stop() called from state:" << m_playbackState << "source:" << m_source.toDisplayString();
 
     if (m_demuxer) {
         disconnect(m_demuxer, nullptr, this, nullptr);
@@ -110,15 +111,20 @@ void QmlAVPlayer::stop()
 
 void QmlAVPlayer::setVideoSurface(QAbstractVideoSurface *surface)
 {
+    qDebug() << "[QmlAVPlayer]" << this << "setVideoSurface old:" << m_videoSurface << "new:" << surface << "playbackState:" << m_playbackState;
     if (m_videoSurface != surface) {
-        stop();
+        if (m_videoSurface && m_videoSurface->isActive()) {
+            m_videoSurface->stop();
+        }
+        m_videoSurface = surface;
     }
-
-    m_videoSurface = surface;
 }
 
 void QmlAVPlayer::frameHandler(const std::shared_ptr<QmlAVFrame> frame)
 {
+    if (!m_demuxer) {
+        return;
+    }
     if (m_playbackState == QMediaPlayer::PlayingState) {
         if (frame->type() == QmlAVFrame::TypeVideo) {
             auto vf = std::static_pointer_cast<QmlAVVideoFrame>(frame);
@@ -330,9 +336,9 @@ bool QmlAVPlayer::load()
     if (!m_demuxer && m_source.isValid()) {
         m_demuxer = new QmlAVDemuxer();
 
-        connect(m_demuxer, &QmlAVDemuxer::frameFinished, this, &QmlAVPlayer::frameHandler);
-        connect(m_demuxer, &QmlAVDemuxer::playbackStateChanged, this, &QmlAVPlayer::setPlaybackState);
-        connect(m_demuxer, &QmlAVDemuxer::mediaStatusChanged, this, &QmlAVPlayer::setStatus);
+        connect(m_demuxer, &QmlAVDemuxer::frameFinished, this, &QmlAVPlayer::frameHandler, Qt::QueuedConnection);
+        connect(m_demuxer, &QmlAVDemuxer::playbackStateChanged, this, &QmlAVPlayer::setPlaybackState, Qt::QueuedConnection);
+        connect(m_demuxer, &QmlAVDemuxer::mediaStatusChanged, this, &QmlAVPlayer::setStatus, Qt::QueuedConnection);
 
         m_demuxer->load(m_source, m_avOptions);
 
@@ -386,6 +392,9 @@ void QmlAVPlayer::reset()
 
 void QmlAVPlayer::setPlaybackState(const QMediaPlayer::State state)
 {
+    if (!m_demuxer && state != QMediaPlayer::StoppedState) {
+        return;
+    }
     if (m_playbackState == state) {
         return;
     }
@@ -403,6 +412,9 @@ void QmlAVPlayer::setPlaybackState(const QMediaPlayer::State state)
 
 void QmlAVPlayer::setStatus(const QMediaPlayer::MediaStatus status)
 {
+    if (!m_demuxer && status != QMediaPlayer::NoMedia) {
+        return;
+    }
     if (m_status == status) {
         return;
     }
@@ -410,6 +422,13 @@ void QmlAVPlayer::setStatus(const QMediaPlayer::MediaStatus status)
     logDebug() << QString("setStatus(status=%1)").arg(status);
 
     m_status = status;
+
+    if (m_status == QMediaPlayer::LoadedMedia || m_status == QMediaPlayer::BufferedMedia) {
+        if (m_demuxer) {
+            setHasVideo(m_demuxer->hasVideo());
+            setHasAudio(m_demuxer->hasAudio());
+        }
+    }
 
     stateMachine();
 

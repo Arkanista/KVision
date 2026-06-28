@@ -11,15 +11,70 @@
 #include <QRunnable>
 #include <iostream>
 #include <set>
+#include <QAudioDeviceInfo>
 
 // Hikvision PlayM4 decoder constants (usually YV12)
 #define T_YV12 3
+#define T_AUDIO16 101
+#define T_AUDIO8 100
+
+static QByteArray resampleAudio(const char* inputBuf, int inputSize, int inputRate, int outputRate, int outputChannels)
+{
+    // Sane limits to prevent crash or massive allocations on corrupted/unexpected audio data
+    if (inputSize <= 0 || inputSize > 1024 * 1024 || inputRate < 4000 || inputRate > 192000 
+        || outputRate < 4000 || outputRate > 192000 || outputChannels <= 0 || outputChannels > 8) {
+        return QByteArray();
+    }
+
+    const int16_t* inputSamples = reinterpret_cast<const int16_t*>(inputBuf);
+    int inputSamplesCount = inputSize / 2;
+    if (inputSamplesCount <= 0) {
+        return QByteArray();
+    }
+
+    // Jeśli formaty są identyczne i wyjście to Mono, po prostu kopiujemy dane
+    if (inputRate == outputRate && outputChannels == 1) {
+        return QByteArray(inputBuf, inputSize);
+    }
+
+    int outputSamplesCount = static_cast<int>(static_cast<double>(inputSamplesCount) * outputRate / inputRate);
+    if (outputSamplesCount <= 0) {
+        return QByteArray();
+    }
+
+    QByteArray outputBuf;
+    outputBuf.resize(outputSamplesCount * outputChannels * 2);
+    int16_t* outputSamples = reinterpret_cast<int16_t*>(outputBuf.data());
+
+    double ratio = static_cast<double>(inputRate) / outputRate;
+
+    for (int i = 0; i < outputSamplesCount; ++i) {
+        double srcIndex = i * ratio;
+        int srcIndexFloor = static_cast<int>(srcIndex);
+        double fraction = srcIndex - srcIndexFloor;
+
+        int16_t sample = 0;
+        if (srcIndexFloor >= inputSamplesCount - 1) {
+            sample = inputSamples[inputSamplesCount - 1];
+        } else {
+            int16_t s1 = inputSamples[srcIndexFloor];
+            int16_t s2 = inputSamples[srcIndexFloor + 1];
+            sample = static_cast<int16_t>((1.0 - fraction) * s1 + fraction * s2);
+        }
+
+        for (int ch = 0; ch < outputChannels; ++ch) {
+            outputSamples[i * outputChannels + ch] = sample;
+        }
+    }
+
+    return outputBuf;
+}
 
 class YV12ToRGBTask : public QRunnable
 {
 public:
-    YV12ToRGBTask(QPointer<HikvisionArchivePlayer> player, std::shared_ptr<HikvisionArchivePlayer::FrameBuffer> frame, LONG playHandle)
-        : m_player(player), m_frame(frame), m_taskPlayHandle(playHandle)
+    YV12ToRGBTask(QPointer<HikvisionArchivePlayer> player, std::shared_ptr<HikvisionArchivePlayer::FrameBuffer> frame, uint64_t sessionId)
+        : m_player(player), m_frame(frame), m_taskSessionId(sessionId)
     {
         setAutoDelete(true);
     }
@@ -35,7 +90,7 @@ public:
         }
 
         // Check if session has changed before starting expensive RGB conversion
-        if (m_player->m_lPlayHandle.load() != m_taskPlayHandle) {
+        if (m_player->m_playbackSessionId.load() != m_taskSessionId) {
             m_frame->inUse = false;
             m_player->m_pendingTasks--;
             return;
@@ -103,7 +158,7 @@ public:
             }
         }
 
-        if (!m_player || m_player->m_lPlayHandle.load() != m_taskPlayHandle) {
+        if (!m_player || m_player->m_playbackSessionId.load() != m_taskSessionId) {
             m_frame->inUse = false;
             if (m_player) {
                 m_player->m_pendingTasks--;
@@ -123,11 +178,13 @@ public:
 
         QPointer<HikvisionArchivePlayer> pPlayer = m_player;
         if (pPlayer) {
-            QMetaObject::invokeMethod(pPlayer.data(), [pPlayer, img, playHandle = m_taskPlayHandle]() {
+            pPlayer->m_guiPendingTasks++;
+            QMetaObject::invokeMethod(pPlayer.data(), [pPlayer, img, sessionId = m_taskSessionId]() {
                 if (pPlayer) {
-                    if (pPlayer->m_lPlayHandle.load() == playHandle) {
+                    if (pPlayer->m_playbackSessionId.load() == sessionId) {
                         pPlayer->updateImage(img);
                     }
+                    pPlayer->m_guiPendingTasks--;
                 }
             }, Qt::QueuedConnection);
             pPlayer->m_pendingTasks--;
@@ -137,7 +194,7 @@ public:
 private:
     QPointer<HikvisionArchivePlayer> m_player;
     std::shared_ptr<HikvisionArchivePlayer::FrameBuffer> m_frame;
-    LONG m_taskPlayHandle;
+    uint64_t m_taskSessionId;
 };
 
 static std::mutex s_activePlayersMutex;
@@ -194,6 +251,7 @@ static std::map<LONG, HikvisionArchivePlayer*> s_portMap;
 
 void HikvisionArchivePlayer::cleanupPlayback()
 {
+    m_playbackSessionId++;
     LONG playHandle = -1;
     LONG port = -1;
     {
@@ -201,6 +259,10 @@ void HikvisionArchivePlayer::cleanupPlayback()
         playHandle = m_lPlayHandle.exchange(-1);
         port = m_nPort.exchange(-1);
     }
+
+    m_lastAudioStamp = 0;
+    m_lastProposedSampleRate = 0;
+    m_sampleRateConsecutiveCount = 0;
 
     qDebug() << "[HikArchive] cleanupPlayback: playHandle=" << playHandle << "port=" << port << "m_lUserID=" << m_lUserID;
 
@@ -212,8 +274,30 @@ void HikvisionArchivePlayer::cleanupPlayback()
         }
     }
 
+    // Clean up standard QAudioOutput safely and asynchronously on the GUI thread
+    if (QThread::currentThread() != qApp->thread()) {
+        QMetaObject::invokeMethod(this, [this]() {
+            std::lock_guard<std::mutex> lock(m_audioMutex);
+            if (m_audioOutput) {
+                m_audioOutput->stop();
+                m_audioOutput->deleteLater();
+                m_audioOutput = nullptr;
+            }
+            m_audioOutputDevice = nullptr;
+        }, Qt::QueuedConnection);
+    } else {
+        std::lock_guard<std::mutex> lock(m_audioMutex);
+        if (m_audioOutput) {
+            m_audioOutput->stop();
+            m_audioOutput->deleteLater();
+            m_audioOutput = nullptr;
+        }
+        m_audioOutputDevice = nullptr;
+    }
+
     if (port >= 0) {
-        PlayM4_StopSoundShare(port);
+        PlayM4_StopSoundShare(port); // Port-specific stopping instead of global PlayM4_StopSound()
+        m_soundPlaying = false;
         {
             std::lock_guard<std::mutex> lock(s_portMapMutex);
             s_portMap.erase(port);
@@ -502,6 +586,13 @@ void HikvisionArchivePlayer::playAtTime(const QDateTime &dateTime)
     }
     qDebug() << "[HikArchive] Playback STARTED successfully!";
 
+    // Send PLAYSTARTAUDIO to ensure NVR streams audio to us
+    if (!NET_DVR_PlayBackControl_V40(playHandle, NET_DVR_PLAYSTARTAUDIO, nullptr, 0, nullptr, nullptr)) {
+        qWarning() << "[HikArchive] NET_DVR_PLAYSTARTAUDIO FAILED. Error:" << NET_DVR_GetLastError();
+    } else {
+        qDebug() << "[HikArchive] NET_DVR_PLAYSTARTAUDIO sent successfully!";
+    }
+
     {
         std::lock_guard<std::mutex> lock(m_stateMutex);
         m_sysHeadReceived = false;
@@ -612,9 +703,9 @@ void HikvisionArchivePlayer::setVolume(double volume)
     m_volume = volume;
     emit volumeChanged();
 
-    LONG activePort = m_nPort.load();
-    if (activePort >= 0) {
-        PlayM4_SetVolume(activePort, static_cast<WORD>(m_volume * 0xFFFF));
+    std::lock_guard<std::mutex> lock(m_audioMutex);
+    if (m_audioOutput) {
+        m_audioOutput->setVolume(m_muted ? 0.0 : m_volume);
     }
 }
 
@@ -625,20 +716,9 @@ void HikvisionArchivePlayer::setMuted(bool muted)
     m_muted = muted;
     emit mutedChanged();
 
-    LONG activePort = m_nPort.load();
-    if (activePort >= 0) {
-        if (m_muted) {
-            PlayM4_StopSoundShare(activePort);
-            qDebug() << "[HikArchive] Audio stopped (muted) on port" << activePort;
-        } else {
-            PlayM4_StopSoundShare(activePort);
-            if (PlayM4_PlaySoundShare(activePort)) {
-                PlayM4_SetVolume(activePort, static_cast<WORD>(m_volume * 0xFFFF));
-                qDebug() << "[HikArchive] Audio started (unmuted) on port" << activePort << "volume" << m_volume;
-            } else {
-                qWarning() << "[HikArchive] PlayM4_PlaySoundShare FAILED on unmute. Error:" << PlayM4_GetLastError(activePort);
-            }
-        }
+    std::lock_guard<std::mutex> lock(m_audioMutex);
+    if (m_audioOutput) {
+        m_audioOutput->setVolume(m_muted ? 0.0 : m_volume);
     }
 }
 
@@ -677,6 +757,7 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
     LONG activePort = -1;
     bool sysHeadReceived = false;
     bool isPlaying = false;
+    uint64_t activeSessionId = 0;
 
     {
         std::lock_guard<std::mutex> lock(player->m_stateMutex);
@@ -684,6 +765,7 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
         activePort = player->m_nPort.load();
         sysHeadReceived = player->m_sysHeadReceived.load();
         isPlaying = player->m_isPlaying;
+        activeSessionId = player->m_playbackSessionId.load();
     }
 
     if (lPlayHandle != activeHandle || activeHandle < 0) {
@@ -699,6 +781,9 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
     }
 
     if (dwDataType == NET_DVR_SYSHEAD) {
+        if (player->m_playbackSessionId.load() != activeSessionId) {
+            return;
+        }
         {
             std::lock_guard<std::mutex> lock(player->m_stateMutex);
             player->m_sysHeadReceived = true;
@@ -741,16 +826,32 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
             qWarning() << "[HikArchive] PlayM4_Play FAILED. PlayM4 error:" << playErr;
         } else {
             qDebug() << "[HikArchive] PlayM4_Play OK - decoder started!";
-            if (!player->m_muted) {
-                PlayM4_StopSoundShare(activePort);
-                if (PlayM4_PlaySoundShare(activePort)) {
-                    PlayM4_SetVolume(activePort, static_cast<WORD>(player->m_volume * 0xFFFF));
-                    qDebug() << "[HikArchive] Audio initially started on port" << activePort << "volume" << player->m_volume;
-                } else {
-                    qWarning() << "[HikArchive] PlayM4_PlaySoundShare initially FAILED. Error:" << PlayM4_GetLastError(activePort);
-                }
+            
+            // Try to set separate audio callback first (may fail on Linux with Error 16)
+            bool audioCallbackRegistered = PlayM4_SetAudioCallBack(activePort, AudioCallBack, reinterpret_cast<long>(player));
+            
+            // Always start sound to enable audio decoding within PlayM4
+            bool soundStarted = PlayM4_PlaySound(activePort);
+            if (!soundStarted) {
+                qDebug() << "[HikArchive] PlayM4_PlaySound failed, trying PlayM4_PlaySoundShare...";
+                soundStarted = PlayM4_PlaySoundShare(activePort);
+            }
+
+            if (soundStarted) {
+                qDebug() << "[HikArchive] Sound playback successfully started on port" << activePort;
+                player->m_soundPlaying = true;
+                // UNCONDITIONALLY mute direct SDK ALSA sound rendering to prevent ALSA/PulseAudio lockups
+                PlayM4_SetVolume(activePort, 0);
             } else {
-                qDebug() << "[HikArchive] Player initially muted, not playing audio on port" << activePort;
+                qWarning() << "[HikArchive] Failed to start sound playback! Error:" << PlayM4_GetLastError(activePort);
+                player->m_soundPlaying = false;
+            }
+
+            if (audioCallbackRegistered) {
+                qDebug() << "[HikArchive] PlayM4_SetAudioCallBack registered OK on port" << activePort;
+            } else {
+                qDebug() << "[HikArchive] PlayM4_SetAudioCallBack failed with error" << PlayM4_GetLastError(activePort)
+                         << "- audio will be intercepted and decoded via DecCallBack instead.";
             }
         }
     } else if (dwDataType == NET_DVR_STREAMDATA) {
@@ -765,13 +866,15 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
             LONG currentHandle = -1;
             LONG currentPort = -1;
             bool currentIsPlaying = false;
+            uint64_t currentSessionId = 0;
             {
                 std::lock_guard<std::mutex> lock(player->m_stateMutex);
                 currentHandle = player->m_lPlayHandle.load();
                 currentPort = player->m_nPort.load();
                 currentIsPlaying = player->m_isPlaying;
+                currentSessionId = player->m_playbackSessionId.load();
             }
-            if (currentHandle != activeHandle || currentPort != activePort || !currentIsPlaying) {
+            if (currentHandle != activeHandle || currentPort != activePort || !currentIsPlaying || currentSessionId != activeSessionId) {
                 break;
             }
             DWORD playErr = PlayM4_GetLastError(activePort);
@@ -838,7 +941,10 @@ void HikvisionArchivePlayer::DecCallBack(long nPort, char *pBuf, long nSize, FRA
                  << "h=" << info->nHeight;
     }
 
+    uint64_t activeSessionId = player->m_playbackSessionId.load();
+
     if (info->nType == T_YV12) {
+
         int width = info->nWidth;
         int height = info->nHeight;
         
@@ -847,7 +953,7 @@ void HikvisionArchivePlayer::DecCallBack(long nPort, char *pBuf, long nSize, FRA
             return;
         }
 
-        if (player->m_pendingTasks.load() >= 5) {
+        if (player->m_pendingTasks.load() + player->m_guiPendingTasks.load() >= 5) {
             // Drop frame to prevent thread pools/queues from filling up
             return;
         }
@@ -860,8 +966,145 @@ void HikvisionArchivePlayer::DecCallBack(long nPort, char *pBuf, long nSize, FRA
 
         player->m_pendingTasks++;
 
-        auto* task = new YV12ToRGBTask(player, fb, player->m_lPlayHandle.load());
+        auto* task = new YV12ToRGBTask(player, fb, activeSessionId);
         QThreadPool::globalInstance()->start(task);
+    }
+    else if (info->nType == T_AUDIO16) {
+        if (nSize <= 0 || nSize > 1024 * 1024) {
+            return; // Safety guard against invalid/corrupt audio frames
+        }
+        if (player->m_guiPendingTasks.load() >= 15) {
+            return; // Drop audio frames if GUI is frozen to prevent memory expansion
+        }
+
+        int sampleRate = 0;
+        // 1. Instantly determine rate based on frame size (extremely robust, immune to network jitter)
+        if (nSize == 640 || nSize == 320) {
+            sampleRate = 8000;
+        } else if (nSize == 2048 || nSize == 1024) {
+            sampleRate = 16000;
+        } else {
+            // 2. Fallback to dynamic stamp calculation
+            long nStamp = info->nStamp;
+            long lastStamp = player->m_lastAudioStamp.exchange(nStamp);
+            if (lastStamp > 0 && nStamp > lastStamp) {
+                long deltaStamp = nStamp - lastStamp;
+                if (deltaStamp > 0 && deltaStamp < 200) {
+                    double dynamicRate = static_cast<double>(nSize) * 500.0 / deltaStamp;
+                    if (dynamicRate > 7000 && dynamicRate < 9000) {
+                        sampleRate = 8000;
+                    } else if (dynamicRate > 10000 && dynamicRate < 12000) {
+                        sampleRate = 11025;
+                    } else if (dynamicRate > 14000 && dynamicRate < 18000) {
+                        sampleRate = 16000;
+                    } else if (dynamicRate > 20000 && dynamicRate < 24000) {
+                        sampleRate = 22050;
+                    } else if (dynamicRate > 28000 && dynamicRate < 36000) {
+                        sampleRate = 32000;
+                    } else if (dynamicRate > 40000 && dynamicRate < 46000) {
+                        sampleRate = 44100;
+                    } else if (dynamicRate > 46000 && dynamicRate < 50000) {
+                        sampleRate = 48000;
+                    }
+                }
+            }
+        }
+
+        if (sampleRate <= 0) {
+            return; // Ignore unrecognized or highly jittery/unstable rates
+        }
+
+        QByteArray rawData(pBuf, nSize);
+        QPointer<HikvisionArchivePlayer> pPlayer = player;
+        QMetaObject::invokeMethod(player, [pPlayer, rawData, sampleRate, activeSessionId]() {
+            if (!pPlayer) return;
+            if (pPlayer->m_playbackSessionId.load() != activeSessionId) return;
+
+            pPlayer->initAudioOutput(sampleRate, 1, activeSessionId);
+
+            std::lock_guard<std::mutex> lock(pPlayer->m_audioMutex);
+            if (pPlayer->m_audioOutputDevice && !pPlayer->m_muted) {
+                int outRate = pPlayer->m_audioFormat.sampleRate();
+                int outChannels = pPlayer->m_audioFormat.channelCount();
+
+                QByteArray resampled = resampleAudio(rawData.constData(), rawData.size(), sampleRate, outRate, outChannels);
+                if (!resampled.isEmpty()) {
+                    pPlayer->m_audioOutputDevice->write(resampled);
+                }
+            }
+        }, Qt::QueuedConnection);
+    }
+    else if (info->nType == T_AUDIO8) {
+        if (nSize <= 0 || nSize > 1024 * 1024) {
+            return; // Safety guard against invalid/corrupt audio frames
+        }
+        if (player->m_guiPendingTasks.load() >= 15) {
+            return; // Drop audio frames if GUI is frozen to prevent memory expansion
+        }
+
+        int sampleRate = 0;
+        // 1. Instantly determine rate based on frame size (extremely robust, immune to network jitter)
+        if (nSize == 320 || nSize == 160) {
+            sampleRate = 8000;
+        } else if (nSize == 1024 || nSize == 512) {
+            sampleRate = 16000;
+        } else {
+            // 2. Fallback to dynamic stamp calculation
+            long nStamp = info->nStamp;
+            long lastStamp = player->m_lastAudioStamp.exchange(nStamp);
+            if (lastStamp > 0 && nStamp > lastStamp) {
+                long deltaStamp = nStamp - lastStamp;
+                if (deltaStamp > 0 && deltaStamp < 200) {
+                    double dynamicRate = static_cast<double>(nSize) * 1000.0 / deltaStamp;
+                    if (dynamicRate > 7000 && dynamicRate < 9000) {
+                        sampleRate = 8000;
+                    } else if (dynamicRate > 10000 && dynamicRate < 12000) {
+                        sampleRate = 11025;
+                    } else if (dynamicRate > 14000 && dynamicRate < 18000) {
+                        sampleRate = 16000;
+                    } else if (dynamicRate > 20000 && dynamicRate < 24000) {
+                        sampleRate = 22050;
+                    } else if (dynamicRate > 28000 && dynamicRate < 36000) {
+                        sampleRate = 32000;
+                    } else if (dynamicRate > 40000 && dynamicRate < 46000) {
+                        sampleRate = 44100;
+                    } else if (dynamicRate > 46000 && dynamicRate < 50000) {
+                        sampleRate = 48000;
+                    }
+                }
+            }
+        }
+
+        if (sampleRate <= 0) {
+            return; // Ignore unrecognized or highly jittery/unstable rates
+        }
+
+        QByteArray rawData;
+        rawData.resize(nSize * 2);
+        int16_t* dst = reinterpret_cast<int16_t*>(rawData.data());
+        const uint8_t* src = reinterpret_cast<const uint8_t*>(pBuf);
+        for (int i = 0; i < nSize; ++i) {
+            dst[i] = static_cast<int16_t>((static_cast<int>(src[i]) - 128) * 256);
+        }
+
+        QPointer<HikvisionArchivePlayer> pPlayer = player;
+        QMetaObject::invokeMethod(player, [pPlayer, rawData, sampleRate, activeSessionId]() {
+            if (!pPlayer) return;
+            if (pPlayer->m_playbackSessionId.load() != activeSessionId) return;
+
+            pPlayer->initAudioOutput(sampleRate, 1, activeSessionId);
+
+            std::lock_guard<std::mutex> lock(pPlayer->m_audioMutex);
+            if (pPlayer->m_audioOutputDevice && !pPlayer->m_muted) {
+                int outRate = pPlayer->m_audioFormat.sampleRate();
+                int outChannels = pPlayer->m_audioFormat.channelCount();
+
+                QByteArray resampled = resampleAudio(rawData.constData(), rawData.size(), sampleRate, outRate, outChannels);
+                if (!resampled.isEmpty()) {
+                    pPlayer->m_audioOutputDevice->write(resampled);
+                }
+            }
+        }, Qt::QueuedConnection);
     }
 }
 
@@ -974,4 +1217,140 @@ bool HikvisionArchivePlayer::saveCurrentFrame(const QString &path) const
     }
     return m_currentImage.save(path, "JPG", 98);
 }
+
+void HikvisionArchivePlayer::initAudioOutput(int sampleRate, int channels, uint64_t sessionId)
+{
+    if (QThread::currentThread() != qApp->thread()) {
+        QMetaObject::invokeMethod(this, [this, sampleRate, channels, sessionId]() {
+            this->initAudioOutput(sampleRate, channels, sessionId);
+        }, Qt::QueuedConnection);
+        return;
+    }
+
+    if (m_playbackSessionId.load() != sessionId) {
+        return;
+    }
+
+    // Sanity checks: reject invalid audio parameters from corrupted cameras to prevent crashes
+    if (sampleRate < 4000 || sampleRate > 192000 || channels <= 0 || channels > 8) {
+        qWarning() << "[HikArchive] initAudioOutput: Rejected unsupported audio parameters, sampleRate=" 
+                   << sampleRate << "channels=" << channels;
+        return;
+    }
+
+    if (sampleRate == m_lastProposedSampleRate) {
+        m_sampleRateConsecutiveCount++;
+    } else {
+        m_lastProposedSampleRate = sampleRate;
+        m_sampleRateConsecutiveCount = 1;
+    }
+
+    if (m_sampleRateConsecutiveCount < 5) {
+        return; // Wait for stable rate estimate
+    }
+
+    std::lock_guard<std::mutex> lock(m_audioMutex);
+    if (m_audioOutput) {
+        if (m_audioFormat.sampleRate() == sampleRate && m_audioFormat.channelCount() == channels) {
+            return;
+        }
+
+        // Rate/Channels changed!
+        qint64 now = QDateTime::currentMSecsSinceEpoch();
+        if (now - m_lastAudioInitTime < 2000) {
+            // Avoid rapid recreation thrashing to prevent PulseAudio/ALSA crashes
+            return;
+        }
+
+        m_audioOutput->stop();
+        m_audioOutput->deleteLater();
+        m_audioOutput = nullptr;
+        m_audioOutputDevice = nullptr;
+    }
+
+    m_lastAudioInitTime = QDateTime::currentMSecsSinceEpoch();
+
+    m_audioFormat.setSampleRate(sampleRate);
+    m_audioFormat.setChannelCount(channels);
+    m_audioFormat.setSampleSize(16);
+    m_audioFormat.setCodec("audio/pcm");
+    m_audioFormat.setByteOrder(QAudioFormat::LittleEndian);
+    m_audioFormat.setSampleType(QAudioFormat::SignedInt);
+
+    QAudioDeviceInfo defaultDeviceInfo = QAudioDeviceInfo::defaultOutputDevice();
+    if (defaultDeviceInfo.isNull()) {
+        qWarning() << "[HikArchive] No default audio output device found! Audio will be muted.";
+        return;
+    }
+
+    qDebug() << "[HikArchive] Default audio device:" << defaultDeviceInfo.deviceName();
+    if (!defaultDeviceInfo.isFormatSupported(m_audioFormat)) {
+        qWarning() << "[HikArchive] Requested audio format not supported, using nearest format.";
+        m_audioFormat = defaultDeviceInfo.nearestFormat(m_audioFormat);
+        qDebug() << "[HikArchive] Nearest format chosen: sampleRate=" << m_audioFormat.sampleRate()
+                 << "channels=" << m_audioFormat.channelCount()
+                 << "sampleSize=" << m_audioFormat.sampleSize()
+                 << "codec=" << m_audioFormat.codec();
+    }
+
+    m_audioOutput = new QAudioOutput(defaultDeviceInfo, m_audioFormat, nullptr);
+    m_audioOutput->setBufferSize(64000); // 64KB buffer to handle network jitter
+    m_audioOutput->setVolume(m_muted ? 0.0 : m_volume);
+
+    connect(m_audioOutput, &QAudioOutput::stateChanged, this, [this](QAudio::State state) {
+        if (m_audioOutput) {
+            qDebug() << "[HikArchive] QAudioOutput state changed to:" << state << "Error:" << m_audioOutput->error();
+        }
+    });
+
+    m_audioOutputDevice = m_audioOutput->start();
+    if (!m_audioOutputDevice) {
+        if (m_audioOutput) {
+            qWarning() << "[HikArchive] Failed to start QAudioOutput! Error:" << m_audioOutput->error();
+        }
+    } else {
+        qDebug() << "[HikArchive] QAudioOutput started successfully with state:" << m_audioOutput->state()
+                 << "bufferSize=" << m_audioOutput->bufferSize();
+    }
+}
+
+void HikvisionArchivePlayer::AudioCallBack(long nPort, char * pAudioBuf, long nSize, long nStamp, long nType, long nUser)
+{
+    Q_UNUSED(nPort); Q_UNUSED(nStamp);
+    HikvisionArchivePlayer* player = reinterpret_cast<HikvisionArchivePlayer*>(nUser);
+    if (!player) return;
+
+    {
+        std::lock_guard<std::mutex> lock(s_activePlayersMutex);
+        if (s_activePlayers.find(player) == s_activePlayers.end()) return;
+    }
+
+    if (player->m_nPort.load() != nPort) return;
+
+    // G.722.1 (0x7001) uses 16000Hz, other codecs typically use 8000Hz (G.711, G.726, etc)
+    int sampleRate = (nType == 0x7001) ? 16000 : 8000;
+    uint64_t activeSessionId = player->m_playbackSessionId.load();
+
+    QByteArray rawData(pAudioBuf, nSize);
+    QPointer<HikvisionArchivePlayer> pPlayer = player;
+
+    QMetaObject::invokeMethod(player, [pPlayer, rawData, sampleRate, activeSessionId]() {
+        if (!pPlayer) return;
+        if (pPlayer->m_playbackSessionId.load() != activeSessionId) return;
+
+        pPlayer->initAudioOutput(sampleRate, 1, activeSessionId);
+
+        std::lock_guard<std::mutex> lock(pPlayer->m_audioMutex);
+        if (pPlayer->m_audioOutputDevice && !pPlayer->m_muted) {
+            int outRate = pPlayer->m_audioFormat.sampleRate();
+            int outChannels = pPlayer->m_audioFormat.channelCount();
+
+            QByteArray resampled = resampleAudio(rawData.constData(), rawData.size(), sampleRate, outRate, outChannels);
+            if (!resampled.isEmpty()) {
+                pPlayer->m_audioOutputDevice->write(resampled);
+            }
+        }
+    }, Qt::QueuedConnection);
+}
+
 

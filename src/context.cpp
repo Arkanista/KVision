@@ -47,16 +47,18 @@ void Context::init()
     QCommandLineOption auxiliaryIdOption("auxiliary-id", tr("ID of the auxiliary window."), "id");
     QCommandLineOption verboseOption("verbose", tr("Pokaż szczegółowe logi w konsoli (verbose logging)."));
     QCommandLineOption debugMemoryOption("debug-memory", tr("Włącz śledzenie obiektów w logach dla debugowania wycieków pamięci."));
+    QCommandLineOption firstRunOption("first-run", tr("Wymuś zachowanie pierwszego uruchomienia i pokaż instrukcję (Force first run behavior)."));
 
     parseCommandLineOptions({configOption,
-                            presetOption,
-                            fullScreenOption,
-                            kioskModeOption,
-                            logOption,
-                            auxiliaryOption,
-                            auxiliaryIdOption,
-                            verboseOption,
-                            debugMemoryOption});
+                             presetOption,
+                             fullScreenOption,
+                             kioskModeOption,
+                             logOption,
+                             auxiliaryOption,
+                             auxiliaryIdOption,
+                             verboseOption,
+                             debugMemoryOption,
+                             firstRunOption});
 
     m_isAuxiliary = m_commandLineParser.isSet(auxiliaryOption);
     m_enableLogs = m_commandLineParser.isSet(verboseOption);
@@ -66,6 +68,30 @@ void Context::init()
     } else {
         m_auxiliaryId = 0;
     }
+
+    bool firstRunDetected = false;
+    if (m_commandLineParser.isSet(firstRunOption)) {
+        firstRunDetected = true;
+    } else {
+        QString configPathToCheck;
+        if (m_commandLineParser.isSet(configOption)) {
+            configPathToCheck = m_commandLineParser.value(configOption);
+        } else {
+            configPathToCheck = QSettings().fileName();
+        }
+
+        if (!QFile::exists(configPathToCheck)) {
+            if (!m_commandLineParser.isSet(configOption)) {
+                QSettings oldSettings(QStringLiteral("CCTV Viewer"), QStringLiteral("CCTV Viewer"));
+                if (!QFile::exists(oldSettings.fileName())) {
+                    firstRunDetected = true;
+                }
+            } else {
+                firstRunDetected = true;
+            }
+        }
+    }
+    m_isFirstRun = firstRunDetected;
 
     if (m_commandLineParser.isSet(configOption)) {
         m_config = new Config(m_commandLineParser.value(configOption));

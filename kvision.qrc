@@ -58,5 +58,6 @@
         <file>src/CctvButton.qml</file>
         <file>src/SingleInstanceWarning.qml</file>
         <file>src/AuxiliaryLimitWarning.qml</file>
+        <file>src/SnapshotSavedDialog.qml</file>
     </qresource>
 </RCC>

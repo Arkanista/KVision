@@ -20,6 +20,7 @@ class Context : public QObject
     Q_PROPERTY(Config *config READ config CONSTANT)
     Q_PROPERTY(bool isAuxiliary READ isAuxiliary CONSTANT)
     Q_PROPERTY(int auxiliaryId READ auxiliaryId CONSTANT)
+    Q_PROPERTY(bool isFirstRun READ isFirstRun CONSTANT)
 
 public:
     explicit Context(QObject *parent = nullptr);
@@ -33,6 +34,7 @@ public:
     static bool isAuxiliary() { return m_isAuxiliary; }
     static int auxiliaryId() { return m_auxiliaryId; }
     static bool enableLogs() { return m_enableLogs; }
+    static bool isFirstRun() { return m_isFirstRun; }
 
     Q_INVOKABLE void setLanguage(const QString &lang);
     Q_INVOKABLE QString getLanguage() const;
@@ -62,6 +64,7 @@ private:
     inline static bool m_isAuxiliary = false;
     inline static int m_auxiliaryId = 0;
     inline static bool m_enableLogs = false;
+    inline static bool m_isFirstRun = false;
     inline static QList<QProcess*> m_childProcesses;
     inline static QMap<QProcess*, int> m_childIds; // Track active child process IDs
     inline static QQmlEngine *m_engine = nullptr;

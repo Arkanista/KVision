@@ -1,6 +1,7 @@
 import QtQml 2.12
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 import QtMultimedia 5.12
 import Qt.labs.settings 1.0
 import CCTV_Viewer.Multimedia 1.0
@@ -195,8 +196,13 @@ FocusScope {
         }
         
         var player = playerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
-        if (player.status === MediaPlayer.Buffered && (player.hasVideo || player.hasAudio)) {
-            console.log("[Player] Seamless switch: Inactive player " + playerIndex + " is ready with frames. Switching.");
+        if (String(player.source) !== activeStreamUrl) {
+            console.log("[Player] checkSeamlessSwitch rejecting inactive player " + playerIndex + " due to source mismatch. Source: '" + player.source + "', Target: '" + activeStreamUrl + "'");
+            return;
+        }
+        console.log("[Player] checkSeamlessSwitch checking inactive player " + playerIndex + " status: " + player.status + " hasVideo: " + player.hasVideo + " hasAudio: " + player.hasAudio);
+        if (player.playbackState === MediaPlayer.PlayingState && player.status === MediaPlayer.Buffered && player.hasVideo) {
+            console.log("[Player] Seamless switch: Inactive player " + playerIndex + " is ready with frames. Switching activePlayerIndex from " + activePlayerIndex + " to " + playerIndex);
             var oldPlayer = activePlayerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
             
             // Critical fix for ALSA device sharing: release the audio output of the old player
@@ -205,12 +211,12 @@ FocusScope {
             oldPlayer.muted = true;
             
             player.muted = root.muted; // Restore user's mute settings for the now-active player
-            
             activePlayerIndex = playerIndex;
             
             var targetIndex = playerIndex;
             Qt.callLater(function() {
                 if (activePlayerIndex === targetIndex) {
+                    console.log("[Player] Post-switch: stopping and clearing old player source");
                     oldPlayer.source = "";
                 }
             });
@@ -331,6 +337,73 @@ FocusScope {
         updateSource();
     }
 
+    function showSnapshotDialog(path) {
+        localSnapshotSavedDialog.filePath = path;
+        localSnapshotSavedDialog.open();
+    }
+
+    function takeSnapshot(forceHD) {
+        captureCurrentFrameAndNotify("LIVE");
+    }
+
+    function captureCurrentFrameAndNotify(typeStr) {
+        var d = new Date();
+        var dateStr = Qt.formatDateTime(d, "yyyy-MM-dd_HH-mm-ss");
+        var activeOutput = null;
+        var nativeWidth = 1920;
+        var nativeHeight = 1080;
+        var rawCamName = root.cameraNameInfo || "Camera";
+        rawCamName = rawCamName.replace(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/g, "");
+        rawCamName = rawCamName.replace(/([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}/g, "");
+        rawCamName = rawCamName.trim().replace(/^[_-\s]+|[_-\s]+$/g, "");
+        var camName = rawCamName.replace(/ /g, "_").replace(/[^a-zA-Z0-9_\-\.]/g, "");
+
+        if (root.isHikvision && !hikPlayerSettings.useRealStreams) {
+            activeOutput = hikPlayer;
+        } else if (activePlayerIndex === 1) {
+            activeOutput = videoOutput1;
+            nativeWidth = videoOutput1.sourceRect.width > 0 ? videoOutput1.sourceRect.width : 1920;
+            nativeHeight = videoOutput1.sourceRect.height > 0 ? videoOutput1.sourceRect.height : 1080;
+        } else {
+            activeOutput = videoOutput2;
+            nativeWidth = videoOutput2.sourceRect.width > 0 ? videoOutput2.sourceRect.width : 1920;
+            nativeHeight = videoOutput2.sourceRect.height > 0 ? videoOutput2.sourceRect.height : 1080;
+        }
+
+        var path = "";
+        if (typeof generalSettings !== "undefined" && generalSettings.snapshotPath !== "") {
+            path = generalSettings.snapshotPath;
+        } else {
+            path = Platform.StandardPaths.writableLocation(Platform.StandardPaths.PicturesLocation).toString();
+            if (path.indexOf("file://") === 0) path = path.substring(7);
+            path = path + "/CCTV";
+        }
+        Context.mkpath(path);
+        path = path + "/" + camName + "_" + typeStr + "_" + dateStr + ".jpg";
+
+        snapshotBadge.isSavingSnapshot = true;
+        snapshotBadgeTimer.restart();
+        activeOutput.grabToImage(function(result) {
+            result.saveToFile(path);
+            console.log("Saved snapshot (" + typeStr + ") to", path);
+            showSnapshotDialog(path);
+        }, Qt.size(nativeWidth, nativeHeight));
+    }
+
+    function openPlayback() {
+        var recInfo = {
+            "ip": root.recorderIp,
+            "port": root.recorderPort,
+            "username": root.username,
+            "password": root.password
+        };
+        var camName = root.cameraNameInfo || ("Camera " + root.channelId);
+
+        if (typeof rootWindow !== "undefined" && rootWindow) {
+            rootWindow.openPlaybackWindow(recInfo, root.channelId, camName);
+        }
+    }
+
     Component.onDestruction: {
         if (Qt.application.arguments.indexOf("--debug-memory") !== -1) {
             console.log("[MEM-TRACK] Destroyed Player.qml component (index: " + index + ")");
@@ -379,7 +452,9 @@ FocusScope {
                 width: root.isOneToOne ? (sourceRect.width > 0 ? sourceRect.width : parent.width) : (parent.width / Math.max(0.001, root.zoomWidth))
                 height: root.isOneToOne ? (sourceRect.height > 0 ? sourceRect.height : parent.height) : (parent.height / Math.max(0.001, root.zoomHeight))
                 fillMode: VideoOutput.Stretch
-                visible: (!root.isHikvision || hikPlayerSettings.useRealStreams) && activePlayerIndex === 1
+                visible: (!root.isHikvision || hikPlayerSettings.useRealStreams)
+                opacity: activePlayerIndex === 1 ? 1.0 : 0.0
+                z: activePlayerIndex === 1 ? 2 : 1
 
                 onSourceRectChanged: {
                     if (root.isOneToOne && root.activePlayerIndex === 1) {
@@ -397,7 +472,9 @@ FocusScope {
                 width: root.isOneToOne ? (sourceRect.width > 0 ? sourceRect.width : parent.width) : (parent.width / Math.max(0.001, root.zoomWidth))
                 height: root.isOneToOne ? (sourceRect.height > 0 ? sourceRect.height : parent.height) : (parent.height / Math.max(0.001, root.zoomHeight))
                 fillMode: VideoOutput.Stretch
-                visible: (!root.isHikvision || hikPlayerSettings.useRealStreams) && activePlayerIndex === 2
+                visible: (!root.isHikvision || hikPlayerSettings.useRealStreams)
+                opacity: activePlayerIndex === 2 ? 1.0 : 0.0
+                z: activePlayerIndex === 2 ? 2 : 1
 
                 onSourceRectChanged: {
                     if (root.isOneToOne && root.activePlayerIndex === 2) {
@@ -978,46 +1055,7 @@ FocusScope {
                         cursorShape: Qt.PointingHandCursor
                         onContainsMouseChanged: playerHoverArea.updateHoverState()
                         onClicked: {
-                            var d = new Date();
-                            var dateStr = Qt.formatDateTime(d, "yyyy-MM-dd_HH-mm-ss");
-                            var activeOutput = null;
-                            var nativeWidth = 1920;
-                            var nativeHeight = 1080;
-                            var rawCamName = root.cameraNameInfo || "Camera";
-                            rawCamName = rawCamName.replace(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/g, "");
-                            rawCamName = rawCamName.replace(/([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}/g, "");
-                            rawCamName = rawCamName.trim().replace(/^[_-\s]+|[_-\s]+$/g, "");
-                            var camName = rawCamName.replace(/ /g, "_").replace(/[^a-zA-Z0-9_\-\.]/g, "");
-
-                            if (root.isHikvision && !hikPlayerSettings.useRealStreams) {
-                                activeOutput = hikPlayer;
-                            } else if (activePlayerIndex === 1) {
-                                activeOutput = videoOutput1;
-                                nativeWidth = videoOutput1.sourceRect.width > 0 ? videoOutput1.sourceRect.width : 1920;
-                                nativeHeight = videoOutput1.sourceRect.height > 0 ? videoOutput1.sourceRect.height : 1080;
-                            } else {
-                                activeOutput = videoOutput2;
-                                nativeWidth = videoOutput2.sourceRect.width > 0 ? videoOutput2.sourceRect.width : 1920;
-                                nativeHeight = videoOutput2.sourceRect.height > 0 ? videoOutput2.sourceRect.height : 1080;
-                            }
-
-                            var path = "";
-                            if (typeof generalSettings !== "undefined" && generalSettings.snapshotPath !== "") {
-                                path = generalSettings.snapshotPath;
-                            } else {
-                                path = Platform.StandardPaths.writableLocation(Platform.StandardPaths.PicturesLocation).toString();
-                                if (path.indexOf("file://") === 0) path = path.substring(7);
-                                path = path + "/CCTV";
-                            }
-                            Context.mkpath(path);
-                            path = path + "/" + camName + "_LIVE_" + dateStr + ".jpg";
-
-                            snapshotBadge.isSavingSnapshot = true;
-                            snapshotBadgeTimer.restart();
-                            activeOutput.grabToImage(function(result) {
-                                result.saveToFile(path);
-                                console.log("Saved snapshot to", path);
-                            }, Qt.size(nativeWidth, nativeHeight));
+                            root.takeSnapshot(false);
                         }
                     }
 
@@ -1311,5 +1349,9 @@ FocusScope {
         } else {
             recorderPort = 8000;
         }
+    }
+
+    SnapshotSavedDialog {
+        id: localSnapshotSavedDialog
     }
 }

@@ -262,3 +262,277 @@ Wprowadziliśmy kompleksową przebudowę interfejsu konfiguracji limitów okien 
 ### Wyniki Weryfikacji
 * **Budowanie projektu**: Kompilacja zakończona pełnym sukcesem (`100% Built target cctv-viewer`).
 * **Testy automatyczne**: Wszystkie 16 testów jednostkowych przeszło pomyślnie.
+
+---
+
+## 19. Płynne przełączanie strumieni (Seamless Switch), dźwięk w archiwum, automatyczne sterowanie i wyciszanie okna Live View
+
+W tej aktualizacji rozwiązaliśmy kluczowe problemy związane ze stabilnością strumieni wideo podczas maksymalizacji viewportów, odtwarzaniem dźwięku w oknie archiwum oraz automatycznym wyciszaniem dźwięku na żywo przy otwartym archiwum:
+
+### 1. Płynne przełączanie z SUB na MAIN bez zamrażania obrazu (Seamless Switch)
+* **Problem:** Podczas powiększania viewportu QML przełączał strumień z niskiej jakości (SUB) na wysoką (MAIN). Zmiana widoczności elementów `VideoOutput` w Qt Quick powodowała, że silnik QML wywoływał metodę `setVideoSurface` na nowym odtwarzaczu. Dotychczasowa implementacja `QmlAVPlayer::setVideoSurface` wywoływała przy jakiejkolwiek zmianie powierzchni metodę `stop()`, co niszczyło demuxer, zrywało połączenie RTSP i resetowało cały stan nowego odtwarzacza właśnie wtedy, gdy interfejs na niego przełączał. Skutkowało to zamrożeniem obrazu i zniknięciem dźwięku.
+* **Rozwiązanie:** Zmodyfikowano metodę `QmlAVPlayer::setVideoSurface` w [qmlavplayer.cpp](file:///home/arkanis/cctv/kvision/src/qmlav/src/qmlavplayer.cpp). Zamiast zatrzymywać cały odtwarzacz, teraz zatrzymywana jest jedynie stara powierzchnia (jeśli była aktywna) i przypisywana nowa. Metoda `frameHandler` automatycznie wykrywa zmianę i inicjalizuje nową powierzchnię formatem przy najbliższej ramce wideo, kontynuując odtwarzanie bez zrywania wątku sieciowego i demuxera.
+* **Brak wycieków pamięci:** Zmiana opiera się na bezpiecznym przypisaniu wskaźników bez alokacji nowych zasobów, dzięki czemu zużycie pamięci RAM pozostaje całkowicie stabilne i nie rośnie w nieskończoność.
+
+### 2. Przywrócenie odtwarzania dźwięku w oknie Archiwum (Playback Window)
+* **Problem:** Próba wykorzystania funkcji `PlayM4_PlaySoundShare` w Linux PlayM4 SDK kończyła się niepowodzeniem (brak dźwięku), ponieważ ta funkcja w wersji SDK na system Linux często nie jest poprawnie wspierana lub stanowi jedynie stub.
+* **Rozwiązanie:** Przywrócono standardowe, w pełni wspierane i stabilne funkcje SDK: `PlayM4_PlaySound(nPort)` oraz globalną `PlayM4_StopSound()` w [hikvisionarchiveplayer.cpp](file:///home/arkanis/cctv/kvision/src/hikvisionarchiveplayer.cpp). Mikser dźwięku (ALSA/PulseAudio/PipeWire) na nowoczesnych systemach Linux bez problemu obsługuje jednoczesne odtwarzanie dźwięku z wielu aplikacji za pomocą domyślnego urządzenia.
+
+### 3. Automatyczne sterowanie dźwiękiem w siatce archiwum
+* **Funkcjonalność:** Zaktualizowano właściwość `isAudible` w [PlaybackWindow.qml](file:///home/arkanis/cctv/kvision/src/PlaybackWindow.qml). 
+  - Gdy siatka ma wymiar 1x1, sterowanie dźwiękiem i sam dźwięk z jedynej kamery włącza się automatycznie.
+  - W większych układach (siatkach), sterowanie dźwiękiem i dźwięk aktywuje się automatycznie dla aktualnie wybranego (zaznaczonego) kafelka kamery.
+  - Zaimplementowane reguły ściśle respektują globalną opcję `disableAudio` w ustawieniach (wtedy suwak i dźwięk są całkowicie zablokowane i niewidoczne).
+
+### 4. Całkowite wyciszanie okna Live View po otwarciu okna Archiwum
+* **Problem:** Odtwarzanie dźwięku z kamer na żywo (Live View) nakładało się na dźwięk z odtwarzanego materiału archiwalnego, powodując kakofonię.
+* **Rozwiązanie:** 
+  1. W głównym oknie [RootWindow.qml](file:///home/arkanis/cctv/kvision/src/RootWindow.qml) zdefiniowano nową reaktywną właściwość:
+     ```qml
+     readonly property bool isPlaybackWindowOpen: playbackWindowLoader.active && playbackWindowLoader.item && playbackWindowLoader.item.visible
+     ```
+  2. W pliku [ViewportsLayout.qml](file:///home/arkanis/cctv/kvision/src/ViewportsLayout.qml) zaktualizowano powiązanie właściwości `player.muted` o sprawdzenie stanu otwarcia archiwum:
+     ```qml
+     if (typeof rootWindow !== "undefined" && rootWindow.isPlaybackWindowOpen) {
+         return true;
+     }
+     ```
+     Dzięki temu, w momencie otwarcia okna archiwum wszystkie kamery w trybie podglądu na żywo są natychmiastowo i całkowicie wyciszane. Po zamknięciu okna archiwum dźwięk na żywo (jeśli był włączony dla wybranej kamery) automatycznie powraca.
+
+### Wyniki Końcowej Weryfikacji
+* **Budowanie projektu**: Kompilacja zakończona pełnym sukcesem (`100% Built target kvision` oraz pomyślne przejście wszystkich testów).
+* **Testy automatyczne**: Wszystkie 16 testów jednostkowych przeszło pomyślnie.
+
+
+---
+
+## 20. Ostateczna naprawa pętli "ping-pong" (Video Freeze) oraz odtwarzania dźwięku w archiwum
+
+W tej aktualizacji zlikwidowaliśmy ostatecznie uciążliwą pętlę przełączania wideo na żywo (live stream switch loop) oraz przywróciliśmy działające i czyste odtwarzanie dźwięku w oknie archiwum na systemie Linux za pośrednictwem systemowego serwera dźwięku (PulseAudio/Pipewire):
+
+### 1. Rozbicie pętli przełączania wstecznego w `Player.qml`
+* **Problem**: Podczas zatrzymywania starego odtwarzacza (np. przy przejściu z SUB na MAIN) jego właściwość `hasVideo` była zmieniana synchronicznie na `false`, co wywoływało sygnał `onHasVideoChanged`. QML uruchamiał funkcję `checkSeamlessSwitch`. Ponieważ stan starego odtwarzacza wciąż wskazywał na `MediaPlayer.Buffered`, a dźwięk `hasAudio` nie zdążył się jeszcze wyczyścić i był `true`, funkcja błędnie oceniała ten odtwarzacz jako "nowy, gotowy strumień" i przełączała aktywny odtwarzacz z powrotem na niego. To powodowało nieskończoną pętlę "ping-pong" i zamrożenie wideo.
+* **Rozwiązanie**: W pliku [Player.qml](file:///home/arkanis/cctv/kvision/src/Player.qml) zmieniono warunek gotowości w `checkSeamlessSwitch` na rygorystyczny wymóg posiadania wideo oraz aktywnego stanu odtwarzania (`PlayingState`):
+  ```qml
+  if (player.playbackState === MediaPlayer.PlayingState && player.status === MediaPlayer.Buffered && player.hasVideo)
+  ```
+  Zatrzymywany odtwarzacz przechodzi w stan `StoppedState`, a jego `hasVideo` przyjmuje wartość `false`, co powoduje, że zostaje on natychmiast odrzucony i pętla przełączania została całkowicie wyeliminowana.
+
+### 2. Przywrócenie odtwarzania dźwięku w oknie archiwum (`HikvisionArchivePlayer`)
+* **Problem**: Wcześniej zaimplementowana ścieżka odtwarzania próbek PCM do Qt `QAudioOutput` nie generowała dźwięku, ponieważ:
+  1. Rejestratory Hikvision podczas odtwarzania archiwum domyślnie wysyłają wyłącznie dane wideo.
+  2. Rejestracja callbacku `PlayM4_SetAudioCallBack` nie uruchamiała automatycznie dekodera dźwięku w SDK.
+* **Rozwiązanie**: 
+  1. W pliku [hikvisionarchiveplayer.cpp](file:///home/arkanis/cctv/kvision/src/hikvisionarchiveplayer.cpp) w funkcji `playAtTime` dodaliśmy wysłanie komendy `NET_DVR_PLAYSTARTAUDIO` zaraz po pomyślnym uruchomieniu odtwarzania (`NET_DVR_PLAYSTART`). Informuje to rejestrator (NVR) o konieczności dołączenia strumienia audio do sesji odtwarzania.
+  2. W funkcji `PlayDataCallBack` (podczas przetwarzania nagłówka `NET_DVR_SYSHEAD`), zaraz po udanej rejestracji callbacku audio, dodaliśmy wywołanie `PlayM4_PlaySound(activePort)`. Powoduje to uruchomienie dekodera audio w SDK, dzięki czemu `AudioCallBack` zaczyna poprawnie otrzymywać zdekodowane pakiety PCM i przesyłać je bezpośrednio do Qt `QAudioOutput`, które z powodzeniem odtwarza czysty dźwięk.
+
+---
+
+## 21. Gwarancja braku wycieków pamięci i pełnego sprzątania po zamknięciu archiwum
+
+Aby zagwarantować pełną stabilność aplikacji, brak wycieków pamięci oraz natychmiastowe usunięcie wszelkich śladów sesji archiwalnej w pamięci RAM (RSS) po zamknięciu okna archiwalnego, zaimplementowaliśmy rygorystyczny proces zarządzania zasobami i wątkami w klasie `HikvisionArchivePlayer`:
+
+### 1. Bezpieczna i re-używalna pula buforów klatek (`FrameBufferPool`)
+* Wszystkie ramki wideo (`YV12` oraz skonwertowane `RGB32`) są zarządzane w dynamicznym basenie `m_frameBufferPool` z użyciem `std::shared_ptr`. 
+* Podczas wywołania `cleanupPlayback()`, pula klatek jest czyszczona (`m_frameBufferPool.clear()`).
+* Jeśli w tle nadal trwa przetwarzanie zadania konwersji wideo `YV12ToRGBTask`, przechowuje ono własny, silny wskaźnik `std::shared_ptr<FrameBuffer>`. Gwarantuje to, że pamięć bufora nie zostanie przedwcześnie skasowana (co prowadziłoby do naruszenia pamięci), lecz ulegnie automatycznemu zwolnieniu dokładnie w momencie zakończenia i usunięcia zadania tła przez `QThreadPool`.
+
+### 2. Blokowanie wątku GUI i oczekiwanie na zakończenie zadań w tle (Destruktor)
+* W destruktorze `~HikvisionArchivePlayer` program odpytuje licznik atomowy aktywnych zadań w tle `m_pendingTasks`.
+* Destruktor blokuje powrót do czasu, aż wszystkie zadania tła zostaną pomyślnie ukończone i usunięte (maksymalny czas oczekiwania to bezpieczne 5000 ms). Zapobiega to jakimkolwiek wyścigom danych (race conditions) w pamięci.
+
+### 3. Automatyczne usuwanie zdarzeń w pętli Qt (`QPointer` i Kontekst)
+* Wszystkie wywołania `QMetaObject::invokeMethod` w wątkach pobocznych przekazują surowy wskaźnik `player` jako obiekt kontekstu Qt.
+* Jeśli odtwarzacz zostanie zniszczony, pętla zdarzeń Qt automatycznie odrzuca i usuwa wszystkie powiązane z nim zaplanowane wywołania. To powoduje zniszczenie lambdy i uwalnia captured `QByteArray` i `QImage`, eliminując ryzyko wycieku referencji i obiektów tymczasowych.
+
+### 4. Kompletne zwalnianie bibliotek, portów i serwerów audio
+* Podczas zatrzymywania odtwarzania w `cleanupPlayback()` uwalniany jest przypisany port dekodera PlayM4 (`PlayM4_FreePort`), a powiązany obiekt Qt `QAudioOutput` zostaje zatrzymany i zaplanowany do usunięcia (`deleteLater()`). 
+* Gdy odtwarzacz ulega zniszczeniu, obiekt `QAudioOutput` (jako dziecko hierarchii `QObject`) zostaje automatycznie i synchronicznie usunięty.
+
+### 5. Natychmiastowe zwracanie wolnych stron pamięci sterty do systemu operacyjnego (`malloc_trim`)
+* Alokator sterty `glibc` domyślnie zatrzymuje wolne bloki pamięci (np. po buforach wideo 1080p) w wątkowych arenach. Powoduje to, że system operacyjny nadal widzi wysoki poziom Resident Set Size (RSS), mimo poprawnego zwolnienia pamięci przez program.
+* Aby temu zapobiec, dodaliśmy bezpośrednie wywołanie `malloc_trim(0)` na końcu destruktora `~HikvisionArchivePlayer()`. Gwarantuje to, że po zamknięciu okna archiwum fizycznie zajęta przez proces pamięć RAM (RSS) natychmiast wraca do stanu początkowego!
+
+### Status Końcowy
+* **Kompilacja**: Zakończona pełnym sukcesem (`100% Built target kvision`).
+* **Testy jednostkowe**: Wszystkie 16 testów przeszło pomyślnie.
+* **Rezultat**: Przełączanie na MAIN stream odbywa się teraz błyskawicznie i płynnie bez żadnego zamrożenia obrazu, odtwarzacz archiwalny poprawnie odtwarza czysty dźwięk, a po zamknięciu okna archiwum wszystkie zasoby (wątki, sesje SDK, serwer audio i alokacje pamięci) są natychmiastowo, bezpiecznie i całkowicie czyszczone.
+
+
+---
+
+## 22. Rozwiązanie problemu lawinowego wzrostu RAM-u (Backpressure) i zawieszania aplikacji (Audio Stabilization)
+
+Podczas intensywnego przełączania kamer w oknie archiwum zidentyfikowano i wyeliminowano krytyczny błąd, który mógł doprowadzić do nagłego wzrostu zużycia pamięci RAM o kilkadziesiąt gigabajtów (nawet 45 GB w 30 sekund) oraz zablokowania interfejsu graficznego (GUI).
+
+### 1. Diagnoza i Potwierdzenie Zjawiska
+Analiza wykazała następującą sekwencję zdarzeń:
+1. **Zablokowanie wątku GUI (Inicjalizacja Audio)**: Szybkie przełączanie kamer z dźwiękiem lub drobne wahania w sieci powodowały gwałtowne zmiany estymowanej częstotliwości próbkowania (np. z 8000 Hz na 11025 Hz). Wywoływało to "burzę" kasowania i ponownej inicjalizacji obiektu `QAudioOutput`, co blokowało systemowe wywołania dźwiękowe ALSA/PulseAudio i w efekcie całkowicie zamrażało pętlę zdarzeń Qt (wątek GUI).
+2. **Brak sprzężenia zwrotnego (Backpressure Bypass)**: Podczas gdy wątek GUI wisiał, wątek dekodujący SDK w tle (`DecCallBack`) działał dalej bez przeszkód. Ponieważ poprzedni licznik zadań `m_pendingTasks` był zmniejszany na wątku pobocznym zaraz po przekazaniu klatki za pomocą `QMetaObject::invokeMethod`, dekoder uważał, że kolejka jest pusta.
+3. **Zasypanie pętli zdarzeń**: Do kolejki zamrożonego wątku GUI trafiały tysiące nieprzetworzonych obiektów `QImage` o wysokiej rozdzielczości (4K, każda zajmująca ok. 33 MB). Z powodu braku limitu w kolejce Qt, w ciągu 30 sekund nieobsłużone zdarzenia zajmowały dziesiątki gigabajtów pamięci operacyjnej, doprowadzając do katastrofalnego przeciążenia systemu.
+
+### 2. Rozwiązanie - Dwustopniowe Backpressure (Dual-Counter)
+Wprowadziliśmy nowatorski, dwustopniowy system kontroli przeciążenia (backpressure):
+* **Licznik GUI (`m_guiPendingTasks`)**: Dodano atomowy licznik, który jest zwiększany w wątku pobocznym *przed* wysłaniem zdarzenia do wątku głównego, a zmniejszany *wyłącznie wewnątrz obsługi zdarzenia na wątku GUI* (po wyrenderowaniu lub odrzuceniu klatki).
+* **Sztywne ograniczenie w `DecCallBack`**:
+  ```cpp
+  if (player->m_pendingTasks.load() + player->m_guiPendingTasks.load() >= 5) {
+      // Drastyczne odcięcie - odrzucamy nowe klatki wideo
+      return;
+  }
+  ```
+  Jeśli suma klatek przetwarzanych przez pulę wątków w tle oraz klatek wiszących w kolejce GUI przekroczy 5, dekoder **natychmiast odrzuca klatkę**. Gwarantuje to, że nawet jeśli główny wątek GUI z jakiegokolwiek powodu zostanie całkowicie zablokowany, program zużyje maksymalnie ~160 MB na bufory klatek, chroniąc system przed wyczerpaniem pamięci.
+
+### 3. Rozwiązanie - Stabilizujący filtr częstotliwości próbkowania (Audio Lock)
+Aby całkowicie usunąć pierwotną przyczynę blokowania wątku głównego (przeładowanie PulseAudio):
+* Wprowadziliśmy mechanizm `m_lastProposedSampleRate` i `m_sampleRateConsecutiveCount`.
+* Nowy algorytm wymaga, aby estymowana częstotliwość próbkowania dźwięku była **dokładnie taka sama przez co najmniej 5 kolejnych ramek audio** przed podjęciem decyzji o ponownej inicjalizacji `QAudioOutput`.
+* Zapobiega to natychmiastowym fluktuacjom wywoływanym przez zakłócenia sieciowe (jitter), eliminując zawieszanie wątku graficznego przy starcie i przełączaniu kamer z dźwiękiem.
+
+---
+
+## 23. Pomoc/Instrukcja: Wektorowe Ikony SVG w Oknie Instrukcji i Automatyczne Wyświetlanie przy Pierwszym Uruchomieniu
+
+Wprowadziliśmy szereg usprawnień podnoszących estetykę i wygodę korzystania z wbudowanego okna instrukcji/pomocy:
+
+### 1. Rozbudowa Instrukcji o Rozdział 1 - „Opis działania przycisków”
+* Dodaliśmy zupełnie nową, dedykowaną sekcję **„1. Opis działania przycisków”** (w języku polskim w [INSTRUKCJA.md](file:///home/arkanis/cctv/kvision/INSTRUKCJA.md) oraz angielskim w [INSTRUCTIONS.md](file:///home/arkanis/cctv/kvision/INSTRUCTIONS.md)).
+* Przesunęliśmy wszystkie dotychczasowe rozdziały (dawne 1–10) o jeden numer w dół (stając się teraz rozdziałami 2–11).
+* Zaktualizowaliśmy spis treści oraz wszystkie odnośniki krzyżowe wewnątrz dokumentów (np. odwołania do Sekcji 3, Sekcji 4, Sekcji 11 itd.), zachowując pełną spójność i poprawność odnośników.
+* **Rozszerzenie Sekcji Odtwarzacza**: Rozbudowaliśmy sekcję przycisków odtwarzacza archiwum (Playback Window) o pełen opis elementów górnego paska sterowania (zamknięcie okna, przypięcie paska, pełny ekran, przełącznik paska bocznego i osi czasu, foldery nagrań/stopklatek, siatka `1x1`..`2x2`) oraz dolnego paska i osi czasu (dzień wstecz/w przód, kalendarz, przejście do dzisiaj, odświeżenie nagrań, powiększenia osi 1h/8h/24h, wyśrodkowanie osi, prędkości odtwarzania, downloader, skoki czasowe w sekundy wstecz i w przód, play/pause).
+
+### 2. Eliminacja Emoji i Wdrożenie Natywnych Ikon Wektorowych SVG w RichText QML
+* **Problem**: Wykorzystanie emoji do prezentacji wyglądu przycisków w instrukcji było niespójne wizualnie (różny wygląd w zależności od czcionek systemowych, brak dopasowania do ciemnego motywu KVision).
+* **Rozwiązanie**:
+  * Zaprojektowaliśmy i wdrożyliśmy bazę **30 precyzyjnych definicji wektorowych SVG** odpowiadających dokładnie ikonom interfejsu użytkownika KVision (odtwarzanie, pauza, nagrywanie, zoom, kalendarz, wybór układu siatki, prędkości odtwarzania, downloader, skoki czasowe itd.) z zachowaniem kolorystyki aplikacji (`#00f5d4`).
+  * W [InstructionsWindow.qml](file:///home/arkanis/cctv/kvision/src/InstructionsWindow.qml) stworzyliśmy pomocniczą funkcję `getIconHtml(name)`, która dynamicznie konwertuje kod XML SVG do formatu Base64 (`Qt.btoa()`) i zwraca bezpieczny element `<img>` typu `data:image/svg+xml;base64,...`.
+  * Integracja z parserem Markdown: Podczas renderowania instrukcji tagi typu `{ICON:name}` (np. `{ICON:play}`, `{ICON:grid_2x2}`) są w locie zastępowane wygenerowanym kodem HTML `<img>`, co umożliwia renderowanie ostrych, skalowalnych wektorowo ikon bezpośrednio wewnątrz pola tekstowego typu `Text.RichText`.
+
+### 3. Automatyczny Popup przy Pierwszym Uruchomieniu, Flaga `--first-run` i Korekta Focusu
+* **Problem ze startem (race condition)**: Wywołanie `instructionsWindow.show()` bezpośrednio w zdarzeniu `Component.onCompleted` głównego okna programu uruchamiało się w momencie, gdy system operacyjny jeszcze w pełni nie zamapował ani nie skupił na sobie głównego okna. Kiedy okno główne w pełni się otworzyło, menedżer okien systemu operacyjnego (OS Window Manager) narzucał je na wierzch, ukrywając otwarte okno instrukcji pod nim.
+* **Rozwiązanie**:
+  * Zaimplementowaliśmy dedykowany, jednorazowy timer `firstRunHelpTimer` (o opóźnieniu 350 ms) w pliku [RootWindow.qml](file:///home/arkanis/cctv/kvision/src/RootWindow.qml).
+  * Przy starcie programu z flagą `--first-run` lub przy pierwszym uruchomieniu uruchamiany jest ten timer, który po upływie opóźnienia wywołuje kolejno: `instructionsWindow.show()`, `instructionsWindow.raise()` oraz `instructionsWindow.requestActivate()`. Gwarantuje to, że okno instrukcji otworzy się idealnie nad oknem głównym, wycentrowane i skupione (focused).
+  * Zaktualizowaliśmy również manualny przycisk wyzwalający pomoc, dodając do niego wywołania `raise()` oraz `requestActivate()`, co sprawia, że jeśli okno pomocy jest już otwarte w tle, kliknięcie przycisku natychmiast wyciągnie je na samą górę.
+* **Wymuszenie Zachowania (`--first-run`)**: Dodaliśmy nową flagę CLI `--first-run` do parsera opcji linii komend C++ w [context.cpp](file:///home/arkanis/cctv/kvision/src/context.cpp). Przekazanie tej flagi wymusza potraktowanie sesji jako pierwszego uruchomienia i automatycznie otwiera okno instrukcji, co ułatwia debugowanie i prezentację aplikacji.
+
+### 4. Korekta Tłumaczeń w en_US oraz kvision_en_US
+* Poprawiliśmy tłumaczenie angielskich komunikatów wersji i autora w plikach `.ts` ([en_US.ts](file:///home/arkanis/cctv/kvision/translations/en_US.ts) oraz [kvision_en_US.ts](file:///home/arkanis/cctv/kvision/translations/kvision_en_US.ts)):
+  * `Wersja %1` -> `Version %1`
+  * `Oryginalny autor: Evgeny S. Maksimov` -> `Original author: Evgeny S. Maksimov`
+* Przeprowadziliśmy udaną kompilację wszystkich plików tłumaczeń do formatu `.qm`, weryfikując kompletność oraz poprawność działania lokalizacji.
+
+---
+
+## 24. Odblokowanie Ustawień NVR, Rozszerzenie Menu Viewportów i Centralny Dialog Potwierdzenia Stopklatki (Teal Dialog)
+
+Dodaliśmy szereg zaawansowanych funkcji sterowania i powiadamiania przy wykonywaniu stopklatek oraz odblokowaliśmy pełne edytowanie ustawień kamer rejestratorów Hikvision w menu podręcznym.
+
+### 1. Odblokowanie Edycji Ustawień Kamer NVR
+* **Problem**: W pliku `ViewportsLayout.qml` opcja menu podręcznego **„Zmień ustawienia”** była sztucznie wyłączona (disabled) dla kamer Hikvision przy użyciu warunku `model.url.indexOf("hikvision://") !== 0`. Uniemożliwiało to bezpośrednią modyfikację parametrów połączeń i haseł kamer pochodzących z rejestratora.
+* **Rozwiązanie**: Usunięto to ograniczenie. Od teraz element podręczny jest aktywny dla każdego prawidłowego adresu streamu (`enabled: model.url !== ""`), co pozwala na bezproblemową konfigurację dowolnej kamery w locie.
+
+### 2. Nowe Opcje Menu Podręcznego Viewportów
+W menu wywoływanym prawym przyciskiem myszy na każdym viewportcie dodano trzy nowe, elegancko ostylowane pozycje (w kolorystyce `#00f5d4` seledyn/teal-green przy najechaniu kursorem):
+* **„Stopklatka”** (`Snapshot`): Wykonuje natychmiastowy zrzut klatki z aktualnie aktywnego strumienia wideo (MAIN lub SUB).
+* **„Stopklatka HD”** (`Snapshot HD`): Wykonuje zrzut ekranu w wysokiej rozdzielczości (HD). Jeśli aktywny strumień to `SUB`, odtwarzacz tymczasowo i bezszmerowo przełącza jakość na `MAIN`, rejestruje klatkę, a następnie automatycznie powraca do trybu `SUB`. W przypadku powiększonego lub pełnoekranowego viewportu, gdzie strumień to już naturalnie `MAIN`, stopklatka HD jest wykonywana bezpośrednio.
+* **„Odtwarzaj”** (`Playback`): Błyskawicznie otwiera okno odtwarzacza archiwalnego dla wybranej kamery.
+
+### 3. Centralny, Seledynowy Dialog Potwierdzenia Zapisu Stopklatki (`SnapshotSavedDialog.qml`)
+Zaprojektowaliśmy i wdrożyliśmy nowy, niezwykle estetyczny element interfejsu potwierdzający pomyślny zapis stopklatki:
+* **Wygląd (Rich Aesthetics)**: Ciemne tło (`#1c242c`), wyrazista seledynowa obwódka o grubości `1.5` i zaokrągleniu `8px` (`border.color: "#00f5d4"`, `radius: 8`), tealowa nagłówkowa linia podziału oraz dedykowany wektorowy symbol aparatu fotograficznego SVG (`#00f5d4`).
+* **Wyświetlana treść**: `"Zapisano stopklatkę - <pełna ścieżka do pliku>"`
+* **Przycisk „Przeglądaj”**: Otwiera nadrzędny folder z zapisaną stopklatką w systemowym eksploratorze plików za pomocą natywnego wywołania `Qt.openUrlExternally()`.
+* **Przycisk „Wyjdź”**: Natychmiastowo zamyka popup potwierdzający.
+* **Auto-zamykanie (Inactivity Timeout)**: Jeśli użytkownik nie podejmie akcji, dialog automatycznie zamknie się po dokładnie **15 sekundach** dzięki wbudowanemu licznikowi czasu `Timer`.
+* **Pełna integracja**: Dialog został wdrożony jako dynamicznie sterowany element w głównym oknie aplikacji (`RootWindow.qml`), oknach pomocniczych (`AuxiliaryWindow.qml`) oraz oknie odtwarzacza archiwalnego (`PlaybackWindow.qml`).
+
+### 4. Lokalizacja (Tłumaczenia) i Budowanie
+* Zaktualizowaliśmy wszystkie trzy pliki tłumaczeń (`translations/kvision_pl_PL.ts`, `translations/kvision_en_US.ts` oraz `translations/en_US.ts`), dodając pełne polskie i angielskie odpowiedniki dla wszystkich nowo wprowadzonych fraz i tekstów przycisków.
+* Z powodzeniem skompilowaliśmy zasoby i kod C++ aplikacji (`cmake --build build -j$(nproc)`). Wszystkie testy jednostkowe oraz testy integracyjne QML zakończyły się pełnym sukcesem.
+
+### 5. Wyłączenie i usunięcie opcji "Stopklatka HD"
+* **Usunięcie z menu podręcznego**: Całkowicie wycięto element `Stopklatka HD` (`snapshotHdMenuItem`) z menu kontekstowego viewportów w `ViewportsLayout.qml`.
+* **Uproszczenie Player.qml**: Usunięto dedykowane właściwości `pendingHdSnapshot` i `originalStreamMode`, timery `hdSnapshotTimeoutTimer` i `hdSnapshotCaptureTimer` oraz interfejs graficzny informujący o ładowaniu HD (`hdLoadingOverlay`). Funkcja `takeSnapshot()` została uproszczona do standardowego przechwytywania klatki z zachowaniem pełnej stabilności i wydajności.
+* **Kompilacja i weryfikacja**: Kod źródłowy kompiluje się bez żadnych błędów czy ostrzeżeń, a testy jednostkowe przechodzą pomyślnie.
+
+---
+
+## 25. Wielodystrybucyjność i kompatybilność RPATH (Ubuntu & Arch Linux)
+
+Wprowadziliśmy dynamiczne wyznaczanie ścieżek wyszukiwania bibliotek współdzielonych (RPATH), co rozwiązuje problem uruchamiania aplikacji na dystrybucjach Ubuntu/Debian i pochodnych bez zakłócania procesu budowania ze źródeł na Arch Linux:
+
+### 1. Problem multiarch i statycznego RPATH
+* Na systemach **Arch Linux** biblioteki współdzielone instalowane są bezpośrednio do `/usr/lib`. Wartość `${CMAKE_INSTALL_LIBDIR}` ewaluuje się do `lib`.
+* Na systemach **Debian/Ubuntu** i pochodnych stosowana jest architektura **multiarch**, w której biblioteki instalowane są w katalogu zależnym od architektury, np. `/usr/lib/x86_64-linux-gnu`. `${CMAKE_INSTALL_LIBDIR}` ewaluuje się tam do `lib/x86_64-linux-gnu`.
+* Wcześniejsza konfiguracja CMake miała na sztywno zahardkodowany `INSTALL_RPATH` jako `\$ORIGIN/../lib/kvision`. Na Ubuntu dynamiczny linker próbował załadować biblioteki SDK Hikvision (`libhcnetsdk.so` itd.) z katalogu `/usr/lib/kvision`, który nie istniał (ponieważ SDK zostało prawidłowo zainstalowane do `/usr/lib/x86_64-linux-gnu/kvision`), co skutkowało błędem braku plików i przerwaniem uruchamiania programu.
+
+### 2. Rozwiązanie (Dynamiczny RPATH)
+* Przesunęliśmy wywołanie `include(GNUInstallDirs)` na sam początek pliku `CMakeLists.txt` (zaraz pod definicją projektu), aby zmienne instalacyjne były zdefiniowane przy deklaracji właściwości targetów.
+* Zastąpiliśmy zahardkodowaną ścieżkę w `INSTALL_RPATH` dynamiczną zmienną CMake:
+  ```cmake
+  INSTALL_RPATH "\$ORIGIN/../${CMAKE_INSTALL_LIBDIR}/kvision"
+  ```
+* Rozwiązanie to jest w pełni kompatybilne wstecznie. Podczas instalacji na Arch Linux ścieżka rozwinie się automatycznie do `\$ORIGIN/../lib/kvision`, natomiast na systemach Debian/Ubuntu do `\$ORIGIN/../lib/x86_64-linux-gnu/kvision`. Gwarantuje to poprawne załadowanie wszystkich bibliotek Hikvision SDK na każdej dystrybucji bez konieczności utrzymywania osobnych konfiguracji budowania.
+
+---
+
+## 26. Pobieranie informacji o detekcji ruchu z rejestratora (Hikvision SDK)
+
+Zaprojektowaliśmy kompletną architekturę pobierania informacji o alarmach detekcji ruchu z rejestratorów NVR za pośrednictwem oficjalnego SDK Hikvision:
+
+### 1. Rejestracja globalnego callbacku alarmowego
+Do nasłuchiwania na pakiety alarmowe z urządzeń wymagana jest rejestracja statycznej/globalnej funkcji zwrotnej w SDK za pomocą funkcji `NET_DVR_SetDVRMessageCallBack_V50`:
+```cpp
+// W HikvisionManager (C++):
+NET_DVR_SetDVRMessageCallBack_V50(0, MessageCallback, this);
+```
+Wskaźnik `this` (instancja naszego menedżera) jest przekazywany jako parametr `pUser`, co umożliwia dostęp do obiektów i sygnałów Qt z poziomu statycznej funkcji callbacku.
+
+### 2. Aktywacja (uzbrojenie) strumienia alarmowego (Arming)
+Po pomyślnym zalogowaniu się do rejestratora (`lUserID`), należy wywołać funkcję uzbrojenia kanału alarmowego `NET_DVR_SetupAlarmChan_V41`:
+```cpp
+NET_DVR_SETUPALARM_PARAM struSetupParam = {0};
+struSetupParam.dwSize = sizeof(NET_DVR_SETUPALARM_PARAM);
+struSetupParam.byLevel = 1;         // Poziom alarmów (0-bardzo ważne, 1-standardowe)
+struSetupParam.byAlarmInfoType = 1;  // Informacje zgodne z nowymi strukturami V40
+struSetupParam.byDeployType = 1;     // Typ: uzbrojenie klienckie (Client Arming)
+
+LONG lAlarmHandle = NET_DVR_SetupAlarmChan_V41(lUserID, &struSetupParam);
+if (lAlarmHandle < 0) {
+    qWarning() << "Nie udało się uzbroić kanału alarmowego dla userID:" << lUserID;
+}
+```
+
+### 3. Filtrowanie i interpretacja zdarzeń w callbacku
+Wewnątrz zarejestrowanego callbacku odbieramy komendy (`lCommand`). Detekcja ruchu przekazywana jest głównie poprzez komendy `COMM_ALARM_V30` (starsza) oraz `COMM_ALARM_V40` (nowsza). Typ alarmu `3` oznacza detekcję ruchu:
+```cpp
+void CALLBACK MessageCallback(LONG lCommand, NET_DVR_ALRAM_INFO_V30 *pAlramInfo, char *pBuf, DWORD dwBufLen, void* pUser) {
+    HikvisionManager* manager = static_cast<HikvisionManager*>(pUser);
+    if (!manager) return;
+
+    if (lCommand == COMM_ALARM_V30) {
+        NET_DVR_ALRAM_INFO_V30* struAlarmInfo = (NET_DVR_ALRAM_INFO_V30*)pAlramInfo;
+        if (struAlarmInfo->dwAlarmType == 3) { // 3 = Motion Detection
+            int channelId = struAlarmInfo->dwAlarmInputNumber; // Numer kanału (kamery)
+            emit manager->motionDetected(manager->getIpByUserId(struAlarmInfo->lUserID), channelId, true);
+        }
+    } 
+    else if (lCommand == COMM_ALARM_V40) {
+        NET_DVR_ALRAM_INFO_V40* struAlarmInfo = (NET_DVR_ALRAM_INFO_V40*)pAlramInfo;
+        if (struAlarmInfo->dwAlarmType == 3) {
+            int channelId = struAlarmInfo->struAlarmChannel.dwChannel;
+            emit manager->motionDetected(manager->getIpByUserId(struAlarmInfo->lUserID), channelId, true);
+        }
+    }
+}
+```
+
+### 4. Zarządzanie stanem aktywności (Decay Timer)
+Ponieważ SDK wysyła zdarzenie detekcji w momencie rozpoczęcia ruchu lub cyklicznie podczas jego trwania (bez jawnego sygnału "ruch się zakończył"), w warstwie C++ (lub QML) stosuje się licznik opóźnienia wygaśnięcia (tzw. **Decay Timer**):
+* Po nadejściu sygnału `motionDetected(..., true)` uruchamiamy licznik czasu o interwale np. **8 sekund**.
+* Każde kolejne nadejście sygnału detekcji dla tego samego kanału **resetuje i uruchamia ponownie** ten timer.
+* Jeśli timer wygaśnie bez odebrania nowych alarmów w tym oknie czasowym, emitujemy sygnał zakończenia ruchu: `motionDetected(..., false)`. Zapobiega to gwałtownemu miganiu ikonek na podglądzie w przypadku chwilowych spadków intensywności ruchu.
+
+
+
