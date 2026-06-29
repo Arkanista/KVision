@@ -72,9 +72,10 @@ FocusScope {
 
     property var changelogData: [
         {
-            version: "v2.2.7",
-            date: "28.06.2026",
+            version: "v2.2.7-3",
+            date: "29.06.2026",
             changes: [
+                qsTr("Wyeliminowano chwilowe mrugnięcia (czarne klatki) oraz opóźnienia obrazu i dźwięku podczas przełączania jakości wideo ze strumienia pomocniczego (SUB) na główny (MAIN) przy powiększaniu viewportu, synchronizując moment przełączenia z fizycznym wyrenderowaniem pierwszej klatki nowego strumienia."),
                 qsTr("Dodano interaktywne, wyraźne i 2x szersze suwaki (paski przewijania) do kolumn wyboru godzin, minut i sekund w oknie wyboru czasu pobierania z archiwum."),
                 qsTr("Dodano nowe, intuicyjne opcje do menu podręcznego viewportów (pod prawym przyciskiem myszy): 'Stopklatka' (zapis bieżącej klatki) oraz 'Odtwarzaj' (natychmiastowe przejście do archiwalnego odtwarzania danej kamery)."),
                 qsTr("Zrewolucjonizowano i naprawiono obsługę dźwięku PCM: bezpośrednie przekazywanie potoku do QAudioOutput, eliminacja zawieszeń interfejsu (ALSA/PulseAudio/Pipewire) przez stabilizację sample rate (debounce po 5 stabilnych ramkach), cooldown 2s na rekreację wyjścia, filtrowanie uszkodzonych parametrów i bufor 64KB redukujący jitter sieciowy."),

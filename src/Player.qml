@@ -200,8 +200,9 @@ FocusScope {
             console.log("[Player] checkSeamlessSwitch rejecting inactive player " + playerIndex + " due to source mismatch. Source: '" + player.source + "', Target: '" + activeStreamUrl + "'");
             return;
         }
-        console.log("[Player] checkSeamlessSwitch checking inactive player " + playerIndex + " status: " + player.status + " hasVideo: " + player.hasVideo + " hasAudio: " + player.hasAudio);
-        if (player.playbackState === MediaPlayer.PlayingState && player.status === MediaPlayer.Buffered && player.hasVideo) {
+        var videoOutput = playerIndex === 1 ? videoOutput1 : videoOutput2;
+        console.log("[Player] checkSeamlessSwitch checking inactive player " + playerIndex + " status: " + player.status + " hasVideo: " + player.hasVideo + " hasAudio: " + player.hasAudio + " sourceRectWidth: " + videoOutput.sourceRect.width);
+        if (player.playbackState === MediaPlayer.PlayingState && player.status === MediaPlayer.Buffered && player.hasVideo && videoOutput.sourceRect.width > 0) {
             console.log("[Player] Seamless switch: Inactive player " + playerIndex + " is ready with frames. Switching activePlayerIndex from " + activePlayerIndex + " to " + playerIndex);
             var oldPlayer = activePlayerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
             
@@ -461,6 +462,9 @@ FocusScope {
                         root.oneToOneX = Math.min(0, (videoContainer.width - sourceRect.width) / 2);
                         root.oneToOneY = Math.min(0, (videoContainer.height - sourceRect.height) / 2);
                     }
+                    if (root.activePlayerIndex !== 1 && sourceRect.width > 0) {
+                        checkSeamlessSwitch(1);
+                    }
                 }
             }
 
@@ -480,6 +484,9 @@ FocusScope {
                     if (root.isOneToOne && root.activePlayerIndex === 2) {
                         root.oneToOneX = Math.min(0, (videoContainer.width - sourceRect.width) / 2);
                         root.oneToOneY = Math.min(0, (videoContainer.height - sourceRect.height) / 2);
+                    }
+                    if (root.activePlayerIndex !== 2 && sourceRect.width > 0) {
+                        checkSeamlessSwitch(2);
                     }
                 }
             }
