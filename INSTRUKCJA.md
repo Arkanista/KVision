@@ -84,7 +84,7 @@ W tej sekcji opisano znaczenie wszystkich ikon i przycisków używanych w aplika
 ### Instalacja pakietu Arch Linux (Pacman)
 Aby zainstalować program z przygotowanej paczki binarnej, przejdź do katalogu `packaging/arch/` i wykonaj:
 ```bash
-sudo pacman -U kvision-2.2.7-2-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.2.7-3-x86_64.pkg.tar.zst
 ```
 Pakiet automatycznie zainstaluje program, plik aktywacyjny `.desktop` oraz wymagane biblioteki Hikvision SDK w systemowej ścieżce `/usr/lib/kvision`.
 
@@ -113,6 +113,26 @@ Program można uruchomić z menu systemowego lub wpisując w terminalu:
 ```bash
 kvision
 ```
+
+### Rozwiązywanie problemów ze skalowaniem (KDE Plasma)
+Jeśli program nie dostosowuje się automatycznie do systemowych ustawień skalowania ekranu w środowisku KDE Plasma (jest zbyt mały lub zbyt duży), można to naprawić, ręcznie definiując zmienne środowiskowe Qt w pliku aktywacyjnym `.desktop`.
+
+Oto instrukcja krok po kroku, jak dostosować skalowanie programu:
+1. Skopiuj systemowy plik `.desktop` do swojego katalogu domowego (aby przyszłe aktualizacje pakietu go nie nadpisały):
+   ```bash
+   cp /usr/share/applications/kvision.desktop ~/.local/share/applications/
+   ```
+2. Otwórz skopiowany plik w edytorze tekstu (np. Kate lub KWrite):
+   ```bash
+   kate ~/.local/share/applications/kvision.desktop
+   ```
+3. Znajdź linię rozpoczynającą się od `Exec=` (domyślnie jest to `Exec=kvision`).
+4. Zmodyfikuj tę linię, wstawiając przed nazwą programu zmienne środowiskowe `QT_FONT_DPI` oraz `QT_SCALE_FACTOR`. Na przykład, dla skalowania **150%** ustaw:
+   ```ini
+   Exec=env QT_FONT_DPI=96 QT_SCALE_FACTOR=1.5 kvision
+   ```
+   *Uwaga:* Zmień wartość `QT_SCALE_FACTOR` na odpowiednią dla Twojego monitora (np. `1.25` dla 125%, `2.0` dla 200%).
+5. Zapisz plik. Od tego momentu program uruchamiany z menu systemowego będzie stosował wymuszone skalowanie.
 
 ---
 

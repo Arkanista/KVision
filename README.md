@@ -268,6 +268,29 @@ For detailed usage instructions, check out the documentation files:
 
 ---
 
+## 🖥️ Desktop Scaling on KDE Plasma
+
+If the program does not automatically adjust to your desktop scaling settings in the KDE Plasma environment (appearing too small or too large), you can fix this by defining custom Qt environment variables inside your `.desktop` launcher file.
+
+### Step-by-Step Instructions:
+1. **Copy the system launcher file** to your user-level desktop applications directory so that future package updates do not overwrite your custom scaling configuration:
+   ```bash
+   cp /usr/share/applications/kvision.desktop ~/.local/share/applications/
+   ```
+2. **Open the copied file** in any text editor (e.g., Kate or KWrite):
+   ```bash
+   kate ~/.local/share/applications/kvision.desktop
+   ```
+3. **Locate the line** starting with `Exec=` (the default value is `Exec=kvision`).
+4. **Modify the line** by prepending the `QT_FONT_DPI` and `QT_SCALE_FACTOR` environment variables. For example, for **150%** scaling, change it to:
+   ```ini
+   Exec=env QT_FONT_DPI=96 QT_SCALE_FACTOR=1.5 kvision
+   ```
+   *(Note: Set `QT_SCALE_FACTOR=1.25` for 125%, `2.0` for 200%, etc.)*
+5. **Save the file**. Launching KVision from your system's application launcher will now apply your custom scaling preferences correctly.
+
+---
+
 ## 💡 Recommended FFmpeg Options
 
 For the lowest latency, fastest stream connection, and maximum stability over RTSP, it is highly recommended to use the following flags in the **FFmpeg Options Override** settings box:
