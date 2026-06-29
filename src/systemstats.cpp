@@ -488,13 +488,17 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
                     nvmlProcessUtilizationSample_t samples[128];
                     if (m_nvml->nvmlDeviceGetProcessUtilization(device, samples, &sampleCount, 0) == NVML_SUCCESS) {
                         double devGpuSum = 0.0;
+                        int selfSamplesCount = 0;
                         for (unsigned int s = 0; s < sampleCount; ++s) {
                             if (samples[s].pid == selfPid) {
                                 devGpuSum += samples[s].smUtil + samples[s].decUtil + samples[s].encUtil; // Combined GPU % (SM + Decoder + Encoder)
+                                selfSamplesCount++;
                                 processGpuSuccess = true;
                             }
                         }
-                        gpuSum += devGpuSum;
+                        if (selfSamplesCount > 0) {
+                            gpuSum += (devGpuSum / selfSamplesCount);
+                        }
                     }
                 }
             }

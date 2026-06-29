@@ -72,6 +72,13 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.2.7-4",
+            date: "29.06.2026",
+            changes: [
+                qsTr("Uśredniono próbki pobierane z biblioteki NVML w celu wygładzenia wykresu zużycia GPU i wyeliminowania skokowych wahań odczytu.")
+            ]
+        },
+        {
             version: "v2.2.7-3",
             date: "29.06.2026",
             changes: [
