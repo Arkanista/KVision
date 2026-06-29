@@ -139,6 +139,8 @@ void NvrStatusManager::onRecordersChanged()
         if (m_timer->isActive()) {
             m_timer->stop();
         }
+        m_rawErrors.clear();
+        m_rawCheckedRecorders.clear();
         m_errors.clear();
         emit errorsChanged();
         m_checkedRecorders.clear();
@@ -162,6 +164,8 @@ void NvrStatusManager::startCheck()
         if (m_timer->isActive()) {
             m_timer->stop();
         }
+        m_rawErrors.clear();
+        m_rawCheckedRecorders.clear();
         m_errors.clear();
         emit errorsChanged();
         m_checkedRecorders.clear();
@@ -209,11 +213,42 @@ void NvrStatusManager::onCheckFinished(const QVariantList &errors, const QVarian
     m_isChecking = false;
     emit isCheckingChanged();
 
-    bool errorsChangedFlag = (m_errors != errors);
-    m_errors = errors;
+    m_rawErrors = errors;
+    m_rawCheckedRecorders = checkedRecorders;
 
-    bool checkedChangedFlag = (m_checkedRecorders != checkedRecorders);
-    m_checkedRecorders = checkedRecorders;
+    applyMuting();
+
+    qDebug() << "[NvrStatusManager] Checked NVRs. Error count (raw/filtered):" << m_rawErrors.size() << "/" << m_errors.size()
+             << "Checked count:" << m_checkedRecorders.size();
+}
+
+void NvrStatusManager::applyMuting()
+{
+    QVariantList filteredCheckedRecorders;
+    QVariantList filteredErrors;
+
+    for (const QVariant &v : m_rawCheckedRecorders) {
+        QVariantMap rec = v.toMap();
+        QString name = rec.value("name").toString();
+        bool isMuted = m_mutedRecorders.contains(name);
+        rec["muted"] = isMuted;
+
+        filteredCheckedRecorders.append(rec);
+    }
+
+    for (const QVariant &v : m_rawErrors) {
+        QVariantMap err = v.toMap();
+        QString recName = err.value("recorderName").toString();
+        if (!m_mutedRecorders.contains(recName)) {
+            filteredErrors.append(err);
+        }
+    }
+
+    bool errorsChangedFlag = (m_errors != filteredErrors);
+    m_errors = filteredErrors;
+
+    bool checkedChangedFlag = (m_checkedRecorders != filteredCheckedRecorders);
+    m_checkedRecorders = filteredCheckedRecorders;
 
     bool hadErrors = m_hasErrors;
     m_hasErrors = !m_errors.isEmpty();
@@ -227,8 +262,22 @@ void NvrStatusManager::onCheckFinished(const QVariantList &errors, const QVarian
     if (hadErrors != m_hasErrors) {
         emit hasErrorsChanged();
     }
+}
 
-    qDebug() << "[NvrStatusManager] Checked NVRs. Error count:" << m_errors.size() << "Checked count:" << m_checkedRecorders.size();
+bool NvrStatusManager::isRecorderMuted(const QString &name) const
+{
+    return m_mutedRecorders.contains(name);
+}
+
+void NvrStatusManager::setRecorderMuted(const QString &name, bool muted)
+{
+    if (muted) {
+        m_mutedRecorders.insert(name);
+    } else {
+        m_mutedRecorders.remove(name);
+    }
+    saveSettings();
+    applyMuting();
 }
 
 void NvrStatusManager::loadSettings()
@@ -243,6 +292,10 @@ void NvrStatusManager::loadSettings()
     m_checkHdd = settings.value("checkHdd", true).toBool();
     m_checkUnformatted = settings.value("checkUnformatted", true).toBool();
     m_checkFull = settings.value("checkFull", true).toBool();
+
+    QStringList mutedList = settings.value("mutedRecorders").toStringList();
+    m_mutedRecorders = QSet<QString>(mutedList.begin(), mutedList.end());
+
     settings.endGroup();
 }
 
@@ -258,6 +311,13 @@ void NvrStatusManager::saveSettings()
     settings.setValue("checkHdd", m_checkHdd);
     settings.setValue("checkUnformatted", m_checkUnformatted);
     settings.setValue("checkFull", m_checkFull);
+
+    QStringList mutedList;
+    for (const QString &name : m_mutedRecorders) {
+        mutedList.append(name);
+    }
+    settings.setValue("mutedRecorders", mutedList);
+
     settings.endGroup();
 }
 

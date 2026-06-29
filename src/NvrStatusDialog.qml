@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import CCTV_Viewer.Hikvision 1.0
 import QtQuick.Window 2.12
+import CCTV_Viewer.Themes 1.0
 
 Dialog {
     id: nvrStatusDialog
@@ -145,6 +146,15 @@ Dialog {
                                     font.pixelSize: 10
                                     Layout.fillWidth: true
                                 }
+                            }
+
+                            CheckBox {
+                                text: qsTr("Wycisz")
+                                checked: modelData.muted
+                                onClicked: {
+                                    NvrStatusManager.setRecorderMuted(modelData.name, checked)
+                                }
+                                Layout.alignment: Qt.AlignVCenter
                             }
 
                             // OK / BŁĄD Badge

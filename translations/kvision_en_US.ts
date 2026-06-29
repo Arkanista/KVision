@@ -593,6 +593,10 @@
         <source>Zamknij</source>
         <translation>Close</translation>
     </message>
+    <message>
+        <source>Wycisz</source>
+        <translation>Suppress</translation>
+    </message>
 </context>
 <context>
     <name>NvrStatusWorker</name>
@@ -1955,6 +1959,46 @@
     <message>
         <source>Check Hikvision NVR error status</source>
         <translation>Check Hikvision NVR error status</translation>
+    </message>
+    <message>
+        <source>Dodano funkcjonalność wyciszania (Suppression) raportowania błędów dla poszczególnych rejestratorów (pole wyboru &quot;Wycisz&quot;). Wyciszenie maskuje błędy rejestratora w globalnych wskaźnikach alarmów, ale zachowuje podgląd błędów i czerwone wyróżnienie bezpośrednio na kafelkach w popupie statusu.</source>
+        <translation>Added individual recorder error suppression ("Suppress" checkbox). Masking a recorder's error deactivates global status indicators/pulsing rings, while retaining warning border styling and diagnostic lists inside the popup cards for operator visibility.</translation>
+    </message>
+    <message>
+        <source>Poprawiono błędną polską translację &quot;Symulowany Rejestrator&quot; w oknie statusu oraz wdrożono właściwe rozróżnienie słowne (&quot;Suppress&quot; dla błędów vs &quot;Mute&quot; dla dźwięku).</source>
+        <translation>Corrected the Polish translation of "Simulated NVR" in the status popup and established proper word choices ("Suppress" for error status vs "Mute" for audio player).</translation>
+    </message>
+    <message>
+        <source>Zaimplementowano okresowe (co 5 minut) oraz ręczne sprawdzanie stanu błędów rejestratorów Hikvision (SDK / ISAPI).</source>
+        <translation>Implemented periodic (every 5 minutes) and manual Hikvision NVR/DVR error status monitoring using SDK/ISAPI diagnostics.</translation>
+    </message>
+    <message>
+        <source>Dodano dedykowaną sekcję w ustawieniach ogólnych do włączania monitorowania oraz wyboru monitorowanych błędów (błędy logowania, przeciążenie CPU &gt;85%, błędy sprzętowe, uszkodzenia dysków, brak formatu, brak nadpisywania).</source>
+        <translation>Added configuration options in General Settings to enable/disable Hikvision NVR status checking and customize monitored critical error types.</translation>
+    </message>
+    <message>
+        <source>Zaprojektowano animowaną ikonę ostrzegawczą na górnym pasku w kolorze ciepłym-zielonym (status OK) lub pulsującym czerwonym z podwójną poświatą (wykryto krytyczne błędy).</source>
+        <translation>Designed a high-fidelity warm-green/red top-bar status icon with deep pulsing outer waves and inner heartbeat ripple animations to signal active critical errors.</translation>
+    </message>
+    <message>
+        <source>Wprowadzono wystające czerwone kółko ostrzegawcze przy górnej krawędzi ekranu, widoczne i pulsujące nawet wtedy, gdy pasek narzędziowy jest ukryty.</source>
+        <translation>Introduced a top-edge protruding red indicator circle that pulses at the top of the screen when the main toolbar is collapsed, ensuring critical warnings are never missed.</translation>
+    </message>
+    <message>
+        <source>Stworzono eleganckie, przewijane, ograniczone do 85% wysokości ekranu okno popup &quot;Status rejestratorów&quot; ze szczegółowym podglądem błędów urządzeń, błędów dysków oraz dokładnym czasem ostatniego sprawdzenia.</source>
+        <translation>Created a premium, scrollable, screen-height-bounded (max 85% of screen resolution) "NVR Status" popup dialog listing each recorder, its specific errors, disk-level faults, and precise last check timestamps, equipped with a manual "Check now" button.</translation>
+    </message>
+    <message>
+        <source>Dodano flagę uruchomieniową &quot;--simulate-error&quot; do natychmiastowej symulacji uszkodzeń dysków oraz błędów połączenia we wszystkich rejestratorach w celach demonstracyjnych.</source>
+        <translation>Integrated a command-line flag "--simulate-error" to instantly simulate NVR faults on all configured recorders for design demonstration and layout testing.</translation>
+    </message>
+    <message>
+        <source>Wdrożono plakietki ostrzegawcze i wyrównanie wskaźników stanu w listach skonfigurowanych rejestratorów.</source>
+        <translation>Implemented list frame badges and status indicator alignments across configured recorder views.</translation>
+    </message>
+    <message>
+        <source>Zapewniono pełne dwujęzyczne (polski/angielski) tłumaczenie wszystkich nowych komunikatów diagnostycznych, ustawień i opcji programu.</source>
+        <translation>Achieved complete bilingual translation coverage (Polish/English) for all NVR diagnostics, setting check-boxes, tooltips, warnings, and command-line parser options.</translation>
     </message>
 </context>
 <context>

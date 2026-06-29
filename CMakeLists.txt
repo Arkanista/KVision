@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.14)
 set(VER_MAJ 2)
 set(VER_MIN 2)
 set(VER_PAT 8)
-set(VER_REL 1)
+set(VER_REL 2)
 # set(REL_STATUS "alpha")
 
 set(APP_NAME "KVision")

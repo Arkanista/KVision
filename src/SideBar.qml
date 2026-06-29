@@ -73,6 +73,28 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.2.8-2",
+            date: "29.06.2026",
+            changes: [
+                qsTr("Dodano funkcjonalność wyciszania (Suppression) raportowania błędów dla poszczególnych rejestratorów (pole wyboru \"Wycisz\"). Wyciszenie maskuje błędy rejestratora w globalnych wskaźnikach alarmów, ale zachowuje podgląd błędów i czerwone wyróżnienie bezpośrednio na kafelkach w popupie statusu."),
+                qsTr("Poprawiono błędną polską translację \"Symulowany Rejestrator\" w oknie statusu oraz wdrożono właściwe rozróżnienie słowne (\"Suppress\" dla błędów vs \"Mute\" dla dźwięku).")
+            ]
+        },
+        {
+            version: "v2.2.8-1",
+            date: "29.06.2026",
+            changes: [
+                qsTr("Zaimplementowano okresowe (co 5 minut) oraz ręczne sprawdzanie stanu błędów rejestratorów Hikvision (SDK / ISAPI)."),
+                qsTr("Dodano dedykowaną sekcję w ustawieniach ogólnych do włączania monitorowania oraz wyboru monitorowanych błędów (błędy logowania, przeciążenie CPU >85%, błędy sprzętowe, uszkodzenia dysków, brak formatu, brak nadpisywania)."),
+                qsTr("Zaprojektowano animowaną ikonę ostrzegawczą na górnym pasku w kolorze ciepłym-zielonym (status OK) lub pulsującym czerwonym z podwójną poświatą (wykryto krytyczne błędy)."),
+                qsTr("Wprowadzono wystające czerwone kółko ostrzegawcze przy górnej krawędzi ekranu, widoczne i pulsujące nawet wtedy, gdy pasek narzędziowy jest ukryty."),
+                qsTr("Stworzono eleganckie, przewijane, ograniczone do 85% wysokości ekranu okno popup \"Status rejestratorów\" ze szczegółowym podglądem błędów urządzeń, błędów dysków oraz dokładnym czasem ostatniego sprawdzenia."),
+                qsTr("Dodano flagę uruchomieniową \"--simulate-error\" do natychmiastowej symulacji uszkodzeń dysków oraz błędów połączenia we wszystkich rejestratorach w celach demonstracyjnych."),
+                qsTr("Wdrożono plakietki ostrzegawcze i wyrównanie wskaźników stanu w listach skonfigurowanych rejestratorów."),
+                qsTr("Zapewniono pełne dwujęzyczne (polski/angielski) tłumaczenie wszystkich nowych komunikatów diagnostycznych, ustawień i opcji programu.")
+            ]
+        },
+        {
             version: "v2.2.7-5",
             date: "29.06.2026",
             changes: [

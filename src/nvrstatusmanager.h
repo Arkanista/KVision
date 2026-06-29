@@ -9,6 +9,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QThread>
+#include <QSet>
 
 class NvrStatusManager : public QObject
 {
@@ -61,6 +62,9 @@ public:
     Q_INVOKABLE void checkNow();
     Q_INVOKABLE void onRecordersChanged();
 
+    Q_INVOKABLE bool isRecorderMuted(const QString &name) const;
+    Q_INVOKABLE void setRecorderMuted(const QString &name, bool muted);
+
 signals:
     void hasErrorsChanged();
     void errorsChanged();
@@ -84,6 +88,7 @@ private:
     void startCheck();
     void loadSettings();
     void saveSettings();
+    void applyMuting();
 
     static NvrStatusManager *m_instance;
     QTimer *m_timer;
@@ -91,6 +96,10 @@ private:
     QVariantList m_errors;
     QVariantList m_checkedRecorders;
     bool m_isChecking = false;
+
+    QVariantList m_rawErrors;
+    QVariantList m_rawCheckedRecorders;
+    QSet<QString> m_mutedRecorders;
 
     bool m_monitoringEnabled = true;
 

@@ -1,3 +1,9 @@
+2.2.8-2
+  * PL: Dodano funkcjonalność wyciszania (Suppression) raportowania błędów dla poszczególnych rejestratorów (pole wyboru "Wycisz"). Wyciszenie maskuje błędy rejestratora w globalnych wskaźnikach alarmów, ale zachowuje podgląd błędów i czerwone wyróżnienie bezpośrednio na kafelkach w popupie statusu.
+    EN: Added individual recorder error suppression ("Suppress" checkbox). Masking a recorder's error deactivates global status indicators/pulsing rings, while retaining warning border styling and diagnostic lists inside the popup cards for operator visibility.
+  * PL: Poprawiono błędną polską translację "Symulowany Rejestrator" w oknie statusu oraz wdrożono właściwe rozróżnienie słowne ("Suppress" dla błędów vs "Mute" dla dźwięku).
+    EN: Corrected the Polish translation of "Simulated NVR" in the status popup and established proper word choices ("Suppress" for error status vs "Mute" for audio player).
+
 2.2.8-1
   * PL: Zaimplementowano okresowe (co 5 minut) oraz ręczne sprawdzanie stanu błędów rejestratorów Hikvision (SDK / ISAPI).
     EN: Implemented periodic (every 5 minutes) and manual Hikvision NVR/DVR error status monitoring using SDK/ISAPI diagnostics.
