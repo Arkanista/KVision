@@ -127,11 +127,13 @@ This is the easiest method and does not require using the terminal:
 2. In the menu editor window, locate **KVision** (usually found under *System* or *Utilities*, or by searching for it).
 3. Click on **KVision** to open its properties.
 4. Go to the **"Application"** tab.
-5. Locate the **"Command"** field (which defaults to `kvision`) and modify it by prepending the required environment variables. For example, for **150%** scaling, change it to:
+5. Locate the dedicated **"Environment variables"** field and enter your scaling parameters (separated by a space). For example, for **150%** scaling, enter:
    ```ini
-   env QT_FONT_DPI=96 QT_SCALE_FACTOR=1.5 kvision
+   QT_FONT_DPI=96 QT_SCALE_FACTOR=1.5
    ```
-   *(Note: Adjust the `QT_SCALE_FACTOR` value to match your monitor scaling, e.g., `1.25` for 125%, `2.0` for 200%, etc.)*
+   *(Note: If your environment editor version does not have a dedicated environment variables field, you can instead modify the **"Command"** field by prepending `env` and the variables to the program name, like so: `env QT_FONT_DPI=96 QT_SCALE_FACTOR=1.5 kvision`)*
+
+   *(Adjust the `QT_SCALE_FACTOR` value to match your monitor scaling, e.g., `1.25` for 125%, `2.0` for 200%, etc.)*
 6. Click **"Save"** in the toolbar. The changes will be automatically saved to your user profile (creating a local copy of the launcher at `~/.local/share/applications/kvision.desktop`).
 
 #### Method 2: Manually Editing the `.desktop` File (Terminal)

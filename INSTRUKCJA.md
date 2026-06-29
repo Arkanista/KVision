@@ -123,11 +123,13 @@ Jest to najprostsza metoda niewymagająca korzystania z terminala:
 2. W oknie edytora menu odszukaj program **KVision** (zazwyczaj w sekcji *Narzędzia* / *System* lub wpisując jego nazwę w wyszukiwarkę).
 3. Kliknij na ikonę **KVision**, aby otworzyć właściwości programu.
 4. Przejdź do zakładki **„Program”** (lub *Aplikacja*).
-5. Znajdź pole **„Polecenie”** (które domyślnie zawiera `kvision`) i zmodyfikuj jego zawartość, dodając zmienne środowiskowe na początku. Na przykład dla skalowania **150%** zmień na:
+5. Znajdź dedykowane pole **„Zmienne środowiskowe”** i wpisz w nie parametry skalowania (rozdzielone spacją). Na przykład dla skalowania **150%** wpisz:
    ```ini
-   env QT_FONT_DPI=96 QT_SCALE_FACTOR=1.5 kvision
+   QT_FONT_DPI=96 QT_SCALE_FACTOR=1.5
    ```
-   *(Uwaga: Zmień `QT_SCALE_FACTOR` na odpowiedni dla Twojego monitora, np. `1.25` dla 125%, `2.0` dla 200% itp.)*
+   *(Uwaga: Jeśli używasz starszej wersji środowiska i nie widzisz tego pola, możesz zamiast tego zmodyfikować pole **„Polecenie”**, wpisując na samym początku przed nazwą programu przedrostek `env`, czyli: `env QT_FONT_DPI=96 QT_SCALE_FACTOR=1.5 kvision`)*
+   
+   *(Dostosuj wartość `QT_SCALE_FACTOR` do swojego monitora, np. `1.25` dla 125%, `2.0` dla 200% itp.)*
 6. Kliknij **„Zapisz”** na pasku narzędzi edytora menu. Zmiany zostaną automatycznie zapisane w Twoim profilu użytkownika (tworząc lokalną kopię pliku `.desktop` w `~/.local/share/applications/kvision.desktop`).
 
 #### Metoda 2: Ręczna edycja pliku `.desktop` (Terminal)
