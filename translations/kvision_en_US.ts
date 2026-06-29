@@ -1806,6 +1806,10 @@
         <source>Uśredniono próbki pobierane z biblioteki NVML w celu wygładzenia wykresu zużycia GPU i wyeliminowania skokowych wahań odczytu.</source>
         <translation>Average NVML utilization samples over time to smooth the GPU usage graph and eliminate jagged readings.</translation>
     </message>
+    <message>
+        <source>Dodano możliwość ponownego przeładowania aktywnego układu poprzez kliknięcie jego przycisku na górnym pasku.</source>
+        <translation>Added the ability to reload the active layout by clicking its button on the top toolbar.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>

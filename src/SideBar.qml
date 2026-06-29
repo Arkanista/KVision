@@ -72,6 +72,13 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.2.7-5",
+            date: "29.06.2026",
+            changes: [
+                qsTr("Dodano możliwość ponownego przeładowania aktywnego układu poprzez kliknięcie jego przycisku na górnym pasku.")
+            ]
+        },
+        {
             version: "v2.2.7-4",
             date: "29.06.2026",
             changes: [

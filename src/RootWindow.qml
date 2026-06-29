@@ -1173,6 +1173,9 @@ ApplicationWindow {
                         }
 
                         onClicked: {
+                            if (stackLayout.currentIndex === layoutIndex) {
+                                stackLayout.currentIndex = -1;
+                            }
                             stackLayout.currentIndex = layoutIndex;
                         }
                     }
