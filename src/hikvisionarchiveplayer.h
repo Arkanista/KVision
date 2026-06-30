@@ -123,6 +123,7 @@ private:
     double m_volume = 1.0;
     bool m_muted = true;
     QString m_playerStatusMessage;
+    int m_currentSpeedMultiplier = 1;
 
     QImage m_currentImage;
     mutable std::mutex m_imageMutex;

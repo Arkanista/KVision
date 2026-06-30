@@ -35,9 +35,16 @@ FocusScope {
 
     onIsOneToOneChanged: {
         if (isOneToOne) {
-            var activeOutput = activePlayerIndex === 1 ? videoOutput1 : videoOutput2;
-            var videoW = activeOutput.sourceRect.width > 0 ? activeOutput.sourceRect.width : 1280;
-            var videoH = activeOutput.sourceRect.height > 0 ? activeOutput.sourceRect.height : 720;
+            var videoW = 1280;
+            var videoH = 720;
+            if (isQuickPlayback) {
+                videoW = quickPlaybackPlayer.videoWidth > 0 ? quickPlaybackPlayer.videoWidth : 1280;
+                videoH = quickPlaybackPlayer.videoHeight > 0 ? quickPlaybackPlayer.videoHeight : 720;
+            } else {
+                var activeOutput = activePlayerIndex === 1 ? videoOutput1 : videoOutput2;
+                videoW = activeOutput.sourceRect.width > 0 ? activeOutput.sourceRect.width : 1280;
+                videoH = activeOutput.sourceRect.height > 0 ? activeOutput.sourceRect.height : 720;
+            }
             oneToOneX = Math.min(0, (videoContainer.width - videoW) / 2);
             oneToOneY = Math.min(0, (videoContainer.height - videoH) / 2);
         } else {
@@ -78,6 +85,142 @@ FocusScope {
     property real zoomY: 0
     property real zoomWidth: 1
     property real zoomHeight: 1
+
+    property bool isQuickPlayback: false
+    property var quickPlaybackActivationTime: null
+    property int quickPlaybackOffset: 1740
+    property int quickPlaybackSpeed: 1
+    property bool isQuickPlaybackPaused: false
+    property var quickPlaybackSegments: []
+    property bool pendingQuickPlaybackSeek: false
+
+    function getDateKey(d) {
+        if (!d) return "";
+        return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+    }
+
+    function formatTime(date) {
+        if (!date) return "--:--:--";
+        return Qt.formatTime(date, "HH:mm:ss");
+    }
+
+    function formatRelativeTime(offsetSeconds) {
+        var diff = 1800 - offsetSeconds;
+        if (diff === 0) return "now";
+        var m = Math.floor(diff / 60);
+        var s = diff % 60;
+        return "-" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+    }
+
+    function updateQuickPlaybackSegments() {
+        if (!isQuickPlayback || !quickPlaybackActivationTime || !rootWindow) return;
+        var dateKey = getDateKey(quickPlaybackActivationTime);
+        var cacheKey = recorderIp + "_" + channelId + "_" + dateKey;
+        var segments = rootWindow.playbackSegmentsCache[cacheKey];
+        if (segments) {
+            quickPlaybackSegments = segments;
+        } else {
+            quickPlaybackSegments = [];
+        }
+    }
+
+    onIsQuickPlaybackChanged: {
+        if (isQuickPlayback) {
+            quickPlaybackActivationTime = new Date();
+            quickPlaybackOffset = 1740;
+            quickPlaybackSpeed = 1;
+            isQuickPlaybackPaused = false;
+            pendingQuickPlaybackSeek = true;
+            
+            var recorderInfoForCam = {
+                "ip": recorderIp,
+                "port": recorderPort || 8000,
+                "username": username,
+                "password": password
+            };
+            var start = new Date(quickPlaybackActivationTime);
+            start.setHours(0,0,0,0);
+            start.setDate(start.getDate() - 1);
+            var end = new Date(quickPlaybackActivationTime);
+            end.setHours(23,59,59,999);
+            end.setDate(end.getDate() + 1);
+            
+            updateQuickPlaybackSegments();
+            HikvisionISAPI.searchRecordings(recorderInfoForCam, channelId, start, end);
+            
+            var playStart = new Date(quickPlaybackActivationTime.getTime() - (1800 - quickPlaybackOffset) * 1000);
+            quickPlaybackPlayer.playAtTime(playStart);
+            quickPlaybackTimer.start();
+        } else {
+            pendingQuickPlaybackSeek = false;
+            quickPlaybackTimer.stop();
+            quickPlaybackPlayer.stop();
+        }
+        updateSource();
+    }
+
+    Connections {
+        target: HikvisionISAPI
+        function onSearchFinished(searchRecorderIp, searchChannelId, startTime, segments) {
+            if (root.isQuickPlayback && searchRecorderIp === root.recorderIp && searchChannelId === root.channelId) {
+                var targetDate = new Date(startTime);
+                targetDate.setDate(targetDate.getDate() + 1);
+                var dateKey = root.getDateKey(targetDate);
+                var cacheKey = searchRecorderIp + "_" + searchChannelId + "_" + dateKey;
+
+                var adjustedSegments = [];
+                if (segments) {
+                    for (var i = 0; i < segments.length; i++) {
+                        var seg = segments[i];
+                        var localOffsetMs = new Date(seg.startTime).getTimezoneOffset() * 60000;
+                        adjustedSegments.push({
+                            "startTime": seg.startTime + localOffsetMs,
+                            "endTime": seg.endTime + localOffsetMs
+                        });
+                    }
+                }
+                
+                if (typeof rootWindow !== "undefined" && rootWindow) {
+                    var tempSegments = Object.assign({}, rootWindow.playbackSegmentsCache);
+                    tempSegments[cacheKey] = adjustedSegments;
+                    rootWindow.playbackSegmentsCache = tempSegments;
+                }
+                root.updateQuickPlaybackSegments();
+
+                if (root.pendingQuickPlaybackSeek) {
+                    root.pendingQuickPlaybackSeek = false;
+                    if (adjustedSegments.length > 0 && root.quickPlaybackActivationTime) {
+                        var windowEnd = root.quickPlaybackActivationTime.getTime();
+                        var windowStart = windowEnd - 1800000;
+                        var maxEndTime = 0;
+                        for (var i = 0; i < adjustedSegments.length; i++) {
+                            var seg = adjustedSegments[i];
+                            if (seg.startTime < windowEnd && seg.endTime > windowStart) {
+                                var overlapEnd = Math.min(windowEnd, seg.endTime);
+                                if (overlapEnd > maxEndTime) {
+                                    maxEndTime = overlapEnd;
+                                }
+                            }
+                        }
+                        if (maxEndTime > 0) {
+                            var targetPlayTime = maxEndTime - 60 * 1000; // 60 seconds before latest record
+                            if (targetPlayTime < windowStart) {
+                                targetPlayTime = windowStart;
+                            }
+                            var newOffset = Math.floor((targetPlayTime - windowStart) / 1000);
+                            root.quickPlaybackOffset = newOffset;
+                            console.log("[Player QML] Aligning quick playback start time to:", new Date(targetPlayTime), "with offset:", newOffset);
+                            quickPlaybackPlayer.playAtTime(new Date(targetPlayTime));
+                        } else {
+                            console.log("[Player QML] No overlapping segments found in the 30-minute window.");
+                        }
+                    } else {
+                        console.log("[Player QML] Search completed but no segments found for channel:", root.channelId);
+                    }
+                }
+            }
+        }
+    }
 
     // Lookup names from the globally saved recorders JSON
     property string cameraNameInfo: {
@@ -132,7 +275,7 @@ FocusScope {
     }
 
     function updateSource() {
-        if (!root.visible) {
+        if (!root.visible || root.isQuickPlayback) {
             qmlAvPlayer1.source = "";
             qmlAvPlayer2.source = "";
             activeStreamUrl = "";
@@ -145,7 +288,10 @@ FocusScope {
 
         parseUri(source);
 
-        if (!isHikvision) {
+        if (root.isQuickPlayback) {
+            newUrl = "";
+            newCameraId = "";
+        } else if (!isHikvision) {
             newUrl = source;
             newCameraId = source;
         } else {
@@ -347,7 +493,8 @@ FocusScope {
     }
 
     function takeSnapshot(forceHD) {
-        captureCurrentFrameAndNotify("LIVE");
+        var typeStr = root.isQuickPlayback ? "QUICK_PLAYBACK" : "LIVE";
+        captureCurrentFrameAndNotify(typeStr);
     }
 
     function captureCurrentFrameAndNotify(typeStr) {
@@ -362,18 +509,6 @@ FocusScope {
         rawCamName = rawCamName.trim().replace(/^[_-\s]+|[_-\s]+$/g, "");
         var camName = rawCamName.replace(/ /g, "_").replace(/[^a-zA-Z0-9_\-\.]/g, "");
 
-        if (root.isHikvision && !hikPlayerSettings.useRealStreams) {
-            activeOutput = hikPlayer;
-        } else if (activePlayerIndex === 1) {
-            activeOutput = videoOutput1;
-            nativeWidth = videoOutput1.sourceRect.width > 0 ? videoOutput1.sourceRect.width : 1920;
-            nativeHeight = videoOutput1.sourceRect.height > 0 ? videoOutput1.sourceRect.height : 1080;
-        } else {
-            activeOutput = videoOutput2;
-            nativeWidth = videoOutput2.sourceRect.width > 0 ? videoOutput2.sourceRect.width : 1920;
-            nativeHeight = videoOutput2.sourceRect.height > 0 ? videoOutput2.sourceRect.height : 1080;
-        }
-
         var path = "";
         if (typeof generalSettings !== "undefined" && generalSettings.snapshotPath !== "") {
             path = generalSettings.snapshotPath;
@@ -387,6 +522,30 @@ FocusScope {
 
         snapshotBadge.isSavingSnapshot = true;
         snapshotBadgeTimer.restart();
+
+        if (root.isQuickPlayback) {
+            var saved = quickPlaybackPlayer.saveCurrentFrame(path);
+            if (saved) {
+                console.log("Saved snapshot (" + typeStr + ") to", path);
+                showSnapshotDialog(path);
+            } else {
+                console.log("Failed to save snapshot (" + typeStr + ") via C++ saveCurrentFrame");
+            }
+            return;
+        }
+
+        if (root.isHikvision && !hikPlayerSettings.useRealStreams) {
+            activeOutput = hikPlayer;
+        } else if (activePlayerIndex === 1) {
+            activeOutput = videoOutput1;
+            nativeWidth = videoOutput1.sourceRect.width > 0 ? videoOutput1.sourceRect.width : 1920;
+            nativeHeight = videoOutput1.sourceRect.height > 0 ? videoOutput1.sourceRect.height : 1080;
+        } else {
+            activeOutput = videoOutput2;
+            nativeWidth = videoOutput2.sourceRect.width > 0 ? videoOutput2.sourceRect.width : 1920;
+            nativeHeight = videoOutput2.sourceRect.height > 0 ? videoOutput2.sourceRect.height : 1080;
+        }
+
         activeOutput.grabToImage(function(result) {
             result.saveToFile(path);
             console.log("Saved snapshot (" + typeStr + ") to", path);
@@ -497,17 +656,41 @@ FocusScope {
             // Hikvision C++ Painted Player renders high-tech mock layout if fallback is disabled
             HikvisionPlayer {
                 id: hikPlayer
-                visible: root.isHikvision && !hikPlayerSettings.useRealStreams && root.visible
+                visible: root.isHikvision && !hikPlayerSettings.useRealStreams && root.visible && !root.isQuickPlayback
                 x: -root.zoomX * width
                 y: -root.zoomY * height
                 width: parent.width / Math.max(0.001, root.zoomWidth)
                 height: parent.height / Math.max(0.001, root.zoomHeight)
-                recorderIp: (root.visible && root.isHikvision && !hikPlayerSettings.useRealStreams) ? root.recorderIp : ""
+                recorderIp: (root.visible && root.isHikvision && !hikPlayerSettings.useRealStreams && !root.isQuickPlayback) ? root.recorderIp : ""
                 recorderPort: root.recorderPort
                 username: root.username
                 password: root.password
                 channelId: root.channelId
                 streamType: root.isSubStream ? 1 : 0
+            }
+
+            HikvisionArchivePlayer {
+                id: quickPlaybackPlayer
+                z: 3
+                visible: root.isQuickPlayback
+                x: root.isOneToOne ? root.oneToOneX : -root.zoomX * width
+                y: root.isOneToOne ? root.oneToOneY : -root.zoomY * height
+                width: root.isOneToOne ? ((quickPlaybackPlayer.videoWidth > 0) ? quickPlaybackPlayer.videoWidth : videoContainer.width) : (videoContainer.width / Math.max(0.001, root.zoomWidth))
+                height: root.isOneToOne ? ((quickPlaybackPlayer.videoHeight > 0) ? quickPlaybackPlayer.videoHeight : videoContainer.height) : (videoContainer.height / Math.max(0.001, root.zoomHeight))
+                recorderIp: root.recorderIp
+                username: root.username
+                password: root.password
+                channelId: root.channelId
+                port: root.recorderPort
+                muted: root.muted
+                volume: root.volume
+
+                onVideoSizeChanged: {
+                    if (root.isOneToOne && root.isQuickPlayback) {
+                        root.oneToOneX = Math.min(0, (videoContainer.width - videoWidth) / 2);
+                        root.oneToOneY = Math.min(0, (videoContainer.height - videoHeight) / 2);
+                    }
+                }
             }
         }
 
@@ -628,11 +811,11 @@ FocusScope {
                 margins: 6
             }
             
-            visible: (!viewSettings.showInfoOnHoverOnly || playerHoverArea.containsMouse) && viewSettings.showChannelStatus && (root.source !== "") && (root.isHikvision ? (root.recorderIp !== "") : (playbackState === MediaPlayer.PlayingState || status === MediaPlayer.Buffered || status === MediaPlayer.Buffering || status === MediaPlayer.Loading))
+            visible: (!viewSettings.showInfoOnHoverOnly || playerHoverArea.containsMouse) && viewSettings.showChannelStatus && (root.isQuickPlayback ? true : ((root.source !== "") && (root.isHikvision ? (root.recorderIp !== "") : (playbackState === MediaPlayer.PlayingState || status === MediaPlayer.Buffered || status === MediaPlayer.Buffering || status === MediaPlayer.Loading))))
             
             color: "#66121214"
             border {
-                color: root.isSubStream ? "#ff7a00" : "#00f5d4"
+                color: root.isQuickPlayback ? "#00f5d4" : (root.isSubStream ? "#ff7a00" : "#00f5d4")
                 width: 1
             }
             radius: 4
@@ -646,8 +829,8 @@ FocusScope {
                 spacing: 4
                 
                 Text {
-                    text: root.isSubStream ? "SUB" : "MAIN"
-                    color: root.isSubStream ? "#ff7a00" : "#00f5d4"
+                    text: root.isQuickPlayback ? "MAIN" : (root.isSubStream ? "SUB" : "MAIN")
+                    color: root.isSubStream && !root.isQuickPlayback ? "#ff7a00" : "#00f5d4"
                     font {
                         pixelSize: 8
                         bold: true
@@ -657,14 +840,34 @@ FocusScope {
                 Rectangle {
                     width: 1
                     height: 7
-                    color: root.isSubStream ? "#44ff7a00" : "#4400f5d4"
+                    color: root.isSubStream && !root.isQuickPlayback ? "#44ff7a00" : "#4400f5d4"
                     anchors.verticalCenter: parent.verticalCenter
                 }
                 
                 Text {
+                    visible: root.isQuickPlayback
+                    text: root.quickPlaybackSpeed + "x"
+                    color: "#ff7a00"
+                    font {
+                        pixelSize: 8
+                        bold: true
+                    }
+                }
+
+                Rectangle {
+                    visible: root.isQuickPlayback
+                    width: 1
+                    height: 7
+                    color: "#44ff7a00"
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                Text {
                     text: {
                         var fpsVal = 0;
-                        if (root.isHikvision) {
+                        if (root.isQuickPlayback) {
+                            fpsVal = quickPlaybackPlayer.fps;
+                        } else if (root.isHikvision) {
                             if (hikPlayerSettings.useRealStreams) {
                                 fpsVal = (root.activePlayerIndex === 1 ? qmlAvPlayer1.fps : qmlAvPlayer2.fps);
                             } else {
@@ -685,9 +888,9 @@ FocusScope {
                 Rectangle {
                     width: 1
                     height: 7
-                    color: root.isSubStream ? "#44ff7a00" : "#4400f5d4"
+                    color: root.isSubStream && !root.isQuickPlayback ? "#44ff7a00" : "#4400f5d4"
                     anchors.verticalCenter: parent.verticalCenter
-                    visible: !root.isHikvision || hikPlayerSettings.useRealStreams
+                    visible: root.isQuickPlayback ? false : (!root.isHikvision || hikPlayerSettings.useRealStreams)
                 }
                 
                 Text {
@@ -696,7 +899,7 @@ FocusScope {
                     font {
                         pixelSize: 8
                     }
-                    visible: !root.isHikvision || hikPlayerSettings.useRealStreams
+                    visible: root.isQuickPlayback ? false : (!root.isHikvision || hikPlayerSettings.useRealStreams)
                 }
             }
         }
@@ -709,7 +912,8 @@ FocusScope {
             anchors {
                 left: parent.left
                 bottom: parent.bottom
-                margins: 6
+                leftMargin: 6
+                bottomMargin: root.isQuickPlayback ? (quickPlaybackControlsPanel.height + 12) : 6
             }
             
             visible: (!viewSettings.showInfoOnHoverOnly || playerHoverArea.containsMouse) && viewSettings.showCameraInfo && root.isHikvision && root.cameraNameInfo !== ""
@@ -807,9 +1011,16 @@ FocusScope {
                     var dx = mouse.x - lastX;
                     var dy = mouse.y - lastY;
 
-                    var activeOutput = root.activePlayerIndex === 1 ? videoOutput1 : videoOutput2;
-                    var videoW = activeOutput.width;
-                    var videoH = activeOutput.height;
+                    var videoW;
+                    var videoH;
+                    if (root.isQuickPlayback) {
+                        videoW = quickPlaybackPlayer.width;
+                        videoH = quickPlaybackPlayer.height;
+                    } else {
+                        var activeOutput = root.activePlayerIndex === 1 ? videoOutput1 : videoOutput2;
+                        videoW = activeOutput.width;
+                        videoH = activeOutput.height;
+                    }
 
                     root.oneToOneX = Math.min(0, Math.max(parent.width - videoW, root.oneToOneX + dx));
                     root.oneToOneY = Math.min(0, Math.max(parent.height - videoH, root.oneToOneY + dy));
@@ -858,7 +1069,8 @@ FocusScope {
                 anchors {
                     right: parent.right
                     bottom: parent.bottom
-                    margins: 6
+                    rightMargin: 6
+                    bottomMargin: root.isQuickPlayback ? (quickPlaybackControlsPanel.height + 12) : 6
                 }
                 spacing: 6
                 visible: (root.source !== "") && (!viewSettings.hoverControlIcons || playerHoverArea.isHovered)
@@ -1125,6 +1337,51 @@ FocusScope {
                 }
 
                 Control {
+                    id: quickPlaybackToggleBadge
+
+                    implicitWidth: 24
+                    implicitHeight: 24
+                    padding: 5
+                    visible: root.source !== "" && root.isHikvision
+                    onVisibleChanged: playerHoverArea.updateHoverState()
+
+                    background: Rectangle {
+                        radius: 12
+                        color: root.isQuickPlayback ?
+                            (quickPlaybackToggleMouseArea.pressed ? "#4400f5d4" : (quickPlaybackToggleMouseArea.containsMouse ? "#3300f5d4" : "#2200f5d4")) :
+                            (quickPlaybackToggleMouseArea.pressed ? "#4a5560" : (quickPlaybackToggleMouseArea.containsMouse ? "#3a4550" : "#cc121214"))
+                        border.color: root.isQuickPlayback ?
+                            "#cc00f5d4" :
+                            ((quickPlaybackToggleMouseArea.containsMouse || quickPlaybackToggleMouseArea.pressed) ? "#cc8898a6" : "#802a3540")
+                        border.width: 1
+                    }
+
+                    contentItem: Image {
+                        sourceSize: Qt.size(32, 32)
+                        fillMode: Image.PreserveAspectFit
+                        source: (root.isQuickPlayback || quickPlaybackToggleMouseArea.containsMouse) ?
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 2v6h6'></path><path d='M3 13a9 9 0 1 0 3-7.7L3 8'></path></svg>" :
+                            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 2v6h6'></path><path d='M3 13a9 9 0 1 0 3-7.7L3 8'></path></svg>"
+                    }
+
+                    MouseArea {
+                        id: quickPlaybackToggleMouseArea
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onContainsMouseChanged: playerHoverArea.updateHoverState()
+                        onClicked: {
+                            root.isQuickPlayback = !root.isQuickPlayback;
+                        }
+                    }
+
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: quickPlaybackToggleMouseArea.containsMouse
+                    ToolTip.text: root.isQuickPlayback ? qsTr("Wyłącz szybki podgląd wstecz") : qsTr("Szybki podgląd wstecz (do 30 min)")
+                }
+
+                Control {
                     id: oneToOneBadge
 
                     implicitWidth: 24
@@ -1230,6 +1487,264 @@ FocusScope {
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: zoomMouseAreaBtn.containsMouse
                     ToolTip.text: root.isZoomed ? qsTr("Reset Zoom") : (root.isZoomSelectionMode ? qsTr("Click and drag on camera feed to zoom") : qsTr("Select region to zoom"))
+                }
+            }
+        }
+
+        // --- QUICK PLAYBACK CONTROLS PANEL ---
+        Rectangle {
+            id: quickPlaybackControlsPanel
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
+            height: 46
+            color: root.isFullScreen ? "#801c242c" : "#661c242c"
+            visible: root.isQuickPlayback
+
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onPressed: mouse.accepted = true
+                onReleased: mouse.accepted = true
+                onDoubleClicked: mouse.accepted = true
+            }
+
+            Slider {
+                id: qpSlider
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    top: parent.top
+                }
+                height: 18
+                from: 0
+                to: 1800
+                value: root.quickPlaybackOffset
+                focusPolicy: Qt.NoFocus
+                padding: 0
+                leftPadding: 0
+                rightPadding: 0
+                topPadding: 0
+                bottomPadding: 0
+                leftInset: 0
+                rightInset: 0
+                topInset: 0
+                bottomInset: 0
+                
+                onPressedChanged: {
+                    if (pressed) {
+                        quickPlaybackPlayer.pause();
+                    } else {
+                        root.quickPlaybackOffset = value;
+                        var seekTime = new Date(root.quickPlaybackActivationTime.getTime() - (1800 - root.quickPlaybackOffset) * 1000);
+                        quickPlaybackPlayer.playAtTime(seekTime);
+                        if (root.quickPlaybackSpeed !== 1) {
+                            quickPlaybackPlayer.setPlaybackSpeed(root.quickPlaybackSpeed);
+                        }
+                        if (!root.isQuickPlaybackPaused) {
+                            quickPlaybackPlayer.resume();
+                        }
+                    }
+                }
+                onMoved: {
+                    if (pressed) {
+                        root.quickPlaybackOffset = value;
+                    }
+                }
+
+                background: Rectangle {
+                    anchors.fill: parent
+                    color: "#330a0a0c"
+
+                    Canvas {
+                        id: qpTimelineCanvas
+                        anchors.fill: parent
+                        onPaint: {
+                            var ctx = getContext("2d");
+                            ctx.clearRect(0, 0, width, height);
+
+                            // 1. Availability segments
+                            ctx.fillStyle = root.isFullScreen ? "rgba(0, 245, 212, 0.55)" : "rgba(0, 245, 212, 0.45)";
+                            for (var k = 0; k < root.quickPlaybackSegments.length; k++) {
+                                var seg = root.quickPlaybackSegments[k];
+                                if (!seg) continue;
+                                var windowStartMs = root.quickPlaybackActivationTime ? (root.quickPlaybackActivationTime.getTime() - 1800000) : 0;
+                                var windowEndMs = root.quickPlaybackActivationTime ? root.quickPlaybackActivationTime.getTime() : 0;
+                                var segStartMs = Math.max(windowStartMs, seg.startTime);
+                                var segEndMs = Math.min(windowEndMs, seg.endTime);
+                                if (segStartMs < segEndMs && root.quickPlaybackActivationTime) {
+                                    var x1 = ((segStartMs - windowStartMs) / 1800000) * width;
+                                    var w = ((segEndMs - segStartMs) / 1800000) * width;
+                                    ctx.fillRect(x1, 0, w, height);
+                                }
+                            }
+
+                            // 2. Timeline ticks & minute scale
+                            var windowStartMs = root.quickPlaybackActivationTime ? (root.quickPlaybackActivationTime.getTime() - 1800000) : 0;
+                            var windowEndMs = root.quickPlaybackActivationTime ? root.quickPlaybackActivationTime.getTime() : 0;
+                            var startMinMs = Math.ceil(windowStartMs / 60000) * 60000;
+                            var endMinMs = Math.floor(windowEndMs / 60000) * 60000;
+
+                            for (var mMs = startMinMs; mMs <= endMinMs; mMs += 60000) {
+                                var tx = ((mMs - windowStartMs) / 1800000) * width;
+                                var d = new Date(mMs);
+                                var isFiveMin = (d.getMinutes() % 5 === 0);
+                                
+                                ctx.fillStyle = isFiveMin ? "#ffffff" : "rgba(255, 255, 255, 0.5)";
+                                var tickHeight = isFiveMin ? 6 : 3;
+                                ctx.fillRect(tx, height - tickHeight, 1, tickHeight);
+                                
+                                if (isFiveMin) {
+                                    var displayH = d.getHours();
+                                    var displayM = d.getMinutes();
+                                    var timeStr = (displayH < 10 ? "0" : "") + displayH + ":" + (displayM < 10 ? "0" : "") + displayM;
+                                    
+                                    ctx.font = "bold 9px sans-serif";
+                                    
+                                    // Black shadow/outline for extreme contrast on video background
+                                    ctx.fillStyle = "#000000";
+                                    ctx.fillText(timeStr, tx - 12 + 1, height - 8 + 1);
+                                    
+                                    // White foreground text
+                                    ctx.fillStyle = "#ffffff";
+                                    ctx.fillText(timeStr, tx - 12, height - 8);
+                                }
+                            }
+                        }
+
+                        Connections {
+                            target: root
+                            function onQuickPlaybackSegmentsChanged() { qpTimelineCanvas.requestPaint(); }
+                            function onQuickPlaybackActivationTimeChanged() { qpTimelineCanvas.requestPaint(); }
+                        }
+                    }
+                    
+                    Rectangle {
+                        width: qpSlider.visualPosition * parent.width
+                        height: parent.height
+                        color: "#00f5d4"
+                        opacity: 0.1
+                    }
+                }
+                
+                handle: Rectangle {
+                    x: qpSlider.leftPadding + qpSlider.visualPosition * qpSlider.availableWidth - width / 2
+                    y: qpSlider.topPadding
+                    implicitWidth: 2
+                    implicitHeight: 18
+                    color: "red"
+                }
+            }
+
+            RowLayout {
+                id: qpButtonsRow
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    bottom: parent.bottom
+                    leftMargin: 8
+                    rightMargin: 8
+                    bottomMargin: 2
+                }
+                height: 24
+                spacing: 8
+
+                CctvButton {
+                    id: qpPlayPauseBtn
+                    focusPolicy: Qt.NoFocus
+                    isMini: true
+                    isTransparent: true
+                    iconSource: {
+                        var colorStr = "%23ffffff";
+                        if (root.isQuickPlaybackPaused) {
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='" + colorStr + "' stroke='none'><polygon points='8 5 19 12 8 19 8 5'></polygon></svg>";
+                        } else {
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='" + colorStr + "' stroke='none'><rect x='6' y='4' width='4' height='16' rx='1'></rect><rect x='14' y='4' width='4' height='16' rx='1'></rect></svg>";
+                        }
+                    }
+                    onClicked: {
+                        root.isQuickPlaybackPaused = !root.isQuickPlaybackPaused;
+                        if (root.isQuickPlaybackPaused) {
+                            quickPlaybackPlayer.pause();
+                        } else {
+                            quickPlaybackPlayer.resume();
+                        }
+                    }
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: hovered
+                    ToolTip.text: root.isQuickPlaybackPaused ? qsTr("Rozpocznij odtwarzanie") : qsTr("Wstrzymaj odtwarzanie")
+                }
+
+                Text {
+                    id: qpTimeDisplay
+                    Layout.minimumWidth: 100
+                    color: "#ffffff"
+                    font.pixelSize: 11
+                    font.bold: true
+                    visible: parent.width > 250
+                    text: {
+                        if (!root.quickPlaybackActivationTime) return "--:--:-- (now)";
+                        var currentD = new Date(root.quickPlaybackActivationTime.getTime() - (1800 - root.quickPlaybackOffset) * 1000);
+                        return root.formatTime(currentD) + " (" + root.formatRelativeTime(root.quickPlaybackOffset) + ")";
+                    }
+                }
+
+                Item { Layout.fillWidth: true }
+
+                CctvButton {
+                    id: qpSpeedBtn
+                    focusPolicy: Qt.NoFocus
+                    text: root.quickPlaybackSpeed + "x"
+                    isMini: true
+                    isTransparent: true
+                    onClicked: {
+                        if (root.quickPlaybackSpeed === 1) root.quickPlaybackSpeed = 2;
+                        else if (root.quickPlaybackSpeed === 2) root.quickPlaybackSpeed = 4;
+                        else root.quickPlaybackSpeed = 1;
+                        quickPlaybackPlayer.setPlaybackSpeed(root.quickPlaybackSpeed);
+                    }
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: hovered
+                    ToolTip.text: qsTr("Prędkość odtwarzania")
+                }
+
+                CctvButton {
+                    id: qpCloseBtn
+                    focusPolicy: Qt.NoFocus
+                    isMini: true
+                    isTransparent: true
+                    iconSource: {
+                        var colorStr = qpCloseBtn.hovered ? "%23ff3333" : "%238898a6";
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='18' y1='6' x2='6' y2='18'></line><line x1='6' y1='6' x2='18' y2='18'></line></svg>";
+                    }
+                    onClicked: {
+                        root.isQuickPlayback = false;
+                    }
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: hovered
+                    ToolTip.text: qsTr("Zamknij podgląd wstecz")
+                }
+            }
+        }
+
+        Timer {
+            id: quickPlaybackTimer
+            interval: 1000
+            repeat: true
+            onTriggered: {
+                if (root.isQuickPlayback && !root.isQuickPlaybackPaused) {
+                    var nextOffset = root.quickPlaybackOffset + root.quickPlaybackSpeed;
+                    if (nextOffset > 1800) {
+                        nextOffset = 1800;
+                        root.isQuickPlaybackPaused = true;
+                        quickPlaybackPlayer.pause();
+                    }
+                    root.quickPlaybackOffset = nextOffset;
                 }
             }
         }

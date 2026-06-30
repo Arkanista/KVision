@@ -73,6 +73,13 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.4.0",
+            date: "30.06.2026",
+            changes: [
+                qsTr("Dodano funkcjonalność szybkiego podglądu wstecz (do 30 minut) bezpośrednio w kafelku kamery (viewport).")
+            ]
+        },
+        {
             version: "v2.3.0",
             date: "30.06.2026",
             changes: [

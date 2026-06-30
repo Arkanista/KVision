@@ -207,6 +207,7 @@ HikvisionArchivePlayer::HikvisionArchivePlayer(QQuickItem *parent)
         std::lock_guard<std::mutex> lock(s_activePlayersMutex);
         s_activePlayers.insert(this);
     }
+    m_currentSpeedMultiplier = 1;
     // The Hikvision SDK (HCNetSDK) requires NET_DVR_Init(). 
     // HikvisionManager already calls it.
     qDebug() << "[HikArchive] Component created";
@@ -518,7 +519,17 @@ void HikvisionArchivePlayer::playAtTime(const QDateTime &dateTime)
     qDebug() << "[HikArchive] Stop:" << stopTime.dwYear << "-" << stopTime.dwMonth << "-" << stopTime.dwDay
              << stopTime.dwHour << ":" << stopTime.dwMinute << ":" << stopTime.dwSecond;
 
-    LONG playHandle = NET_DVR_PlayBackByTime(m_lUserID, m_realSdkChannel, &startTime, &stopTime, 0);
+    NET_DVR_VOD_PARA vodPara;
+    std::memset(&vodPara, 0, sizeof(NET_DVR_VOD_PARA));
+    vodPara.dwSize = sizeof(NET_DVR_VOD_PARA);
+    vodPara.struIDInfo.dwChannel = m_realSdkChannel;
+    vodPara.struBeginTime = startTime;
+    vodPara.struEndTime = stopTime;
+    vodPara.hWnd = 0;
+    vodPara.byStreamType = 0; // 0-main stream
+    vodPara.byDrawFrame = 0;
+
+    LONG playHandle = NET_DVR_PlayBackByTime_V40(m_lUserID, &vodPara);
     if (playHandle < 0) {
         DWORD err = NET_DVR_GetLastError();
         qWarning() << "[HikArchive] PlayBackByTime FAILED. Error:" << err << "Channel used:" << m_realSdkChannel;
@@ -540,7 +551,7 @@ void HikvisionArchivePlayer::playAtTime(const QDateTime &dateTime)
         }
         
         qDebug() << "[HikArchive] Retry PlayBackByTime on new UserID:" << m_lUserID << "and Channel:" << m_realSdkChannel;
-        playHandle = NET_DVR_PlayBackByTime(m_lUserID, m_realSdkChannel, &startTime, &stopTime, 0);
+        playHandle = NET_DVR_PlayBackByTime_V40(m_lUserID, &vodPara);
         if (playHandle < 0) {
             qWarning() << "[HikArchive] Retry PlayBackByTime FAILED. Error:" << NET_DVR_GetLastError();
             return;
@@ -603,6 +614,7 @@ void HikvisionArchivePlayer::playAtTime(const QDateTime &dateTime)
 
 void HikvisionArchivePlayer::setPlaybackSpeed(int speedMultiplier)
 {
+    m_currentSpeedMultiplier = speedMultiplier;
     if (m_lPlayHandle < 0) return;
 
     if (std::abs(speedMultiplier) == 8) {
@@ -690,6 +702,7 @@ void HikvisionArchivePlayer::resume()
 void HikvisionArchivePlayer::stop()
 {
     qDebug() << "[HikArchive] stop() called from QML!";
+    m_currentSpeedMultiplier = 1;
     cleanupPlayback();
 }
 
@@ -826,6 +839,12 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
             qWarning() << "[HikArchive] PlayM4_Play FAILED. PlayM4 error:" << playErr;
         } else {
             qDebug() << "[HikArchive] PlayM4_Play OK - decoder started!";
+
+            // Restore playback speed if it's not 1x
+            if (player->m_currentSpeedMultiplier != 1) {
+                qDebug() << "[HikArchive] Restoring playback speed to:" << player->m_currentSpeedMultiplier;
+                player->setPlaybackSpeed(player->m_currentSpeedMultiplier);
+            }
             
             // Try to set separate audio callback first (may fail on Linux with Error 16)
             bool audioCallbackRegistered = PlayM4_SetAudioCallBack(activePort, AudioCallBack, reinterpret_cast<long>(player));
