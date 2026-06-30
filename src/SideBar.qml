@@ -2313,6 +2313,53 @@ FocusScope {
                                     }
                                 }
                             }
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 4
+
+                                Text {
+                                    text: qsTr("Domyślny zakres osi czasu w odtwarzaniu, godziny:")
+                                    color: "white"
+                                    font.pixelSize: 11
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 8
+
+                                    TextField {
+                                        id: playbackTimelineHoursField
+                                        Layout.preferredWidth: 60
+                                        Layout.preferredHeight: 30
+                                        selectByMouse: true
+                                        text: generalSettings.playbackTimelineHours.toString()
+                                        color: "white"
+                                        font.pixelSize: 12
+                                        maximumLength: 2
+                                        validator: IntValidator { bottom: 1; top: 24 }
+                                        background: Rectangle {
+                                            color: "#0f151b"
+                                            radius: 4
+                                            border.color: playbackTimelineHoursField.activeFocus ? "#ff7a00" : "#2a3540"
+                                        }
+                                        onEditingFinished: {
+                                            var val = parseInt(text)
+                                            if (!isNaN(val) && val >= 1 && val <= 24) {
+                                                generalSettings.playbackTimelineHours = val
+                                            } else {
+                                                text = generalSettings.playbackTimelineHours.toString()
+                                            }
+                                        }
+                                    }
+
+                                    Item {
+                                        Layout.fillWidth: true
+                                    }
+                                }
+                            }
                         }
                     }
 

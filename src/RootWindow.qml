@@ -193,6 +193,7 @@ ApplicationWindow {
         property bool disableAudio: false
         property int auxiliaryLimit: 1
         property int playbackOffsetSeconds: 120
+        property int playbackTimelineHours: 2
     }
 
     Settings {
@@ -330,6 +331,12 @@ ApplicationWindow {
             var diskPlaybackOffsetSeconds = Context.readSetting("", "playbackOffsetSeconds", 120);
             if (generalSettings.playbackOffsetSeconds !== diskPlaybackOffsetSeconds) {
                 generalSettings.playbackOffsetSeconds = diskPlaybackOffsetSeconds;
+            }
+            var diskPlaybackTimelineHours = Context.readSetting("", "playbackTimelineHours", 2);
+            if (diskPlaybackTimelineHours < 1) diskPlaybackTimelineHours = 1;
+            if (diskPlaybackTimelineHours > 24) diskPlaybackTimelineHours = 24;
+            if (generalSettings.playbackTimelineHours !== diskPlaybackTimelineHours) {
+                generalSettings.playbackTimelineHours = diskPlaybackTimelineHours;
             }
 
             // 4. Check and live-reload View Settings
