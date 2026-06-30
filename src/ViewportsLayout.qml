@@ -434,6 +434,7 @@ FocusScope {
 
                     transitions: [
                         Transition {
+                            enabled: typeof viewSettings !== "undefined" ? !viewSettings.disableViewportZoomAnimation : true
                             ParallelAnimation {
                                 PropertyAnimation {
                                     properties: "x, y, z, width, height"

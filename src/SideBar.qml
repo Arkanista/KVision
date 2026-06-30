@@ -2019,6 +2019,13 @@ FocusScope {
                                 Layout.fillWidth: true
                             }
 
+                            CheckBox {
+                                text: qsTr("Disable viewport zoom animation")
+                                checked: viewSettings.disableViewportZoomAnimation
+                                onCheckedChanged: viewSettings.disableViewportZoomAnimation = checked
+                                Layout.fillWidth: true
+                            }
+
                             ColumnLayout {
                                 Layout.fillWidth: true
                                 spacing: 4

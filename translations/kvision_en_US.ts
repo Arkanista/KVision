@@ -550,6 +550,10 @@
         <source>Discovering...</source>
         <translation>Discovering...</translation>
     </message>
+    <message>
+        <source>Otwórz stronę logowania rejestratora w przeglądarce</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NvrStatusDialog</name>
@@ -954,6 +958,22 @@
     <message>
         <source>Maksymalna głośność</source>
         <translation>Maximum volume</translation>
+    </message>
+    <message>
+        <source>Ustalanie faktycznego końca nagrania...</source>
+        <translation>Determining actual end of recording...</translation>
+    </message>
+    <message>
+        <source>Pobieranie informacji o nagraniach...</source>
+        <translation>Fetching recording information...</translation>
+    </message>
+    <message>
+        <source>Ładowanie archiwum Hikvision...</source>
+        <translation>Loading Hikvision archive...</translation>
+    </message>
+    <message>
+        <source>Brak nagrania w wybranym momencie</source>
+        <translation>No recording at the selected moment</translation>
     </message>
 </context>
 <context>
@@ -1962,11 +1982,11 @@
     </message>
     <message>
         <source>Dodano funkcjonalność wyciszania (Suppression) raportowania błędów dla poszczególnych rejestratorów (pole wyboru &quot;Wycisz&quot;). Wyciszenie maskuje błędy rejestratora w globalnych wskaźnikach alarmów, ale zachowuje podgląd błędów i czerwone wyróżnienie bezpośrednio na kafelkach w popupie statusu.</source>
-        <translation>Added individual recorder error suppression ("Suppress" checkbox). Masking a recorder's error deactivates global status indicators/pulsing rings, while retaining warning border styling and diagnostic lists inside the popup cards for operator visibility.</translation>
+        <translation>Added individual recorder error suppression (&quot;Suppress&quot; checkbox). Masking a recorder&apos;s error deactivates global status indicators/pulsing rings, while retaining warning border styling and diagnostic lists inside the popup cards for operator visibility.</translation>
     </message>
     <message>
         <source>Poprawiono błędną polską translację &quot;Symulowany Rejestrator&quot; w oknie statusu oraz wdrożono właściwe rozróżnienie słowne (&quot;Suppress&quot; dla błędów vs &quot;Mute&quot; dla dźwięku).</source>
-        <translation>Corrected the Polish translation of "Simulated NVR" in the status popup and established proper word choices ("Suppress" for error status vs "Mute" for audio player).</translation>
+        <translation>Corrected the Polish translation of &quot;Simulated NVR&quot; in the status popup and established proper word choices (&quot;Suppress&quot; for error status vs &quot;Mute&quot; for audio player).</translation>
     </message>
     <message>
         <source>Zaimplementowano okresowe (co 5 minut) oraz ręczne sprawdzanie stanu błędów rejestratorów Hikvision (SDK / ISAPI).</source>
@@ -1986,11 +2006,11 @@
     </message>
     <message>
         <source>Stworzono eleganckie, przewijane, ograniczone do 85% wysokości ekranu okno popup &quot;Status rejestratorów&quot; ze szczegółowym podglądem błędów urządzeń, błędów dysków oraz dokładnym czasem ostatniego sprawdzenia.</source>
-        <translation>Created a premium, scrollable, screen-height-bounded (max 85% of screen resolution) "NVR Status" popup dialog listing each recorder, its specific errors, disk-level faults, and precise last check timestamps, equipped with a manual "Check now" button.</translation>
+        <translation>Created a premium, scrollable, screen-height-bounded (max 85% of screen resolution) &quot;NVR Status&quot; popup dialog listing each recorder, its specific errors, disk-level faults, and precise last check timestamps, equipped with a manual &quot;Check now&quot; button.</translation>
     </message>
     <message>
         <source>Dodano flagę uruchomieniową &quot;--simulate-error&quot; do natychmiastowej symulacji uszkodzeń dysków oraz błędów połączenia we wszystkich rejestratorach w celach demonstracyjnych.</source>
-        <translation>Integrated a command-line flag "--simulate-error" to instantly simulate NVR faults on all configured recorders for design demonstration and layout testing.</translation>
+        <translation>Integrated a command-line flag &quot;--simulate-error&quot; to instantly simulate NVR faults on all configured recorders for design demonstration and layout testing.</translation>
     </message>
     <message>
         <source>Wdrożono plakietki ostrzegawcze i wyrównanie wskaźników stanu w listach skonfigurowanych rejestratorów.</source>
@@ -1999,6 +2019,22 @@
     <message>
         <source>Zapewniono pełne dwujęzyczne (polski/angielski) tłumaczenie wszystkich nowych komunikatów diagnostycznych, ustawień i opcji programu.</source>
         <translation>Achieved complete bilingual translation coverage (Polish/English) for all NVR diagnostics, setting check-boxes, tooltips, warnings, and command-line parser options.</translation>
+    </message>
+    <message>
+        <source>Disable viewport zoom animation</source>
+        <translation>Disable viewport zoom animation</translation>
+    </message>
+    <message>
+        <source>Odtwarzanie</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Domyślnie rozpoczynaj odtwarzanie wstecz o tą liczbę sekund:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Domyślny zakres osi czasu w odtwarzaniu, godziny:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

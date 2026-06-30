@@ -1820,6 +1820,7 @@ Window {
 
                                     transitions: [
                                         Transition {
+                                            enabled: typeof rootWindow !== "undefined" && rootWindow.viewSettings ? !rootWindow.viewSettings.disableViewportZoomAnimation : true
                                             ParallelAnimation {
                                                 PropertyAnimation {
                                                     properties: "x, y, width, height"
@@ -1867,6 +1868,26 @@ Window {
                                         channelId: modelData ? modelData.channelId : 1
                                         port: modelData ? (modelData.port || 8000) : 8000
                                         muted: !tileContainer.isAudible || tileContainer.userMuted
+                                         playerStatusMessage: {
+                                              if (!modelData || recorderIp === "") {
+                                                  return "";
+                                              }
+                                              var seekKey = recorderIp + "_" + channelId;
+                                              if (playbackWindow.pendingInitialSeek[seekKey] === true) {
+                                                  return qsTr("Ustalanie faktycznego końca nagrania...");
+                                              }
+                                              var cacheKey = recorderIp + "_" + channelId + "_" + getDateKey(currentDate);
+                                              if (rootWindow.playbackSegmentsCache[cacheKey] === undefined) {
+                                                  return qsTr("Pobieranie informacji o nagraniach...");
+                                              }
+                                              var segments = rootWindow.playbackSegmentsCache[cacheKey] || [];
+                                              for (var i = 0; i < segments.length; i++) {
+                                                  if (playheadTimeMs >= segments[i].startTime && playheadTimeMs <= segments[i].endTime) {
+                                                      return qsTr("Ładowanie archiwum Hikvision...");
+                                                  }
+                                              }
+                                              return qsTr("Brak nagrania w wybranym momencie");
+                                          }
                                         
                                         property string lastPlayedKey: ""
                                          

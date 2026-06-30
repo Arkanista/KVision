@@ -15,12 +15,15 @@ FocusScope {
     id: root
 
     Behavior on scale {
+        enabled: typeof viewSettings !== "undefined" ? !viewSettings.disableViewportZoomAnimation : true
         NumberAnimation { duration: 100; easing.type: Easing.OutQuad }
     }
     Behavior on x {
+        enabled: typeof viewSettings !== "undefined" ? !viewSettings.disableViewportZoomAnimation : true
         NumberAnimation { duration: 100; easing.type: Easing.OutQuad }
     }
     Behavior on y {
+        enabled: typeof viewSettings !== "undefined" ? !viewSettings.disableViewportZoomAnimation : true
         NumberAnimation { duration: 100; easing.type: Easing.OutQuad }
     }
 

@@ -417,6 +417,7 @@ ApplicationWindow {
         property bool hoverControlIcons: true
         property bool showInfoOnHoverOnly: false
         property bool showTopBarByDefault: true
+        property bool disableViewportZoomAnimation: false
     }
 
     Settings {

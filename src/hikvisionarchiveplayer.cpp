@@ -1193,7 +1193,11 @@ void HikvisionArchivePlayer::paint(QPainter *painter)
         painter->drawImage(targetRect, m_currentImage);
     } else {
         painter->setPen(Qt::white);
-        painter->drawText(boundingRect(), Qt::AlignCenter, "Ładowanie archiwum Hikvision...");
+        QString msg = m_playerStatusMessage;
+        if (msg.isEmpty()) {
+            msg = "Ładowanie archiwum Hikvision...";
+        }
+        painter->drawText(boundingRect(), Qt::AlignCenter, msg);
     }
 }
 

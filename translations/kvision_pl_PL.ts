@@ -566,6 +566,10 @@
         <source>Discovering...</source>
         <translation>Wyszukiwanie...</translation>
     </message>
+    <message>
+        <source>Otwórz stronę logowania rejestratora w przeglądarce</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NvrStatusDialog</name>
@@ -970,6 +974,22 @@
     <message>
         <source>Maksymalna głośność</source>
         <translation>Maksymalna głośność</translation>
+    </message>
+    <message>
+        <source>Ustalanie faktycznego końca nagrania...</source>
+        <translation>Ustalanie faktycznego końca nagrania...</translation>
+    </message>
+    <message>
+        <source>Pobieranie informacji o nagraniach...</source>
+        <translation>Pobieranie informacji o nagraniach...</translation>
+    </message>
+    <message>
+        <source>Ładowanie archiwum Hikvision...</source>
+        <translation>Ładowanie archiwum Hikvision...</translation>
+    </message>
+    <message>
+        <source>Brak nagrania w wybranym momencie</source>
+        <translation>Brak nagrania w wybranym momencie</translation>
     </message>
 </context>
 <context>
@@ -2149,11 +2169,11 @@
     </message>
     <message>
         <source>Dodano funkcjonalność wyciszania (Suppression) raportowania błędów dla poszczególnych rejestratorów (pole wyboru &quot;Wycisz&quot;). Wyciszenie maskuje błędy rejestratora w globalnych wskaźnikach alarmów, ale zachowuje podgląd błędów i czerwone wyróżnienie bezpośrednio na kafelkach w popupie statusu.</source>
-        <translation>Dodano funkcjonalność wyciszania (Suppression) raportowania błędów dla poszczególnych rejestratorów (pole wyboru "Wycisz"). Wyciszenie maskuje błędy rejestratora w globalnych wskaźnikach alarmów, ale zachowuje podgląd błędów i czerwone wyróżnienie bezpośrednio na kafelkach w popupie statusu.</translation>
+        <translation>Dodano funkcjonalność wyciszania (Suppression) raportowania błędów dla poszczególnych rejestratorów (pole wyboru &quot;Wycisz&quot;). Wyciszenie maskuje błędy rejestratora w globalnych wskaźnikach alarmów, ale zachowuje podgląd błędów i czerwone wyróżnienie bezpośrednio na kafelkach w popupie statusu.</translation>
     </message>
     <message>
         <source>Poprawiono błędną polską translację &quot;Symulowany Rejestrator&quot; w oknie statusu oraz wdrożono właściwe rozróżnienie słowne (&quot;Suppress&quot; dla błędów vs &quot;Mute&quot; dla dźwięku).</source>
-        <translation>Poprawiono błędną polską translację "Symulowany Rejestrator" w oknie statusu oraz wdrożono właściwe rozróżnienie słowne ("Suppress" dla błędów vs "Mute" dla dźwięku).</translation>
+        <translation>Poprawiono błędną polską translację &quot;Symulowany Rejestrator&quot; w oknie statusu oraz wdrożono właściwe rozróżnienie słowne (&quot;Suppress&quot; dla błędów vs &quot;Mute&quot; dla dźwięku).</translation>
     </message>
     <message>
         <source>Zaimplementowano okresowe (co 5 minut) oraz ręczne sprawdzanie stanu błędów rejestratorów Hikvision (SDK / ISAPI).</source>
@@ -2161,7 +2181,7 @@
     </message>
     <message>
         <source>Dodano dedykowaną sekcję w ustawieniach ogólnych do włączania monitorowania oraz wyboru monitorowanych błędów (błędy logowania, przeciążenie CPU &gt;85%, błędy sprzętowe, uszkodzenia dysków, brak formatu, brak nadpisywania).</source>
-        <translation>Dodano dedykowaną sekcję w ustawieniach ogólnych do włączania monitorowania oraz wyboru monitorowanych błędów (błędy logowania, przeciążenie CPU >85%, błędy sprzętowe, uszkodzenia dysków, brak formatu, brak nadpisywania).</translation>
+        <translation>Dodano dedykowaną sekcję w ustawieniach ogólnych do włączania monitorowania oraz wyboru monitorowanych błędów (błędy logowania, przeciążenie CPU &gt;85%, błędy sprzętowe, uszkodzenia dysków, brak formatu, brak nadpisywania).</translation>
     </message>
     <message>
         <source>Zaprojektowano animowaną ikonę ostrzegawczą na górnym pasku w kolorze ciepłym-zielonym (status OK) lub pulsującym czerwonym z podwójną poświatą (wykryto krytyczne błędy).</source>
@@ -2173,11 +2193,11 @@
     </message>
     <message>
         <source>Stworzono eleganckie, przewijane, ograniczone do 85% wysokości ekranu okno popup &quot;Status rejestratorów&quot; ze szczegółowym podglądem błędów urządzeń, błędów dysków oraz dokładnym czasem ostatniego sprawdzenia.</source>
-        <translation>Stworzono eleganckie, przewijane, ograniczone do 85% wysokości ekranu okno popup "Status rejestratorów" ze szczegółowym podglądem błędów urządzeń, błędów dysków oraz dokładnym czasem ostatniego sprawdzenia.</translation>
+        <translation>Stworzono eleganckie, przewijane, ograniczone do 85% wysokości ekranu okno popup &quot;Status rejestratorów&quot; ze szczegółowym podglądem błędów urządzeń, błędów dysków oraz dokładnym czasem ostatniego sprawdzenia.</translation>
     </message>
     <message>
         <source>Dodano flagę uruchomieniową &quot;--simulate-error&quot; do natychmiastowej symulacji uszkodzeń dysków oraz błędów połączenia we wszystkich rejestratorach w celach demonstracyjnych.</source>
-        <translation>Dodano flagę uruchomieniową "--simulate-error" do natychmiastowej symulacji uszkodzeń dysków oraz błędów połączenia we wszystkich rejestratorach w celach demonstracyjnych.</translation>
+        <translation>Dodano flagę uruchomieniową &quot;--simulate-error&quot; do natychmiastowej symulacji uszkodzeń dysków oraz błędów połączenia we wszystkich rejestratorach w celach demonstracyjnych.</translation>
     </message>
     <message>
         <source>Wdrożono plakietki ostrzegawcze i wyrównanie wskaźników stanu w listach skonfigurowanych rejestratorów.</source>
@@ -2186,6 +2206,22 @@
     <message>
         <source>Zapewniono pełne dwujęzyczne (polski/angielski) tłumaczenie wszystkich nowych komunikatów diagnostycznych, ustawień i opcji programu.</source>
         <translation>Zapewniono pełne dwujęzyczne (polski/angielski) tłumaczenie wszystkich nowych komunikatów diagnostycznych, ustawień i opcji programu.</translation>
+    </message>
+    <message>
+        <source>Disable viewport zoom animation</source>
+        <translation>Wyłącz animację powiększania viewportu</translation>
+    </message>
+    <message>
+        <source>Odtwarzanie</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Domyślnie rozpoczynaj odtwarzanie wstecz o tą liczbę sekund:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Domyślny zakres osi czasu w odtwarzaniu, godziny:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

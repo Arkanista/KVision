@@ -31,6 +31,7 @@ class HikvisionArchivePlayer : public QQuickPaintedItem
     Q_PROPERTY(int fps READ fps NOTIFY fpsChanged)
     Q_PROPERTY(double volume READ volume WRITE setVolume NOTIFY volumeChanged)
     Q_PROPERTY(bool muted READ muted WRITE setMuted NOTIFY mutedChanged)
+    Q_PROPERTY(QString playerStatusMessage READ playerStatusMessage WRITE setPlayerStatusMessage NOTIFY playerStatusMessageChanged)
 
 public:
     explicit HikvisionArchivePlayer(QQuickItem *parent = nullptr);
@@ -65,6 +66,15 @@ public:
     bool muted() const { return m_muted; }
     void setMuted(bool muted);
 
+    QString playerStatusMessage() const { return m_playerStatusMessage; }
+    void setPlayerStatusMessage(const QString &msg) {
+        if (m_playerStatusMessage != msg) {
+            m_playerStatusMessage = msg;
+            emit playerStatusMessageChanged();
+            update();
+        }
+    }
+
     Q_INVOKABLE void playAtTime(const QDateTime &dateTime);
     Q_INVOKABLE void setPlaybackSpeed(int speedMultiplier); // 1, 2, 4, 8, -1, -2, -4, -8
     Q_INVOKABLE void pause();
@@ -87,6 +97,7 @@ signals:
     void fpsChanged();
     void volumeChanged();
     void mutedChanged();
+    void playerStatusMessageChanged();
 
 private:
     void updateImage(const QImage &img);
@@ -111,6 +122,7 @@ private:
     qint64 m_currentPlayheadMs = 0;
     double m_volume = 1.0;
     bool m_muted = true;
+    QString m_playerStatusMessage;
 
     QImage m_currentImage;
     mutable std::mutex m_imageMutex;
