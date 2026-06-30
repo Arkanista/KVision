@@ -24,7 +24,7 @@ Window {
     property date currentDate: new Date()
     property real playheadTimeMs: 0
     readonly property real currentPlayheadMs: playheadTimeMs - currentDate.getTime()
-    property real zoomHours: 24
+    property real zoomHours: 2
     property real panOffsetMs: 0
     property bool isPlaying: false
     property bool autoFollowEnabled: true
