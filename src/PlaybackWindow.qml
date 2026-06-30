@@ -119,6 +119,7 @@ Window {
     }
     property int selectedPlayerIndex: 0
     property var recordersList: []
+    property var pendingInitialSeek: ({})
     
     // User selected layout columns/rows (max 2x2, default 2x2)
     property int gridLayoutColumns: 2
@@ -315,6 +316,11 @@ Window {
             "recorderName": rec.name || rec.ip
         };
         
+        var seekKey = rec.ip + "_" + cam.channelId;
+        var tempSeek = Object.assign({}, pendingInitialSeek);
+        tempSeek[seekKey] = true;
+        pendingInitialSeek = tempSeek;
+
         activePlayersList = list;
         updateActiveCameraProperties();
         timeline.requestPaint();
@@ -376,11 +382,14 @@ Window {
                 var dateKey = getDateKey(currentDate);
                 var cacheKey = data.ip + "_" + data.channelId + "_" + dateKey;
                 var fetchKey = data.ip + "_" + data.channelId + "_" + dateKey;
-                if (rootWindow.playbackSegmentsCache[cacheKey] !== undefined && activePlayersFetching[fetchKey] !== true) {
+                 if (rootWindow.playbackSegmentsCache[cacheKey] !== undefined && activePlayersFetching[fetchKey] !== true) {
                     playbackWindow.isSearchingRecordings = isAnyCameraSearching();
                     timeline.segments = rootWindow.playbackSegmentsCache[cacheKey];
                     timeline.requestPaint();
                     fetchMonthAvailability(currentDate.getFullYear(), currentDate.getMonth());
+
+                    // Already cached! Run initial seek check if pending
+                    checkInitialSeek(data.ip, data.channelId, rootWindow.playbackSegmentsCache[cacheKey]);
                 } else {
                     timeline.segments = rootWindow.playbackSegmentsCache[cacheKey] || [];
                     playbackWindow.isSearchingRecordings = isAnyCameraSearching();
@@ -391,6 +400,11 @@ Window {
                     } else {
                         // It is fetching or already cached, fetch month availability
                         fetchMonthAvailability(currentDate.getFullYear(), currentDate.getMonth());
+
+                        // If already cached/fetching is done but cache is not undefined
+                        if (rootWindow.playbackSegmentsCache[cacheKey] !== undefined) {
+                            checkInitialSeek(data.ip, data.channelId, rootWindow.playbackSegmentsCache[cacheKey]);
+                        }
                     }
                 }
             } else {
@@ -464,6 +478,9 @@ Window {
             }
 
             playbackWindow.isSearchingRecordings = isAnyCameraSearching();
+
+            // Run initial seek check if pending
+            checkInitialSeek(recorderIp, channelId, adjustedSegments);
         }
         function onSearchFailed(recorderIp, channelId, startTime, error) {
             var targetDate = new Date(startTime);
@@ -526,6 +543,13 @@ Window {
         
         if (recorderInfo) {
             var recName = recorderInfo.name || recorderInfo.ip;
+            
+            // Register to pendingInitialSeek
+            var initialSeekKey = recorderInfo.ip + "_" + playbackWindow.channelId;
+            var tempSeek = {};
+            tempSeek[initialSeekKey] = true;
+            pendingInitialSeek = tempSeek;
+
             activePlayersList = [{
                 "ip": recorderInfo.ip,
                 "port": recorderInfo.port || 8000,
@@ -718,6 +742,48 @@ Window {
         }
         if (changedSegments) {
             rootWindow.playbackSegmentsCache = tempSegments;
+        }
+    }
+
+    function checkInitialSeek(recorderIp, channelId, segments) {
+        var seekKey = recorderIp + "_" + channelId;
+        if (pendingInitialSeek[seekKey] === true) {
+            // Remove from pending initial seek
+            var tempSeek = Object.assign({}, pendingInitialSeek);
+            delete tempSeek[seekKey];
+            pendingInitialSeek = tempSeek;
+
+            if (segments && segments.length > 0) {
+                var maxEndTime = 0;
+                for (var sIdx = 0; sIdx < segments.length; sIdx++) {
+                    if (segments[sIdx].endTime > maxEndTime) {
+                        maxEndTime = segments[sIdx].endTime;
+                    }
+                }
+                if (maxEndTime > 0) {
+                    var offsetSeconds = 120;
+                    if (typeof rootWindow !== "undefined" && rootWindow.generalSettings) {
+                        offsetSeconds = rootWindow.generalSettings.playbackOffsetSeconds;
+                    }
+                    var targetTimeMs = maxEndTime - offsetSeconds * 1000;
+                    
+                    var targetDate = new Date(targetTimeMs);
+                    var dStart = new Date(targetDate);
+                    dStart.setHours(0, 0, 0, 0);
+                    
+                    currentDate = dStart;
+                    playheadTimeMs = targetTimeMs;
+                    
+                    var viewDurationMs = zoomHours * 3600000;
+                    panOffsetMs = (targetTimeMs - dStart.getTime()) - viewDurationMs / 2;
+                    
+                    if (playbackWindow.recorderInfo && recorderIp === playbackWindow.recorderInfo.ip && channelId === playbackWindow.channelId) {
+                        timeline.segments = segments;
+                    }
+                    
+                    playAtTime(currentDate, playheadTimeMs - currentDate.getTime());
+                }
+            }
         }
     }
 

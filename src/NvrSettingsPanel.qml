@@ -490,6 +490,40 @@ ColumnLayout {
                     }
 
                     Button {
+                        id: webBtn
+                        implicitWidth: 30
+                        implicitHeight: 30
+                        Layout.alignment: Qt.AlignVCenter
+
+                        contentItem: Image {
+                            anchors.centerIn: parent
+                            width: 16
+                            height: 16
+                            source: {
+                                var colorStr = webBtn.hovered ? "%2300f5d4" : "%238898a6";
+                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'></path><polyline points='15 3 21 3 21 9'></polyline><line x1='10' y1='14' x2='21' y2='3'></line></svg>";
+                            }
+                        }
+
+                        background: Rectangle {
+                            color: webBtn.pressed ? "#cc121214" : (webBtn.hovered ? "#3a4550" : "#1c242c")
+                            radius: 15
+                            border.color: webBtn.hovered ? "#00f5d4" : "#2a3540"
+                            border.width: 1
+                        }
+
+                        onClicked: {
+                            var url = "http://" + modelData.ip;
+                            Qt.openUrlExternally(url);
+                        }
+
+                        ToolTip.delay: Compact.toolTipDelay
+                        ToolTip.timeout: Compact.toolTipTimeout
+                        ToolTip.visible: webBtn.hovered
+                        ToolTip.text: qsTr("Otwórz stronę logowania rejestratora w przeglądarce")
+                    }
+
+                    Button {
                         id: listBtn
                         implicitWidth: 30
                         implicitHeight: 30
