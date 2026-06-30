@@ -120,6 +120,7 @@ Window {
     property int selectedPlayerIndex: 0
     property var recordersList: []
     property var pendingInitialSeek: ({})
+    property var activeFastSearches: ({})
     
     // User selected layout columns/rows (max 2x2, default 2x2)
     property int gridLayoutColumns: 2
@@ -321,6 +322,14 @@ Window {
         tempSeek[seekKey] = true;
         pendingInitialSeek = tempSeek;
 
+        startFastSeekSearch({
+            "ip": rec.ip,
+            "port": rec.port || 8000,
+            "username": rec.username,
+            "password": rec.password,
+            "channelId": cam.channelId
+        });
+
         activePlayersList = list;
         updateActiveCameraProperties();
         timeline.requestPaint();
@@ -443,6 +452,32 @@ Window {
     Connections {
         target: HikvisionISAPI
         function onSearchFinished(recorderIp, channelId, startTime, segments) {
+            var fastKey = recorderIp + "_" + channelId;
+            if (activeFastSearches[fastKey] === true) {
+                var tempFast = Object.assign({}, activeFastSearches);
+                delete tempFast[fastKey];
+                activeFastSearches = tempFast;
+
+                var fastAdjustedSegments = [];
+                if (segments) {
+                    for (var i = 0; i < segments.length; i++) {
+                        var seg = segments[i];
+                        var localOffsetMs = new Date(seg.startTime).getTimezoneOffset() * 60000;
+                        fastAdjustedSegments.push({
+                            "startTime": seg.startTime + localOffsetMs,
+                            "endTime": seg.endTime + localOffsetMs
+                        });
+                    }
+                }
+
+                if (fastAdjustedSegments.length > 0) {
+                    checkInitialSeek(recorderIp, channelId, fastAdjustedSegments);
+                    return; // Return early, let the main search cache full 3-day segments
+                } else {
+                    return; // Return early, fall back to main search
+                }
+            }
+
             var targetDate = new Date(startTime);
             targetDate.setDate(targetDate.getDate() + 1);
             var dateKey = getDateKey(targetDate);
@@ -483,6 +518,13 @@ Window {
             checkInitialSeek(recorderIp, channelId, adjustedSegments);
         }
         function onSearchFailed(recorderIp, channelId, startTime, error) {
+            var fastFailedKey = recorderIp + "_" + channelId;
+            if (activeFastSearches[fastFailedKey] === true) {
+                var tempFastFailed = Object.assign({}, activeFastSearches);
+                delete tempFastFailed[fastFailedKey];
+                activeFastSearches = tempFastFailed;
+                return; // Return early so fast search errors don't trigger global failures
+            }
             var targetDate = new Date(startTime);
             targetDate.setDate(targetDate.getDate() + 1);
             var dateKey = getDateKey(targetDate);
@@ -550,7 +592,7 @@ Window {
             tempSeek[initialSeekKey] = true;
             pendingInitialSeek = tempSeek;
 
-            activePlayersList = [{
+            var camItem = {
                 "ip": recorderInfo.ip,
                 "port": recorderInfo.port || 8000,
                 "username": recorderInfo.username,
@@ -558,13 +600,16 @@ Window {
                 "channelId": playbackWindow.channelId,
                 "cameraName": playbackWindow.cameraName,
                 "recorderName": recName
-            }]
+            };
+
+            activePlayersList = [camItem];
             // Single-camera open: force 1×1 layout so the grid button matches reality
             gridLayoutColumns = 1;
             gridLayoutRows = 1;
             
             playbackWindow.isPlaying = true
             
+            startFastSeekSearch(camItem);
             searchRecordingsForDate(currentDate)
         } else {
             // When opened empty, pad the active players list to grid size with nulls
@@ -743,6 +788,30 @@ Window {
         if (changedSegments) {
             rootWindow.playbackSegmentsCache = tempSegments;
         }
+    }
+
+    function startFastSeekSearch(cam) {
+        if (!cam) return;
+        var key = cam.ip + "_" + cam.channelId;
+        
+        var tempFast = Object.assign({}, activeFastSearches);
+        tempFast[key] = true;
+        activeFastSearches = tempFast;
+        
+        var end = new Date();
+        // Add 2 hours margin for timezone differences and NVR clock discrepancies
+        end.setHours(end.getHours() + 2);
+        
+        var start = new Date(end.getTime() - 24 * 3600 * 1000); // Past 24 hours
+        
+        var recorderInfoForCam = {
+            "ip": cam.ip,
+            "port": cam.port || 8000,
+            "username": cam.username,
+            "password": cam.password
+        };
+        
+        HikvisionISAPI.searchRecordings(recorderInfoForCam, cam.channelId, start, end);
     }
 
     function checkInitialSeek(recorderIp, channelId, segments) {
