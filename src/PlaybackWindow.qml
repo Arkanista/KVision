@@ -507,9 +507,13 @@ Window {
     }
 
     Component.onCompleted: {
-        // Set default playback start time to 1 minute before now
+        // Set default playback start time to configured offset before now
         var now = new Date()
-        var targetTime = new Date(now.getTime() - 1 * 60 * 1000)
+        var offsetSeconds = 120
+        if (typeof rootWindow !== "undefined" && rootWindow.generalSettings) {
+            offsetSeconds = rootWindow.generalSettings.playbackOffsetSeconds
+        }
+        var targetTime = new Date(now.getTime() - offsetSeconds * 1000)
         var dStart = new Date(targetTime)
         dStart.setHours(0, 0, 0, 0)
         currentDate = dStart

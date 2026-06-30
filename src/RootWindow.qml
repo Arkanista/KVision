@@ -192,6 +192,7 @@ ApplicationWindow {
         property string videoPath: ""
         property bool disableAudio: false
         property int auxiliaryLimit: 1
+        property int playbackOffsetSeconds: 120
     }
 
     Settings {
@@ -325,6 +326,10 @@ ApplicationWindow {
             if (diskAuxiliaryLimit > 3) diskAuxiliaryLimit = 3;
             if (generalSettings.auxiliaryLimit !== diskAuxiliaryLimit) {
                 generalSettings.auxiliaryLimit = diskAuxiliaryLimit;
+            }
+            var diskPlaybackOffsetSeconds = Context.readSetting("", "playbackOffsetSeconds", 120);
+            if (generalSettings.playbackOffsetSeconds !== diskPlaybackOffsetSeconds) {
+                generalSettings.playbackOffsetSeconds = diskPlaybackOffsetSeconds;
             }
 
             // 4. Check and live-reload View Settings

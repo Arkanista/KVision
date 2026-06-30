@@ -2247,6 +2247,76 @@ FocusScope {
                     }
 
                     GroupBox {
+                        title: qsTr("Odtwarzanie")
+                        Layout.fillWidth: true
+
+                        background: Rectangle {
+                            color: "#141a21"
+                            border.color: "#2a3540"
+                            border.width: 1
+                            radius: 8
+                        }
+                        label: Text {
+                            text: parent.title
+                            color: "#00f5d4"
+                            font.bold: true
+                            font.pixelSize: 12
+                        }
+
+                        ColumnLayout {
+                            anchors.fill: parent
+                            spacing: 8
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 4
+
+                                Text {
+                                    text: qsTr("Domyślnie rozpoczynaj odtwarzanie wstecz o tą liczbę sekund:")
+                                    color: "white"
+                                    font.pixelSize: 11
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 8
+
+                                    TextField {
+                                        id: playbackOffsetSecondsField
+                                        Layout.preferredWidth: 100
+                                        Layout.preferredHeight: 30
+                                        selectByMouse: true
+                                        text: generalSettings.playbackOffsetSeconds.toString()
+                                        color: "white"
+                                        font.pixelSize: 12
+                                        maximumLength: 7
+                                        validator: IntValidator { bottom: 0; top: 9999999 }
+                                        background: Rectangle {
+                                            color: "#0f151b"
+                                            radius: 4
+                                            border.color: playbackOffsetSecondsField.activeFocus ? "#ff7a00" : "#2a3540"
+                                        }
+                                        onEditingFinished: {
+                                            var val = parseInt(text)
+                                            if (!isNaN(val) && val >= 0) {
+                                                generalSettings.playbackOffsetSeconds = val
+                                            } else {
+                                                text = generalSettings.playbackOffsetSeconds.toString()
+                                            }
+                                        }
+                                    }
+
+                                    Item {
+                                        Layout.fillWidth: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    GroupBox {
                         title: qsTr("Zapis")
                         Layout.fillWidth: true
 
