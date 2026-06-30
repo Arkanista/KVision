@@ -1,3 +1,10 @@
+cctv-viewer (2.3.0-1) jammy; urgency=medium
+
+  * Enabled real-time settings synchronization between all application windows and auxiliary processes for total audio muting, viewport zoom animation disable, and all granular NVR status monitoring check options.
+  * Integrated minute tick descriptions (e.g., :15, :30, :45) on the archive playback timeline with dynamic display density based on the zoom level (zoomHours).
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Tue, 30 Jun 2026 12:15:00 +0200
+
 cctv-viewer (2.2.8-1) jammy; urgency=medium
 
   * Implemented real-time and periodic (every 5 minutes) Hikvision NVR/DVR error status monitoring using SDK/ISAPI diagnostics.

@@ -2026,15 +2026,23 @@
     </message>
     <message>
         <source>Odtwarzanie</source>
-        <translation type="unfinished"></translation>
+        <translation>Playback</translation>
     </message>
     <message>
         <source>Domyślnie rozpoczynaj odtwarzanie wstecz o tą liczbę sekund:</source>
-        <translation type="unfinished"></translation>
+        <translation>Default backward playback start offset, seconds:</translation>
     </message>
     <message>
         <source>Domyślny zakres osi czasu w odtwarzaniu, godziny:</source>
-        <translation type="unfinished"></translation>
+        <translation>Default playback timeline range, hours:</translation>
+    </message>
+    <message>
+        <source>Włączono synchronizację w czasie rzeczywistym między wszystkimi oknami i procesami dla opcji: wyciszenia audio całkowicie, wyłączenia animacji zoomu oraz wszystkich szczegółowych parametrów monitorowania statusu rejestratorów NVR.</source>
+        <translation>Enabled real-time settings synchronization between all application windows and auxiliary processes for total audio muting, viewport zoom animation disable, and all granular NVR status monitoring check options.</translation>
+    </message>
+    <message>
+        <source>Dodano wyświetlanie opisów minut (np. :15, :30, :45) przy kreskach minutowych na osi czasu odtwarzacza archiwalnego z automatycznym dostosowaniem gęstości w zależności od stopnia przybliżenia (zoomHours).</source>
+        <translation>Integrated minute tick descriptions (e.g., :15, :30, :45) on the archive playback timeline with dynamic display density based on the zoom level (zoomHours).</translation>
     </message>
 </context>
 <context>

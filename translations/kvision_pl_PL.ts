@@ -2213,15 +2213,23 @@
     </message>
     <message>
         <source>Odtwarzanie</source>
-        <translation type="unfinished"></translation>
+        <translation>Odtwarzanie</translation>
     </message>
     <message>
         <source>Domyślnie rozpoczynaj odtwarzanie wstecz o tą liczbę sekund:</source>
-        <translation type="unfinished"></translation>
+        <translation>Domyślnie rozpoczynaj odtwarzanie wstecz o tą liczbę sekund:</translation>
     </message>
     <message>
         <source>Domyślny zakres osi czasu w odtwarzaniu, godziny:</source>
-        <translation type="unfinished"></translation>
+        <translation>Domyślny zakres osi czasu w odtwarzaniu, godziny:</translation>
+    </message>
+    <message>
+        <source>Włączono synchronizację w czasie rzeczywistym między wszystkimi oknami i procesami dla opcji: wyciszenia audio całkowicie, wyłączenia animacji zoomu oraz wszystkich szczegółowych parametrów monitorowania statusu rejestratorów NVR.</source>
+        <translation>Włączono synchronizację w czasie rzeczywistym między wszystkimi oknami i procesami dla opcji: wyciszenia audio całkowicie, wyłączenia animacji zoomu oraz wszystkich szczegółowych parametrów monitorowania statusu rejestratorów NVR.</translation>
+    </message>
+    <message>
+        <source>Dodano wyświetlanie opisów minut (np. :15, :30, :45) przy kreskach minutowych na osi czasu odtwarzacza archiwalnego z automatycznym dostosowaniem gęstości w zależności od stopnia przybliżenia (zoomHours).</source>
+        <translation>Dodano wyświetlanie opisów minut (np. :15, :30, :45) przy kreskach minutowych na osi czasu odtwarzacza archiwalnego z automatycznym dostosowaniem gęstości w zależności od stopnia przybliżenia (zoomHours).</translation>
     </message>
 </context>
 <context>

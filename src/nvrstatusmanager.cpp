@@ -321,6 +321,75 @@ void NvrStatusManager::saveSettings()
     settings.endGroup();
 }
 
+void NvrStatusManager::reloadSettings()
+{
+    QString path = Context::config() ? Context::config()->fileName() : QSettings().fileName();
+    QSettings settings(path, QSettings::IniFormat);
+    settings.beginGroup("NvrMonitoring");
+    bool newEnabled = settings.value("enabled", true).toBool();
+    bool newCheckOffline = settings.value("checkOffline", true).toBool();
+    bool newCheckCpu = settings.value("checkCpu", true).toBool();
+    bool newCheckHw = settings.value("checkHw", true).toBool();
+    bool newCheckHdd = settings.value("checkHdd", true).toBool();
+    bool newCheckUnformatted = settings.value("checkUnformatted", true).toBool();
+    bool newCheckFull = settings.value("checkFull", true).toBool();
+
+    QStringList mutedList = settings.value("mutedRecorders").toStringList();
+    QSet<QString> newMutedRecorders = QSet<QString>(mutedList.begin(), mutedList.end());
+
+    settings.endGroup();
+
+    bool enabledChanged = (m_monitoringEnabled != newEnabled);
+    bool checkOfflineChangedFlag = (m_checkOffline != newCheckOffline);
+    bool checkCpuChangedFlag = (m_checkCpu != newCheckCpu);
+    bool checkHwChangedFlag = (m_checkHw != newCheckHw);
+    bool checkHddChangedFlag = (m_checkHdd != newCheckHdd);
+    bool checkUnformattedChangedFlag = (m_checkUnformatted != newCheckUnformatted);
+    bool checkFullChangedFlag = (m_checkFull != newCheckFull);
+    bool mutedChanged = (m_mutedRecorders != newMutedRecorders);
+
+    m_monitoringEnabled = newEnabled;
+    m_checkOffline = newCheckOffline;
+    m_checkCpu = newCheckCpu;
+    m_checkHw = newCheckHw;
+    m_checkHdd = newCheckHdd;
+    m_checkUnformatted = newCheckUnformatted;
+    m_checkFull = newCheckFull;
+    m_mutedRecorders = newMutedRecorders;
+
+    if (enabledChanged) {
+        emit monitoringEnabledChanged();
+    }
+    if (checkOfflineChangedFlag) {
+        emit checkOfflineChanged();
+    }
+    if (checkCpuChangedFlag) {
+        emit checkCpuChanged();
+    }
+    if (checkHwChangedFlag) {
+        emit checkHwChanged();
+    }
+    if (checkHddChangedFlag) {
+        emit checkHddChanged();
+    }
+    if (checkUnformattedChangedFlag) {
+        emit checkUnformattedChanged();
+    }
+    if (checkFullChangedFlag) {
+        emit checkFullChanged();
+    }
+
+    if (enabledChanged) {
+        onRecordersChanged();
+    } else if (checkOfflineChangedFlag || checkCpuChangedFlag || checkHwChangedFlag ||
+               checkHddChangedFlag || checkUnformattedChangedFlag || checkFullChangedFlag || mutedChanged) {
+        startCheck();
+    }
+    if (mutedChanged) {
+        applyMuting();
+    }
+}
+
 // ── NvrStatusWorker Implementation ──────────────────────────────────────
 
 NvrStatusWorker::NvrStatusWorker(const QJsonArray &recorders, const QVariantMap &configs, QObject *parent)

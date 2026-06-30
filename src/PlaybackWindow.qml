@@ -3319,9 +3319,17 @@ Window {
 
                             // Minute ticks (shifted up by barsTotalHeight)
                             var minuteInterval = 0;
-                            if (zoomHours <= 1) minuteInterval = 1;
-                            else if (zoomHours <= 4) minuteInterval = 5;
-                            else if (zoomHours <= 12) minuteInterval = 10;
+                            var labelInterval = 0;
+                            if (zoomHours <= 1) {
+                                minuteInterval = 1;
+                                labelInterval = 5;
+                            } else if (zoomHours <= 4) {
+                                minuteInterval = 5;
+                                labelInterval = 15;
+                            } else if (zoomHours <= 12) {
+                                minuteInterval = 10;
+                                labelInterval = 30;
+                            }
 
                             if (minuteInterval > 0) {
                                 ctx.fillStyle = "#556677"
@@ -3335,6 +3343,15 @@ Window {
                                     var mx = (mMs - panOffsetMs) / msPerPixel;
                                     if (mx >= 0 && mx <= width) {
                                         ctx.fillRect(mx, height - barsTotalHeight - 8, 1, 8);
+                                        if (labelInterval > 0 && m % labelInterval === 0) {
+                                            ctx.save();
+                                            ctx.fillStyle = "#667788";
+                                            ctx.font = "8px sans-serif";
+                                            var displayM = ((m % 60) + 60) % 60;
+                                            var mStr = (displayM < 10 ? "0" : "") + displayM;
+                                            ctx.fillText(":" + mStr, mx + 2, height - barsTotalHeight - 3);
+                                            ctx.restore();
+                                        }
                                     }
                                 }
                             }

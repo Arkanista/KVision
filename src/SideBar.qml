@@ -73,6 +73,14 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.3.0",
+            date: "30.06.2026",
+            changes: [
+                qsTr("Włączono synchronizację w czasie rzeczywistym między wszystkimi oknami i procesami dla opcji: wyciszenia audio całkowicie, wyłączenia animacji zoomu oraz wszystkich szczegółowych parametrów monitorowania statusu rejestratorów NVR."),
+                qsTr("Dodano wyświetlanie opisów minut (np. :15, :30, :45) przy kreskach minutowych na osi czasu odtwarzacza archiwalnego z automatycznym dostosowaniem gęstości w zależności od stopnia przybliżenia (zoomHours).")
+            ]
+        },
+        {
             version: "v2.2.8-2",
             date: "29.06.2026",
             changes: [

@@ -61,6 +61,7 @@ public:
 
     Q_INVOKABLE void checkNow();
     Q_INVOKABLE void onRecordersChanged();
+    Q_INVOKABLE void reloadSettings();
 
     Q_INVOKABLE bool isRecorderMuted(const QString &name) const;
     Q_INVOKABLE void setRecorderMuted(const QString &name, bool muted);

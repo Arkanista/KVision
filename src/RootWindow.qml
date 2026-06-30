@@ -338,6 +338,10 @@ ApplicationWindow {
             if (generalSettings.playbackTimelineHours !== diskPlaybackTimelineHours) {
                 generalSettings.playbackTimelineHours = diskPlaybackTimelineHours;
             }
+            var diskDisableAudio = Context.readSetting("", "disableAudio", false);
+            if (generalSettings.disableAudio !== diskDisableAudio) {
+                generalSettings.disableAudio = diskDisableAudio;
+            }
 
             // 4. Check and live-reload View Settings
             var diskHideCursor = Context.readSetting("View", "hideCursorWhenFullScreen", true);
@@ -372,6 +376,10 @@ ApplicationWindow {
             if (layoutsCollectionSettings.defaultAVFormatOptions !== diskDefaultAVFormatOptions) {
                 layoutsCollectionSettings.defaultAVFormatOptions = diskDefaultAVFormatOptions;
             }
+            var diskDisableViewportZoomAnimation = Context.readSetting("View", "disableViewportZoomAnimation", false);
+            if (viewSettings.disableViewportZoomAnimation !== diskDisableViewportZoomAnimation) {
+                viewSettings.disableViewportZoomAnimation = diskDisableViewportZoomAnimation;
+            }
 
 
             // 6. Check and live-reload Application Language
@@ -380,6 +388,9 @@ ApplicationWindow {
                 console.log("[Sync] Live-reloading language to:", diskLang);
                 Context.setLanguage(diskLang);
             }
+
+            // 7. Live-reload NVR Status Manager settings
+            NvrStatusManager.reloadSettings();
         }
     }
 
