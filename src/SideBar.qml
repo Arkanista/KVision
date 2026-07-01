@@ -76,8 +76,11 @@ FocusScope {
                         var latestVersion = response.tag_name;
                         var currentVersion = Qt.application.version;
                         
-                        var latestClean = latestVersion.replace(/^v/, "");
-                        var currentClean = currentVersion.replace(/^v/, "");
+                        var latestMatch = latestVersion.replace(/^v/, "").match(/^\d+(\.\d+)*/);
+                        var currentMatch = currentVersion.replace(/^v/, "").match(/^\d+(\.\d+)*/);
+                        
+                        var latestClean = latestMatch ? latestMatch[0] : "";
+                        var currentClean = currentMatch ? currentMatch[0] : "";
                         
                         if (compareVersions(latestClean, currentClean) > 0) {
                             hasNewVersion = true;
