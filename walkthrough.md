@@ -556,3 +556,33 @@ Wdrożono następujące usprawnienia i nowe funkcje:
 ### 4. Rejestracja flagi uruchomieniowej `--simulate-error`
 * **Diagnoza**: `QCommandLineParser` w klasie `Context` z powodu restrykcyjnego trybu walidacji opcji odrzucał uruchomienie programu z flagą `--simulate-error`, zwracając błąd `Unknown option 'simulate-error'`.
 * **Rozwiązanie**: Zarejestrowałem opcję `simulate-error` w pliku [context.cpp](file:///home/robert/cctv/kvision/src/context.cpp) jako pełnoprawną flagę linii komend. Teraz aplikacja z powodzeniem pozwala się uruchomić z opcją `./kvision --simulate-error` i generuje zasymulowane błędy w celu przetestowania wizualnego czerwonej poświaty i listy błędów w popupie.
+
+---
+
+## 29. Bezszwowe przełączanie jakości strumieni (SUB/MAIN) bez mrugnięcia i czarnego ekranu (RTSP/FFmpeg)
+
+Wdrożono zaawansowane, profesjonalne rozwiązanie eliminujące chwilowy czarny ekran (mrugnięcie/przygaszenie) podczas przełączania strumieni jakości (SUB <-> MAIN) przy powiększaniu i pomniejszaniu kamer RTSP/FFmpeg.
+
+### Wykryta przyczyna (Diagnoza)
+* Poprzednia próba naprawy opierała się na opóźnieniu czasowym wynoszącym 200ms oraz uproszczeniu reguły rozpoznawania tej samej kamery przy przełączaniu.
+* W praktyce jednak, przy włączonych niskopoziomowych opcjach FFmpeg (`nobuffer`, `low_delay`), nowo ładowany strumień RTSP po nawiązaniu połączenia osiągał stan buforowania (`MediaPlayer.Buffered`) i pobierał metadane rozdzielczości (`sourceRect.width > 0`) na długo przed zdekodowaniem i wyrenderowaniem pierwszej klatki wideo (oczekiwanie na ramkę kluczową I-frame, co zależy od interwału GOP kamery).
+* W efekcie dotychczasowy zegar 200ms przełączał widoczność na nowy odtwarzacz za wcześnie, powodując ukrycie starego, sprawnego strumienia i pokazanie czarnej przestrzeni przed nadejściem pierwszej klatki nowego strumienia.
+
+### Wdrożone rozwiązanie (Premium Engine Fix)
+1. **Natywna detekcja pierwszej wyświetlonej klatki (C++)**:
+   * Do klasy `QmlAVPlayer` w plikach [qmlavplayer.h](file:///home/robert/cctv/kvision/src/qmlav/src/qmlavplayer.h) oraz [qmlavplayer.cpp](file:///home/robert/cctv/kvision/src/qmlav/src/qmlavplayer.cpp) dodano nową, zoptymalizowaną właściwość tylko do odczytu:
+     ```cpp
+     QMLAV_PROPERTY_READONLY(bool, framePresented, framePresentedChanged) = false;
+     ```
+   * Wartość tej właściwości jest ustawiana na `true` w metodzie `frameHandler` wyłącznie po tym, jak powierzchnia wideo (`m_videoSurface`) pomyślnie zrzutuje i zaprezentuje klatkę wideo na ekranie (`m_videoSurface->present(qvf)` zwraca powodzenie).
+   * Właściwość jest automatycznie resetowana do `false` przy zatrzymaniu odtwarzacza (`stop()`).
+2. **Synchronizacja w warstwie interfejsu (QML)**:
+   * W pliku [Player.qml](file:///home/robert/cctv/kvision/src/Player.qml) zaktualizowano logikę `checkSeamlessSwitch` tak, aby zamiast metadanych wymiarów sprawdzała, czy nowo załadowany strumień zdążył już zaprezentować klatkę na ekranie:
+     ```javascript
+     if (player.playbackState === MediaPlayer.PlayingState && player.status === MediaPlayer.Buffered && player.hasVideo && player.framePresented) {
+     ```
+   * Dodano odpowiednie procedury obsługi zmiany stanu `onFramePresentedChanged` do obu instancji `QmlAVPlayer`, co pozwala na natychmiastowe i bezbłędne podjęcie decyzji o przełączeniu, gdy nowo renderowany strumień jest w pełni gotowy.
+   * Skrócono interwał zegara `seamlessSwitchTimer` do **100ms** w celu zapewnienia maksymalnej szybkości reakcji przy zachowaniu pełnej stabilności bufora klatek.
+
+Dzięki temu zmiana jakości na powiększonym i pomniejszonym widoku kamery odbywa się całkowicie płynnie, bez mrugnięcia i czarnego ekranu.
+

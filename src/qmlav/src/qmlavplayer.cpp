@@ -107,6 +107,7 @@ void QmlAVPlayer::stop()
     setPlaybackState(QMediaPlayer::StoppedState);
     setHasVideo(false);
     setHasAudio(false);
+    setFramePresented(false);
 }
 
 void QmlAVPlayer::setVideoSurface(QAbstractVideoSurface *surface)
@@ -171,6 +172,9 @@ void QmlAVPlayer::frameHandler(const std::shared_ptr<QmlAVFrame> frame)
                 if (m_videoSurface->isActive()) {
                     if (m_videoSurface->present(qvf)) {
                         m_fpsCounter++;
+                        if (!m_framePresented) {
+                            setFramePresented(true);
+                        }
                         if (!m_hasVideo) {
                             setHasVideo(true);
                         }
@@ -459,4 +463,17 @@ void QmlAVPlayer::setHasAudio(bool hasAudio)
     m_hasAudio = hasAudio;
 
     emit hasAudioChanged(hasAudio);
+}
+
+void QmlAVPlayer::setFramePresented(bool framePresented)
+{
+    if (m_framePresented == framePresented) {
+        return;
+    }
+
+    logDebug() << QString("setFramePresented(framePresented=%1)").arg(framePresented);
+
+    m_framePresented = framePresented;
+
+    emit framePresentedChanged(framePresented);
 }

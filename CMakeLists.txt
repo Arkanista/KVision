@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 
 set(VER_MAJ 2)
 set(VER_MIN 4)
-set(VER_PAT 1)
+set(VER_PAT 2)
 if(NOT DEFINED VER_REL)
     set(VER_REL 0)
 endif()

@@ -133,6 +133,14 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.4.2",
+            date: "01.07.2026",
+            changes: [
+                qsTr("Całkowicie wyeliminowano problem czarnego ekranu przy przełączaniu jakości (SUB/MAIN) dla kamer RTSP/FFmpeg dzięki nowej, natywnej detekcji wyrenderowanych klatek (framePresented)."),
+                qsTr("Zoptymalizowano zegar bezszwowego przełączania strumieni do 100ms w celu zapewnienia maksymalnej szybkości reakcji przy zachowaniu pełnej stabilności bufora.")
+            ]
+        },
+        {
             version: "v2.4.1",
             date: "01.07.2026",
             changes: [

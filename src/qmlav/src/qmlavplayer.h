@@ -33,6 +33,7 @@ class QmlAVPlayer : public QObject, public QQmlParserStatus
     QMLAV_PROPERTY_DECL(double, volume, setVolume, volumeChanged) = 0.0;
     QMLAV_PROPERTY_READONLY(bool, hasVideo, hasVideoChanged) = false;
     QMLAV_PROPERTY_READONLY(bool, hasAudio, hasAudioChanged) = false;
+    QMLAV_PROPERTY_READONLY(bool, framePresented, framePresentedChanged) = false;
 
 public:
     Q_INVOKABLE double bytesRead() const;
@@ -63,6 +64,7 @@ protected:
     void setStatus(const QMediaPlayer::MediaStatus status);
     void setHasVideo(bool hasVideo);
     void setHasAudio(bool hasAudio);
+    void setFramePresented(bool framePresented);
 
 private:
     bool m_complete;

@@ -103,6 +103,38 @@ FocusScope {
         onTriggered: root.isRestoringLiveView = false
     }
 
+    Timer {
+        id: seamlessSwitchTimer
+        interval: 100
+        repeat: false
+        property int targetPlayerIndex: -1
+        onTriggered: {
+            if (targetPlayerIndex === -1 || targetPlayerIndex === activePlayerIndex) return;
+            var player = targetPlayerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
+            var oldPlayer = targetPlayerIndex === 1 ? qmlAvPlayer2 : qmlAvPlayer1;
+            
+            // Sanity check: Ensure target player is still healthy and matches activeStreamUrl
+            if (String(player.source) !== activeStreamUrl || player.playbackState !== MediaPlayer.PlayingState) {
+                console.log("[Player] Seamless switch aborted: Target player " + targetPlayerIndex + " is no longer valid or matches target URL.");
+                return;
+            }
+            
+            console.log("[Player] Seamless switch timer triggered: Switching activePlayerIndex from " + activePlayerIndex + " to " + targetPlayerIndex);
+            
+            oldPlayer.muted = true;
+            player.muted = root.muted;
+            activePlayerIndex = targetPlayerIndex;
+            
+            var targetIndex = targetPlayerIndex;
+            Qt.callLater(function() {
+                if (activePlayerIndex === targetIndex) {
+                    console.log("[Player] Post-switch (timer): stopping and clearing old player source");
+                    oldPlayer.source = "";
+                }
+            });
+        }
+    }
+
     function getDateKey(d) {
         if (!d) return "";
         return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
@@ -318,6 +350,7 @@ FocusScope {
             qmlAvPlayer2.source = "";
             activeStreamUrl = "";
             activeCameraId = "";
+            seamlessSwitchTimer.stop();
             return;
         }
 
@@ -331,7 +364,7 @@ FocusScope {
             return;
         }
 
-        var isSameCamera = (newCameraId !== "" && newCameraId === activeCameraId && playbackState === MediaPlayer.PlayingState && status === MediaPlayer.Buffered);
+        var isSameCamera = (newCameraId !== "" && newCameraId === activeCameraId && playbackState === MediaPlayer.PlayingState);
 
         if (isSameCamera) {
             console.log("[Player] Seamless switch quality of camera " + newCameraId + " to URL: " + newUrl);
@@ -341,6 +374,7 @@ FocusScope {
             activeStreamUrl = newUrl;
         } else {
             console.log("[Player] Different camera: switching immediately to URL: " + newUrl);
+            seamlessSwitchTimer.stop();
             activePlayerIndex = 1;
             qmlAvPlayer2.source = "";
             qmlAvPlayer1.source = newUrl;
@@ -360,27 +394,15 @@ FocusScope {
             console.log("[Player] checkSeamlessSwitch rejecting inactive player " + playerIndex + " due to source mismatch. Source: '" + player.source + "', Target: '" + activeStreamUrl + "'");
             return;
         }
-        var videoOutput = playerIndex === 1 ? videoOutput1 : videoOutput2;
-        console.log("[Player] checkSeamlessSwitch checking inactive player " + playerIndex + " status: " + player.status + " hasVideo: " + player.hasVideo + " hasAudio: " + player.hasAudio + " sourceRectWidth: " + videoOutput.sourceRect.width);
-        if (player.playbackState === MediaPlayer.PlayingState && player.status === MediaPlayer.Buffered && player.hasVideo && videoOutput.sourceRect.width > 0) {
-            console.log("[Player] Seamless switch: Inactive player " + playerIndex + " is ready with frames. Switching activePlayerIndex from " + activePlayerIndex + " to " + playerIndex);
-            var oldPlayer = activePlayerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
-            
-            // Critical fix for ALSA device sharing: release the audio output of the old player
-            // immediately before we restore the unmute state of the new player.
-            // This prevents "Device or resource busy" errors from stopping the new stream.
-            oldPlayer.muted = true;
-            
-            player.muted = root.muted; // Restore user's mute settings for the now-active player
-            activePlayerIndex = playerIndex;
-            
-            var targetIndex = playerIndex;
-            Qt.callLater(function() {
-                if (activePlayerIndex === targetIndex) {
-                    console.log("[Player] Post-switch: stopping and clearing old player source");
-                    oldPlayer.source = "";
-                }
-            });
+        console.log("[Player] checkSeamlessSwitch checking inactive player " + playerIndex + " status: " + player.status + " hasVideo: " + player.hasVideo + " hasAudio: " + player.hasAudio + " framePresented: " + player.framePresented);
+        if (player.playbackState === MediaPlayer.PlayingState && player.status === MediaPlayer.Buffered && player.hasVideo && player.framePresented) {
+            if (seamlessSwitchTimer.running) {
+                if (seamlessSwitchTimer.targetPlayerIndex === playerIndex) return;
+                seamlessSwitchTimer.stop();
+            }
+            console.log("[Player] Inactive player " + playerIndex + " is ready. Starting 100ms seamless switch timer.");
+            seamlessSwitchTimer.targetPlayerIndex = playerIndex;
+            seamlessSwitchTimer.start();
         }
     }
 
@@ -770,6 +792,12 @@ FocusScope {
                 checkSeamlessSwitch(1);
             }
 
+            onFramePresentedChanged: {
+                if (framePresented) {
+                    checkSeamlessSwitch(1);
+                }
+            }
+
             onBufferProgressChanged: {
                 updateMessageText();
             }
@@ -802,6 +830,12 @@ FocusScope {
 
             onHasAudioChanged: {
                 checkSeamlessSwitch(2);
+            }
+
+            onFramePresentedChanged: {
+                if (framePresented) {
+                    checkSeamlessSwitch(2);
+                }
             }
 
             onBufferProgressChanged: {
@@ -1816,6 +1850,7 @@ FocusScope {
         qmlAvPlayer2.source = "";
         activeStreamUrl = "";
         activeCameraId = "";
+        seamlessSwitchTimer.stop();
     }
 
     function parseUri(uri) {

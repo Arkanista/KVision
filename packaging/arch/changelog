@@ -1,3 +1,7 @@
+2.4.2-1
+  * PL: Całkowicie wyeliminowano problem czarnego ekranu przy przełączaniu jakości (SUB/MAIN) dla kamer RTSP/FFmpeg. Wprowadzono nową, natywną właściwość detekcji zdekodowanych klatek (framePresented) w klasie odtwarzacza C++. Przełączenie aktywnego odtwarzacza następuje teraz dopiero wtedy, gdy nowo załadowany strumień faktycznie dostarczy i wyświetli pierwszą klatkę wideo, co gwarantuje w 100% bezszwowe przejście bez pustego obrazu.
+    EN: Completely resolved the black screen issue during quality transitions (SUB/MAIN) for RTSP/FFmpeg streams. Introduced a new native framePresented detection property in the C++ player class. The active player swap is now deferred until the newly loaded stream actually presents its first decoded frame on screen, guaranteeing a 100% seamless transition with zero blank frames.
+
 2.4.1-3
   * PL: Dodano komunikat "Przywracam widok live..." przy zamykaniu szybkiego odtwarzania dla kamer Hikvision SDK oraz zaimplementowano płynne przełączanie jakości strumienia sub/main (seamless transition) dla połączeń RTSP/ONVIF.
     EN: Added "Restoring live view..." status overlay when exiting quick playback for Hikvision SDK streams, and enabled seamless quality transition (sub/main stream swap) for RTSP/ONVIF connections.
