@@ -888,69 +888,80 @@ FocusScope {
                     Layout.fillHeight: true
                 }
 
-                ColumnLayout {
+                MouseArea {
+                    id: updateArea
                     Layout.fillWidth: true
+                    implicitHeight: updateLayout.implicitHeight
                     visible: rootSideBar.hasNewVersion
-                    spacing: 6
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.bottomMargin: 4
-
-                    Item {
-                        implicitWidth: 80
-                        implicitHeight: 80
-                        Layout.alignment: Qt.AlignHCenter
-
-                        // Glow Ring
-                        Rectangle {
-                            id: glowRing
-                            anchors.centerIn: parent
-                            width: 32
-                            height: 32
-                            radius: 16
-                            color: "transparent"
-                            border.color: "#2ecc71"
-                            border.width: 2.0
-
-                            NumberAnimation on scale {
-                                from: 1.0
-                                to: 2.2
-                                duration: 1600
-                                loops: Animation.Infinite
-                                easing.type: Easing.OutQuad
-                            }
-                            OpacityAnimator on opacity {
-                                from: 0.8
-                                to: 0.0
-                                duration: 1600
-                                loops: Animation.Infinite
-                                easing.type: Easing.OutQuad
-                            }
-                        }
-
-                        // Core
-                        Rectangle {
-                            id: pulsingDot
-                            anchors.centerIn: parent
-                            width: 32
-                            height: 32
-                            radius: 16
-                            color: "#2ecc71" // Green
-
-                            SequentialAnimation on opacity {
-                                loops: Animation.Infinite
-                                PropertyAnimation { to: 0.4; duration: 800; easing.type: Easing.InOutQuad }
-                                PropertyAnimation { to: 1.0; duration: 800; easing.type: Easing.InOutQuad }
-                            }
-                        }
+                    cursorShape: Qt.PointingHandCursor
+                    hoverEnabled: true
+                    onClicked: {
+                        Qt.openUrlExternally("https://github.com/Arkanista/KVision/releases/latest")
                     }
 
-                    Text {
-                        text: qsTr("Dostępna wersja: %1").arg(rootSideBar.newVersionString)
-                        color: "#2ecc71"
-                        font.pixelSize: 11
-                        font.bold: true
-                        horizontalAlignment: Text.AlignHCenter
-                        Layout.fillWidth: true
+                    ColumnLayout {
+                        id: updateLayout
+                        anchors.fill: parent
+                        spacing: 6
+                        Layout.alignment: Qt.AlignHCenter
+
+                        Item {
+                            implicitWidth: 80
+                            implicitHeight: 80
+                            Layout.alignment: Qt.AlignHCenter
+
+                            // Glow Ring
+                            Rectangle {
+                                id: glowRing
+                                anchors.centerIn: parent
+                                width: 32
+                                height: 32
+                                radius: 16
+                                color: "transparent"
+                                border.color: "#2ecc71"
+                                border.width: 2.0
+
+                                NumberAnimation on scale {
+                                    from: 1.0
+                                    to: 2.2
+                                    duration: 1600
+                                    loops: Animation.Infinite
+                                    easing.type: Easing.OutQuad
+                                }
+                                OpacityAnimator on opacity {
+                                    from: 0.8
+                                    to: 0.0
+                                    duration: 1600
+                                    loops: Animation.Infinite
+                                    easing.type: Easing.OutQuad
+                                }
+                            }
+
+                            // Core
+                            Rectangle {
+                                id: pulsingDot
+                                anchors.centerIn: parent
+                                width: 32
+                                height: 32
+                                radius: 16
+                                color: "#2ecc71" // Green
+
+                                SequentialAnimation on opacity {
+                                    loops: Animation.Infinite
+                                    PropertyAnimation { to: 0.4; duration: 800; easing.type: Easing.InOutQuad }
+                                    PropertyAnimation { to: 1.0; duration: 800; easing.type: Easing.InOutQuad }
+                                }
+                            }
+                        }
+
+                        Text {
+                            text: qsTr("Dostępna wersja: %1").arg(rootSideBar.newVersionString)
+                            color: updateArea.containsMouse ? "#55efc4" : "#2ecc71"
+                            font.pixelSize: 11
+                            font.bold: true
+                            horizontalAlignment: Text.AlignHCenter
+                            Layout.fillWidth: true
+                        }
                     }
                 }
 
