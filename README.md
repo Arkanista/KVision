@@ -27,11 +27,11 @@ It is designed for Linux users who need a robust, lightweight, and smooth altern
 
 ### 📺 Live View Grid & Viewport Interactions
 * **Camera Assignment (Select-and-Click)**: Select a viewport in the main grid layout to focus it, then click the **"+" (Add)** button on any camera in the NVR/DVR list to assign it.
-* **Viewport Swapping**: Swap camera feeds between two grid viewports by selecting the **"Swap viewports" ("Zamień miejscami")** option in the right-click context menu of the source viewport and then clicking on the target viewport.
-* **Camera Removal**: Quickly clear/remove a camera stream from any grid viewport using the right-click context menu (**"Remove camera" / "Usuń kamerę"**) with a safety confirmation dialog.
+* **Viewport Swapping**: Swap camera feeds between two grid viewports by selecting the **"Swap viewports"** option in the right-click context menu of the source viewport and then clicking on the target viewport.
+* **Camera Removal**: Quickly clear/remove a camera stream from any grid viewport using the right-click context menu (**"Remove camera"**) with a safety confirmation dialog.
 * **Double-Click to Maximize**: Double-click any camera viewport in the grid to maximize it to full screen. Double-click again to restore the grid layout.
-* **Individual Viewport Settings**: Customize RTSP transport protocols, volume levels, and display properties for each viewport individually via the context menu (**"Change settings" / "Zmień ustawienia"**).
-* **Multi-Monitor & Auxiliary Windows**: Spawn multiple independent auxiliary viewport windows (via the **"New Window" / "Nowe Okno"** button or `Ctrl+N` shortcut) to display different camera grid layouts simultaneously across multiple screens or monitors.
+* **Individual Viewport Settings**: Customize RTSP transport protocols, volume levels, and display properties for each viewport individually via the context menu (**"Change settings"**).
+* **Multi-Monitor & Auxiliary Windows**: Spawn multiple independent auxiliary viewport windows (via the **"New Window"** button or `Ctrl+N` shortcut) to display different camera grid layouts simultaneously across multiple screens or monitors.
 * **Real-Time Bidirectional Configuration Sync**: Instantly synchronizes NVR settings, local camera names, and layouts collection definitions bidirectionally in real-time between the main window and all open auxiliary windows using high-performance file watching (`QFileSystemWatcher`). Window positioning and active layout selection indices remain strictly isolated per window via dynamic, automatic unique window ID allocation.
 
 
@@ -324,8 +324,8 @@ These parameters provide the lowest latency, fastest stream connection, and maxi
 
 ### How to manage or disable these options:
 - **Global configuration**: You can edit the global default FFmpeg command-line options in the **Settings** tab (Gear icon).
-- **Bulk Update**: You can apply your modified global settings to all active viewports by clicking the **"Zaktualizuj wszystkie kamery"** (Update all cameras) button in the settings window.
-- **Viewport override**: If you have a specific camera on a bad network connection that suffers from stuttering, you can exclude it from global settings. Open the individual **Viewport Settings** dialog, check the **"Nie uwzględniaj zmian w globalnych ustawieniach FFMpeg"** checkbox, and edit its options independently (e.g. remove `-fflags nobuffer`).
+- **Bulk Update**: You can apply your modified global settings to all active viewports by clicking the **"Update all cameras"** button in the settings window.
+- **Viewport override**: If you have a specific camera on a bad network connection that suffers from stuttering, you can exclude it from global settings. Open the individual **Viewport Settings** dialog, check the **"Do not include global FFmpeg settings changes"** checkbox, and edit its options independently (e.g. remove `-fflags nobuffer`).
 
 ---
 
