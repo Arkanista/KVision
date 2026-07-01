@@ -47,17 +47,29 @@ FocusScope {
     property bool hasNewVersion: false
     property string newVersionString: ""
 
+    function parseVersion(vStr) {
+        var clean = vStr.replace(/^v/, "");
+        var match = clean.match(/^(\d+(?:\.\d+)*)(?:-(\d+))?/);
+        if (!match) {
+            return { base: [0], rel: 0 };
+        }
+        var baseParts = match[1].split(".").map(Number);
+        var rel = match[2] ? Number(match[2]) : 0;
+        return { base: baseParts, rel: rel };
+    }
+
     function compareVersions(v1, v2) {
-        var parts1 = v1.split(".").map(Number);
-        var parts2 = v2.split(".").map(Number);
-        for (var i = 0; i < Math.max(parts1.length, parts2.length); ++i) {
-            var p1 = parts1[i] || 0;
-            var p2 = parts2[i] || 0;
+        var parsed1 = parseVersion(v1);
+        var parsed2 = parseVersion(v2);
+        var len = Math.max(parsed1.base.length, parsed2.base.length);
+        for (var i = 0; i < len; ++i) {
+            var p1 = parsed1.base[i] || 0;
+            var p2 = parsed2.base[i] || 0;
             if (p1 !== p2) {
                 return p1 - p2;
             }
         }
-        return 0;
+        return parsed1.rel - parsed2.rel;
     }
 
     function checkForUpdates() {
@@ -76,13 +88,7 @@ FocusScope {
                         var latestVersion = response.tag_name;
                         var currentVersion = Qt.application.version;
                         
-                        var latestMatch = latestVersion.replace(/^v/, "").match(/^\d+(\.\d+)*/);
-                        var currentMatch = currentVersion.replace(/^v/, "").match(/^\d+(\.\d+)*/);
-                        
-                        var latestClean = latestMatch ? latestMatch[0] : "";
-                        var currentClean = currentMatch ? currentMatch[0] : "";
-                        
-                        if (compareVersions(latestClean, currentClean) > 0) {
+                        if (compareVersions(latestVersion, currentVersion) > 0) {
                             hasNewVersion = true;
                             newVersionString = latestVersion;
                         } else {

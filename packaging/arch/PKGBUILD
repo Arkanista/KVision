@@ -27,7 +27,8 @@ build() {
   # Run cmake configuration and build
   cmake -B build -S "$srcdir/kvision" \
     -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=/usr
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DVER_REL=${pkgrel}
   cmake --build build
 }
 
