@@ -2099,6 +2099,26 @@
         <source>Dodano funkcjonalność szybkiego podglądu wstecz (do 30 minut) bezpośrednio w kafelku kamery (viewport).</source>
         <translation>Added quick playback functionality (up to 30 minutes rewind) directly inside the camera viewport.</translation>
     </message>
+    <message>
+        <source>Zaktualizuj wszystkie kamery</source>
+        <translation>Update all cameras</translation>
+    </message>
+    <message>
+        <source>Dodano niskopoziomowe opcje FFmpeg (nobuffer, low_delay) usuwające opóźnienia w strumieniach na żywo (drift) przy wielogodzinnym działaniu.</source>
+        <translation>Added low-level FFmpeg options (nobuffer, low_delay) to eliminate live stream delay (drift) over long operational periods.</translation>
+    </message>
+    <message>
+        <source>Wprowadzono przycisk masowej aktualizacji parametrów FFmpeg dla wszystkich istniejących kamer we wszystkich układach.</source>
+        <translation>Introduced a button to bulk-update FFmpeg parameters for all existing cameras across all layouts.</translation>
+    </message>
+    <message>
+        <source>Dodano opcję wykluczenia wybranej kamery z aktualizacji globalnych parametrów FFmpeg (nowy checkbox w ustawieniach viewportu).</source>
+        <translation>Added option to exclude specific cameras from global FFmpeg parameter updates (new checkbox in viewport settings).</translation>
+    </message>
+    <message>
+        <source>Zabezpieczono proces migracji ustawień domyślnych, umożliwiając użytkownikowi trwałe usunięcie lub zmodyfikowanie nowych flag bez ich ponownego wymuszania przy każdym starcie.</source>
+        <translation>Secured the default settings migration process, allowing the user to permanently remove or modify new flags without them being forced on every startup.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>
@@ -2225,6 +2245,10 @@
     <message>
         <source>FFmpeg options</source>
         <translation>FFmpeg options</translation>
+    </message>
+    <message>
+        <source>Nie uwzględniaj zmian w globalnych ustawieniach FFMpeg</source>
+        <translation>Do not include global FFmpeg settings changes</translation>
     </message>
 </context>
 <context>

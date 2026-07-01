@@ -1,3 +1,10 @@
+cctv-viewer (2.4.1-1) jammy; urgency=medium
+
+  * Added low-level FFmpeg options (nobuffer, low_delay) to eliminate live stream delay (drift) over long operational periods.
+  * Added a button to bulk-update FFmpeg parameters for all cameras, and an option to exclude specific cameras from global changes (checkbox "Do not include global settings...").
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Wed, 01 Jul 2026 10:45:00 +0200
+
 cctv-viewer (2.4.0-1) jammy; urgency=medium
 
   * Added quick playback functionality (up to 30 minutes rewind) directly inside the camera viewport.

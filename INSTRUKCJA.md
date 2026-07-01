@@ -84,7 +84,7 @@ W tej sekcji opisano znaczenie wszystkich ikon i przycisków używanych w aplika
 ### Instalacja pakietu Arch Linux (Pacman)
 Aby zainstalować program z przygotowanej paczki binarnej, przejdź do katalogu `packaging/arch/` i wykonaj:
 ```bash
-sudo pacman -U kvision-2.4.0-1-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.4.1-1-x86_64.pkg.tar.zst
 ```
 Pakiet automatycznie zainstaluje program, plik aktywacyjny `.desktop` oraz wymagane biblioteki Hikvision SDK w systemowej ścieżce `/usr/lib/kvision`.
 
@@ -305,7 +305,7 @@ Wyświetla zaawansowane parametry wybranego kafelka siatki. Umożliwia:
   > [!TIP]
   > Dla najszybszego łączenia ze strumieniem i maksymalnej stabilności dla protokołu RTSP, zalecane parametry to:
   > ```ini
-  > -analyzeduration 0 -probesize 500000 -rtsp_transport tcp
+  > -analyzeduration 0 -probesize 500000 -fflags nobuffer -flags low_delay -rtsp_transport tcp
   > ```
 
 ### 2. Układy i Siatka (Layout & Grid Tools - ikona suwaków)
@@ -329,6 +329,13 @@ Pozwala dostosować parametry globalne programu:
 * **Ukrywanie kursora w trybie pełnoekranowym**: Opcja *„Ukryj kursor w trybie pełnoekranowym”* automatycznie ukrywa kursor myszy po okresie bezczynności, gdy obraz jest wyświetlany w trybie pełnoekranowym, aby nie przesłaniać monitorowanego kadru.
 * **Wybór Języka (Language)**: Pozwala na natychmiastową zmianę języka aplikacji (Domyślny systemowy, Polski, Angielski).
 * **Ustawienia Interfejsu (UI)**: Opisane w Sekcji 11 opcje dostosowania widoczności nakładek informacyjnych na viewportach (np. ukrywanie kontrolek w prawym dolnym rogu viewportu tylko po najechaniu kursorem).
+* **Domyślne opcje FFmpeg i masowa aktualizacja**: Umożliwia edycję globalnych parametrów FFmpeg dla nowych kamer (domyślnie: `-analyzeduration 0 -probesize 500000 -fflags nobuffer -flags low_delay`).
+  * **Przycisk Zaktualizuj wszystkie kamery**: Pozwala na natychmiastowe przepisanie tych globalnych opcji do wszystkich wcześniej skonfigurowanych kamer.
+  * **Działanie flag niskiego opóźnienia (`nobuffer`, `low_delay`)**:
+    * `-fflags nobuffer` wyłącza buforowanie demuxera, dzięki czemu strumień LIVE nie "rozjeżdża się" w czasie, ale na niestabilnych sieciach może powodować drobne przycięcia.
+    * `-flags low_delay` zmusza dekoder do natychmiastowego renderowania klatek, ale na kamerach ze specyficzną kompresją B-frames przy szybkim ruchu może wywoływać drobne artefakty (smużenie).
+  * **Pominięcie aktualizacji**: Zaznaczenie pola **"Nie uwzględniaj zmian w globalnych ustawieniach FFMpeg"** w ustawieniach pojedynczej kamery zabezpiecza ją przed nadpisaniem opcji i dynamicznym nakładaniem wartości domyślnych na żywo.
+
 
 ### 6. Changelog (Dziennik zmian - ikona dokumentu z zegarem)
 Prezentuje interaktywny i uporządkowany rejestr historycznych oraz bieżących aktualizacji, poprawek błędów i nowych funkcji aplikacji, dzięki czemu użytkownik ma zawsze pod ręką pełną wiedzę o zmianach w programie.

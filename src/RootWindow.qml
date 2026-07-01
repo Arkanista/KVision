@@ -372,7 +372,34 @@ ApplicationWindow {
             if (viewportSettings.noUnmuteWhenFullScreen !== diskNoUnmuteWhenFullScreen) {
                 viewportSettings.noUnmuteWhenFullScreen = diskNoUnmuteWhenFullScreen;
             }
-            var diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", "{\"analyzeduration\":0,\"probesize\":500000}");
+            var hasMigrated = Context.readSetting("ViewportsLayoutsCollection", "migratedLowLatencyFlags", false);
+            var diskDefaultAVFormatOptions;
+            
+            if (!hasMigrated) {
+                diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", "{\"analyzeduration\":0,\"probesize\":500000}");
+                try {
+                    var opts = JSON.parse(diskDefaultAVFormatOptions);
+                    var needsMigration = false;
+                    if (opts["fflags"] === undefined) {
+                        opts["fflags"] = "nobuffer";
+                        needsMigration = true;
+                    }
+                    if (opts["flags"] === undefined) {
+                        opts["flags"] = "low_delay";
+                        needsMigration = true;
+                    }
+                    if (needsMigration) {
+                        diskDefaultAVFormatOptions = JSON.stringify(opts);
+                    }
+                } catch(err) {
+                    console.warn("Failed to migrate AV format options");
+                }
+                Context.writeSetting("ViewportsLayoutsCollection", "migratedLowLatencyFlags", true);
+            } else {
+                var defaultStr = "{\"analyzeduration\":0,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\"}";
+                diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", defaultStr);
+            }
+
             if (layoutsCollectionSettings.defaultAVFormatOptions !== diskDefaultAVFormatOptions) {
                 layoutsCollectionSettings.defaultAVFormatOptions = diskDefaultAVFormatOptions;
             }
@@ -401,7 +428,7 @@ ApplicationWindow {
         category: "ViewportsLayoutsCollection"
 
         property string models
-        property string defaultAVFormatOptions: "{\"analyzeduration\":0,\"probesize\":500000}"
+        property string defaultAVFormatOptions: "{\"analyzeduration\":0,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\"}"
 
         function toJSValue(key) {
             var obj = {};

@@ -88,7 +88,7 @@ This section describes the meaning of all graphical icons and buttons used in th
 ### Installing on Arch Linux (Pacman)
 To install the program from the prepared binary package, go to the `packaging/arch/` directory and run:
 ```bash
-sudo pacman -U kvision-2.4.0-1-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.4.1-1-x86_64.pkg.tar.zst
 ```
 The package will automatically install the program, the `.desktop` activation file, and the required Hikvision SDK libraries to the system path `/usr/lib/kvision`.
 
@@ -309,7 +309,7 @@ Displays advanced parameters of the currently selected grid tile. Allows you to:
   > [!TIP]
   > For the fastest stream connection and maximum stability over RTSP, the recommended parameters are:
   > ```ini
-  > -analyzeduration 0 -probesize 500000 -rtsp_transport tcp
+  > -analyzeduration 0 -probesize 500000 -fflags nobuffer -flags low_delay -rtsp_transport tcp
   > ```
 
 ### 2. Layout & Grid Tools (Sliders Icon)
@@ -333,6 +333,13 @@ Allows adjusting global application settings:
 * **Hide Cursor in Full Screen**: The checkbox *„Hide cursor in full screen mode”* automatically hides the mouse cursor after a brief inactivity period during fullscreen viewing to ensure an unobstructed view.
 * **Language selection**: Instantly switches interface translation (System default, Polish, English).
 * **UI Preferences**: Hide/show viewport status labels or control badges (such as auto-hiding the control overlays in the bottom right corner of tiles unless hovering).
+* **Default FFmpeg Options & Bulk Update**: Allows configuring global FFmpeg options applied to new viewports (defaults to `-analyzeduration 0 -probesize 500000 -fflags nobuffer -flags low_delay`).
+  * **Update all cameras button**: The button *„Zaktualizuj wszystkie kamery”* applies these global options to all configured viewports.
+  * **Low-latency flags (`nobuffer`, `low_delay`)**:
+    * `-fflags nobuffer` disables internal demuxer packet buffering to eliminate streaming lag over time, but might cause stuttering if your network connection to the camera is unstable.
+    * `-flags low_delay` tells the decoder to output frames immediately, but can cause brief artifacts/smearing in streams that use B-frames under rapid movements.
+  * **Override checkbox**: You can exclude specific viewports from global updates or dynamic defaults by checking **"Nie uwzględniaj zmian w globalnych ustawieniach FFMpeg"** in the individual Viewport Settings dialog. Useful for troubleshooting stuttering cameras.
+
 
 ### 6. Changelog (Clock/Document Icon)
 Presents an interactive timeline showing the complete release history, updates, bug fixes, and feature additions of KVision, ensuring you have direct access to program updates details.

@@ -179,6 +179,19 @@ Dialog {
                             border.color: channelAVFormatOptions.activeFocus ? "#ff7a00" : "#2a3540"
                         }
                     }
+
+                    CheckBox {
+                        id: channelIgnoreGlobalAVFormatOptions
+                        text: qsTr("Nie uwzględniaj zmian w globalnych ustawieniach FFMpeg")
+                        checked: false
+                        contentItem: Text {
+                            text: channelIgnoreGlobalAVFormatOptions.text
+                            font.pixelSize: 12
+                            color: "#8898a6"
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: channelIgnoreGlobalAVFormatOptions.indicator.width + channelIgnoreGlobalAVFormatOptions.spacing
+                        }
+                    }
                 }
             }
         }
@@ -266,15 +279,18 @@ Dialog {
                     options = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
                 }
                 channelAVFormatOptions.text = Utils.stringifyOptions(options);
+                channelIgnoreGlobalAVFormatOptions.checked = item.ignoreGlobalAVFormatOptions;
             } else {
                 primaryUrlField.text = "";
                 secondaryUrlField.text = "";
                 channelAVFormatOptions.text = "";
+                channelIgnoreGlobalAVFormatOptions.checked = false;
             }
         } else {
             primaryUrlField.text = "";
             secondaryUrlField.text = "";
             channelAVFormatOptions.text = "";
+            channelIgnoreGlobalAVFormatOptions.checked = false;
         }
     }
 
@@ -299,6 +315,7 @@ Dialog {
                     identical = false;
                 }
                 item.avFormatOptions = identical ? {} : options;
+                item.ignoreGlobalAVFormatOptions = channelIgnoreGlobalAVFormatOptions.checked;
             }
         }
     }

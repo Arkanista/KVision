@@ -72,6 +72,11 @@ FocusScope {
                 return vItem ? vItem.avFormatOptions : ({});
             });
 
+            player.ignoreGlobalAVFormatOptions = Qt.binding(function() {
+                var vItem = root.model.get(index);
+                return vItem ? vItem.ignoreGlobalAVFormatOptions : false;
+            });
+
             player.source = Qt.binding(function() {
                 var vItem = root.model.get(index);
                 if (!vItem) return "";

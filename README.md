@@ -175,11 +175,11 @@ git clone --recurse-submodules https://github.com/arkanista/kvision.git
 
 If you are running Arch Linux or CachyOS, you can skip compilation and install the pre-compiled Pacman package directly from the latest release:
 
-* **[Download kvision-2.4.0-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/kvision/releases/download/v2.4.0/kvision-2.4.0-1-x86_64.pkg.tar.zst)**
+* **[Download kvision-2.4.1-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/kvision/releases/download/v2.4.1/kvision-2.4.1-1-x86_64.pkg.tar.zst)**
 
 To install the downloaded package:
 ```bash
-sudo pacman -U kvision-2.4.0-1-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.4.1-1-x86_64.pkg.tar.zst
 ```
 
 ### Building from Source (Arch Linux / CachyOS)
@@ -308,12 +308,24 @@ If you prefer text-based configuration or are not using the default menu editor:
 
 ## 💡 Recommended FFmpeg Options
 
-For the lowest latency, fastest stream connection, and maximum stability over RTSP, it is highly recommended to use the following flags in the **FFmpeg Options Override** settings box:
-
+By default, starting from version 2.4.1, KVision automatically configures the following options for all viewports:
 ```ini
--analyzeduration 0 -probesize 500000 -rtsp_transport tcp
+-analyzeduration 0 -probesize 500000 -fflags nobuffer -flags low_delay
 ```
+These parameters provide the lowest latency, fastest stream connection, and maximum stability over RTSP, preventing the camera streams from falling behind (drift) over long operational periods.
 
+### What are the effects of these low-latency flags?
+1. **`-fflags nobuffer`**: Instructs FFmpeg to process and output packets immediately without waiting to analyze and buffer the stream.
+   - *Advantage*: Prevents video streams from accumulating delay over time.
+   - *Side effect*: Disabling the packet buffer makes the stream more sensitive to network stutters. If the connection is unstable, you may experience minor frame stutters.
+2. **`-flags low_delay`**: Prevents the decoder from waiting for out-of-order frames, forcing it to decode and present frames as soon as they arrive.
+   - *Advantage*: Reduces decoding latency by a few frames.
+   - *Side effect*: If your camera is configured to produce B-frames (highly compressed bidirectional frames), you might experience brief visual smearing or artifacts during rapid movement.
+
+### How to manage or disable these options:
+- **Global configuration**: You can edit the global default FFmpeg command-line options in the **Settings** tab (Gear icon).
+- **Bulk Update**: You can apply your modified global settings to all active viewports by clicking the **"Zaktualizuj wszystkie kamery"** (Update all cameras) button in the sidebar.
+- **Viewport override**: If you have a specific camera on a bad network connection that suffers from stuttering, you can exclude it from global settings. Open the individual **Viewport Settings** dialog, check the **"Nie uwzględniaj zmian w globalnych ustawieniach FFMpeg"** checkbox, and edit its options independently (e.g. remove `-fflags nobuffer`).
 
 ---
 

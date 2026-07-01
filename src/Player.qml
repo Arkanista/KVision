@@ -54,6 +54,7 @@ FocusScope {
     }
 
     property var avOptions: ({})
+    property bool ignoreGlobalAVFormatOptions: false
     property int index: -1
     property bool isFullScreen: false
     property var layoutModel: null
@@ -709,7 +710,9 @@ FocusScope {
 
             avOptions: {
                 var avOptions = root.avOptions;
-                Object.assignDefault(avOptions, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                if (!root.ignoreGlobalAVFormatOptions) {
+                    Object.assignDefault(avOptions, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                }
                 if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
                     avOptions["an"] = true;
                 }
@@ -741,7 +744,9 @@ FocusScope {
 
             avOptions: {
                 var avOptions = root.avOptions;
-                Object.assignDefault(avOptions, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                if (!root.ignoreGlobalAVFormatOptions) {
+                    Object.assignDefault(avOptions, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                }
                 if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
                     avOptions["an"] = true;
                 }

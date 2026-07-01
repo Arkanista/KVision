@@ -73,6 +73,16 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.4.1",
+            date: "01.07.2026",
+            changes: [
+                qsTr("Dodano niskopoziomowe opcje FFmpeg (nobuffer, low_delay) usuwające opóźnienia w strumieniach na żywo (drift) przy wielogodzinnym działaniu."),
+                qsTr("Wprowadzono przycisk masowej aktualizacji parametrów FFmpeg dla wszystkich istniejących kamer we wszystkich układach."),
+                qsTr("Dodano opcję wykluczenia wybranej kamery z aktualizacji globalnych parametrów FFmpeg (nowy checkbox w ustawieniach viewportu)."),
+                qsTr("Zabezpieczono proces migracji ustawień domyślnych, umożliwiając użytkownikowi trwałe usunięcie lub zmodyfikowanie nowych flag bez ich ponownego wymuszania przy każdym starcie.")
+            ]
+        },
+        {
             version: "v2.4.0",
             date: "30.06.2026",
             changes: [
@@ -2649,6 +2659,24 @@ FocusScope {
                                         }
                                         onEditingFinished: {
                                             layoutsCollectionSettings.defaultAVFormatOptions = JSON.stringify(Utils.parseOptions(text));
+                                        }
+                                    }
+
+                                    CctvButton {
+                                        Layout.fillWidth: true
+                                        isCeladon: true
+                                        text: qsTr("Zaktualizuj wszystkie kamery")
+                                        onClicked: {
+                                            var opts = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
+                                            for (var i = 0; i < layoutsCollectionModel.count; ++i) {
+                                                var layoutModel = layoutsCollectionModel.get(i);
+                                                for (var j = 0; j < layoutModel.count; ++j) {
+                                                    var item = layoutModel.get(j);
+                                                    if (!item.ignoreGlobalAVFormatOptions) {
+                                                        item.avFormatOptions = opts;
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
