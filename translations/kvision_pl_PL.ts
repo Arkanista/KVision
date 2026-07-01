@@ -151,6 +151,10 @@
         <source>Zasymuluj błędy na każdym rejestratorze (Simulate NVR errors).</source>
         <translation>Zasymuluj błędy na każdym rejestratorze (Simulate NVR errors).</translation>
     </message>
+    <message>
+        <source>Zasymuluj dostępność nowej wersji na GitHubie w celach testowych (Mock new version availability on GitHub).</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>DownloadDialog</name>
@@ -2308,7 +2312,11 @@
     </message>
     <message>
         <source>Dostępna jest nowa wersja: %1</source>
-        <translation>Dostępna jest nowa wersja: %1</translation>
+        <translation type="vanished">Dostępna jest nowa wersja: %1</translation>
+    </message>
+    <message>
+        <source>Dostępna wersja: %1</source>
+        <translation>Dostępna wersja: %1</translation>
     </message>
 </context>
 <context>

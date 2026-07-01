@@ -888,6 +888,37 @@ FocusScope {
                     Layout.fillHeight: true
                 }
 
+                RowLayout {
+                    Layout.fillWidth: true
+                    visible: rootSideBar.hasNewVersion
+                    spacing: 8
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.bottomMargin: 4
+
+                    Rectangle {
+                        id: pulsingDot
+                        width: 8
+                        height: 8
+                        radius: 4
+                        color: "#2ecc71" // Green
+                        Layout.alignment: Qt.AlignVCenter
+
+                        SequentialAnimation on opacity {
+                            loops: Animation.Infinite
+                            PropertyAnimation { to: 0.2; duration: 800; easing.type: Easing.InOutQuad }
+                            PropertyAnimation { to: 1.0; duration: 800; easing.type: Easing.InOutQuad }
+                        }
+                    }
+
+                    Text {
+                        text: qsTr("Dostępna wersja: %1").arg(rootSideBar.newVersionString)
+                        color: "#2ecc71"
+                        font.pixelSize: 11
+                        font.bold: true
+                        Layout.alignment: Qt.AlignVCenter
+                    }
+                }
+
                 // Footer version link
                 Text {
                     text: "<a href=\"https://github.com/arkanista/kvision\" style=\"color: #8898a6; text-decoration: none;\">GitHub Project</a>"
@@ -2731,35 +2762,6 @@ FocusScope {
                                         }
                                     }
                                 }
-                            }
-                        }
-
-                        RowLayout {
-                            Layout.fillWidth: true
-                            Layout.margins: 10
-                            visible: rootSideBar.hasNewVersion
-                            spacing: 8
-
-                            Rectangle {
-                                id: pulsingDot
-                                width: 10
-                                height: 10
-                                radius: 5
-                                color: "#2ecc71" // Green
-
-                                SequentialAnimation on opacity {
-                                    loops: Animation.Infinite
-                                    PropertyAnimation { to: 0.2; duration: 800; easing.type: Easing.InOutQuad }
-                                    PropertyAnimation { to: 1.0; duration: 800; easing.type: Easing.InOutQuad }
-                                }
-                            }
-
-                            Text {
-                                text: qsTr("Dostępna jest nowa wersja: %1").arg(rootSideBar.newVersionString)
-                                color: "#2ecc71"
-                                font.pixelSize: 12
-                                font.bold: true
-                                Layout.fillWidth: true
                             }
                         }
                     }
