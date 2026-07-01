@@ -896,20 +896,20 @@ FocusScope {
                     Layout.bottomMargin: 4
 
                     Item {
-                        implicitWidth: 32
-                        implicitHeight: 32
+                        implicitWidth: 80
+                        implicitHeight: 80
                         Layout.alignment: Qt.AlignHCenter
 
                         // Glow Ring
                         Rectangle {
                             id: glowRing
                             anchors.centerIn: parent
-                            width: 14
-                            height: 14
-                            radius: 7
+                            width: 32
+                            height: 32
+                            radius: 16
                             color: "transparent"
                             border.color: "#2ecc71"
-                            border.width: 1.5
+                            border.width: 2.0
 
                             NumberAnimation on scale {
                                 from: 1.0
@@ -931,9 +931,9 @@ FocusScope {
                         Rectangle {
                             id: pulsingDot
                             anchors.centerIn: parent
-                            width: 14
-                            height: 14
-                            radius: 7
+                            width: 32
+                            height: 32
+                            radius: 16
                             color: "#2ecc71" // Green
 
                             SequentialAnimation on opacity {
