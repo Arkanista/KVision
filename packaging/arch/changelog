@@ -1,3 +1,7 @@
+2.4.1-2
+  * PL: Naprawiono wyciek pamięci w mini-odtwarzaczu (podgląd wstecz w kafelku kamery) poprzez dynamiczne ładowanie za pomocą Loader-a. Oczyszczono plik README z polskich wtrąceń i poprawiono parser wersji Regex.
+    EN: Fixed memory leak in quick playback (mini viewport player) by wrapping it in a dynamic QML Loader. Cleaned README of Polish translations and fixed SemVer parser regex.
+
 2.4.1-1
   * PL: Dodano niskopoziomowe opcje FFmpeg (nobuffer, low_delay) zapobiegające opóźnieniom strumieni oraz masowe aktualizacje i wykluczanie kamer (checkbox).
     EN: Added low-level FFmpeg parameters (nobuffer, low_delay) to prevent stream drift, bulk option updates, and individual camera exceptions (checkbox).
