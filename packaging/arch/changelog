@@ -1,3 +1,7 @@
+2.4.3-1
+  * PL: Wyeliminowano problem zamarzania obrazu innych kamer na siatce live podczas przewijania osi czasu (szukania nagrań w kafelku). Wszystkie blokujące wywołania sieciowe SDK Hikvision (logowanie, stop, start, zmiana prędkości) zostały przeniesione do asynchronicznego wątku roboczego.
+    EN: Resolved the freeze issue of other live grid viewports when seeking or dragging the timeline. All blocking Hikvision SDK network calls (login, logout, stop, play, speed changes) are now executed asynchronously on a background worker thread.
+
 2.4.2-1
   * PL: Całkowicie wyeliminowano problem czarnego ekranu przy przełączaniu jakości (SUB/MAIN) dla kamer RTSP/FFmpeg. Wprowadzono nową, natywną właściwość detekcji zdekodowanych klatek (framePresented) w klasie odtwarzacza C++. Przełączenie aktywnego odtwarzacza następuje teraz dopiero wtedy, gdy nowo załadowany strumień faktycznie dostarczy i wyświetli pierwszą klatkę wideo, co gwarantuje w 100% bezszwowe przejście bez pustego obrazu.
     EN: Completely resolved the black screen issue during quality transitions (SUB/MAIN) for RTSP/FFmpeg streams. Introduced a new native framePresented detection property in the C++ player class. The active player swap is now deferred until the newly loaded stream actually presents its first decoded frame on screen, guaranteeing a 100% seamless transition with zero blank frames.

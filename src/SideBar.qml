@@ -133,6 +133,14 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.4.3",
+            date: "01.07.2026",
+            changes: [
+                qsTr("Wyeliminowano problem chwilowego zamrażania obrazu pozostałych kamer na siatce live podczas przewijania osi czasu (szukania nagrań w kafelku)."),
+                qsTr("Przeniesiono wszystkie blokujące wywołania sieciowe SDK Hikvision (logowanie, stop, start, zmiana prędkości) do asynchronicznego wątku roboczego.")
+            ]
+        },
+        {
             version: "v2.4.2",
             date: "01.07.2026",
             changes: [
