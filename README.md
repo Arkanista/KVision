@@ -303,10 +303,14 @@ env QT_FONT_DPI=96 QT_SCALE_FACTOR=1.5 kvision
 
 ## 💡 Recommended FFmpeg Options
 
-By default, starting from version 2.4.1, KVision automatically configures the following options for all viewports:
-```ini
--analyzeduration 0 -probesize 500000 -fflags nobuffer -flags low_delay -rtsp_transport tcp
+For Hikvision and general low-latency camera streaming over RTSP, we recommend configuring new streams with the following FFmpeg Override settings in the app:
+
+```text
+-analyzeduration 100000 -probesize 500000 -fflags nobuffer -flags low_delay -rtsp_transport tcp
 ```
+
+> **[RECOMMENDATION]** If you are migrating from an older version (prior to v2.4.5), it is highly recommended to change `-analyzeduration 0` to `-analyzeduration 100000`. Setting `0` on streams without an audio track causes delays in switching because FFmpeg will block for a hardcoded 5-second timeout waiting for audio packets. Setting a very low value (e.g., 100000 microseconds = 0.1s) completely resolves this issue while maintaining instant switching.
+
 These parameters provide the lowest latency, fastest stream connection, and maximum stability over RTSP, preventing the camera streams from falling behind (drift) over long operational periods. The `-rtsp_transport tcp` option forces TCP transport instead of UDP for maximum stream stability on standard networks.
 
 ### What are the effects of these low-latency flags?
