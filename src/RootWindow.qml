@@ -376,7 +376,7 @@ ApplicationWindow {
             var diskDefaultAVFormatOptions;
             
             if (!hasMigrated) {
-                diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", "{\"analyzeduration\":0,\"probesize\":500000}");
+                diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", "{\"analyzeduration\":100000,\"probesize\":500000}");
                 try {
                     var opts = JSON.parse(diskDefaultAVFormatOptions);
                     var needsMigration = false;
@@ -396,8 +396,23 @@ ApplicationWindow {
                 }
                 Context.writeSetting("ViewportsLayoutsCollection", "migratedLowLatencyFlags", true);
             } else {
-                var defaultStr = "{\"analyzeduration\":0,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\"}";
+                var defaultStr = "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\"}";
                 diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", defaultStr);
+            }
+            
+            var hasMigratedAnalyzeduration = Context.readSetting("ViewportsLayoutsCollection", "migratedAnalyzeduration100ms", false);
+            if (!hasMigratedAnalyzeduration) {
+                try {
+                    var opts2 = JSON.parse(diskDefaultAVFormatOptions);
+                    if (opts2["analyzeduration"] === 0) {
+                        opts2["analyzeduration"] = 100000;
+                        diskDefaultAVFormatOptions = JSON.stringify(opts2);
+                        Context.writeSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", diskDefaultAVFormatOptions);
+                    }
+                } catch(err) {
+                    console.warn("Failed to migrate analyzeduration");
+                }
+                Context.writeSetting("ViewportsLayoutsCollection", "migratedAnalyzeduration100ms", true);
             }
 
             if (layoutsCollectionSettings.defaultAVFormatOptions !== diskDefaultAVFormatOptions) {
@@ -428,7 +443,7 @@ ApplicationWindow {
         category: "ViewportsLayoutsCollection"
 
         property string models
-        property string defaultAVFormatOptions: "{\"analyzeduration\":0,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\"}"
+        property string defaultAVFormatOptions: "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\"}"
 
         function toJSValue(key) {
             var obj = {};
