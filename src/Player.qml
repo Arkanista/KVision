@@ -818,7 +818,7 @@ FocusScope {
             border.color: themeColor
             border.width: 1
             radius: 8
-            visible: !root.isQuickPlayback && (!root.isHikvision || hikPlayerSettings.useRealStreams) && activeStatus !== MediaPlayer.Buffered
+            visible: root.activeStreamUrl !== "" && !root.isQuickPlayback && (!root.isHikvision || hikPlayerSettings.useRealStreams) && activeStatus !== MediaPlayer.Buffered
             z: 3
 
             Row {
