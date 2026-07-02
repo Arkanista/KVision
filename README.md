@@ -17,7 +17,7 @@
 
 ## About KVision
 
-**KVision** is a high-performance desktop application designed for simultaneous viewing of live video feeds (RTSP/ONVIF) and deep integration with Hikvision NVR/DVR video recorders (both Live view and synchronized Playback archives).
+**KVision** is a high-performance VMS (Video Management System) class desktop application designed for simultaneous viewing of live video feeds (RTSP/ONVIF) and deep integration with Hikvision NVR/DVR video recorders (both Live view and synchronized Playback archives).
 
 It is designed for Linux users who need a robust, lightweight, and smooth alternative to bloated proprietary software.
 

@@ -1,6 +1,6 @@
 # Instrukcja Obsługi programu KVision
 
-**KVision** to zaawansowana aplikacja przeznaczona do jednoczesnego podglądu strumieni wideo na żywo (RTSP/ONVIF) oraz integracji z rejestratorami NVR/DVR firmy Hikvision (zarówno w trybie Live, jak i odtwarzania archiwum Playback). 
+**KVision** to zaawansowana aplikacja klasy VMS (Video Management System) przeznaczona do jednoczesnego podglądu strumieni wideo na żywo (RTSP/ONVIF) oraz integracji z rejestratorami NVR/DVR firmy Hikvision (zarówno w trybie Live, jak i odtwarzania archiwum Playback).
 
 Program został zoptymalizowany pod kątem stabilności, płynności działania (60 FPS) oraz minimalnego obciążenia zasobów systemo## Spis Treści
 1. [Opis Działania Przycisków](#1-opis-działania-przycisków)

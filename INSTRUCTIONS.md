@@ -1,6 +1,6 @@
 # User Manual for KVision
 
-**KVision** is an advanced application designed for simultaneous viewing of live video streams (RTSP/ONVIF) and integration with Hikvision NVR/DVR recorders (both in Live mode and Playback archive mode).
+**KVision** is an advanced VMS (Video Management System) class desktop application designed for simultaneous viewing of live video streams (RTSP/ONVIF) and integration with Hikvision NVR/DVR recorders (both in Live mode and Playback archive mode).
 
 The program has been optimized for stability, smooth operation (60 FPS), and minimal system resource consumption.
 
