@@ -995,7 +995,7 @@
     </message>
     <message>
         <source>End of media</source>
-        <translation>End of media</translation>
+        <translation type="vanished">End of media</translation>
     </message>
     <message>
         <source>Buffering %1%</source>
@@ -1007,7 +1007,7 @@
     </message>
     <message>
         <source>Error!</source>
-        <translation>Error!</translation>
+        <translation type="vanished">Error!</translation>
     </message>
     <message>
         <source>Archiwum nagrań</source>
@@ -1072,6 +1072,10 @@
     <message>
         <source>Przywracam widok live...</source>
         <translation>Restoring live view...</translation>
+    </message>
+    <message>
+        <source>Brak danych do wyświetlenia</source>
+        <translation>No data to display</translation>
     </message>
 </context>
 <context>
@@ -2357,6 +2361,10 @@
     <message>
         <source>Odtwarzaj</source>
         <translation>Playback</translation>
+    </message>
+    <message>
+        <source>Przeładuj</source>
+        <translation>Reload</translation>
     </message>
 </context>
 </TS>

@@ -137,6 +137,27 @@ FocusScope {
         }
     }
 
+    Timer {
+        id: autoReconnectTimer
+        interval: 5000
+        repeat: true
+        onTriggered: {
+            if (activeStreamUrl !== "" && !root.isQuickPlayback) {
+                var activePlayer = activePlayerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
+                if (activePlayer.status === MediaPlayer.LoadingMedia || activePlayer.status === MediaPlayer.LoadedMedia) {
+                    console.log("[Player] Stream is still loading/loaded, skipping reconnect.");
+                    return;
+                }
+                console.log("[Player] Auto-reconnecting stream: " + activeCameraId);
+                activePlayer.source = "";
+                activePlayer.source = activeStreamUrl;
+                activePlayer.play();
+            } else {
+                stop();
+            }
+        }
+    }
+
     function getDateKey(d) {
         if (!d) return "";
         return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
@@ -416,18 +437,29 @@ FocusScope {
     }
 
     function handlePlayerStatus(playerIndex, status) {
-        if (status === MediaPlayer.InvalidMedia) {
-            root.mediaError(String(playerIndex === 1 ? qmlAvPlayer1.source : qmlAvPlayer2.source));
-        }
-        
-        if (status === MediaPlayer.Buffered) {
-            if (root.isHikvision && typeof HikvisionManager !== "undefined") {
+        if (status === MediaPlayer.InvalidMedia || status === MediaPlayer.EndOfMedia) {
+            if (playerIndex === activePlayerIndex && activeStreamUrl !== "" && !root.isQuickPlayback) {
+                if (!autoReconnectTimer.running) {
+                    console.log("[Player] Stream lost connection. Starting auto-reconnect timer.");
+                    autoReconnectTimer.start();
+                }
+            }
+        } else if (status === MediaPlayer.LoadedMedia || status === MediaPlayer.Buffered || status === MediaPlayer.PlayingState) {
+            if (playerIndex === activePlayerIndex) {
+                autoReconnectTimer.stop();
+            }
+
+            if ((status === MediaPlayer.LoadedMedia || status === MediaPlayer.Buffered) && root.isHikvision && typeof HikvisionManager !== "undefined") {
                 var isSub = playerIndex === 1 ? qmlAvPlayer1.isSubStreamOfPlayer : qmlAvPlayer2.isSubStreamOfPlayer;
                 if (!isSub) {
-                    console.log("[Player] Stream Buffered. Forcing I-Frame on camera: " + root.channelId);
+                    console.log("[Player] Stream " + (status === MediaPlayer.LoadedMedia ? "Loaded" : "Buffered") + ". Forcing I-Frame on camera: " + root.channelId);
                     HikvisionManager.forceIFrame(root.recorderIp, root.recorderPort || 8000, root.username, root.password, root.channelId);
                 }
             }
+        }
+
+        if (status === MediaPlayer.InvalidMedia) {
+            root.mediaError(String(playerIndex === 1 ? qmlAvPlayer1.source : qmlAvPlayer2.source));
         }
 
         if (playerIndex === activePlayerIndex) {
@@ -475,10 +507,8 @@ FocusScope {
             root.isRestoringLiveView = false;
             break;
         case MediaPlayer.EndOfMedia:
-            message.text = qsTr("End of media");
-            break;
         case MediaPlayer.InvalidMedia:
-            message.text = qsTr("Error!");
+            message.text = qsTr("Brak danych do wyświetlenia");
             break;
         default:
             message.text = "";
@@ -765,12 +795,50 @@ FocusScope {
             }
         }
 
-        Text {
-            id: message
+        Rectangle {
+            id: freezeOverlay
+            anchors.fill: parent
+            color: "#99000000"
+            visible: messageContainer.visible
+            z: 2
+        }
 
-            color: "white"
-            visible: !root.isHikvision && (activePlayerIndex === 1 ? qmlAvPlayer1.status : qmlAvPlayer2.status) !== MediaPlayer.Buffered
+        Rectangle {
+            id: messageContainer
+            
+            property int activeStatus: activePlayerIndex === 1 ? qmlAvPlayer1.status : qmlAvPlayer2.status
+            property bool isError: activeStatus === MediaPlayer.InvalidMedia || activeStatus === MediaPlayer.EndOfMedia || activeStatus === MediaPlayer.NoMedia
+            property string themeColor: isError ? "#e74c3c" : "#00f5d4"
+            property string themeIcon: isError ? "\u26A0" : "\u21BB"
+            
             anchors.centerIn: parent
+            width: messageRow.width + 30
+            height: messageRow.height + 20
+            color: "#cc000000"
+            border.color: themeColor
+            border.width: 1
+            radius: 8
+            visible: !root.isQuickPlayback && (!root.isHikvision || hikPlayerSettings.useRealStreams) && activeStatus !== MediaPlayer.Buffered
+            z: 3
+
+            Row {
+                id: messageRow
+                anchors.centerIn: parent
+                spacing: 8
+                Text {
+                    text: messageContainer.themeIcon
+                    color: messageContainer.themeColor
+                    font.pixelSize: 18
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Text {
+                    id: message
+                    color: messageContainer.themeColor
+                    font.bold: true
+                    font.pixelSize: 14
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
         }
 
         Rectangle {
@@ -780,10 +848,33 @@ FocusScope {
             color: "black"
             visible: root.isRestoringLiveView && !root.isQuickPlayback
 
-            Text {
+            Rectangle {
                 anchors.centerIn: parent
-                text: qsTr("Przywracam widok live...")
-                color: "white"
+                width: restoringRow.width + 30
+                height: restoringRow.height + 20
+                color: "#cc000000"
+                border.color: "#00f5d4"
+                border.width: 1
+                radius: 8
+
+                Row {
+                    id: restoringRow
+                    anchors.centerIn: parent
+                    spacing: 8
+                    Text {
+                        text: "\u21BB" // Refresh/Loading icon
+                        color: "#00f5d4"
+                        font.pixelSize: 18
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text {
+                        text: qsTr("Przywracam widok live...")
+                        color: "#00f5d4"
+                        font.bold: true
+                        font.pixelSize: 14
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
             }
         }
 
@@ -1877,6 +1968,16 @@ FocusScope {
     function play() {
         if (activePlayerIndex === 1) qmlAvPlayer1.play();
         else qmlAvPlayer2.play();
+    }
+
+    function reload() {
+        if (activeStreamUrl !== "" && !root.isQuickPlayback) {
+            console.log("[Player] Manual reload triggered for: " + activeCameraId);
+            var activePlayer = activePlayerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
+            activePlayer.source = "";
+            activePlayer.source = activeStreamUrl;
+            activePlayer.play();
+        }
     }
 //    function pause() { mediaPlayer.pause(); }
 //    function seek(position) { mediaPlayer.seek(position); }

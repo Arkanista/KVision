@@ -27,7 +27,16 @@ public:
         callback = [](void *opaque) -> int {
             assert(opaque);
             auto cb = static_cast<QmlAVInterruptCallback *>(opaque);
-            return cb->isAVInterruptRequested() || (cb->m_expireTime > 0 && av_gettime_relative() > cb->m_expireTime);
+            int64_t now = av_gettime_relative();
+            bool timeout = cb->m_expireTime > 0 && now > cb->m_expireTime;
+            bool req = cb->isAVInterruptRequested();
+            static std::atomic<int64_t> last_print{0};
+            if (now - last_print.load() > 1000000) {
+                last_print.store(now);
+                printf("[QmlAVInterruptCallback] now: %ld, expire: %ld, req: %d, timeout: %d\n", now, cb->m_expireTime, req, timeout);
+                fflush(stdout);
+            }
+            return req || timeout;
         };
     }
 

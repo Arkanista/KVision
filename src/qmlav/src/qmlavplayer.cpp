@@ -66,15 +66,20 @@ void QmlAVPlayer::play()
 void QmlAVPlayer::stop()
 {
     setStatus(QMediaPlayer::NoMedia);
-    if (m_playbackState == QMediaPlayer::StoppedState) {
-        return;
+    
+    bool wasStopped = (m_playbackState == QMediaPlayer::StoppedState);
+    if (!wasStopped) {
+        qDebug() << "[QmlAVPlayer]" << this << "stop() called from state:" << m_playbackState << "source:" << m_source.toDisplayString();
     }
-    qDebug() << "[QmlAVPlayer]" << this << "stop() called from state:" << m_playbackState << "source:" << m_source.toDisplayString();
 
     if (m_demuxer) {
         disconnect(m_demuxer, nullptr, this, nullptr);
         delete m_demuxer;
         m_demuxer = nullptr;
+    }
+    
+    if (wasStopped) {
+        return;
     }
 
     if (m_videoSurface) {

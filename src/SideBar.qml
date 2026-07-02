@@ -133,6 +133,14 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.4.6",
+            date: "02.07.2026",
+            changes: [
+                qsTr("Naprawiono krytyczny błąd, przez który utrata połączenia sieciowego i wygaśnięcie limitu czasu (timeout) w strumieniu RTSP blokowało odtwarzacz w stanie Zombie i uniemożliwiało ponowne połączenie. Przycisk Przeładuj i auto-wznawianie działają teraz w pełni niezawodnie."),
+                qsTr("Odświeżono wygląd komunikatów Odtwarzacza i Archiwum. Komunikaty ładowania i wznawiania są teraz wyświetlane na przyjemny, cyjanowy kolor z odpowiednimi ikonkami, by lepiej odróżnić je od krytycznych błędów (Brak nagrania/sieci).")
+            ]
+        },
+        {
             version: "v2.4.5",
             date: "02.07.2026",
             changes: [

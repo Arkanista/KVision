@@ -116,7 +116,7 @@ const AVCodec *QmlAVOptions::avCodec(const AVCodecParameters *avCodecPar) const
 
 uint32_t QmlAVOptions::demuxerTimeout() const
 {
-    uint32_t t = 30000000; // 30 sec. by default
+    uint32_t t = 10000000; // 10 sec. by default
 
     find("demuxer_timeout", [&](uint32_t value) {
         t = value;

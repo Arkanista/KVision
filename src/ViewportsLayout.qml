@@ -1084,6 +1084,41 @@ FocusScope {
                         }
 
                         MenuItem {
+                            id: reloadMenuItem
+                            text: qsTr("Przeładuj")
+                            enabled: model.url !== "" && !playerPool.activePlayersMap[model.index].isQuickPlayback
+                            leftPadding: 12
+                            
+                            contentItem: Text {
+                                text: reloadMenuItem.text
+                                font { pixelSize: 11; bold: true }
+                                color: reloadMenuItem.enabled ? (reloadMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                horizontalAlignment: Text.AlignLeft
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            background: Rectangle {
+                                implicitWidth: 150
+                                implicitHeight: 32
+                                color: reloadMenuItem.hovered ? "#2a3540" : "transparent"
+                                border.color: reloadMenuItem.hovered ? "#00f5d4" : "transparent"
+                                border.width: 1
+                                radius: 4
+                            }
+                            
+                            onHoveredChanged: {
+                                if (hovered) {
+                                    streamSubMenu.close();
+                                }
+                            }
+                            
+                            onTriggered: {
+                                var player = playerPool.activePlayersMap[model.index];
+                                if (player) {
+                                    player.reload();
+                                }
+                            }
+                        }
+                        MenuItem {
                             id: snapshotMenuItem
                             text: qsTr("Stopklatka")
                             enabled: model.url !== ""
@@ -1118,6 +1153,7 @@ FocusScope {
                                 }
                             }
                         }
+
 
                         MenuItem {
                             id: playMenuItem

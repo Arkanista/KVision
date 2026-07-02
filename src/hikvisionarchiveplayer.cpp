@@ -1293,27 +1293,54 @@ void HikvisionArchivePlayer::paint(QPainter *painter)
     std::lock_guard<std::mutex> lock(m_imageMutex);
     painter->fillRect(boundingRect(), Qt::black);
     if (!m_currentImage.isNull()) {
-        QRectF targetRect = boundingRect();
-        qreal imgRatio = (qreal)m_currentImage.width() / m_currentImage.height();
-        qreal rectRatio = targetRect.width() / targetRect.height();
-        
-        if (imgRatio > rectRatio) {
-            qreal newHeight = targetRect.width() / imgRatio;
-            qreal yOffset = (targetRect.height() - newHeight) / 2.0;
-            targetRect = QRectF(targetRect.x(), targetRect.y() + yOffset, targetRect.width(), newHeight);
-        } else {
-            qreal newWidth = targetRect.height() * imgRatio;
-            qreal xOffset = (targetRect.width() - newWidth) / 2.0;
-            targetRect = QRectF(targetRect.x() + xOffset, targetRect.y(), newWidth, targetRect.height());
-        }
-        painter->drawImage(targetRect, m_currentImage);
+        painter->drawImage(boundingRect(), m_currentImage);
     } else {
-        painter->setPen(Qt::white);
         QString msg = m_playerStatusMessage;
         if (msg.isEmpty()) {
             msg = "Ładowanie archiwum Hikvision...";
         }
-        painter->drawText(boundingRect(), Qt::AlignCenter, msg);
+
+        bool isError = msg.contains("Brak", Qt::CaseInsensitive);
+        QColor themeColor = isError ? QColor("#e74c3c") : QColor("#00f5d4");
+        QString themeIcon = isError ? "\u26A0" : "\u21BB";
+
+        painter->setRenderHint(QPainter::Antialiasing);
+
+        QFont font = painter->font();
+        font.setBold(true);
+        font.setPixelSize(14);
+        
+        QFont iconFont = font;
+        iconFont.setBold(false);
+        iconFont.setPixelSize(18);
+
+        QFontMetrics fm(font);
+        QFontMetrics fmIcon(iconFont);
+        
+        int iconWidth = fmIcon.horizontalAdvance(themeIcon);
+        int textWidth = fm.horizontalAdvance(msg);
+        int spacing = 8;
+        
+        int rowWidth = iconWidth + spacing + textWidth;
+        int boxWidth = rowWidth + 30;
+        int boxHeight = qMax(fm.height(), fmIcon.height()) + 20;
+        
+        QRectF rect = boundingRect();
+        QRectF boxRect(rect.center().x() - boxWidth / 2.0, rect.center().y() - boxHeight / 2.0, boxWidth, boxHeight);
+        
+        painter->setBrush(QColor(0, 0, 0, 204)); // #cc000000
+        painter->setPen(QPen(themeColor, 1));
+        painter->drawRoundedRect(boxRect, 8, 8);
+        
+        painter->setPen(themeColor);
+        
+        QRectF iconRect(boxRect.x() + 15, boxRect.y(), iconWidth, boxHeight);
+        painter->setFont(iconFont);
+        painter->drawText(iconRect, Qt::AlignVCenter | Qt::AlignLeft, themeIcon);
+        
+        QRectF textRect(iconRect.right() + spacing, boxRect.y(), textWidth, boxHeight);
+        painter->setFont(font);
+        painter->drawText(textRect, Qt::AlignVCenter | Qt::AlignLeft, msg);
     }
 }
 

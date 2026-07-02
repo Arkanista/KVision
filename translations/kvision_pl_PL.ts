@@ -1015,11 +1015,11 @@
     </message>
     <message>
         <source>End of media</source>
-        <translation>Koniec multimediów</translation>
+        <translation type="vanished">Koniec multimediów</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation>Błąd!</translation>
+        <translation type="vanished">Błąd!</translation>
     </message>
     <message>
         <source>Buffering %1%</source>
@@ -1092,6 +1092,10 @@
     <message>
         <source>Przywracam widok live...</source>
         <translation>Przywracam widok live...</translation>
+    </message>
+    <message>
+        <source>Brak danych do wyświetlenia</source>
+        <translation>Brak danych do wyświetlenia</translation>
     </message>
 </context>
 <context>
@@ -2568,6 +2572,10 @@
     <message>
         <source>Odtwarzaj</source>
         <translation>Odtwarzaj</translation>
+    </message>
+    <message>
+        <source>Przeładuj</source>
+        <translation>Przeładuj</translation>
     </message>
 </context>
 </TS>

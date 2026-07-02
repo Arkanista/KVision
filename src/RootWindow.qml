@@ -396,7 +396,7 @@ ApplicationWindow {
                 }
                 Context.writeSetting("ViewportsLayoutsCollection", "migratedLowLatencyFlags", true);
             } else {
-                var defaultStr = "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\"}";
+                var defaultStr = "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\",\"stimeout\":5000000}";
                 diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", defaultStr);
             }
             
@@ -413,6 +413,27 @@ ApplicationWindow {
                     console.warn("Failed to migrate analyzeduration");
                 }
                 Context.writeSetting("ViewportsLayoutsCollection", "migratedAnalyzeduration100ms", true);
+            }
+
+            var hasMigratedSTimeout = Context.readSetting("ViewportsLayoutsCollection", "migratedTimeout5s_v2", false);
+            if (!hasMigratedSTimeout) {
+                try {
+                    var opts3 = JSON.parse(diskDefaultAVFormatOptions);
+                    if (opts3["stimeout"] === undefined) {
+                        opts3["stimeout"] = 5000000;
+                    }
+                    if (opts3["timeout"] === undefined) {
+                        opts3["timeout"] = 5000000;
+                    }
+                    if (opts3["rw_timeout"] === undefined) {
+                        opts3["rw_timeout"] = 5000000;
+                    }
+                    diskDefaultAVFormatOptions = JSON.stringify(opts3);
+                    Context.writeSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", diskDefaultAVFormatOptions);
+                } catch(err) {
+                    console.warn("Failed to migrate stimeout");
+                }
+                Context.writeSetting("ViewportsLayoutsCollection", "migratedTimeout5s_v2", true);
             }
 
             if (layoutsCollectionSettings.defaultAVFormatOptions !== diskDefaultAVFormatOptions) {
@@ -443,7 +464,7 @@ ApplicationWindow {
         category: "ViewportsLayoutsCollection"
 
         property string models
-        property string defaultAVFormatOptions: "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\"}"
+        property string defaultAVFormatOptions: "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\",\"stimeout\":5000000}"
 
         function toJSValue(key) {
             var obj = {};

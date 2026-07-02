@@ -154,7 +154,7 @@ To build and run the application, the following packages are required:
   - `qt5-quickcontrols2` (Qt5 Quick Controls 2)
   - `qt5-graphicaleffects` (Qt5 Graphical Effects)
   - `qt5-svg` (Qt5 SVG icon rendering)
-  - `ffmpeg` (for media demuxing and decoding)
+  - `ffmpeg` (>= 5.0 recommended for advanced RTSP network timeout features)
   - `qt5-wayland` *(optional, for native Wayland support)*
   - *Note: Hikvision SDK shared libraries are pre-bundled under `src/hikvision_sdk/lib/` and automatically set up via the build configuration or Pacman package.*
 
@@ -176,11 +176,11 @@ git clone --recurse-submodules https://github.com/arkanista/kvision.git
 
 If you are running Arch Linux or CachyOS, you can skip compilation and install the pre-compiled Pacman package directly from the latest release:
 
-* **[Download kvision-2.4.5-3-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.4.5/kvision-2.4.5-3-x86_64.pkg.tar.zst)**
+* **[Download kvision-2.4.6-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.4.5/kvision-2.4.6-1-x86_64.pkg.tar.zst)**
 
 To install the downloaded package:
 ```bash
-sudo pacman -U kvision-2.4.5-3-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.4.6-1-x86_64.pkg.tar.zst
 ```
 
 ### Building from Source (Arch Linux / CachyOS)
@@ -250,6 +250,7 @@ If you are not using Arch Linux or Ubuntu, you can build the application manuall
    ```bash
    sudo pacman -S base-devel cmake qt5-declarative qt5-multimedia qt5-quickcontrols qt5-quickcontrols2 qt5-svg qt5-graphicaleffects qt5-tools ffmpeg git qt5-wayland
    ```
+   *(Note: `qt5-wayland` or `qtwayland5` is highly recommended for native Wayland support).*
 2. **Configure the build directory:**
    ```bash
    cd kvision
