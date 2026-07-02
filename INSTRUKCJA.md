@@ -120,9 +120,16 @@ Począwszy od wersji 2.4.4, KVision automatycznie wykrywa i poprawnie stosuje u�
 
 #### Natywne wsparcie dla Wayland
 
-Aby zapewnić najlepszą jakość skalowania i wydajność pod Waylandem, upewnij się, że masz w systemie zainstalowany opcjonalny pakiet `qt5-wayland`. Pozwala to KVision działać natywnie pod Waylandem zamiast przechodzić w tryb zgodności XWayland:
+Aby zapewnić najlepszą jakość skalowania i wydajność pod Waylandem, upewnij się, że masz w systemie zainstalowany opcjonalny pakiet `qt5-wayland`. Pozwala to KVision działać natywnie pod Waylandem zamiast przechodzić w tryb zgodności XWayland.
+
+Dla Arch Linux / Manjaro / CachyOS:
 ```bash
 sudo pacman -S qt5-wayland
+```
+
+Dla Debian / Ubuntu / Linux Mint:
+```bash
+sudo apt install qtwayland5
 ```
 
 #### Ręczne wymuszanie skalowania (Tryb wstecznej kompatybilności)

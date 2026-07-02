@@ -124,9 +124,16 @@ Starting from version 2.4.4, KVision automatically detects and correctly applies
 
 #### Native Wayland Support
 
-To ensure the best scaling experience and performance under Wayland, make sure you have the optional `qt5-wayland` package installed on your system. This allows KVision to run natively on Wayland instead of falling back to XWayland:
+To ensure the best scaling experience and performance under Wayland, make sure you have the optional `qt5-wayland` package installed on your system. This allows KVision to run natively on Wayland instead of falling back to XWayland.
+
+For Arch Linux / Manjaro / CachyOS:
 ```bash
 sudo pacman -S qt5-wayland
+```
+
+For Debian / Ubuntu / Linux Mint:
+```bash
+sudo apt install qtwayland5
 ```
 
 #### Manual Scaling Override (Legacy/Fallback)
