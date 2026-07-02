@@ -118,7 +118,6 @@ ApplicationWindow {
         property: "width"
         value: rootWindow.width
         when: !Context.config.fullScreen
-        restoreMode: Binding.RestoreBindingOrValue
     }
 
     Binding {
@@ -126,7 +125,6 @@ ApplicationWindow {
         property: "height"
         value: rootWindow.height
         when: !Context.config.fullScreen
-        restoreMode: Binding.RestoreBindingOrValue
     }
 
     property alias hikvisionRecordersJson: hikvisionSettings.recordersJson
