@@ -215,7 +215,8 @@ Here is the step-by-step installation guide:
      qml-module-qtgraphicaleffects qml-module-qtquick-controls2 \
      qml-module-qtquick-layouts qml-module-qtmultimedia \
      qml-module-qt-labs-platform qml-module-qt-labs-settings \
-     qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs
+     qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qtwayland5 # optional for native Wayland support
    ```
 
 2. **Clone the repository with submodules:**
