@@ -2366,6 +2366,14 @@
         <source>Odfiltrowano fałszywe powiadomienia o błędach SDK PlayM4 (nr 17 i 2) pojawiające się przy gwałtownym przewijaniu osi czasu w odtwarzaczu.</source>
         <translation>Odfiltrowano fałszywe powiadomienia o błędach SDK PlayM4 (nr 17 i 2) pojawiające się przy gwałtownym przewijaniu osi czasu w odtwarzaczu.</translation>
     </message>
+    <message>
+        <source>Naprawiono krytyczny błąd, przez który utrata połączenia sieciowego i wygaśnięcie limitu czasu (timeout) w strumieniu RTSP blokowało odtwarzacz w stanie Zombie i uniemożliwiało ponowne połączenie. Przycisk Przeładuj i auto-wznawianie działają teraz w pełni niezawodnie.</source>
+        <translation>Naprawiono krytyczny błąd, przez który utrata połączenia sieciowego i wygaśnięcie limitu czasu (timeout) w strumieniu RTSP blokowało odtwarzacz w stanie Zombie i uniemożliwiało ponowne połączenie. Przycisk Przeładuj i auto-wznawianie działają teraz w pełni niezawodnie.</translation>
+    </message>
+    <message>
+        <source>Odświeżono wygląd komunikatów Odtwarzacza i Archiwum. Komunikaty ładowania i wznawiania są teraz wyświetlane na przyjemny, cyjanowy kolor z odpowiednimi ikonkami, by lepiej odróżnić je od krytycznych błędów (Brak nagrania/sieci).</source>
+        <translation>Odświeżono wygląd komunikatów Odtwarzacza i Archiwum. Komunikaty ładowania i wznawiania są teraz wyświetlane na przyjemny, cyjanowy kolor z odpowiednimi ikonkami, by lepiej odróżnić je od krytycznych błędów (Brak nagrania/sieci).</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>
