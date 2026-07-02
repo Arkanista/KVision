@@ -2155,6 +2155,26 @@
         <source>Naprawiono ucinanie nieliniowego skalowania (np. 145%) przez framework Qt5 pod systemami KDE Plasma, wymuszając poprawną interpretację polityki High DPI.</source>
         <translation>Fixed truncation of non-linear scaling (e.g. 145%) by the Qt5 framework on KDE Plasma systems, enforcing proper interpretation of High DPI policy.</translation>
     </message>
+    <message>
+        <source>Zintegrowano sprzętową komendę MakeKeyFrame z SDK Hikvision. Aplikacja agresywnie wymusza teraz wysłanie klatki I-Frame przez kamerę przy przełączaniu strumienia Sub/Main i z Live do Archiwum, eliminując 10-sekundowe oczekiwanie na klatkę kluczową.</source>
+        <translation>Integrated MakeKeyFrame hardware command with Hikvision SDK. The app now aggressively forces the camera to emit an I-Frame when switching Sub/Main streams and from Live to Archive, eliminating the 10-second keyframe wait.</translation>
+    </message>
+    <message>
+        <source>Zniesiono nadpisywanie w locie parametru analyzeduration. Aplikacja ściśle przestrzega zdefiniowanych przez użytkownika wartości FFmpeg (zaleca się ustawienie 100000 dla kamer bez audio w celu obejścia 5-sekundowego limitu).</source>
+        <translation>Removed on-the-fly overriding of the analyzeduration parameter. The app strictly enforces user-defined FFmpeg values (it is highly recommended to set it to 100000 for audio-less cameras to bypass the 5-second stall limit).</translation>
+    </message>
+    <message>
+        <source>Dodano plakietki "HikSDK" na podglądach z rejestratorów dla lepszego rozróżnienia protokołów.</source>
+        <translation>Added "HikSDK" badges on NVR viewports for better protocol differentiation.</translation>
+    </message>
+    <message>
+        <source>Usprawniono dziennik diagnostyczny (QDebug), pozwalając na wypisywanie w konsoli ostrzeżeń (warning, critical) również poza trybem verbose, co ułatwia debugowanie usterek NVR.</source>
+        <translation>Streamlined diagnostic logging (QDebug), allowing warnings and critical errors to be printed to the console outside of verbose mode, facilitating easier NVR fault debugging.</translation>
+    </message>
+    <message>
+        <source>Odfiltrowano fałszywe powiadomienia o błędach SDK PlayM4 (nr 17 i 2) pojawiające się przy gwałtownym przewijaniu osi czasu w odtwarzaczu.</source>
+        <translation>Filtered out false positive PlayM4 SDK errors (no. 17 and 2) that spam the console during rapid timeline scrubbing in the player.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>

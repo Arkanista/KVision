@@ -133,6 +133,17 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.4.5",
+            date: "02.07.2026",
+            changes: [
+                qsTr("Zintegrowano sprzętową komendę MakeKeyFrame z SDK Hikvision. Aplikacja agresywnie wymusza teraz wysłanie klatki I-Frame przez kamerę przy przełączaniu strumienia Sub/Main i z Live do Archiwum, eliminując 10-sekundowe oczekiwanie na klatkę kluczową."),
+                qsTr("Zniesiono nadpisywanie w locie parametru analyzeduration. Aplikacja ściśle przestrzega zdefiniowanych przez użytkownika wartości FFmpeg (zaleca się ustawienie 100000 dla kamer bez audio w celu obejścia 5-sekundowego limitu)."),
+                qsTr("Dodano plakietki \"HikSDK\" na podglądach z rejestratorów dla lepszego rozróżnienia protokołów."),
+                qsTr("Usprawniono dziennik diagnostyczny (QDebug), pozwalając na wypisywanie w konsoli ostrzeżeń (warning, critical) również poza trybem verbose, co ułatwia debugowanie usterek NVR."),
+                qsTr("Odfiltrowano fałszywe powiadomienia o błędach SDK PlayM4 (nr 17 i 2) pojawiające się przy gwałtownym przewijaniu osi czasu w odtwarzaczu.")
+            ]
+        },
+        {
             version: "v2.4.4",
             date: "02.07.2026",
             changes: [

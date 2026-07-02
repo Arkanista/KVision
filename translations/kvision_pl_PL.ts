@@ -2342,6 +2342,26 @@
         <source>Naprawiono ucinanie nieliniowego skalowania (np. 145%) przez framework Qt5 pod systemami KDE Plasma, wymuszając poprawną interpretację polityki High DPI.</source>
         <translation>Naprawiono ucinanie nieliniowego skalowania (np. 145%) przez framework Qt5 pod systemami KDE Plasma, wymuszając poprawną interpretację polityki High DPI.</translation>
     </message>
+    <message>
+        <source>Zintegrowano sprzętową komendę MakeKeyFrame z SDK Hikvision. Aplikacja agresywnie wymusza teraz wysłanie klatki I-Frame przez kamerę przy przełączaniu strumienia Sub/Main i z Live do Archiwum, eliminując 10-sekundowe oczekiwanie na klatkę kluczową.</source>
+        <translation>Zintegrowano sprzętową komendę MakeKeyFrame z SDK Hikvision. Aplikacja agresywnie wymusza teraz wysłanie klatki I-Frame przez kamerę przy przełączaniu strumienia Sub/Main i z Live do Archiwum, eliminując 10-sekundowe oczekiwanie na klatkę kluczową.</translation>
+    </message>
+    <message>
+        <source>Zniesiono nadpisywanie w locie parametru analyzeduration. Aplikacja ściśle przestrzega zdefiniowanych przez użytkownika wartości FFmpeg (zaleca się ustawienie 100000 dla kamer bez audio w celu obejścia 5-sekundowego limitu).</source>
+        <translation>Zniesiono nadpisywanie w locie parametru analyzeduration. Aplikacja ściśle przestrzega zdefiniowanych przez użytkownika wartości FFmpeg (zaleca się ustawienie 100000 dla kamer bez audio w celu obejścia 5-sekundowego limitu).</translation>
+    </message>
+    <message>
+        <source>Dodano plakietki "HikSDK" na podglądach z rejestratorów dla lepszego rozróżnienia protokołów.</source>
+        <translation>Dodano plakietki "HikSDK" na podglądach z rejestratorów dla lepszego rozróżnienia protokołów.</translation>
+    </message>
+    <message>
+        <source>Usprawniono dziennik diagnostyczny (QDebug), pozwalając na wypisywanie w konsoli ostrzeżeń (warning, critical) również poza trybem verbose, co ułatwia debugowanie usterek NVR.</source>
+        <translation>Usprawniono dziennik diagnostyczny (QDebug), pozwalając na wypisywanie w konsoli ostrzeżeń (warning, critical) również poza trybem verbose, co ułatwia debugowanie usterek NVR.</translation>
+    </message>
+    <message>
+        <source>Odfiltrowano fałszywe powiadomienia o błędach SDK PlayM4 (nr 17 i 2) pojawiające się przy gwałtownym przewijaniu osi czasu w odtwarzaczu.</source>
+        <translation>Odfiltrowano fałszywe powiadomienia o błędach SDK PlayM4 (nr 17 i 2) pojawiające się przy gwałtownym przewijaniu osi czasu w odtwarzaczu.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>
