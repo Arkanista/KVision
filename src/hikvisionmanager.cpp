@@ -396,6 +396,45 @@ LONG HikvisionManager::getSession(const QString &ip, int port, const QString &us
     return lUserID;
 }
 
+bool HikvisionManager::forceIFrame(const QString &ip, int port, const QString &username, const QString &password, int channelId)
+{
+    LONG lUserID = getSession(ip, port, username, password);
+    if (lUserID < 0) {
+        qWarning() << "[Hikvision] forceIFrame failed to get session for IP:" << ip;
+        return false;
+    }
+
+    NET_DVR_DEVICEINFO_V40 deviceInfo;
+    int targetChannel = channelId;
+    if (getDeviceInfo(ip, deviceInfo)) {
+        int startDChan = deviceInfo.struDeviceV30.byStartDChan;
+        int chanNum = deviceInfo.struDeviceV30.byChanNum;
+        int startChan = deviceInfo.struDeviceV30.byStartChan;
+        if (startDChan > 0 && channelId < startDChan) {
+            if (channelId <= chanNum) {
+                targetChannel = startChan + channelId - 1;
+            } else {
+                targetChannel = startDChan + (channelId - chanNum) - 1;
+            }
+            qDebug() << "[Hikvision] Translated logical channel" << channelId << "to SDK channel ID" << targetChannel << "for MakeKeyFrame";
+        }
+    }
+
+    // Wywołanie API Hikvision wymuszające I-Frame (Main stream)
+    BOOL ret = NET_DVR_MakeKeyFrame(lUserID, static_cast<LONG>(targetChannel));
+    if (!ret) {
+        DWORD err = NET_DVR_GetLastError();
+        qWarning() << "[Hikvision] NET_DVR_MakeKeyFrame failed for IP:" << ip << "Channel:" << targetChannel << "Error:" << err;
+        
+        // Czasami urządzenia wspierają tylko MakeKeyFrameSub dla sub-streamu, 
+        // ale w KVision problem dotyczy głównie Main streamu.
+        return false;
+    }
+    
+    qDebug() << "[Hikvision] NET_DVR_MakeKeyFrame succeeded for IP:" << ip << "Channel:" << targetChannel;
+    return true;
+}
+
 bool HikvisionManager::ptzZoom(const QString &ip, int port, const QString &username, const QString &password, int channelId, int command, bool stop)
 {
     {

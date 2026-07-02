@@ -42,7 +42,7 @@ void customMessageHandler(QtMsgType type, const QMessageLogContext &context, con
 {
     Q_UNUSED(context);
     if (!Context::enableLogs()) {
-        if (type == QtDebugMsg || type == QtInfoMsg || type == QtWarningMsg) {
+        if (type == QtDebugMsg || type == QtInfoMsg) {
             return;
         }
     }

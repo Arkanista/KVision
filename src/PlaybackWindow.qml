@@ -2653,7 +2653,7 @@ Window {
                                         }
                                         
                                         Text {
-                                            text: (playerItem ? playerItem.fps : 0) + " FPS"
+                                            text: (playerItem ? playerItem.fps : 0) + " FPS | HikSDK"
                                             color: "#eeeeee"
                                             font {
                                                 pixelSize: 8

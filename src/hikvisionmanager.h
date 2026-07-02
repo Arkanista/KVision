@@ -37,6 +37,9 @@ public:
     // PTZ zoom control
     Q_INVOKABLE bool ptzZoom(const QString &ip, int port, const QString &username, const QString &password, int channelId, int command, bool stop);
 
+    // Force I-Frame for seamless switching
+    Q_INVOKABLE bool forceIFrame(const QString &ip, int port, const QString &username, const QString &password, int channelId);
+
     // Shared session management for playback players
     struct SharedSession {
         LONG lUserID = -1;

@@ -118,6 +118,7 @@ ApplicationWindow {
         property: "width"
         value: rootWindow.width
         when: !Context.config.fullScreen
+        restoreMode: Binding.RestoreBindingOrValue
     }
 
     Binding {
@@ -125,6 +126,7 @@ ApplicationWindow {
         property: "height"
         value: rootWindow.height
         when: !Context.config.fullScreen
+        restoreMode: Binding.RestoreBindingOrValue
     }
 
     property alias hikvisionRecordersJson: hikvisionSettings.recordersJson
@@ -404,7 +406,7 @@ ApplicationWindow {
             if (!hasMigratedAnalyzeduration) {
                 try {
                     var opts2 = JSON.parse(diskDefaultAVFormatOptions);
-                    if (opts2["analyzeduration"] === 0) {
+                    if (opts2["analyzeduration"] == 0) {
                         opts2["analyzeduration"] = 100000;
                         diskDefaultAVFormatOptions = JSON.stringify(opts2);
                         Context.writeSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", diskDefaultAVFormatOptions);
@@ -1792,7 +1794,7 @@ ApplicationWindow {
                     sourceSize.height: 24
                     fillMode: Image.PreserveAspectFit
                     source: {
-                        var colorStr = dragArea.pressed ? "%23ffffff" : (dragArea.hovered ? "%2300ffd8" : "%2300ff66");
+                        var colorStr = dragArea.pressed ? "%23ffffff" : (dragArea.containsMouse ? "%2300ffd8" : "%2300ff66");
                         return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='9' cy='5' r='1.5'></circle><circle cx='9' cy='12' r='1.5'></circle><circle cx='9' cy='19' r='1.5'></circle><circle cx='15' cy='5' r='1.5'></circle><circle cx='15' cy='12' r='1.5'></circle><circle cx='15' cy='19' r='1.5'></circle></svg>";
                     }
 
@@ -1817,7 +1819,7 @@ ApplicationWindow {
 
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
-                    ToolTip.visible: dragArea.hovered
+                    ToolTip.visible: dragArea.containsMouse
                     ToolTip.text: qsTr("Przeciągnij panel statystyk")
                 }
             }

@@ -419,6 +419,16 @@ FocusScope {
         if (status === MediaPlayer.InvalidMedia) {
             root.mediaError(String(playerIndex === 1 ? qmlAvPlayer1.source : qmlAvPlayer2.source));
         }
+        
+        if (status === MediaPlayer.Buffered) {
+            if (root.isHikvision && typeof HikvisionManager !== "undefined") {
+                var isSub = playerIndex === 1 ? qmlAvPlayer1.isSubStreamOfPlayer : qmlAvPlayer2.isSubStreamOfPlayer;
+                if (!isSub) {
+                    console.log("[Player] Stream Buffered. Forcing I-Frame on camera: " + root.channelId);
+                    HikvisionManager.forceIFrame(root.recorderIp, root.recorderPort || 8000, root.username, root.password, root.channelId);
+                }
+            }
+        }
 
         if (playerIndex === activePlayerIndex) {
             return;
@@ -922,7 +932,16 @@ FocusScope {
                 spacing: 4
                 
                 Text {
-                    text: root.isQuickPlayback ? "MAIN" : (root.activeIsSubStream ? "SUB" : "MAIN")
+                    text: {
+                        var quality = root.isQuickPlayback ? "MAIN" : (root.activeIsSubStream ? "SUB" : "MAIN");
+                        var protocol = "RTSP";
+                        if (root.isHikvision && typeof hikPlayerSettings !== "undefined" && !hikPlayerSettings.useRealStreams) {
+                            protocol = "HikSDK";
+                        } else if (!root.isHikvision && root.source.toString().indexOf("http") === 0) {
+                            protocol = "HTTP";
+                        }
+                        return quality + " | " + protocol;
+                    }
                     color: root.activeIsSubStream && !root.isQuickPlayback ? "#ff7a00" : "#00f5d4"
                     font {
                         pixelSize: 8

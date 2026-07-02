@@ -717,11 +717,17 @@ void HikvisionArchivePlayer::setPlaybackSpeed(int speedMultiplier)
             }
         } else {
             if (!NET_DVR_PlayBackControl_V40(handle, NET_DVR_PLAY_FORWARD, nullptr, 0, nullptr, nullptr)) {
-                qWarning() << "[HikArchive] NET_DVR_PLAY_FORWARD failed:" << NET_DVR_GetLastError();
+                DWORD err = NET_DVR_GetLastError();
+                if (err != 17) {
+                    qWarning() << "[HikArchive] NET_DVR_PLAY_FORWARD failed:" << err;
+                }
             }
             if (port != -1) {
                 if (!PlayM4_Play(port, 0)) {
-                    qWarning() << "[HikArchive] PlayM4_Play forward failed:" << PlayM4_GetLastError(port);
+                    DWORD err = PlayM4_GetLastError(port);
+                    if (err != 2) {
+                        qWarning() << "[HikArchive] PlayM4_Play forward failed:" << err;
+                    }
                 }
             }
         }

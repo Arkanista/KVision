@@ -327,7 +327,8 @@ Allows adjusting global application settings:
 * **Hide Cursor in Full Screen**: The checkbox *„Hide cursor in full screen mode”* automatically hides the mouse cursor after a brief inactivity period during fullscreen viewing to ensure an unobstructed view.
 * **Language selection**: Instantly switches interface translation (System default, Polish, English).
 * **UI Preferences**: Hide/show viewport status labels or control badges (such as auto-hiding the control overlays in the bottom right corner of tiles unless hovering).
-* **Default FFmpeg Options & Bulk Update**: Allows configuring global FFmpeg options applied to new viewports (defaults to `-analyzeduration 0 -probesize 500000 -fflags nobuffer -flags low_delay`).
+* **Default FFmpeg Options & Bulk Update**: Allows configuring global FFmpeg options applied to new viewports (recommended: `-analyzeduration 100000 -probesize 500000 -fflags nobuffer -flags low_delay`).
+  * > **[RECOMMENDATION]** If you are migrating from an older version of KVision (prior to v2.4.5), it is highly recommended to change `-analyzeduration 0` to `-analyzeduration 100000` in the global settings and click "Update all cameras". Setting `0` on streams without an audio track causes delays in switching because FFmpeg will block for a hardcoded 5-second timeout waiting for audio packets. Setting a very low value (e.g., 100000 microseconds = 0.1s) completely resolves this issue while maintaining instant switching.
   * **Update all cameras button**: The button *„Zaktualizuj wszystkie kamery”* applies these global options to all configured viewports.
   * **Low-latency flags (`nobuffer`, `low_delay`)**:
     * `-fflags nobuffer` disables internal demuxer packet buffering to eliminate streaming lag over time, but might cause stuttering if your network connection to the camera is unstable.
