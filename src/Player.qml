@@ -789,7 +789,7 @@ FocusScope {
                     Object.assignDefault(avOptions, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
                 }
                 if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
-                    avOptions["an"] = true;
+                    avOptions["allowed_media_types"] = "video";
                 }
                 return avOptions;
             }
@@ -830,7 +830,7 @@ FocusScope {
                     Object.assignDefault(avOptions, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
                 }
                 if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
-                    avOptions["an"] = true;
+                    avOptions["allowed_media_types"] = "video";
                 }
                 return avOptions;
             }
