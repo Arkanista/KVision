@@ -248,7 +248,7 @@ If you are not using Arch Linux or Ubuntu, you can build the application manuall
 1. **Install Dependencies:** Ensure you have installed all required runtime and build dependencies listed above using your distribution's package manager.
    For Arch/CachyOS:
    ```bash
-   sudo pacman -S base-devel cmake qt5-declarative qt5-multimedia qt5-quickcontrols qt5-quickcontrols2 qt5-svg qt5-graphicaleffects qt5-tools ffmpeg git
+   sudo pacman -S base-devel cmake qt5-declarative qt5-multimedia qt5-quickcontrols qt5-quickcontrols2 qt5-svg qt5-graphicaleffects qt5-tools ffmpeg git qt5-wayland
    ```
 2. **Configure the build directory:**
    ```bash
