@@ -155,6 +155,7 @@ To build and run the application, the following packages are required:
   - `qt5-graphicaleffects` (Qt5 Graphical Effects)
   - `qt5-svg` (Qt5 SVG icon rendering)
   - `ffmpeg` (for media demuxing and decoding)
+  - `qt5-wayland` *(optional, for native Wayland support)*
   - *Note: Hikvision SDK shared libraries are pre-bundled under `src/hikvision_sdk/lib/` and automatically set up via the build configuration or Pacman package.*
 
 * **Build Dependencies:**
