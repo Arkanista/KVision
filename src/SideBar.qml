@@ -2251,7 +2251,7 @@ FocusScope {
                                     model: [
                                         { text: qsTr("LNG_00251"), value: "system" },
                                         { text: "English", value: "en" },
-                                        { text: "Español", value: "es" },
+                                        { text: "Español (AI)", value: "es" },
                                         { text: "Polski", value: "pl" }
                                     ]
                                     textRole: "text"
