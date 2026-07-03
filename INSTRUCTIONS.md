@@ -44,6 +44,7 @@ This section describes the meaning of all graphical icons and buttons used in th
 ### Viewport Overlays (Cameras)
 * {ICON:snapshot} **Snapshot**: Captures a lossless full-resolution image and saves it as a JPEG file.
 * {ICON:play} **Camera Archive**: Launches the timeline playback window for this camera (15 minutes backward).
+* {ICON:quick_play} **Quick Playback (Miniplayer)**: Initiates an in-viewport archive playback of the last 30 minutes, allowing you to quickly review recent footage directly in the camera tile without leaving Live view.
 * {ICON:grid_1x1} **Try 1:1**: Displays the video stream in its original, native resolution without stretching.
 * {ICON:zoom_in} **Interactive Zoom**: Toggles click-and-drag magnification for a selected marquee region.
 * {ICON:zoom_out} **Reset Zoom**: Resets the digital magnification and restores the full camera field of view.
@@ -188,11 +189,19 @@ The main window of the program displays the live feed:
 * **Multi-Monitor & Auxiliary Windows**: You can open independent additional (auxiliary) windows to run different grid layouts simultaneously on multiple screens or monitors. To open a new window, use the `Ctrl+N` keyboard shortcut, or click the **"New Window"** button on the hover-slide top toolbar. Each window can be configured with its own grid size and selected preset layout. To ensure maximum stability on multi-monitor configurations, all windows strictly launch centered on the primary display at 90% of its resolution.
 
 ### Viewport Overlay Buttons
-In the bottom-right corner of each camera tile/viewport, a control panel with four functional icons is displayed when hovering the mouse cursor over it (depending on UI preferences):
+In the bottom-right corner of each camera tile/viewport, a control panel with five functional icons is displayed when hovering the mouse cursor over it (depending on UI preferences):
 1. **Camera Icon (Snapshot)**: Allows you to take a screenshot from the camera feed. The snapshot is saved in the full, native resolution of the stream directly from the decoder frame buffer, avoiding any losses due to the current size of the viewport tile or screen resolution scaling. Successful snapshot saving is confirmed by the camera icon flashing orange (`#ff7a00`) for exactly 1 second.
 2. **Play Icon (Archive)**: Used to quickly open the recordings archive. Clicking this button automatically launches the timeline `PlaybackWindow` for this specific camera, starting the playback **exactly 15 minutes before the current system time** (a convenient quick backward offset).
-3. **1:1 Icon (Native Scale)**: Toggles pixel-to-pixel video display mode. When enabled, the video is not stretched or distorted to fill the tile boundaries, but is instead centered and shown in its original native resolution. When this mode is active, the button background and "1:1" text are highlighted in bright neon light-turquoise.
-4. **Magnifying Glass Icon (Interactive Zoom)**: Allows you to magnify any specific region of the video feed:
+3. **Circular Arrow Icon (Quick Playback / Miniplayer)**: Activates a quick in-viewport playback of camera archive recordings from the last 30 minutes directly inside the camera tile without leaving the live grid or launching the full archive window.
+   * **Control Panel**: When active, a sliding control panel appears at the bottom of the viewport containing:
+     * **Play/Pause**: Pauses or resumes the playback stream.
+     * **Time & Offset Display**: Displays the current playback timestamp and its relative age compared to real time (e.g., `-12:34` represents 12 minutes and 34 seconds ago).
+     * **Interactive Timeline Slider**: Allows clicking or dragging to seek anywhere within the 30-minute buffer. Available recording segments are highlighted with a teal background, and a red playhead marks the current position.
+     * **Speed Multiplier**: Cycles through playback speeds (`1x`, `2x`, and `4x`) to scan footage rapidly.
+     * **Close (✕)**: Closes the miniplayer and instantly returns the viewport to the live feed.
+   * **Pannable Zoom support**: Just like in Live view, you can use the magnifying glass tool to zoom in on a region of the miniplayer, or hold the middle mouse button and drag to pan around.
+4. **1:1 Icon (Native Scale)**: Toggles pixel-to-pixel video display mode. When enabled, the video is not stretched or distorted to fill the tile boundaries, but is instead centered and shown in its original native resolution. When this mode is active, the button background and "1:1" text are highlighted in bright neon light-turquoise.
+5. **Magnifying Glass Icon (Interactive Zoom)**: Allows you to magnify any specific region of the video feed:
    * **Activation**: Clicking the icon toggles it into an active state (turquoise highlight). The cursor changes shape, and a tooltip instructs: *“Click and drag on camera feed to zoom”*.
    * **Operation**: Left-click and drag a rectangular marquee region over the live feed. The viewport will automatically crop and scale the selected area to fill the entire tile.
      * **Proportional Zoom**: Hold down the **Shift** key while drawing the zoom rectangle to force the selection to lock into a 16:9 aspect ratio, strictly constrained to the viewport boundaries.

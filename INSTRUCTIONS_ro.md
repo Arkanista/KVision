@@ -44,6 +44,7 @@ Această secțiune descrie semnificația tuturor pictogramelor și butoanelor gr
 ### Suprapuneri pentru fereastra de vizualizare (Camere)
 * {ICON:snapshot} **Instantaneu**: captează o imagine cu rezoluție completă fără pierderi și o salvează ca fișier JPEG.
 * {ICON:play} **Arhiva camerei**: lansează fereastra de redare cronologică pentru această cameră (15 minute înapoi).
+* {ICON:quick_play} **Redare rapidă (miniplayer)**: inițiază o redare a arhivei în fereastra de vizualizare a ultimelor 30 de minute, permițându-vă să revizuiți rapid înregistrările recente direct în panoul camerei fără a părăsi vizualizarea live.
 * {ICON:grid_1x1} **Încercați 1:1**: afișează fluxul video în rezoluția sa originală, nativă, fără întindere.
 * {ICON:zoom_in} **Mărire interactiv**: Comută mărirea prin clic și trage pentru o regiune selectată.
 * {ICON:zoom_out} **Resetează zoom**: resetează mărirea digitală și restabilește câmpul vizual complet al camerei.
@@ -188,11 +189,19 @@ Fereastra principală a programului afișează fluxul live:
 * **Multi-monitor și ferestre auxiliare**: puteți deschide ferestre suplimentare (auxiliare) independente pentru a rula diferite machete de grilă simultan pe mai multe ecrane sau monitoare. Pentru a deschide o fereastră nouă, utilizați comanda rapidă de la tastatură `Ctrl+N` sau faceți clic pe butonul **„Fereastră nouă”** din bara de instrumente de sus. Fiecare fereastră poate fi configurată cu propria dimensiune a grilei și cu aspectul presetat selectat. Pentru a asigura stabilitate maximă pe configurațiile cu mai multe monitoare, toate ferestrele se lansează strict centrate pe afișajul principal la 90% din rezoluția acestuia.
 
 ### Butoane de suprapunere Viewport
-În colțul din dreapta jos al fiecărei casete/porturi de vizualizare a camerei, este afișat un panou de control cu patru pictograme funcționale când treceți cursorul mouse-ului peste acesta (în funcție de preferințele UI):
+În colțul din dreapta jos al fiecărei casete/port de vizualizare a camerei, este afișat un panou de control cu cinci pictograme funcționale atunci când treceți cursorul mouse-ului peste acesta (în funcție de preferințele UI):
 1. **Pictogramă cameră (instantaneu)**: vă permite să faceți o captură de ecran din fluxul camerei. Instantaneul este salvat în rezoluția completă, nativă a fluxului, direct din buffer-ul de cadru al decodorului, evitând orice pierdere din cauza dimensiunii curente a panoului de vizualizare sau a scalării rezoluției ecranului. Salvarea reușită a instantaneelor ​​este confirmată de pictograma camerei care clipește portocaliu (`#ff7a00`) timp de exact 1 secundă.
 2. **Pictogramă Redare (Arhivă)**: folosită pentru a deschide rapid arhiva de înregistrări. Făcând clic pe acest buton, se lansează automat cronologia `PlaybackWindow` pentru această cameră specifică, pornind redarea **exact cu 15 minute înainte de ora curentă de sistem** (o deplasare rapidă convenabilă înapoi).
-3. **Pictogramă 1:1 (Scală nativă)**: Comută modul de afișare video pixel la pixel. Când este activat, videoclipul nu este întins sau distorsionat pentru a umple limitele plăcilor, ci este centrat și afișat în rezoluția sa originală. Când acest mod este activ, fundalul butonului și textul „1:1” sunt evidențiate în neon-turcoaz strălucitor.
-4. **Pictogramă Lupă (Zoom interactiv)**: vă permite să măriți orice regiune specifică a fluxului video:
+3. **pictogramă săgeată circulară (redare rapidă/miniplayer)**: activează o redare rapidă în fereastra de vizualizare a înregistrărilor din arhiva camerei din ultimele 30 de minute, direct în interiorul casetei camerei, fără a părăsi grila live sau a lansa fereastra completă a arhivei.
+   * **Panou de control**: când este activ, în partea de jos a ferestrei de vizualizare apare un panou de control glisant care conține:
+     * **Redare/Pauză**: întrerupe sau reia fluxul de redare.
+     * **Afișare oră și compensare**: afișează marcajul de timp curent al redării și vârsta relativă a acestuia în comparație cu timpul real (de exemplu, `-12:34` reprezintă acum 12 minute și 34 de secunde).
+     * **Cronologie interactivă Slider**: permite clicul sau tragerea pentru a căuta oriunde în memoria tampon de 30 de minute. Segmentele de înregistrare disponibile sunt evidențiate cu un fundal verde, iar un cap de redare roșu marchează poziția curentă.
+     * **Multiplicator de viteză**: parcurge vitezele de redare (`1x`, `2x` și `4x`) pentru a scana rapid filmările.
+     * **Închidere (✕)**: închide miniplayerul și readuce instantaneu fereastra la fluxul live.
+   * **Compatibilitate cu zoom panorabil**: la fel ca în vizualizarea live, puteți folosi instrumentul lupă pentru a mări o regiune a miniplayerului sau puteți ține apăsat butonul din mijloc al mouse-ului și trageți pentru a deplasa.
+4. **Pictogramă 1:1 (Scală nativă)**: Comută modul de afișare video pixel la pixel. Când este activat, videoclipul nu este întins sau distorsionat pentru a umple limitele plăcilor, ci este centrat și afișat în rezoluția sa originală. Când acest mod este activ, fundalul butonului și textul „1:1” sunt evidențiate în neon-turcoaz strălucitor.
+5. **Pictogramă Lupă (Zoom interactiv)**: vă permite să măriți orice regiune specifică a fluxului video:
    * **Activare**: făcând clic pe pictogramă o comută într-o stare activă (evidențiere turcoaz). Cursorul își schimbă forma și un sfat explicativ indică: *„Clic și trageți pe feedul camerei pentru a mări”*.
    * **Operațiunea**: dați clic stânga și trageți o regiune de marcaj dreptunghiulară peste fluxul live. Fereastra va decupa și va scala automat zona selectată pentru a umple întreaga țiglă.
      * **Mărire proporțională**: țineți apăsată tasta **Shift** în timp ce desenați dreptunghiul de zoom pentru a forța selecția să se blocheze într-un raport de aspect de 16:9, strict limitat la limitele ferestrei de vizualizare.

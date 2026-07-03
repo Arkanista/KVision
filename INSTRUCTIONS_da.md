@@ -44,6 +44,7 @@ Dette afsnit beskriver betydningen af ​​alle grafiske ikoner og knapper, der
 ### Viewport-overlejringer (kameraer)
 * {ICON:snapshot} **Snapshot**: Tager et tabsfrit billede i fuld opløsning og gemmer det som en JPEG-fil.
 * {ICON:play} **Kameraarkiv**: Starter tidslinjeafspilningsvinduet for dette kamera (15 minutter bagud).
+* {ICON:quick_play} **Hurtig afspilning (miniafspiller)**: Starter en arkivafspilning i visningsporten af ​​de sidste 30 minutter, så du hurtigt kan gennemgå de seneste optagelser direkte i kamerafeltet uden at forlade Live view.
 * {ICON:grid_1x1} **Prøv 1:1**: Viser videostrømmen i sin originale, oprindelige opløsning uden at strække sig.
 * {ICON:zoom_in} **Interaktiv zoom**: Skifter klik-og-træk-forstørrelse til et valgt markeringsområde.
 * {ICON:zoom_out} **Nulstil zoom**: Nulstiller den digitale forstørrelse og gendanner hele kameraets synsfelt.
@@ -188,11 +189,19 @@ Programmets hovedvindue viser live-feedet:
 * **Multi-monitor og hjælpevinduer**: Du kan åbne uafhængige ekstra (hjælpe) vinduer for at køre forskellige gitterlayouts samtidigt på flere skærme eller skærme. For at åbne et nyt vindue skal du bruge tastaturgenvejen `Ctrl+N` eller klikke på knappen **"Nyt vindue"** på den øverste værktøjslinje. Hvert vindue kan konfigureres med sin egen gitterstørrelse og valgt forudindstillet layout. For at sikre maksimal stabilitet på konfigurationer med flere skærme starter alle vinduer strengt centreret om den primære skærm ved 90 % af opløsningen.
 
 ### Viewport Overlay-knapper
-I nederste højre hjørne af hver kameraflise/visningsport vises et kontrolpanel med fire funktionelle ikoner, når du holder musemarkøren over det (afhængigt af UI-præferencer):
+I nederste højre hjørne af hver kameraflise/visningsport vises et kontrolpanel med fem funktionelle ikoner, når du holder musemarkøren over det (afhængigt af UI-præferencer):
 1. **Kameraikon (snapshot)**: Giver dig mulighed for at tage et skærmbillede fra kamerafeedet. Snapshottet gemmes i streamens fulde, oprindelige opløsning direkte fra dekoderens rammebuffer, hvilket undgår tab på grund af den aktuelle størrelse af viewport-flisen eller skærmopløsningsskalering. Vellykket lagring af snapshot bekræftes ved, at kameraikonet blinker orange (`#ff7a00`) i nøjagtigt 1 sekund.
 2. **Afspilningsikon (arkiv)**: Bruges til hurtigt at åbne optagelsesarkivet. Ved at klikke på denne knap startes automatisk tidslinjen `PlaybackWindow` for dette specifikke kamera, og afspilningen starter **nøjagtigt 15 minutter før det aktuelle systemtidspunkt** (en praktisk hurtig forskydning bagud).
-3. **1:1-ikon (native skala)**: Skifter pixel-til-pixel-videovisningstilstand. Når det er aktiveret, strækkes eller forvrænges videoen ikke for at udfylde flisegrænserne, men centreres i stedet og vises i sin oprindelige oprindelige opløsning. Når denne tilstand er aktiv, er knapbaggrunden og "1:1"-teksten fremhævet i lys neonlys-turkis.
-4. **Forstørrelsesglasikon (interaktiv zoom)**: Giver dig mulighed for at forstørre en hvilken som helst specifik region af videofeedet:
+3. **Cirkulært pilikon (hurtig afspilning/miniafspiller)**: Aktiverer en hurtig afspilning i visningsporten af ​​kameraarkivoptagelser fra de sidste 30 minutter direkte inde i kamerafeltet uden at forlade livegitteret eller starte hele arkivvinduet.
+   * **Kontrolpanel**: Når det er aktivt, vises et glidende kontrolpanel i bunden af visningsporten, der indeholder:
+     * **Afspil/Pause**: Sætter pause eller genoptager afspilningsstrømmen.
+     * **Time & Offset Display**: Viser det aktuelle afspilningstidsstempel og dets relative alder sammenlignet med realtid (f.eks. repræsenterer `-12:34` 12 minutter og 34 sekunder siden).
+     * **Interaktiv tidslinjeskyder**: Giver mulighed for at klikke eller trække for at søge hvor som helst inden for 30 minutters buffer. Tilgængelige optagelsessegmenter er fremhævet med en blågrøn baggrund, og et rødt afspilningshoved markerer den aktuelle position.
+     * **Hastighedsmultiplikator**: Skifter gennem afspilningshastigheder (`1x`, `2x` og `4x`) for at scanne optagelser hurtigt.
+     * **Luk (✕)**: Lukker miniafspilleren og returnerer øjeblikkeligt visningsporten til live-feedet.
+   * **Understøttelse af panorerbar zoom**: Ligesom i Live view kan du bruge forstørrelsesglasværktøjet til at zoome ind på et område af miniafspilleren eller holde den midterste museknap nede og trække for at panorere rundt.
+4. **1:1-ikon (native skala)**: Skifter pixel-til-pixel-videovisningstilstand. Når det er aktiveret, strækkes eller forvrænges videoen ikke for at udfylde flisegrænserne, men centreres i stedet og vises i sin oprindelige oprindelige opløsning. Når denne tilstand er aktiv, er knapbaggrunden og "1:1"-teksten fremhævet i lys neonlys-turkis.
+5. **Forstørrelsesglasikon (interaktiv zoom)**: Giver dig mulighed for at forstørre en hvilken som helst specifik region af videofeedet:
    * **Aktivering**: Ved at klikke på ikonet skifter det til en aktiv tilstand (turkis højlys). Markøren ændrer form, og et værktøjstip instruerer: *"Klik og træk på kamerafeedet for at zoome"*.
    * **Betjening**: Venstre-klik, og træk et rektangulært markeringsfelt over det levende feed. Viewporten vil automatisk beskære og skalere det valgte område for at fylde hele flisen.
      * **Proportional zoom**: Hold **Shift**-tasten nede, mens du tegner zoomrektanglet for at tvinge markeringen til at låse sig i et 16:9 billedformat, strengt begrænset til visningsportens grænser.

@@ -44,6 +44,7 @@ Det här avsnittet beskriver innebörden av alla grafiska ikoner och knappar som
 ### Viewport-överlägg (kameror)
 * {ICON:snapshot} **Snapshot**: Fångar en förlustfri fullupplöst bild och sparar den som en JPEG-fil.
 * {ICON:play} **Kameraarkiv**: Startar tidslinjens uppspelningsfönster för denna kamera (15 minuter bakåt).
+* {ICON:quick_play} **Snabb uppspelning (minispelare)**: Initierar en arkivuppspelning i vyporten för de senaste 30 minuterna, så att du snabbt kan granska de senaste bilderna direkt i kamerarutan utan att lämna Live View.
 * {ICON:grid_1x1} **Försök 1:1**: Visar videoströmmen i sin ursprungliga upplösning utan att töjas ut.
 * {ICON:zoom_in} **Interaktiv zoom**: Växlar klicka-och-dra-förstoring för ett valt markeringsområde.
 * {ICON:zoom_out} **Återställ zoom**: Återställer den digitala förstoringen och återställer hela kamerans synfält.
@@ -188,11 +189,19 @@ Programmets huvudfönster visar liveflödet:
 * **Multi-monitor och extra fönster**: Du kan öppna oberoende ytterligare (extra) fönster för att köra olika rutnätslayouter samtidigt på flera skärmar eller monitorer. För att öppna ett nytt fönster, använd kortkommandot `Ctrl+N` eller klicka på knappen **"Nytt fönster"** i verktygsfältet överst. Varje fönster kan konfigureras med sin egen rutnätsstorlek och vald förinställd layout. För att säkerställa maximal stabilitet i konfigurationer med flera bildskärmar, startar alla fönster strikt centrerat på den primära skärmen med 90 % av dess upplösning.
 
 ### Viewport Overlay-knappar
-I det nedre högra hörnet av varje kamerapanel/vyport visas en kontrollpanel med fyra funktionella ikoner när du håller muspekaren över den (beroende på användargränssnittets inställningar):
+I det nedre högra hörnet av varje kamerapanel/vyport visas en kontrollpanel med fem funktionella ikoner när du håller muspekaren över den (beroende på användargränssnittets inställningar):
 1. **Kameraikon (Snapshot)**: Låter dig ta en skärmdump från kameraflödet. Ögonblicksbilden sparas i strömmens fulla, ursprungliga upplösning direkt från avkodarens rambuffert, vilket undviker förluster på grund av den aktuella storleken på visningspanelen eller skärmupplösningsskalningen. Lyckad lagring av ögonblicksbilder bekräftas av att kameraikonen blinkar orange (`#ff7a00`) i exakt 1 sekund.
 2. **Spelningsikon (arkiv)**: Används för att snabbt öppna inspelningsarkivet. Om du klickar på den här knappen startas automatiskt tidslinjen `PlaybackWindow` för den här kameran och startar uppspelningen **exakt 15 minuter före den aktuella systemtiden** (en bekväm snabb förskjutning bakåt).
-3. **1:1-ikon (native skala)**: Växlar bildskärmsläge från bildpunkt till bildpunkt. När det är aktiverat sträcks videon inte ut eller förvrängs för att fylla brickgränserna, utan centreras istället och visas i sin ursprungliga upplösning. När detta läge är aktivt är knappbakgrunden och "1:1"-texten markerade i ljust neonljus-turkos.
-4. **Ikon för förstoringsglas (interaktiv zoom)**: Låter dig förstora en specifik region i videoflödet:
+3. **Cirkulär pilikon (snabbuppspelning/minispelare)**: Aktiverar en snabb uppspelning i vyporten av kameraarkivinspelningar från de senaste 30 minuterna direkt inuti kamerapanelen utan att lämna liverutnätet eller starta hela arkivfönstret.
+   * **Kontrollpanel**: När den är aktiv visas en glidande kontrollpanel längst ned i visningsporten som innehåller:
+     * **Spela upp/pausa**: Pausar eller återupptar uppspelningsströmmen.
+     * **Time & Offset Display**: Visar aktuell uppspelningstidsstämpel och dess relativa ålder jämfört med realtid (t.ex. `-12:34` representerar 12 minuter och 34 sekunder sedan).
+     * **Interaktiv tidslinjeskjutare**: Gör det möjligt att klicka eller dra för att söka var som helst inom 30-minutersbufferten. Tillgängliga inspelningssegment är markerade med blågrön bakgrund och ett rött spelhuvud markerar den aktuella positionen.
+     * **Hastighetsmultiplikator**: Går igenom uppspelningshastigheterna (`1x`, `2x` och `4x`) för att skanna bilder snabbt.
+     * **Stäng (✕)**: Stänger minispelaren och återställer ögonblicksbilden till liveflödet.
+   * **Stöd för panorerbar zoom**: Precis som i Live View kan du använda förstoringsglasverktyget för att zooma in på en del av minispelaren, eller håll nere musknappen i mitten och dra för att panorera runt.
+4. **1:1-ikon (native skala)**: Växlar bildskärmsläge från bildpunkt till bildpunkt. När det är aktiverat sträcks videon inte ut eller förvrängs för att fylla brickgränserna, utan centreras istället och visas i sin ursprungliga upplösning. När detta läge är aktivt är knappbakgrunden och "1:1"-texten markerade i ljust neonljus-turkos.
+5. **Ikon för förstoringsglas (interaktiv zoom)**: Låter dig förstora en specifik region i videoflödet:
    * **Aktivering**: Genom att klicka på ikonen växlas den till ett aktivt läge (turkos höjdpunkt). Markören ändrar form och ett verktygstips instruerar: *"Klicka och dra på kameraflödet för att zooma"*.
    * **Användning**: Vänsterklicka och dra en rektangulär markeringsram över liveflödet. Viewporten kommer automatiskt att beskära och skala det valda området för att fylla hela brickan.
      * **Proportionell zoom**: Håll ned **Skift**-tangenten medan du ritar zoomrektangeln för att tvinga markeringen att låsa sig i ett bildförhållande på 16:9, strikt begränsat till vyportens gränser.

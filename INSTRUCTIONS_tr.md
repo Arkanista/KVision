@@ -44,6 +44,7 @@ Bu bölümde uygulamada kullanılan tüm grafik simgelerin ve düğmelerin anlam
 ### Görüntü Alanı Kaplamaları (Kameralar)
 * {ICON:snapshot} **Anlık Görüntü**: Kayıpsız, tam çözünürlüklü bir görüntü yakalar ve onu JPEG dosyası olarak kaydeder.
 * {ICON:play} **Kamera Arşivi**: Bu kamera için zaman çizelgesi oynatma penceresini başlatır (15 dakika geriye doğru).
+* {ICON:quick_play} **Hızlı Oynatma (Mini Oynatıcı)**: Son 30 dakikanın görünüm içi arşiv oynatmasını başlatarak, Canlı görünümden ayrılmadan en son görüntüleri doğrudan kamera döşemesinde hızlı bir şekilde incelemenize olanak tanır.
 * {ICON:grid_1x1} **1:1'i deneyin**: Video akışını uzatmadan orijinal, doğal çözünürlüğünde görüntüler.
 * {ICON:zoom_in} **Etkileşimli Yakınlaştırma**: Seçilen bir seçim çerçevesi bölgesi için tıklayıp sürükleyerek büyütmeyi açar veya kapatır.
 * {ICON:zoom_out} **Yakınlaştırmayı Sıfırla**: Dijital büyütmeyi sıfırlar ve kameranın tam görüş alanını geri yükler.
@@ -188,11 +189,19 @@ Programın ana penceresi canlı yayını görüntüler:
 * **Çoklu Monitör ve Yardımcı Pencereler**: Farklı ızgara düzenlerini birden fazla ekran veya monitörde aynı anda çalıştırmak için bağımsız ek (yardımcı) pencereler açabilirsiniz. Yeni bir pencere açmak için `Ctrl+N` klavye kısayolunu kullanın veya fareyle üzerine gelindiğinde kayan üst araç çubuğundaki **"Yeni Pencere"** düğmesini tıklayın. Her pencere kendi ızgara boyutu ve seçilmiş ön ayar düzeniyle yapılandırılabilir. Çoklu monitör yapılandırmalarında maksimum kararlılığı sağlamak için, tüm pencereler kesinlikle birincil ekranın %90 çözünürlüğünde ortalanmış olarak başlatılır.
 
 ### Görünüm Penceresi Yer Paylaşımı Düğmeleri
-Her kamera döşemesinin/görüntü alanının sağ alt köşesinde, fare imleci üzerine getirildiğinde dört işlevsel simgeye sahip bir kontrol paneli görüntülenir (kullanıcı arayüzü tercihlerine bağlı olarak):
+Her kamera döşemesinin/görüntü alanının sağ alt köşesinde, fare imleci üzerine getirildiğinde beş işlevsel simge içeren bir kontrol paneli görüntülenir (kullanıcı arayüzü tercihlerine bağlı olarak):
 1. **Kamera Simgesi (Anlık Görüntü)**: Kamera akışından ekran görüntüsü almanızı sağlar. Anlık görüntü, doğrudan kod çözücü çerçeve arabelleğinden akışın tam, doğal çözünürlüğünde kaydedilir; böylece görüntü alanı döşemesinin mevcut boyutundan veya ekran çözünürlüğü ölçeklendirmesinden kaynaklanan herhangi bir kayıp önlenir. Anlık görüntünün başarıyla kaydedildiği, kamera simgesinin tam olarak 1 saniye boyunca turuncu renkte (`#ff7a00`) yanıp sönmesiyle onaylanır.
 2. **Oynat Simgesi (Arşiv)**: Kayıt arşivini hızlı bir şekilde açmak için kullanılır. Bu düğmeye tıklamak, bu belirli kamera için otomatik olarak `PlaybackWindow` zaman çizelgesini başlatır ve oynatmayı **geçerli sistem saatinden tam olarak 15 dakika önce** başlatır (kullanışlı, hızlı bir geriye doğru kaydırma).
-3. **1:1 Simgesi (Yerel Ölçek)**: Pikselden piksele video görüntüleme modunu değiştirir. Etkinleştirildiğinde video, döşeme sınırlarını dolduracak şekilde uzatılmaz veya deforme edilmez; bunun yerine ortalanır ve orijinal doğal çözünürlüğünde gösterilir. Bu mod etkin olduğunda, düğme arka planı ve "1:1" metni parlak neon ışık-turkuaz renkte vurgulanır.
-4. **Büyüteç Simgesi (Etkileşimli Yakınlaştırma)**: Video akışının belirli herhangi bir bölgesini büyütmenize olanak tanır:
+3. **Dairesel Ok Simgesi (Hızlı Oynatma / Mini Oynatıcı)**: Son 30 dakikadaki kamera arşiv kayıtlarının, canlı ızgaradan ayrılmadan veya tam arşiv penceresini başlatmadan, doğrudan kamera döşemesinin içinde hızlı bir şekilde görüntüleme alanında oynatılmasını etkinleştirir.
+   * **Kontrol Paneli**: Etkin olduğunda, görünümün alt kısmında aşağıdakileri içeren kayan bir kontrol paneli görünür:
+     * **Oynat/Duraklat**: Oynatma akışını duraklatır veya devam ettirir.
+     * **Zaman ve Ofset Gösterimi**: Geçerli oynatma zaman damgasını ve gerçek zamana göre göreceli yaşını görüntüler (örneğin, `-12:34` 12 dakika 34 saniye öncesini temsil eder).
+     * **Etkileşimli Zaman Çizelgesi Kaydırıcısı**: 30 dakikalık arabellek içinde herhangi bir yeri aramak için tıklamaya veya sürüklemeye olanak tanır. Mevcut kayıt bölümleri deniz mavisi bir arka planla vurgulanır ve kırmızı oynatma kafası geçerli konumu işaretler.
+     * **Hız Çarpanı**: Görüntüyü hızla taramak için oynatma hızları (`1x`, `2x` ve `4x`) arasında geçiş yapar.
+     * **Kapat (✕)**: Mini oynatıcıyı kapatır ve görüntü penceresini anında canlı yayına geri döndürür.
+   * **Kaydırılabilir Yakınlaştırma desteği**: Canlı görünümde olduğu gibi, mini oynatıcının bir bölgesini yakınlaştırmak için büyüteç aracını kullanabilir veya orta fare düğmesini basılı tutup sürükleyerek etrafta gezinebilirsiniz.
+4. **1:1 Simgesi (Yerel Ölçek)**: Pikselden piksele video görüntüleme modunu değiştirir. Etkinleştirildiğinde video, döşeme sınırlarını dolduracak şekilde uzatılmaz veya deforme edilmez; bunun yerine ortalanır ve orijinal doğal çözünürlüğünde gösterilir. Bu mod etkin olduğunda, düğme arka planı ve "1:1" metni parlak neon ışık-turkuaz renkte vurgulanır.
+5. **Büyüteç Simgesi (Etkileşimli Yakınlaştırma)**: Video akışının belirli herhangi bir bölgesini büyütmenize olanak tanır:
    * **Etkinleştirme**: Simgeyi tıklamak onu etkin duruma (turkuaz vurgu) geçirir. İmlecin şekli değişir ve bir araç ipucu şu talimatı verir: *“Yakınlaştırmak için kamera akışına tıklayın ve sürükleyin”*.
    * **İşlem**: Sol tıklayın ve dikdörtgen bir seçim çerçevesi bölgesini canlı yayının üzerine sürükleyin. Görünüm penceresi, tüm döşemeyi dolduracak şekilde seçilen alanı otomatik olarak kırpacak ve ölçeklendirecektir.
      * **Orantılı Yakınlaştırma**: Yakınlaştırma dikdörtgenini çizerken **Shift** tuşunu basılı tutarak seçimi, görünüm alanı sınırlarıyla sıkı bir şekilde sınırlandırılmış 16:9 en boy oranına kilitlemeye zorlayın.

@@ -44,6 +44,7 @@ Esta seção descreve o significado de todos os ícones gráficos e botões usad
 ### Sobreposições de viewport (câmeras)
 * {ICON:snapshot} **Instantâneo**: captura uma imagem sem perdas em resolução total e a salva como um arquivo JPEG.
 * {ICON:play} **Arquivo da câmera**: inicia a janela de reprodução da linha do tempo para esta câmera (retrocesso de 15 minutos).
+* {ICON:quick_play} **Reprodução rápida (miniplayer)**: inicia uma reprodução de arquivo na janela de visualização dos últimos 30 minutos, permitindo que você revise rapidamente as filmagens recentes diretamente no bloco da câmera sem sair da visualização ao vivo.
 * {ICON:grid_1x1} **Tente 1:1**: exibe o stream de vídeo em sua resolução nativa original sem esticar.
 * {ICON:zoom_in} **Zoom interativo**: alterna a ampliação de clicar e arrastar para uma região selecionada do letreiro.
 * {ICON:zoom_out} **Redefinir zoom**: redefine a ampliação digital e restaura todo o campo de visão da câmera.
@@ -188,11 +189,19 @@ A janela principal do programa exibe o feed ao vivo:
 * **Multi-Monitor e Janelas Auxiliares**: Você pode abrir janelas adicionais independentes (auxiliares) para executar diferentes layouts de grade simultaneamente em múltiplas telas ou monitores. Para abrir uma nova janela, use o atalho de teclado `Ctrl+N` ou clique no botão **"Nova janela"** na barra de ferramentas superior do slide suspenso. Cada janela pode ser configurada com seu próprio tamanho de grade e layout predefinido selecionado. Para garantir a máxima estabilidade em configurações de vários monitores, todas as janelas são iniciadas estritamente centralizadas na tela principal com 90% de sua resolução.
 
 ### Botões de sobreposição de viewport
-No canto inferior direito de cada bloco/janela de visualização da câmera, um painel de controle com quatro ícones funcionais é exibido ao passar o cursor do mouse sobre ele (dependendo das preferências da UI):
+No canto inferior direito de cada bloco/janela de visualização da câmera, um painel de controle com cinco ícones funcionais é exibido ao passar o cursor do mouse sobre ele (dependendo das preferências da UI):
 1. **Ícone da câmera (instantâneo)**: permite que você faça uma captura de tela do feed da câmera. O instantâneo é salvo na resolução nativa completa do fluxo diretamente do buffer de quadros do decodificador, evitando quaisquer perdas devido ao tamanho atual do bloco da janela de visualização ou ao dimensionamento da resolução da tela. O salvamento bem-sucedido do instantâneo é confirmado pelo ícone da câmera piscando em laranja (`#ff7a00`) por exatamente 1 segundo.
 2. **Ícone de reprodução (Arquivo)**: Usado para abrir rapidamente o arquivo de gravações. Clicar neste botão inicia automaticamente a linha do tempo `PlaybackWindow` para esta câmera específica, iniciando a reprodução **exatamente 15 minutos antes da hora atual do sistema** (um deslocamento rápido e conveniente para trás).
-3. **Ícone 1:1 (escala nativa)**: alterna o modo de exibição de vídeo pixel a pixel. Quando ativado, o vídeo não é esticado ou distorcido para preencher os limites do bloco, mas é centralizado e mostrado em sua resolução nativa original. Quando este modo está ativo, o fundo do botão e o texto "1:1" são destacados em neon turquesa brilhante.
-4. **Ícone de lupa (zoom interativo)**: permite ampliar qualquer região específica do feed de vídeo:
+3. **Ícone de seta circular (reprodução rápida/miniplayer)**: ativa uma reprodução rápida na janela de visualização das gravações do arquivo da câmera dos últimos 30 minutos diretamente dentro do bloco da câmera, sem sair da grade ao vivo ou abrir a janela completa do arquivo.
+   * **Painel de Controle**: Quando ativo, um painel de controle deslizante aparece na parte inferior da janela de visualização contendo:
+     * **Reproduzir/Pausar**: pausa ou retoma o fluxo de reprodução.
+     * **Exibição de tempo e deslocamento**: exibe o carimbo de data/hora da reprodução atual e sua idade relativa em comparação com o tempo real (por exemplo, `-12:34` representa 12 minutos e 34 segundos atrás).
+     * **Controle deslizante interativo da linha do tempo**: permite clicar ou arrastar para buscar qualquer lugar dentro do buffer de 30 minutos. Os segmentos de gravação disponíveis são destacados com um fundo azul-petróleo e um indicador de reprodução vermelho marca a posição atual.
+     * **Multiplicador de velocidade**: percorre as velocidades de reprodução (`1x`, `2x` e `4x`) para digitalizar a filmagem rapidamente.
+     * **Fechar (✕)**: Fecha o miniplayer e retorna instantaneamente a janela de visualização para o feed ao vivo.
+   * **Suporte para zoom panorâmico**: assim como na visualização ao vivo, você pode usar a ferramenta lupa para ampliar uma região do miniplayer ou segurar o botão do meio do mouse e arrastar para deslocar-se.
+4. **Ícone 1:1 (escala nativa)**: alterna o modo de exibição de vídeo pixel a pixel. Quando ativado, o vídeo não é esticado ou distorcido para preencher os limites do bloco, mas é centralizado e mostrado em sua resolução nativa original. Quando este modo está ativo, o fundo do botão e o texto "1:1" são destacados em neon turquesa brilhante.
+5. **Ícone de lupa (zoom interativo)**: permite ampliar qualquer região específica do feed de vídeo:
    * **Ativação**: clicar no ícone o alterna para um estado ativo (destaque turquesa). O cursor muda de forma e uma dica de ferramenta instrui: *“Clique e arraste na imagem da câmera para ampliar”*.
    * **Operação**: Clique com o botão esquerdo e arraste uma região retangular sobre o feed ao vivo. A janela de visualização cortará e dimensionará automaticamente a área selecionada para preencher todo o bloco.
      * **Zoom Proporcional**: Mantenha pressionada a tecla **Shift** enquanto desenha o retângulo de zoom para forçar a seleção a travar em uma proporção de 16:9, estritamente restrita aos limites da janela de visualização.

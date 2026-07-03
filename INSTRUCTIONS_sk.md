@@ -44,6 +44,7 @@ Táto časť popisuje význam všetkých grafických ikon a tlačidiel používa
 ### Prekrytia výrezov (fotoaparáty)
 * {ICON:snapshot} **Snímka**: Zachytí bezstratový obrázok v plnom rozlíšení a uloží ho ako súbor JPEG.
 * {ICON:play} **Archív kamery**: Spustí okno prehrávania na časovej osi pre túto kameru (15 minút dozadu).
+* {ICON:quick_play} **Rýchle prehrávanie (miniprehrávač)**: Spustí prehrávanie archívu posledných 30 minút vo výreze, čo vám umožní rýchlo si prezrieť nedávny záznam priamo v dlaždici kamery bez opustenia živého náhľadu.
 * {ICON:grid_1x1} **Vyskúšať 1:1**: Zobrazuje tok videa v pôvodnom natívnom rozlíšení bez roztiahnutia.
 * {ICON:zoom_in} **Interaktívne priblíženie**: Prepína zväčšenie kliknutím a potiahnutím pre vybratú oblasť výberu.
 * {ICON:zoom_out} **Obnoviť priblíženie**: Vynuluje digitálne zväčšenie a obnoví celé zorné pole kamery.
@@ -188,11 +189,19 @@ Hlavné okno programu zobrazuje živý kanál:
 * **Viac monitorov a pomocné okná**: Môžete otvoriť nezávislé dodatočné (pomocné) okná na spustenie rôznych rozložení mriežky súčasne na viacerých obrazovkách alebo monitoroch. Ak chcete otvoriť nové okno, použite klávesovú skratku `Ctrl+N` alebo kliknite na tlačidlo **"Nové okno"** na hornom paneli s nástrojmi, ktorý sa nachádza po umiestnení kurzora myši. Každé okno je možné nakonfigurovať s vlastnou veľkosťou mriežky a prednastaveným rozložením. Na zaistenie maximálnej stability v konfiguráciách s viacerými monitormi sa všetky okná spúšťajú striktne v strede primárneho displeja s 90 % jeho rozlíšenia.
 
 ### Tlačidlá prekrytia výrezu
-V pravom dolnom rohu každej dlaždice/výrezu kamery sa po umiestnení kurzora myši na ňu zobrazí ovládací panel so štyrmi funkčnými ikonami (v závislosti od preferencií používateľského rozhrania):
+V pravom dolnom rohu každej dlaždice/výrezu kamery sa po umiestnení kurzora myši na ňu zobrazí ovládací panel s piatimi funkčnými ikonami (v závislosti od preferencií používateľského rozhrania):
 1. **Ikona fotoaparátu (snímka)**: Umožňuje vám urobiť snímku obrazovky z informačného kanála fotoaparátu. Snímka sa uloží v plnom natívnom rozlíšení streamu priamo z vyrovnávacej pamäte snímok dekodéra, čím sa zabráni akýmkoľvek stratám v dôsledku aktuálnej veľkosti dlaždice výrezu alebo zmeny rozlíšenia obrazovky. Úspešné uloženie snímky je potvrdené blikaním ikony fotoaparátu na oranžovo (`#ff7a00`) presne na 1 sekundu.
 2. **Ikona prehrávania (archív)**: Používa sa na rýchle otvorenie archívu nahrávok. Kliknutím na toto tlačidlo sa automaticky spustí časová os `PlaybackWindow` pre túto konkrétnu kameru a spustí sa prehrávanie **presne 15 minút pred aktuálnym systémovým časom** (pohodlný rýchly posun dozadu).
-3. **Ikona 1:1 (natívna mierka)**: Prepína režim zobrazenia videa po jednotlivých pixeloch. Keď je táto možnosť povolená, video nie je roztiahnuté ani zdeformované, aby vyplnilo hranice dlaždíc, ale namiesto toho sa vycentruje a zobrazí v pôvodnom natívnom rozlíšení. Keď je tento režim aktívny, pozadie tlačidla a text „1:1“ sú zvýraznené jasnou neónovou svetlo-tyrkysovou farbou.
-4. **Ikona lupy (interaktívne priblíženie)**: Umožňuje zväčšiť akúkoľvek konkrétnu oblasť zdroja videa:
+3. **Ikona kruhovej šípky (Rýchle prehrávanie / Miniprehrávač)**: Aktivuje rýchle prehrávanie záznamov archívu kamery za posledných 30 minút priamo vo vnútri dlaždice kamery bez opustenia mriežky naživo alebo spustenia celého okna archívu.
+   * **Ovládací panel**: Keď je aktívny, v spodnej časti výrezu sa zobrazí posuvný ovládací panel obsahujúci:
+     * **Prehrať/pozastaviť**: Pozastaví alebo obnoví prehrávanie.
+     * **Zobrazenie času a posunu**: Zobrazuje aktuálnu časovú pečiatku prehrávania a jej relatívny vek v porovnaní s reálnym časom (napr. `-12:34` predstavuje pred 12 minútami a 34 sekundami).
+     * **Interaktívny posúvač časovej osi**: Umožňuje klikaním alebo ťahaním hľadať kdekoľvek v rámci 30-minútovej vyrovnávacej pamäte. Dostupné segmenty záznamu sú zvýraznené modrozeleným pozadím a červená prehrávacia hlava označuje aktuálnu pozíciu.
+     * **Násobiteľ rýchlosti**: Cyklicky prepína medzi rýchlosťami prehrávania (`1x`, `2x` a `4x`) na rýchle skenovanie záznamu.
+     * **Zavrieť (✕)**: Zatvorí miniprehrávač a okamžite vráti výrez do živého kanála.
+   * **Podpora posúvateľného priblíženia**: Rovnako ako v živom zobrazení môžete použiť nástroj zväčšovacieho skla na priblíženie oblasti miniprehrávača alebo podržaním stredného tlačidla myši a ťahaním môžete posúvať.
+4. **Ikona 1:1 (natívna mierka)**: Prepína režim zobrazenia videa po jednotlivých pixeloch. Keď je táto možnosť povolená, video nie je roztiahnuté ani zdeformované, aby vyplnilo hranice dlaždíc, ale namiesto toho sa vycentruje a zobrazí v pôvodnom natívnom rozlíšení. Keď je tento režim aktívny, pozadie tlačidla a text „1:1“ sú zvýraznené jasnou neónovou svetlo-tyrkysovou farbou.
+5. **Ikona lupy (interaktívne priblíženie)**: Umožňuje zväčšiť akúkoľvek konkrétnu oblasť zdroja videa:
    * **Aktivácia**: Kliknutím na ikonu ju prepnete do aktívneho stavu (tyrkysové zvýraznenie). Kurzor zmení tvar a nápoveda povie: *„Kliknutím a potiahnutím na feed fotoaparátu priblížite“*.
    * **Operácia**: Kliknite ľavým tlačidlom myši a presuňte obdĺžnikovú oblasť ohraničenia cez živý informačný kanál. Výrez automaticky oreže a zmení veľkosť vybranej oblasti, aby vyplnil celú dlaždicu.
      * **Proporcionálne priblíženie**: Počas kreslenia obdĺžnika priblíženia podržte stlačený kláves **Shift**, aby sa výber uzamkol v pomere strán 16:9, ktorý je striktne obmedzený na hranice výrezu.

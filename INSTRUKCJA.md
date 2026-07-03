@@ -40,6 +40,7 @@ W tej sekcji opisano znaczenie wszystkich ikon i przycisków używanych w aplika
 ### Nakładki Viewportów (Kamery)
 * {ICON:snapshot} **Stopklatka**: Wykonuje bezstratny zrzut obrazu w pełnej rozdzielczości do pliku JPEG.
 * {ICON:play} **Archiwum Kamery**: Przechodzi do odtwarzania archiwum tej kamery (offset -15 minut wstecz).
+* {ICON:quick_play} **Szybki podgląd wstecz (Mini-odtwarzacz)**: Uruchamia odtwarzanie nagrań z ostatnich 30 minut bezpośrednio wewnątrz danego kafelka kamery, umożliwiając szybki przegląd niedawnych zdarzeń bez opuszczania widoku na żywo i bez otwierania pełnego okna archiwum.
 * {ICON:grid_1x1} **Tryb 1:1**: Wyświetla wideo w jego oryginalnej, natywnej rozdzielczości (bez rozciągania).
 * {ICON:zoom_in} **Powiększenie**: Włącza interaktywne zbliżenie wybranego prostokątem fragmentu wideo. Przytrzymanie klawisza `Shift` w trakcie zaznaczania wymusza proporcje 16:9. Przytrzymanie i przeciągnięcie wciśniętego kółka myszy pozwala na swobodne przesuwanie powiększonego obrazu (Pan Zoom).
 * {ICON:zoom_out} **Reset Zoomu**: Wyłącza zbliżenie cyfrowe i przywraca oryginalny kadr kamery.
@@ -184,12 +185,20 @@ Okno główne programu odpowiada za wyświetlanie obrazu na żywo:
 * **Obsługa wielu monitorów i okien pomocniczych**: Aplikacja pozwala na otwieranie niezależnych, dodatkowych okien pomocniczych (tzw. Auxiliary Windows), co ułatwia jednoczesny podgląd różnych siatek kamer na wielu monitorach lub ekranach. Aby otworzyć nowe okno pomocnicze, użyj skrótu klawiszowego `Ctrl+N` lub kliknij przycisk **„NOWE OKNO”** na pasku narzędzi u góry ekranu. Każde z okien może mieć własny rozmiar siatki oraz wybrany układ presetów. W celu zapewnienia maksymalnej stabilności na konfiguracjach wielomonitorowych, wszystkie okna uruchamiają się rygorystycznie wycentrowane na głównym ekranie w rozmiarze stanowiącym 90% jego rozdzielczości.
 
 ### Przyciski Sterujące na Kafelkach (Viewportach)
-W prawym dolnym rogu każdego kafelka kamery po najechaniu na niego kursorem myszy (zależnie od ustawień interfejsu) wyświetla się nakładkowy panel zawierający cztery funkcjonalne ikony sterowania:
+W prawym dolnym rogu każdego kafelka kamery po najechaniu na niego kursorem myszy (zależnie od ustawień interfejsu) wyświetla się nakładkowy panel zawierający pięć funkcjonalnych ikon sterowania:
 1. **Ikona Aparatu (Stopklatka)**: Umożliwia wykonanie zrzutu ekranu z kamery. Zrzut jest zapisywany w pełnej, natywnej rozdzielczości strumienia bezpośrednio z dekodera, bez strat wynikających z aktualnego rozmiaru okna lub skalowania na ekranie. Pomyślne zapisanie stopklatki potwierdzane jest rozbłyskiem ikony aparatu na kolor pomarańczowy (`#ff7a00`) przez dokładnie 1 sekundę.
 2. **Ikona Play (Archiwum)**: Służy do szybkiego przejścia do odtwarzacza archiwalnego. Po kliknięciu automatycznie uruchamia okno osi czasu `PlaybackWindow` dla tej konkretnej kamery, rozpoczynając odtwarzanie **dokładnie 15 minut przed aktualnym czasem systemowym** (wygodny offset wsteczny).
-3. **Ikona 1:1 (Skalowanie natywne)**: Przełącza tryb wyświetlania wideo piksel-w-piksel. Po włączeniu obraz nie jest rozciągany do granic kafelka, lecz wyświetlany w swojej oryginalnej, niezniekształconej rozdzielczości na środku obszaru viewportu. Gdy tryb jest aktywny, tło przycisku i napis podświetlają się na jaskrawy kolor jasnoturkusowy.
-4. **Ikona Lupy (Interaktywne Powiększenie)**: Pozwala na przybliżenie wybranego regionu wideo:
-   * **Aktywacja**: Kliknięcie ikony przełącza przycisk w stan aktywny (podświetlenie na turkusowo). Kursor zmienia kształt, a tooltip instruuje: *„Kliknij i przeciągnij po obrazie kamery, aby przybliżyć”*.
+3. **Ikona Zakręconej Strzałki (Szybki podgląd wstecz / Mini-odtwarzacz)**: Uruchamia błyskawiczne odtwarzanie nagrań archiwalnych z ostatnich 30 minut bezpośrednio wewnątrz kafelka danej kamery, bez konieczności opuszczania widoku na żywo i otwierania pełnego okna archiwum.
+   * **Panel Sterowania**: Po aktywacji u dołu kafelka pojawia się wysuwany mini-panel kontrolny zawierający:
+     * **Odtwarzaj/Pauza**: Wstrzymuje lub wznawia odtwarzanie nagrania.
+     * **Wskaźnik Czasu i Przesunięcia**: Pokazuje aktualny czas odtwarzania oraz jego wiek względny wobec czasu rzeczywistego (np. `-12:34` oznacza nagranie sprzed 12 minut i 34 sekund).
+     * **Interaktywny Suwak Osi Czasu**: Umożliwia klikanie i przeciąganie w celu przewinięcia nagrania w dowolne miejsce 30-minutowego bufora. Dostępne fragmenty nagrań są wyróżnione turkusowymi paskami tła, a czerwona kreska wskazuje aktualną pozycję.
+     * **Prędkość Odtwarzania**: Przełącza mnożnik prędkości (`1x`, `2x`, `4x`) w celu szybkiego przeglądania materiału.
+     * **Zamknij (✕)**: Wyłącza szybki podgląd i natychmiast przywraca widok kamery na żywo.
+   * **Obsługa Zoomu i Przesuwania**: Wewnątrz mini-odtwarzacza w pełni działa interaktywne powiększanie lupą oraz przesuwanie powiększonego obrazu środkowym przyciskiem myszy (Pan Zoom).
+4. **Ikona 1:1 (Skalowanie natywne)**: Przełącza tryb wyświetlania wideo piksel-w-piksel. Po włączeniu obraz nie jest rozciągany do granic kafelka, lecz wyświetlany w swojej oryginalnej, niezniekształconej rozdzielczości na środku obszaru viewportu. Gdy tryb jest aktywny, tło przycisku i napis podświetlają się na jaskrawy kolor jasnoturkusowy.
+5. **Ikona Lupy (Interaktywne Powiększenie)**: Pozwala na przybliżenie wybranego regionu wideo:
+   * **Aktywacja**: Kliknięcie ikony przełącza przycisk w stan aktywny (podświetlenie na turkusowo). Kursor zmienia kształt, a tooltip instruuje: *“Kliknij i przeciągnij po obrazie kamery, aby przybliżyć”*.
    * **Działanie**: Użytkownik zaznacza lewym przyciskiem myszy prostokątny obszar na obrazie. Viewport automatycznie kadruje i powiększa wybrany fragment tak, by wypełnił cały kafelek.
      * **Proporcjonalny zoom**: Przytrzymanie klawisza **Shift** w trakcie rysowania prostokąta powiększenia wymusza zablokowanie proporcji zaznaczenia do formatu 16:9, ściśle ograniczonego do obszaru kafelka.
      * **Przesuwanie powiększonego obrazu (Pan Zoom)**: Po przybliżeniu obrazu możesz przytrzymać **środkowy przycisk myszy (kółko przewijania)** i przeciągać kursor, aby swobodnie przesuwać powiększony widok w polu widzenia kamery. Funkcja ta działa w trybie podglądu na żywo, archiwum Playback oraz w mini-odtwarzaczu.

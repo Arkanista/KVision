@@ -44,6 +44,7 @@ Tässä osiossa kuvataan kaikkien sovelluksessa käytettyjen graafisten kuvakkei
 ### Näkymän peittokuvat (kamerat)
 * {ICON:snapshot} **Snapshot**: ottaa häviöttömän täyden resoluution kuvan ja tallentaa sen JPEG-tiedostona.
 * {ICON:play} **Kameran arkisto**: käynnistää tämän kameran aikajanan toistoikkunan (15 minuuttia taaksepäin).
+* {ICON:quick_play} **Pikatoisto (minisoitin)**: Aloittaa viimeisten 30 minuutin toiston katseluportissa, jolloin voit nopeasti tarkastella viimeisintä materiaalia suoraan kameraruudusta poistumatta suoranäkymästä.
 * {ICON:grid_1x1} **Kokeile 1:1**: Näyttää videovirran alkuperäisessä, alkuperäisessä resoluutiossaan ilman venytystä.
 * {ICON:zoom_in} **Interaktiivinen zoomaus**: Vaihtaa klikkaa ja vedä -suurennusta valitulle valintakehysalueelle.
 * {ICON:zoom_out} **Palauta zoomaus**: Nollaa digitaalisen suurennuksen ja palauttaa kameran koko näkökentän.
@@ -188,11 +189,19 @@ Ohjelman pääikkuna näyttää live-syötteen:
 * **Monimonitori ja apuikkunat**: Voit avata itsenäisiä lisäikkunoita (apu)ikkunoita ajaaksesi erilaisia ​​ruudukkoasetteluja samanaikaisesti useilla näytöillä tai näytöillä. Voit avata uuden ikkunan käyttämällä `Ctrl+N`-pikanäppäintä tai napsauttamalla **Uusi ikkuna** -painiketta liukuvan ylätyökalupalkin päällä. Jokaiselle ikkunalle voidaan määrittää oma ruudukkokoko ja valittu esiasetettu asettelu. Maksimaalisen vakauden varmistamiseksi usean näytön kokoonpanoissa kaikki ikkunat käynnistyvät tiukasti ensisijaisen näytön keskellä 90 prosentin resoluutiolla.
 
 ### Näkymän peittopainikkeet
-Kunkin kameraruudun/näkymäportin oikeassa alakulmassa näkyy ohjauspaneeli, jossa on neljä toiminnallista kuvaketta, kun hiiren osoitin viedään sen päälle (käyttöliittymän asetuksista riippuen):
+Kunkin kameraruudun/näkymäportin oikeassa alakulmassa näkyy ohjauspaneeli, jossa on viisi toiminnallista kuvaketta, kun hiiren osoitin viedään sen päälle (käyttöliittymän asetuksista riippuen):
 1. **Kamerakuvake (Snapshot)**: Voit ottaa kuvakaappauksen kameran syötteestä. Tilannekuva tallennetaan virran täydellä alkuperäisellä resoluutiolla suoraan dekooderin kehyspuskurista, jolloin vältetään näkymän nykyisestä koosta tai näytön resoluution skaalauksesta johtuvat häviöt. Onnistuneen valokuvan tallennuksen vahvistaa kamerakuvake, joka vilkkuu oranssina (`#ff7a00`) tasan 1 sekunnin ajan.
 2. **Toistokuvake (arkisto)**: Käytetään tallenteiden arkiston nopeaan avaamiseen. Tämän painikkeen napsauttaminen käynnistää automaattisesti aikajanan `PlaybackWindow` tälle tietylle kameralle ja aloittaa toiston **täsmälleen 15 minuuttia ennen nykyistä järjestelmäaikaa** (kätevä nopea siirtymä taaksepäin).
-3. **1:1-kuvake (alkuperäinen mittakaava)**: Vaihtaa pikselien välisen videon näyttötilan. Kun tämä on käytössä, videota ei venytetä tai vääristetä täyttämään ruudun rajoja, vaan se keskitetään ja näytetään alkuperäisessä alkuperäisessä resoluutiossaan. Kun tämä tila on aktiivinen, painikkeen tausta ja "1:1"-teksti on korostettu kirkkaan neon vaalean turkoosin värisenä.
-4. **Suurennuslasikuvake (interaktiivinen zoomaus)**: Voit suurentaa mitä tahansa videosyötteen aluetta:
+3. **Pyöreä nuolikuvake (pikatoisto / minisoitin)**: Aktivoi viimeisen 30 minuutin kamera-arkistotallenteiden nopean toiston näkymäportissa suoraan kameraruudun sisällä poistumatta live-ruudukosta tai käynnistämättä koko arkistoikkunaa.
+   * **Ohjauspaneeli**: Kun aktiivinen, näkymän alaosaan tulee liukuva ohjauspaneeli, joka sisältää:
+     * **Toista/tauko**: keskeyttää toiston tai jatkaa sitä.
+     * **Aika- ja siirtymänäyttö**: Näyttää nykyisen toiston aikaleiman ja sen suhteellisen iän verrattuna reaaliaikaan (esim. `-12:34` edustaa 12 minuuttia ja 34 sekuntia sitten).
+     * **Interaktiivinen aikajanan liukusäädin**: Mahdollistaa napsauttamalla tai vetämällä hakeaksesi minne tahansa 30 minuutin puskurissa. Käytettävissä olevat tallennussegmentit on korostettu sinivihreällä taustalla, ja punainen toistopaikka osoittaa nykyisen sijainnin.
+     * **Nopeuskerroin**: Vaihtaa toistonopeuksia (`1x`, `2x` ja `4x`) skannatakseen materiaalia nopeasti.
+     * **Sulje (✕)**: sulkee minisoittimen ja palauttaa näkymän välittömästi live-syötteeseen.
+   * **Pannutettavan zoomauksen tuki**: Aivan kuten live-näkymässä, voit käyttää suurennuslasityökalua lähentääksesi minisoittimen tiettyä aluetta tai panoroidaksesi vetämällä hiiren keskipainiketta.
+4. **1:1-kuvake (alkuperäinen mittakaava)**: Vaihtaa pikselien välisen videon näyttötilan. Kun tämä on käytössä, videota ei venytetä tai vääristetä täyttämään ruudun rajoja, vaan se keskitetään ja näytetään alkuperäisessä alkuperäisessä resoluutiossaan. Kun tämä tila on aktiivinen, painikkeen tausta ja "1:1"-teksti on korostettu kirkkaan neon vaalean turkoosin värisenä.
+5. **Suurennuslasikuvake (interaktiivinen zoomaus)**: Voit suurentaa mitä tahansa videosyötteen aluetta:
    * **Aktivointi**: kuvakkeen napsauttaminen vaihtaa sen aktiiviseen tilaan (turkoosi korostus). Kohdistin muuttaa muotoa, ja työkaluvihje neuvoo: *"Zoomaa napsauttamalla ja vetämällä kameran syötettä"*.
    * **Toiminta**: Napsauta hiiren kakkospainikkeella ja vedä suorakaiteen muotoinen valintakehys live-syötteen päälle. Näkymä rajaa ja skaalaa valitun alueen automaattisesti täyttämään koko ruudun.
      * **Suhteellinen zoomaus**: Pidä **Vaihto**-näppäintä painettuna samalla kun piirrät zoomaussuorakulmiota pakottaaksesi valinnan lukittumaan 16:9-kuvasuhteeseen, joka on tiukasti rajoitettu kuvaportin rajoihin.

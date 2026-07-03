@@ -44,6 +44,7 @@ In dit gedeelte wordt de betekenis beschreven van alle grafische pictogrammen en
 ### Viewport-overlays (camera's)
 * {ICON:snapshot} **Momentopname**: legt een verliesvrije afbeelding met volledige resolutie vast en slaat deze op als een JPEG-bestand.
 * {ICON:play} **Camera-archief**: Start het tijdlijnafspeelvenster voor deze camera (15 minuten achteruit).
+* {ICON:quick_play} **Snel afspelen (minispeler)**: Start een archiefweergave in de viewport van de afgelopen 30 minuten, zodat u snel recente beelden rechtstreeks in de camerategel kunt bekijken zonder Live View te verlaten.
 * {ICON:grid_1x1} **Probeer 1:1**: geeft de videostream weer in de oorspronkelijke, native resolutie zonder uitrekken.
 * {ICON:zoom_in} **Interactief zoomen**: schakelt de vergroting door klikken en slepen in of uit voor een geselecteerd selectiekadergebied.
 * {ICON:zoom_out} **Zoom resetten**: reset de digitale vergroting en herstelt het volledige gezichtsveld van de camera.
@@ -188,11 +189,19 @@ Het hoofdvenster van het programma toont de livefeed:
 * **Multi-monitor- en hulpvensters**: u kunt onafhankelijke extra (hulp)vensters openen om verschillende rasterindelingen tegelijkertijd op meerdere schermen of monitoren uit te voeren. Als u een nieuw venster wilt openen, gebruikt u de sneltoets `Ctrl+N`, of klikt u op de knop **'Nieuw venster'** op de werkbalk met de muis en glijbaan. Elk venster kan worden geconfigureerd met zijn eigen rastergrootte en geselecteerde vooraf ingestelde lay-out. Om maximale stabiliteit bij configuraties met meerdere monitoren te garanderen, worden alle vensters strikt gecentreerd op het primaire beeldscherm gestart met 90% van de resolutie.
 
 ### Viewport-overlayknoppen
-In de rechterbenedenhoek van elke camerategel/viewport wordt een bedieningspaneel met vier functionele pictogrammen weergegeven wanneer u de muiscursor erover beweegt (afhankelijk van de UI-voorkeuren):
+In de rechterbenedenhoek van elke camerategel/viewport wordt een bedieningspaneel met vijf functionele pictogrammen weergegeven wanneer u de muiscursor erover beweegt (afhankelijk van de UI-voorkeuren):
 1. **Camerapictogram (momentopname)**: Hiermee kunt u een screenshot maken van de camerafeed. De momentopname wordt rechtstreeks vanuit de framebuffer van de decoder in de volledige oorspronkelijke resolutie van de stream opgeslagen, waardoor verliezen als gevolg van de huidige grootte van de viewport-tegel of schaalvergroting van de schermresolutie worden vermeden. Het succesvol opslaan van de momentopname wordt bevestigd doordat het camerapictogram precies 1 seconde oranje knippert (`#ff7a00`).
 2. **Afspeelpictogram (archief)**: wordt gebruikt om het opnamearchief snel te openen. Als u op deze knop klikt, wordt automatisch de tijdlijn `PlaybackWindow` voor deze specifieke camera gestart, waarbij het afspelen **exact 15 minuten vóór de huidige systeemtijd** begint (een handige snelle achterwaartse offset).
-3. **1:1-pictogram (native schaal)**: schakelt de pixel-naar-pixel videoweergavemodus in. Indien ingeschakeld, wordt de video niet uitgerekt of vervormd om de tegelgrenzen te vullen, maar in plaats daarvan gecentreerd en weergegeven in de oorspronkelijke oorspronkelijke resolutie. Wanneer deze modus actief is, worden de knopachtergrond en de "1:1"-tekst gemarkeerd in helder neonlicht-turkoois.
-4. **Vergrootglaspictogram (interactieve zoom)**: Hiermee kunt u elk specifiek gedeelte van de videofeed vergroten:
+3. **Circulair pijlpictogram (snel afspelen / minispeler)**: Activeert een snelle weergave in de viewport van camera-archiefopnamen van de afgelopen 30 minuten, rechtstreeks in de camerategel zonder het liveraster te verlaten of het volledige archiefvenster te openen.
+   * **Configuratiescherm**: Indien actief, verschijnt er onderaan de viewport een verschuifbaar bedieningspaneel met daarin:
+     * **Afspelen/pauzeren**: pauzeert of hervat de afspeelstream.
+     * **Tijd- en offsetweergave**: toont de huidige afspeeltijdstempel en de relatieve leeftijd ervan vergeleken met realtime (`-12:34` vertegenwoordigt bijvoorbeeld 12 minuten en 34 seconden geleden).
+     * **Interactieve tijdlijnschuifregelaar**: hiermee kunt u klikken of slepen om overal binnen de buffer van 30 minuten te zoeken. Beschikbare opnamesegmenten worden gemarkeerd met een groenblauw achtergrond, en een rode afspeelkop markeert de huidige positie.
+     * **Snelheidsvermenigvuldiger**: Bladert door afspeelsnelheden (`1x`, `2x` en `4x`) om beelden snel te scannen.
+     * **Sluiten (✕)**: Sluit de minispeler en keert de viewport onmiddellijk terug naar de live feed.
+   * **Ondersteuning voor panneerbare zoom**: net als in de liveweergave kunt u het vergrootglas gebruiken om in te zoomen op een gebied van de minispeler, of u kunt de middelste muisknop ingedrukt houden en slepen om rond te pannen.
+4. **1:1-pictogram (native schaal)**: schakelt de pixel-naar-pixel videoweergavemodus in. Indien ingeschakeld, wordt de video niet uitgerekt of vervormd om de tegelgrenzen te vullen, maar in plaats daarvan gecentreerd en weergegeven in de oorspronkelijke oorspronkelijke resolutie. Wanneer deze modus actief is, worden de knopachtergrond en de "1:1"-tekst gemarkeerd in helder neonlicht-turkoois.
+5. **Vergrootglaspictogram (interactieve zoom)**: Hiermee kunt u elk specifiek gedeelte van de videofeed vergroten:
    * **Activering**: als u op het pictogram klikt, wordt het in een actieve status gezet (turquoise markering). De cursor verandert van vorm en een tooltip geeft instructies: *“Klik en sleep op de camerafeed om in te zoomen”*.
    * **Bewerking**: klik met de linkermuisknop en sleep een rechthoekig selectiegebied over de live feed. De viewport zal het geselecteerde gebied automatisch bijsnijden en schalen om de hele tegel te vullen.
      * **Proportionele zoom**: Houd de **Shift**-toets ingedrukt terwijl u de zoomrechthoek tekent om de selectie te dwingen te vergrendelen in een beeldverhouding van 16:9, strikt beperkt tot de grenzen van de viewport.
