@@ -1,5 +1,8 @@
 # Brukerhåndbok for KVision
 
+> [!MERK]
+> Denne bruksanvisningen er automatisk oversatt og formatert ved hjelp av kunstig intelligens (AI).
+
 **KVision** er en avansert VMS (Video Management System) klasse skrivebordsapplikasjon designet for samtidig visning av live videostrømmer (RTSP/ONVIF) og integrasjon med Hikvision NVR/DVR-opptakere (både i Live-modus og Playback-arkivmodus).
 
 Programmet er optimalisert for stabilitet, jevn drift (60 FPS) og minimalt systemressursforbruk.
@@ -182,7 +185,7 @@ Hovedvinduet til programmet viser live-feeden:
 * **Stream Quality Selection**: Ved å høyreklikke på en kameravisningsport, kan du velge **Hovedstrøm** for høyeste oppløsning, eller **Sub Stream** for å redusere nettverks- og grafikkortbelastningen.
 * **Dobbeltklikk på fullskjerm**: Dobbeltklikk med venstre museknapp på en hvilken som helst kameravisningsport maksimerer den umiddelbart til å fylle hele det aktive vinduet (fullskjerm med én visningsport). Dobbeltklikk på nytt gjenoppretter den originale rutenettoppsettet for flere kameraer.
 * **Automatisk skjul topplinje**: Den øverste alternativverktøylinjen (topToolBar) kan automatisk kollapse til øverste kant av skjermen når musepekeren forlater området sitt (dette alternativet kan konfigureres i Innstillinger -> *"Skjul automatisk topplinjen"* eller direkte ved å bruke nålikonet på topplinjen).
-* **Flerskjerm- og tilleggsvinduer**: Du kan åpne uavhengige tilleggsvinduer for å kjøre forskjellige rutenettoppsett samtidig på flere skjermer eller skjermer. For å åpne et nytt vindu, bruk `Ctrl+N` tastatursnarveien, eller klikk på **"Nytt vindu"**-knappen på den øverste verktøylinjen. Hvert vindu kan konfigureres med sin egen rutenettstørrelse og valgt forhåndsinnstilt layout.
+* **Flerskjerm- og tilleggsvinduer**: Du kan åpne uavhengige tilleggsvinduer for å kjøre forskjellige rutenettoppsett samtidig på flere skjermer eller skjermer. For å åpne et nytt vindu, bruk `Ctrl+N` tastatursnarveien, eller klikk på **"Nytt vindu"**-knappen på den øverste verktøylinjen. Hvert vindu kan konfigureres med sin egen rutenettstørrelse og valgt forhåndsinnstilt layout. For å sikre maksimal stabilitet på konfigurasjoner med flere skjermer, starter alle vinduer strengt tatt sentrert på primærskjermen med 90 % av oppløsningen.
 
 ### Viewport Overlay-knapper
 I nedre høyre hjørne av hver kameraflis/visningsport vises et kontrollpanel med fire funksjonelle ikoner når du holder musepekeren over den (avhengig av UI-preferanser):
@@ -192,6 +195,8 @@ I nedre høyre hjørne av hver kameraflis/visningsport vises et kontrollpanel me
 4. **Forstørrelsesglass-ikon (interaktiv zoom)**: Lar deg forstørre et bestemt område av videostrømmen:
    * **Aktivering**: Ved å klikke på ikonet skifter det til en aktiv tilstand (turkis utheving). Markøren endrer form, og et verktøytips instruerer: *"Klikk og dra på kamerafeeden for å zoome"*.
    * **Operasjon**: Venstreklikk og dra et rektangulært markeringsfelt over den levende feeden. Viewporten vil automatisk beskjære og skalere det valgte området for å fylle hele flisen.
+     * **Proportional zoom**: Hold nede **Shift**-tasten mens du tegner zoomrektangelet for å tvinge valget til å låse seg til et sideforhold på 16:9, strengt begrenset til visningsportens grenser.
+     * **Panorere det zoomede bildet (panoreringszoom)**: Når du har zoomet inn, kan du holde nede **midtmuseknappen (rullehjul)** og dra markøren for å fritt panorere den forstørrede visningen rundt videoens synsfelt. This works in Live view, the Playback Archive, and the Mini-player.
    * **Tilbakestill**: Når du zoomer inn, endrer forstørrelsesglassikonet sitt ikon (rød kant med et minustegn). Ved å klikke på den tilbakestilles zoomen umiddelbart, og går tilbake til hele kamerafeeden.
 
 ---
@@ -356,12 +361,15 @@ Presenterer en interaktiv tidslinje som viser hele utgivelseshistorikken, oppdat
 | **Shift + piltastene** | Velg flere tilstøtende kameravisningsporter samtidig (brukes til cellesammenslåing osv.). |
 | **Ctrl + N** | Åpne et nytt, uavhengig tilleggsvindu. |
 | **+** / **-** | Zoom inn / Zoom ut (PTZ-kompatible Hikvision-kameraer). |
+| **Shift** (dra markeringsramme) | Tving markeringsvalg til å låse i et 16:9 sideforhold under interaktiv zoom. |
 | **Esc** | Avslutt fullskjermmodus / avbryt aktivt valg av visningsport. |
 
 ### Museinteraksjon:
 * **Venstre museknapp**:
   * **Dobbeltklikk** på en kameravisningsport i rutenettet maksimerer den til fullskjerm. Et annet dobbeltklikk gjenoppretter rutenettvisningen.
   * Dra tidslinjen i avspillingsvinduet for å navigere.
+* **Middle museknapp (klikk og dra rullehjul)**:
+  * Dra for å panorere og flytte det digitalt zoomede/forstørrede bildet rundt i synsfeltet (fungerer i Live, Archive og Mini-player).
 * **Høyre museknapp (kontekstmeny)**:
   * Åpner en hurtiginnstillingsmeny for den valgte visningsporten (gjør fjerning av kameraet fra rutenettet, bytte mellom hoved-/understrømmer eller tilgang til individuelle visningsparametere).
 * **Rullehjul for mus**:

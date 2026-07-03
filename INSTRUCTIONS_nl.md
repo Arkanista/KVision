@@ -1,5 +1,8 @@
 # Gebruikershandleiding voor KVision
 
+> [!NOTE]
+> Deze handleiding is automatisch vertaald en opgemaakt met behulp van kunstmatige intelligentie (AI).
+
 **KVision** is een geavanceerde desktopapplicatie van VMS-klasse (Video Management System), ontworpen voor het gelijktijdig bekijken van live videostreams (RTSP/ONVIF) en integratie met Hikvision NVR/DVR-recorders (zowel in Live-modus als in Afspeelarchiefmodus).
 
 Het programma is geoptimaliseerd voor stabiliteit, soepele werking (60 FPS) en minimaal verbruik van systeembronnen.
@@ -182,7 +185,7 @@ Het hoofdvenster van het programma toont de livefeed:
 * **Selectie van streamkwaliteit**: door met de rechtermuisknop op een cameraviewport te klikken, kunt u de **hoofdstream** selecteren voor de hoogste resolutie, of de **substream** om de netwerk- en grafische kaartbelasting te verminderen.
 * **Dubbelklikken op volledig scherm**: Dubbelklikken met de linkermuisknop op een cameravenster maximaliseert deze onmiddellijk om het volledige actieve venstergebied te vullen (volledig scherm met één weergavevenster). Als u nogmaals dubbelklikt, wordt de oorspronkelijke rasterindeling met meerdere camera's hersteld.
 * **Bovenste balk automatisch verbergen**: de bovenste optiewerkbalk (topToolBar) kan automatisch samenvouwen naar de bovenrand van het scherm wanneer de muiscursor het gebied verlaat (deze optie is configureerbaar in Instellingen -> *"Bovenste balk automatisch samenvouwen"* of rechtstreeks via het punaisepictogram op de bovenste balk).
-* **Multi-monitor- en hulpvensters**: u kunt onafhankelijke extra (hulp)vensters openen om verschillende rasterindelingen tegelijkertijd op meerdere schermen of monitoren uit te voeren. Als u een nieuw venster wilt openen, gebruikt u de sneltoets `Ctrl+N`, of klikt u op de knop **'Nieuw venster'** op de werkbalk met de muis en glijbaan. Elk venster kan worden geconfigureerd met zijn eigen rastergrootte en geselecteerde vooraf ingestelde lay-out.
+* **Multi-monitor- en hulpvensters**: u kunt onafhankelijke extra (hulp)vensters openen om verschillende rasterindelingen tegelijkertijd op meerdere schermen of monitoren uit te voeren. Als u een nieuw venster wilt openen, gebruikt u de sneltoets `Ctrl+N`, of klikt u op de knop **'Nieuw venster'** op de werkbalk met de muis en glijbaan. Elk venster kan worden geconfigureerd met zijn eigen rastergrootte en geselecteerde vooraf ingestelde lay-out. Om maximale stabiliteit bij configuraties met meerdere monitoren te garanderen, worden alle vensters strikt gecentreerd op het primaire beeldscherm gestart met 90% van de resolutie.
 
 ### Viewport-overlayknoppen
 In de rechterbenedenhoek van elke camerategel/viewport wordt een bedieningspaneel met vier functionele pictogrammen weergegeven wanneer u de muiscursor erover beweegt (afhankelijk van de UI-voorkeuren):
@@ -192,6 +195,8 @@ In de rechterbenedenhoek van elke camerategel/viewport wordt een bedieningspanee
 4. **Vergrootglaspictogram (interactieve zoom)**: Hiermee kunt u elk specifiek gedeelte van de videofeed vergroten:
    * **Activering**: als u op het pictogram klikt, wordt het in een actieve status gezet (turquoise markering). De cursor verandert van vorm en een tooltip geeft instructies: *“Klik en sleep op de camerafeed om in te zoomen”*.
    * **Bewerking**: klik met de linkermuisknop en sleep een rechthoekig selectiegebied over de live feed. De viewport zal het geselecteerde gebied automatisch bijsnijden en schalen om de hele tegel te vullen.
+     * **Proportionele zoom**: Houd de **Shift**-toets ingedrukt terwijl u de zoomrechthoek tekent om de selectie te dwingen te vergrendelen in een beeldverhouding van 16:9, strikt beperkt tot de grenzen van de viewport.
+     * **Het ingezoomde beeld pannen (Pan Zoom)**: Eenmaal ingezoomd, kunt u de **middelste muisknop (scrollwiel)** ingedrukt houden en de cursor slepen om de vergrote weergave vrij rond het videobeeldveld te pannen. Dit werkt in Live View, het Afspeelarchief en de Minispeler.
    * **Resetten**: wanneer er wordt ingezoomd, verandert het vergrootglaspictogram van pictogram (rode rand met een minteken). Als u erop klikt, wordt de zoom onmiddellijk opnieuw ingesteld en keert u terug naar de volledige camerafeed.
 
 ---
@@ -356,12 +361,15 @@ Presenteert een interactieve tijdlijn die de volledige releasegeschiedenis, upda
 | **Shift + pijltjestoetsen** | Selecteer meerdere aangrenzende cameravensters tegelijk (gebruikt voor het samenvoegen van cellen, enz.). |
 | **Ctrl + N** | Open een nieuw, onafhankelijk hulpvenster. |
 | **+** / **-** | Inzoomen / Uitzoomen (PTZ-compatibele Hikvision-camera's). |
+| **Shift** (selectiekader slepen) | Forceer selectiekader om een ​​beeldverhouding van 16:9 vast te leggen tijdens interactief zoomen. |
 | **Esc** | Verlaat de modus Volledig scherm / annuleer actieve viewport-selectie. |
 
 ### Muisinteractie:
 * **Linkermuisknop**:
   * **Dubbelklikken** op een cameravenster in het raster maximaliseert het tot volledig scherm. Nog een keer dubbelklikken herstelt de rasterweergave.
   * Sleep de tijdlijn in het afspeelvenster om te navigeren.
+* **Middelmuisknop (klik en sleep met het scrollwiel)**:
+  * Sleep om de digitaal ingezoomde/vergrote afbeelding te pannen en verplaatsen rond het gezichtsveld van de viewport (werkt in Live, Archief en Minispeler).
 * **Rechtermuisknop (contextmenu)**:
   * Opent een menu met snelle instellingen voor de geselecteerde viewport (maakt het mogelijk de camera uit het raster te verwijderen, te wisselen tussen hoofd-/substreams of toegang te krijgen tot individuele weergaveparameters).
 * **Muisscrollwiel**:

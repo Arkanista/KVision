@@ -1,5 +1,8 @@
 # Manual de usuario para KVision
 
+> [!NOTA]
+> Este manual de instrucciones ha sido traducido y formateado automáticamente con la ayuda de Inteligencia Artificial (IA).
+
 **KVision** es una aplicación de escritorio avanzada de clase VMS (Sistema de gestión de video) diseñada para la visualización simultánea de transmisiones de video en vivo (RTSP/ONVIF) y la integración con grabadoras NVR/DVR de Hikvision (tanto en modo en vivo como en modo de archivo de reproducción).
 
 El programa ha sido optimizado para brindar estabilidad, funcionamiento fluido (60 FPS) y consumo mínimo de recursos del sistema.
@@ -182,7 +185,7 @@ La ventana principal del programa muestra la transmisión en vivo:
 * **Selección de calidad de transmisión**: al hacer clic con el botón derecho en la ventana gráfica de una cámara, puede seleccionar la **transmisión principal** para obtener la resolución más alta o la **transmisión secundaria** para reducir la carga de la red y la tarjeta gráfica.
 * **Alternar pantalla completa con doble clic**: al hacer doble clic con el botón izquierdo del mouse en cualquier ventana gráfica de la cámara, se maximiza instantáneamente para llenar toda el área activa de la ventana (pantalla completa de una sola ventana gráfica). Al hacer doble clic nuevamente se restaura el diseño de cuadrícula multicámara original.
 * **Ocultar automáticamente la barra superior**: la barra de herramientas de opciones superior (topToolBar) puede contraerse automáticamente al borde superior de la pantalla cuando el cursor del mouse sale de su área (esta opción se puede configurar en Configuración -> *"Colapsar automáticamente la barra superior"* o directamente usando el ícono de pin en la barra superior).
-* **Ventanas auxiliares y de monitores múltiples**: puede abrir ventanas adicionales (auxiliares) independientes para ejecutar diferentes diseños de cuadrícula simultáneamente en múltiples pantallas o monitores. Para abrir una nueva ventana, utilice el método abreviado de teclado `Ctrl+N` o haga clic en el botón **"Nueva ventana"** en la barra de herramientas superior deslizable. Cada ventana se puede configurar con su propio tamaño de cuadrícula y diseño preestablecido seleccionado.
+* **Ventanas auxiliares y de monitores múltiples**: puede abrir ventanas adicionales (auxiliares) independientes para ejecutar diferentes diseños de cuadrícula simultáneamente en múltiples pantallas o monitores. Para abrir una nueva ventana, utilice el método abreviado de teclado `Ctrl+N` o haga clic en el botón **"Nueva ventana"** en la barra de herramientas superior deslizable. Cada ventana se puede configurar con su propio tamaño de cuadrícula y diseño preestablecido seleccionado. Para garantizar la máxima estabilidad en configuraciones de varios monitores, todas las ventanas se inician estrictamente centradas en la pantalla principal al 90% de su resolución.
 
 ### Botones de superposición de ventana gráfica
 En la esquina inferior derecha de cada mosaico/ventana gráfica de la cámara, se muestra un panel de control con cuatro íconos funcionales al pasar el cursor del mouse sobre él (según las preferencias de la interfaz de usuario):
@@ -192,6 +195,8 @@ En la esquina inferior derecha de cada mosaico/ventana gráfica de la cámara, s
 4. **Icono de lupa (zoom interactivo)**: le permite ampliar cualquier región específica de la transmisión de video:
    * **Activación**: Al hacer clic en el icono, éste cambia a un estado activo (resaltado en turquesa). El cursor cambia de forma y una información sobre herramientas indica: *“Haga clic y arrastre en la transmisión de la cámara para hacer zoom”*.
    * **Operación**: haga clic con el botón izquierdo y arrastre una región de marco rectangular sobre la transmisión en vivo. La ventana gráfica recortará y escalará automáticamente el área seleccionada para llenar todo el mosaico.
+     * **Zoom proporcional**: mantenga presionada la tecla **Mayús** mientras dibuja el rectángulo de zoom para forzar que la selección se bloquee en una relación de aspecto de 16:9, estrictamente restringida a los límites de la ventana gráfica.
+     * **Desplazamiento de la imagen ampliada (Pan Zoom)**: una vez ampliado, puede mantener presionado el **botón central del mouse (rueda de desplazamiento)** y arrastrar el cursor para desplazarse libremente por la vista ampliada alrededor del campo de visión del video. Esto funciona en la vista en vivo, el archivo de reproducción y el minirreproductor.
    * **Restablecer**: cuando se hace zoom, el ícono de la lupa cambia de ícono (borde rojo con un signo menos). Al hacer clic en él, se restablece inmediatamente el zoom y se vuelve a la transmisión completa de la cámara.
 
 ---
@@ -356,12 +361,15 @@ Presenta una línea de tiempo interactiva que muestra el historial completo de l
 | **Mayús + teclas de flecha** | Seleccione varias ventanas de visualización de cámaras adyacentes simultáneamente (utilizadas para fusionar celdas, etc.). |
 | **Ctrl + N** | Abra una nueva ventana auxiliar independiente. |
 | **+** / **-** | Acercar/alejar (cámaras Hikvision con capacidad PTZ). |
+| **Mayús** (arrastrar marco) | Fuerce la selección de marco para bloquear una relación de aspecto de 16:9 durante el zoom interactivo. |
 | **Esc** | Salga del modo de pantalla completa/cancele la selección de ventana gráfica activa. |
 
 ### Interacción del ratón:
 * **Botón izquierdo del ratón**:
   * **Haga doble clic** en la ventana gráfica de una cámara en la cuadrícula para maximizarla a pantalla completa. Otro doble clic restaura la vista de cuadrícula.
   * Arrastra la línea de tiempo en la ventana de Reproducción para navegar.
+* **Botón central del ratón (haga clic y arrastre con la rueda de desplazamiento)**:
+  * Arrastre para desplazarse y mover la imagen ampliada/ampliada digitalmente alrededor del campo de visión de la ventana gráfica (funciona en Live, Archive y Mini-player).
 * **Botón derecho del ratón (menú contextual)**:
   * Abre un menú de configuración rápida para la ventana gráfica seleccionada (permite eliminar la cámara de la cuadrícula, cambiar entre secuencias principal/secundaria o acceder a parámetros de visualización individuales).
 * **Rueda de desplazamiento del ratón**:

@@ -1,5 +1,8 @@
 # Manuel d'utilisation pour KVision
 
+> [!NOTE]
+> Ce manuel d'instructions a été automatiquement traduit et formaté avec l'aide de l'intelligence artificielle (IA).
+
 **KVision** est une application de bureau avancée de classe VMS (Video Management System) conçue pour la visualisation simultanée de flux vidéo en direct (RTSP/ONVIF) et l'intégration avec les enregistreurs Hikvision NVR/DVR (à la fois en mode Live et en mode d'archive de lecture).
 
 Le programme a été optimisé pour la stabilité, le bon fonctionnement (60 FPS) et une consommation minimale de ressources système.
@@ -182,7 +185,7 @@ La fenêtre principale du programme affiche le flux en direct :
 * **Sélection de la qualité du flux** : en cliquant avec le bouton droit sur une fenêtre d'affichage de la caméra, vous pouvez sélectionner le **Flux principal** pour la résolution la plus élevée, ou le **Sous-flux** pour réduire la charge du réseau et de la carte graphique.
 * **Double-clic sur bascule plein écran** : un double-clic avec le bouton gauche de la souris sur n'importe quelle fenêtre de caméra la maximise instantanément pour remplir toute la zone de la fenêtre active (plein écran avec une seule fenêtre). Un double-clic à nouveau restaure la disposition originale de la grille multi-caméras.
 * **Masquage automatique de la barre supérieure** : La barre d'outils d'options supérieure (topToolBar) peut automatiquement se réduire jusqu'au bord supérieur de l'écran lorsque le curseur de la souris quitte sa zone (cette option est configurable dans Paramètres -> *"Réduire automatiquement la barre supérieure"* ou directement en utilisant l'icône en forme d'épingle sur la barre supérieure).
-* **Fenêtres multi-moniteurs et auxiliaires** : vous pouvez ouvrir des fenêtres supplémentaires (auxiliaires) indépendantes pour exécuter différentes dispositions de grille simultanément sur plusieurs écrans ou moniteurs. Pour ouvrir une nouvelle fenêtre, utilisez le raccourci clavier `Ctrl+N` ou cliquez sur le bouton **"Nouvelle fenêtre"** dans la barre d'outils supérieure du curseur de survol. Chaque fenêtre peut être configurée avec sa propre taille de grille et sa propre disposition prédéfinie sélectionnée.
+* **Fenêtres multi-moniteurs et auxiliaires** : vous pouvez ouvrir des fenêtres supplémentaires (auxiliaires) indépendantes pour exécuter différentes dispositions de grille simultanément sur plusieurs écrans ou moniteurs. Pour ouvrir une nouvelle fenêtre, utilisez le raccourci clavier `Ctrl+N` ou cliquez sur le bouton **"Nouvelle fenêtre"** dans la barre d'outils supérieure du curseur de survol. Chaque fenêtre peut être configurée avec sa propre taille de grille et sa propre disposition prédéfinie sélectionnée. Pour garantir une stabilité maximale sur les configurations multi-moniteurs, toutes les fenêtres se lancent strictement centrées sur l'écran principal à 90 % de sa résolution.
 
 ### Boutons de superposition de fenêtre
 Dans le coin inférieur droit de chaque vignette/fenêtre de caméra, un panneau de commande avec quatre icônes fonctionnelles s'affiche lorsque vous passez le curseur de la souris dessus (en fonction des préférences de l'interface utilisateur) :
@@ -192,6 +195,8 @@ Dans le coin inférieur droit de chaque vignette/fenêtre de caméra, un panneau
 4. **Icône de loupe (zoom interactif)** : vous permet d'agrandir n'importe quelle région spécifique du flux vidéo :
    * **Activation** : cliquez sur l'icône pour la faire passer à un état actif (surbrillance turquoise). Le curseur change de forme et une info-bulle indique : *« Cliquez et faites glisser sur le flux de la caméra pour zoomer »*.
    * **Opération** : cliquez avec le bouton gauche et faites glisser une zone de sélection rectangulaire sur le flux en direct. La fenêtre recadrera et mettra automatiquement à l'échelle la zone sélectionnée pour remplir la totalité de la vignette.
+     * **Zoom proportionnel** : maintenez la touche **Maj** enfoncée tout en dessinant le rectangle de zoom pour forcer la sélection à se verrouiller dans un rapport hauteur/largeur 16:9, strictement limité aux limites de la fenêtre d'affichage.
+     * **Panoramique de l'image zoomée (Pan Zoom)** : une fois le zoom avant effectué, vous pouvez maintenir enfoncé le **bouton central de la souris (molette de défilement)** et faire glisser le curseur pour déplacer librement la vue agrandie autour du champ de vision vidéo. Cela fonctionne dans l'affichage en direct, l'archive de lecture et le mini-lecteur.
    * **Réinitialiser** : lors d'un zoom, l'icône en forme de loupe change d'icône (bordure rouge avec un signe moins). En cliquant dessus, vous réinitialisez immédiatement le zoom et revenez au flux complet de la caméra.
 
 ---
@@ -356,12 +361,15 @@ Présente une chronologie interactive montrant l'historique complet des versions
 | **Maj + Flèches** | Sélectionnez simultanément plusieurs fenêtres de caméra adjacentes (utilisées pour la fusion de cellules, etc.). |
 | **Ctrl + N** | Ouvrez une nouvelle fenêtre auxiliaire indépendante. |
 | **+** / **-** | Zoom avant/Zoom arrière (caméras Hikvision compatibles PTZ). |
+| **Maj** (faire glisser le rectangle de sélection) | Forcez la sélection du rectangle de sélection à verrouiller le format d'image 16:9 pendant le zoom interactif. |
 | **Échap** | Quittez le mode Plein écran / annulez la sélection de fenêtre active. |
 
 ### Interaction avec la souris :
 * **Bouton gauche de la souris** :
   * **Double-cliquez** sur une fenêtre d'affichage de caméra dans la grille pour la maximiser en plein écran. Un autre double-clic restaure la vue grille.
   * Faites glisser la chronologie dans la fenêtre Lecture pour naviguer.
+* **Bouton central de la souris (molette de défilement, cliquez et faites glisser)** :
+  * Faites glisser pour effectuer un panoramique et déplacez l'image zoomée/agrandie numériquement dans le champ de vision de la fenêtre d'affichage (fonctionne dans Live, Archive et Mini-player).
 * **Bouton droit de la souris (Menu contextuel)** :
   * Ouvre un menu de paramètres rapides pour la fenêtre sélectionnée (permet de supprimer la caméra de la grille, de passer d'un flux principal à un flux secondaire ou d'accéder à des paramètres d'affichage individuels).
 * **Molette de défilement de la souris** :

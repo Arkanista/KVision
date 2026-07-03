@@ -1,5 +1,8 @@
 # Instrukcja Obsługi programu KVision
 
+> [!NOTE]
+> Ta instrukcja obsługi została przygotowana, sformatowana i przetłumaczona przy użyciu sztucznej inteligencji (AI).
+
 **KVision** to zaawansowana aplikacja klasy VMS (Video Management System) przeznaczona do jednoczesnego podglądu strumieni wideo na żywo (RTSP/ONVIF) oraz integracji z rejestratorami NVR/DVR firmy Hikvision (zarówno w trybie Live, jak i odtwarzania archiwum Playback).
 
 Program został zoptymalizowany pod kątem stabilności, płynności działania (60 FPS) oraz minimalnego obciążenia zasobów systemo## Spis Treści
@@ -178,7 +181,7 @@ Okno główne programu odpowiada za wyświetlanie obrazu na żywo:
 * **Wybór jakości strumienia**: Klikając prawym przyciskiem myszy na dany kafelek kamery, możesz wybrać strumień główny (**Main Stream**) o najwyższej rozdzielczości lub pomocniczy (**Sub Stream**) w celu zmniejszenia obciążenia sieci i karty graficznej.
 * **Szybkie przełączanie pełnego ekranu (Double-Click)**: Dwukrotne kliknięcie lewym przyciskiem myszy na dowolny kafelek kamery w siatce natychmiast maksymalizuje go na cały obszar wyświetlania (pełny ekran pojedynczego kafelka). Ponowne dwukrotne kliknięcie przywraca poprzednią siatkę wielu kamer.
 * **Auto-ukrywanie paska górnego**: Pasek górny (topToolBar) może automatycznie zwijać się do górnej krawędzi ekranu po zjechaniu z niego kursorem myszy (opcja konfigurowalna w zakładce Ustawienia -> *„Automatycznie zwijaj pasek górny”* lub bezpośrednio za pomocą przycisku pinezki na pasku górnym).
-* **Obsługa wielu monitorów i okien pomocniczych**: Aplikacja pozwala na otwieranie niezależnych, dodatkowych okien pomocniczych (tzw. Auxiliary Windows), co ułatwia jednoczesny podgląd różnych siatek kamer na wielu monitorach lub ekranach. Aby otworzyć nowe okno pomocnicze, użyj skrótu klawiszowego `Ctrl+N` lub kliknij przycisk **„NOWE OKNO”** na pasku narzędzi u góry ekranu. Każde z okien może mieć własny rozmiar siatki oraz wybrany układ presetów.
+* **Obsługa wielu monitorów i okien pomocniczych**: Aplikacja pozwala na otwieranie niezależnych, dodatkowych okien pomocniczych (tzw. Auxiliary Windows), co ułatwia jednoczesny podgląd różnych siatek kamer na wielu monitorach lub ekranach. Aby otworzyć nowe okno pomocnicze, użyj skrótu klawiszowego `Ctrl+N` lub kliknij przycisk **„NOWE OKNO”** na pasku narzędzi u góry ekranu. Każde z okien może mieć własny rozmiar siatki oraz wybrany układ presetów. W celu zapewnienia maksymalnej stabilności na konfiguracjach wielomonitorowych, wszystkie okna uruchamiają się rygorystycznie wycentrowane na głównym ekranie w rozmiarze stanowiącym 90% jego rozdzielczości.
 
 ### Przyciski Sterujące na Kafelkach (Viewportach)
 W prawym dolnym rogu każdego kafelka kamery po najechaniu na niego kursorem myszy (zależnie od ustawień interfejsu) wyświetla się nakładkowy panel zawierający cztery funkcjonalne ikony sterowania:
@@ -188,6 +191,8 @@ W prawym dolnym rogu każdego kafelka kamery po najechaniu na niego kursorem mys
 4. **Ikona Lupy (Interaktywne Powiększenie)**: Pozwala na przybliżenie wybranego regionu wideo:
    * **Aktywacja**: Kliknięcie ikony przełącza przycisk w stan aktywny (podświetlenie na turkusowo). Kursor zmienia kształt, a tooltip instruuje: *„Kliknij i przeciągnij po obrazie kamery, aby przybliżyć”*.
    * **Działanie**: Użytkownik zaznacza lewym przyciskiem myszy prostokątny obszar na obrazie. Viewport automatycznie kadruje i powiększa wybrany fragment tak, by wypełnił cały kafelek.
+     * **Proporcjonalny zoom**: Przytrzymanie klawisza **Shift** w trakcie rysowania prostokąta powiększenia wymusza zablokowanie proporcji zaznaczenia do formatu 16:9, ściśle ograniczonego do obszaru kafelka.
+     * **Przesuwanie powiększonego obrazu (Pan Zoom)**: Po przybliżeniu obrazu możesz przytrzymać **środkowy przycisk myszy (kółko przewijania)** i przeciągać kursor, aby swobodnie przesuwać powiększony widok w polu widzenia kamery. Funkcja ta działa w trybie podglądu na żywo, archiwum Playback oraz w mini-odtwarzaczu.
    * **Reset**: Gdy obraz jest przybliżony, ikona lupy zmienia swój wygląd (czerwona obwódka i minus w środku). Kliknięcie jej natychmiast resetuje przybliżenie i przywraca pełen kadr kamery.
 
 ---
@@ -352,12 +357,15 @@ Prezentuje interaktywny i uporządkowany rejestr historycznych oraz bieżących 
 | **Shift + Strzałki** | Zaznaczanie wielu sąsiadujących kafelków kamer jednocześnie (używane m.in. do scalania komórek). |
 | **Ctrl + N** | Otwarcie nowego, niezależnego okna pomocniczego (Auxiliary Window). |
 | **+** / **-** | Zbliżenie / Oddalenie (kamery Hikvision obsługujące PTZ). |
+| **Shift** (podczas zaznaczania) | Wymusza proporcje zaznaczenia 16:9 podczas interaktywnego przybliżania (lupy). |
 | **Esc** | Wyjście z trybu pełnoekranowego / anulowanie aktywnego zaznaczenia kafelka. |
 
 ### Interakcja myszą:
 * **Lewy przycisk myszy**:
   * **Dwukrotne kliknięcie (Double-Click)** na kafelek kamery w siatce powiększa go na pełny ekran. Kolejne dwukrotne kliknięcie przywraca widok siatki.
   * Przeciąganie osi czasu w oknie Playback w celu nauki i nawigacji.
+* **Środkowy przycisk myszy (kliknięcie i przeciągnięcie kółka)**:
+  * Przeciągaj, aby przesuwać i kadrować cyfrowo powiększony obraz (Pan Zoom) wewnątrz viewportu (działa na żywo, w archiwum i w mini-odtwarzaczu).
 * **Prawy przycisk myszy (Context Menu)**:
   * Otwiera podręczne menu ustawień dla wybranego kafelka (umożliwia usuwanie kamery z siatki, zmianę strumienia Main/Sub czy wejście w indywidualne parametry wyświetlania).
 * **Kółko myszy (Scroll Wheel)**:

@@ -1,5 +1,8 @@
 # KVision Kullanım Kılavuzu
 
+> [!NOT]
+> Bu kullanım kılavuzu Yapay Zeka (AI) yardımıyla otomatik olarak tercüme edilmiş ve formatlanmıştır.
+
 **KVision**, canlı video akışlarının (RTSP/ONVIF) eşzamanlı olarak görüntülenmesi ve Hikvision NVR/DVR kayıt cihazlarıyla (hem Canlı modda hem de Oynatma arşiv modunda) entegrasyon için tasarlanmış gelişmiş bir VMS (Video Yönetim Sistemi) sınıfı masaüstü uygulamasıdır.
 
 Program kararlılık, sorunsuz çalışma (60 FPS) ve minimum sistem kaynağı tüketimi için optimize edilmiştir.
@@ -182,7 +185,7 @@ Programın ana penceresi canlı yayını görüntüler:
 * **Akış Kalitesi Seçimi**: Bir kamera görüntü portuna sağ tıklayarak, en yüksek çözünürlük için **Ana Akış**'ı veya ağ ve grafik kartı yükünü azaltmak için **Alt Akış**'ı seçebilirsiniz.
 * **Çift Tıklamayla Tam Ekran Geçişi**: Herhangi bir kamera görüntü portu üzerinde farenin sol düğmesiyle çift tıklamak, onu tüm aktif pencere alanını dolduracak şekilde anında büyütür (tek görüntü portlu tam ekran). Tekrar çift tıklamak, orijinal çoklu kamera ızgara düzenini geri yükler.
 * **Üst Çubuğu Otomatik Gizleme**: Üst seçenekler araç çubuğu (topToolBar), fare imleci alanından çıktığında otomatik olarak ekranın üst kenarına daraltılabilir (bu seçenek Ayarlar -> *"Üst çubuğu otomatik olarak daralt"* bölümünden veya doğrudan üst çubuktaki raptiye simgesi kullanılarak yapılandırılabilir).
-* **Çoklu Monitör ve Yardımcı Pencereler**: Farklı ızgara düzenlerini birden fazla ekran veya monitörde aynı anda çalıştırmak için bağımsız ek (yardımcı) pencereler açabilirsiniz. Yeni bir pencere açmak için `Ctrl+N` klavye kısayolunu kullanın veya fareyle üzerine gelindiğinde kayan üst araç çubuğundaki **"Yeni Pencere"** düğmesini tıklayın. Her pencere kendi ızgara boyutu ve seçilmiş ön ayar düzeniyle yapılandırılabilir.
+* **Çoklu Monitör ve Yardımcı Pencereler**: Farklı ızgara düzenlerini birden fazla ekran veya monitörde aynı anda çalıştırmak için bağımsız ek (yardımcı) pencereler açabilirsiniz. Yeni bir pencere açmak için `Ctrl+N` klavye kısayolunu kullanın veya fareyle üzerine gelindiğinde kayan üst araç çubuğundaki **"Yeni Pencere"** düğmesini tıklayın. Her pencere kendi ızgara boyutu ve seçilmiş ön ayar düzeniyle yapılandırılabilir. Çoklu monitör yapılandırmalarında maksimum kararlılığı sağlamak için, tüm pencereler kesinlikle birincil ekranın %90 çözünürlüğünde ortalanmış olarak başlatılır.
 
 ### Görünüm Penceresi Yer Paylaşımı Düğmeleri
 Her kamera döşemesinin/görüntü alanının sağ alt köşesinde, fare imleci üzerine getirildiğinde dört işlevsel simgeye sahip bir kontrol paneli görüntülenir (kullanıcı arayüzü tercihlerine bağlı olarak):
@@ -192,6 +195,8 @@ Her kamera döşemesinin/görüntü alanının sağ alt köşesinde, fare imleci
 4. **Büyüteç Simgesi (Etkileşimli Yakınlaştırma)**: Video akışının belirli herhangi bir bölgesini büyütmenize olanak tanır:
    * **Etkinleştirme**: Simgeyi tıklamak onu etkin duruma (turkuaz vurgu) geçirir. İmlecin şekli değişir ve bir araç ipucu şu talimatı verir: *“Yakınlaştırmak için kamera akışına tıklayın ve sürükleyin”*.
    * **İşlem**: Sol tıklayın ve dikdörtgen bir seçim çerçevesi bölgesini canlı yayının üzerine sürükleyin. Görünüm penceresi, tüm döşemeyi dolduracak şekilde seçilen alanı otomatik olarak kırpacak ve ölçeklendirecektir.
+     * **Orantılı Yakınlaştırma**: Yakınlaştırma dikdörtgenini çizerken **Shift** tuşunu basılı tutarak seçimi, görünüm alanı sınırlarıyla sıkı bir şekilde sınırlandırılmış 16:9 en boy oranına kilitlemeye zorlayın.
+     * **Yakınlaştırılmış Görüntüyü Kaydırma (Pan Zoom)**: Yakınlaştırdıktan sonra, **orta fare düğmesini (kaydırma tekerleği)** basılı tutabilir ve büyütülmüş görünümü video görüş alanı çevresinde serbestçe kaydırmak için imleci sürükleyebilirsiniz. Bu, Canlı görünümde, Oynatma Arşivinde ve Mini oynatıcıda çalışır.
    * **Sıfırla**: Büyüteç simgesi yakınlaştırıldığında simgesini değiştirir (eksi işaretli kırmızı kenarlık). Tıklandığında yakınlaştırma hemen sıfırlanır ve tam kamera yayınına geri dönülür.
 
 ---
@@ -356,12 +361,15 @@ KVision'ın tam sürüm geçmişini, güncellemelerini, hata düzeltmelerini ve 
 | **Üst Karakter + Ok tuşları** | Birden fazla bitişik kamera görüntü portunu aynı anda seçin (hücre birleştirme vb. için kullanılır). |
 | **Ctrl + N** | Yeni, bağımsız bir yardımcı pencere açın. |
 | **+** / **-** | Yakınlaştır / Uzaklaştır (PTZ özellikli Hikvision kameralar). |
+| **Shift** (işaret çerçevesini sürükleyin) | Etkileşimli yakınlaştırma sırasında kayan yazı seçimini 16:9 en boy oranında kilitlemeye zorlayın. |
 | **Esc** | Tam Ekran modundan çıkın / aktif görünüm alanı seçimini iptal edin. |
 
 ### Fare etkileşimi:
 * **Sol fare düğmesi**:
   * Izgaradaki bir kamera görüntüleme alanına **çift tıklamak** onu tam ekrana büyütür. Başka bir çift tıklama ızgara görünümünü geri yükler.
   * Gezinmek için Oynatma penceresindeki zaman çizelgesini sürükleyin.
+* **Orta Fare Düğmesi (Kaydırma tekerleği tıklayıp sürükleyin)**:
+  * Dijital olarak yakınlaştırılmış/büyütülmüş görüntüyü görünüm alanı çevresinde kaydırmak ve taşımak için sürükleyin (Canlı, Arşiv ve Mini oynatıcıda çalışır).
 * **Sağ fare düğmesi (İçerik Menüsü)**:
   * Seçilen görünüm portu için hızlı ayarlar menüsünü açar (kameranın ızgaradan çıkarılmasına, Ana/Alt akışlar arasında geçiş yapılmasına veya ayrı ekran parametrelerine erişilmesine olanak sağlar).
 * **Fare Kaydırma Tekerleği**:

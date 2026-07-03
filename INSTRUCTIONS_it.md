@@ -1,5 +1,8 @@
 # Manuale utente per KVision
 
+> [!NOTA]
+> Questo manuale di istruzioni è stato tradotto e formattato automaticamente con l'assistenza dell'Intelligenza Artificiale (AI).
+
 **KVision** è un'applicazione desktop avanzata di classe VMS (Video Management System) progettata per la visualizzazione simultanea di flussi video live (RTSP/ONVIF) e l'integrazione con registratori NVR/DVR Hikvision (sia in modalità Live che in modalità archivio di riproduzione).
 
 Il programma è stato ottimizzato per stabilità, funzionamento regolare (60 FPS) e consumo minimo di risorse di sistema.
@@ -182,7 +185,7 @@ La finestra principale del programma mostra il feed live:
 * **Selezione della qualità del flusso**: facendo clic con il pulsante destro del mouse su una finestra della telecamera, è possibile selezionare il **flusso principale** per la risoluzione più alta o il **flusso secondario** per ridurre il carico della rete e della scheda grafica.
 * **Fare doppio clic per attivare/disattivare lo schermo intero**: facendo doppio clic con il pulsante sinistro del mouse su qualsiasi finestra della telecamera, questa viene ingrandita immediatamente per riempire l'intera area della finestra attiva (schermo intero con vista singola). Facendo nuovamente doppio clic si ripristina il layout originale della griglia multi-camera.
 * **Barra superiore nascosta automaticamente**: la barra degli strumenti delle opzioni superiore (topToolBar) può comprimersi automaticamente sul bordo superiore dello schermo quando il cursore del mouse lascia la sua area (questa opzione è configurabile in Impostazioni -> *"Comprimi automaticamente la barra superiore"* o direttamente utilizzando l'icona della puntina sulla barra superiore).
-* **Finestre multi-monitor e ausiliarie**: puoi aprire finestre aggiuntive (ausiliarie) indipendenti per eseguire diversi layout di griglia contemporaneamente su più schermi o monitor. Per aprire una nuova finestra, utilizza la scorciatoia da tastiera `Ctrl+N` oppure fai clic sul pulsante **"Nuova finestra"** sulla barra degli strumenti in alto a scorrimento. Ogni finestra può essere configurata con la propria dimensione della griglia e il layout preimpostato selezionato.
+* **Finestre multi-monitor e ausiliarie**: puoi aprire finestre aggiuntive (ausiliarie) indipendenti per eseguire diversi layout di griglia contemporaneamente su più schermi o monitor. Per aprire una nuova finestra, utilizza la scorciatoia da tastiera `Ctrl+N` oppure fai clic sul pulsante **"Nuova finestra"** sulla barra degli strumenti in alto a scorrimento. Ogni finestra può essere configurata con la propria dimensione della griglia e il layout preimpostato selezionato. Per garantire la massima stabilità nelle configurazioni multi-monitor, tutte le finestre vengono avviate rigorosamente centrate sul display principale al 90% della sua risoluzione.
 
 ### Pulsanti di sovrapposizione della vista
 Nell'angolo in basso a destra di ogni riquadro/visualizzazione della telecamera, quando si passa il cursore del mouse su di esso viene visualizzato un pannello di controllo con quattro icone funzionali (a seconda delle preferenze dell'interfaccia utente):
@@ -192,6 +195,8 @@ Nell'angolo in basso a destra di ogni riquadro/visualizzazione della telecamera,
 4. **Icona lente di ingrandimento (Zoom interattivo)**: consente di ingrandire qualsiasi regione specifica del feed video:
    * **Attivazione**: facendo clic sull'icona si passa allo stato attivo (evidenziazione turchese). Il cursore cambia forma e una descrizione comando indica: *"Fare clic e trascinare sul feed della telecamera per ingrandire"*.
    * **Operazione**: fai clic con il pulsante sinistro del mouse e trascina un'area di selezione rettangolare sul feed live. La finestra ritaglierà e ridimensionerà automaticamente l'area selezionata per riempire l'intero riquadro.
+     * **Zoom proporzionale**: tieni premuto il tasto **Maiusc** mentre disegna il rettangolo di zoom per forzare la selezione a bloccarsi su proporzioni 16:9, strettamente vincolate ai limiti della finestra.
+     * **Panoramica dell'immagine ingrandita (Pan Zoom)**: una volta ingrandita, è possibile tenere premuto il **pulsante centrale del mouse (rotella di scorrimento)** e trascinare il cursore per eseguire liberamente la panoramica della vista ingrandita attorno al campo visivo del video. Funziona nella vista Live, nell'archivio di riproduzione e nel mini player.
    * **Ripristina**: quando viene ingrandita, l'icona della lente di ingrandimento cambia icona (bordo rosso con un segno meno). Facendo clic su di esso si reimposta immediatamente lo zoom, tornando al feed completo della fotocamera.
 
 ---
@@ -356,12 +361,15 @@ Presenta una sequenza temporale interattiva che mostra la cronologia completa de
 | **Maiusc + tasti freccia** | Seleziona più finestre di telecamera adiacenti contemporaneamente (utilizzate per l'unione di celle, ecc.). |
 | **Ctrl + N** | Apri una nuova finestra ausiliaria indipendente. |
 | **+** / **-** | Zoom avanti/Zoom indietro (telecamere Hikvision con funzionalità PTZ). |
+| **Maiusc** (trascina selezione) | Forza la selezione del riquadro di selezione per bloccare le proporzioni 16:9 durante lo zoom interattivo. |
 | **Esc** | Esce dalla modalità a schermo intero/annulla la selezione della vista attiva. |
 
 ### Interazione con il mouse:
 * **Pulsante sinistro del mouse**:
   * **Fai doppio clic** sulla visualizzazione di una telecamera nella griglia per ingrandirla a schermo intero. Un altro doppio clic ripristina la visualizzazione a griglia.
   * Trascina la timeline nella finestra di riproduzione per navigare.
+* **Pulsante centrale del mouse (clic e trascinamento con la rotellina di scorrimento)**:
+  * Trascinare per eseguire la panoramica e spostare l'immagine ingrandita/ingrandita digitalmente nel campo visivo del viewport (funziona in Live, Archivio e Mini-player).
 * **Pulsante destro del mouse (menu contestuale)**:
   * Apre un menu di impostazioni rapide per il viewport selezionato (consente di rimuovere la telecamera dalla griglia, cambiare tra i flussi Principale/Secondario o accedere ai singoli parametri di visualizzazione).
 * **Rotella di scorrimento del mouse**:

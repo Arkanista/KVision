@@ -1,5 +1,8 @@
 # KVisionin käyttöopas
 
+> [!HUOM]
+> Tämä käyttöohje on käännetty ja muotoiltu automaattisesti tekoälyn (AI) avulla.
+
 **KVision** on edistynyt VMS (Video Management System) -luokan työpöytäsovellus, joka on suunniteltu live-videostriimien (RTSP/ONVIF) samanaikaiseen katseluun ja integrointiin Hikvision NVR/DVR -tallentimien kanssa (sekä live-tilassa että toisto-arkistotilassa).
 
 Ohjelma on optimoitu vakautta, sujuvaa toimintaa (60 FPS) ja minimaalista järjestelmäresurssien kulutusta varten.
@@ -182,7 +185,7 @@ Ohjelman pääikkuna näyttää live-syötteen:
 * **Virran laadun valinta**: Napsauta hiiren kakkospainikkeella kameran kuvaporttia, voit valita **Päävirran** korkeimman resoluution tai **Alivirran** vähentääksesi verkon ja näytönohjaimen kuormitusta.
 * **Kaksoisnapsautuksen koko näytön vaihto**: Kaksoisnapsauttaminen hiiren vasemmalla painikkeella mitä tahansa kameran näkymää maksimoi sen välittömästi täyttämään koko aktiivisen ikkuna-alueen (yhden näkymän koko näyttö). Kaksoisnapsauttaminen uudelleen palauttaa alkuperäisen usean kameran ruudukkoasettelun.
 * **Yläpalkin automaattinen piilottaminen**: Ylävalikon työkalupalkki (topToolBar) voi tiivistyä automaattisesti näytön yläreunaan, kun hiiren osoitin poistuu alueelta (tämä vaihtoehto on määritettävissä kohdassa Asetukset -> *"Supista yläpalkki automaattisesti"* tai suoraan yläpalkin nastakuvakkeella).
-* **Monimonitori ja apuikkunat**: Voit avata itsenäisiä lisäikkunoita (apu)ikkunoita ajaaksesi erilaisia ​​ruudukkoasetteluja samanaikaisesti useilla näytöillä tai näytöillä. Voit avata uuden ikkunan käyttämällä `Ctrl+N`-pikanäppäintä tai napsauttamalla **Uusi ikkuna** -painiketta liukuvan ylätyökalupalkin päällä. Jokaiselle ikkunalle voidaan määrittää oma ruudukkokoko ja valittu esiasetettu asettelu.
+* **Monimonitori ja apuikkunat**: Voit avata itsenäisiä lisäikkunoita (apu)ikkunoita ajaaksesi erilaisia ​​ruudukkoasetteluja samanaikaisesti useilla näytöillä tai näytöillä. Voit avata uuden ikkunan käyttämällä `Ctrl+N`-pikanäppäintä tai napsauttamalla **Uusi ikkuna** -painiketta liukuvan ylätyökalupalkin päällä. Jokaiselle ikkunalle voidaan määrittää oma ruudukkokoko ja valittu esiasetettu asettelu. Maksimaalisen vakauden varmistamiseksi usean näytön kokoonpanoissa kaikki ikkunat käynnistyvät tiukasti ensisijaisen näytön keskellä 90 prosentin resoluutiolla.
 
 ### Näkymän peittopainikkeet
 Kunkin kameraruudun/näkymäportin oikeassa alakulmassa näkyy ohjauspaneeli, jossa on neljä toiminnallista kuvaketta, kun hiiren osoitin viedään sen päälle (käyttöliittymän asetuksista riippuen):
@@ -192,6 +195,8 @@ Kunkin kameraruudun/näkymäportin oikeassa alakulmassa näkyy ohjauspaneeli, jo
 4. **Suurennuslasikuvake (interaktiivinen zoomaus)**: Voit suurentaa mitä tahansa videosyötteen aluetta:
    * **Aktivointi**: kuvakkeen napsauttaminen vaihtaa sen aktiiviseen tilaan (turkoosi korostus). Kohdistin muuttaa muotoa, ja työkaluvihje neuvoo: *"Zoomaa napsauttamalla ja vetämällä kameran syötettä"*.
    * **Toiminta**: Napsauta hiiren kakkospainikkeella ja vedä suorakaiteen muotoinen valintakehys live-syötteen päälle. Näkymä rajaa ja skaalaa valitun alueen automaattisesti täyttämään koko ruudun.
+     * **Suhteellinen zoomaus**: Pidä **Vaihto**-näppäintä painettuna samalla kun piirrät zoomaussuorakulmiota pakottaaksesi valinnan lukittumaan 16:9-kuvasuhteeseen, joka on tiukasti rajoitettu kuvaportin rajoihin.
+     * **Zoomatun kuvan panorointi (Pan Zoom)**: Kun olet zoomannut, voit pitää **hiiren keskipainiketta (vierityspyörää)** painettuna ja vetämällä osoitinta panoroidaksesi suurennettua näkymää vapaasti videon näkökentän ympärillä. Tämä toimii suorassa näkymässä, toistoarkistossa ja minisoittimessa.
    * **Nollaa**: Kun zoomataan, suurennuslasikuvake vaihtaa kuvaketta (punainen reunus miinusmerkillä). Sen napsauttaminen nollaa zoomauksen välittömästi ja palaa kameran täyteen syötteeseen.
 
 ---
@@ -356,12 +361,15 @@ Esittelee interaktiivisen aikajanan, joka näyttää KVisionin täydellisen julk
 | **Vaihto + nuolinäppäimet** | Valitse useita vierekkäisiä kameran kuvaportteja samanaikaisesti (käytetään solujen yhdistämiseen jne.). |
 | **Ctrl + N** | Avaa uusi, itsenäinen apuikkuna. |
 | **+** / **-** | Lähennä / loitonna (PTZ-yhteensopivat Hikvision-kamerat). |
+| **Vaihto** (vedä valintakehys) | Pakota valintakehys lukittumaan 16:9-kuvasuhteeseen interaktiivisen zoomauksen aikana. |
 | **Esc** | Poistu koko näytön tilasta / peruuta aktiivisen näkymän valinta. |
 
 ### Hiiren vuorovaikutus:
 * **Hiiren vasen painike**:
   * **Kaksoisnapsauttamalla** kameran kuvaportti ruudukossa maksimoi sen koko näytön kokoiseksi. Toinen kaksoisnapsautus palauttaa ruudukkonäkymän.
   * Vedä aikajanaa Toisto-ikkunassa navigoidaksesi.
+* **Hiiren keskipainike (vierityspyörän napsautus ja vetäminen)**:
+  * Panoroi vetämällä ja siirrä digitaalisesti zoomattua/suurennettua kuvaa kuvaportin näkökentän ympäri (toimii Live-, Archive- ja Mini-soittimessa).
 * **Hiiren oikea painike (kontekstivalikko)**:
   * Avaa pika-asetusvalikon valitulle näkymälle (sallii kameran poistamisen ruudukosta, vaihtamisen pää-/alivirtojen välillä tai pääsyn yksittäisiin näyttöparametreihin).
 * **Hiiren vierityspyörä**:

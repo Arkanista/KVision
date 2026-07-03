@@ -1,5 +1,8 @@
 # Manual do usuário do KVision
 
+> [!NOTA]
+> Este manual de instruções foi traduzido e formatado automaticamente com o auxílio da Inteligência Artificial (IA).
+
 **KVision** é um aplicativo de desktop avançado de classe VMS (Sistema de gerenciamento de vídeo) projetado para visualização simultânea de transmissões de vídeo ao vivo (RTSP/ONVIF) e integração com gravadores Hikvision NVR/DVR (tanto no modo Ao vivo quanto no modo de arquivo de reprodução).
 
 O programa foi otimizado para estabilidade, operação suave (60 FPS) e consumo mínimo de recursos do sistema.
@@ -182,7 +185,7 @@ A janela principal do programa exibe o feed ao vivo:
 * **Seleção de qualidade de stream**: clicando com o botão direito na janela de visualização da câmera, você pode selecionar o **stream principal** para obter a resolução mais alta ou o **stream secundário** para reduzir a carga da rede e da placa gráfica.
 * **Alternar tela inteira com clique duplo**: Clicar duas vezes com o botão esquerdo do mouse em qualquer janela de visualização da câmera a maximiza instantaneamente para preencher toda a área ativa da janela (tela cheia de janela de visualização única). Clicar duas vezes novamente restaura o layout original da grade multicâmera.
 * **Ocultar automaticamente a barra superior**: A barra de ferramentas de opções superiores (topToolBar) pode recolher automaticamente para a borda superior da tela quando o cursor do mouse sai de sua área (esta opção é configurável em Configurações -> *„Recolher automaticamente a barra superior”* ou diretamente usando o ícone de alfinete na barra superior).
-* **Multi-Monitor e Janelas Auxiliares**: Você pode abrir janelas adicionais independentes (auxiliares) para executar diferentes layouts de grade simultaneamente em múltiplas telas ou monitores. Para abrir uma nova janela, use o atalho de teclado `Ctrl+N` ou clique no botão **"Nova janela"** na barra de ferramentas superior do slide suspenso. Cada janela pode ser configurada com seu próprio tamanho de grade e layout predefinido selecionado.
+* **Multi-Monitor e Janelas Auxiliares**: Você pode abrir janelas adicionais independentes (auxiliares) para executar diferentes layouts de grade simultaneamente em múltiplas telas ou monitores. Para abrir uma nova janela, use o atalho de teclado `Ctrl+N` ou clique no botão **"Nova janela"** na barra de ferramentas superior do slide suspenso. Cada janela pode ser configurada com seu próprio tamanho de grade e layout predefinido selecionado. Para garantir a máxima estabilidade em configurações de vários monitores, todas as janelas são iniciadas estritamente centralizadas na tela principal com 90% de sua resolução.
 
 ### Botões de sobreposição de viewport
 No canto inferior direito de cada bloco/janela de visualização da câmera, um painel de controle com quatro ícones funcionais é exibido ao passar o cursor do mouse sobre ele (dependendo das preferências da UI):
@@ -192,6 +195,8 @@ No canto inferior direito de cada bloco/janela de visualização da câmera, um 
 4. **Ícone de lupa (zoom interativo)**: permite ampliar qualquer região específica do feed de vídeo:
    * **Ativação**: clicar no ícone o alterna para um estado ativo (destaque turquesa). O cursor muda de forma e uma dica de ferramenta instrui: *“Clique e arraste na imagem da câmera para ampliar”*.
    * **Operação**: Clique com o botão esquerdo e arraste uma região retangular sobre o feed ao vivo. A janela de visualização cortará e dimensionará automaticamente a área selecionada para preencher todo o bloco.
+     * **Zoom Proporcional**: Mantenha pressionada a tecla **Shift** enquanto desenha o retângulo de zoom para forçar a seleção a travar em uma proporção de 16:9, estritamente restrita aos limites da janela de visualização.
+     * **Deslocamento panorâmico da imagem ampliada (Pan Zoom)**: Depois de aumentar o zoom, você pode manter pressionado o **botão do meio do mouse (roda de rolagem)** e arrastar o cursor para movimentar livremente a visualização ampliada ao redor do campo de visualização do vídeo. Isso funciona na visualização ao vivo, no arquivo de reprodução e no miniplayer.
    * **Redefinir**: Quando ampliado, o ícone da lupa muda de ícone (borda vermelha com um sinal de menos). Clicar nele redefine imediatamente o zoom, retornando à imagem completa da câmera.
 
 ---
@@ -356,12 +361,15 @@ Apresenta uma linha do tempo interativa mostrando o histórico completo de lanç
 | **Shift + Teclas de seta** | Selecione múltiplas viewports de câmeras adjacentes simultaneamente (usadas para mesclagem de células, etc.). |
 | **Ctrl + N** | Abra uma nova janela auxiliar independente. |
 | **+** / **-** | Aumentar/diminuir zoom (câmeras Hikvision compatíveis com PTZ). |
+| **Shift** (arrastar letreiro) | Força a seleção do letreiro para travar uma proporção de 16:9 durante o zoom interativo. |
 | **Esc** | Saia do modo Tela Cheia/cancele a seleção da viewport ativa. |
 
 ### Interação do mouse:
 * **Botão esquerdo do mouse**:
   * **Clique duas vezes** em uma janela de visualização de câmera na grade para maximizá-la para tela cheia. Outro clique duplo restaura a visualização em grade.
   * Arraste a linha do tempo na janela Reprodução para navegar.
+* **Botão do meio do mouse (clique e arraste com a roda de rolagem)**:
+  * Arraste para deslocar e mover a imagem digitalmente ampliada/com zoom ao redor do campo de visualização da janela de visualização (funciona em Live, Archive e Mini-player).
 * **Botão direito do mouse (menu de contexto)**:
   * Abre um menu de configurações rápidas para a viewport selecionada (permite remover a câmera da grade, alterar entre fluxos principais/sub ou acessar parâmetros de exibição individuais).
 * **Roda de rolagem do mouse**:

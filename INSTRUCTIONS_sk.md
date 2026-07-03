@@ -1,5 +1,8 @@
 # Používateľská príručka pre KVision
 
+> [!POZNÁMKA]
+> Tento návod na použitie bol automaticky preložený a naformátovaný s pomocou umelej inteligencie (AI).
+
 **KVision** je pokročilá desktopová aplikácia triedy VMS (Video Management System) určená na súčasné sledovanie živých video streamov (RTSP/ONVIF) a integráciu s rekordérmi Hikvision NVR/DVR (v režime Live aj v režime archívu prehrávania).
 
 Program bol optimalizovaný pre stabilitu, plynulú prevádzku (60 FPS) a minimálnu spotrebu systémových zdrojov.
@@ -182,7 +185,7 @@ Hlavné okno programu zobrazuje živý kanál:
 * **Výber kvality streamu**: Kliknutím pravým tlačidlom myši na výrez kamery môžete vybrať **Hlavný stream** pre najvyššie rozlíšenie alebo **Vedľajší stream** na zníženie zaťaženia siete a grafickej karty.
 * **Prepínanie dvojitým kliknutím na celú obrazovku**: Dvojité kliknutie ľavým tlačidlom myši na ľubovoľný výrez kamery ho okamžite maximalizuje, aby vyplnil celú oblasť aktívneho okna (celá obrazovka s jedným výrezom). Opätovným dvojitým kliknutím obnovíte pôvodné rozloženie mriežky s viacerými kamerami.
 * **Automaticky skryť horný panel**: Horný panel s nástrojmi (topToolBar) sa môže automaticky zbaliť k hornému okraju obrazovky, keď kurzor myši opustí svoju oblasť (táto možnosť je konfigurovateľná v časti Nastavenia -> *„Automaticky zbaliť horný panel“* alebo priamo pomocou ikony špendlíka na hornom paneli).
-* **Viac monitorov a pomocné okná**: Môžete otvoriť nezávislé dodatočné (pomocné) okná na spustenie rôznych rozložení mriežky súčasne na viacerých obrazovkách alebo monitoroch. Ak chcete otvoriť nové okno, použite klávesovú skratku `Ctrl+N` alebo kliknite na tlačidlo **"Nové okno"** na hornom paneli s nástrojmi, ktorý sa nachádza po umiestnení kurzora myši. Každé okno je možné nakonfigurovať s vlastnou veľkosťou mriežky a prednastaveným rozložením.
+* **Viac monitorov a pomocné okná**: Môžete otvoriť nezávislé dodatočné (pomocné) okná na spustenie rôznych rozložení mriežky súčasne na viacerých obrazovkách alebo monitoroch. Ak chcete otvoriť nové okno, použite klávesovú skratku `Ctrl+N` alebo kliknite na tlačidlo **"Nové okno"** na hornom paneli s nástrojmi, ktorý sa nachádza po umiestnení kurzora myši. Každé okno je možné nakonfigurovať s vlastnou veľkosťou mriežky a prednastaveným rozložením. Na zaistenie maximálnej stability v konfiguráciách s viacerými monitormi sa všetky okná spúšťajú striktne v strede primárneho displeja s 90 % jeho rozlíšenia.
 
 ### Tlačidlá prekrytia výrezu
 V pravom dolnom rohu každej dlaždice/výrezu kamery sa po umiestnení kurzora myši na ňu zobrazí ovládací panel so štyrmi funkčnými ikonami (v závislosti od preferencií používateľského rozhrania):
@@ -192,6 +195,8 @@ V pravom dolnom rohu každej dlaždice/výrezu kamery sa po umiestnení kurzora 
 4. **Ikona lupy (interaktívne priblíženie)**: Umožňuje zväčšiť akúkoľvek konkrétnu oblasť zdroja videa:
    * **Aktivácia**: Kliknutím na ikonu ju prepnete do aktívneho stavu (tyrkysové zvýraznenie). Kurzor zmení tvar a nápoveda povie: *„Kliknutím a potiahnutím na feed fotoaparátu priblížite“*.
    * **Operácia**: Kliknite ľavým tlačidlom myši a presuňte obdĺžnikovú oblasť ohraničenia cez živý informačný kanál. Výrez automaticky oreže a zmení veľkosť vybranej oblasti, aby vyplnil celú dlaždicu.
+     * **Proporcionálne priblíženie**: Počas kreslenia obdĺžnika priblíženia podržte stlačený kláves **Shift**, aby sa výber uzamkol v pomere strán 16:9, ktorý je striktne obmedzený na hranice výrezu.
+     * **Posúvanie zväčšeného obrazu (Pan Zoom)**: Po priblížení môžete podržať **stredné tlačidlo myši (rolovacie koliesko)** a ťahaním kurzora voľne posúvať zväčšené zobrazenie okolo zorného poľa videa. Funguje to v živom zobrazení, archíve prehrávania a miniprehrávači.
    * **Resetovať**: Pri priblížení ikona lupy zmení svoju ikonu (červený okraj so znamienkom mínus). Kliknutím naň okamžite resetujete priblíženie a vrátite sa k plnému záberu fotoaparátu.
 
 ---
@@ -356,12 +361,15 @@ Predstavuje interaktívnu časovú os zobrazujúcu kompletnú históriu vydaní,
 | **Shift + šípky** | Vyberte viacero susedných výrezov kamery súčasne (používané na zlúčenie buniek atď.). |
 | **Ctrl + N** | Otvorte nové, nezávislé pomocné okno. |
 | **+** / **-** | Priblíženie / oddialenie (kamery Hikvision s podporou PTZ). |
+| **Shift** (presunúť okraj) | Vynútiť uzamknutie výberu ohraničenia v pomere strán 16:9 počas interaktívneho priblíženia. |
 | **Esc** | Ukončite režim celej obrazovky / zrušte aktívny výber výrezu. |
 
 ### Interakcia myši:
 * **Ľavé tlačidlo myši**:
   * **Dvojitým kliknutím** na výrez kamery v mriežke ho maximalizujete na celú obrazovku. Ďalším dvojitým kliknutím obnovíte zobrazenie mriežky.
   * Ak chcete navigovať, potiahnite časovú os v okne prehrávania.
+* **Stredné tlačidlo myši (kliknutie a potiahnutie rolovacím kolieskom)**:
+  * Ťahaním posúvajte a posúvajte digitálne priblížený/zväčšený obrázok po zornom poli výrezu (funguje v režime Live, Archive a Mini-player).
 * **Pravé tlačidlo myši (kontextová ponuka)**:
   * Otvorí ponuku rýchlych nastavení pre vybratý výrez (umožňuje odstrániť kameru z mriežky, prepínať medzi hlavnými a vedľajšími prúdmi alebo pristupovať k jednotlivým parametrom zobrazenia).
 * **Rolovacie koliesko myši**:

@@ -1,5 +1,8 @@
 # Manual de utilizare pentru KVision
 
+> [!NOTĂ]
+> Acest manual de instrucțiuni a fost tradus și formatat automat cu ajutorul Inteligenței Artificiale (AI).
+
 **KVision** este o aplicație desktop avansată de clasă VMS (Video Management System) concepută pentru vizionarea simultană a fluxurilor video live (RTSP/ONVIF) și integrarea cu înregistratoarele Hikvision NVR/DVR (atât în ​​modul Live, cât și în modul arhivare Redare).
 
 Programul a fost optimizat pentru stabilitate, funcționare lină (60 FPS) și consum minim de resurse de sistem.
@@ -182,7 +185,7 @@ Fereastra principală a programului afișează fluxul live:
 * **Selectarea calității fluxului**: făcând clic dreapta pe o fereastră de vizualizare a camerei, puteți selecta **Fluxul principal** pentru cea mai mare rezoluție sau **Fluxul secundar** pentru a reduce încărcarea rețelei și a plăcii grafice.
 * **Comutare dublu clic pe ecran complet**: făcând dublu clic cu butonul stâng al mouse-ului pe orice fereastra de vizualizare a camerei, o maximizează instantaneu pentru a umple întreaga zonă activă a ferestrei (ecran complet cu un singur ecran). Făcând dublu clic din nou, se restabilește aspectul original al grilei cu mai multe camere.
 * **Ascunderea automată a barei de sus**: bara de instrumente de sus opțiuni (topToolBar) se poate restrânge automat în marginea de sus a ecranului atunci când cursorul mouse-ului părăsește zona sa (această opțiune este configurabilă în Setări -> *„Restrânge automat bara de sus”* sau direct folosind pictograma PIN din bara de sus).
-* **Multi-monitor și ferestre auxiliare**: puteți deschide ferestre suplimentare (auxiliare) independente pentru a rula diferite machete de grilă simultan pe mai multe ecrane sau monitoare. Pentru a deschide o fereastră nouă, utilizați comanda rapidă de la tastatură `Ctrl+N` sau faceți clic pe butonul **„Fereastră nouă”** din bara de instrumente de sus. Fiecare fereastră poate fi configurată cu propria dimensiune a grilei și cu aspectul presetat selectat.
+* **Multi-monitor și ferestre auxiliare**: puteți deschide ferestre suplimentare (auxiliare) independente pentru a rula diferite machete de grilă simultan pe mai multe ecrane sau monitoare. Pentru a deschide o fereastră nouă, utilizați comanda rapidă de la tastatură `Ctrl+N` sau faceți clic pe butonul **„Fereastră nouă”** din bara de instrumente de sus. Fiecare fereastră poate fi configurată cu propria dimensiune a grilei și cu aspectul presetat selectat. Pentru a asigura stabilitate maximă pe configurațiile cu mai multe monitoare, toate ferestrele se lansează strict centrate pe afișajul principal la 90% din rezoluția acestuia.
 
 ### Butoane de suprapunere Viewport
 În colțul din dreapta jos al fiecărei casete/porturi de vizualizare a camerei, este afișat un panou de control cu patru pictograme funcționale când treceți cursorul mouse-ului peste acesta (în funcție de preferințele UI):
@@ -192,6 +195,8 @@ Fereastra principală a programului afișează fluxul live:
 4. **Pictogramă Lupă (Zoom interactiv)**: vă permite să măriți orice regiune specifică a fluxului video:
    * **Activare**: făcând clic pe pictogramă o comută într-o stare activă (evidențiere turcoaz). Cursorul își schimbă forma și un sfat explicativ indică: *„Clic și trageți pe feedul camerei pentru a mări”*.
    * **Operațiunea**: dați clic stânga și trageți o regiune de marcaj dreptunghiulară peste fluxul live. Fereastra va decupa și va scala automat zona selectată pentru a umple întreaga țiglă.
+     * **Mărire proporțională**: țineți apăsată tasta **Shift** în timp ce desenați dreptunghiul de zoom pentru a forța selecția să se blocheze într-un raport de aspect de 16:9, strict limitat la limitele ferestrei de vizualizare.
+     * **Deplasarea imaginii mărite (Pan Zoom)**: Odată mărit, puteți ține apăsat **butonul din mijloc al mouse-ului (rotița de defilare)** și trageți cursorul pentru a deplasa în mod liber vizualizarea mărită în jurul câmpului vizual video. Aceasta funcționează în vizualizarea Live, Arhiva de redare și Mini-player.
    * **Resetați**: când este mărită, pictograma lupă își schimbă pictograma (chenar roșu cu semnul minus). Făcând clic pe acesta, se resetează imediat zoomul, revenind la fluxul complet al camerei.
 
 ---
@@ -356,12 +361,15 @@ Prezintă o cronologie interactivă care arată istoricul complet al lansărilor
 | **Shift + Tastele săgeți** | Selectați mai multe ferestre adiacente ale camerei simultan (utilizate pentru îmbinarea celulelor etc.). |
 | **Ctrl + N** | Deschideți o nouă fereastră auxiliară independentă. |
 | **+** / **-** | Măriți / Micșorați (camere Hikvision compatibile PTZ). |
+| **Shift** (trageți marcajul) | Forțați selecția marcajului să se blocheze într-un raport de aspect 16:9 în timpul zoomului interactiv. |
 | **Esc** | Ieșiți din modul Ecran complet / anulați selecția activă a ferestrei de vizualizare. |
 
 ### Interacțiunea cu mouse-ul:
 * **Butonul stâng al mouse-ului**:
   * **Dublu clic** pe o fereastră de vizualizare a camerei din grilă o maximizează la ecran complet. Un alt dublu clic restabilește vizualizarea grilă.
   * Trageți cronologia în fereastra Redare pentru a naviga.
+* **Butonul din mijloc al mouse-ului (clic și trageți cu rotița de derulare)**:
+  * Trageți pentru a deplasa și mutați imaginea mărită/mărită digital în jurul câmpului vizual al ferestrei (funcționează în Live, Archive și Mini-player).
 * **Butonul dreapta al mouse-ului (Meniu contextual)**:
   * Deschide un meniu rapid de setări pentru fereastra de vizualizare selectată (permite eliminarea camerei din grilă, schimbarea între fluxurile principale/Sub sau accesarea parametrilor individuali de afișare).
 * **Rotița de derulare a mouse-ului**:

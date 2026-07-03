@@ -1,5 +1,8 @@
 # User Manual for KVision
 
+> [!NOTE]
+> This instruction manual has been automatically translated and formatted with the assistance of Artificial Intelligence (AI).
+
 **KVision** is an advanced VMS (Video Management System) class desktop application designed for simultaneous viewing of live video streams (RTSP/ONVIF) and integration with Hikvision NVR/DVR recorders (both in Live mode and Playback archive mode).
 
 The program has been optimized for stability, smooth operation (60 FPS), and minimal system resource consumption.
@@ -182,7 +185,7 @@ The main window of the program displays the live feed:
 * **Stream Quality Selection**: By right-clicking a camera viewport, you can select the **Main Stream** for highest resolution, or the **Sub Stream** to reduce network and graphics card load.
 * **Double-Click Fullscreen Toggle**: Double-clicking with the left mouse button on any camera viewport instantly maximizes it to fill the entire active window area (single-viewport fullscreen). Double-clicking again restores the original multi-camera grid layout.
 * **Auto-hiding Top Bar**: The top options toolbar (topToolBar) can automatically collapse to the top edge of the screen when the mouse cursor leaves its area (this option is configurable in Settings -> *„Automatically collapse top bar”* or directly using the pin icon on the top bar).
-* **Multi-Monitor & Auxiliary Windows**: You can open independent additional (auxiliary) windows to run different grid layouts simultaneously on multiple screens or monitors. To open a new window, use the `Ctrl+N` keyboard shortcut, or click the **"New Window"** button on the hover-slide top toolbar. Each window can be configured with its own grid size and selected preset layout.
+* **Multi-Monitor & Auxiliary Windows**: You can open independent additional (auxiliary) windows to run different grid layouts simultaneously on multiple screens or monitors. To open a new window, use the `Ctrl+N` keyboard shortcut, or click the **"New Window"** button on the hover-slide top toolbar. Each window can be configured with its own grid size and selected preset layout. To ensure maximum stability on multi-monitor configurations, all windows strictly launch centered on the primary display at 90% of its resolution.
 
 ### Viewport Overlay Buttons
 In the bottom-right corner of each camera tile/viewport, a control panel with four functional icons is displayed when hovering the mouse cursor over it (depending on UI preferences):
@@ -192,6 +195,8 @@ In the bottom-right corner of each camera tile/viewport, a control panel with fo
 4. **Magnifying Glass Icon (Interactive Zoom)**: Allows you to magnify any specific region of the video feed:
    * **Activation**: Clicking the icon toggles it into an active state (turquoise highlight). The cursor changes shape, and a tooltip instructs: *“Click and drag on camera feed to zoom”*.
    * **Operation**: Left-click and drag a rectangular marquee region over the live feed. The viewport will automatically crop and scale the selected area to fill the entire tile.
+     * **Proportional Zoom**: Hold down the **Shift** key while drawing the zoom rectangle to force the selection to lock into a 16:9 aspect ratio, strictly constrained to the viewport boundaries.
+     * **Panning the Zoomed Image (Pan Zoom)**: Once zoomed in, you can hold down the **middle mouse button (scroll wheel)** and drag the cursor to freely pan the magnified view around the video field of view. This works in Live view, the Playback Archive, and the Mini-player.
    * **Reset**: When zoomed, the magnifying glass icon changes its icon (red border with a minus sign). Clicking it immediately resets the zoom, returning to the full camera feed.
 
 ---
@@ -356,12 +361,15 @@ Presents an interactive timeline showing the complete release history, updates, 
 | **Shift + Arrow keys** | Select multiple adjacent camera viewports simultaneously (used for cell merging, etc.). |
 | **Ctrl + N** | Open a new, independent auxiliary window. |
 | **+** / **-** | Zoom in / Zoom out (PTZ-capable Hikvision cameras). |
+| **Shift** (drag marquee) | Force marquee selection to lock in a 16:9 aspect ratio during interactive zoom. |
 | **Esc** | Exit Full Screen mode / cancel active viewport selection. |
 
 ### Mouse interaction:
 * **Left mouse button**:
   * **Double-click** on a camera viewport in the grid maximizes it to full screen. Another double-click restores the grid view.
   * Drag the timeline in the Playback window to navigate.
+* **Middle Mouse Button (Scroll wheel click & drag)**:
+  * Drag to pan and move the digitally zoomed/magnified image around the viewport field of view (works in Live, Archive, and Mini-player).
 * **Right mouse button (Context Menu)**:
   * Opens a quick settings menu for the selected viewport (allows removing the camera from the grid, changing between Main/Sub streams, or accessing individual display parameters).
 * **Mouse Scroll Wheel**:

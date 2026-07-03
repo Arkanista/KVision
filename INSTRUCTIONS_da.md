@@ -1,5 +1,8 @@
 # Brugermanual til KVision
 
+> [!BEMÆRK]
+> Denne brugsanvisning er blevet automatisk oversat og formateret ved hjælp af kunstig intelligens (AI).
+
 **KVision** er en avanceret VMS (Video Management System) klasse desktopapplikation designet til samtidig visning af live videostreams (RTSP/ONVIF) og integration med Hikvision NVR/DVR-optagere (både i Live-tilstand og Afspilningsarkivtilstand).
 
 Programmet er optimeret til stabilitet, jævn drift (60 FPS) og minimalt systemressourceforbrug.
@@ -182,7 +185,7 @@ Programmets hovedvindue viser live-feedet:
 * **Stream Quality Selection**: Ved at højreklikke på en kameravisningsport kan du vælge **Main Stream** for den højeste opløsning eller **Sub Stream** for at reducere netværks- og grafikkortbelastningen.
 * **Dobbeltklik fuldskærm til/fra**: Dobbeltklik med venstre museknap på en hvilken som helst kameravisningsport maksimerer den øjeblikkeligt til at udfylde hele det aktive vinduesområde (enkelt visningsport i fuld skærm). Dobbeltklik igen genopretter det originale multikamera-gitterlayout.
 * **Auto-skjul øverste bjælke**: Den øverste værktøjslinje (topToolBar) kan automatisk skjules til den øverste kant af skærmen, når musemarkøren forlader sit område (denne mulighed kan konfigureres i Indstillinger -> *"Skjul automatisk øverste bjælke"* eller direkte ved at bruge knappenålsikonet på den øverste bjælke).
-* **Multi-monitor og hjælpevinduer**: Du kan åbne uafhængige ekstra (hjælpe) vinduer for at køre forskellige gitterlayouts samtidigt på flere skærme eller skærme. For at åbne et nyt vindue skal du bruge tastaturgenvejen `Ctrl+N` eller klikke på knappen **"Nyt vindue"** på den øverste værktøjslinje. Hvert vindue kan konfigureres med sin egen gitterstørrelse og valgt forudindstillet layout.
+* **Multi-monitor og hjælpevinduer**: Du kan åbne uafhængige ekstra (hjælpe) vinduer for at køre forskellige gitterlayouts samtidigt på flere skærme eller skærme. For at åbne et nyt vindue skal du bruge tastaturgenvejen `Ctrl+N` eller klikke på knappen **"Nyt vindue"** på den øverste værktøjslinje. Hvert vindue kan konfigureres med sin egen gitterstørrelse og valgt forudindstillet layout. For at sikre maksimal stabilitet på konfigurationer med flere skærme starter alle vinduer strengt centreret om den primære skærm ved 90 % af opløsningen.
 
 ### Viewport Overlay-knapper
 I nederste højre hjørne af hver kameraflise/visningsport vises et kontrolpanel med fire funktionelle ikoner, når du holder musemarkøren over det (afhængigt af UI-præferencer):
@@ -192,6 +195,8 @@ I nederste højre hjørne af hver kameraflise/visningsport vises et kontrolpanel
 4. **Forstørrelsesglasikon (interaktiv zoom)**: Giver dig mulighed for at forstørre en hvilken som helst specifik region af videofeedet:
    * **Aktivering**: Ved at klikke på ikonet skifter det til en aktiv tilstand (turkis højlys). Markøren ændrer form, og et værktøjstip instruerer: *"Klik og træk på kamerafeedet for at zoome"*.
    * **Betjening**: Venstre-klik, og træk et rektangulært markeringsfelt over det levende feed. Viewporten vil automatisk beskære og skalere det valgte område for at fylde hele flisen.
+     * **Proportional zoom**: Hold **Shift**-tasten nede, mens du tegner zoomrektanglet for at tvinge markeringen til at låse sig i et 16:9 billedformat, strengt begrænset til visningsportens grænser.
+     * **Panorering af det zoomede billede (panoreringszoom)**: Når du har zoomet ind, kan du holde **midterste museknap (rullehjul)** nede og trække markøren for frit at panorere den forstørrede visning rundt i videoens synsfelt. Dette fungerer i Live view, afspilningsarkivet og miniafspilleren.
    * **Nulstil**: Når der er zoomet ind, ændrer forstørrelsesglasikonet sit ikon (rød kant med et minustegn). Hvis du klikker på den, nulstilles zoomen med det samme og vender tilbage til det fulde kamerafeed.
 
 ---
@@ -255,7 +260,7 @@ Tilgængelig ved at klikke på ur/afspil-ikonet ved siden af ​​et bestemt ka
   * **"8h"-ikon**: Zoomer tidslinjen for at vise et 8-timers tidsrum.
   * **"24h"-ikon**: Nulstiller zoom, så den passer til hele 24-timers døgnet på en enkelt skærm.
   * **Center (Mål)-ikon**: Centrerer øjeblikkeligt tidslinjen, så den røde afspilningsindikator er præcis i midten af ​​skærmen (erstatter den gamle tekstknap).
-* **Datonavigation (kalender og dage)**: Kontroller ved siden af ​​den viste dato tillader hurtige spring:
+* **Datonavigation (kalender og dage)**: Kontroller ved siden af den viste dato tillader hurtige spring:
   * Knapperne **„<” (Forrige dag)** og **„>” (Næste dag)**: Lader dig springe 24 timer tilbage eller frem med det samme uden at åbne kalenderdialogen.
   * **Kalenderikon**: Åbner kalender-popup'en for at vælge en bestemt dato.
   * **Opdateringsikon**: Tvinger en ny søgning efter optagelser. Hvis du klikker på den, gennemses den lokale cache af optagelse af tilgængelighedssegmenter for alle aktive kanaler og sendes nye forespørgsler til NVR, hvilket er yderst nyttigt til at indlæse filer, der er optaget for blot et par øjeblikke siden (erstatter den gamle tekstknap).
@@ -356,12 +361,15 @@ Præsenterer en interaktiv tidslinje, der viser hele udgivelseshistorikken, opda
 | **Shift + piletaster** | Vælg flere tilstødende kameravisningsporte samtidigt (bruges til cellefletning osv.). |
 | **Ctrl + N** | Åbn et nyt, uafhængigt hjælpevindue. |
 | **+** / **-** | Zoom ind / Zoom ud (PTZ-kompatible Hikvision-kameraer). |
+| **Shift** (træk markeringsramme) | Tving markeringsmarkering til at låse i et 16:9 billedformat under interaktiv zoom. |
 | **Esc** | Afslut fuldskærmstilstand / annuller aktiv visningsportvalg. |
 
 ### Interaktion med mus:
 * **Venstre museknap**:
   * **Dobbeltklik** på en kameravisningsport i gitteret maksimerer den til fuld skærm. Et andet dobbeltklik gendanner gittervisningen.
   * Træk tidslinjen i afspilningsvinduet for at navigere.
+* **Knap i midten af musen (klik og træk med rullehjul)**:
+  * Træk for at panorere og flytte det digitalt zoomede/forstørrede billede rundt i viewportens synsfelt (fungerer i Live, Archive og Mini-player).
 * **Højre museknap (kontekstmenu)**:
   * Åbner en hurtig indstillingsmenu for den valgte visningsport (giver mulighed for at fjerne kameraet fra nettet, skifte mellem hoved-/understrømme eller få adgang til individuelle visningsparametre).
 * **Rulehjul for mus**:

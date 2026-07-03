@@ -1,5 +1,8 @@
 # Benutzerhandbuch für KVision
 
+> [!NOTE]
+> Diese Bedienungsanleitung wurde mithilfe künstlicher Intelligenz (KI) automatisch übersetzt und formatiert.
+
 **KVision** ist eine fortschrittliche Desktop-Anwendung der VMS-Klasse (Video Management System), die für die gleichzeitige Anzeige von Live-Videostreams (RTSP/ONVIF) und die Integration mit Hikvision NVR/DVR-Rekordern (sowohl im Live-Modus als auch im Wiedergabe-Archivmodus) entwickelt wurde.
 
 Das Programm wurde auf Stabilität, reibungslosen Betrieb (60 FPS) und minimalen Systemressourcenverbrauch optimiert.
@@ -182,7 +185,7 @@ Das Hauptfenster des Programms zeigt den Live-Feed an:
 * **Stream-Qualitätsauswahl**: Durch Klicken mit der rechten Maustaste auf ein Kameraansichtsfenster können Sie den **Hauptstream** für die höchste Auflösung oder den **Substream** auswählen, um die Netzwerk- und Grafikkartenlast zu reduzieren.
 * **Doppelklick-Vollbild-Umschaltung**: Ein Doppelklick mit der linken Maustaste auf ein beliebiges Kamera-Ansichtsfenster maximiert es sofort, um den gesamten aktiven Fensterbereich auszufüllen (Einzelansicht-Vollbild). Durch erneutes Doppelklicken wird das ursprüngliche Multikamera-Rasterlayout wiederhergestellt.
 * **Obere Leiste automatisch ausblenden**: Die Symbolleiste mit den oberen Optionen (topToolBar) kann automatisch bis zum oberen Rand des Bildschirms ausgeblendet werden, wenn der Mauszeiger ihren Bereich verlässt (diese Option kann in den Einstellungen -> *„Obere Leiste automatisch einblenden“* oder direkt über das Stecknadelsymbol in der oberen Leiste konfiguriert werden).
-* **Mehrere Monitore und Hilfsfenster**: Sie können unabhängige zusätzliche (Hilfs-)Fenster öffnen, um verschiedene Rasterlayouts gleichzeitig auf mehreren Bildschirmen oder Monitoren auszuführen. Um ein neues Fenster zu öffnen, verwenden Sie die Tastenkombination `Ctrl+N` oder klicken Sie auf die Schaltfläche **Neues Fenster** in der oberen Symbolleiste des Hover-Slides. Jedes Fenster kann mit seiner eigenen Rastergröße und dem ausgewählten voreingestellten Layout konfiguriert werden.
+* **Mehrere Monitore und Hilfsfenster**: Sie können unabhängige zusätzliche (Hilfs-)Fenster öffnen, um verschiedene Rasterlayouts gleichzeitig auf mehreren Bildschirmen oder Monitoren auszuführen. Um ein neues Fenster zu öffnen, verwenden Sie die Tastenkombination `Ctrl+N` oder klicken Sie auf die Schaltfläche **Neues Fenster** in der oberen Symbolleiste des Hover-Slides. Jedes Fenster kann mit seiner eigenen Rastergröße und dem ausgewählten voreingestellten Layout konfiguriert werden. Um maximale Stabilität bei Konfigurationen mit mehreren Monitoren zu gewährleisten, werden alle Fenster streng zentriert auf dem primären Display mit 90 % seiner Auflösung gestartet.
 
 ### Ansichtsfenster-Overlay-Schaltflächen
 In der unteren rechten Ecke jeder Kamerakachel/jedem Kameraansichtsfenster wird ein Bedienfeld mit vier Funktionssymbolen angezeigt, wenn Sie mit dem Mauszeiger darüber fahren (abhängig von den Benutzeroberflächeneinstellungen):
@@ -192,6 +195,8 @@ In der unteren rechten Ecke jeder Kamerakachel/jedem Kameraansichtsfenster wird 
 4. **Lupensymbol (interaktiver Zoom)**: Ermöglicht das Vergrößern eines bestimmten Bereichs des Video-Feeds:
    * **Aktivierung**: Durch Klicken auf das Symbol wird es in den aktiven Zustand versetzt (türkise Hervorhebung). Der Cursor ändert seine Form und ein Tooltip weist darauf hin: *„Zum Zoomen auf den Kamera-Feed klicken und ziehen“*.
    * **Vorgang**: Klicken Sie mit der linken Maustaste und ziehen Sie einen rechteckigen Auswahlbereich über den Live-Feed. Das Ansichtsfenster schneidet und skaliert den ausgewählten Bereich automatisch, um die gesamte Kachel auszufüllen.
+     * **Proportionaler Zoom**: Halten Sie die **Umschalttaste** gedrückt, während Sie das Zoomrechteck zeichnen, um zu erzwingen, dass die Auswahl im Seitenverhältnis 16:9 fixiert wird, das streng auf die Grenzen des Ansichtsfensters beschränkt ist.
+     * **Schwenken des gezoomten Bildes (Pan Zoom)**: Nach dem Vergrößern können Sie die **mittlere Maustaste (Scrollrad)** gedrückt halten und den Cursor ziehen, um die vergrößerte Ansicht frei um das Videosichtfeld zu schwenken. Dies funktioniert in der Live-Ansicht, im Wiedergabearchiv und im Mini-Player.
    * **Zurücksetzen**: Beim Zoomen ändert das Lupensymbol sein Symbol (roter Rand mit Minuszeichen). Wenn Sie darauf klicken, wird der Zoom sofort zurückgesetzt und Sie kehren zum vollständigen Kamerabild zurück.
 
 ---
@@ -356,12 +361,15 @@ Präsentiert eine interaktive Zeitleiste mit dem vollständigen Veröffentlichun
 | **Umschalt + Pfeiltasten** | Wählen Sie mehrere benachbarte Kameraansichtsfenster gleichzeitig aus (wird zum Zusammenführen von Zellen usw. verwendet). |
 | **Strg + N** | Öffnen Sie ein neues, unabhängiges Hilfsfenster. |
 | **+** / **-** | Vergrößern/Verkleinern (PTZ-fähige Hikvision-Kameras). |
+| **Umschalt** (Ziehmarke) | Erzwingen Sie, dass die Auswahl des Auswahlrahmens beim interaktiven Zoomen ein Seitenverhältnis von 16:9 einhält. |
 | **Esc** | Vollbildmodus verlassen / aktive Ansichtsfensterauswahl abbrechen. |
 
 ### Mausinteraktion:
 * **Linke Maustaste**:
   * Durch einen **Doppelklick** auf ein Kameraansichtsfenster im Raster wird es auf den Vollbildmodus maximiert. Ein weiterer Doppelklick stellt die Rasteransicht wieder her.
   * Ziehen Sie die Zeitleiste im Wiedergabefenster, um zu navigieren.
+* **Mittlere Maustaste (Klicken und Ziehen mit dem Scrollrad)**:
+  * Ziehen Sie, um das digital gezoomte/vergrößerte Bild im Sichtfeld des Ansichtsfensters zu schwenken und zu verschieben (funktioniert in Live, Archiv und Mini-Player).
 * **Rechte Maustaste (Kontextmenü)**:
   * Öffnet ein Schnelleinstellungsmenü für das ausgewählte Ansichtsfenster (ermöglicht das Entfernen der Kamera aus dem Raster, den Wechsel zwischen Haupt-/Unterstreams oder den Zugriff auf einzelne Anzeigeparameter).
 * **Mausrad**:
