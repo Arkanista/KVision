@@ -12,6 +12,7 @@
         <file>qtquickcontrols2.conf</file>
         <file>translations/kvision_pl_PL.qm</file>
         <file>translations/kvision_en_US.qm</file>
+        <file>translations/kvision_es_ES.qm</file>
         <file>src/RootWindow.qml</file>
         <file>src/AuxiliaryWindow.qml</file>
         <file>src/InstructionsWindow.qml</file>

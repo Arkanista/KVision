@@ -38,18 +38,18 @@ Context::~Context()
 
 void Context::init()
 {
-    QCommandLineOption configOption({{"c", "config"}, tr("Path to the config file."), "config"});
-    QCommandLineOption presetOption({{"p", "preset"}, tr("Index of the current preset."), "preset"});
-    QCommandLineOption fullScreenOption({{"f", "full-screen"}, tr("Force full-screen mode.")});
-    QCommandLineOption kioskModeOption({{"k", "kiosk"}, tr("Kiosk mode functionality.")});
-    QCommandLineOption logOption({{"l", "log"}, tr("Log level [%1...%2].").arg(Config::LogBeginRange).arg(Config::LogEndRange), "level"});
-    QCommandLineOption auxiliaryOption(QStringList("auxiliary"), tr("Start as an auxiliary window."));
-    QCommandLineOption auxiliaryIdOption("auxiliary-id", tr("ID of the auxiliary window."), "id");
-    QCommandLineOption verboseOption("verbose", tr("Pokaż szczegółowe logi w konsoli (verbose logging)."));
-    QCommandLineOption debugMemoryOption("debug-memory", tr("Włącz śledzenie obiektów w logach dla debugowania wycieków pamięci."));
-    QCommandLineOption firstRunOption("first-run", tr("Wymuś zachowanie pierwszego uruchomienia i pokaż instrukcję (Force first run behavior)."));
-    QCommandLineOption simulateErrorOption("simulate-error", tr("Zasymuluj błędy na każdym rejestratorze (Simulate NVR errors)."));
-    QCommandLineOption mockNewVersionOption("mock-new-version", tr("Zasymuluj dostępność nowej wersji na GitHubie w celach testowych (Mock new version availability on GitHub)."));
+    QCommandLineOption configOption({{"c", "config"}, "Path to the configuration file.", "config"});
+    QCommandLineOption presetOption({{"p", "preset"}, "Index of the current layout.", "preset"});
+    QCommandLineOption fullScreenOption({{"f", "full-screen"}, "Force full-screen mode."});
+    QCommandLineOption kioskModeOption({{"k", "kiosk"}, "Enable kiosk mode functionality."});
+    QCommandLineOption logOption({{"l", "log"}, QString("Logging level [%1...%2].").arg(Config::LogBeginRange).arg(Config::LogEndRange), "level"});
+    QCommandLineOption auxiliaryOption(QStringList("auxiliary"), "Run as an auxiliary window.");
+    QCommandLineOption auxiliaryIdOption("auxiliary-id", "Auxiliary window ID.", "id");
+    QCommandLineOption verboseOption("verbose", "Show detailed logs in the console (verbose logging).");
+    QCommandLineOption debugMemoryOption("debug-memory", "Enable object tracking in logs for memory leak debugging.");
+    QCommandLineOption firstRunOption("first-run", "Force first-run assistant to launch.");
+    QCommandLineOption simulateErrorOption("simulate-error", "Simulate an error for testing purposes.");
+    QCommandLineOption mockNewVersionOption("mock-new-version", "Simulate a new version for testing purposes.");
 
     parseCommandLineOptions({configOption,
                              presetOption,
@@ -179,7 +179,7 @@ void Context::init()
 
 void Context::parseCommandLineOptions(const QList<QCommandLineOption> &options)
 {
-    m_commandLineParser.setApplicationDescription(tr("KVision - viewer and mounter video streams."));
+    m_commandLineParser.setApplicationDescription(tr("LNG_00476"));
     m_commandLineParser.addHelpOption();
     m_commandLineParser.addVersionOption();
 
@@ -259,10 +259,14 @@ void Context::initLanguage()
         transFile = "kvision_pl_PL";
     } else if (lang == "en") {
         transFile = "kvision_en_US";
+    } else if (lang == "es") {
+        transFile = "kvision_es_ES";
     } else if (lang == "system") {
         QString locale = QLocale::system().name();
         if (locale.startsWith("pl", Qt::CaseInsensitive)) {
             transFile = "kvision_pl_PL";
+        } else if (locale.startsWith("es", Qt::CaseInsensitive)) {
+            transFile = "kvision_es_ES";
         } else {
             transFile = "kvision_en_US";
         }
@@ -291,10 +295,14 @@ void Context::setLanguage(const QString &lang)
         transFile = "kvision_pl_PL";
     } else if (lang == "en") {
         transFile = "kvision_en_US";
+    } else if (lang == "es") {
+        transFile = "kvision_es_ES";
     } else if (lang == "system") {
         QString locale = QLocale::system().name();
         if (locale.startsWith("pl", Qt::CaseInsensitive)) {
             transFile = "kvision_pl_PL";
+        } else if (locale.startsWith("es", Qt::CaseInsensitive)) {
+            transFile = "kvision_es_ES";
         } else {
             transFile = "kvision_en_US";
         }

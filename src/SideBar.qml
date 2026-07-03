@@ -136,319 +136,319 @@ FocusScope {
             version: "v2.4.6",
             date: "02.07.2026",
             changes: [
-                qsTr("Naprawiono krytyczny błąd, przez który utrata połączenia sieciowego i wygaśnięcie limitu czasu (timeout) w strumieniu RTSP blokowało odtwarzacz w stanie Zombie i uniemożliwiało ponowne połączenie. Przycisk Przeładuj i auto-wznawianie działają teraz w pełni niezawodnie."),
-                qsTr("Odświeżono wygląd komunikatów Odtwarzacza i Archiwum. Komunikaty ładowania i wznawiania są teraz wyświetlane na przyjemny, cyjanowy kolor z odpowiednimi ikonkami, by lepiej odróżnić je od krytycznych błędów (Brak nagrania/sieci).")
+                qsTr("LNG_00452"),
+                qsTr("LNG_00451")
             ]
         },
         {
             version: "v2.4.5",
             date: "02.07.2026",
             changes: [
-                qsTr("Zintegrowano sprzętową komendę MakeKeyFrame z SDK Hikvision. Aplikacja agresywnie wymusza teraz wysłanie klatki I-Frame przez kamerę przy przełączaniu strumienia Sub/Main i z Live do Archiwum, eliminując 10-sekundowe oczekiwanie na klatkę kluczową."),
-                qsTr("Zniesiono nadpisywanie w locie parametru analyzeduration. Aplikacja ściśle przestrzega zdefiniowanych przez użytkownika wartości FFmpeg (zaleca się ustawienie 100000 dla kamer bez audio w celu obejścia 5-sekundowego limitu)."),
-                qsTr("Dodano plakietki \"HikSDK\" na podglądach z rejestratorów dla lepszego rozróżnienia protokołów."),
-                qsTr("Usprawniono dziennik diagnostyczny (QDebug), pozwalając na wypisywanie w konsoli ostrzeżeń (warning, critical) również poza trybem verbose, co ułatwia debugowanie usterek NVR."),
-                qsTr("Odfiltrowano fałszywe powiadomienia o błędach SDK PlayM4 (nr 17 i 2) pojawiające się przy gwałtownym przewijaniu osi czasu w odtwarzaczu.")
+                qsTr("LNG_00450"),
+                qsTr("LNG_00449"),
+                qsTr("LNG_00448"),
+                qsTr("LNG_00447"),
+                qsTr("LNG_00446")
             ]
         },
         {
             version: "v2.4.4",
             date: "02.07.2026",
             changes: [
-                qsTr("Naprawiono ucinanie nieliniowego skalowania (np. 145%) przez framework Qt5 pod systemami KDE Plasma, wymuszając poprawną interpretację polityki High DPI.")
+                qsTr("LNG_00445")
             ]
         },
         {
             version: "v2.4.3",
             date: "01.07.2026",
             changes: [
-                qsTr("Wyeliminowano problem chwilowego zamrażania obrazu pozostałych kamer na siatce live podczas przewijania osi czasu (szukania nagrań w kafelku)."),
-                qsTr("Przeniesiono wszystkie blokujące wywołania sieciowe SDK Hikvision (logowanie, stop, start, zmiana prędkości) do asynchronicznego wątku roboczego.")
+                qsTr("LNG_00444"),
+                qsTr("LNG_00443")
             ]
         },
         {
             version: "v2.4.2",
             date: "01.07.2026",
             changes: [
-                qsTr("Całkowicie wyeliminowano problem czarnego ekranu przy przełączaniu jakości (SUB/MAIN) dla kamer RTSP/FFmpeg dzięki nowej, natywnej detekcji wyrenderowanych klatek (framePresented)."),
-                qsTr("Zoptymalizowano zegar bezszwowego przełączania strumieni do 100ms w celu zapewnienia maksymalnej szybkości reakcji przy zachowaniu pełnej stabilności bufora.")
+                qsTr("LNG_00442"),
+                qsTr("LNG_00441")
             ]
         },
         {
             version: "v2.4.1",
             date: "01.07.2026",
             changes: [
-                qsTr("Dodano niskopoziomowe opcje FFmpeg (nobuffer, low_delay) usuwające opóźnienia w strumieniach na żywo (drift) przy wielogodzinnym działaniu."),
-                qsTr("Wprowadzono przycisk masowej aktualizacji parametrów FFmpeg dla wszystkich istniejących kamer we wszystkich układach."),
-                qsTr("Dodano opcję wykluczenia wybranej kamery z aktualizacji globalnych parametrów FFmpeg (nowy checkbox w ustawieniach viewportu)."),
-                qsTr("Zabezpieczono proces migracji ustawień domyślnych, umożliwiając użytkownikowi trwałe usunięcie lub zmodyfikowanie nowych flag bez ich ponownego wymuszania przy każdym starcie.")
+                qsTr("LNG_00440"),
+                qsTr("LNG_00439"),
+                qsTr("LNG_00438"),
+                qsTr("LNG_00437")
             ]
         },
         {
             version: "v2.4.0",
             date: "30.06.2026",
             changes: [
-                qsTr("Dodano funkcjonalność szybkiego podglądu wstecz (do 30 minut) bezpośrednio w kafelku kamery (viewport).")
+                qsTr("LNG_00436")
             ]
         },
         {
             version: "v2.3.0",
             date: "30.06.2026",
             changes: [
-                qsTr("Zaimplementowano pełną, dwukierunkową synchronizację w czasie rzeczywistym między wszystkimi oknami i pomocniczymi procesami programu dla ustawień: wyciszenia dźwięku, wyłączenia animacji zoomu oraz wszystkich parametrów monitorowania statusu rejestratorów Hikvision NVR."),
-                qsTr("Dodano dynamiczne wyświetlanie opisów minut (np. :15, :30, :45) przy podziałkach minutowych na osi czasu odtwarzacza archiwalnego z inteligentnym dostosowywaniem gęstości napisów (zoomHours)."),
-                qsTr("Dodano nową opcję w ustawieniach interfejsu użytkownika: \"Wyłącz animację powiększania viewportu\" z natychmiastowym zastosowaniem w widoku siatki kamer."),
-                qsTr("Przebudowano proces inicjalizacji odtwarzacza archiwalnego: wstrzymano logowanie i ładowanie wideo do czasu precyzyjnego ustalenia krańców nagrania (asynchroniczne, ultra-szybkie przeszukiwanie zakresu 24h), eliminując przedwczesne odtwarzanie i skakanie obrazu."),
-                qsTr("Usprawniono komunikaty ładowania archiwum Hikvision – informacja o ładowaniu jest widoczna tylko podczas aktywnego pobierania strumienia, a w przypadku ustawienia suwaka poza zakresem nagrania wyświetlany jest dedykowany komunikat ostrzegawczy."),
-                qsTr("Wprowadzono nowe pola konfiguracji w panelu ustawień: domyślne przesunięcie startu odtwarzania archiwalnego (start offset w sekundach, domyślnie 60s) oraz domyślne przybliżenie osi czasu (zoom hours, domyślnie 2h)."),
-                qsTr("Dodano ikonę bezpośredniego logowania do panelu web rejestratora w oknie statusu NVR.")
+                qsTr("LNG_00435"),
+                qsTr("LNG_00434"),
+                qsTr("LNG_00433"),
+                qsTr("LNG_00432"),
+                qsTr("LNG_00431"),
+                qsTr("LNG_00430"),
+                qsTr("LNG_00429")
             ]
         },
         {
             version: "v2.2.8-2",
             date: "29.06.2026",
             changes: [
-                qsTr("Dodano funkcjonalność wyciszania (Suppression) raportowania błędów dla poszczególnych rejestratorów (pole wyboru \"Wycisz\"). Wyciszenie maskuje błędy rejestratora w globalnych wskaźnikach alarmów, ale zachowuje podgląd błędów i czerwone wyróżnienie bezpośrednio na kafelkach w popupie statusu."),
-                qsTr("Poprawiono błędną polską translację \"Symulowany Rejestrator\" w oknie statusu oraz wdrożono właściwe rozróżnienie słowne (\"Suppress\" dla błędów vs \"Mute\" dla dźwięku).")
+                qsTr("LNG_00428"),
+                qsTr("LNG_00427")
             ]
         },
         {
             version: "v2.2.8-1",
             date: "29.06.2026",
             changes: [
-                qsTr("Zaimplementowano okresowe (co 5 minut) oraz ręczne sprawdzanie stanu błędów rejestratorów Hikvision (SDK / ISAPI)."),
-                qsTr("Dodano dedykowaną sekcję w ustawieniach ogólnych do włączania monitorowania oraz wyboru monitorowanych błędów (błędy logowania, przeciążenie CPU >85%, błędy sprzętowe, uszkodzenia dysków, brak formatu, brak nadpisywania)."),
-                qsTr("Zaprojektowano animowaną ikonę ostrzegawczą na górnym pasku w kolorze ciepłym-zielonym (status OK) lub pulsującym czerwonym z podwójną poświatą (wykryto krytyczne błędy)."),
-                qsTr("Wprowadzono wystające czerwone kółko ostrzegawcze przy górnej krawędzi ekranu, widoczne i pulsujące nawet wtedy, gdy pasek narzędziowy jest ukryty."),
-                qsTr("Stworzono eleganckie, przewijane, ograniczone do 85% wysokości ekranu okno popup \"Status rejestratorów\" ze szczegółowym podglądem błędów urządzeń, błędów dysków oraz dokładnym czasem ostatniego sprawdzenia."),
-                qsTr("Dodano flagę uruchomieniową \"--simulate-error\" do natychmiastowej symulacji uszkodzeń dysków oraz błędów połączenia we wszystkich rejestratorach w celach demonstracyjnych."),
-                qsTr("Wdrożono plakietki ostrzegawcze i wyrównanie wskaźników stanu w listach skonfigurowanych rejestratorów."),
-                qsTr("Zapewniono pełne dwujęzyczne (polski/angielski) tłumaczenie wszystkich nowych komunikatów diagnostycznych, ustawień i opcji programu.")
+                qsTr("LNG_00426"),
+                qsTr("LNG_00425"),
+                qsTr("LNG_00424"),
+                qsTr("LNG_00423"),
+                qsTr("LNG_00422"),
+                qsTr("LNG_00421"),
+                qsTr("LNG_00420"),
+                qsTr("LNG_00419")
             ]
         },
         {
             version: "v2.2.7-5",
             date: "29.06.2026",
             changes: [
-                qsTr("Dodano możliwość ponownego przeładowania aktywnego układu poprzez kliknięcie jego przycisku na górnym pasku.")
+                qsTr("LNG_00418")
             ]
         },
         {
             version: "v2.2.7-4",
             date: "29.06.2026",
             changes: [
-                qsTr("Uśredniono próbki pobierane z biblioteki NVML w celu wygładzenia wykresu zużycia GPU i wyeliminowania skokowych wahań odczytu.")
+                qsTr("LNG_00417")
             ]
         },
         {
             version: "v2.2.7-3",
             date: "29.06.2026",
             changes: [
-                qsTr("Wyeliminowano chwilowe mrugnięcia (czarne klatki) oraz opóźnienia obrazu i dźwięku podczas przełączania jakości wideo ze strumienia pomocniczego (SUB) na główny (MAIN) przy powiększaniu viewportu, synchronizując moment przełączenia z fizycznym wyrenderowaniem pierwszej klatki nowego strumienia."),
-                qsTr("Dodano interaktywne, wyraźne i 2x szersze suwaki (paski przewijania) do kolumn wyboru godzin, minut i sekund w oknie wyboru czasu pobierania z archiwum."),
-                qsTr("Dodano nowe, intuicyjne opcje do menu podręcznego viewportów (pod prawym przyciskiem myszy): 'Stopklatka' (zapis bieżącej klatki) oraz 'Odtwarzaj' (natychmiastowe przejście do archiwalnego odtwarzania danej kamery)."),
-                qsTr("Zrewolucjonizowano i naprawiono obsługę dźwięku PCM: bezpośrednie przekazywanie potoku do QAudioOutput, eliminacja zawieszeń interfejsu (ALSA/PulseAudio/Pipewire) przez stabilizację sample rate (debounce po 5 stabilnych ramkach), cooldown 2s na rekreację wyjścia, filtrowanie uszkodzonych parametrów i bufor 64KB redukujący jitter sieciowy."),
-                qsTr("Zaimplementowano interaktywny suwak regulacji głośności HUD bezpośrednio na kafelkach viewportów wraz z opcją szybkiego wyciszenia oraz maksymalizacji głośności jednym kliknięciem."),
-                qsTr("Zaimplementowano automatyczne i natychmiastowe wyciszanie strumieni LIVE w siatce głównej przy otwarciu okna odtwarzania Archiwum, co zapobiega nakładaniu się dźwięków (kakofonii)."),
-                qsTr("Wprowadzono centralny system powiadomień SnapshotSavedDialog o zapisaniu stopklatki (ciemnoszara obudowa, seledynowe krawędzie, auto-zamknięcie po 10 sekundach) z szybkim łączem 'Przeglądaj' do bezpośredniego otwierania folderu w systemowym menedżerze plików."),
-                qsTr("Wzbogacono wbudowane okno pomocy o szczegółowy rozdział 'Opis działania przycisków' z natywnymi, ostrymi ikonami wektorowymi SVG. Okno pomocy otwiera się teraz w pełni automatycznie i wyśrodkowane nad oknem głównym przy pierwszym uruchomieniu programu."),
-                qsTr("Wprowadzono domyślne wyświetlanie paska górnego przy uruchomieniu programu/okna oraz dodano w ustawieniach opcję 'Domyślnie pokazuj pasek górny po otwarciu okna', umożliwiającą dostosowanie tego zachowania do własnych preferencji."),
-                qsTr("Zaimplementowano dynamiczną ścieżkę bibliotek RPATH w CMakeLists.txt z użyciem GNUInstallDirs, co umożliwia natychmiastowe uruchomienie skompilowanej aplikacji na Ubuntu i Debianie bez konieczności ręcznej konfiguracji /etc/ld.so.conf.d/ i ldconfig.")
+                qsTr("LNG_00416"),
+                qsTr("LNG_00415"),
+                qsTr("LNG_00414"),
+                qsTr("LNG_00413"),
+                qsTr("LNG_00412"),
+                qsTr("LNG_00411"),
+                qsTr("LNG_00410"),
+                qsTr("LNG_00409"),
+                qsTr("LNG_00408"),
+                qsTr("LNG_00407")
             ]
         },
         {
             version: "v2.2.6-3",
             date: "27.06.2026",
             changes: [
-                qsTr("Zmieniono nazwę programu na KVision wraz z automatyczną migracją dotychczasowych ustawień użytkownika, nowymi ikonami o wielu rozmiarach (128px, 256px, 512px) oraz wyświetlaniem pełnej wersji w pasku tytułowym."),
-                qsTr("Naprawiono okno ostrzegawcze przekroczenia limitu okien pomocniczych (brakujący zasób QML i odczyt z QSettings)."),
-                qsTr("Naprawiono brakującą ikonę programu pod Waylandem (instalacja w motywie hicolor oraz setDesktopFileName)."),
-                qsTr("Wycofano opcję automatycznego zwijania paska górnego z ustawień – odtąd pasek górny w oknach LIVE (głównym i pomocniczym) zwija się domyślnie przy starcie, a pinezka przypina go lokalnie i tymczasowo (w pamięci) bez zapisywania stanu."),
-                qsTr("Wprowadzono limit liczby okien pomocniczych (konfigurowalny w zakresie 0-3) z eleganckim oknem ostrzegawczym o zablokowaniu przy próbie jego przekroczenia."),
-                qsTr("Dodano subtelne, ciemnoszare ramki o szerokości 1px wokół nieużywanych viewportów w siatce podglądu LIVE dla lepszego rozgraniczenia pól."),
-                qsTr("Zabezpieczono edycję ścieżek zapisu i konfiguracji multimediów w ustawieniach przejściowym polem wyboru 'Uaktywnij zmiany w tej sekcji', zapobiegając przypadkowym modyfikacjom (stan edycji resetuje się po zamknięciu)."),
-                qsTr("Wprowadzono bezpośrednie skróty 'otwórz folder zapisu' (wyróżniony seledynowym kolorem przy ukończonym pobieraniu w oknie Archiwum) oraz zawsze aktywne przyciski szybkiego otwierania folderów zrzutów i wideo w ustawieniach (z automatycznym tworzeniem katalogu na dysku)."),
-                qsTr("Wprowadzono interaktywną walidację przy kliknięciu przycisku 'Pobierz' w oknie pobierania: automatyczna kontrola formatów pól oraz chronologii dat z dymkiem ostrzegawczym i przekierowaniem fokusu na pierwsze błędne pole."),
-                qsTr("Zaimplementowano pełną nawigację klawiaturą (strzałkami góra/dół do zmiany wartości, lewo/prawo do zmiany kolumn) w graficznym selektorze czasu (Clock Picker)."),
-                qsTr("Zapewniono całkowicie czysty start okien pomocniczych (bez automatycznego otwierania panelu opcji) oraz wykluczono zapisywanie ustawień geometrii z okien pomocniczych, eliminując zanieczyszczanie konfiguracji."),
-                qsTr("Dodano pełne wsparcie dla języka angielskiego dla wszystkich nowych komunikatów o błędach walidacji i formatowania w oknie pobierania.")
+                qsTr("LNG_00406"),
+                qsTr("LNG_00405"),
+                qsTr("LNG_00404"),
+                qsTr("LNG_00403"),
+                qsTr("LNG_00402"),
+                qsTr("LNG_00401"),
+                qsTr("LNG_00400"),
+                qsTr("LNG_00399"),
+                qsTr("LNG_00398"),
+                qsTr("LNG_00397"),
+                qsTr("LNG_00396"),
+                qsTr("LNG_00395")
             ]
         },
         {
             version: "v2.2.5",
             date: "25.06.2026",
             changes: [
-                qsTr("Wyeliminowano wycieki pamięci RAM przy przełączaniu układów kamer poprzez automatyczne i poprawne zatrzymywanie powierzchni wideo przed zmianą formatu oraz dopasowanie rozmiaru renderera."),
-                qsTr("Zaimplementowano bezwarunkowe zwalnianie i niszczenie obiektów wyjściowych audio przy zatrzymaniu odtwarzacza oraz wprowadzono ich automatyczny recykling, usuwając wycieki pamięci i wątków w systemie Linux."),
-                qsTr("Rozwiązano problem zablokowania wideo (jednokolorowa plansza po powiększeniu viewportu) poprzez wymuszenie prawidłowego wysyłania sygnału dostępności wideo przy prezentacji pierwszej klatki nowego strumienia."),
-                qsTr("Dodano globalną opcję w ustawieniach 'Wyłącz obsługę audio całkowicie', pozwalającą całkowicie pominąć przetwarzanie dźwięku w celu eliminacji ewentualnego narzutu i wycieków pamięci."),
-                qsTr("Zoptymalizowano moduł statystyk systemowych, wygaszając ciągłe zużycie pamięci poprzez buforowanie identyfikatorów procesów i eliminację alokacji dynamicznych wyrażeń regularnych."),
-                qsTr("Wprowadzono agresywne czyszczenie pamięci (Garbage Collection) przy każdej zmianie układu kamer oraz zerowanie kontekstu skalowania obrazu (SwsContext) w buforach wideo."),
-                qsTr("Zapewniono poprawne czyszczenie pamięci statycznego detektora zmian plików konfiguracyjnych przy wyjściu z aplikacji."),
-                qsTr("Naprawiono błędy synchronizacji i zawieszania się procesu okna pomocniczego na wolniejszych maszynach przy seryjnym usuwaniu kamer oraz łączeniu i przenoszeniu viewportów."),
-                qsTr("Naprawiono agregację statystyk obciążenia GPU, pamięci VRAM oraz pasma sieciowego ze wszystkich procesów aplikacji przy wykorzystaniu pamięci współdzielonej (/dev/shm) w tle.")
+                qsTr("LNG_00394"),
+                qsTr("LNG_00393"),
+                qsTr("LNG_00392"),
+                qsTr("LNG_00391"),
+                qsTr("LNG_00390"),
+                qsTr("LNG_00389"),
+                qsTr("LNG_00388"),
+                qsTr("LNG_00387"),
+                qsTr("LNG_00386")
             ]
         },
         {
             version: "v2.2.0",
             date: "24.06.2026",
             changes: [
-                qsTr("Zabezpieczono destruktor odtwarzacza archiwalnego przed wyścigami danych przy usuwaniu zadań RGB."),
-                qsTr("Wprowadzono pooling odtwarzaczy wideo w celu eliminacji skoków zużycia pamięci i migotania obrazu przy przełączaniu układów kamer."),
-                qsTr("Zoptymalizowano monitorowanie obciążenia GPU i pamięci VRAM do trybu procesowego (bez wywołań nvidia-smi) z natywnym wsparciem dla układów NVIDIA, AMD i Intel (statystyki dla AMD/Intel są nieprzetestowane)."),
-                qsTr("Umożliwiono zmianę rozmiaru panelu statystyk systemowych poprzez przeciąganie za jego krawędzie i narożniki z automatycznym skalowaniem wykresów."),
-                qsTr("Wprowadzono natychmiastowe ukrywanie okna głównego i pomocniczego przy potwierdzeniu wyjścia, co sprawia, że program zamyka się natychmiastowo dla użytkownika, a zwalnianie wątków i pamięci odbywa się bezpiecznie w tle.")
+                qsTr("LNG_00385"),
+                qsTr("LNG_00384"),
+                qsTr("LNG_00383"),
+                qsTr("LNG_00382"),
+                qsTr("LNG_00381")
             ]
         },
         {
             version: "v2.1.9",
             date: "23.06.2026",
             changes: [
-                qsTr("Przekształcono górny pasek narzędzi w oknach LIVE i ARCHIWUM w wyśrodkowane pływające doki (dok LIVE ma dynamiczną szerokość)."),
-                qsTr("Dodano pionowy separator oddzielający opcje siatki od widoków w dokach na pasku górnym."),
-                qsTr("Zwiększono przezroczystość pasków górnego i dolnego w archiwum (60% w oknie, 26% na pełnym ekranie) oraz ustawiono przezroczyste tło osi czasu."),
-                qsTr("Uproszczono ikony prędkości odtwarzania w archiwum do czytelnego tekstu (1x, 2x, 4x) i usunięto niestabilną prędkość 8x."),
-                qsTr("Zastąpiono tekstowe przyciski nawigacji miesięcy w kalendarzu archiwum i pobierania graficznymi strzałkami (chevronami)."),
-                qsTr("Przeniesiono przycisk usuwania kamery z prawego górnego rogu wideo na dolny pasek kontrolny viewportów, zapobiegając przypadkowym kliknięciom."),
-                qsTr("Zoptymalizowano kontrast tekstu przycisków wyboru siatki w archiwum (ciemny tekst na seledynowym tle)."),
-                qsTr("Przekształcono panel statystyk w okno pływające i przeciągane za pomocą nowego dedykowanego uchwytu (z zachowaniem click-through)."),
-                qsTr("Naprawiono krytyczny błąd synchronizacji i pętli zwrotnej zapisu konfiguracyjnego przy usuwaniu układów podglądu.")
+                qsTr("LNG_00380"),
+                qsTr("LNG_00379"),
+                qsTr("LNG_00378"),
+                qsTr("LNG_00377"),
+                qsTr("LNG_00376"),
+                qsTr("LNG_00375"),
+                qsTr("LNG_00374"),
+                qsTr("LNG_00373"),
+                qsTr("LNG_00372")
             ]
         },
         {
             version: "v2.1.8",
             date: "23.06.2026",
             changes: [
-                qsTr("Powiększono ikony sterowania prędkością, zoomem i VCR w archiwum w celu poprawy ich czytelności, a także zwiększono napisy wewnątrz ikon SVG."),
-                qsTr("Usunięto zduplikowane przyciski tekstowe dla skrótów zoomu w archiwum, zastępując je w pełni ikonami okrągłymi."),
-                qsTr("Dodano kompletne angielskie i polskie tłumaczenia dla wszystkich tooltipów w oknie archiwum.")
+                qsTr("LNG_00371"),
+                qsTr("LNG_00370"),
+                qsTr("LNG_00369")
             ]
         },
         {
             version: "v2.1.7",
             date: "23.06.2026",
             changes: [
-                qsTr("Wprowadzono dwukierunkową synchronizację konfiguracji w czasie rzeczywistym między oknem głównym a pomocniczymi z obsługą unikalnych, automatycznych ID okien pomocniczych.")
+                qsTr("LNG_00368")
             ]
         },
         {
             version: "v2.1.6",
             date: "23.06.2026",
             changes: [
-                qsTr("Dodano automatyczne wznawianie sesji (auto-reconnect) w odtwarzaczu archiwum Hikvision po zakończeniu pobierania nagrań lub zerwaniu połączenia przez rejestrator.")
+                qsTr("LNG_00367")
             ]
         },
         {
             version: "v2.1.5",
             date: "23.06.2026",
             changes: [
-                qsTr("Wyeliminowano problem potencjalnego wycieku wątków i zawieszenia dekoderów wideo FFmpeg podczas zmiany widoków poprzez przejście na bezpieczne odwołania std::weak_ptr dla kontekstu dekodera."),
-                qsTr("Naprawiono wyciek pamięci modeli układów widoków (ViewportsLayouts) poprzez bezpieczne niszczenie obiektów za pomocą deleteLater()."),
-                qsTr("Złagodzono błąd uruchamiania powierzchni rysowania wideo OpenGL (start wideo surface) przy bardzo szybkiej zmianie zakładki NVR – logi zostały wyciszone do poziomu Debug, a system w tle ponawia automatycznie próbę renderowania po zwolnieniu buforów karty graficznej.")
+                qsTr("LNG_00366"),
+                qsTr("LNG_00365"),
+                qsTr("LNG_00364")
             ]
         },
         {
             version: "v2.1.4",
             date: "23.06.2026",
             changes: [
-                qsTr("Rozwiązano problem rezydualnego zużycia pamięci RAM (20-30 MB) po zamknięciu okna Archiwum poprzez wieloetapowe oczyszczanie sterty oraz optymalizację pamięci podręcznej silnika QML."),
-                qsTr("Zoptymalizowano zużycie pamięci RAM przy skalowaniu i powiększaniu widoku kamer w viewportach, zapobiegając nadmiernemu wzrostowi alokacji pamięci podczas ciągłej zmiany rozmiaru okien strumieni wideo."),
-                qsTr("Dodano precyzyjny, rzeczywisty wskaźnik klatek na sekundę (FPS) w lewym górnym rogu każdego viewportu dla strumieni na żywo i odtwarzacza archiwalnego."),
-                qsTr("Wdrożono bezpieczne zamykanie i zwalnianie wątków pobierania plików w downloaderze Hikvision, zapewniając stabilne i natychmiastowe zamykanie programu bez blokowania zasobów systemowych.")
+                qsTr("LNG_00363"),
+                qsTr("LNG_00362"),
+                qsTr("LNG_00361"),
+                qsTr("LNG_00360")
             ]
         },
         {
             version: "v2.1.3",
             date: "22.06.2026",
             changes: [
-                qsTr("Dodano dynamiczną wyszukiwarkę kamer w oknie archiwum z przyciskiem resetowania i automatycznym rozwijaniem pasujących rejestratorów."),
-                qsTr("Włączono zawijanie zbyt długich nazw kamer na kafelkach listy w archiwum."),
-                qsTr("Powiększono i odwrócono kolory przycisku plus (+) na kafelkach kamer (seledynowe tło) dla lepszej widoczności, dodając wyraźne stany hover/pressed.")
+                qsTr("LNG_00359"),
+                qsTr("LNG_00358"),
+                qsTr("LNG_00357")
             ]
         },
         {
             version: "v2.1.2",
             date: "19.06.2026",
             changes: [
-                qsTr("Poprawiono przesunięcie paska dostępności nagrań o 2-3 godziny w oknie odtwarzacza archiwum, synchronizując oś czasu ze strefą czasową klienta (z poprawną obsługą czasu letniego/zimowego DST).")
+                qsTr("LNG_00356")
             ]
         },
         {
             version: "v2.1.1",
             date: "19.06.2026",
             changes: [
-                qsTr("Zastąpiono słabo widoczną czarną ikonę emoji 📺 w pustym widoku eleganckim seledynowym monitorem wektorowym SVG High-DPI."),
-                qsTr("Zwiększono czytelność pasków rejestratorów w oknie archiwum (wysokość zwiększona z 22px do 28px, powiększona czcionka z 9px do 11px, większa strzałka rozwijania)."),
-                qsTr("Dodano pełny, dynamiczny efekt hover dla pasków rejestratorów z wyraźną zmianą kolorystyki tła, tekstu oraz ikon na seledynowy/biały.")
+                qsTr("LNG_00355"),
+                qsTr("LNG_00354"),
+                qsTr("LNG_00353")
             ]
         },
         {
             version: "v2.1.0",
             date: "19.06.2026",
             changes: [
-                qsTr("Zastąpiono tekstowe przyciski akcji na górnym pasku (Opcje, Nowe okno, Archiwum, Instrukcje) dedykowanymi, kolorowymi ikonami SVG z pomocniczymi dymkami (Tooltip)."),
-                qsTr("Zastąpiono przełącznik statystyk interaktywną ikoną SVG odzwierciedlającą stan aktywności monitora systemowego."),
-                qsTr("Ujednolicono przyciski wyboru siatki (1x1-9x9) do spójnych okrągłych przycisków 30x30px."),
-                qsTr("Dodano pionową linię rozdzielającą (separator) sekcję opcji od sekcji wyboru siatki."),
-                qsTr("Przebudowano przyciski widoków do eleganckiego, zaokrąglonego kształtu pigułki o wysokości 30px z zachowaniem marginesów bocznych."),
-                qsTr("Wymuszono automatyczne wyświetlanie nazw widoków wielkimi literami (Uppercase)."),
-                qsTr("Poprawiono czytelność i kontrast aktywnego przycisku widoku – ciemny tekst (#121214) na jasnym seledynowym tle."),
-                qsTr("Ujednolicono i poprawiono ikony usuwania na liście rejestratorów i widoków oraz przycisk aktywacji presetu na ikony SVG z dymkami (Tooltip)."),
-                qsTr("Zmniejszono odległości między przyciskami na górnym pasku w celu optymalizacji przestrzeni interfejsu."),
-                qsTr("Przywrócono brakującą ikonę minimalizowania w oknie pomocniczym.")
+                qsTr("LNG_00352"),
+                qsTr("LNG_00351"),
+                qsTr("LNG_00350"),
+                qsTr("LNG_00349"),
+                qsTr("LNG_00348"),
+                qsTr("LNG_00347"),
+                qsTr("LNG_00346"),
+                qsTr("LNG_00345"),
+                qsTr("LNG_00344"),
+                qsTr("LNG_00343")
             ]
         },
         {
             version: "v2.0.9-2 (Patch)",
             date: "19.06.2026",
             changes: [
-                qsTr("Poprawka logowania i działania archiwum w oknach pomocniczych."),
-                qsTr("Naprawa stanu przycisków siatki (1x1 vs 2x2) przy bezpośrednim otwieraniu archiwum z kamery.")
+                qsTr("LNG_00342"),
+                qsTr("LNG_00341")
             ]
         },
         {
             version: "v2.0.9",
             date: "19.06.2026",
             changes: [
-                qsTr("Dodano poprawną przestrzeń nazw XML w zapytaniach Hikvision ISAPI (eliminacja błędu 'Invalid XML Content' na nowszym oprogramowaniu układowym rejestratorów)."),
-                qsTr("Naprawa obsługi paginacji wyników wyszukiwania (obsługa tagu searchResultPostion)."),
-                qsTr("Przycisk 'Odśwież' w oknie archiwum pozwalający na ręczne wyczyszczenie pamięci podręcznej i ponowne pobranie danych o dostępności nagrań."),
-                qsTr("Optymalizacja kolejki sieciowej (Prefetch) – ograniczenie pobierania wstecznego do 12 miesięcy, co eliminuje setki zbędnych zapytań o przedawnione nagrania i znacznie przyspiesza start odtwarzania.")
+                qsTr("LNG_00340"),
+                qsTr("LNG_00339"),
+                qsTr("LNG_00338"),
+                qsTr("LNG_00337")
             ]
         },
         {
             version: "v2.0.7-8",
             date: "17.06.2026",
             changes: [
-                qsTr("Asynchroniczna inicjalizacja SDK Hikvision w osobnym wątku, co całkowicie wyeliminowało zawieszanie się interfejsu (GUI Freeze) przy otwieraniu opcji."),
-                qsTr("Bezpieczna wielowątkowa synchronizacja dostępu do metod SDK Hikvision.")
+                qsTr("LNG_00336"),
+                qsTr("LNG_00335")
             ]
         },
         {
             version: "v2.0.6",
             date: "15.06.2026",
             changes: [
-                qsTr("Oczyszczanie nazw pobieranych plików i zrzutów ekranu z adresów IP rejestratorów."),
-                qsTr("Elegancki styl paska postępu pobierania w kolorze jasnoturkusowym (#00f5d4) z nałożonym wycentrowanym tekstem z czarnym obrysem."),
-                qsTr("Obliczanie globalnego postępu pobierania (overallProgress) dla nagrań składających się z wielu części."),
-                qsTr("Zmiana rozszerzenia plików tymczasowych pobierania z '.ps' na '.pspart'."),
-                qsTr("Opcja i przycisk 'Pokazuj pola informacyjne tylko po najechaniu kursorem' w ustawieniach interfejsu użytkownika."),
-                qsTr("Wizualna informacja o procesie wyszukiwania kamer w panelu konfiguracji (obracająca się ikona, blokowanie formularza, tekst 'Wyszukiwanie...')."),
-                qsTr("Pełna wielojęzyczność (dodanie oficjalnego wsparcia dla języków polskiego i angielskiego)."),
-                qsTr("Optymalizacja czasu uruchamiania okna pomocniczego – skrócenie startu z 3 sekund do poniżej 300 ms."),
-                qsTr("Estetyczna stylizacja pustego pola w oknie pomocniczym ('Nie wybrano widoku') z seledynową ramką.")
+                qsTr("LNG_00334"),
+                qsTr("LNG_00333"),
+                qsTr("LNG_00332"),
+                qsTr("LNG_00331"),
+                qsTr("LNG_00330"),
+                qsTr("LNG_00329"),
+                qsTr("LNG_00328"),
+                qsTr("LNG_00327"),
+                qsTr("LNG_00326")
             ]
         },
         {
             version: "v2.0.0",
             date: "05.06.2026",
             changes: [
-                qsTr("Integracja z SDK Hikvision w trybie Live oraz odtwarzania archiwum."),
-                qsTr("Odtwarzacz nagrań archiwalnych z wieloma kamerami naraz, automatycznie pozycjonowaną i centrowaną osią czasu."),
-                qsTr("Wielowątkowy Monitor Systemowy (statystyki procesora, pamięci RAM, karty graficznej, pamięci VRAM oraz sieci)."),
-                qsTr("Śledzenie wykorzystania pasma sieciowego w czasie rzeczywistym."),
-                qsTr("Nowa ikona aplikacji w wysokiej rozdzielczości oraz dopracowany ciemny motyw interfejsu."),
-                qsTr("Automatyczny skrypt budowania pakietu Pacman dla systemu Arch Linux.")
+                qsTr("LNG_00325"),
+                qsTr("LNG_00324"),
+                qsTr("LNG_00323"),
+                qsTr("LNG_00322"),
+                qsTr("LNG_00321"),
+                qsTr("LNG_00320")
             ]
         }
     ]
@@ -516,7 +516,7 @@ FocusScope {
                     }
 
                     Text {
-                        text: qsTr("KVision")
+                        text: qsTr("LNG_00003")
                         color: "#ffffff"
                         font {
                             pixelSize: 20
@@ -527,7 +527,7 @@ FocusScope {
                     }
 
                     Text {
-                        text: qsTr("Wersja %1").arg(Qt.application.version)
+                        text: qsTr("LNG_00319").arg(Qt.application.version)
                         color: "#00f5d4"
                         font {
                             pixelSize: 12
@@ -538,7 +538,7 @@ FocusScope {
                     }
 
                     Text {
-                        text: qsTr("Oryginalny autor: Evgeny S. Maksimov")
+                        text: qsTr("LNG_00318")
                         color: "#8898a6"
                         font.pixelSize: 10
                         horizontalAlignment: Text.AlignHCenter
@@ -546,7 +546,7 @@ FocusScope {
                     }
 
                     Text {
-                        text: qsTr("Modyfikacja: arkanista (z pomocą AI)")
+                        text: qsTr("LNG_00317")
                         color: "#ff7a00"
                         font {
                             pixelSize: 10
@@ -625,7 +625,7 @@ FocusScope {
                             }
 
                             Text {
-                                text: qsTr("Viewport%1").arg(rootSideBar.currentViewportIndex >= 0 ? qsTr(" #%1").arg(rootSideBar.currentViewportIndex + 1) : "")
+                                text: qsTr("LNG_00316").arg(rootSideBar.currentViewportIndex >= 0 ? qsTr("LNG_00315").arg(rootSideBar.currentViewportIndex + 1) : "")
                                 color: tabsColumn.activeIndex === 0 ? "#00f5d4" : (btnViewport.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
@@ -685,7 +685,7 @@ FocusScope {
                             }
 
                             Text {
-                                text: qsTr("Tools")
+                                text: qsTr("LNG_00314")
                                 color: tabsColumn.activeIndex === 1 ? "#00f5d4" : (btnTools.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
@@ -744,7 +744,7 @@ FocusScope {
                             }
 
                             Text {
-                                text: qsTr("Recorders")
+                                text: qsTr("LNG_00313")
                                 color: tabsColumn.activeIndex === 2 ? "#00f5d4" : (btnRecorders.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
@@ -803,7 +803,7 @@ FocusScope {
                             }
 
                             Text {
-                                text: qsTr("Presets")
+                                text: qsTr("LNG_00312")
                                 color: tabsColumn.activeIndex === 3 ? "#00f5d4" : (btnPresets.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
@@ -862,7 +862,7 @@ FocusScope {
                             }
 
                             Text {
-                                text: qsTr("Settings")
+                                text: qsTr("LNG_00311")
                                 color: tabsColumn.activeIndex === 4 ? "#00f5d4" : (btnSettings.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
@@ -921,7 +921,7 @@ FocusScope {
                             }
 
                             Text {
-                                text: qsTr("Changelog")
+                                text: qsTr("LNG_00310")
                                 color: tabsColumn.activeIndex === 5 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
@@ -1006,7 +1006,7 @@ FocusScope {
                         }
 
                         Text {
-                            text: qsTr("Dostępna wersja: %1").arg(rootSideBar.newVersionString)
+                            text: qsTr("LNG_00309").arg(rootSideBar.newVersionString)
                             color: updateArea.containsMouse ? "#55efc4" : "#2ecc71"
                             font.pixelSize: 11
                             font.bold: true
@@ -1053,7 +1053,7 @@ FocusScope {
                     spacing: 20
 
                     Text {
-                        text: qsTr("Viewport Details")
+                        text: qsTr("LNG_00308")
                         color: "#00f5d4"
                         font {
                             pixelSize: 16
@@ -1063,7 +1063,7 @@ FocusScope {
 
                     // Placeholder when no viewport is active
                     Text {
-                        text: qsTr("Please select a viewport in the main grid to customize its settings.")
+                        text: qsTr("LNG_00307")
                         color: "#8898a6"
                         font {
                             pixelSize: 13
@@ -1080,14 +1080,14 @@ FocusScope {
 
                         Switch {
                             id: configUnlockSwitch
-                            text: qsTr("Unlock config pane")
+                            text: qsTr("LNG_00306")
                             checked: false
                             palette.highlight: "#4CAF50"
                             Layout.fillWidth: true
                         }
 
                         GroupBox {
-                            title: qsTr("Active Stream Connection")
+                            title: qsTr("LNG_00305")
                             Layout.fillWidth: true
 
                             background: Rectangle {
@@ -1109,7 +1109,7 @@ FocusScope {
 
                                 TextField {
                                     text: (rootSideBar.currentViewportIndex >= 0 && Utils.currentModel()) ? Utils.currentModel().get(rootSideBar.currentViewportIndex).url : ""
-                                    placeholderText: qsTr("Primary Stream URL")
+                                    placeholderText: qsTr("LNG_00304")
                                     selectByMouse: true
                                     enabled: configUnlockSwitch.checked && (Utils.currentModel() ? (!Utils.currentModel().isNvr && !Utils.currentModel().isNvrPreset) : true)
                                     Layout.fillWidth: true
@@ -1123,7 +1123,7 @@ FocusScope {
 
                                 TextField {
                                     text: (rootSideBar.currentViewportIndex >= 0 && Utils.currentModel()) ? Utils.currentModel().get(rootSideBar.currentViewportIndex).secondaryUrl : ""
-                                    placeholderText: qsTr("Secondary Backup URL")
+                                    placeholderText: qsTr("LNG_00303")
                                     selectByMouse: true
                                     enabled: configUnlockSwitch.checked && (Utils.currentModel() ? (!Utils.currentModel().isNvr && !Utils.currentModel().isNvrPreset) : true)
                                     Layout.fillWidth: true
@@ -1137,7 +1137,7 @@ FocusScope {
                         }
 
                         GroupBox {
-                            title: qsTr("Audio & Rendering Options")
+                            title: qsTr("LNG_00302")
                             Layout.fillWidth: true
 
                             background: Rectangle {
@@ -1158,7 +1158,7 @@ FocusScope {
                                 spacing: 12
 
                                 Button {
-                                    text: qsTr("Mute / Unmute Audio")
+                                    text: qsTr("LNG_00301")
                                     enabled: configUnlockSwitch.checked && (rootSideBar.currentViewportIndex >= 0 && Utils.currentLayout() ? Utils.currentLayout().get(rootSideBar.currentViewportIndex).hasAudio : false)
                                     highlighted: !(rootSideBar.currentViewportIndex >= 0 && Utils.currentModel() && Utils.currentModel().get(rootSideBar.currentViewportIndex).volume > 0 || !viewportSettings.noUnmuteWhenFullScreen && Utils.currentLayout() && Utils.currentLayout().fullScreenIndex >= 0)
                                     Layout.fillWidth: true
@@ -1178,7 +1178,7 @@ FocusScope {
                                     spacing: 4
 
                                     Text {
-                                        text: qsTr("FFmpeg Options Override")
+                                        text: qsTr("LNG_00300")
                                         color: "white"
                                         font.pixelSize: 11
                                     }
@@ -1233,7 +1233,7 @@ FocusScope {
                     spacing: 20
 
                     Text {
-                        text: qsTr("Layout & Grid Tools")
+                        text: qsTr("LNG_00299")
                         color: "#00f5d4"
                         font {
                             pixelSize: 16
@@ -1243,14 +1243,14 @@ FocusScope {
 
                     Switch {
                         id: toolsUnlockSwitch
-                        text: qsTr("Unlock tools pane")
+                        text: qsTr("LNG_00298")
                         checked: false
                         palette.highlight: "#4CAF50"
                         Layout.fillWidth: true
                     }
 
                     GroupBox {
-                        title: qsTr("Window Division")
+                        title: qsTr("LNG_00297")
                         enabled: toolsUnlockSwitch.checked && !(Utils.currentLayout() && Utils.currentLayout().fullScreenIndex >= 0)
                         Layout.fillWidth: true
 
@@ -1300,7 +1300,7 @@ FocusScope {
                                             arr = JSON.parse(model);
                                         }
                                     } catch(err) {
-                                        Utils.log_error(qsTr("Error reading configuration!"));
+                                        Utils.log_error(qsTr("LNG_00219"));
                                     }
 
                                     if (arr instanceof Array) {
@@ -1352,7 +1352,7 @@ FocusScope {
                                         ToolTip.delay: Compact.toolTipDelay
                                         ToolTip.timeout: Compact.toolTipTimeout
                                         ToolTip.visible: hovered
-                                        ToolTip.text: qsTr("Hold to edit division value")
+                                        ToolTip.text: qsTr("LNG_00296")
                                     }
 
                                     TextField {
@@ -1380,7 +1380,7 @@ FocusScope {
                                     }
 
                                     function str2size(str) {
-                                        var separatorTr = qsTr("x");
+                                        var separatorTr = qsTr("LNG_00295");
                                         var regexp = new RegExp("^[1-9][x%1][1-9]$".arg(separatorTr));
                                         if (regexp.test(str)) {
                                             var size = str.split(new RegExp("[x%1]".arg(separatorTr)));
@@ -1394,7 +1394,7 @@ FocusScope {
                     }
 
                     GroupBox {
-                        title: qsTr("Geometry Ratio")
+                        title: qsTr("LNG_00294")
                         enabled: toolsUnlockSwitch.checked
                         Layout.fillWidth: true
 
@@ -1444,7 +1444,7 @@ FocusScope {
                             }
 
                             Button {
-                                text: qsTr("Toggle Full Screen")
+                                text: qsTr("LNG_00011")
                                 highlighted: Context.config.fullScreen
                                 Layout.fillWidth: true
                                 onClicked: Context.config.fullScreen = !Context.config.fullScreen
@@ -1453,7 +1453,7 @@ FocusScope {
                     }
 
                     GroupBox {
-                        title: qsTr("Grid Operations")
+                        title: qsTr("LNG_00293")
                         enabled: toolsUnlockSwitch.checked
                         Layout.fillWidth: true
 
@@ -1475,7 +1475,7 @@ FocusScope {
                             spacing: 10
 
                             Button {
-                                text: qsTr("Merge Highlighted Cells")
+                                text: qsTr("LNG_00292")
                                 enabled: Utils.currentLayout() ? Utils.currentLayout().mergeCells(true) : false
                                 Layout.fillWidth: true
                                 onClicked: if (Utils.currentLayout()) Utils.currentLayout().mergeCells()
@@ -1499,7 +1499,7 @@ FocusScope {
                     spacing: 20
 
                     Text {
-                        text: qsTr("NVR / Hikvision Recorders Manager")
+                        text: qsTr("LNG_00291")
                         color: "#00f5d4"
                         font {
                             pixelSize: 16
@@ -1527,7 +1527,7 @@ FocusScope {
                     spacing: 20
 
                     Text {
-                        text: qsTr("Presets & Quick Layout Views")
+                        text: qsTr("LNG_00290")
                         color: "#00f5d4"
                         font {
                             pixelSize: 16
@@ -1537,7 +1537,7 @@ FocusScope {
 
                     // Group 1: General Camera Presets
                     GroupBox {
-                        title: qsTr("ONVIF and RTSP Layout settings")
+                        title: qsTr("LNG_00289")
                         Layout.fillWidth: true
 
                         background: Rectangle {
@@ -1579,7 +1579,7 @@ FocusScope {
                                     TextField {
                                         id: nameField
                                         text: (presetRow.layout && presetRow.layout.name) ? presetRow.layout.name : ""
-                                        placeholderText: qsTr("Layout %1").arg(index + 1)
+                                        placeholderText: qsTr("LNG_00288").arg(index + 1)
                                         selectByMouse: true
                                         Layout.fillWidth: true
                                         color: "white"
@@ -1597,7 +1597,7 @@ FocusScope {
 
                                     // Visible Checkbox
                                     CheckBox {
-                                        text: qsTr("Visible")
+                                        text: qsTr("LNG_00278")
                                         checked: presetRow.layout ? presetRow.layout.visible : true
                                         onCheckedChanged: {
                                             if (presetRow.layout) {
@@ -1634,7 +1634,7 @@ FocusScope {
                                         ToolTip.delay: Compact.toolTipDelay
                                         ToolTip.timeout: Compact.toolTipTimeout
                                         ToolTip.visible: activateBtn.hovered
-                                        ToolTip.text: qsTr("Aktywuj ten układ podglądu")
+                                        ToolTip.text: qsTr("LNG_00287")
                                     }
 
                                     // Delete icon button
@@ -1666,14 +1666,14 @@ FocusScope {
                                         ToolTip.delay: Compact.toolTipDelay
                                         ToolTip.timeout: Compact.toolTipTimeout
                                         ToolTip.visible: delPresetBtn.hovered
-                                        ToolTip.text: qsTr("Usuń ten układ podglądu")
+                                        ToolTip.text: qsTr("LNG_00286")
                                     }
                                 }
                             }
 
                             Button {
                                 id: addPresetBtn
-                                text: qsTr("Add Preset Layout")
+                                text: qsTr("LNG_00285")
                                 Layout.fillWidth: true
                                 implicitHeight: 32
                                 onClicked: {
@@ -1700,7 +1700,7 @@ FocusScope {
 
                     // Group 2: NVR Views (Only when NVR layouts configured)
                     GroupBox {
-                        title: qsTr("NVR View Layouts")
+                        title: qsTr("LNG_00284")
                         visible: rootSideBar.nvrIndices.length > 0
                         Layout.fillWidth: true
 
@@ -1741,7 +1741,7 @@ FocusScope {
                                     TextField {
                                         id: nvrNameField
                                         text: (nvrRow.layout && nvrRow.layout.name) ? nvrRow.layout.name : ""
-                                        placeholderText: (nvrRow.layout && nvrRow.layout.nvrIp) ? getRecorderName(nvrRow.layout.nvrIp) : qsTr("NVR View")
+                                        placeholderText: (nvrRow.layout && nvrRow.layout.nvrIp) ? getRecorderName(nvrRow.layout.nvrIp) : qsTr("LNG_00283")
                                         selectByMouse: true
                                         Layout.fillWidth: true
                                         color: "white"
@@ -1758,7 +1758,7 @@ FocusScope {
                                     }
 
                                     CheckBox {
-                                        text: qsTr("Visible")
+                                        text: qsTr("LNG_00278")
                                         checked: nvrRow.layout ? nvrRow.layout.visible : true
                                         onCheckedChanged: {
                                             if (nvrRow.layout) {
@@ -1794,7 +1794,7 @@ FocusScope {
                                         ToolTip.delay: Compact.toolTipDelay
                                         ToolTip.timeout: Compact.toolTipTimeout
                                         ToolTip.visible: activateBtnNvr.hovered
-                                        ToolTip.text: qsTr("Aktywuj ten widok kamer NVR")
+                                        ToolTip.text: qsTr("LNG_00282")
                                     }
 
                                     Button {
@@ -1824,7 +1824,7 @@ FocusScope {
                                         ToolTip.delay: Compact.toolTipDelay
                                         ToolTip.timeout: Compact.toolTipTimeout
                                         ToolTip.visible: delNvrBtn.hovered
-                                        ToolTip.text: qsTr("Usuń ten widok kamer NVR")
+                                        ToolTip.text: qsTr("LNG_00281")
                                     }
                                 }
                             }
@@ -1833,7 +1833,7 @@ FocusScope {
 
                     // Group 3: NVR Preset List
                     GroupBox {
-                        title: qsTr("NVR Presets (Grid views)")
+                        title: qsTr("LNG_00280")
                         Layout.fillWidth: true
 
                         background: Rectangle {
@@ -1873,7 +1873,7 @@ FocusScope {
                                     TextField {
                                         id: nvrPresetNameField
                                         text: (nvrPresetRow.layout && nvrPresetRow.layout.name) ? nvrPresetRow.layout.name : ""
-                                        placeholderText: qsTr("NVR Preset #%1").arg(index + 1)
+                                        placeholderText: qsTr("LNG_00279").arg(index + 1)
                                         selectByMouse: true
                                         Layout.fillWidth: true
                                         color: "white"
@@ -1890,7 +1890,7 @@ FocusScope {
                                     }
 
                                     CheckBox {
-                                        text: qsTr("Visible")
+                                        text: qsTr("LNG_00278")
                                         checked: nvrPresetRow.layout ? nvrPresetRow.layout.visible : true
                                         onCheckedChanged: {
                                             if (nvrPresetRow.layout) {
@@ -1926,7 +1926,7 @@ FocusScope {
                                         ToolTip.delay: Compact.toolTipDelay
                                         ToolTip.timeout: Compact.toolTipTimeout
                                         ToolTip.visible: activateBtnNvrPreset.hovered
-                                        ToolTip.text: qsTr("Aktywuj ten preset kamer NVR")
+                                        ToolTip.text: qsTr("LNG_00277")
                                     }
 
                                     Button {
@@ -1956,14 +1956,14 @@ FocusScope {
                                         ToolTip.delay: Compact.toolTipDelay
                                         ToolTip.timeout: Compact.toolTipTimeout
                                         ToolTip.visible: delNvrPresetBtn.hovered
-                                        ToolTip.text: qsTr("Usuń ten preset kamer NVR")
+                                        ToolTip.text: qsTr("LNG_00276")
                                     }
                                 }
                             }
 
                             Button {
                                 id: addNvrPresetBtn
-                                text: qsTr("Add NVR Preset")
+                                text: qsTr("LNG_00275")
                                 Layout.fillWidth: true
                                 implicitHeight: 32
                                 onClicked: {
@@ -2006,7 +2006,7 @@ FocusScope {
                     spacing: 20
 
                     Text {
-                        text: qsTr("System Settings")
+                        text: qsTr("LNG_00274")
                         color: "#00f5d4"
                         font {
                             pixelSize: 16
@@ -2015,7 +2015,7 @@ FocusScope {
                     }
 
                     GroupBox {
-                        title: qsTr("General Settings")
+                        title: qsTr("LNG_00273")
                         Layout.fillWidth: true
 
                         background: Rectangle {
@@ -2036,7 +2036,7 @@ FocusScope {
                             spacing: 8
 
                             CheckBox {
-                                text: qsTr("Allow running multiple application instances")
+                                text: qsTr("LNG_00272")
                                 checked: !generalSettings.singleApplication
                                 enabled: false
                                 onCheckedChanged: generalSettings.singleApplication = !checked
@@ -2044,7 +2044,7 @@ FocusScope {
                             }
 
                             Text {
-                                text: qsTr("This option is disabled to prevent settings file write conflicts. To enable it (dangerous and not recommended!), set 'singleApplication=false' in the kvision.conf configuration file.")
+                                text: qsTr("LNG_00271")
                                 color: "#8898a6"
                                 font.pixelSize: 10
                                 wrapMode: Text.WordWrap
@@ -2058,7 +2058,7 @@ FocusScope {
                             }
 
                             CheckBox {
-                                text: qsTr("Check Hikvision NVR error status")
+                                text: qsTr("LNG_00270")
                                 checked: NvrStatusManager.monitoringEnabled
                                 onCheckedChanged: NvrStatusManager.monitoringEnabled = checked
                                 Layout.fillWidth: true
@@ -2067,7 +2067,7 @@ FocusScope {
                     }
 
                     GroupBox {
-                        title: qsTr("Audio")
+                        title: qsTr("LNG_00269")
                         Layout.fillWidth: true
 
                         background: Rectangle {
@@ -2088,14 +2088,14 @@ FocusScope {
                             spacing: 8
 
                             CheckBox {
-                                text: qsTr("Disable audio entirely")
+                                text: qsTr("LNG_00268")
                                 checked: generalSettings.disableAudio
                                 onCheckedChanged: generalSettings.disableAudio = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Maximizing camera to full screen does not unmute")
+                                text: qsTr("LNG_00267")
                                 checked: viewportSettings.noUnmuteWhenFullScreen
                                 onCheckedChanged: viewportSettings.noUnmuteWhenFullScreen = checked
                                 Layout.fillWidth: true
@@ -2104,7 +2104,7 @@ FocusScope {
                     }
 
                     GroupBox {
-                        title: qsTr("Context Menu Settings")
+                        title: qsTr("LNG_00266")
                         Layout.fillWidth: true
 
                         background: Rectangle {
@@ -2125,14 +2125,14 @@ FocusScope {
                             spacing: 8
 
                             CheckBox {
-                                text: qsTr("Enable right-click context menu")
+                                text: qsTr("LNG_00265")
                                 checked: generalSettings.enableContextMenu
                                 onCheckedChanged: generalSettings.enableContextMenu = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Allow swapping viewport places")
+                                text: qsTr("LNG_00264")
                                 checked: generalSettings.allowSwappingViewports
                                 enabled: generalSettings.enableContextMenu
                                 onCheckedChanged: generalSettings.allowSwappingViewports = checked
@@ -2140,7 +2140,7 @@ FocusScope {
                             }
 
                             CheckBox {
-                                text: qsTr("Enable 'Remove camera' option")
+                                text: qsTr("LNG_00263")
                                 checked: generalSettings.enableRemoveCamera
                                 enabled: generalSettings.enableContextMenu
                                 onCheckedChanged: generalSettings.enableRemoveCamera = checked
@@ -2148,7 +2148,7 @@ FocusScope {
                             }
 
                             CheckBox {
-                                text: qsTr("Allow changing viewport settings")
+                                text: qsTr("LNG_00262")
                                 checked: generalSettings.enableChangeViewportSettings
                                 enabled: generalSettings.enableContextMenu
                                 onCheckedChanged: generalSettings.enableChangeViewportSettings = checked
@@ -2156,7 +2156,7 @@ FocusScope {
                             }
 
                             CheckBox {
-                                text: qsTr("Enable 'Stream selection' option")
+                                text: qsTr("LNG_00261")
                                 checked: generalSettings.enableStreamSelection
                                 enabled: generalSettings.enableContextMenu
                                 onCheckedChanged: generalSettings.enableStreamSelection = checked
@@ -2166,7 +2166,7 @@ FocusScope {
                     }
 
                     GroupBox {
-                        title: qsTr("User Interface Settings")
+                        title: qsTr("LNG_00260")
                         Layout.fillWidth: true
 
                         background: Rectangle {
@@ -2187,49 +2187,49 @@ FocusScope {
                             spacing: 8
 
                             CheckBox {
-                                text: qsTr("Show channel status in the top left corner of the viewport")
+                                text: qsTr("LNG_00259")
                                 checked: viewSettings.showChannelStatus
                                 onCheckedChanged: viewSettings.showChannelStatus = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Show camera info in the bottom left corner of the viewport")
+                                text: qsTr("LNG_00258")
                                 checked: viewSettings.showCameraInfo
                                 onCheckedChanged: viewSettings.showCameraInfo = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Show control icons in the bottom right corner of the viewport only when hovering")
+                                text: qsTr("LNG_00257")
                                 checked: viewSettings.hoverControlIcons
                                 onCheckedChanged: viewSettings.hoverControlIcons = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Show info fields only when hovering")
+                                text: qsTr("LNG_00256")
                                 checked: viewSettings.showInfoOnHoverOnly
                                 onCheckedChanged: viewSettings.showInfoOnHoverOnly = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Show top bar by default when opening window")
+                                text: qsTr("LNG_00255")
                                 checked: viewSettings.showTopBarByDefault
                                 onCheckedChanged: viewSettings.showTopBarByDefault = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Hide mouse cursor in Full Screen mode")
+                                text: qsTr("LNG_00254")
                                 checked: viewSettings.hideCursorWhenFullScreen
                                 onCheckedChanged: viewSettings.hideCursorWhenFullScreen = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Disable viewport zoom animation")
+                                text: qsTr("LNG_00253")
                                 checked: viewSettings.disableViewportZoomAnimation
                                 onCheckedChanged: viewSettings.disableViewportZoomAnimation = checked
                                 Layout.fillWidth: true
@@ -2240,7 +2240,7 @@ FocusScope {
                                 spacing: 4
 
                                 Text {
-                                    text: qsTr("Language:")
+                                    text: qsTr("LNG_00252")
                                     color: "white"
                                     font.pixelSize: 11
                                 }
@@ -2249,8 +2249,9 @@ FocusScope {
                                     id: sidebarLanguageCombo
                                     Layout.fillWidth: true
                                     model: [
-                                        { text: qsTr("System default"), value: "system" },
+                                        { text: qsTr("LNG_00251"), value: "system" },
                                         { text: "English", value: "en" },
+                                        { text: "Español", value: "es" },
                                         { text: "Polski", value: "pl" }
                                     ]
                                     textRole: "text"
@@ -2353,7 +2354,7 @@ FocusScope {
                                 spacing: 8
 
                                 Text {
-                                    text: qsTr("Ogranicz liczbę okien pomocniczych do:")
+                                    text: qsTr("LNG_00250")
                                     color: "white"
                                     font.pixelSize: 13
                                 }
@@ -2398,7 +2399,7 @@ FocusScope {
                     }
 
                     GroupBox {
-                        title: qsTr("NVR Status Monitoring")
+                        title: qsTr("LNG_00249")
                         Layout.fillWidth: true
 
                         background: Rectangle {
@@ -2419,42 +2420,42 @@ FocusScope {
                             spacing: 8
 
                             CheckBox {
-                                text: qsTr("Monitor offline status and login errors")
+                                text: qsTr("LNG_00248")
                                 checked: NvrStatusManager.checkOffline
                                 onCheckedChanged: NvrStatusManager.checkOffline = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Monitor CPU overload (>85%)")
+                                text: qsTr("LNG_00247")
                                 checked: NvrStatusManager.checkCpu
                                 onCheckedChanged: NvrStatusManager.checkCpu = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Monitor recorder hardware errors")
+                                text: qsTr("LNG_00246")
                                 checked: NvrStatusManager.checkHw
                                 onCheckedChanged: NvrStatusManager.checkHw = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Monitor hard disk faults/abnormalities")
+                                text: qsTr("LNG_00245")
                                 checked: NvrStatusManager.checkHdd
                                 onCheckedChanged: NvrStatusManager.checkHdd = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Monitor unformatted hard disks")
+                                text: qsTr("LNG_00244")
                                 checked: NvrStatusManager.checkUnformatted
                                 onCheckedChanged: NvrStatusManager.checkUnformatted = checked
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
-                                text: qsTr("Monitor full hard disks (loop coverage disabled)")
+                                text: qsTr("LNG_00243")
                                 checked: NvrStatusManager.checkFull
                                 onCheckedChanged: NvrStatusManager.checkFull = checked
                                 Layout.fillWidth: true
@@ -2463,7 +2464,7 @@ FocusScope {
                     }
 
                     GroupBox {
-                        title: qsTr("Odtwarzanie")
+                        title: qsTr("LNG_00242")
                         Layout.fillWidth: true
 
                         background: Rectangle {
@@ -2488,7 +2489,7 @@ FocusScope {
                                 spacing: 4
 
                                 Text {
-                                    text: qsTr("Domyślnie rozpoczynaj odtwarzanie wstecz o tą liczbę sekund:")
+                                    text: qsTr("LNG_00241")
                                     color: "white"
                                     font.pixelSize: 11
                                     wrapMode: Text.WordWrap
@@ -2535,7 +2536,7 @@ FocusScope {
                                 spacing: 4
 
                                 Text {
-                                    text: qsTr("Domyślny zakres osi czasu w odtwarzaniu, godziny:")
+                                    text: qsTr("LNG_00240")
                                     color: "white"
                                     font.pixelSize: 11
                                     wrapMode: Text.WordWrap
@@ -2580,7 +2581,7 @@ FocusScope {
                     }
 
                     GroupBox {
-                        title: qsTr("Zapis")
+                        title: qsTr("LNG_00239")
                         Layout.fillWidth: true
 
                         background: Rectangle {
@@ -2602,7 +2603,7 @@ FocusScope {
 
                             CheckBox {
                                 id: activatePathChangesCheckbox
-                                text: qsTr("Uaktywnij zmiany w tej sekcji")
+                                text: qsTr("LNG_00231")
                                 checked: false
                                 Layout.fillWidth: true
                             }
@@ -2618,7 +2619,7 @@ FocusScope {
                                     spacing: 4
 
                                     Text {
-                                        text: qsTr("Domyślna ścieżka stopklatek:")
+                                        text: qsTr("LNG_00238")
                                         color: "white"
                                         font.pixelSize: 11
                                     }
@@ -2667,7 +2668,7 @@ FocusScope {
                                                  if (!Context.dirExists(initial)) {
                                                      initial = Context.homePath();
                                                  }
-                                                 var selected = Context.selectFolder(qsTr("Wybierz folder dla stopklatek"), initial);
+                                                 var selected = Context.selectFolder(qsTr("LNG_00237"), initial);
                                                  if (selected && selected !== "") {
                                                      generalSettings.snapshotPath = selected;
                                                      Context.mkpath(selected);
@@ -2682,7 +2683,7 @@ FocusScope {
                                     spacing: 4
 
                                     Text {
-                                        text: qsTr("Domyślna ścieżka nagrań:")
+                                        text: qsTr("LNG_00236")
                                         color: "white"
                                         font.pixelSize: 11
                                     }
@@ -2731,7 +2732,7 @@ FocusScope {
                                                  if (!Context.dirExists(initial)) {
                                                      initial = Context.homePath();
                                                  }
-                                                 var selected = Context.selectFolder(qsTr("Wybierz folder dla nagrań"), initial);
+                                                 var selected = Context.selectFolder(qsTr("LNG_00235"), initial);
                                                  if (selected && selected !== "") {
                                                      generalSettings.videoPath = selected;
                                                      Context.mkpath(selected);
@@ -2747,7 +2748,7 @@ FocusScope {
                                 spacing: 8
 
                                 CctvButton {
-                                    text: qsTr("otwórz folder obrazów")
+                                    text: qsTr("LNG_00234")
                                     isCeladon: true
                                     Layout.fillWidth: true
                                     onClicked: {
@@ -2758,7 +2759,7 @@ FocusScope {
                                 }
 
                                 CctvButton {
-                                    text: qsTr("otwórz folder wideo")
+                                    text: qsTr("LNG_00233")
                                     isCeladon: true
                                     Layout.fillWidth: true
                                     onClicked: {
@@ -2772,7 +2773,7 @@ FocusScope {
                     }
 
                     GroupBox {
-                        title: qsTr("System Media Configuration")
+                        title: qsTr("LNG_00232")
                         Layout.fillWidth: true
 
                         background: Rectangle {
@@ -2794,7 +2795,7 @@ FocusScope {
 
                             CheckBox {
                                 id: activateMediaChangesCheckbox
-                                text: qsTr("Uaktywnij zmiany w tej sekcji")
+                                text: qsTr("LNG_00231")
                                 checked: false
                                 Layout.fillWidth: true
                             }
@@ -2810,7 +2811,7 @@ FocusScope {
                                     spacing: 4
 
                                     Text {
-                                        text: qsTr("Default FFmpeg command-line options")
+                                        text: qsTr("LNG_00230")
                                         color: "white"
                                         font.pixelSize: 11
                                     }
@@ -2844,7 +2845,7 @@ FocusScope {
                                     CctvButton {
                                         Layout.fillWidth: true
                                         isCeladon: true
-                                        text: qsTr("Zaktualizuj wszystkie kamery")
+                                        text: qsTr("LNG_00229")
                                         onClicked: {
                                             var opts = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
                                             for (var i = 0; i < layoutsCollectionModel.count; ++i) {
@@ -2879,7 +2880,7 @@ FocusScope {
                     spacing: 20
 
                     Text {
-                        text: qsTr("Dziennik zmian (Changelog)")
+                        text: qsTr("LNG_00228")
                         color: "#00f5d4"
                         font {
                             pixelSize: 16
@@ -2888,7 +2889,7 @@ FocusScope {
                     }
 
                     Text {
-                        text: qsTr("Historia ulepszeń, poprawek błędów i nowych funkcji w programie KVision.")
+                        text: qsTr("LNG_00227")
                         color: "#8898a6"
                         font.pixelSize: 13
                         wrapMode: Text.WordWrap
@@ -2964,16 +2965,16 @@ FocusScope {
     // Modal dialogs declared safely at root scope
     ConfirmDialog {
         id: presetDeleteDialog
-        title: qsTr("Confirm Deletion")
+        title: qsTr("LNG_00222")
         iconSource: "qrc:/images/icon-trash.svg"
         message: {
             if (index >= 0 && index < layoutsCollectionModel.count) {
                 var layout = layoutsCollectionModel.get(index);
                 if (layout && layout.name && layout.name.trim() !== "") {
-                    return qsTr("Are you sure you want to delete preset \"%1\"? This action is completely irreversible.").arg(layout.name);
+                    return qsTr("LNG_00226").arg(layout.name);
                 }
             }
-            return qsTr("Are you sure you want to delete preset #%1? This action is completely irreversible.").arg(index + 1);
+            return qsTr("LNG_00225").arg(index + 1);
         }
         property int index: -1
         onAccepted: layoutsCollectionModel.remove(index)
@@ -2981,16 +2982,16 @@ FocusScope {
 
     ConfirmDialog {
         id: nvrPresetDeleteDialog
-        title: qsTr("Confirm Deletion")
+        title: qsTr("LNG_00222")
         iconSource: "qrc:/images/icon-trash.svg"
         message: {
             if (index >= 0 && index < layoutsCollectionModel.count) {
                 var layout = layoutsCollectionModel.get(index);
                 if (layout && layout.name && layout.name.trim() !== "") {
-                    return qsTr("Are you sure you want to delete NVR view \"%1\"? This action is completely irreversible.").arg(layout.name);
+                    return qsTr("LNG_00224").arg(layout.name);
                 }
             }
-            return qsTr("Are you sure you want to delete this NVR view layout? This action is completely irreversible.");
+            return qsTr("LNG_00223");
         }
         property int index: -1
         onAccepted: layoutsCollectionModel.remove(index)
@@ -2998,16 +2999,16 @@ FocusScope {
 
     ConfirmDialog {
         id: nvrPresetDeleteDialog2
-        title: qsTr("Confirm Deletion")
+        title: qsTr("LNG_00222")
         iconSource: "qrc:/images/icon-trash.svg"
         message: {
             if (index >= 0 && index < layoutsCollectionModel.count) {
                 var layout = layoutsCollectionModel.get(index);
                 if (layout && layout.name && layout.name.trim() !== "") {
-                    return qsTr("Are you sure you want to delete NVR Preset \"%1\"? This action is completely irreversible.").arg(layout.name);
+                    return qsTr("LNG_00221").arg(layout.name);
                 }
             }
-            return qsTr("Are you sure you want to delete this NVR Preset? This action is completely irreversible.");
+            return qsTr("LNG_00220");
         }
         property int index: -1
         onAccepted: layoutsCollectionModel.remove(index)
