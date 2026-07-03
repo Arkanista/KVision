@@ -9,6 +9,26 @@
         <file>images/folder.svg</file>
         <file>INSTRUCTIONS.md</file>
         <file>INSTRUKCJA.md</file>
+        <file>INSTRUCTIONS_ar.md</file>
+        <file>INSTRUCTIONS_bg.md</file>
+        <file>INSTRUCTIONS_cs.md</file>
+        <file>INSTRUCTIONS_da.md</file>
+        <file>INSTRUCTIONS_de.md</file>
+        <file>INSTRUCTIONS_el.md</file>
+        <file>INSTRUCTIONS_es.md</file>
+        <file>INSTRUCTIONS_fi.md</file>
+        <file>INSTRUCTIONS_fr.md</file>
+        <file>INSTRUCTIONS_hu.md</file>
+        <file>INSTRUCTIONS_it.md</file>
+        <file>INSTRUCTIONS_no.md</file>
+        <file>INSTRUCTIONS_nl.md</file>
+        <file>INSTRUCTIONS_pt.md</file>
+        <file>INSTRUCTIONS_ro.md</file>
+        <file>INSTRUCTIONS_sk.md</file>
+        <file>INSTRUCTIONS_sv.md</file>
+        <file>INSTRUCTIONS_tr.md</file>
+        <file>INSTRUCTIONS_uk.md</file>
+        <file>INSTRUCTIONS_zh.md</file>
         <file>qtquickcontrols2.conf</file>
         <file>translations/kvision_pl_PL.qm</file>
         <file>translations/kvision_en_US.qm</file>
