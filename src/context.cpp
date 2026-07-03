@@ -244,6 +244,46 @@ QVariant Context::readSetting(const QString &category, const QString &key, const
     return val;
 }
 
+static QString getTransFileForLang(const QString &lang)
+{
+    static const QHash<QString, QString> langMap = {
+        {"pl", "kvision_pl_PL"},
+        {"en", "kvision_en_US"},
+        {"es", "kvision_es_ES"},
+        {"ar", "kvision_ar_AR"},
+        {"bg", "kvision_bg_BG"},
+        {"cs", "kvision_cs_CZ"},
+        {"da", "kvision_da_DK"},
+        {"de", "kvision_de_DE"},
+        {"el", "kvision_el_GR"},
+        {"fi", "kvision_fi_FI"},
+        {"fr", "kvision_fr_FR"},
+        {"hu", "kvision_hu_HU"},
+        {"it", "kvision_it_IT"},
+        {"nl", "kvision_nl_NL"},
+        {"no", "kvision_nb_NO"},
+        {"pt", "kvision_pt_PT"},
+        {"ro", "kvision_ro_RO"},
+        {"sk", "kvision_sk_SK"},
+        {"sv", "kvision_sv_SE"},
+        {"tr", "kvision_tr_TR"},
+        {"uk", "kvision_uk_UA"},
+        {"zh", "kvision_zh_CN"}
+    };
+
+    if (lang == "system") {
+        QString locale = QLocale::system().name();
+        for (auto it = langMap.constBegin(); it != langMap.constEnd(); ++it) {
+            if (locale.startsWith(it.key(), Qt::CaseInsensitive)) {
+                return it.value();
+            }
+        }
+        return "kvision_en_US";
+    }
+
+    return langMap.value(lang, "kvision_en_US");
+}
+
 void Context::initLanguage()
 {
     QSettings settings(m_config ? m_config->fileName() : QSettings().fileName(), QSettings::IniFormat);
@@ -254,23 +294,7 @@ void Context::initLanguage()
         QCoreApplication::removeTranslator(m_translator);
     }
     
-    QString transFile;
-    if (lang == "pl") {
-        transFile = "kvision_pl_PL";
-    } else if (lang == "en") {
-        transFile = "kvision_en_US";
-    } else if (lang == "es") {
-        transFile = "kvision_es_ES";
-    } else if (lang == "system") {
-        QString locale = QLocale::system().name();
-        if (locale.startsWith("pl", Qt::CaseInsensitive)) {
-            transFile = "kvision_pl_PL";
-        } else if (locale.startsWith("es", Qt::CaseInsensitive)) {
-            transFile = "kvision_es_ES";
-        } else {
-            transFile = "kvision_en_US";
-        }
-    }
+    QString transFile = getTransFileForLang(lang);
     
     if (!transFile.isEmpty()) {
         if (!m_translator) {
@@ -290,23 +314,7 @@ void Context::setLanguage(const QString &lang)
         QCoreApplication::removeTranslator(m_translator);
     }
     
-    QString transFile;
-    if (lang == "pl") {
-        transFile = "kvision_pl_PL";
-    } else if (lang == "en") {
-        transFile = "kvision_en_US";
-    } else if (lang == "es") {
-        transFile = "kvision_es_ES";
-    } else if (lang == "system") {
-        QString locale = QLocale::system().name();
-        if (locale.startsWith("pl", Qt::CaseInsensitive)) {
-            transFile = "kvision_pl_PL";
-        } else if (locale.startsWith("es", Qt::CaseInsensitive)) {
-            transFile = "kvision_es_ES";
-        } else {
-            transFile = "kvision_en_US";
-        }
-    }
+    QString transFile = getTransFileForLang(lang);
     
     if (!transFile.isEmpty()) {
         if (!m_translator) {

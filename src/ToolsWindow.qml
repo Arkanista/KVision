@@ -9,7 +9,7 @@ import CCTV_Viewer.Utils 1.0
 
 Window {
     id: toolsWindow
-    title: qsTr("Layout & Grid Tools")
+    title: qsTr("LNG_00299")
     width: 380
     height: 600
     color: "#0f151b"
@@ -35,7 +35,7 @@ Window {
             spacing: 20
 
             Text {
-                text: qsTr("Layout & Grid Tools")
+                text: qsTr("LNG_00299")
                 color: "#00f5d4"
                 font {
                     pixelSize: 16
@@ -45,7 +45,7 @@ Window {
 
             Switch {
                 id: toolsUnlockSwitch
-                text: qsTr("Unlock tools pane")
+                text: qsTr("LNG_00298")
                 checked: false
                 Layout.fillWidth: true
                 
@@ -84,7 +84,7 @@ Window {
             }
 
             GroupBox {
-                title: qsTr("Window Division")
+                title: qsTr("LNG_00297")
                 enabled: toolsUnlockSwitch.checked && !(Utils.currentLayout() && Utils.currentLayout().fullScreenIndex >= 0)
                 Layout.fillWidth: true
 
@@ -134,7 +134,7 @@ Window {
                                     arr = JSON.parse(model);
                                 }
                             } catch(err) {
-                                Utils.log_error(qsTr("Error reading configuration!"));
+                                Utils.log_error(qsTr("LNG_00219"));
                             }
 
                             if (arr instanceof Array) {
@@ -203,7 +203,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Hold to edit division value")
+                                ToolTip.text: qsTr("LNG_00296")
                             }
 
                             TextField {
@@ -231,7 +231,7 @@ Window {
                             }
 
                             function str2size(str) {
-                                var separatorTr = qsTr("x");
+                                var separatorTr = qsTr("LNG_00295");
                                 var regexp = new RegExp("^[1-9][x%1][1-9]$".arg(separatorTr));
                                 if (regexp.test(str)) {
                                     var size = str.split(new RegExp("[x%1]".arg(separatorTr)));
@@ -245,7 +245,7 @@ Window {
             }
 
             GroupBox {
-                title: qsTr("Geometry Ratio")
+                title: qsTr("LNG_00294")
                 enabled: toolsUnlockSwitch.checked
                 Layout.fillWidth: true
 
@@ -272,7 +272,7 @@ Window {
 
                         Button {
                             id: btn16_9
-                            text: qsTr("16:9 Aspect Ratio")
+                            text: qsTr("LNG_00459")
                             highlighted: Utils.currentModel() && Utils.currentModel().aspectRatio === Qt.size(16, 9)
                             Layout.fillWidth: true
                             onClicked: {
@@ -298,7 +298,7 @@ Window {
                         }
                         Button {
                             id: btn4_3
-                            text: qsTr("4:3 Aspect Ratio")
+                            text: qsTr("LNG_00458")
                             highlighted: Utils.currentModel() && Utils.currentModel().aspectRatio === Qt.size(4, 3)
                             Layout.fillWidth: true
                             onClicked: {
@@ -326,7 +326,7 @@ Window {
 
                     Button {
                         id: btnFullScreen
-                        text: qsTr("Toggle Full Screen")
+                        text: qsTr("LNG_00011")
                         highlighted: Context.config.fullScreen
                         Layout.fillWidth: true
                         onClicked: Context.config.fullScreen = !Context.config.fullScreen
@@ -349,7 +349,7 @@ Window {
             }
 
             GroupBox {
-                title: qsTr("Grid Operations")
+                title: qsTr("LNG_00293")
                 enabled: toolsUnlockSwitch.checked
                 Layout.fillWidth: true
 
@@ -372,7 +372,7 @@ Window {
 
                     Button {
                         id: btnMergeCells
-                        text: qsTr("Merge Highlighted Cells")
+                        text: qsTr("LNG_00292")
                         enabled: Utils.currentLayout() ? Utils.currentLayout().mergeCells(true) : false
                         Layout.fillWidth: true
                         onClicked: if (Utils.currentLayout()) Utils.currentLayout().mergeCells()

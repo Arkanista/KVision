@@ -15,7 +15,7 @@ Window {
     id: playbackWindow
     width: 950
     height: 650
-    title: qsTr("Archive - ") + cameraName
+    title: qsTr("LNG_00186") + cameraName
 
     property var recorderInfo
     property int channelId: 1
@@ -101,7 +101,7 @@ Window {
 
     color: "#0a0f14"
 
-    property var monthNames: [qsTr("January"), qsTr("February"), qsTr("March"), qsTr("April"), qsTr("May"), qsTr("June"), qsTr("July"), qsTr("August"), qsTr("September"), qsTr("October"), qsTr("November"), qsTr("December")]
+    property var monthNames: [qsTr("LNG_00185"), qsTr("LNG_00184"), qsTr("LNG_00183"), qsTr("LNG_00182"), qsTr("LNG_00181"), qsTr("LNG_00180"), qsTr("LNG_00179"), qsTr("LNG_00178"), qsTr("LNG_00177"), qsTr("LNG_00176"), qsTr("LNG_00175"), qsTr("LNG_00174")]
 
     property bool isSearchingRecordings: false
     property var monthAvailabilityFetching: ({})
@@ -1181,11 +1181,11 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Poprzedni miesiąc")
+                    ToolTip.text: qsTr("LNG_00041")
                 }
                 
                 Text {
-                    text: qsTr("Wybierz datę archiwalną")
+                    text: qsTr("LNG_00173")
                     color: "#8898a6"
                     font.bold: true
                     font.pixelSize: 15
@@ -1214,7 +1214,7 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Następny miesiąc")
+                    ToolTip.text: qsTr("LNG_00040")
                 }
             }
             
@@ -1243,7 +1243,7 @@ Window {
                         Layout.alignment: Qt.AlignHCenter
                         
                         Repeater {
-                            model: [qsTr("Mo"), qsTr("Tu"), qsTr("We"), qsTr("Th"), qsTr("Fr"), qsTr("Sa"), qsTr("Su")]
+                            model: [qsTr("LNG_00172"), qsTr("LNG_00171"), qsTr("LNG_00170"), qsTr("LNG_00169"), qsTr("LNG_00168"), qsTr("LNG_00167"), qsTr("LNG_00166")]
                             Text { 
                                 text: modelData; color: "#8898a6"; font.bold: true; 
                                 horizontalAlignment: Text.AlignHCenter; 
@@ -1332,7 +1332,7 @@ Window {
                         Layout.alignment: Qt.AlignHCenter
                         
                         Repeater {
-                            model: [qsTr("Mo"), qsTr("Tu"), qsTr("We"), qsTr("Th"), qsTr("Fr"), qsTr("Sa"), qsTr("Su")]
+                            model: [qsTr("LNG_00172"), qsTr("LNG_00171"), qsTr("LNG_00170"), qsTr("LNG_00169"), qsTr("LNG_00168"), qsTr("LNG_00167"), qsTr("LNG_00166")]
                             Text { 
                                 text: modelData; color: "#8898a6"; font.bold: true; 
                                 horizontalAlignment: Text.AlignHCenter; 
@@ -1411,7 +1411,7 @@ Window {
                         font.pixelSize: 11
                     }
                     Text {
-                        text: qsTr("Pobieranie dostępności...")
+                        text: qsTr("LNG_00165")
                         color: "#8898a6"
                         font.pixelSize: 11
                     }
@@ -1448,7 +1448,7 @@ Window {
                 spacing: 8
                 
                 Text {
-                    text: qsTr("Kamery")
+                    text: qsTr("LNG_00164")
                     color: "white"
                     font.bold: true
                     font.pixelSize: 13
@@ -1466,7 +1466,7 @@ Window {
                         id: cameraSearchField
                         Layout.fillWidth: true
                         Layout.preferredHeight: 30
-                        placeholderText: qsTr("Szukaj kamery...")
+                        placeholderText: qsTr("LNG_00163")
                         selectByMouse: true
                         color: "white"
                         font.pixelSize: 11
@@ -1514,7 +1514,7 @@ Window {
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: clearSearchButton.hovered && clearSearchButton.enabled
-                        ToolTip.text: qsTr("Wyczyść wyszukiwanie")
+                        ToolTip.text: qsTr("LNG_00162")
                     }
                 }
                 
@@ -1874,19 +1874,19 @@ Window {
                                               }
                                               var seekKey = recorderIp + "_" + channelId;
                                               if (playbackWindow.pendingInitialSeek[seekKey] === true) {
-                                                  return qsTr("Ustalanie faktycznego końca nagrania...");
+                                                  return qsTr("LNG_00161");
                                               }
                                               var cacheKey = recorderIp + "_" + channelId + "_" + getDateKey(currentDate);
                                               if (rootWindow.playbackSegmentsCache[cacheKey] === undefined) {
-                                                  return qsTr("Pobieranie informacji o nagraniach...");
+                                                  return qsTr("LNG_00160");
                                               }
                                               var segments = rootWindow.playbackSegmentsCache[cacheKey] || [];
                                               for (var i = 0; i < segments.length; i++) {
                                                   if (playheadTimeMs >= segments[i].startTime && playheadTimeMs <= segments[i].endTime) {
-                                                      return qsTr("Ładowanie archiwum Hikvision...");
+                                                      return qsTr("LNG_00159");
                                                   }
                                               }
-                                              return qsTr("Brak nagrania w wybranym momencie");
+                                              return qsTr("LNG_00158");
                                           }
                                         
                                         property string lastPlayedKey: ""
@@ -2206,7 +2206,7 @@ Window {
                                                 ToolTip.delay: 500
                                                 ToolTip.timeout: 5000
                                                 ToolTip.visible: muteMouseArea.containsMouse
-                                                ToolTip.text: qsTr("Wycisz")
+                                                ToolTip.text: qsTr("LNG_00106")
                                             }
 
                                             Slider {
@@ -2303,7 +2303,7 @@ Window {
                                                 ToolTip.delay: 500
                                                 ToolTip.timeout: 5000
                                                 ToolTip.visible: maxVolMouseArea.containsMouse
-                                                ToolTip.text: qsTr("Maksymalna głośność")
+                                                ToolTip.text: qsTr("LNG_00157")
                                             }
                                         }
 
@@ -2392,7 +2392,7 @@ Window {
                                             ToolTip.delay: 500
                                             ToolTip.timeout: 5000
                                             ToolTip.visible: snapshotMouseAreaBtn.containsMouse
-                                            ToolTip.text: qsTr("Wykonaj stopklatkę w pełnej rozdzielczości")
+                                            ToolTip.text: qsTr("LNG_00156")
                                         }
 
                                         Control {
@@ -2433,7 +2433,7 @@ Window {
                                             ToolTip.delay: 500
                                             ToolTip.timeout: 5000
                                             ToolTip.visible: oneToOneMouseAreaBtn.containsMouse
-                                            ToolTip.text: tileContainer.isOneToOne ? qsTr("Wyłącz tryb 1:1") : qsTr("Włącz tryb 1:1 (piksel w piksel)")
+                                            ToolTip.text: tileContainer.isOneToOne ? qsTr("LNG_00155") : qsTr("LNG_00154")
                                         }
 
                                         Control {
@@ -2492,7 +2492,7 @@ Window {
                                             ToolTip.delay: 500
                                             ToolTip.timeout: 5000
                                             ToolTip.visible: zoomMouseAreaBtn.containsMouse
-                                            ToolTip.text: tileContainer.isZoomed ? qsTr("Reset Zoom") : (tileContainer.isZoomSelectionMode ? qsTr("Zaznacz obszar żeby przybliżyć") : qsTr("Wybierz obszar do zbliżenia"))
+                                            ToolTip.text: tileContainer.isZoomed ? qsTr("LNG_00153") : (tileContainer.isZoomSelectionMode ? qsTr("LNG_00152") : qsTr("LNG_00151"))
                                         }
 
                                         Control {
@@ -2541,7 +2541,7 @@ Window {
                                             ToolTip.delay: 500
                                             ToolTip.timeout: 5000
                                             ToolTip.visible: fullScreenMouseAreaBtn.containsMouse
-                                            ToolTip.text: tileContainer.fullScreen ? qsTr("Przywróć widok siatki") : qsTr("Pokaż na pełnym ekranie")
+                                            ToolTip.text: tileContainer.fullScreen ? qsTr("LNG_00150") : qsTr("LNG_00149")
                                         }
 
                                         Control {
@@ -2576,7 +2576,7 @@ Window {
                                             ToolTip.delay: 500
                                             ToolTip.timeout: 5000
                                             ToolTip.visible: closeViewportMouseAreaBtn.containsMouse
-                                            ToolTip.text: qsTr("Usuń kamerę z widoku")
+                                            ToolTip.text: qsTr("LNG_00148")
                                         }
                                     }
                                 }
@@ -2631,7 +2631,7 @@ Window {
                                         }
                                         
                                         Text {
-                                            text: qsTr("Pusty viewport")
+                                            text: qsTr("LNG_00147")
                                             color: isSelected ? "#00f5d4" : "#8898a6"
                                             font.bold: true
                                             font.pixelSize: 12
@@ -2639,7 +2639,7 @@ Window {
                                         }
                                         
                                         Text {
-                                            text: qsTr("Zaznacz to okno, wybierz kamerę z listy i kliknij + aby ją dodać")
+                                            text: qsTr("LNG_00146")
                                             color: "#556b7c"
                                             font.pixelSize: 10
                                             Layout.alignment: Qt.AlignHCenter
@@ -2817,7 +2817,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Poprzedni dzień")
+                                ToolTip.text: qsTr("LNG_00145")
                             }
                             CctvButton {
                                 id: calendarButton
@@ -2836,7 +2836,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Wybierz datę z kalendarza")
+                                ToolTip.text: qsTr("LNG_00144")
                             }
                             CctvButton {
                                 id: nextDayBtn
@@ -2857,11 +2857,11 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Następny dzień")
+                                ToolTip.text: qsTr("LNG_00143")
                             }
                             CctvButton {
                                 id: todayBtn
-                                text: qsTr("Dzisiaj")
+                                text: qsTr("LNG_00142")
                                 iconSource: {
                                     var colorStr = todayBtn.hovered ? "%2300f5d4" : "%238898a6"
                                     return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2' ry='2'></rect><line x1='16' y1='2' x2='16' y2='6'></line><line x1='8' y1='2' x2='8' y2='6'></line><line x1='3' y1='10' x2='21' y2='10'></line><circle cx='12' cy='16' r='2' fill='" + colorStr + "'></circle></svg>"
@@ -2878,7 +2878,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Przejdź do dzisiejszego dnia")
+                                ToolTip.text: qsTr("LNG_00141")
                             }
                             CctvButton {
                                 id: refreshBtn
@@ -2900,7 +2900,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Odśwież nagrania")
+                                ToolTip.text: qsTr("LNG_00140")
                             }
                         }
                         
@@ -2920,7 +2920,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Powiększ do ostatniej 1 godziny")
+                                ToolTip.text: qsTr("LNG_00139")
                             }
                             CctvButton {
                                 id: zoom8hBtn
@@ -2934,7 +2934,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Powiększ do ostatnich 8 godzin")
+                                ToolTip.text: qsTr("LNG_00138")
                             }
                             CctvButton {
                                 id: zoom24hBtn
@@ -2952,7 +2952,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Pokaż cały dzień na osi czasu")
+                                ToolTip.text: qsTr("LNG_00137")
                             }
                             CctvButton {
                                 id: centerBtn
@@ -2972,7 +2972,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Wycentruj oś czasu na aktualnym punkcie odtwarzania")
+                                ToolTip.text: qsTr("LNG_00136")
                             }
                         }
                         
@@ -2982,7 +2982,7 @@ Window {
                         RowLayout {
                             spacing: 3
                             Layout.fillWidth: false
-                            Text { text: qsTr("Prędkość:"); color: "white"; font.bold: true; font.pixelSize: 10 }
+                            Text { text: qsTr("LNG_00135"); color: "white"; font.bold: true; font.pixelSize: 10 }
                             
                             Repeater {
                                 model: [1, 2, 4]
@@ -3002,7 +3002,7 @@ Window {
                                     ToolTip.delay: Compact.toolTipDelay
                                     ToolTip.timeout: Compact.toolTipTimeout
                                     ToolTip.visible: hovered
-                                    ToolTip.text: qsTr("Ustaw prędkość odtwarzania na %1x").arg(modelData)
+                                    ToolTip.text: qsTr("LNG_00134").arg(modelData)
                                 }
                             }
                         }
@@ -3012,7 +3012,7 @@ Window {
                             spacing: 3
                             Layout.fillWidth: false
                             CctvButton {
-                                text: qsTr("Pobierz")
+                                text: qsTr("LNG_00021")
                                 isSmall: true
                                 isCeladon: true
                                 iconSource: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121214' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'></path><polyline points='7 10 12 15 17 10'></polyline><line x1='12' y1='15' x2='12' y2='3'></line></svg>"
@@ -3027,7 +3027,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Pobierz wycinki wideo z zaznaczonego przedziału czasu")
+                                ToolTip.text: qsTr("LNG_00133")
                             }
                         }
 
@@ -3049,7 +3049,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Cofnij o 60 sekund")
+                                ToolTip.text: qsTr("LNG_00132")
                             }
                             CctvButton {
                                 id: rw45Btn
@@ -3063,7 +3063,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Cofnij o 45 sekund")
+                                ToolTip.text: qsTr("LNG_00131")
                             }
                             CctvButton {
                                 id: rw15Btn
@@ -3077,7 +3077,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Cofnij o 15 sekund")
+                                ToolTip.text: qsTr("LNG_00130")
                             }
                             CctvButton {
                                 id: playPauseBtn
@@ -3096,7 +3096,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: isPlaying ? qsTr("Wstrzymaj odtwarzanie") : qsTr("Rozpocznij odtwarzanie")
+                                ToolTip.text: isPlaying ? qsTr("LNG_00129") : qsTr("LNG_00128")
                             }
                             CctvButton {
                                 id: ff15Btn
@@ -3110,7 +3110,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Przewiń o 15 sekund")
+                                ToolTip.text: qsTr("LNG_00127")
                             }
                             CctvButton {
                                 id: ff45Btn
@@ -3124,7 +3124,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Przewiń o 45 sekund")
+                                ToolTip.text: qsTr("LNG_00126")
                             }
                             CctvButton {
                                 id: ff60Btn
@@ -3138,7 +3138,7 @@ Window {
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
                                 ToolTip.visible: hovered
-                                ToolTip.text: qsTr("Przewiń o 60 sekund")
+                                ToolTip.text: qsTr("LNG_00125")
                             }
                         }
 
@@ -3191,7 +3191,7 @@ Window {
                             ToolTip.delay: Compact.toolTipDelay
                             ToolTip.timeout: Compact.toolTipTimeout
                             ToolTip.visible: bottomPinButton.hovered
-                            ToolTip.text: bottomPinButton.isPinned ? qsTr("Odepnij pasek dolny") : qsTr("Przypnij pasek dolny")
+                            ToolTip.text: bottomPinButton.isPinned ? qsTr("LNG_00124") : qsTr("LNG_00123")
                         }
                     }
                     
@@ -3468,7 +3468,7 @@ Window {
                                 // Text inside pill
                                 ctx.fillStyle = "#00f5d4"
                                 ctx.font = isCompact ? "bold 8px sans-serif" : "bold 10px sans-serif"
-                                var text = qsTr("Trwa ładowanie informacji o dostępności nagrania...")
+                                var text = qsTr("LNG_00122")
                                 var textW = ctx.measureText(text).width
                                 ctx.fillText(text, boxX + (boxW - textW) / 2 + (isCompact ? 8 : 10), boxY + (isCompact ? 13 : 24))
                             }
@@ -3661,7 +3661,7 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: closeButton.hovered
-                    ToolTip.text: qsTr("Zamknij okno")
+                    ToolTip.text: qsTr("LNG_00121")
                 }
 
                 Button {
@@ -3711,7 +3711,7 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: pinButton.hovered
-                    ToolTip.text: pinButton.isPinned ? qsTr("Odepnij pasek górny") : qsTr("Przypnij pasek górny")
+                    ToolTip.text: pinButton.isPinned ? qsTr("LNG_00120") : qsTr("LNG_00119")
                 }
 
                 Button {
@@ -3751,7 +3751,7 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: fullScreenBtn.hovered
-                    ToolTip.text: fullScreenBtn.isActive ? qsTr("Wyjdź z pełnego ekranu") : qsTr("Pełny ekran okna")
+                    ToolTip.text: fullScreenBtn.isActive ? qsTr("LNG_00118") : qsTr("LNG_00117")
                 }
 
                 Button {
@@ -3796,7 +3796,7 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: sidebarToggleBtn.hovered
-                    ToolTip.text: playbackWindow.sidebarVisible ? qsTr("Ukryj pasek boczny") : qsTr("Pokaż pasek boczny")
+                    ToolTip.text: playbackWindow.sidebarVisible ? qsTr("LNG_00116") : qsTr("LNG_00115")
                 }
 
                 Button {
@@ -3841,7 +3841,7 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: timelineToggleBtn.hovered
-                    ToolTip.text: playbackWindow.hideTimelineOption ? qsTr("Pokaż oś czasu") : qsTr("Ukryj oś czasu")
+                    ToolTip.text: playbackWindow.hideTimelineOption ? qsTr("LNG_00114") : qsTr("LNG_00113")
                 }
 
                 Rectangle {
@@ -3891,7 +3891,7 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: openRecordingsFolderBtn.hovered
-                    ToolTip.text: qsTr("Otwórz folder nagrań")
+                    ToolTip.text: qsTr("LNG_00112")
                 }
 
                 Button {
@@ -3932,7 +3932,7 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: openSnapshotsFolderBtn.hovered
-                    ToolTip.text: qsTr("Otwórz folder stopklatek")
+                    ToolTip.text: qsTr("LNG_00111")
                 }
 
                 Rectangle {

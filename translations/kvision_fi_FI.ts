@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="fi_FI">
 <context>
     <name>AuxiliaryLimitWarning</name>
     <message>
@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation>KVision</translation>
+        <translation translatorcomment="AI-translated">KVision</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation>You cannot open more auxiliary windows</translation>
+        <translation translatorcomment="AI-translated">Et voi avata enempää lisäikkunoita</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation>CLOSE</translation>
+        <translation translatorcomment="AI-translated">SULJE</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation>KVision - Auxiliary Window</translation>
+        <translation translatorcomment="AI-translated">KVision - lisäikkuna</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation>No view selected, select a view</translation>
+        <translation translatorcomment="AI-translated">Näkymää ei ole valittu, valitse näkymä</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation>Select a view from the top menu to start displaying cameras.</translation>
+        <translation translatorcomment="AI-translated">Aloita kameroiden näyttäminen valitsemalla näkymä ylävalikosta.</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation>Options and settings of the sidebar panel</translation>
+        <translation translatorcomment="AI-translated">Sivupalkkipaneelin asetukset ja asetukset</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation>Open new auxiliary window</translation>
+        <translation translatorcomment="AI-translated">Avaa uusi apuikkuna</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation>Program user manual</translation>
+        <translation translatorcomment="AI-translated">Ohjelman käyttöohje</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation>Grid view:</translation>
+        <translation translatorcomment="AI-translated">Ruudukkonäkymä:</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation>Toggle Full Screen</translation>
+        <translation translatorcomment="AI-translated">Koko näyttö päälle/pois</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation>🔒 Lock layout change</translation>
+        <translation translatorcomment="AI-translated">🔒 Lukon asettelun muutos</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation>More options</translation>
+        <translation translatorcomment="AI-translated">Lisää vaihtoehtoja</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation>View selection:</translation>
+        <translation translatorcomment="AI-translated">Katso valikoima:</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation>Close program</translation>
+        <translation translatorcomment="AI-translated">Sulje ohjelma</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation>Are you sure you want to close the program?</translation>
+        <translation translatorcomment="AI-translated">Haluatko varmasti sulkea ohjelman?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation>YES</translation>
+        <translation translatorcomment="AI-translated">KYLLÄ</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation>NO</translation>
+        <translation translatorcomment="AI-translated">EI</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation>Yes</translation>
+        <translation translatorcomment="AI-translated">Kyllä</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation>No</translation>
+        <translation translatorcomment="AI-translated">Ei</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation>Path to the config file.</translation>
+        <translation translatorcomment="AI-translated">Polku asetustiedostoon.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation>Index of the current preset.</translation>
+        <translation translatorcomment="AI-translated">Nykyisen esiasetuksen indeksi.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation>Force full-screen mode.</translation>
+        <translation translatorcomment="AI-translated">Pakota koko näytön tila.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation>Kiosk mode functionality.</translation>
+        <translation translatorcomment="AI-translated">Kioskitilan toiminnallisuus.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation>Log level [%1...%2].</translation>
+        <translation translatorcomment="AI-translated">Lokitaso [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation>Start as an auxiliary window.</translation>
+        <translation translatorcomment="AI-translated">Aloita apuikkunana.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation>ID of the auxiliary window.</translation>
+        <translation translatorcomment="AI-translated">Apuikkunan tunnus.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation>Show verbose logs in console (verbose logging).</translation>
+        <translation translatorcomment="AI-translated">Näytä monisanaiset lokit konsolissa (sanallinen loki).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation>Enable object tracking in logs for debugging memory leaks.</translation>
+        <translation translatorcomment="AI-translated">Ota objektien seuranta käyttöön lokeissa muistivuotojen virheenkorjausta varten.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation>Force first run behavior and show instructions.</translation>
+        <translation translatorcomment="AI-translated">Pakota ensimmäisen kerran käyttäytyminen ja näytä ohjeet.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation>Simulate NVR errors on all recorders.</translation>
+        <translation translatorcomment="AI-translated">Simuloi NVR-virheitä kaikilla tallentimilla.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation>Mock new version availability on GitHub for testing purposes</translation>
+        <translation translatorcomment="AI-translated">Pilkkaa uuden version saatavuutta GitHubissa testaustarkoituksiin</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation>KVision - viewer and mounter video streams.</translation>
+        <translation translatorcomment="AI-translated">KVision - katsoja- ja asennusvideovirrat.</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation>End date and time must be later than start date and time!</translation>
+        <translation translatorcomment="AI-translated">Päättymispäivän ja -ajan on oltava myöhäisempi kuin aloituspäivämäärä ja -aika!</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation>January</translation>
+        <translation translatorcomment="AI-translated">tammikuuta</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation>February</translation>
+        <translation translatorcomment="AI-translated">helmikuuta</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation>March</translation>
+        <translation translatorcomment="AI-translated">maaliskuuta</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation>April</translation>
+        <translation translatorcomment="AI-translated">huhtikuuta</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation>May</translation>
+        <translation translatorcomment="AI-translated">toukokuuta</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation>June</translation>
+        <translation translatorcomment="AI-translated">kesäkuuta</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation>July</translation>
+        <translation translatorcomment="AI-translated">heinäkuuta</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation>August</translation>
+        <translation translatorcomment="AI-translated">elokuuta</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation>September</translation>
+        <translation translatorcomment="AI-translated">syyskuuta</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation>October</translation>
+        <translation translatorcomment="AI-translated">lokakuuta</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation>November</translation>
+        <translation translatorcomment="AI-translated">marraskuuta</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation>December</translation>
+        <translation translatorcomment="AI-translated">joulukuuta</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation>Previous month</translation>
+        <translation translatorcomment="AI-translated">Edellinen kuukausi</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation>Next month</translation>
+        <translation translatorcomment="AI-translated">Ensi kuussa</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation>Select time</translation>
+        <translation translatorcomment="AI-translated">Valitse aika</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation>Hr</translation>
+        <translation translatorcomment="AI-translated">Hr</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation>Min</translation>
+        <translation translatorcomment="AI-translated">Min</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation>Sec</translation>
+        <translation translatorcomment="AI-translated">Sec</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation>Cancel</translation>
+        <translation translatorcomment="AI-translated">Peruuta</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation>Confirm</translation>
+        <translation translatorcomment="AI-translated">Vahvista</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation>Download recordings</translation>
+        <translation translatorcomment="AI-translated">Lataa tallenteita</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation>From:</translation>
+        <translation translatorcomment="AI-translated">Lähettäjä:</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation>Incorrect date format! Required format: DD.MM.YYYY (e.g. 26.06.2026)</translation>
+        <translation translatorcomment="AI-translated">Väärä päivämäärämuoto! Vaadittu muoto: PP.KK.VVVV (esim. 26.06.2026)</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation>Incorrect time format! Required format: HH:MM:SS or HH.MM.SS (e.g. 12:30:00 or 12.30.00)</translation>
+        <translation translatorcomment="AI-translated">Väärä ajan muoto! Vaadittu muoto: HH:MM:SS tai HH.MM.SS (esim. 12:30:00 tai 12.30.00)</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation>To:</translation>
+        <translation translatorcomment="AI-translated">Vastaanottaja:</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation>Total:</translation>
+        <translation translatorcomment="AI-translated">Yhteensä:</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation>Downloading...</translation>
+        <translation translatorcomment="AI-translated">Ladataan...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation>Error:</translation>
+        <translation translatorcomment="AI-translated">Virhe:</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation>Initializing...</translation>
+        <translation translatorcomment="AI-translated">Alustetaan...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation>Stopped</translation>
+        <translation translatorcomment="AI-translated">Pysähtynyt</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation>open save folder</translation>
+        <translation translatorcomment="AI-translated">avaa tallennuskansio</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation>Stop</translation>
+        <translation translatorcomment="AI-translated">Pysähdy</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation>Download</translation>
+        <translation translatorcomment="AI-translated">Lataa</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation>Download is already in progress.</translation>
+        <translation translatorcomment="AI-translated">Lataus on jo käynnissä.</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation>Initializing file search...</translation>
+        <translation translatorcomment="AI-translated">Alustetaan tiedostohakua...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation>Error logging in to device: %1</translation>
+        <translation translatorcomment="AI-translated">Virhe kirjautumisessa laitteeseen: %1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation>No recordings in the selected time range for this camera.</translation>
+        <translation translatorcomment="AI-translated">Tälle kameralle ei ole tallennettuja valitulla aikavälillä.</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation>Downloaded and converted %1 of %2 files.</translation>
+        <translation translatorcomment="AI-translated">Ladattu ja muunnettu %1/%2 tiedostoa.</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation>The specified save path is invalid or write access is denied:
+        <translation translatorcomment="AI-translated">Määritetty tallennuspolku on virheellinen tai kirjoitusoikeus on estetty:
 %1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation>No write permission in the directory:
+        <translation translatorcomment="AI-translated">Ei kirjoitusoikeutta hakemistoon:
 %1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation>Error initializing download of part %1: %2</translation>
+        <translation translatorcomment="AI-translated">Virhe alustattaessa osan %1 latausta: %2</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation>Error starting download of part %1: %2</translation>
+        <translation translatorcomment="AI-translated">Virhe aloitettaessa osan %1 latausta: %2</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation>Downloading part %1 of %2...</translation>
+        <translation translatorcomment="AI-translated">Ladataan osaa % 1 / % 2...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation>Stopped</translation>
+        <translation translatorcomment="AI-translated">Pysähtynyt</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation>Download interrupted by user.</translation>
+        <translation translatorcomment="AI-translated">Käyttäjä keskeytti latauksen.</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation>Converting part %1 of %2...</translation>
+        <translation translatorcomment="AI-translated">Muunnetaan osaa % 1/% 2...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation>Error downloading part %1.</translation>
+        <translation translatorcomment="AI-translated">Virhe ladattaessa osaa %1.</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation>Downloaded and converted %1 of %2 parts...</translation>
+        <translation translatorcomment="AI-translated">Ladattu ja muunnettu % 1 / % 2 osasta...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation>Internal FFmpeg error</translation>
+        <translation translatorcomment="AI-translated">Sisäinen FFmpeg-virhe</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation>Conversion of part %1 to MP4 failed: %2</translation>
+        <translation translatorcomment="AI-translated">Osan %1 muuntaminen MP4:ksi epäonnistui: %2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation>Login failed or no cameras discovered.</translation>
+        <translation translatorcomment="AI-translated">Kirjautuminen epäonnistui tai kameroita ei löytynyt.</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation>KVision - User Manual / Instructions</translation>
+        <translation translatorcomment="AI-translated">KVision - Käyttöopas / Ohjeet</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation>qrc:/INSTRUCTIONS.md</translation>
+        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation>Error loading instructions.</translation>
+        <translation translatorcomment="AI-translated">Virhe ladattaessa ohjeita.</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation>Cameras on %1</translation>
+        <translation translatorcomment="AI-translated">Kamerat päällä %1</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation>Cameras</translation>
+        <translation translatorcomment="AI-translated">Kamerat</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation>IP: %1 | Port: %2 | %3 channels</translation>
+        <translation translatorcomment="AI-translated">IP: %1 | Portti: %2 | %3 kanavaa</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation>Generate thumbnails for all cameras</translation>
+        <translation translatorcomment="AI-translated">Luo pikkukuvat kaikille kameroille</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation>Camera %1</translation>
+        <translation translatorcomment="AI-translated">Kamera %1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation>Assigned camera %1 Ch. %2 to viewport %3</translation>
+        <translation translatorcomment="AI-translated">Määritetty kamera % 1 Ch. %2 näyttöporttiin %3</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation>Assign to active viewport</translation>
+        <translation translatorcomment="AI-translated">Liitä aktiiviseen näkymään</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation>Rename camera</translation>
+        <translation translatorcomment="AI-translated">Nimeä kamera uudelleen</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation>Refresh camera thumbnail</translation>
+        <translation translatorcomment="AI-translated">Päivitä kameran pikkukuva</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation>Change Camera Name</translation>
+        <translation translatorcomment="AI-translated">Vaihda kameran nimi</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation>Channel: %1</translation>
+        <translation translatorcomment="AI-translated">Kanava: %1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation>Original name: %1</translation>
+        <translation translatorcomment="AI-translated">Alkuperäinen nimi: %1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation>None</translation>
+        <translation translatorcomment="AI-translated">Ei mitään</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation>Enter new camera name...</translation>
+        <translation translatorcomment="AI-translated">Anna uusi kameran nimi...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation>Reset</translation>
+        <translation translatorcomment="AI-translated">Nollaa</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation>Cancel</translation>
+        <translation translatorcomment="AI-translated">Peruuta</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation>Save</translation>
+        <translation translatorcomment="AI-translated">Tallenna</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation>Login failed or no cameras discovered.</translation>
+        <translation translatorcomment="AI-translated">Kirjautuminen epäonnistui tai kameroita ei löytynyt.</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation>Add Hikvision Recorder</translation>
+        <translation translatorcomment="AI-translated">Lisää Hikvision Recorder</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation>Recorder Name (optional)</translation>
+        <translation translatorcomment="AI-translated">Tallentimen nimi (valinnainen)</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation>IP Address</translation>
+        <translation translatorcomment="AI-translated">IP-osoite</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation>Port (8000)</translation>
+        <translation translatorcomment="AI-translated">Portti (8000)</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation>Username</translation>
+        <translation translatorcomment="AI-translated">Käyttäjätunnus</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation>Password</translation>
+        <translation translatorcomment="AI-translated">Salasana</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation>Discovering...</translation>
+        <translation translatorcomment="AI-translated">Löytää...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation>Connect &amp; Discover</translation>
+        <translation translatorcomment="AI-translated">Yhdistä ja löydä</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation>Save &amp; Update</translation>
+        <translation translatorcomment="AI-translated">Tallenna ja päivitä</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation>Error: IP and Password are required.</translation>
+        <translation translatorcomment="AI-translated">Virhe: IP ja salasana vaaditaan.</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation>Connecting to NVR and discovering channels...</translation>
+        <translation translatorcomment="AI-translated">Yhdistetään NVR:ään ja etsitään kanavia...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation>Cancel</translation>
+        <translation translatorcomment="AI-translated">Peruuta</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation>Connected Recorders</translation>
+        <translation translatorcomment="AI-translated">Kytketyt tallentimet</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation>%1 cameras connected</translation>
+        <translation translatorcomment="AI-translated">%1 kameraa kytketty</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation>LOGGED IN</translation>
+        <translation translatorcomment="AI-translated">KIRJUNUT SISÄÄN</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation>NOT LOGGED IN</translation>
+        <translation translatorcomment="AI-translated">EI KIRJUTUNUT SISÄÄN</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation>Green: Active SDK session (PTZ/Archive). Red: No active session (RTSP stream works independently).</translation>
+        <translation translatorcomment="AI-translated">Vihreä: Aktiivinen SDK-istunto (PTZ/Arkisto). Punainen: Ei aktiivista istuntoa (RTSP-stream toimii itsenäisesti).</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation>Open NVR login page in browser</translation>
+        <translation translatorcomment="AI-translated">Avaa NVR-kirjautumissivu selaimessa</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation>Show NVR cameras list</translation>
+        <translation translatorcomment="AI-translated">Näytä NVR-kameroiden luettelo</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation>Edit recorder connection details</translation>
+        <translation translatorcomment="AI-translated">Muokkaa tallentimen yhteystietoja</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation>Delete recorder from list</translation>
+        <translation translatorcomment="AI-translated">Poista tallennin luettelosta</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation>Confirm NVR Deletion</translation>
+        <translation translatorcomment="AI-translated">Vahvista NVR-poisto</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation>Are you sure you want to delete this NVR?</translation>
+        <translation translatorcomment="AI-translated">Haluatko varmasti poistaa tämän NVR:n?</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation>Warning!</translation>
+        <translation translatorcomment="AI-translated">Varoitus!</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation>Are you absolutely sure and aware of what you are doing?</translation>
+        <translation translatorcomment="AI-translated">Oletko täysin varma ja tietoinen siitä, mitä olet tekemässä?</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation>NVR Status</translation>
+        <translation translatorcomment="AI-translated">NVR-tila</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation>Checking NVR status...</translation>
+        <translation translatorcomment="AI-translated">Tarkistetaan NVR-tilaa...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation>Last check: </translation>
+        <translation translatorcomment="AI-translated">Viimeisin tarkistus:</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation>never</translation>
+        <translation translatorcomment="AI-translated">ei koskaan</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation>Mute</translation>
+        <translation translatorcomment="AI-translated">Mykistä</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation>ERROR</translation>
+        <translation translatorcomment="AI-translated">VIRHE</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation>OK</translation>
+        <translation translatorcomment="AI-translated">OK</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation>No status data</translation>
+        <translation translatorcomment="AI-translated">Ei tilatietoja</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation>Press the button below to check NVR status.</translation>
+        <translation translatorcomment="AI-translated">Tarkista NVR-tila painamalla alla olevaa painiketta.</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation>Check now</translation>
+        <translation translatorcomment="AI-translated">Tarkista nyt</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation>Close</translation>
+        <translation translatorcomment="AI-translated">Sulje</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation>Simulated NVR</translation>
+        <translation translatorcomment="AI-translated">Simuloitu NVR</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation>Disk 1</translation>
+        <translation translatorcomment="AI-translated">Levy 1</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation>Critical disk error/failure (Simulation)</translation>
+        <translation translatorcomment="AI-translated">Kriittinen levyvirhe/virhe (simulaatio)</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation>No connection or login error (Simulation)</translation>
+        <translation translatorcomment="AI-translated">Ei yhteyttä tai kirjautumisvirhe (simulaatio)</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation>No connection or login error</translation>
+        <translation translatorcomment="AI-translated">Ei yhteyttä tai kirjautumisvirhettä</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation>Error reading NVR status (SDK)</translation>
+        <translation translatorcomment="AI-translated">Virhe NVR-tilan (SDK) lukemisessa</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation>High CPU load (&gt;85%)</translation>
+        <translation translatorcomment="AI-translated">Suuri suorittimen kuormitus (&gt; 85 %)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation>Device hardware error</translation>
+        <translation translatorcomment="AI-translated">Laitteen laitteistovirhe</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation>Disk %1</translation>
+        <translation translatorcomment="AI-translated">Levy %1</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation>Critical disk error/failure</translation>
+        <translation translatorcomment="AI-translated">Kriittinen levyvirhe/virhe</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation>Disk unformatted</translation>
+        <translation translatorcomment="AI-translated">Levy formatoimaton</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation>Disk full (overwrite disabled)</translation>
+        <translation translatorcomment="AI-translated">Levy täynnä (korvaus pois käytöstä)</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation>Archive - </translation>
+        <translation translatorcomment="AI-translated">Arkisto -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation>January</translation>
+        <translation translatorcomment="AI-translated">tammikuuta</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation>February</translation>
+        <translation translatorcomment="AI-translated">helmikuuta</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation>March</translation>
+        <translation translatorcomment="AI-translated">maaliskuuta</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation>April</translation>
+        <translation translatorcomment="AI-translated">huhtikuuta</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation>May</translation>
+        <translation translatorcomment="AI-translated">toukokuuta</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation>June</translation>
+        <translation translatorcomment="AI-translated">kesäkuuta</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation>July</translation>
+        <translation translatorcomment="AI-translated">heinäkuuta</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation>August</translation>
+        <translation translatorcomment="AI-translated">elokuuta</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation>September</translation>
+        <translation translatorcomment="AI-translated">syyskuuta</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation>October</translation>
+        <translation translatorcomment="AI-translated">lokakuuta</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation>November</translation>
+        <translation translatorcomment="AI-translated">marraskuuta</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation>December</translation>
+        <translation translatorcomment="AI-translated">joulukuuta</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation>Previous month</translation>
+        <translation translatorcomment="AI-translated">Edellinen kuukausi</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation>Select archive date</translation>
+        <translation translatorcomment="AI-translated">Valitse arkistointipäivämäärä</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation>Next month</translation>
+        <translation translatorcomment="AI-translated">Ensi kuussa</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation>Mo</translation>
+        <translation translatorcomment="AI-translated">Mo</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation>Tu</translation>
+        <translation translatorcomment="AI-translated">Tu</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation>We</translation>
+        <translation translatorcomment="AI-translated">Me</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation>Th</translation>
+        <translation translatorcomment="AI-translated">Th</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation>Fr</translation>
+        <translation translatorcomment="AI-translated">Fr</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation>Sa</translation>
+        <translation translatorcomment="AI-translated">Sa</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation>Su</translation>
+        <translation translatorcomment="AI-translated">Su</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation>Fetching availability...</translation>
+        <translation translatorcomment="AI-translated">Haetaan saatavuutta...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation>Cameras</translation>
+        <translation translatorcomment="AI-translated">Kamerat</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation>Search camera...</translation>
+        <translation translatorcomment="AI-translated">Hae kameraa...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation>Clear search</translation>
+        <translation translatorcomment="AI-translated">Tyhjennä haku</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation>Determining actual end of recording...</translation>
+        <translation translatorcomment="AI-translated">Määritetään tallennuksen todellista loppua...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation>Fetching recording information...</translation>
+        <translation translatorcomment="AI-translated">Haetaan tallennustietoja...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation>Loading Hikvision archive...</translation>
+        <translation translatorcomment="AI-translated">Ladataan Hikvision-arkistoa...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation>No recording at the selected moment</translation>
+        <translation translatorcomment="AI-translated">Ei tallennusta valitulla hetkellä</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation>Mute</translation>
+        <translation translatorcomment="AI-translated">Mykistä</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation>Maximum volume</translation>
+        <translation translatorcomment="AI-translated">Suurin äänenvoimakkuus</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation>Take snapshot in full resolution</translation>
+        <translation translatorcomment="AI-translated">Ota tilannekuva täydellä resoluutiolla</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation>Disable 1:1 mode</translation>
+        <translation translatorcomment="AI-translated">Poista 1:1-tila käytöstä</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation>Enable 1:1 mode (pixel-to-pixel)</translation>
+        <translation translatorcomment="AI-translated">Ota käyttöön 1:1-tila (pikselistä pikseliin)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation>Reset Zoom</translation>
+        <translation translatorcomment="AI-translated">Palauta zoomaus</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation>Select area to zoom</translation>
+        <translation translatorcomment="AI-translated">Valitse zoomattava alue</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation>Select area to zoom</translation>
+        <translation translatorcomment="AI-translated">Valitse zoomattava alue</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation>Restore grid view</translation>
+        <translation translatorcomment="AI-translated">Palauta ruudukkonäkymä</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation>Show in full screen</translation>
+        <translation translatorcomment="AI-translated">Näytä koko näytössä</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation>Remove camera from view</translation>
+        <translation translatorcomment="AI-translated">Poista kamera näkyvistä</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation>Empty viewport</translation>
+        <translation translatorcomment="AI-translated">Tyhjä näkymä</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation>Select this window, choose a camera from the list and click + to add it</translation>
+        <translation translatorcomment="AI-translated">Valitse tämä ikkuna, valitse kamera luettelosta ja lisää se napsauttamalla +</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation>Previous day</translation>
+        <translation translatorcomment="AI-translated">Edellinen päivä</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation>Select date from calendar</translation>
+        <translation translatorcomment="AI-translated">Valitse päivämäärä kalenterista</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation>Next day</translation>
+        <translation translatorcomment="AI-translated">Seuraavana päivänä</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation>Today</translation>
+        <translation translatorcomment="AI-translated">Tänään</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation>Go to today</translation>
+        <translation translatorcomment="AI-translated">Mene tähän päivään</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation>Refresh recordings</translation>
+        <translation translatorcomment="AI-translated">Päivitä tallenteet</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation>Zoom to last 1 hour</translation>
+        <translation translatorcomment="AI-translated">Zoomaa kestämään 1 tunti</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation>Zoom to last 8 hours</translation>
+        <translation translatorcomment="AI-translated">Zoomaus kestää 8 tuntia</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation>Show full day on timeline</translation>
+        <translation translatorcomment="AI-translated">Näytä koko päivä aikajanalla</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation>Center timeline on current playback time</translation>
+        <translation translatorcomment="AI-translated">Keskitä aikajana nykyiseen toistoaikaan</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation>Speed:</translation>
+        <translation translatorcomment="AI-translated">Nopeus:</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation>Set playback speed to %1x</translation>
+        <translation translatorcomment="AI-translated">Aseta toistonopeudeksi %1x</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation>Download</translation>
+        <translation translatorcomment="AI-translated">Lataa</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation>Download video clips from selected time range</translation>
+        <translation translatorcomment="AI-translated">Lataa videoleikkeitä valitulta aikaväliltä</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation>Rewind 60 seconds</translation>
+        <translation translatorcomment="AI-translated">Kelaa taaksepäin 60 sekuntia</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation>Rewind 45 seconds</translation>
+        <translation translatorcomment="AI-translated">Kelaa taaksepäin 45 sekuntia</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation>Rewind 15 seconds</translation>
+        <translation translatorcomment="AI-translated">Kelaa taaksepäin 15 sekuntia</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation>Pause playback</translation>
+        <translation translatorcomment="AI-translated">Keskeytä toisto</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation>Start playback</translation>
+        <translation translatorcomment="AI-translated">Aloita toisto</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation>Forward 15 seconds</translation>
+        <translation translatorcomment="AI-translated">Eteenpäin 15 sekuntia</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation>Forward 45 seconds</translation>
+        <translation translatorcomment="AI-translated">Eteenpäin 45 sekuntia</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation>Forward 60 seconds</translation>
+        <translation translatorcomment="AI-translated">Eteenpäin 60 sekuntia</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation>Unpin bottom bar</translation>
+        <translation translatorcomment="AI-translated">Irrota alapalkki</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation>Pin bottom bar</translation>
+        <translation translatorcomment="AI-translated">Kiinnitä alapalkki</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation>Loading recording availability info...</translation>
+        <translation translatorcomment="AI-translated">Ladataan tallenteen saatavuustietoja...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation>Close window</translation>
+        <translation translatorcomment="AI-translated">Sulje ikkuna</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation>Unpin top bar</translation>
+        <translation translatorcomment="AI-translated">Irrota yläpalkki</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation>Pin top bar</translation>
+        <translation translatorcomment="AI-translated">Pin-yläpalkki</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation>Exit full screen</translation>
+        <translation translatorcomment="AI-translated">Poistu koko näytöstä</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation>Window full screen</translation>
+        <translation translatorcomment="AI-translated">Ikkuna koko näyttö</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation>Hide sidebar</translation>
+        <translation translatorcomment="AI-translated">Piilota sivupalkki</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation>Show sidebar</translation>
+        <translation translatorcomment="AI-translated">Näytä sivupalkki</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation>Show timeline</translation>
+        <translation translatorcomment="AI-translated">Näytä aikajana</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation>Hide timeline</translation>
+        <translation translatorcomment="AI-translated">Piilota aikajana</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation>Open recordings folder</translation>
+        <translation translatorcomment="AI-translated">Avaa tallennuskansio</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation>Open snapshots folder</translation>
+        <translation translatorcomment="AI-translated">Avaa Snapshots-kansio</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation>No media</translation>
+        <translation translatorcomment="AI-translated">Ei mediaa</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation>Loading...</translation>
+        <translation translatorcomment="AI-translated">Ladataan...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation>Loaded</translation>
+        <translation translatorcomment="AI-translated">Ladattu</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation>Stalled</translation>
+        <translation translatorcomment="AI-translated">pysähtynyt</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation>Buffering %1\%</translation>
+        <translation translatorcomment="AI-translated">Puskuroidaan % 1\%</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation>No data to display</translation>
+        <translation translatorcomment="AI-translated">Ei näytettävää dataa</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation>Restoring live view...</translation>
+        <translation translatorcomment="AI-translated">Palautetaan live-näkymää...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation>Mute</translation>
+        <translation translatorcomment="AI-translated">Mykistä</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation>Maximum volume</translation>
+        <translation translatorcomment="AI-translated">Suurin äänenvoimakkuus</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation>Take snapshot in full resolution</translation>
+        <translation translatorcomment="AI-translated">Ota tilannekuva täydellä resoluutiolla</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation>Playback archive</translation>
+        <translation translatorcomment="AI-translated">Toisto-arkisto</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation>Disable quick playback</translation>
+        <translation translatorcomment="AI-translated">Poista nopea toisto käytöstä</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation>Quick playback (up to 30 min)</translation>
+        <translation translatorcomment="AI-translated">Nopea toisto (jopa 30 min)</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation>Disable 1:1 mode</translation>
+        <translation translatorcomment="AI-translated">Poista 1:1-tila käytöstä</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation>Enable 1:1 mode (pixel-to-pixel)</translation>
+        <translation translatorcomment="AI-translated">Ota käyttöön 1:1-tila (pikselistä pikseliin)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation>Reset Zoom</translation>
+        <translation translatorcomment="AI-translated">Palauta zoomaus</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation>Click and drag on camera feed to zoom</translation>
+        <translation translatorcomment="AI-translated">Zoomaa napsauttamalla ja vetämällä kameran syötettä</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation>Select region to zoom</translation>
+        <translation translatorcomment="AI-translated">Valitse zoomattava alue</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation>Start playback</translation>
+        <translation translatorcomment="AI-translated">Aloita toisto</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation>Pause playback</translation>
+        <translation translatorcomment="AI-translated">Keskeytä toisto</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation>Playback speed</translation>
+        <translation translatorcomment="AI-translated">Toistonopeus</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation>Close rewind view</translation>
+        <translation translatorcomment="AI-translated">Sulje kelausnäkymä</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation>KVision - Auxiliary Window</translation>
+        <translation translatorcomment="AI-translated">KVision - lisäikkuna</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation>KVision</translation>
+        <translation translatorcomment="AI-translated">KVision</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation>Error reading configuration!</translation>
+        <translation translatorcomment="AI-translated">Virhe luettaessa konfiguraatiota!</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation>Unpin top bar</translation>
+        <translation translatorcomment="AI-translated">Irrota yläpalkki</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation>Pin top bar</translation>
+        <translation translatorcomment="AI-translated">Pin-yläpalkki</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation>Toggle Full Screen</translation>
+        <translation translatorcomment="AI-translated">Koko näyttö päälle/pois</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation>Minimize window</translation>
+        <translation translatorcomment="AI-translated">Pienennä ikkuna</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation>Options and settings of the sidebar panel</translation>
+        <translation translatorcomment="AI-translated">Sivupalkkipaneelin asetukset ja asetukset</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation>Open new auxiliary window</translation>
+        <translation translatorcomment="AI-translated">Avaa uusi apuikkuna</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation>Recording archive and player</translation>
+        <translation translatorcomment="AI-translated">Tallennusarkisto ja soitin</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation>Program user manual</translation>
+        <translation translatorcomment="AI-translated">Ohjelman käyttöohje</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation>Disable resource usage statistics</translation>
+        <translation translatorcomment="AI-translated">Poista resurssien käyttötilastot käytöstä</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation>Enable resource usage statistics</translation>
+        <translation translatorcomment="AI-translated">Ota käyttöön resurssien käyttötilastot</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation>NVR errors detected!</translation>
+        <translation translatorcomment="AI-translated">NVR-virheitä havaittu!</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation>NVR status: OK</translation>
+        <translation translatorcomment="AI-translated">NVR-tila: OK</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation>Lock grid size changes</translation>
+        <translation translatorcomment="AI-translated">Lukitusruudukon koko muuttuu</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation>More options</translation>
+        <translation translatorcomment="AI-translated">Lisää vaihtoehtoja</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation>NVR errors detected! Click to view details.</translation>
+        <translation translatorcomment="AI-translated">NVR-virheitä havaittu! Napsauta nähdäksesi tiedot.</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation>No view selected, select a view</translation>
+        <translation translatorcomment="AI-translated">Näkymää ei ole valittu, valitse näkymä</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation>Select a view from the top menu to start displaying cameras.</translation>
+        <translation translatorcomment="AI-translated">Aloita kameroiden näyttäminen valitsemalla näkymä ylävalikosta.</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation>KVision - Panel</translation>
+        <translation translatorcomment="AI-translated">KVision - paneeli</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation>Close window</translation>
+        <translation translatorcomment="AI-translated">Sulje ikkuna</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation>Close program</translation>
+        <translation translatorcomment="AI-translated">Sulje ohjelma</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation>Are you sure you want to close this window?</translation>
+        <translation translatorcomment="AI-translated">Haluatko varmasti sulkea tämän ikkunan?</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation>Are you sure you want to close the program?</translation>
+        <translation translatorcomment="AI-translated">Haluatko varmasti sulkea ohjelman?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation>YES</translation>
+        <translation translatorcomment="AI-translated">KYLLÄ</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation>NO</translation>
+        <translation translatorcomment="AI-translated">EI</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation>📊 SYSTEM STATS</translation>
+        <translation translatorcomment="AI-translated">📊 JÄRJESTELMÄTILASTOT</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation>Drag statistics panel</translation>
+        <translation translatorcomment="AI-translated">Vedä tilastopaneeli</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation>RAM: </translation>
+        <translation translatorcomment="AI-translated">RAM:</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation>VRAM: </translation>
+        <translation translatorcomment="AI-translated">VRAM:</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation>CPU: </translation>
+        <translation translatorcomment="AI-translated">CPU:</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation>GPU: </translation>
+        <translation translatorcomment="AI-translated">GPU:</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation>NET: </translation>
+        <translation translatorcomment="AI-translated">NET:</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation>Loading new window...</translation>
+        <translation translatorcomment="AI-translated">Ladataan uutta ikkunaa...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,947 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation>Fixed a critical bug where network loss and RTSP stream timeouts caused the player to become a Zombie, preventing successful reconnections. The Reload button and auto-resume now work completely reliably.</translation>
+        <translation translatorcomment="AI-translated">Korjattu kriittinen virhe, jossa verkon katoaminen ja RTSP-virran aikakatkaisut saivat soittimesta zombin, mikä esti onnistuneet uudelleenyhteydet. Reload-painike ja automaattinen jatkaminen toimivat nyt täysin luotettavasti.</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation>Refreshed the appearance of Player and Archive status messages. Loading and restoring notifications now feature a pleasant cyan theme with appropriate icons to better distinguish them from critical errors (No media/network).</translation>
+        <translation translatorcomment="AI-translated">Päivitettiin Playerin ja Arkiston tilaviestien ulkoasu. Ladattaessa ja palauttavissa ilmoituksissa on nyt miellyttävä syaani teema ja sopivat kuvakkeet, jotta ne voidaan erottaa paremmin kriittisistä virheistä (ei mediaa/verkkoa).</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation>Integrated MakeKeyFrame hardware command with Hikvision SDK. The app now aggressively forces the camera to emit an I-Frame when switching Sub/Main streams and from Live to Archive, eliminating the 10-second keyframe wait.</translation>
+        <translation translatorcomment="AI-translated">Integroitu MakeKeyFrame-laitteistokomento Hikvision SDK:n kanssa. Sovellus pakottaa nyt aggressiivisesti kameran lähettämään I-Frame-kehyksen, kun vaihdat ali-/päästriimiä ja live-tilasta arkistoon, mikä eliminoi 10 sekunnin avainkehyksen odotuksen.</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation>Removed on-the-fly overriding of the analyzeduration parameter. The app strictly enforces user-defined FFmpeg values (it is highly recommended to set it to 100000 for audio-less cameras to bypass the 5-second stall limit).</translation>
+        <translation translatorcomment="AI-translated">Analyysin kestoparametrin ohitus lennossa on poistettu. Sovellus valvoo tiukasti käyttäjän määrittämiä FFmpeg-arvoja (on erittäin suositeltavaa asettaa se arvoon 100 000, jos kamera ei sisällä ääntä, jotta se ohittaa 5 sekunnin jumiutumisrajan).</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation>Added "HikSDK" badges on recorder viewports for better protocol differentiation.</translation>
+        <translation translatorcomment="AI-translated">Lisätty "HikSDK" -merkit tallentimen katseluportteihin protokollien erottelun parantamiseksi.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation>Streamlined diagnostic logging (QDebug), allowing warnings and critical errors to be printed to the console outside of verbose mode, facilitating easier NVR fault debugging.</translation>
+        <translation translatorcomment="AI-translated">Virtaviivainen diagnostiikkaloki (QDebug), jonka avulla varoitukset ja kriittiset virheet voidaan tulostaa konsoliin monisanaisen tilan ulkopuolella, mikä helpottaa NVR-virheenkorjausta.</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation>Filtered out false positive PlayM4 SDK errors (no. 17 and 2) that spam the console during rapid timeline scrubbing in the player.</translation>
+        <translation translatorcomment="AI-translated">Suodatettiin vääriä positiivisia PlayM4 SDK -virheitä (nro 17 ja 2), jotka lähettävät roskapostia konsoliin soittimen nopean aikajanan puhdistamisen aikana.</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation>Fixed truncation of non-linear scaling (e.g. 145%) by the Qt5 framework on KDE Plasma systems, enforcing proper interpretation of High DPI policy.</translation>
+        <translation translatorcomment="AI-translated">Korjattu Qt5-kehyksen epälineaarisen skaalauksen katkaisu (esim. 145 %) KDE Plasma -järjestelmissä, mikä pakottaa High DPI -käytännön oikean tulkinnan.</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation>Resolved temporary freezes of other cameras on the live grid when seeking or dragging the timeline.</translation>
+        <translation translatorcomment="AI-translated">Ratkaistu muiden reaaliaikaisen ruudukon kameroiden väliaikaiset jumiutumiset, kun aikajanaa etsitään tai vedetään.</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation>Moved all blocking Hikvision SDK network calls (login, stop, start, speed control) to an asynchronous worker thread.</translation>
+        <translation translatorcomment="AI-translated">Siirrettiin kaikki estävät Hikvision SDK -verkkokutsut (sisäänkirjautuminen, pysäytys, aloitus, nopeuden hallinta) asynkroniseen työntekijäsäikeeseen.</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation>Completely eliminated the black screen issue when switching quality (SUB/MAIN) for RTSP cameras.</translation>
+        <translation translatorcomment="AI-translated">Täysin eliminoi mustan näytön ongelman vaihdettaessa laatua (SUB/MAIN) RTSP-kameroissa.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation>Optimized the seamless stream switching timer to 100ms for maximum speed.</translation>
+        <translation translatorcomment="AI-translated">Optimoitu saumattoman virran kytkentäajastin 100 ms maksimaalisen nopeuden saavuttamiseksi.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation>Added low-level FFmpeg options (nobuffer, low_delay) to eliminate live stream delay (drift) over long operational periods.</translation>
+        <translation translatorcomment="AI-translated">Lisätty matalan tason FFmpeg-asetukset (nobuffer, low_delay) eliminoimaan suoratoiston viiveen (drift) pitkien käyttöjaksojen aikana.</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation>Introduced a button to bulk-update FFmpeg parameters for all existing cameras across all layouts.</translation>
+        <translation translatorcomment="AI-translated">Otettiin käyttöön painike FFmpeg-parametrien joukkopäivittämiseksi kaikille olemassa oleville kameroille kaikissa asetteluissa.</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation>Added option to exclude specific cameras from global FFmpeg parameter updates (new checkbox in viewport settings).</translation>
+        <translation translatorcomment="AI-translated">Lisätty mahdollisuus sulkea tietyt kamerat pois maailmanlaajuisista FFmpeg-parametripäivityksistä (uusi valintaruutu katseluportin asetuksissa).</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation>Secured the default settings migration process, allowing the user to permanently remove or modify new flags without them being forced on every startup.</translation>
+        <translation translatorcomment="AI-translated">Suojattu oletusasetusten siirtoprosessi, jolloin käyttäjä voi pysyvästi poistaa tai muokata uusia lippuja ilman, että niitä pakotetaan jokaisen käynnistyksen yhteydessä.</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation>Added quick playback functionality (up to 30 minutes rewind) directly inside the camera viewport.</translation>
+        <translation translatorcomment="AI-translated">Lisätty nopea toistotoiminto (jopa 30 minuuttia taaksepäin) suoraan kameran katseluporttiin.</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation>Implemented full, bidirectional real-time synchronization between all windows and auxiliary program processes for settings: audio muting, disabling zoom animation, and all Hikvision NVR status monitoring options.</translation>
+        <translation translatorcomment="AI-translated">Toteutettu täysi, kaksisuuntainen reaaliaikainen synkronointi kaikkien ikkunoiden ja apuohjelmaprosessien välillä asetuksille: äänen mykistys, zoomausanimaatio pois käytöstä ja kaikki Hikvision NVR -tilan valvontavaihtoehdot.</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation>Added dynamic display of minute labels (e.g., :15, :30, :45) at minute ticks on the archive player timeline with intelligent label density adjustment (zoomHours).</translation>
+        <translation translatorcomment="AI-translated">Lisätty dynaaminen minuuttitunnisteiden näyttö (esim. :15, :30, :45) minuuttimerkkien kohdalla arkistosoittimen aikajanalla älykkäällä tarran tiheyden säädöllä (zoomHours).</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation>Added a new option in UI settings: "Disable viewport zoom animation" with immediate application in camera grid view.</translation>
+        <translation translatorcomment="AI-translated">Lisätty uusi vaihtoehto käyttöliittymäasetuksiin: "Poista katseluportin zoomausanimaatio käytöstä" välittömällä sovelluksella kameran ruudukkonäkymässä.</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation>Rebuilt the archive player initialization process: suspended connection and video loading until the exact recording limits are determined (via an ultra-fast 24h asynchronous search), eliminating premature playback and image jumping.</translation>
+        <translation translatorcomment="AI-translated">Arkistosoittimen alustusprosessi rakennettiin uudelleen: yhteys keskeytetty ja videon lataus, kunnes tarkat tallennusrajat on määritetty (huippunopealla 24 tunnin asynkronisella haulla), mikä eliminoi ennenaikaisen toiston ja kuvien hyppimisen.</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation>Refined Hikvision archive loading messages – loading status is shown only during active stream buffering, and a dedicated warning is displayed if the playhead is moved beyond available recording boundaries.</translation>
+        <translation translatorcomment="AI-translated">Tarkennetut Hikvision-arkiston latausviestit – lataustila näytetään vain aktiivisen streamin puskuroinnin aikana, ja erillinen varoitus näytetään, jos toistopaikka siirretään käytettävissä olevien tallennusrajojen ulkopuolelle.</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation>Introduced new configuration fields in the settings panel: default archive playback start offset (in seconds, default 60s) and default timeline zoom span (zoom hours, default 2h).</translation>
+        <translation translatorcomment="AI-translated">Asetuspaneeliin otettiin käyttöön uudet konfigurointikentät: oletusarkiston toiston aloitussiirtymä (sekunneissa, oletusarvo 60s) ja oletusaikajanan zoomausväli (zoomaustunnit, oletusarvo 2h).</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation>Added a direct web login icon to the recorder's web panel inside the NVR status popup.</translation>
+        <translation translatorcomment="AI-translated">Lisättiin suora verkkokirjautumiskuvake tallentimen verkkopaneeliin NVR-tilan ponnahdusikkunassa.</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation>Added error reporting suppression functionality for individual recorders.</translation>
+        <translation translatorcomment="AI-translated">Lisätty virheraportoinnin estotoiminto yksittäisille tallentimille.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation>Fixed incorrect Polish translation "Simulated Recorder" in status window and implemented proper word distinction ("Suppress" for errors vs "Mute" for audio).</translation>
+        <translation translatorcomment="AI-translated">Korjattu virheellinen puolankielinen käännös "Simulated Recorder" tilaikkunassa ja otettu käyttöön oikea sanaero ("Suppress" virheille vs "Mute" audiolle).</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation>Implemented periodic (every 5 minutes) and manual Hikvision NVR/DVR error status monitoring using SDK/ISAPI diagnostics.</translation>
+        <translation translatorcomment="AI-translated">Toteutettu säännöllinen (5 minuutin välein) ja manuaalinen Hikvision NVR/DVR -virhetilanseuranta SDK/ISAPI-diagnostiikan avulla.</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation>Added configuration options in General Settings to enable/disable Hikvision NVR status checking and customize monitored critical error types.</translation>
+        <translation translatorcomment="AI-translated">Lisätty konfigurointivaihtoehtoja Yleisasetuksiin Hikvision NVR -tilan tarkistuksen ottamiseksi käyttöön/poistamiseksi käytöstä ja valvottujen kriittisten virhetyyppien mukauttamisesta.</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation>Designed a high-fidelity warm-green/red top-bar status icon with deep pulsing outer waves and inner heartbeat ripple animations to signal active critical errors.</translation>
+        <translation translatorcomment="AI-translated">Suunniteltu korkealaatuinen lämpimänvihreä/punainen yläpalkin tilakuvake, jossa on syvät sykkivät ulkoaallot ja sisäiset sydämenlyöntivärähtelyanimaatiot ilmoittamaan aktiivisista kriittisistä virheistä.</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation>Introduced a top-edge protruding red indicator circle that pulses at the top of the screen when the main toolbar is collapsed, ensuring critical warnings are never missed.</translation>
+        <translation translatorcomment="AI-translated">Esitteli yläreunassa ulkonevan punaisen ilmaisinympyrän, joka vilkkuu näytön yläreunassa, kun päätyökalurivi on tiivistetty, mikä varmistaa, että kriittisiä varoituksia ei koskaan jää huomaamatta.</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation>Created an elegant, scrollable popup window "Recorder status" limited to 85% of screen height presenting detailed error codes.</translation>
+        <translation translatorcomment="AI-translated">Loi tyylikkään, vieritettävän ponnahdusikkunan "Tallentimen tila", joka on rajoitettu 85 %:iin näytön korkeudesta ja jossa esitetään yksityiskohtaiset virhekoodit.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation>Added run flag "--simulate-error" to instantly simulate disk failures and connection errors across all recorders for demonstration purposes.</translation>
+        <translation translatorcomment="AI-translated">Lisätty "--simulate-error" -merkki, joka simuloi välittömästi levyhäiriöitä ja yhteysvirheitä kaikissa tallentimissa esittelytarkoituksia varten.</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation>Implemented list frame badges and status indicator alignments across configured recorder views.</translation>
+        <translation translatorcomment="AI-translated">Toteutettu luettelokehysten merkit ja tilailmaisimen kohdistukset määritetyissä tallenninnäkymissä.</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation>Achieved complete bilingual translation coverage (Polish/English) for all NVR diagnostics, setting check-boxes, tooltips, warnings, and command-line parser options.</translation>
+        <translation translatorcomment="AI-translated">Saavutettu täydellinen kaksikielinen käännöskattavuus (puola/englanti) kaikille NVR-diagnostiikkaan, asetusten valintaruutuihin, työkaluvihjeisiin, varoituksiin ja komentorivin jäsennysvaihtoehtoihin.</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation>Added the ability to reload the active layout by clicking its button on the top toolbar.</translation>
+        <translation translatorcomment="AI-translated">Lisätty mahdollisuus ladata aktiivinen asettelu uudelleen napsauttamalla sen painiketta ylätyökalupalkissa.</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation>Average NVML utilization samples over time to smooth the GPU usage graph and eliminate jagged readings.</translation>
+        <translation translatorcomment="AI-translated">Keskimääräiset NVML-käyttönäytteet ajan mittaan tasoittaakseen GPU-käyttökaaviota ja eliminoidakseen rosoiset lukemat.</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation>Eliminated momentary video blinking (black frames) and audio-video out-of-sync gaps when switching quality from SUB to MAIN streams during viewport maximization by delaying the active player swap until the first frame is painted on screen.</translation>
+        <translation translatorcomment="AI-translated">Eliminoitui hetkellinen videon vilkkuminen (mustat kehykset) ja audio-videon epäsynkronointiaukot, kun laatu vaihdetaan SUB- ja MAIN-virroista katseluportin maksimoimisen aikana viivyttämällä aktiivista soittimen vaihtoa, kunnes ensimmäinen ruutu on maalattu näytölle.</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation>Added interactive, clear, and 2x wider scrollbars to the hour, minute, and second selection columns in the archive download time picker popup.</translation>
+        <translation translatorcomment="AI-translated">Lisätty interaktiiviset, selkeät ja 2x leveämmät vierityspalkit tuntien, minuuttien ja sekuntien valintasarakkeisiin arkiston latausajan ponnahdusikkunassa.</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation>Added new intuitive options to the viewports context menu: 'Snapshot' (saving the current frame) and 'Playback' (immediate transition to the archive playback of the given camera).</translation>
+        <translation translatorcomment="AI-translated">Lisätty uusia intuitiivisia vaihtoehtoja katseluporttien kontekstivalikkoon: "Snapshot" (nykyisen kehyksen tallentaminen) ja "Playback" (välitön siirtyminen tietyn kameran arkistotoistoon).</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation>Revolutionized and fixed PCM audio handling: direct pipeline forwarding to QAudioOutput, elimination of interface freezes (ALSA/PulseAudio/Pipewire) by stabilizing sample rate (debounce after 5 stable frames), 2s cooldown on output recreation, filtering damaged parameters and a 64KB buffer reducing network jitter.</translation>
+        <translation translatorcomment="AI-translated">Vallankumouksellinen ja kiinteä PCM-äänenkäsittely: suora liukuhihnan välitys QAudioOutputiin, rajapinnan jumiutumien eliminointi (ALSA/PulseAudio/Pipewire) stabiloimalla näytteenottotaajuutta (debounce 5:n vakaan kehyksen jälkeen), 2 sekunnin viilennys ulostulon virkistyksissä, vaurioituneiden parametrien suodatus ja 64 kilotavun puskuri, joka vähentää verkon värinää.</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation>Implemented an interactive HUD volume slider directly on the viewport tiles, along with a quick mute option and one-click volume maximization.</translation>
+        <translation translatorcomment="AI-translated">Otettiin käyttöön interaktiivinen HUD-äänenvoimakkuuden liukusäädin suoraan katseluporttien ruutuihin sekä nopea mykistysvaihtoehto ja äänenvoimakkuuden maksimointi yhdellä napsautuksella.</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation>Implemented automatic and immediate muting of LIVE streams in the main grid upon opening the Archive playback window, preventing overlapping sounds (cacophony).</translation>
+        <translation translatorcomment="AI-translated">Toteutettu automaattinen ja välitön LIVE-striimien mykistys pääruudukossa avattaessa Arkiston toistoikkuna, mikä estää päällekkäiset äänet (kakofonia).</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation>Introduced a central SnapshotSavedDialog notification system for saved snapshots (dark gray enclosure, teal borders, auto-close after 10 seconds) with a quick 'Browse' link to open the folder directly in the system file manager.</translation>
+        <translation translatorcomment="AI-translated">Otettiin käyttöön keskeinen SnapshotSavedDialog-ilmoitusjärjestelmä tallennettuja tilannekuvia varten (tummanharmaa kotelo, sinivihreät reunat, automaattinen sulkeutuminen 10 sekunnin kuluttua), jossa on nopea "Selaa"-linkki kansion avaamiseksi suoraan järjestelmän tiedostonhallinnassa.</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation>Enriched the built-in help window with a detailed 'Button functions description' chapter using native, crisp SVG vector icons. The help window now opens fully automatically and centered over the main window upon the program's first launch.</translation>
+        <translation translatorcomment="AI-translated">Sisäänrakennettu ohjeikkuna on rikastettu yksityiskohtaisella "Painiketoimintojen kuvaus" -luvulla käyttämällä alkuperäisiä, teräviä SVG-vektorikuvakkeita. Ohje-ikkuna avautuu nyt täysin automaattisesti ja on keskellä pääikkunaa ohjelman ensimmäisen käynnistyksen yhteydessä.</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation>Introduced default display of the top bar upon program/window startup and added a 'Show top bar by default after opening a window' option in the settings, allowing customization of this behavior to personal preferences.</translation>
+        <translation translatorcomment="AI-translated">Otettiin käyttöön yläpalkin oletusnäyttö ohjelman/ikkunan käynnistyksen yhteydessä ja asetuksiin lisättiin "Näytä yläpalkki oletuksena ikkunan avaamisen jälkeen" -vaihtoehto, mikä mahdollistaa tämän toiminnan mukauttamisen henkilökohtaisten mieltymysten mukaan.</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation>Implemented dynamic RPATH library paths in CMakeLists.txt using GNUInstallDirs, enabling immediate execution of the compiled application on Ubuntu and Debian without the need for manual configuration of /etc/ld.so.conf.d/ and ldconfig.</translation>
+        <translation translatorcomment="AI-translated">Toteutettu dynaamiset RPATH-kirjastopolut tiedostossa CMakeLists.txt GNUInstallDirs-ohjelmalla, mikä mahdollistaa käännetyn sovelluksen välittömän suorittamisen Ubuntussa ja Debianissa ilman /etc/ld.so.conf.d/- ja ldconfig-tiedostojen manuaalista konfigurointia.</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation>Renamed the program to KVision, introducing automatic user configuration migration, new multi-size icons (128px, 256px, 512px), and full version display in the window title bar.</translation>
+        <translation translatorcomment="AI-translated">Ohjelma nimettiin uudelleen KVisioniksi, otettiin käyttöön automaattinen käyttäjien asetusten siirto, uudet monikokoiset kuvakkeet (128px, 256px, 512px) ja täysversion näyttö ikkunan otsikkorivillä.</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation>Fixed the warning window for exceeding the auxiliary windows limit (missing QML resource and QSettings read).</translation>
+        <translation translatorcomment="AI-translated">Korjattu varoitusikkuna lisäikkunoiden rajan ylittämisestä (puuttuu QML-resurssi ja QSettings-luettu).</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation>Fixed the missing program icon under Wayland (hicolor theme installation and setDesktopFileName).</translation>
+        <translation translatorcomment="AI-translated">Korjattu puuttuva ohjelmakuvake Waylandin alla (hicolor-teeman asennus ja setDesktopFileName).</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation>Removed the automatically collapse top bar option from Settings - from now on, the top bar in LIVE windows (main and auxiliary) collapses by default on startup, and the pin button pins it locally and temporarily (in-memory) without saving its state.</translation>
+        <translation translatorcomment="AI-translated">Poistettu automaattisesti kutistaa yläpalkin vaihtoehto asetuksista - tästä lähtien LIVE-ikkunoiden (pää- ja apu) yläpalkki kutistuu oletusarvoisesti käynnistyksen yhteydessä, ja pin-painike kiinnittää sen paikallisesti ja väliaikaisesti (muistiin) tallentamatta sen tilaa.</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation>Introduced a limit on the number of auxiliary windows (configurable from 0 to 3) with an elegant warning window when attempting to exceed it.</translation>
+        <translation translatorcomment="AI-translated">Otettiin käyttöön rajoitus lisäikkunoiden lukumäärälle (konfiguroitavissa 0-3) tyylikkäällä varoitusikkunalla, kun se yritetään ylittää.</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation>Added subtle 1px dark-gray borders around unused viewports in the LIVE layout grid for better delineation of fields.</translation>
+        <translation translatorcomment="AI-translated">LIVE-asetteluruudukon käyttämättömien näkymäporttien ympärille on lisätty hienovaraiset 1 pikselin tummanharmaat reunat kenttien rajaamisen parantamiseksi.</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation>Secured editing of save paths and system media configuration options behind a transient 'Activate changes in this section' checkbox, preventing accidental modifications (editing state resets on close).</translation>
+        <translation translatorcomment="AI-translated">Tallennuspolkujen ja järjestelmämedian määritysvaihtoehtojen suojattu muokkaaminen ohimenevän Aktivoi muutokset tässä osiossa -valintaruudun takana, mikä estää tahattomat muutokset (muokkaustila nollautuu sulkemisen yhteydessä).</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation>Introduced direct shortcuts for 'open save folder' (highlighted in celadon upon completed download in the Archive window) and always-active quick-open buttons for snapshot and video folders in Settings (with automatic directory creation on disk if missing).</translation>
+        <translation translatorcomment="AI-translated">Otettiin käyttöön suorat pikakuvakkeet "avoin tallennuskansio" (korostettu seladonilla, kun lataus on valmis Arkisto-ikkunassa) ja aina aktiiviset pika-avauspainikkeet tilannekuva- ja videokansioille asetuksissa (automaattinen hakemiston luominen levylle, jos se puuttuu).</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation>Introduced interactive validation when clicking the 'Pobierz' (Download) button in the download window: automatic format and chronological date checks, displaying a red warning tooltip and focusing the first invalid field.</translation>
+        <translation translatorcomment="AI-translated">Otettiin käyttöön interaktiivinen validointi, kun napsautat Pobierz (Lataa) -painiketta latausikkunassa: automaattiset muodon ja kronologisen päivämäärän tarkistukset, punaisen varoituksen työkaluvihjeen näyttäminen ja ensimmäisen virheellisen kentän tarkentaminen.</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation>Implemented full keyboard navigation (up/down arrow keys to change values, left/right to switch columns) inside the clock picker popup.</translation>
+        <translation translatorcomment="AI-translated">Kellonvalitsimen ponnahdusikkunassa on otettu käyttöön täysi näppäimistönavigointi (ylös/alas-nuolinäppäimet muuttaaksesi arvoja, vasen/oikea vaihtaa sarakkeita).</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation>Ensured a completely clean launch for auxiliary windows (without automatically opening the options sidebar) and excluded geometry settings saving from auxiliary windows, eliminating shared configuration contamination.</translation>
+        <translation translatorcomment="AI-translated">Varmisti apuikkunoiden täysin puhtaan käynnistyksen (ilman asetussivupalkin automaattista avaamista) ja poisti geometria-asetusten tallentamisen apuikkunoista, mikä eliminoi jaetun kokoonpanon saastumisen.</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation>Added full English language support for all new formatting and chronological validation error messages in the download window.</translation>
+        <translation translatorcomment="AI-translated">Lisätty täysi englannin kielen tuki kaikille uusille muotoilun ja kronologisen vahvistuksen virheilmoituksille latausikkunassa.</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation>Eliminated RAM memory leaks when switching camera layouts by automatically and correctly stopping the video surface before updating formats and matching renderer dimensions.</translation>
+        <translation translatorcomment="AI-translated">Eliminoitui RAM-muistivuotoja vaihdettaessa kameran asettelua pysäyttämällä videopinnan automaattisesti ja oikein ennen muotojen päivittämistä ja renderöijän mittojen sovittamista.</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation>Implemented unconditional releasing and destruction of audio output objects on player stop, and introduced automatic recycling of these objects to eliminate memory and thread leaks on Linux.</translation>
+        <translation translatorcomment="AI-translated">Toteutti äänilähtöobjektien ehdottoman vapauttamisen ja tuhoamisen soittimen pysähdyksissä ja otettiin käyttöön näiden objektien automaattinen kierrätys muistin ja säikeiden vuotojen poistamiseksi Linuxissa.</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation>Resolved video freezing issues (solid color screen after viewport zoom) by forcing correct video availability signaling when presenting the first frame of a new stream.</translation>
+        <translation translatorcomment="AI-translated">Ratkaistiin videon jumiutumisongelmat (tasainen värinäyttö kuvaportin zoomauksen jälkeen) pakottamalla oikea videon käytettävyyssignaali esitettäessä uuden streamin ensimmäistä kuvaa.</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation>Added a global setting 'Disable audio support completely', allowing total bypass of audio processing to eliminate potential overhead and memory leaks.</translation>
+        <translation translatorcomment="AI-translated">Lisätty yleinen asetus "Poista äänituki kokonaan käytöstä", mikä mahdollistaa äänenkäsittelyn täydellisen ohituksen mahdollisten ylikuormitus- ja muistivuotojen poistamiseksi.</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation>Optimized the system statistics module to eliminate continuous memory usage overhead by caching process IDs and removing dynamic regular expression allocations.</translation>
+        <translation translatorcomment="AI-translated">Optimoitu järjestelmän tilastomoduuli eliminoimaan jatkuvan muistin käytön ylimääräiset kustannukset tallentamalla välimuistiin prosessitunnukset ja poistamalla dynaamiset säännöllisten lausekkeiden varaukset.</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation>Enforced aggressive Garbage Collection (GC) upon camera layout switches and nullified image scaling contexts (SwsContext) in video buffers.</translation>
+        <translation translatorcomment="AI-translated">Pakotettu aggressiivinen roskakeräys (GC) kameran asettelun kytkimillä ja mitätöidyt kuvan skaalauskontekstit (SwsContext) videopuskureissa.</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation>Ensured proper resource cleanup of the static configuration file change detector (QFileSystemWatcher) upon application exit.</translation>
+        <translation translatorcomment="AI-translated">Varmistettiin staattisen määritystiedoston muutostunnistimen (QFileSystemWatcher) resurssien asianmukainen puhdistus sovelluksen sulkemisen yhteydessä.</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation>Fixed synchronization and freezing issues of the auxiliary window process on slower machines during sequential camera deletion and viewport merging or moving.</translation>
+        <translation translatorcomment="AI-translated">Korjattu apuikkunaprosessin synkronointi- ja jäädytysongelmat hitaammissa koneissa peräkkäisen kameran poistamisen ja näkymän yhdistämisen tai siirron aikana.</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation>Fixed aggregation of GPU utilization, VRAM usage, and network bandwidth statistics from all application processes using shared memory (/dev/shm) in the background.</translation>
+        <translation translatorcomment="AI-translated">Korjattu GPU-käyttö-, VRAM-käyttö- ja verkon kaistanleveystilastojen kokoaminen kaikista sovellusprosesseista käyttämällä jaettua muistia (/dev/shm) taustalla.</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation>Protected archive player destructor from data races when cleaning up pending RGB tasks.</translation>
+        <translation translatorcomment="AI-translated">Suojattu arkistosoitinten tuhoaja datakilpailuilta siivottaessa odottavia RGB-tehtäviä.</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation>Implemented video player pooling to eliminate RAM usage spikes and flickering when switching layouts.</translation>
+        <translation translatorcomment="AI-translated">Toteutettu videosoittimen yhdistäminen eliminoi RAM-muistin käyttöpiikit ja välkkymisen asettelua vaihdettaessa.</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation>Optimized GPU/VRAM monitoring to a process-specific model (no nvidia-smi spawning) with native support for NVIDIA, AMD, and Intel GPUs (AMD/Intel statistics are untested).</translation>
+        <translation translatorcomment="AI-translated">Optimoitu GPU/VRAM-valvonta prosessikohtaiseen malliin (ei nvidia-smi-syntymistä) NVIDIA-, AMD- ja Intel-grafiikkasuorittimien natiivituella (AMD/Intel-tilastoja ei ole testattu).</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation>Allowed resizing the system stats panel by dragging its edges and corners with auto-scaling graphs.</translation>
+        <translation translatorcomment="AI-translated">Järjestelmätilastopaneelin koon muuttaminen sallittu vetämällä sen reunoja ja kulmia automaattisen skaalauksen kaavioilla.</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation>Implemented instant hiding of the main and auxiliary windows on quit confirmation, making shutdown appear immediate to the user while thread and memory cleanup runs safely in the background.</translation>
+        <translation translatorcomment="AI-translated">Toteutettu välitön pää- ja lisäikkunoiden piilottaminen lopetusvahvistuksen yhteydessä, jolloin käyttäjä näkee sammutuksen välittömästi, kun säikeen ja muistin puhdistus toimii turvallisesti taustalla.</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation>Converted top toolbars in both LIVE and ARCHIVE windows into centered floating docks (LIVE dock has dynamic width).</translation>
+        <translation translatorcomment="AI-translated">Sekä LIVE- että ARCHIVE-ikkunoiden ylätyökalurivit muunnettiin keskitetyiksi kelluviksi telakoiksi (LIVE-telakalla on dynaaminen leveys).</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation>Added a vertical separator in the top bar docks between grid options and layouts.</translation>
+        <translation translatorcomment="AI-translated">Lisätty pystysuora erotin yläpalkkiin, joka on kiinnitetty ruudukkovaihtoehtojen ja asettelujen väliin.</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation>Increased transparency of archive top and bottom bars (60% in windowed mode, 26% in full screen) and set timeline background to transparent.</translation>
+        <translation translatorcomment="AI-translated">Arkiston ylä- ja alapalkkien läpinäkyvyys lisääntyy (60 % ikkunatilassa, 26 % koko näytössä) ja aikajanan tausta on asetettu läpinäkyväksi.</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation>Simplified playback speed icons in the archive to clear text (1x, 2x, 4x) and removed the unstable 8x speed option.</translation>
+        <translation translatorcomment="AI-translated">Yksinkertaistettu toistonopeuskuvakkeet arkistossa poistamaan tekstin (1x, 2x, 4x) ja poistettu epävakaa 8x nopeusvaihtoehto.</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation>Replaced monthly navigation text buttons in archive and downloader calendars with graphical arrows (chevrons).</translation>
+        <translation translatorcomment="AI-translated">Korvattiin kuukausittaiset navigointitekstipainikkeet arkisto- ja latauskalentereissa graafisilla nuolilla (chevroneilla).</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation>Relocated camera viewport close button from the top-right corner to the bottom-right controls area to prevent accidental clicks.</translation>
+        <translation translatorcomment="AI-translated">Kameran näkymän sulkemispainike on siirretty oikeasta yläkulmasta oikean alakulman ohjausalueelle tahattomien napsautusten estämiseksi.</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation>Optimized selected grid layout text contrast in the archive window (dark text on a celadon background).</translation>
+        <translation translatorcomment="AI-translated">Optimoitu valitun ruudukon asettelun tekstin kontrasti arkistoikkunassa (tumma teksti seladonin taustalla).</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation>Converted the system statistics panel into a draggable floating panel (with click-through) using a new dedicated grab handle.</translation>
+        <translation translatorcomment="AI-translated">Järjestelmän tilastopaneeli muutettiin vedettäväksi kelluvaksi paneeliksi (napsautussuhteella) käyttämällä uutta omaa tartuntakahvaa.</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation>Resolved critical settings synchronization loop and UI freeze when deleting viewport layouts.</translation>
+        <translation translatorcomment="AI-translated">Korjattu kriittisten asetusten synkronointisilmukka ja käyttöliittymä jumiutuvat, kun näkymän asetteluja poistetaan.</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation>Enlarged speed, zoom, and VCR control icons in the archive to improve visibility, and increased text size inside the SVG icons.</translation>
+        <translation translatorcomment="AI-translated">Suuremmat nopeuden, zoomauksen ja videonauhurin ohjauskuvakkeet arkistossa parantamaan näkyvyyttä ja suurentunut tekstikoko SVG-kuvakkeiden sisällä.</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation>Removed duplicate text buttons for zoom shortcuts in the archive, fully replacing them with circular icons.</translation>
+        <translation translatorcomment="AI-translated">Poistettiin arkistosta zoomauksen pikanäppäimien päällekkäiset tekstipainikkeet ja korvattiin ne kokonaan pyöreillä kuvakkeilla.</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation>Added complete English and Polish translations for all tooltips in the archive window.</translation>
+        <translation translatorcomment="AI-translated">Lisätty täydelliset englannin- ja puolankieliset käännökset kaikille arkistoikkunan työkaluvihjeille.</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation>Introduced real-time bidirectional configuration synchronization between the main window and auxiliary windows with support for unique, automatic auxiliary window IDs.</translation>
+        <translation translatorcomment="AI-translated">Otettiin käyttöön reaaliaikainen kaksisuuntainen konfigurointisynkronointi pääikkunan ja lisäikkunoiden välillä yksilöllisten, automaattisten apuikkunatunnusten tuella.</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation>Added automatic session recovery (auto-reconnect) in the Hikvision archive player after downloads complete or connections are dropped by the recorder.</translation>
+        <translation translatorcomment="AI-translated">Lisätty automaattinen istunnon palautus (automaattinen uudelleenkytkentä) Hikvision-arkistosoittimeen sen jälkeen, kun lataukset on suoritettu tai tallennin katkaisee yhteydet.</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation>Eliminated potential thread leaks and FFmpeg video decoder hangs during layout switching by adopting safe std::weak_ptr references for decoder media contexts.</translation>
+        <translation translatorcomment="AI-translated">Eliminoitui mahdolliset säikeen vuodot ja FFmpeg-videodekooderi jumittuu asettelun vaihdon aikana ottamalla käyttöön turvallisia std::weak_ptr-viittauksia dekooderin mediakonteksteihin.</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation>Fixed a memory leak in ViewportsLayouts models by safely deleting layout objects using deleteLater().</translation>
+        <translation translatorcomment="AI-translated">Korjattu muistivuoto ViewportsLayouts-malleissa poistamalla asetteluobjektit turvallisesti deleteLater()-toiminnolla.</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation>Mitigated video rendering surface start errors (OpenGL) during rapid NVR tab changes - logs were demoted to Debug level, and the system silently retries rendering in the background after GPU buffers are released.</translation>
+        <translation translatorcomment="AI-translated">Vähensi videon renderöinnin pinnan aloitusvirheitä (OpenGL) nopeiden NVR-välilehtien muutosten aikana – lokit alennettiin Debug-tasolle, ja järjestelmä yrittää hahmontaa äänettömästi uudelleen taustalla, kun GPU-puskurit on vapautettu.</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation>Resolved the residual RAM usage (20-30 MB) after closing the Archive window through multi-step heap cleanup and QML engine cache optimizations.</translation>
+        <translation translatorcomment="AI-translated">Ratkaistiin jäljellä oleva RAM-käyttö (20–30 Mt) Arkisto-ikkunan sulkemisen jälkeen monivaiheisen kasonpuhdistuksen ja QML-moottorin välimuistin optimoinnin avulla.</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation>Optimized RAM usage during camera scaling and viewport resizing/zooming, preventing excessive memory accumulation during continuous video stream layout changes.</translation>
+        <translation translatorcomment="AI-translated">Optimoitu RAM-muistin käyttö kameran skaalauksen ja kuvaportin koon muuttamisen/zoomauksen aikana, mikä estää liiallisen muistin kertymisen jatkuvan videovirran asettelun muutosten aikana.</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation>Added a precise, real-time frames per second (FPS) indicator in the upper-left corner of each viewport for both live and archive playback streams.</translation>
+        <translation translatorcomment="AI-translated">Lisätty tarkka, reaaliaikainen ruutua sekunnissa (FPS) -osoitin jokaisen näkymän vasempaan yläkulmaan sekä live- että arkistoituihin toistostriimiin.</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation>Implemented safe termination and release of download threads in the Hikvision downloader, ensuring stable and immediate application shutdown without blocking system resources.</translation>
+        <translation translatorcomment="AI-translated">Toteutettu turvallinen lopetus ja lataussäikeiden vapauttaminen Hikvision-latausohjelmassa, mikä varmistaa vakaan ja välittömän sovellusten sulkemisen estämättä järjestelmäresursseja.</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation>Added a dynamic camera search field in the archive window with a reset button and auto-expanding matching recorders.</translation>
+        <translation translatorcomment="AI-translated">Lisätty dynaaminen kamerahakukenttä arkistoikkunaan nollauspainikkeella ja automaattisesti laajenevilla vastaavilla tallentimilla.</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation>Enabled wrapping of long camera names on list tiles in the archive.</translation>
+        <translation translatorcomment="AI-translated">Pitkien kameroiden nimien rivitys arkiston luetteloruutuihin on otettu käyttöön.</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation>Enlarged and inverted colors of the plus button (+) on camera tiles (mint background) for better visibility, with clear hover/pressed states.</translation>
+        <translation translatorcomment="AI-translated">Plus-painikkeen (+) suurennetut ja käännetyt värit kameraruuduissa (minttu tausta) parantavat näkyvyyttä ja selkeät leijumis-/painatustilat.</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation>Fixed the 2-3 hour shift of the recording availability timeline bar in the archive player window, synchronizing the timeline with the client's local timezone (with correct daylight saving time DST support).</translation>
+        <translation translatorcomment="AI-translated">Korjattu tallennuksen saatavuusaikajanapalkin 2-3 tunnin siirtymä arkistosoitinikkunassa, synkronoimalla aikajana asiakkaan paikallisen aikavyöhykkeen kanssa (oikealla kesäajan DST-tuella).</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation>Replaced the low-contrast black emoji 📺 in empty views with an elegant seledyn High-DPI vector monitor SVG.</translation>
+        <translation translatorcomment="AI-translated">Vähäkontrastisen mustan emojin 📺 tilalle tyhjissä näkymissä tyylikäs seledyn High-DPI-vektorimonitori SVG.</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation>Improved readability of recorder bars in the archive window (height increased from 22px to 28px, font size from 9px to 11px, larger expand arrow).</translation>
+        <translation translatorcomment="AI-translated">Tallenninpalkkien luettavuus parannettu arkistoikkunassa (korkeus nousi 22 pikselistä 28 pikseliin, fonttikoko 9 pikselistä 11 pikseliin, suurempi laajennusnuoli).</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation>Added full, dynamic hover effects for recorder bars with distinct changes in background, text, and icon colors to seledyn/white.</translation>
+        <translation translatorcomment="AI-translated">Lisätty täydelliset, dynaamiset hover-tehosteet tallentimen palkkeihin, joissa taustan, tekstin ja kuvakkeiden värit muuttuvat seldyn/valkoiseksi.</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation>Replaced text action buttons on the top bar (Options, New window, Archive, Instructions) with dedicated, colored SVG icons with helpful tooltips.</translation>
+        <translation translatorcomment="AI-translated">Korvattiin yläpalkin tekstitoimintopainikkeet (Asetukset, Uusi ikkuna, Arkisto, Ohjeet) omistetuilla, värillisillä SVG-kuvakkeilla, joissa on hyödyllisiä työkaluvihjeitä.</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation>Replaced the system stats toggle with an interactive SVG icon reflecting the system monitor activity state.</translation>
+        <translation translatorcomment="AI-translated">Järjestelmätilastojen vaihtokytkin on korvattu interaktiivisella SVG-kuvakkeella, joka heijastaa järjestelmän monitorin toimintatilaa.</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation>Unified grid selection buttons (1x1-9x9) into consistent 30x30px circular buttons.</translation>
+        <translation translatorcomment="AI-translated">Yhdistetyt ruudukon valintapainikkeet (1x1-9x9) yhtenäisiksi 30x30px pyöreiksi painikkeiksi.</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation>Added a vertical separator line between the options section and the grid selection section.</translation>
+        <translation translatorcomment="AI-translated">Lisätty pystysuora erotinviiva vaihtoehto-osion ja ruudukon valintaosan väliin.</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation>Redesigned view buttons to an elegant, rounded pill shape with 30px height, preserving side margins.</translation>
+        <translation translatorcomment="AI-translated">Uudelleensuunnitellut näkymäpainikkeet eleganttiin, pyöristettyyn pillerimuotoon 30 pikselin korkeudella säilyttäen sivumarginaalit.</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation>Enforced automatic uppercase display for view names.</translation>
+        <translation translatorcomment="AI-translated">Näkymien nimien pakotettu automaattinen isojen kirjainten näyttö.</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation>Improved readability and contrast of the active view button – dark text (#121214) on a bright seledyn background.</translation>
+        <translation translatorcomment="AI-translated">Parannettu aktiivisen näkymäpainikkeen luettavuus ja kontrasti – tumma teksti (#121214) kirkkaalla seldyn taustalla.</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation>Unified and improved delete icons on the recorders and views list and the preset activation button into SVG icons with tooltips.</translation>
+        <translation translatorcomment="AI-translated">Yhtenäiset ja parannetut poistokuvakkeet tallentimien ja näkymien luettelossa ja esiasetettu aktivointipainike SVG-kuvakkeiksi työkaluvihjeillä.</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation>Decreased spacing between top bar buttons to optimize interface space.</translation>
+        <translation translatorcomment="AI-translated">Pienempi yläpalkin painikkeiden välinen etäisyys käyttöliittymätilan optimoimiseksi.</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation>Restored the missing minimize icon in the auxiliary window.</translation>
+        <translation translatorcomment="AI-translated">Palautettiin puuttuva pienennyskuvake lisäikkunassa.</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation>Fixed login and playback issues in auxiliary windows.</translation>
+        <translation translatorcomment="AI-translated">Korjattu sisäänkirjautumis- ja toisto-ongelmat lisäikkunoissa.</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation>Fixed layout button states (1x1 vs 2x2) when opening playback directly from camera.</translation>
+        <translation translatorcomment="AI-translated">Kiinteät asettelupainikkeen tilat (1x1 vs 2x2), kun toisto avataan suoraan kamerasta.</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation>Added proper XML namespace in Hikvision ISAPI queries (fixes 'Invalid XML Content' error on newer recorder firmware).</translation>
+        <translation translatorcomment="AI-translated">Lisätty oikea XML-nimiavaruus Hikvision ISAPI -kyselyihin (korjaa 'Virheellinen XML-sisältö' -virheen uudemmassa tallentimen laiteohjelmistossa).</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation>Fixed search results pagination handling (searchResultPostion tag).</translation>
+        <translation translatorcomment="AI-translated">Korjattu hakutulosten sivutuskäsittely (searchResultPostion-tunniste).</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation>'Refresh' button in the playback window to manually clear cache and re-fetch recording availability data.</translation>
+        <translation translatorcomment="AI-translated">'Päivitä'-painike toistoikkunassa tyhjentääksesi välimuistin manuaalisesti ja hakeaksesi uudelleen tallennuksen saatavuustiedot.</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation>Network prefetching queue optimization – restricted background fetching to 12 months, eliminating hundreds of unnecessary queries and speeding up playback start.</translation>
+        <translation translatorcomment="AI-translated">Verkon esihakujonon optimointi – taustahaku rajoitettu 12 kuukauteen, mikä poistaa sadat tarpeettomat kyselyt ja nopeuttaa toiston alkamista.</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation>Asynchronous Hikvision SDK initialization in a background thread, completely eliminating GUI freezes when opening options.</translation>
+        <translation translatorcomment="AI-translated">Asynkroninen Hikvision SDK:n alustus taustasäikeessä, mikä eliminoi kokonaan graafisen käyttöliittymän jumiutumisen vaihtoehtoja avattaessa.</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation>Thread-safe synchronization of access to Hikvision SDK methods.</translation>
+        <translation translatorcomment="AI-translated">Säikeen turvallinen synkronointi Hikvision SDK -menetelmien käyttöön.</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation>Sanitizing downloaded file and screenshot names by removing recorder IP addresses.</translation>
+        <translation translatorcomment="AI-translated">Puhdista ladattujen tiedostojen ja kuvakaappausten nimet poistamalla tallentimen IP-osoitteet.</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation>Sleek download progress bar in turquoise (#00f5d4) with centered outlined text.</translation>
+        <translation translatorcomment="AI-translated">Tyylikäs latauksen etenemispalkki turkoosina (#00f5d4), jossa on keskitetty ääriviivateksti.</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation>Calculation of global download progress (overallProgress) for multi-part recordings.</translation>
+        <translation translatorcomment="AI-translated">Latauksen maailmanlaajuisen edistymisen (overallProgress) laskeminen moniosaisille tallennuksille.</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation>Changed temporary download file extension from '.ps' to '.pspart'.</translation>
+        <translation translatorcomment="AI-translated">Väliaikaisen ladattavan tiedostopääte muutettu .ps:stä .pspartiksi.</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation>'Show info fields only when hovering' option and button in user interface settings.</translation>
+        <translation translatorcomment="AI-translated">'Näytä tietokentät vain vietäessä hiiren osoitinta' -vaihtoehto ja -painike käyttöliittymän asetuksissa.</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation>Visual indicator for camera discovery in the configuration panel (rotating icon, form blocking, and 'Discovering...' text).</translation>
+        <translation translatorcomment="AI-translated">Visuaalinen ilmaisin kameran löytämiselle asetuspaneelissa (pyörivä kuvake, lomakkeen esto ja "Löydetään..." -teksti).</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation>Full localization (added official Polish and English translation support).</translation>
+        <translation translatorcomment="AI-translated">Täysi lokalisointi (lisätty virallinen puola- ja englanninkielinen käännöstuki).</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation>Auxiliary window startup optimization – reduced load time from 3 seconds to under 300 ms.</translation>
+        <translation translatorcomment="AI-translated">Lisäikkunan käynnistyksen optimointi – lyhennetty latausaika 3 sekunnista alle 300 ms.</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation>Aesthetic placeholder in the auxiliary window ('No view selected') with a turquoise border.</translation>
+        <translation translatorcomment="AI-translated">Esteettinen paikkamerkki apuikkunassa ("Ei näkymää valittu") turkoosilla reunuksella.</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation>Hikvision SDK integration for Live view and Playback mode.</translation>
+        <translation translatorcomment="AI-translated">Hikvision SDK -integraatio live-näkymää ja toistotilaa varten.</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation>Multi-camera playback player with automatic timeline positioning and centering.</translation>
+        <translation translatorcomment="AI-translated">Usean kameran toistosoitin, jossa on automaattinen aikajanan paikannus ja keskitys.</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation>Multi-threaded System Monitor (CPU, RAM, GPU, VRAM, and network bandwidth statistics).</translation>
+        <translation translatorcomment="AI-translated">Monisäikeinen järjestelmämonitori (CPU, RAM, GPU, VRAM ja verkon kaistanleveystilastot).</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation>Real-time network bandwidth consumption tracking.</translation>
+        <translation translatorcomment="AI-translated">Reaaliaikainen verkon kaistanleveyden kulutuksen seuranta.</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation>High-resolution app icon and refined dark theme interface.</translation>
+        <translation translatorcomment="AI-translated">Korkean resoluution sovelluskuvake ja hienostunut tumman teeman käyttöliittymä.</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation>Automatic Pacman package building script for Arch Linux.</translation>
+        <translation translatorcomment="AI-translated">Automaattinen Pacman-paketin rakentamisskripti Arch Linuxille.</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation>KVision</translation>
+        <translation translatorcomment="AI-translated">KVision</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation>Version %1</translation>
+        <translation translatorcomment="AI-translated">Versio %1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation>Original author: Evgeny S. Maksimov</translation>
+        <translation translatorcomment="AI-translated">Alkuperäinen kirjoittaja: Evgeny S. Maksimov</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation>Modification: arkanista (with AI assistance)</translation>
+        <translation translatorcomment="AI-translated">Muokkaus: arkanista (AI-avusteella)</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation>Viewport%1</translation>
+        <translation translatorcomment="AI-translated">Näkymä%1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation> #%1</translation>
+        <translation translatorcomment="AI-translated">#%1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation>Tools</translation>
+        <translation translatorcomment="AI-translated">Työkalut</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation>Recorders</translation>
+        <translation translatorcomment="AI-translated">Tallentimet</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation>Presets</translation>
+        <translation translatorcomment="AI-translated">Esiasetukset</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation>Settings</translation>
+        <translation translatorcomment="AI-translated">Asetukset</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation>Changelog</translation>
+        <translation translatorcomment="AI-translated">Muutosloki</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation>Available version: %1</translation>
+        <translation translatorcomment="AI-translated">Saatavilla oleva versio: %1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation>Viewport Details</translation>
+        <translation translatorcomment="AI-translated">Näkymän tiedot</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation>Please select a viewport in the main grid to customize its settings.</translation>
+        <translation translatorcomment="AI-translated">Valitse näkymä pääruudukosta muokataksesi sen asetuksia.</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation>Unlock config pane</translation>
+        <translation translatorcomment="AI-translated">Avaa asetusruudun lukitus</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation>Active Stream Connection</translation>
+        <translation translatorcomment="AI-translated">Aktiivinen suoratoistoyhteys</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation>Primary Stream URL</translation>
+        <translation translatorcomment="AI-translated">Ensisijaisen streamin URL-osoite</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation>Secondary Backup URL</translation>
+        <translation translatorcomment="AI-translated">Toissijainen varmuuskopion URL-osoite</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation>Audio &amp; Rendering Options</translation>
+        <translation translatorcomment="AI-translated">Ääni- ja renderöintivaihtoehdot</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation>Mute / Unmute Audio</translation>
+        <translation translatorcomment="AI-translated">Mykistä / Poista mykistys</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation>FFmpeg Options Override</translation>
+        <translation translatorcomment="AI-translated">FFmpeg-asetusten ohitus</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation>Layout &amp; Grid Tools</translation>
+        <translation translatorcomment="AI-translated">Asettelu- ja ruudukkotyökalut</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation>Unlock tools pane</translation>
+        <translation translatorcomment="AI-translated">Avaa työkaluruudun lukitus</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation>Window Division</translation>
+        <translation translatorcomment="AI-translated">Ikkunaosasto</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation>Error reading configuration!</translation>
+        <translation translatorcomment="AI-translated">Virhe luettaessa konfiguraatiota!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation>Hold to edit division value</translation>
+        <translation translatorcomment="AI-translated">Pidä painettuna muokataksesi jaon arvoa</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation>x</translation>
+        <translation translatorcomment="AI-translated">x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation>Geometry Ratio</translation>
+        <translation translatorcomment="AI-translated">Geometrian suhde</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation>Toggle Full Screen</translation>
+        <translation translatorcomment="AI-translated">Koko näyttö päälle/pois</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation>Grid Operations</translation>
+        <translation translatorcomment="AI-translated">Verkkotoiminnot</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation>Merge Highlighted Cells</translation>
+        <translation translatorcomment="AI-translated">Yhdistä korostetut solut</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation>NVR / Hikvision Recorders Manager</translation>
+        <translation translatorcomment="AI-translated">NVR / Hikvision Recorders Manager</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation>Presets &amp; Quick Layout Views</translation>
+        <translation translatorcomment="AI-translated">Esiasetukset ja nopeat asettelunäkymät</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation>ONVIF and RTSP Layout settings</translation>
+        <translation translatorcomment="AI-translated">ONVIF- ja RTSP-asetteluasetukset</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation>Layout %1</translation>
+        <translation translatorcomment="AI-translated">Asettelu %1</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation>Visible</translation>
+        <translation translatorcomment="AI-translated">Näkyy</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation>Activate this preview layout</translation>
+        <translation translatorcomment="AI-translated">Aktivoi tämä esikatseluasettelu</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation>Delete this preview layout</translation>
+        <translation translatorcomment="AI-translated">Poista tämä esikatseluasettelu</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation>Add Preset Layout</translation>
+        <translation translatorcomment="AI-translated">Lisää esiasetettu asettelu</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation>NVR View Layouts</translation>
+        <translation translatorcomment="AI-translated">NVR-näkymän asettelut</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation>NVR View</translation>
+        <translation translatorcomment="AI-translated">NVR-näkymä</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation>Activate this NVR cameras view</translation>
+        <translation translatorcomment="AI-translated">Aktivoi tämä NVR-kameranäkymä</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation>Delete this NVR cameras view</translation>
+        <translation translatorcomment="AI-translated">Poista tämä NVR-kameranäkymä</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation>NVR Presets (Grid views)</translation>
+        <translation translatorcomment="AI-translated">NVR-esiasetukset (ruudukkonäkymät)</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation>NVR Preset #%1</translation>
+        <translation translatorcomment="AI-translated">NVR-esiasetus #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation>Activate this NVR cameras preset</translation>
+        <translation translatorcomment="AI-translated">Aktivoi tämä NVR-kameran esiasetus</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation>Delete this NVR cameras preset</translation>
+        <translation translatorcomment="AI-translated">Poista tämä NVR-kameroiden esiasetus</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation>Add NVR Preset</translation>
+        <translation translatorcomment="AI-translated">Lisää NVR-esiasetus</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation>System Settings</translation>
+        <translation translatorcomment="AI-translated">Järjestelmäasetukset</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation>General Settings</translation>
+        <translation translatorcomment="AI-translated">Yleiset asetukset</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation>Allow running multiple application instances</translation>
+        <translation translatorcomment="AI-translated">Salli useiden sovellusten suorittaminen</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation>This option is disabled to prevent settings file write conflicts. To enable it (dangerous and not recommended!), set 'singleApplication=false' in the kvision.conf configuration file.</translation>
+        <translation translatorcomment="AI-translated">Tämä asetus on poistettu käytöstä asetustiedostojen kirjoitusristiriitojen estämiseksi. Ota se käyttöön (vaarallista ja ei suositeltavaa!) aseta 'singleApplication=false' kvision.conf-asetustiedostoon.</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation>Check Hikvision NVR error status</translation>
+        <translation translatorcomment="AI-translated">Tarkista Hikvision NVR -virheen tila</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation>Audio</translation>
+        <translation translatorcomment="AI-translated">Ääni</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation>Disable audio entirely</translation>
+        <translation translatorcomment="AI-translated">Poista ääni kokonaan käytöstä</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation>Maximizing camera to full screen does not unmute</translation>
+        <translation translatorcomment="AI-translated">Kameran maksimoiminen koko näytölle ei poista mykistystä</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation>Context Menu Settings</translation>
+        <translation translatorcomment="AI-translated">Kontekstivalikon asetukset</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation>Enable right-click context menu</translation>
+        <translation translatorcomment="AI-translated">Ota käyttöön hiiren kakkospainikkeella pikavalikko</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation>Allow swapping viewport places</translation>
+        <translation translatorcomment="AI-translated">Salli näkymän paikkojen vaihtaminen</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation>Enable 'Remove camera' option</translation>
+        <translation translatorcomment="AI-translated">Ota käyttöön "Poista kamera" -vaihtoehto</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation>Allow changing viewport settings</translation>
+        <translation translatorcomment="AI-translated">Salli näkymän asetusten muuttaminen</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation>Enable 'Stream selection' option</translation>
+        <translation translatorcomment="AI-translated">Ota 'Striimin valinta' -vaihtoehto käyttöön</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation>User Interface Settings</translation>
+        <translation translatorcomment="AI-translated">Käyttöliittymän asetukset</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation>Show channel status in the top left corner of the viewport</translation>
+        <translation translatorcomment="AI-translated">Näytä kanavan tila näkymän vasemmassa yläkulmassa</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation>Show camera info in the bottom left corner of the viewport</translation>
+        <translation translatorcomment="AI-translated">Näytä kameran tiedot kuvaportin vasemmassa alakulmassa</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation>Show control icons in the bottom right corner of the viewport only when hovering</translation>
+        <translation translatorcomment="AI-translated">Näytä ohjauskuvakkeet näkymän oikeassa alakulmassa vain, kun osoitinta pidetään</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation>Show info fields only when hovering</translation>
+        <translation translatorcomment="AI-translated">Näytä tietokentät vain vietäessä hiiren osoitinta</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation>Show top bar by default when opening window</translation>
+        <translation translatorcomment="AI-translated">Näytä yläpalkki oletuksena ikkunaa avattaessa</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation>Hide mouse cursor in Full Screen mode</translation>
+        <translation translatorcomment="AI-translated">Piilota hiiren osoitin koko näytön tilassa</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation>Disable viewport zoom animation</translation>
+        <translation translatorcomment="AI-translated">Poista näkymän zoomausanimaatio käytöstä</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation>Language:</translation>
+        <translation translatorcomment="AI-translated">Kieli:</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation>System default</translation>
+        <translation translatorcomment="AI-translated">Järjestelmän oletus</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation>Limit auxiliary windows to:</translation>
+        <translation translatorcomment="AI-translated">Rajoita lisäikkunoita:</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation>NVR Status Monitoring</translation>
+        <translation translatorcomment="AI-translated">NVR-tilan valvonta</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation>Monitor offline status and login errors</translation>
+        <translation translatorcomment="AI-translated">Tarkkaile offline-tilaa ja kirjautumisvirheitä</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation>Monitor CPU overload (&gt;85%)</translation>
+        <translation translatorcomment="AI-translated">Monitorin suorittimen ylikuormitus (&gt;85 %)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation>Monitor recorder hardware errors</translation>
+        <translation translatorcomment="AI-translated">Tarkkaile tallentimen laitteistovirheitä</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation>Monitor hard disk faults/abnormalities</translation>
+        <translation translatorcomment="AI-translated">Tarkkaile kiintolevyn vikoja/poikkeavuuksia</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation>Monitor unformatted hard disks</translation>
+        <translation translatorcomment="AI-translated">Tarkkaile alustamattomia kiintolevyjä</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation>Monitor full hard disks (loop coverage disabled)</translation>
+        <translation translatorcomment="AI-translated">Valvo täysiä kiintolevyjä (silmukan peitto pois käytöstä)</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation>Playback</translation>
+        <translation translatorcomment="AI-translated">Toisto</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation>Default backward playback start offset, seconds:</translation>
+        <translation translatorcomment="AI-translated">Toiston taaksepäin oletusaloituspoikkeama, sekunti:</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation>Default playback timeline range, hours:</translation>
+        <translation translatorcomment="AI-translated">Toiston oletusaikajana, tunnit:</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation>Saving</translation>
+        <translation translatorcomment="AI-translated">Tallennetaan</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation>Activate changes in this section</translation>
+        <translation translatorcomment="AI-translated">Aktivoi muutokset tässä osiossa</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation>Default snapshot path:</translation>
+        <translation translatorcomment="AI-translated">Tilannekuvan oletuspolku:</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation>Choose folder for snapshots</translation>
+        <translation translatorcomment="AI-translated">Valitse tilannekuvien kansio</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation>Default recordings path:</translation>
+        <translation translatorcomment="AI-translated">Tallennuksen oletuspolku:</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation>Choose folder for recordings</translation>
+        <translation translatorcomment="AI-translated">Valitse tallennuskansio</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation>open image folder</translation>
+        <translation translatorcomment="AI-translated">avaa kuvakansio</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation>open video folder</translation>
+        <translation translatorcomment="AI-translated">avaa videokansio</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation>System Media Configuration</translation>
+        <translation translatorcomment="AI-translated">System Media Configuration</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation>Default FFmpeg command-line options</translation>
+        <translation translatorcomment="AI-translated">FFmpeg-komentorivin oletusasetukset</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation>Update all cameras</translation>
+        <translation translatorcomment="AI-translated">Päivitä kaikki kamerat</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation>Changelog</translation>
+        <translation translatorcomment="AI-translated">Muutosloki</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation>History of improvements, bug fixes, and new features in KVision.</translation>
+        <translation translatorcomment="AI-translated">Parannusten, virheenkorjausten ja uusien ominaisuuksien historia KVisionissa.</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation>Confirm Deletion</translation>
+        <translation translatorcomment="AI-translated">Vahvista poisto</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation>Are you sure you want to delete preset \"%1\"? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Haluatko varmasti poistaa esiasetuksen \"%1\"? Tämä toimenpide on täysin peruuttamaton.</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation>Are you sure you want to delete preset #%1? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Haluatko varmasti poistaa esiasetuksen #% 1? Tämä toimenpide on täysin peruuttamaton.</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation>Are you sure you want to delete NVR view \"%1\"? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Haluatko varmasti poistaa NVR-näkymän \"%1\"? Tämä toimenpide on täysin peruuttamaton.</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation>Are you sure you want to delete this NVR view layout? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Haluatko varmasti poistaa tämän NVR-näkymän asettelun? Tämä toimenpide on täysin peruuttamaton.</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation>Are you sure you want to delete NVR Preset \"%1\"? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Haluatko varmasti poistaa NVR-esiasetuksen \"%1\"? Tämä toimenpide on täysin peruuttamaton.</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation>Are you sure you want to delete this NVR Preset? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Haluatko varmasti poistaa tämän NVR-esiasetuksen? Tämä toimenpide on täysin peruuttamaton.</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4294,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation>Error reading configuration!</translation>
+        <translation translatorcomment="AI-translated">Virhe luettaessa konfiguraatiota!</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4313,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation>KVision</translation>
+        <translation translatorcomment="AI-translated">KVision</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation>The program is already running, you cannot start a second one</translation>
+        <translation translatorcomment="AI-translated">Ohjelma on jo käynnissä, et voi käynnistää toista</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation>CLOSE</translation>
+        <translation translatorcomment="AI-translated">SULJE</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4344,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation>Snapshot saved</translation>
+        <translation translatorcomment="AI-translated">Tilannekuva tallennettu</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation>Snapshot saved - </translation>
+        <translation translatorcomment="AI-translated">Tilannekuva tallennettu -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation>Browse</translation>
+        <translation translatorcomment="AI-translated">Selaa</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation>Exit</translation>
+        <translation translatorcomment="AI-translated">Poistu</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4411,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation>Layout &amp; Grid Tools</translation>
+        <translation translatorcomment="AI-translated">Asettelu- ja ruudukkotyökalut</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation>Unlock tools pane</translation>
+        <translation translatorcomment="AI-translated">Avaa työkaluruudun lukitus</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation>Window Division</translation>
+        <translation translatorcomment="AI-translated">Ikkunaosasto</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation>Error reading configuration!</translation>
+        <translation translatorcomment="AI-translated">Virhe luettaessa konfiguraatiota!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation>Hold to edit division value</translation>
+        <translation translatorcomment="AI-translated">Pidä painettuna muokataksesi jaon arvoa</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation>x</translation>
+        <translation translatorcomment="AI-translated">x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation>Geometry Ratio</translation>
+        <translation translatorcomment="AI-translated">Geometrian suhde</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation>16:9 Aspect Ratio</translation>
+        <translation translatorcomment="AI-translated">16:9 kuvasuhde</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation>4:3 Aspect Ratio</translation>
+        <translation translatorcomment="AI-translated">4:3 kuvasuhde</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation>Toggle Full Screen</translation>
+        <translation translatorcomment="AI-translated">Koko näyttö päälle/pois</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation>Grid Operations</translation>
+        <translation translatorcomment="AI-translated">Verkkotoiminnot</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation>Merge Highlighted Cells</translation>
+        <translation translatorcomment="AI-translated">Yhdistä korostetut solut</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4498,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation>Viewport Settings</translation>
+        <translation translatorcomment="AI-translated">Näkymäikkunan asetukset</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation>Active Stream Connection</translation>
+        <translation translatorcomment="AI-translated">Aktiivinen suoratoistoyhteys</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation>Primary Stream URL</translation>
+        <translation translatorcomment="AI-translated">Ensisijaisen streamin URL-osoite</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation>Secondary Backup URL</translation>
+        <translation translatorcomment="AI-translated">Toissijainen varmuuskopion URL-osoite</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation>Channel Options</translation>
+        <translation translatorcomment="AI-translated">Kanavaasetukset</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation>FFmpeg options</translation>
+        <translation translatorcomment="AI-translated">FFmpeg-vaihtoehdot</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation>Do not include global FFmpeg settings changes</translation>
+        <translation translatorcomment="AI-translated">Älä sisällytä yleisiä FFmpeg-asetusten muutoksia</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation>Cancel</translation>
+        <translation translatorcomment="AI-translated">Peruuta</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation>Save</translation>
+        <translation translatorcomment="AI-translated">Tallenna</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4590,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation>Swap viewports</translation>
+        <translation translatorcomment="AI-translated">Vaihda kuvaportteja</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation>Stream selection</translation>
+        <translation translatorcomment="AI-translated">Suoratoiston valinta</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation>Remove camera</translation>
+        <translation translatorcomment="AI-translated">Poista kamera</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation>Change settings</translation>
+        <translation translatorcomment="AI-translated">Muuta asetuksia</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation>Reload</translation>
+        <translation translatorcomment="AI-translated">Lataa uudelleen</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation>Snapshot</translation>
+        <translation translatorcomment="AI-translated">Tilannekuva</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation>Playback</translation>
+        <translation translatorcomment="AI-translated">Toisto</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation>Automatycznie</translation>
+        <translation translatorcomment="AI-translated">Automatycznie</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation>Tylko MAIN</translation>
+        <translation translatorcomment="AI-translated">Tylko PÄÄ</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation>Tylko SUB</translation>
+        <translation translatorcomment="AI-translated">Tylko SUB</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation>Confirm Camera Removal</translation>
+        <translation translatorcomment="AI-translated">Vahvista kameran poisto</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation>Are you sure you want to remove the camera from this viewport?</translation>
+        <translation translatorcomment="AI-translated">Haluatko varmasti poistaa kameran tästä kuvaportista?</translation>
     </message>
 </context>
 </TS>

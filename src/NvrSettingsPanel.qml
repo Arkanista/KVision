@@ -70,7 +70,7 @@ ColumnLayout {
 
             if (!success) {
                 rootPanel.statusColor = "#ff3333";
-                rootPanel.statusMessage = errorMsg || qsTr("Login failed or no cameras discovered.");
+                rootPanel.statusMessage = errorMsg || qsTr("LNG_00099");
                 return;
             }
 
@@ -194,7 +194,7 @@ ColumnLayout {
     }
 
     Text {
-        text: qsTr("Add Hikvision Recorder")
+        text: qsTr("LNG_00098")
         color: "white"
         font {
             pixelSize: 13
@@ -219,7 +219,7 @@ ColumnLayout {
 
             TextField {
                 id: nameField
-                placeholderText: qsTr("Recorder Name (optional)")
+                placeholderText: qsTr("LNG_00097")
                 selectByMouse: true
                 Layout.fillWidth: true
                 color: "white"
@@ -233,7 +233,7 @@ ColumnLayout {
 
             TextField {
                 id: ipField
-                placeholderText: qsTr("IP Address")
+                placeholderText: qsTr("LNG_00096")
                 selectByMouse: true
                 Layout.fillWidth: true
                 color: "white"
@@ -251,7 +251,7 @@ ColumnLayout {
 
                 TextField {
                     id: portField
-                    placeholderText: qsTr("Port (8000)")
+                    placeholderText: qsTr("LNG_00095")
                     text: "8000"
                     selectByMouse: true
                     Layout.fillWidth: true
@@ -266,7 +266,7 @@ ColumnLayout {
 
                 TextField {
                     id: userField
-                    placeholderText: qsTr("Username")
+                    placeholderText: qsTr("LNG_00094")
                     text: "admin"
                     selectByMouse: true
                     Layout.fillWidth: true
@@ -282,7 +282,7 @@ ColumnLayout {
 
             TextField {
                 id: passField
-                placeholderText: qsTr("Password")
+                placeholderText: qsTr("LNG_00093")
                 echoMode: TextInput.Password
                 selectByMouse: true
                 Layout.fillWidth: true
@@ -313,7 +313,7 @@ ColumnLayout {
 
                 Button {
                     id: addBtn
-                    text: rootPanel.isDiscovering ? qsTr("Discovering...") : (rootPanel.editingIndex === -1 ? qsTr("Connect & Discover") : qsTr("Save & Update"))
+                    text: rootPanel.isDiscovering ? qsTr("LNG_00092") : (rootPanel.editingIndex === -1 ? qsTr("LNG_00091") : qsTr("LNG_00090"))
                     Layout.fillWidth: true
                     highlighted: true
 
@@ -352,7 +352,7 @@ ColumnLayout {
                     onClicked: {
                         if (ipField.text === "" || passField.text === "") {
                             rootPanel.statusColor = "#ff3333";
-                            rootPanel.statusMessage = qsTr("Error: IP and Password are required.");
+                            rootPanel.statusMessage = qsTr("LNG_00089");
                             return;
                         }
 
@@ -362,7 +362,7 @@ ColumnLayout {
                         var pass = passField.text;
 
                         rootPanel.statusColor = "#00f5d4"; // Cyan glowing text for loading
-                        rootPanel.statusMessage = qsTr("Connecting to NVR and discovering channels...");
+                        rootPanel.statusMessage = qsTr("LNG_00088");
                         rootPanel.isDiscovering = true;
 
                         // Log in and fetch camera channels from NVR asynchronously
@@ -372,7 +372,7 @@ ColumnLayout {
 
                 Button {
                     id: cancelBtn
-                    text: qsTr("Cancel")
+                    text: qsTr("LNG_00059")
                     visible: rootPanel.editingIndex !== -1
                     implicitWidth: 80
                     Layout.fillHeight: true
@@ -405,7 +405,7 @@ ColumnLayout {
     }
 
     Text {
-        text: qsTr("Connected Recorders")
+        text: qsTr("LNG_00087")
         color: "white"
         font {
             pixelSize: 13
@@ -446,7 +446,7 @@ ColumnLayout {
                             font.pixelSize: 11
                         }
                         Text {
-                            text: qsTr("%1 cameras connected").arg(modelData.cameras ? modelData.cameras.length : 0)
+                            text: qsTr("LNG_00086").arg(modelData.cameras ? modelData.cameras.length : 0)
                             color: "#8898a6"
                             font.pixelSize: 9
                         }
@@ -474,7 +474,7 @@ ColumnLayout {
                             }
 
                             Text {
-                                text: (rootPanel.activeSessionIps[modelData.ip] || false) ? qsTr("LOGGED IN") : qsTr("NOT LOGGED IN")
+                                text: (rootPanel.activeSessionIps[modelData.ip] || false) ? qsTr("LNG_00085") : qsTr("LNG_00084")
                                 color: (rootPanel.activeSessionIps[modelData.ip] || false) ? "#00ff66" : "#ff3333"
                                 font.pixelSize: 9
                                 font.bold: true
@@ -485,7 +485,7 @@ ColumnLayout {
                             delay: Compact.toolTipDelay
                             timeout: Compact.toolTipTimeout
                             visible: statusArea.containsMouse
-                            text: qsTr("Green: Active SDK session (PTZ/Archive). Red: No active session (RTSP stream works independently).")
+                            text: qsTr("LNG_00083")
                         }
                     }
 
@@ -520,7 +520,7 @@ ColumnLayout {
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: webBtn.hovered
-                        ToolTip.text: qsTr("Otwórz stronę logowania rejestratora w przeglądarce")
+                        ToolTip.text: qsTr("LNG_00082")
                     }
 
                     Button {
@@ -553,7 +553,7 @@ ColumnLayout {
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: listBtn.hovered
-                        ToolTip.text: qsTr("Pokaż listę kamer rejestratora")
+                        ToolTip.text: qsTr("LNG_00081")
                     }
 
                     Button {
@@ -592,7 +592,7 @@ ColumnLayout {
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: editBtn.hovered
-                        ToolTip.text: qsTr("Edytuj dane połączenia rejestratora")
+                        ToolTip.text: qsTr("LNG_00080")
                     }
 
                     Button {
@@ -627,7 +627,7 @@ ColumnLayout {
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: delBtn.hovered
-                        ToolTip.text: qsTr("Usuń rejestrator z listy")
+                        ToolTip.text: qsTr("LNG_00079")
                     }
                 }
             }
@@ -636,9 +636,9 @@ ColumnLayout {
 
     ConfirmDialog {
         id: deleteConfirmDialog1
-        title: qsTr("Confirm NVR Deletion")
+        title: qsTr("LNG_00078")
         iconSource: "qrc:/images/icon-warning.svg"
-        message: qsTr("Are you sure you want to delete this NVR?")
+        message: qsTr("LNG_00077")
         property int targetIndex: -1
         property string targetIp: ""
         
@@ -651,9 +651,9 @@ ColumnLayout {
 
     ConfirmDialog {
         id: deleteConfirmDialog2
-        title: qsTr("Warning!")
+        title: qsTr("LNG_00076")
         iconSource: "qrc:/images/icon-warning.svg"
-        message: qsTr("Are you absolutely sure and aware of what you are doing?")
+        message: qsTr("LNG_00075")
         property int targetIndex: -1
         property string targetIp: ""
         

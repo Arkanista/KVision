@@ -488,19 +488,19 @@ FocusScope {
         var activePlayer = activePlayerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
         switch (activePlayer.status) {
         case MediaPlayer.NoMedia:
-            message.text = qsTr("No media");
+            message.text = qsTr("LNG_00200");
             break;
         case MediaPlayer.Loading:
-            message.text = qsTr("Loading...");
+            message.text = qsTr("LNG_00199");
             break;
         case MediaPlayer.Loaded:
-            message.text = qsTr("Loaded");
+            message.text = qsTr("LNG_00198");
             break;
         case MediaPlayer.Stalled:
-            message.text = qsTr("Stalled");
+            message.text = qsTr("LNG_00197");
             break;
         case MediaPlayer.Buffering:
-            message.text = qsTr("Buffering %1\%").arg(Math.round(activePlayer.bufferProgress * 100));
+            message.text = qsTr("LNG_00196").arg(Math.round(activePlayer.bufferProgress * 100));
             break;
         case MediaPlayer.Buffered:
             message.text = "";
@@ -508,7 +508,7 @@ FocusScope {
             break;
         case MediaPlayer.EndOfMedia:
         case MediaPlayer.InvalidMedia:
-            message.text = qsTr("Brak danych do wyświetlenia");
+            message.text = qsTr("LNG_00195");
             break;
         default:
             message.text = "";
@@ -868,7 +868,7 @@ FocusScope {
                         anchors.verticalCenter: parent.verticalCenter
                     }
                     Text {
-                        text: qsTr("Przywracam widok live...")
+                        text: qsTr("LNG_00194")
                         color: "#00f5d4"
                         font.bold: true
                         font.pixelSize: 14
@@ -1368,7 +1368,7 @@ FocusScope {
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: muteMouseArea.containsMouse
-                        ToolTip.text: qsTr("Wycisz")
+                        ToolTip.text: qsTr("LNG_00106")
                     }
 
                     Slider {
@@ -1478,7 +1478,7 @@ FocusScope {
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: maxVolMouseArea.containsMouse
-                        ToolTip.text: qsTr("Maksymalna głośność")
+                        ToolTip.text: qsTr("LNG_00157")
                     }
                 }
 
@@ -1533,7 +1533,7 @@ FocusScope {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: snapshotMouseAreaBtn.containsMouse
-                    ToolTip.text: qsTr("Wykonaj stopklatkę w pełnej rozdzielczości")
+                    ToolTip.text: qsTr("LNG_00156")
                 }
 
                 Control {
@@ -1582,7 +1582,7 @@ FocusScope {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: playbackMouseAreaBtn.containsMouse
-                    ToolTip.text: qsTr("Archiwum nagrań")
+                    ToolTip.text: qsTr("LNG_00193")
                 }
 
                 Control {
@@ -1627,7 +1627,7 @@ FocusScope {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: quickPlaybackToggleMouseArea.containsMouse
-                    ToolTip.text: root.isQuickPlayback ? qsTr("Wyłącz szybki podgląd wstecz") : qsTr("Szybki podgląd wstecz (do 30 min)")
+                    ToolTip.text: root.isQuickPlayback ? qsTr("LNG_00192") : qsTr("LNG_00191")
                 }
 
                 Control {
@@ -1671,7 +1671,7 @@ FocusScope {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: oneToOneMouseAreaBtn.containsMouse
-                    ToolTip.text: root.isOneToOne ? qsTr("Wyłącz tryb 1:1") : qsTr("Włącz tryb 1:1 (piksel w piksel)")
+                    ToolTip.text: root.isOneToOne ? qsTr("LNG_00155") : qsTr("LNG_00154")
                 }
 
                 Control {
@@ -1735,7 +1735,7 @@ FocusScope {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: zoomMouseAreaBtn.containsMouse
-                    ToolTip.text: root.isZoomed ? qsTr("Reset Zoom") : (root.isZoomSelectionMode ? qsTr("Click and drag on camera feed to zoom") : qsTr("Select region to zoom"))
+                    ToolTip.text: root.isZoomed ? qsTr("LNG_00153") : (root.isZoomSelectionMode ? qsTr("LNG_00190") : qsTr("LNG_00189"))
                 }
             }
         }
@@ -1932,7 +1932,7 @@ FocusScope {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: hovered
-                    ToolTip.text: root.isQuickPlaybackPaused ? qsTr("Rozpocznij odtwarzanie") : qsTr("Wstrzymaj odtwarzanie")
+                    ToolTip.text: root.isQuickPlaybackPaused ? qsTr("LNG_00128") : qsTr("LNG_00129")
                 }
 
                 Text {
@@ -1968,7 +1968,7 @@ FocusScope {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Prędkość odtwarzania")
+                    ToolTip.text: qsTr("LNG_00188")
                 }
 
                 CctvButton {
@@ -1986,7 +1986,7 @@ FocusScope {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Zamknij podgląd wstecz")
+                    ToolTip.text: qsTr("LNG_00187")
                 }
             }
         }

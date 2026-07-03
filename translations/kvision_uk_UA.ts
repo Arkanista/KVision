@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="uk_UA">
 <context>
     <name>AuxiliaryLimitWarning</name>
     <message>
@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation>KVision</translation>
+        <translation translatorcomment="AI-translated">KVision</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation>You cannot open more auxiliary windows</translation>
+        <translation translatorcomment="AI-translated">Ви не можете відкрити більше допоміжних вікон</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation>CLOSE</translation>
+        <translation translatorcomment="AI-translated">ЗАКРИТИ</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation>KVision - Auxiliary Window</translation>
+        <translation translatorcomment="AI-translated">KVision — допоміжне вікно</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation>No view selected, select a view</translation>
+        <translation translatorcomment="AI-translated">Перегляд не вибрано, виберіть подання</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation>Select a view from the top menu to start displaying cameras.</translation>
+        <translation translatorcomment="AI-translated">Виберіть подання у верхньому меню, щоб почати відображення камер.</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation>Options and settings of the sidebar panel</translation>
+        <translation translatorcomment="AI-translated">Опції та налаштування панелі бічної панелі</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation>Open new auxiliary window</translation>
+        <translation translatorcomment="AI-translated">Відкрити нове допоміжне вікно</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation>Program user manual</translation>
+        <translation translatorcomment="AI-translated">Інструкція користувача програми</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation>Grid view:</translation>
+        <translation translatorcomment="AI-translated">Вигляд сітки:</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation>Toggle Full Screen</translation>
+        <translation translatorcomment="AI-translated">Перемкнути повний екран</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation>🔒 Lock layout change</translation>
+        <translation translatorcomment="AI-translated">🔒 Зміна макета замка</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation>More options</translation>
+        <translation translatorcomment="AI-translated">Більше варіантів</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation>View selection:</translation>
+        <translation translatorcomment="AI-translated">Переглянути вибір:</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation>Close program</translation>
+        <translation translatorcomment="AI-translated">Закрити програму</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation>Are you sure you want to close the program?</translation>
+        <translation translatorcomment="AI-translated">Ви впевнені, що бажаєте закрити програму?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation>YES</translation>
+        <translation translatorcomment="AI-translated">ТАК</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation>NO</translation>
+        <translation translatorcomment="AI-translated">НІ</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation>Yes</translation>
+        <translation translatorcomment="AI-translated">так</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation>No</translation>
+        <translation translatorcomment="AI-translated">немає</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation>Path to the config file.</translation>
+        <translation translatorcomment="AI-translated">Шлях до конфігураційного файлу.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation>Index of the current preset.</translation>
+        <translation translatorcomment="AI-translated">Індекс поточного стилю.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation>Force full-screen mode.</translation>
+        <translation translatorcomment="AI-translated">Примусовий повноекранний режим.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation>Kiosk mode functionality.</translation>
+        <translation translatorcomment="AI-translated">Функціональність режиму кіоску.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation>Log level [%1...%2].</translation>
+        <translation translatorcomment="AI-translated">Рівень журналу [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation>Start as an auxiliary window.</translation>
+        <translation translatorcomment="AI-translated">Почати як допоміжне вікно.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation>ID of the auxiliary window.</translation>
+        <translation translatorcomment="AI-translated">ID допоміжного вікна.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation>Show verbose logs in console (verbose logging).</translation>
+        <translation translatorcomment="AI-translated">Показувати докладні журнали в консолі (детальне журналювання).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation>Enable object tracking in logs for debugging memory leaks.</translation>
+        <translation translatorcomment="AI-translated">Увімкніть відстеження об’єктів у журналах для налагодження витоків пам’яті.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation>Force first run behavior and show instructions.</translation>
+        <translation translatorcomment="AI-translated">Примусова поведінка першого запуску та показ інструкцій.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation>Simulate NVR errors on all recorders.</translation>
+        <translation translatorcomment="AI-translated">Симулювати помилки NVR на всіх записувачах.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation>Mock new version availability on GitHub for testing purposes</translation>
+        <translation translatorcomment="AI-translated">Імітація нової версії на GitHub для тестування</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation>KVision - viewer and mounter video streams.</translation>
+        <translation translatorcomment="AI-translated">KVision - засіб перегляду та монтування відеопотоків.</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation>End date and time must be later than start date and time!</translation>
+        <translation translatorcomment="AI-translated">Дата й час завершення мають бути пізнішими за дату й час початку!</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation>January</translation>
+        <translation translatorcomment="AI-translated">січня</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation>February</translation>
+        <translation translatorcomment="AI-translated">Лютий</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation>March</translation>
+        <translation translatorcomment="AI-translated">березень</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation>April</translation>
+        <translation translatorcomment="AI-translated">квітень</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation>May</translation>
+        <translation translatorcomment="AI-translated">травня</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation>June</translation>
+        <translation translatorcomment="AI-translated">червень</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation>July</translation>
+        <translation translatorcomment="AI-translated">липень</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation>August</translation>
+        <translation translatorcomment="AI-translated">Серпень</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation>September</translation>
+        <translation translatorcomment="AI-translated">вересень</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation>October</translation>
+        <translation translatorcomment="AI-translated">жовтень</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation>November</translation>
+        <translation translatorcomment="AI-translated">Листопад</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation>December</translation>
+        <translation translatorcomment="AI-translated">грудень</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation>Previous month</translation>
+        <translation translatorcomment="AI-translated">Попередній місяць</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation>Next month</translation>
+        <translation translatorcomment="AI-translated">Наступного місяця</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation>Select time</translation>
+        <translation translatorcomment="AI-translated">Виберіть час</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation>Hr</translation>
+        <translation translatorcomment="AI-translated">Хр</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation>Min</translation>
+        <translation translatorcomment="AI-translated">Хв</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation>Sec</translation>
+        <translation translatorcomment="AI-translated">розд</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation>Cancel</translation>
+        <translation translatorcomment="AI-translated">Скасувати</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation>Confirm</translation>
+        <translation translatorcomment="AI-translated">Підтвердити</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation>Download recordings</translation>
+        <translation translatorcomment="AI-translated">Завантажити записи</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation>From:</translation>
+        <translation translatorcomment="AI-translated">Від:</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation>Incorrect date format! Required format: DD.MM.YYYY (e.g. 26.06.2026)</translation>
+        <translation translatorcomment="AI-translated">Неправильний формат дати! Необхідний формат: ДД.ММ.РРРР (наприклад, 26.06.2026)</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation>Incorrect time format! Required format: HH:MM:SS or HH.MM.SS (e.g. 12:30:00 or 12.30.00)</translation>
+        <translation translatorcomment="AI-translated">Неправильний формат часу! Необхідний формат: ГГ:ХХ:СС або ГГ.ХХ.СС (наприклад, 12:30:00 або 12.30.00)</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation>To:</translation>
+        <translation translatorcomment="AI-translated">до:</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation>Total:</translation>
+        <translation translatorcomment="AI-translated">Всього:</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation>Downloading...</translation>
+        <translation translatorcomment="AI-translated">Завантаження...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation>Error:</translation>
+        <translation translatorcomment="AI-translated">Помилка:</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation>Initializing...</translation>
+        <translation translatorcomment="AI-translated">Ініціалізація...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation>Stopped</translation>
+        <translation translatorcomment="AI-translated">Зупинився</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation>open save folder</translation>
+        <translation translatorcomment="AI-translated">відкрити папку збереження</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation>Stop</translation>
+        <translation translatorcomment="AI-translated">СТІЙ</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation>Download</translation>
+        <translation translatorcomment="AI-translated">Завантажити</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation>Download is already in progress.</translation>
+        <translation translatorcomment="AI-translated">Завантаження вже триває.</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation>Initializing file search...</translation>
+        <translation translatorcomment="AI-translated">Ініціалізація пошуку файлів...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation>Error logging in to device: %1</translation>
+        <translation translatorcomment="AI-translated">Помилка входу в пристрій: %1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation>No recordings in the selected time range for this camera.</translation>
+        <translation translatorcomment="AI-translated">Немає записів у вибраному діапазоні часу для цієї камери.</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation>Downloaded and converted %1 of %2 files.</translation>
+        <translation translatorcomment="AI-translated">Завантажено та конвертовано %1 із %2 файлів.</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation>The specified save path is invalid or write access is denied:
+        <translation translatorcomment="AI-translated">Указаний шлях збереження недійсний або доступ до запису заборонено:
 %1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation>No write permission in the directory:
+        <translation translatorcomment="AI-translated">Немає дозволу на запис у каталозі:
 %1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation>Error initializing download of part %1: %2</translation>
+        <translation translatorcomment="AI-translated">Помилка ініціалізації завантаження частини %1: %2</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation>Error starting download of part %1: %2</translation>
+        <translation translatorcomment="AI-translated">Помилка початку завантаження частини %1: %2</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation>Downloading part %1 of %2...</translation>
+        <translation translatorcomment="AI-translated">Завантаження частини %1 з %2...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation>Stopped</translation>
+        <translation translatorcomment="AI-translated">Зупинився</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation>Download interrupted by user.</translation>
+        <translation translatorcomment="AI-translated">Завантаження перервано користувачем.</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation>Converting part %1 of %2...</translation>
+        <translation translatorcomment="AI-translated">Перетворення частини %1 з %2...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation>Error downloading part %1.</translation>
+        <translation translatorcomment="AI-translated">Помилка завантаження частини %1.</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation>Downloaded and converted %1 of %2 parts...</translation>
+        <translation translatorcomment="AI-translated">Завантажено та конвертовано %1 з %2 частин...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation>Internal FFmpeg error</translation>
+        <translation translatorcomment="AI-translated">Внутрішня помилка FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation>Conversion of part %1 to MP4 failed: %2</translation>
+        <translation translatorcomment="AI-translated">Помилка перетворення частини %1 на MP4: %2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation>Login failed or no cameras discovered.</translation>
+        <translation translatorcomment="AI-translated">Помилка входу або камери не виявлено.</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation>KVision - User Manual / Instructions</translation>
+        <translation translatorcomment="AI-translated">KVision - Посібник користувача / Інструкції</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation>qrc:/INSTRUCTIONS.md</translation>
+        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation>Error loading instructions.</translation>
+        <translation translatorcomment="AI-translated">Помилка завантаження інструкцій.</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation>Cameras on %1</translation>
+        <translation translatorcomment="AI-translated">Камери на %1</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation>Cameras</translation>
+        <translation translatorcomment="AI-translated">Фотоапарати</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation>IP: %1 | Port: %2 | %3 channels</translation>
+        <translation translatorcomment="AI-translated">IP: %1 | Порт: %2 | %3 канали</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation>Generate thumbnails for all cameras</translation>
+        <translation translatorcomment="AI-translated">Створення мініатюр для всіх камер</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation>Camera %1</translation>
+        <translation translatorcomment="AI-translated">Камера %1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation>Assigned camera %1 Ch. %2 to viewport %3</translation>
+        <translation translatorcomment="AI-translated">Призначена камера %1 Канал. %2 до вікна перегляду %3</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation>Assign to active viewport</translation>
+        <translation translatorcomment="AI-translated">Призначити активному вікну перегляду</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation>Rename camera</translation>
+        <translation translatorcomment="AI-translated">Перейменувати камеру</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation>Refresh camera thumbnail</translation>
+        <translation translatorcomment="AI-translated">Оновити мініатюру камери</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation>Change Camera Name</translation>
+        <translation translatorcomment="AI-translated">Змінити назву камери</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation>Channel: %1</translation>
+        <translation translatorcomment="AI-translated">Канал: %1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation>Original name: %1</translation>
+        <translation translatorcomment="AI-translated">Оригінальна назва: %1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation>None</translation>
+        <translation translatorcomment="AI-translated">Жодного</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation>Enter new camera name...</translation>
+        <translation translatorcomment="AI-translated">Введіть нову назву камери...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation>Reset</translation>
+        <translation translatorcomment="AI-translated">Скинути</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation>Cancel</translation>
+        <translation translatorcomment="AI-translated">Скасувати</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation>Save</translation>
+        <translation translatorcomment="AI-translated">зберегти</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation>Login failed or no cameras discovered.</translation>
+        <translation translatorcomment="AI-translated">Помилка входу або камери не виявлено.</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation>Add Hikvision Recorder</translation>
+        <translation translatorcomment="AI-translated">Додати Hikvision Recorder</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation>Recorder Name (optional)</translation>
+        <translation translatorcomment="AI-translated">Ім'я рекордера (необов'язково)</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation>IP Address</translation>
+        <translation translatorcomment="AI-translated">IP-адреса</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation>Port (8000)</translation>
+        <translation translatorcomment="AI-translated">Порт (8000)</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation>Username</translation>
+        <translation translatorcomment="AI-translated">Ім'я користувача</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation>Password</translation>
+        <translation translatorcomment="AI-translated">Пароль</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation>Discovering...</translation>
+        <translation translatorcomment="AI-translated">Виявлення...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation>Connect &amp; Discover</translation>
+        <translation translatorcomment="AI-translated">Підключайтеся та відкривайте</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation>Save &amp; Update</translation>
+        <translation translatorcomment="AI-translated">Зберегти й оновити</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation>Error: IP and Password are required.</translation>
+        <translation translatorcomment="AI-translated">Помилка: потрібні IP та пароль.</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation>Connecting to NVR and discovering channels...</translation>
+        <translation translatorcomment="AI-translated">Підключення до NVR і пошук каналів...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation>Cancel</translation>
+        <translation translatorcomment="AI-translated">Скасувати</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation>Connected Recorders</translation>
+        <translation translatorcomment="AI-translated">Підключені рекордери</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation>%1 cameras connected</translation>
+        <translation translatorcomment="AI-translated">Підключено %1 камер</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation>LOGGED IN</translation>
+        <translation translatorcomment="AI-translated">УВІЙШОВ</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation>NOT LOGGED IN</translation>
+        <translation translatorcomment="AI-translated">НЕ УВІЙШИВ</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation>Green: Active SDK session (PTZ/Archive). Red: No active session (RTSP stream works independently).</translation>
+        <translation translatorcomment="AI-translated">Зелений: активний сеанс SDK (PTZ/архів). Червоний: немає активного сеансу (потік RTSP працює незалежно).</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation>Open NVR login page in browser</translation>
+        <translation translatorcomment="AI-translated">Відкрийте сторінку входу NVR у браузері</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation>Show NVR cameras list</translation>
+        <translation translatorcomment="AI-translated">Показати список камер NVR</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation>Edit recorder connection details</translation>
+        <translation translatorcomment="AI-translated">Відредагуйте деталі підключення рекордера</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation>Delete recorder from list</translation>
+        <translation translatorcomment="AI-translated">Видалити рекордер зі списку</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation>Confirm NVR Deletion</translation>
+        <translation translatorcomment="AI-translated">Підтвердьте видалення NVR</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation>Are you sure you want to delete this NVR?</translation>
+        <translation translatorcomment="AI-translated">Ви впевнені, що хочете видалити цей відеореєстратор?</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation>Warning!</translation>
+        <translation translatorcomment="AI-translated">УВАГА!</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation>Are you absolutely sure and aware of what you are doing?</translation>
+        <translation translatorcomment="AI-translated">Ви абсолютно впевнені і усвідомлюєте, що робите?</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation>NVR Status</translation>
+        <translation translatorcomment="AI-translated">Статус NVR</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation>Checking NVR status...</translation>
+        <translation translatorcomment="AI-translated">Перевірка статусу NVR...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation>Last check: </translation>
+        <translation translatorcomment="AI-translated">Остання перевірка:</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation>never</translation>
+        <translation translatorcomment="AI-translated">ніколи</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation>Mute</translation>
+        <translation translatorcomment="AI-translated">Вимкнути звук</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation>ERROR</translation>
+        <translation translatorcomment="AI-translated">ПОМИЛКА</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation>OK</translation>
+        <translation translatorcomment="AI-translated">добре</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation>No status data</translation>
+        <translation translatorcomment="AI-translated">Немає даних про стан</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation>Press the button below to check NVR status.</translation>
+        <translation translatorcomment="AI-translated">Натисніть кнопку нижче, щоб перевірити статус NVR.</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation>Check now</translation>
+        <translation translatorcomment="AI-translated">Перевір зараз</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation>Close</translation>
+        <translation translatorcomment="AI-translated">Закрити</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation>Simulated NVR</translation>
+        <translation translatorcomment="AI-translated">Симуляція NVR</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation>Disk 1</translation>
+        <translation translatorcomment="AI-translated">Диск 1</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation>Critical disk error/failure (Simulation)</translation>
+        <translation translatorcomment="AI-translated">Критична помилка/збій диска (моделювання)</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation>No connection or login error (Simulation)</translation>
+        <translation translatorcomment="AI-translated">Немає підключення або помилка входу (симуляція)</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation>No connection or login error</translation>
+        <translation translatorcomment="AI-translated">Немає підключення або помилка входу</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation>Error reading NVR status (SDK)</translation>
+        <translation translatorcomment="AI-translated">Помилка читання статусу NVR (SDK)</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation>High CPU load (&gt;85%)</translation>
+        <translation translatorcomment="AI-translated">Високе навантаження на ЦП (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation>Device hardware error</translation>
+        <translation translatorcomment="AI-translated">Апаратна помилка пристрою</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation>Disk %1</translation>
+        <translation translatorcomment="AI-translated">Диск %1</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation>Critical disk error/failure</translation>
+        <translation translatorcomment="AI-translated">Критична помилка/збій диска</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation>Disk unformatted</translation>
+        <translation translatorcomment="AI-translated">Диск не відформатований</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation>Disk full (overwrite disabled)</translation>
+        <translation translatorcomment="AI-translated">Диск заповнений (перезапис вимкнено)</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation>Archive - </translation>
+        <translation translatorcomment="AI-translated">Архів -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation>January</translation>
+        <translation translatorcomment="AI-translated">січня</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation>February</translation>
+        <translation translatorcomment="AI-translated">Лютий</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation>March</translation>
+        <translation translatorcomment="AI-translated">березень</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation>April</translation>
+        <translation translatorcomment="AI-translated">квітень</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation>May</translation>
+        <translation translatorcomment="AI-translated">травня</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation>June</translation>
+        <translation translatorcomment="AI-translated">червень</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation>July</translation>
+        <translation translatorcomment="AI-translated">липень</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation>August</translation>
+        <translation translatorcomment="AI-translated">Серпень</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation>September</translation>
+        <translation translatorcomment="AI-translated">вересень</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation>October</translation>
+        <translation translatorcomment="AI-translated">жовтень</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation>November</translation>
+        <translation translatorcomment="AI-translated">Листопад</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation>December</translation>
+        <translation translatorcomment="AI-translated">грудень</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation>Previous month</translation>
+        <translation translatorcomment="AI-translated">Попередній місяць</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation>Select archive date</translation>
+        <translation translatorcomment="AI-translated">Виберіть дату архіву</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation>Next month</translation>
+        <translation translatorcomment="AI-translated">Наступного місяця</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation>Mo</translation>
+        <translation translatorcomment="AI-translated">пн</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation>Tu</translation>
+        <translation translatorcomment="AI-translated">вт</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation>We</translation>
+        <translation translatorcomment="AI-translated">ми</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation>Th</translation>
+        <translation translatorcomment="AI-translated">чт</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation>Fr</translation>
+        <translation translatorcomment="AI-translated">О</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation>Sa</translation>
+        <translation translatorcomment="AI-translated">Sa</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation>Su</translation>
+        <translation translatorcomment="AI-translated">Нд</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation>Fetching availability...</translation>
+        <translation translatorcomment="AI-translated">Отримання наявності...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation>Cameras</translation>
+        <translation translatorcomment="AI-translated">Фотоапарати</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation>Search camera...</translation>
+        <translation translatorcomment="AI-translated">Пошук камери...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation>Clear search</translation>
+        <translation translatorcomment="AI-translated">Очистити пошук</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation>Determining actual end of recording...</translation>
+        <translation translatorcomment="AI-translated">Визначення фактичного закінчення запису...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation>Fetching recording information...</translation>
+        <translation translatorcomment="AI-translated">Отримання інформації про запис...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation>Loading Hikvision archive...</translation>
+        <translation translatorcomment="AI-translated">Завантаження архіву Hikvision...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation>No recording at the selected moment</translation>
+        <translation translatorcomment="AI-translated">Немає запису у вибраний момент</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation>Mute</translation>
+        <translation translatorcomment="AI-translated">Вимкнути звук</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation>Maximum volume</translation>
+        <translation translatorcomment="AI-translated">Максимальна гучність</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation>Take snapshot in full resolution</translation>
+        <translation translatorcomment="AI-translated">Зробіть знімок у повній роздільній здатності</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation>Disable 1:1 mode</translation>
+        <translation translatorcomment="AI-translated">Вимкніть режим 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation>Enable 1:1 mode (pixel-to-pixel)</translation>
+        <translation translatorcomment="AI-translated">Увімкнути режим 1:1 (піксель до пікселя)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation>Reset Zoom</translation>
+        <translation translatorcomment="AI-translated">Скинути масштаб</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation>Select area to zoom</translation>
+        <translation translatorcomment="AI-translated">Виберіть область для збільшення</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation>Select area to zoom</translation>
+        <translation translatorcomment="AI-translated">Виберіть область для збільшення</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation>Restore grid view</translation>
+        <translation translatorcomment="AI-translated">Відновити вигляд сітки</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation>Show in full screen</translation>
+        <translation translatorcomment="AI-translated">Показати на весь екран</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation>Remove camera from view</translation>
+        <translation translatorcomment="AI-translated">Видаліть камеру з поля зору</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation>Empty viewport</translation>
+        <translation translatorcomment="AI-translated">Порожнє вікно перегляду</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation>Select this window, choose a camera from the list and click + to add it</translation>
+        <translation translatorcomment="AI-translated">Виберіть це вікно, виберіть камеру зі списку та натисніть +, щоб додати її</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation>Previous day</translation>
+        <translation translatorcomment="AI-translated">Попередній день</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation>Select date from calendar</translation>
+        <translation translatorcomment="AI-translated">Виберіть дату з календаря</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation>Next day</translation>
+        <translation translatorcomment="AI-translated">Наступного дня</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation>Today</translation>
+        <translation translatorcomment="AI-translated">Сьогодні</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation>Go to today</translation>
+        <translation translatorcomment="AI-translated">Перейти до сьогоднішнього дня</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation>Refresh recordings</translation>
+        <translation translatorcomment="AI-translated">Оновити записи</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation>Zoom to last 1 hour</translation>
+        <translation translatorcomment="AI-translated">Збільшити до останньої 1 години</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation>Zoom to last 8 hours</translation>
+        <translation translatorcomment="AI-translated">Збільшити до 8 годин</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation>Show full day on timeline</translation>
+        <translation translatorcomment="AI-translated">Показати весь день на шкалі часу</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation>Center timeline on current playback time</translation>
+        <translation translatorcomment="AI-translated">По центру шкали часу поточного часу відтворення</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation>Speed:</translation>
+        <translation translatorcomment="AI-translated">швидкість:</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation>Set playback speed to %1x</translation>
+        <translation translatorcomment="AI-translated">Встановіть швидкість відтворення на %1x</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation>Download</translation>
+        <translation translatorcomment="AI-translated">Завантажити</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation>Download video clips from selected time range</translation>
+        <translation translatorcomment="AI-translated">Завантажте відеокліпи з вибраного діапазону часу</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation>Rewind 60 seconds</translation>
+        <translation translatorcomment="AI-translated">Перемотати на 60 секунд назад</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation>Rewind 45 seconds</translation>
+        <translation translatorcomment="AI-translated">Перемотати на 45 секунд назад</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation>Rewind 15 seconds</translation>
+        <translation translatorcomment="AI-translated">Перемотати на 15 секунд назад</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation>Pause playback</translation>
+        <translation translatorcomment="AI-translated">Призупинити відтворення</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation>Start playback</translation>
+        <translation translatorcomment="AI-translated">Почніть відтворення</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation>Forward 15 seconds</translation>
+        <translation translatorcomment="AI-translated">Уперед на 15 секунд</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation>Forward 45 seconds</translation>
+        <translation translatorcomment="AI-translated">Уперед на 45 секунд</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation>Forward 60 seconds</translation>
+        <translation translatorcomment="AI-translated">Уперед на 60 секунд</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation>Unpin bottom bar</translation>
+        <translation translatorcomment="AI-translated">Відкріпити нижню панель</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation>Pin bottom bar</translation>
+        <translation translatorcomment="AI-translated">Прикріпіть нижню панель</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation>Loading recording availability info...</translation>
+        <translation translatorcomment="AI-translated">Завантаження інформації про доступність запису...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation>Close window</translation>
+        <translation translatorcomment="AI-translated">Закрити вікно</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation>Unpin top bar</translation>
+        <translation translatorcomment="AI-translated">Відкріпити верхню панель</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation>Pin top bar</translation>
+        <translation translatorcomment="AI-translated">Прикріпіть верхню панель</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation>Exit full screen</translation>
+        <translation translatorcomment="AI-translated">Вийти з повноекранного режиму</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation>Window full screen</translation>
+        <translation translatorcomment="AI-translated">Вікно на весь екран</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation>Hide sidebar</translation>
+        <translation translatorcomment="AI-translated">Приховати бічну панель</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation>Show sidebar</translation>
+        <translation translatorcomment="AI-translated">Показати бічну панель</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation>Show timeline</translation>
+        <translation translatorcomment="AI-translated">Показати часову шкалу</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation>Hide timeline</translation>
+        <translation translatorcomment="AI-translated">Приховати часову шкалу</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation>Open recordings folder</translation>
+        <translation translatorcomment="AI-translated">Відкрити папку записів</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation>Open snapshots folder</translation>
+        <translation translatorcomment="AI-translated">Відкрити папку зі знімками</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation>No media</translation>
+        <translation translatorcomment="AI-translated">Немає медіа</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation>Loading...</translation>
+        <translation translatorcomment="AI-translated">Завантаження...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation>Loaded</translation>
+        <translation translatorcomment="AI-translated">Завантажено</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation>Stalled</translation>
+        <translation translatorcomment="AI-translated">Застопорився</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation>Buffering %1\%</translation>
+        <translation translatorcomment="AI-translated">Буферизація %1\%</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation>No data to display</translation>
+        <translation translatorcomment="AI-translated">Немає даних для відображення</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation>Restoring live view...</translation>
+        <translation translatorcomment="AI-translated">Відновлення live view...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation>Mute</translation>
+        <translation translatorcomment="AI-translated">Вимкнути звук</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation>Maximum volume</translation>
+        <translation translatorcomment="AI-translated">Максимальна гучність</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation>Take snapshot in full resolution</translation>
+        <translation translatorcomment="AI-translated">Зробіть знімок у повній роздільній здатності</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation>Playback archive</translation>
+        <translation translatorcomment="AI-translated">Архів відтворення</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation>Disable quick playback</translation>
+        <translation translatorcomment="AI-translated">Вимкнути швидке відтворення</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation>Quick playback (up to 30 min)</translation>
+        <translation translatorcomment="AI-translated">Швидке відтворення (до 30 хв)</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation>Disable 1:1 mode</translation>
+        <translation translatorcomment="AI-translated">Вимкніть режим 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation>Enable 1:1 mode (pixel-to-pixel)</translation>
+        <translation translatorcomment="AI-translated">Увімкнути режим 1:1 (піксель до пікселя)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation>Reset Zoom</translation>
+        <translation translatorcomment="AI-translated">Скинути масштаб</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation>Click and drag on camera feed to zoom</translation>
+        <translation translatorcomment="AI-translated">Натисніть і перетягніть подачу камери, щоб збільшити</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation>Select region to zoom</translation>
+        <translation translatorcomment="AI-translated">Виберіть регіон для збільшення</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation>Start playback</translation>
+        <translation translatorcomment="AI-translated">Почніть відтворення</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation>Pause playback</translation>
+        <translation translatorcomment="AI-translated">Призупинити відтворення</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation>Playback speed</translation>
+        <translation translatorcomment="AI-translated">Швидкість відтворення</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation>Close rewind view</translation>
+        <translation translatorcomment="AI-translated">Закрити перегляд назад</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation>KVision - Auxiliary Window</translation>
+        <translation translatorcomment="AI-translated">KVision — допоміжне вікно</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation>KVision</translation>
+        <translation translatorcomment="AI-translated">KVision</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation>Error reading configuration!</translation>
+        <translation translatorcomment="AI-translated">Помилка читання конфігурації!</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation>Unpin top bar</translation>
+        <translation translatorcomment="AI-translated">Відкріпити верхню панель</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation>Pin top bar</translation>
+        <translation translatorcomment="AI-translated">Прикріпіть верхню панель</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation>Toggle Full Screen</translation>
+        <translation translatorcomment="AI-translated">Перемкнути повний екран</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation>Minimize window</translation>
+        <translation translatorcomment="AI-translated">Згорнути вікно</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation>Options and settings of the sidebar panel</translation>
+        <translation translatorcomment="AI-translated">Опції та налаштування панелі бічної панелі</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation>Open new auxiliary window</translation>
+        <translation translatorcomment="AI-translated">Відкрити нове допоміжне вікно</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation>Recording archive and player</translation>
+        <translation translatorcomment="AI-translated">Архів записів і плеєр</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation>Program user manual</translation>
+        <translation translatorcomment="AI-translated">Інструкція користувача програми</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation>Disable resource usage statistics</translation>
+        <translation translatorcomment="AI-translated">Вимкнути статистику використання ресурсів</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation>Enable resource usage statistics</translation>
+        <translation translatorcomment="AI-translated">Увімкнути статистику використання ресурсів</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation>NVR errors detected!</translation>
+        <translation translatorcomment="AI-translated">Виявлено помилки NVR!</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation>NVR status: OK</translation>
+        <translation translatorcomment="AI-translated">Статус NVR: OK</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation>Lock grid size changes</translation>
+        <translation translatorcomment="AI-translated">Блокування змін розміру сітки</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation>More options</translation>
+        <translation translatorcomment="AI-translated">Більше варіантів</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation>NVR errors detected! Click to view details.</translation>
+        <translation translatorcomment="AI-translated">Виявлено помилки NVR! Натисніть, щоб переглянути деталі.</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation>No view selected, select a view</translation>
+        <translation translatorcomment="AI-translated">Перегляд не вибрано, виберіть подання</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation>Select a view from the top menu to start displaying cameras.</translation>
+        <translation translatorcomment="AI-translated">Виберіть подання у верхньому меню, щоб почати відображення камер.</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation>KVision - Panel</translation>
+        <translation translatorcomment="AI-translated">KVision - панель</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation>Close window</translation>
+        <translation translatorcomment="AI-translated">Закрити вікно</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation>Close program</translation>
+        <translation translatorcomment="AI-translated">Закрити програму</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation>Are you sure you want to close this window?</translation>
+        <translation translatorcomment="AI-translated">Ви впевнені, що бажаєте закрити це вікно?</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation>Are you sure you want to close the program?</translation>
+        <translation translatorcomment="AI-translated">Ви впевнені, що бажаєте закрити програму?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation>YES</translation>
+        <translation translatorcomment="AI-translated">ТАК</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation>NO</translation>
+        <translation translatorcomment="AI-translated">НІ</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation>📊 SYSTEM STATS</translation>
+        <translation translatorcomment="AI-translated">📊 СТАТИСТИКА СИСТЕМИ</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation>Drag statistics panel</translation>
+        <translation translatorcomment="AI-translated">Перетягніть панель статистики</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation>RAM: </translation>
+        <translation translatorcomment="AI-translated">Оперативна пам'ять:</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation>VRAM: </translation>
+        <translation translatorcomment="AI-translated">VRAM:</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation>CPU: </translation>
+        <translation translatorcomment="AI-translated">ЦП:</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation>GPU: </translation>
+        <translation translatorcomment="AI-translated">GPU:</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation>NET: </translation>
+        <translation translatorcomment="AI-translated">NET:</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation>Loading new window...</translation>
+        <translation translatorcomment="AI-translated">Завантаження нового вікна...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,947 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation>Fixed a critical bug where network loss and RTSP stream timeouts caused the player to become a Zombie, preventing successful reconnections. The Reload button and auto-resume now work completely reliably.</translation>
+        <translation translatorcomment="AI-translated">Виправлено критичну помилку, через яку втрата мережі та тайм-аути потоку RTSP призводили до того, що гравець перетворювався на зомбі, що перешкоджало успішним повторним підключенням. Кнопка «Перезавантажити» та автовідновлення тепер працюють абсолютно надійно.</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation>Refreshed the appearance of Player and Archive status messages. Loading and restoring notifications now feature a pleasant cyan theme with appropriate icons to better distinguish them from critical errors (No media/network).</translation>
+        <translation translatorcomment="AI-translated">Оновлено вигляд повідомлень про статус програвача та архіву. Сповіщення про завантаження та відновлення тепер мають приємну блакитну тему з відповідними піктограмами, щоб краще відрізняти їх від критичних помилок (без медіа/мережі).</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation>Integrated MakeKeyFrame hardware command with Hikvision SDK. The app now aggressively forces the camera to emit an I-Frame when switching Sub/Main streams and from Live to Archive, eliminating the 10-second keyframe wait.</translation>
+        <translation translatorcomment="AI-translated">Інтегрована апаратна команда MakeKeyFrame з Hikvision SDK. Програма тепер агресивно змушує камеру випромінювати I-Frame під час перемикання допоміжних/основних потоків і з прямого на архів, усуваючи 10-секундне очікування ключового кадру.</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation>Removed on-the-fly overriding of the analyzeduration parameter. The app strictly enforces user-defined FFmpeg values (it is highly recommended to set it to 100000 for audio-less cameras to bypass the 5-second stall limit).</translation>
+        <translation translatorcomment="AI-translated">Вилучено оперативне перевизначення параметра analyduration. Програма суворо дотримується визначених користувачем значень FFmpeg (наполегливо рекомендується встановити значення 100 000 для камер без звуку, щоб обійти 5-секундний ліміт зупинки).</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation>Added "HikSDK" badges on recorder viewports for better protocol differentiation.</translation>
+        <translation translatorcomment="AI-translated">Додано значки «HikSDK» у вікнах перегляду рекордера для кращого розрізнення протоколів.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation>Streamlined diagnostic logging (QDebug), allowing warnings and critical errors to be printed to the console outside of verbose mode, facilitating easier NVR fault debugging.</translation>
+        <translation translatorcomment="AI-translated">Спрощене діагностичне журналювання (QDebug), що дозволяє друкувати попередження та критичні помилки на консолі поза докладним режимом, що полегшує налагодження несправностей NVR.</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation>Filtered out false positive PlayM4 SDK errors (no. 17 and 2) that spam the console during rapid timeline scrubbing in the player.</translation>
+        <translation translatorcomment="AI-translated">Відфільтровано хибнопозитивні помилки PlayM4 SDK (№ 17 і 2), які надсилають консоль під час швидкого очищення шкали часу в програвачі.</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation>Fixed truncation of non-linear scaling (e.g. 145%) by the Qt5 framework on KDE Plasma systems, enforcing proper interpretation of High DPI policy.</translation>
+        <translation translatorcomment="AI-translated">Виправлено скорочення нелінійного масштабування (наприклад, 145%) фреймворком Qt5 у системах KDE Plasma, що забезпечує належне тлумачення політики високої роздільної здатності.</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation>Resolved temporary freezes of other cameras on the live grid when seeking or dragging the timeline.</translation>
+        <translation translatorcomment="AI-translated">Вирішено тимчасове зависання інших камер у сітці прямого ефіру під час пошуку або перетягування шкали часу.</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation>Moved all blocking Hikvision SDK network calls (login, stop, start, speed control) to an asynchronous worker thread.</translation>
+        <translation translatorcomment="AI-translated">Перенесено всі блокуючі мережеві виклики Hikvision SDK (вхід, зупинка, запуск, контроль швидкості) до асинхронного робочого потоку.</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation>Completely eliminated the black screen issue when switching quality (SUB/MAIN) for RTSP cameras.</translation>
+        <translation translatorcomment="AI-translated">Повністю усунуто проблему чорного екрана під час перемикання якості (ДОПОМІЖНА/ОСНОВНА) для камер RTSP.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation>Optimized the seamless stream switching timer to 100ms for maximum speed.</translation>
+        <translation translatorcomment="AI-translated">Оптимізовано таймер плавного перемикання потоку до 100 мс для максимальної швидкості.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation>Added low-level FFmpeg options (nobuffer, low_delay) to eliminate live stream delay (drift) over long operational periods.</translation>
+        <translation translatorcomment="AI-translated">Додано параметри низького рівня FFmpeg (nobuffer, low_delay), щоб усунути затримку прямого потоку (дрейф) протягом тривалих періодів роботи.</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation>Introduced a button to bulk-update FFmpeg parameters for all existing cameras across all layouts.</translation>
+        <translation translatorcomment="AI-translated">Додано кнопку для масового оновлення параметрів FFmpeg для всіх існуючих камер у всіх макетах.</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation>Added option to exclude specific cameras from global FFmpeg parameter updates (new checkbox in viewport settings).</translation>
+        <translation translatorcomment="AI-translated">Додана опція виключення певних камер із глобальних оновлень параметрів FFmpeg (новий прапорець у налаштуваннях вікна перегляду).</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation>Secured the default settings migration process, allowing the user to permanently remove or modify new flags without them being forced on every startup.</translation>
+        <translation translatorcomment="AI-translated">Захищено процес міграції налаштувань за замовчуванням, дозволяючи користувачеві назавжди видаляти або змінювати нові позначки без їх примусового застосування під час кожного запуску.</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation>Added quick playback functionality (up to 30 minutes rewind) directly inside the camera viewport.</translation>
+        <translation translatorcomment="AI-translated">Додано функцію швидкого відтворення (перемотування до 30 хвилин назад) безпосередньо у вікні перегляду камери.</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation>Implemented full, bidirectional real-time synchronization between all windows and auxiliary program processes for settings: audio muting, disabling zoom animation, and all Hikvision NVR status monitoring options.</translation>
+        <translation translatorcomment="AI-translated">Реалізовано повну двонаправлену синхронізацію в режимі реального часу між усіма вікнами та допоміжними програмними процесами для налаштувань: вимкнення звуку, вимкнення анімації масштабування та всі параметри моніторингу стану Hikvision NVR.</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation>Added dynamic display of minute labels (e.g., :15, :30, :45) at minute ticks on the archive player timeline with intelligent label density adjustment (zoomHours).</translation>
+        <translation translatorcomment="AI-translated">Додано динамічне відображення хвилинних міток (наприклад, :15, :30, :45) у хвилинних тиках на часовій шкалі програвача архіву з інтелектуальним налаштуванням щільності міток (zoomHours).</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation>Added a new option in UI settings: "Disable viewport zoom animation" with immediate application in camera grid view.</translation>
+        <translation translatorcomment="AI-translated">Додано нову опцію в налаштуваннях інтерфейсу користувача: «Вимкнути анімацію масштабування вікна перегляду» з миттєвим застосуванням у вигляді сітки камери.</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation>Rebuilt the archive player initialization process: suspended connection and video loading until the exact recording limits are determined (via an ultra-fast 24h asynchronous search), eliminating premature playback and image jumping.</translation>
+        <translation translatorcomment="AI-translated">Перебудовано процес ініціалізації архівного програвача: призупинено з’єднання та завантаження відео до визначення точних обмежень запису (через надшвидкий 24-годинний асинхронний пошук), усунувши передчасне відтворення та стрибки зображення.</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation>Refined Hikvision archive loading messages – loading status is shown only during active stream buffering, and a dedicated warning is displayed if the playhead is moved beyond available recording boundaries.</translation>
+        <translation translatorcomment="AI-translated">Удосконалені повідомлення про завантаження архіву Hikvision – стан завантаження відображається лише під час активної буферизації потоку, а якщо головка відтворення переміщується за межі доступних записів, відображається спеціальне попередження.</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation>Introduced new configuration fields in the settings panel: default archive playback start offset (in seconds, default 60s) and default timeline zoom span (zoom hours, default 2h).</translation>
+        <translation translatorcomment="AI-translated">Додано нові поля конфігурації на панелі налаштувань: зсув початку відтворення архіву за замовчуванням (у секундах, за замовчуванням 60 с) і діапазон масштабування шкали часу за замовчуванням (години масштабування, за замовчуванням 2 години).</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation>Added a direct web login icon to the recorder's web panel inside the NVR status popup.</translation>
+        <translation translatorcomment="AI-translated">Додано піктограму прямого входу в Інтернет на веб-панель рекордера в спливаючому вікні статусу NVR.</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation>Added error reporting suppression functionality for individual recorders.</translation>
+        <translation translatorcomment="AI-translated">Додано функцію придушення звітів про помилки для окремих записуючих пристроїв.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation>Fixed incorrect Polish translation "Simulated Recorder" in status window and implemented proper word distinction ("Suppress" for errors vs "Mute" for audio).</translation>
+        <translation translatorcomment="AI-translated">Виправлено неправильний польський переклад «Імітований записувач» у вікні стану та реалізовано правильне розрізнення слів («Придушити» для помилок проти «Вимкнути звук» для аудіо).</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation>Implemented periodic (every 5 minutes) and manual Hikvision NVR/DVR error status monitoring using SDK/ISAPI diagnostics.</translation>
+        <translation translatorcomment="AI-translated">Реалізовано періодичний (кожні 5 хвилин) і ручний моніторинг стану помилок NVR/DVR Hikvision за допомогою діагностики SDK/ISAPI.</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation>Added configuration options in General Settings to enable/disable Hikvision NVR status checking and customize monitored critical error types.</translation>
+        <translation translatorcomment="AI-translated">Додано параметри конфігурації в загальних налаштуваннях, щоб увімкнути/вимкнути перевірку статусу Hikvision NVR і налаштувати типи критичних помилок, що відстежуються.</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation>Designed a high-fidelity warm-green/red top-bar status icon with deep pulsing outer waves and inner heartbeat ripple animations to signal active critical errors.</translation>
+        <translation translatorcomment="AI-translated">Розроблено високоякісну тепло-зелену/червону піктограму стану на верхній панелі з глибокими пульсуючими зовнішніми хвилями та внутрішньою брижовою анімацією серцебиття, яка сигналізує про активні критичні помилки.</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation>Introduced a top-edge protruding red indicator circle that pulses at the top of the screen when the main toolbar is collapsed, ensuring critical warnings are never missed.</translation>
+        <translation translatorcomment="AI-translated">З’явилося виступаюче червоне коло індикатора з верхнього краю, яке пульсує у верхній частині екрана, коли головна панель інструментів згортається, гарантуючи, що критичні попередження ніколи не будуть пропущені.</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation>Created an elegant, scrollable popup window "Recorder status" limited to 85% of screen height presenting detailed error codes.</translation>
+        <translation translatorcomment="AI-translated">Створено елегантне спливаюче вікно з можливістю прокручування «Статус записуючого пристрою», обмежене 85% висоти екрана з детальними кодами помилок.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation>Added run flag "--simulate-error" to instantly simulate disk failures and connection errors across all recorders for demonstration purposes.</translation>
+        <translation translatorcomment="AI-translated">Додано позначку запуску «--simulate-error» для миттєвої імітації збоїв диска та помилок підключення на всіх записувачах для демонстраційних цілей.</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation>Implemented list frame badges and status indicator alignments across configured recorder views.</translation>
+        <translation translatorcomment="AI-translated">Реалізовано значки кадрів списку та вирівнювання індикаторів стану в налаштованих режимах запису.</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation>Achieved complete bilingual translation coverage (Polish/English) for all NVR diagnostics, setting check-boxes, tooltips, warnings, and command-line parser options.</translation>
+        <translation translatorcomment="AI-translated">Досягнуто повного двомовного перекладу (польська/англійська) для всіх діагностичних засобів NVR, установок прапорців, підказок, попереджень і параметрів аналізатора командного рядка.</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation>Added the ability to reload the active layout by clicking its button on the top toolbar.</translation>
+        <translation translatorcomment="AI-translated">Додано можливість перезавантаження активного макета, натиснувши його кнопку на верхній панелі інструментів.</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation>Average NVML utilization samples over time to smooth the GPU usage graph and eliminate jagged readings.</translation>
+        <translation translatorcomment="AI-translated">Усереднені зразки використання NVML за час, щоб згладити графік використання GPU та усунути нерівні показання.</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation>Eliminated momentary video blinking (black frames) and audio-video out-of-sync gaps when switching quality from SUB to MAIN streams during viewport maximization by delaying the active player swap until the first frame is painted on screen.</translation>
+        <translation translatorcomment="AI-translated">Усунуто миттєве мерехтіння відео (чорні кадри) і розриви несинхронізації аудіо-відео під час перемикання якості з SUB на ОСНОВНИЙ потоки під час розгортання вікна перегляду шляхом затримки перемикання активного програвача, доки на екрані не з’явиться перший кадр.</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation>Added interactive, clear, and 2x wider scrollbars to the hour, minute, and second selection columns in the archive download time picker popup.</translation>
+        <translation translatorcomment="AI-translated">Додано інтерактивні, чіткі та вдвічі ширші смуги прокрутки до стовпців вибору годин, хвилин і секунд у спливаючому вікні вибору часу завантаження архіву.</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation>Added new intuitive options to the viewports context menu: 'Snapshot' (saving the current frame) and 'Playback' (immediate transition to the archive playback of the given camera).</translation>
+        <translation translatorcomment="AI-translated">Додано нові інтуїтивно зрозумілі параметри контекстного меню вікон перегляду: «Знімок» (збереження поточного кадру) і «Відтворення» (миттєвий перехід до відтворення архіву даної камери).</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation>Revolutionized and fixed PCM audio handling: direct pipeline forwarding to QAudioOutput, elimination of interface freezes (ALSA/PulseAudio/Pipewire) by stabilizing sample rate (debounce after 5 stable frames), 2s cooldown on output recreation, filtering damaged parameters and a 64KB buffer reducing network jitter.</translation>
+        <translation translatorcomment="AI-translated">Революціонізована та виправлена ​​обробка аудіо PCM: пряме перенаправлення конвеєра до QAudioOutput, усунення зависань інтерфейсу (ALSA/PulseAudio/Pipewire) шляхом стабілізації частоти дискретизації (усунення дребезгу після 5 стабільних кадрів), 2 секунди відновлення при відновленні виводу, фільтрація пошкоджених параметрів і буфер 64 КБ, що зменшує тремтіння мережі.</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation>Implemented an interactive HUD volume slider directly on the viewport tiles, along with a quick mute option and one-click volume maximization.</translation>
+        <translation translatorcomment="AI-translated">Реалізовано інтерактивний повзунок гучності HUD безпосередньо на плитках вікна перегляду, а також опцію швидкого вимкнення звуку та максимізацію гучності одним клацанням миші.</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation>Implemented automatic and immediate muting of LIVE streams in the main grid upon opening the Archive playback window, preventing overlapping sounds (cacophony).</translation>
+        <translation translatorcomment="AI-translated">Реалізовано автоматичне та миттєве вимкнення живих потоків у головній сітці після відкриття вікна відтворення архіву, запобігаючи накладенню звуків (какофонія).</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation>Introduced a central SnapshotSavedDialog notification system for saved snapshots (dark gray enclosure, teal borders, auto-close after 10 seconds) with a quick 'Browse' link to open the folder directly in the system file manager.</translation>
+        <translation translatorcomment="AI-translated">Представлено центральну систему сповіщень SnapshotSavedDialog для збережених знімків (темно-сірий корпус, блакитні рамки, автоматичне закриття через 10 секунд) із швидким посиланням «Огляд», щоб відкрити папку безпосередньо в системному файловому менеджері.</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation>Enriched the built-in help window with a detailed 'Button functions description' chapter using native, crisp SVG vector icons. The help window now opens fully automatically and centered over the main window upon the program's first launch.</translation>
+        <translation translatorcomment="AI-translated">Вбудоване вікно довідки збагачено докладним розділом «Опис функцій кнопки» за допомогою рідних, чітких векторних піктограм SVG. Вікно довідки тепер відкривається повністю автоматично та знаходиться в центрі головного вікна після першого запуску програми.</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation>Introduced default display of the top bar upon program/window startup and added a 'Show top bar by default after opening a window' option in the settings, allowing customization of this behavior to personal preferences.</translation>
+        <translation translatorcomment="AI-translated">Додано відображення верхньої панелі за замовчуванням під час запуску програми/вікна та додано параметр «Показувати верхню панель за замовчуванням після відкриття вікна» в налаштуваннях, що дозволяє налаштувати цю поведінку відповідно до особистих уподобань.</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation>Implemented dynamic RPATH library paths in CMakeLists.txt using GNUInstallDirs, enabling immediate execution of the compiled application on Ubuntu and Debian without the need for manual configuration of /etc/ld.so.conf.d/ and ldconfig.</translation>
+        <translation translatorcomment="AI-translated">Реалізовано шляхи динамічної бібліотеки RPATH у CMakeLists.txt за допомогою GNUInstallDirs, що дозволяє негайно виконувати скомпільовану програму в Ubuntu і Debian без необхідності ручного налаштування /etc/ld.so.conf.d/ і ldconfig.</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation>Renamed the program to KVision, introducing automatic user configuration migration, new multi-size icons (128px, 256px, 512px), and full version display in the window title bar.</translation>
+        <translation translatorcomment="AI-translated">Перейменовано програму на KVision, запровадивши автоматичне перенесення конфігурації користувача, нові піктограми різних розмірів (128 пікселів, 256 пікселів, 512 пікселів) і відображення повної версії в рядку заголовка вікна.</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation>Fixed the warning window for exceeding the auxiliary windows limit (missing QML resource and QSettings read).</translation>
+        <translation translatorcomment="AI-translated">Виправлено вікно попередження про перевищення ліміту допоміжних вікон (відсутній ресурс QML і читання QSettings).</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation>Fixed the missing program icon under Wayland (hicolor theme installation and setDesktopFileName).</translation>
+        <translation translatorcomment="AI-translated">Виправлено відсутність значка програми під Wayland (встановлення теми hicolor і setDesktopFileName).</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation>Removed the automatically collapse top bar option from Settings - from now on, the top bar in LIVE windows (main and auxiliary) collapses by default on startup, and the pin button pins it locally and temporarily (in-memory) without saving its state.</translation>
+        <translation translatorcomment="AI-translated">Видалено опцію автоматичного згортання верхньої панелі з налаштувань - відтепер верхня панель у вікнах LIVE (головному та допоміжному) згортається за замовчуванням під час запуску, а кнопка закріплення закріплює її локально та тимчасово (у пам’яті) без збереження стану.</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation>Introduced a limit on the number of auxiliary windows (configurable from 0 to 3) with an elegant warning window when attempting to exceed it.</translation>
+        <translation translatorcomment="AI-translated">Введено обмеження на кількість допоміжних вікон (налаштовується від 0 до 3) з елегантним вікном попередження при спробі його перевищення.</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation>Added subtle 1px dark-gray borders around unused viewports in the LIVE layout grid for better delineation of fields.</translation>
+        <translation translatorcomment="AI-translated">Додано тонкі темно-сірі рамки розміром 1 піксель навколо невикористаних вікон перегляду в сітці макета LIVE для кращого окреслення полів.</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation>Secured editing of save paths and system media configuration options behind a transient 'Activate changes in this section' checkbox, preventing accidental modifications (editing state resets on close).</translation>
+        <translation translatorcomment="AI-translated">Захищене редагування шляхів збереження та параметрів конфігурації системного носія за тимчасовим прапорцем «Активувати зміни в цьому розділі», що запобігає випадковим змінам (стан редагування скидається після закриття).</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation>Introduced direct shortcuts for 'open save folder' (highlighted in celadon upon completed download in the Archive window) and always-active quick-open buttons for snapshot and video folders in Settings (with automatic directory creation on disk if missing).</translation>
+        <translation translatorcomment="AI-translated">Додано прямі клавіші швидкого доступу для «відкрити папку для збереження» (підсвічується селадоном після завершення завантаження у вікні «Архів») і завжди активні кнопки швидкого відкриття для папок зі знімками та відео в налаштуваннях (з автоматичним створенням каталогу на диску, якщо його немає).</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation>Introduced interactive validation when clicking the 'Pobierz' (Download) button in the download window: automatic format and chronological date checks, displaying a red warning tooltip and focusing the first invalid field.</translation>
+        <translation translatorcomment="AI-translated">Додано інтерактивну перевірку під час натискання кнопки «Pobierz» (Завантажити) у вікні завантаження: автоматична перевірка формату та хронологічної дати, відображення червоної підказки з попередженням і фокусування на першому недійсному полі.</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation>Implemented full keyboard navigation (up/down arrow keys to change values, left/right to switch columns) inside the clock picker popup.</translation>
+        <translation translatorcomment="AI-translated">Реалізовано повну навігацію клавіатурою (клавіші зі стрілками вгору/вниз для зміни значень, ліворуч/праворуч для перемикання стовпців) у спливаючому вікні вибору годинника.</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation>Ensured a completely clean launch for auxiliary windows (without automatically opening the options sidebar) and excluded geometry settings saving from auxiliary windows, eliminating shared configuration contamination.</translation>
+        <translation translatorcomment="AI-translated">Забезпечено повністю чистий запуск допоміжних вікон (без автоматичного відкриття бічної панелі параметрів) і виключено збереження налаштувань геометрії з допоміжних вікон, усуваючи забруднення спільної конфігурації.</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation>Added full English language support for all new formatting and chronological validation error messages in the download window.</translation>
+        <translation translatorcomment="AI-translated">Додано повну підтримку англійської мови для всіх нових повідомлень про помилки форматування та хронологічної перевірки у вікні завантаження.</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation>Eliminated RAM memory leaks when switching camera layouts by automatically and correctly stopping the video surface before updating formats and matching renderer dimensions.</translation>
+        <translation translatorcomment="AI-translated">Усунені витоки пам’яті оперативної пам’яті під час перемикання компонування камери шляхом автоматичної та правильної зупинки відеоповерхні перед оновленням форматів і відповідністю розмірів рендерера.</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation>Implemented unconditional releasing and destruction of audio output objects on player stop, and introduced automatic recycling of these objects to eliminate memory and thread leaks on Linux.</translation>
+        <translation translatorcomment="AI-translated">Реалізовано безумовне звільнення та знищення об’єктів аудіовиводу після зупинки програвача, а також запроваджено автоматичне повторне використання цих об’єктів для усунення витоків пам’яті та потоків у Linux.</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation>Resolved video freezing issues (solid color screen after viewport zoom) by forcing correct video availability signaling when presenting the first frame of a new stream.</translation>
+        <translation translatorcomment="AI-translated">Вирішено проблеми із зависанням відео (суцільний кольоровий екран після масштабування вікна перегляду), примусово вводячи правильні сигнали доступності відео під час представлення першого кадру нового потоку.</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation>Added a global setting 'Disable audio support completely', allowing total bypass of audio processing to eliminate potential overhead and memory leaks.</translation>
+        <translation translatorcomment="AI-translated">Додано глобальне налаштування «Повністю вимкнути підтримку аудіо», що дозволяє повністю обходити обробку аудіо для усунення потенційних накладних витрат і витоку пам’яті.</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation>Optimized the system statistics module to eliminate continuous memory usage overhead by caching process IDs and removing dynamic regular expression allocations.</translation>
+        <translation translatorcomment="AI-translated">Оптимізовано модуль системної статистики, щоб усунути накладні витрати на постійне використання пам’яті шляхом кешування ідентифікаторів процесів і видалення динамічного розподілу регулярних виразів.</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation>Enforced aggressive Garbage Collection (GC) upon camera layout switches and nullified image scaling contexts (SwsContext) in video buffers.</translation>
+        <translation translatorcomment="AI-translated">Примусове агресивне збирання сміття (GC) після перемикань макета камери та нульових контекстів масштабування зображення (SwsContext) у відеобуферах.</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation>Ensured proper resource cleanup of the static configuration file change detector (QFileSystemWatcher) upon application exit.</translation>
+        <translation translatorcomment="AI-translated">Забезпечено належне очищення ресурсів детектора зміни статичного файлу конфігурації (QFileSystemWatcher) після виходу з програми.</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation>Fixed synchronization and freezing issues of the auxiliary window process on slower machines during sequential camera deletion and viewport merging or moving.</translation>
+        <translation translatorcomment="AI-translated">Виправлено проблеми синхронізації та зависання процесу допоміжного вікна на повільніших машинах під час послідовного видалення камери та об’єднання або переміщення вікна перегляду.</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation>Fixed aggregation of GPU utilization, VRAM usage, and network bandwidth statistics from all application processes using shared memory (/dev/shm) in the background.</translation>
+        <translation translatorcomment="AI-translated">Виправлено статистичні дані про використання графічного процесора, відеопам’яті та пропускну здатність мережі з усіх процесів програми, які використовують спільну пам’ять (/dev/shm) у фоновому режимі.</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation>Protected archive player destructor from data races when cleaning up pending RGB tasks.</translation>
+        <translation translatorcomment="AI-translated">Захищений деструктор програвача архіву від перегонів даних під час очищення незавершених завдань RGB.</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation>Implemented video player pooling to eliminate RAM usage spikes and flickering when switching layouts.</translation>
+        <translation translatorcomment="AI-translated">Реалізовано об’єднання відеопрогравачів для усунення стрибків використання оперативної пам’яті та мерехтіння під час перемикання макетів.</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation>Optimized GPU/VRAM monitoring to a process-specific model (no nvidia-smi spawning) with native support for NVIDIA, AMD, and Intel GPUs (AMD/Intel statistics are untested).</translation>
+        <translation translatorcomment="AI-translated">Оптимізований моніторинг GPU/VRAM для конкретної моделі процесу (без створення nvidia-smi) із вбудованою підтримкою графічних процесорів NVIDIA, AMD і Intel (статистика AMD/Intel не перевірена).</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation>Allowed resizing the system stats panel by dragging its edges and corners with auto-scaling graphs.</translation>
+        <translation translatorcomment="AI-translated">Дозволено змінювати розмір панелі системної статистики, перетягуючи її краї та кути з графіками з автоматичним масштабуванням.</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation>Implemented instant hiding of the main and auxiliary windows on quit confirmation, making shutdown appear immediate to the user while thread and memory cleanup runs safely in the background.</translation>
+        <translation translatorcomment="AI-translated">Реалізовано миттєве приховування головного та допоміжних вікон після підтвердження виходу, завдяки чому користувач одразу бачить завершення роботи, а очищення потоків і пам’яті безпечно виконується у фоновому режимі.</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation>Converted top toolbars in both LIVE and ARCHIVE windows into centered floating docks (LIVE dock has dynamic width).</translation>
+        <translation translatorcomment="AI-translated">Верхні панелі інструментів у вікнах LIVE і ARCHIVE перетворено на плаваючі доки по центру (док LIVE має динамічну ширину).</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation>Added a vertical separator in the top bar docks between grid options and layouts.</translation>
+        <translation translatorcomment="AI-translated">Додано вертикальний роздільник у верхній панелі доків між параметрами сітки та макетами.</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation>Increased transparency of archive top and bottom bars (60% in windowed mode, 26% in full screen) and set timeline background to transparent.</translation>
+        <translation translatorcomment="AI-translated">Збільшено прозорість верхньої та нижньої панелей архіву (60% у віконному режимі, 26% у повноекранному режимі) та встановлено прозорий фон часової шкали.</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation>Simplified playback speed icons in the archive to clear text (1x, 2x, 4x) and removed the unstable 8x speed option.</translation>
+        <translation translatorcomment="AI-translated">Спрощено значки швидкості відтворення в архіві для очищення тексту (1x, 2x, 4x) і видалено нестабільну опцію швидкості 8x.</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation>Replaced monthly navigation text buttons in archive and downloader calendars with graphical arrows (chevrons).</translation>
+        <translation translatorcomment="AI-translated">Текстові кнопки навігації по місяцях у календарях архіву та завантажувача замінено графічними стрілками (шевронами).</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation>Relocated camera viewport close button from the top-right corner to the bottom-right controls area to prevent accidental clicks.</translation>
+        <translation translatorcomment="AI-translated">Кнопку закриття вікна перегляду камери переміщено з верхнього правого кута в нижню праву область керування, щоб запобігти випадковим натисканням.</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation>Optimized selected grid layout text contrast in the archive window (dark text on a celadon background).</translation>
+        <translation translatorcomment="AI-translated">Оптимізовано контраст тексту макета вибраної сітки у вікні архіву (темний текст на тлі селадону).</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation>Converted the system statistics panel into a draggable floating panel (with click-through) using a new dedicated grab handle.</translation>
+        <translation translatorcomment="AI-translated">Панель системної статистики перетворено на плаваючу панель, яку можна перетягувати (з клацанням), використовуючи новий спеціальний маркер захоплення.</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation>Resolved critical settings synchronization loop and UI freeze when deleting viewport layouts.</translation>
+        <translation translatorcomment="AI-translated">Вирішено цикл синхронізації критичних налаштувань і зависання інтерфейсу користувача під час видалення макетів вікна перегляду.</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation>Enlarged speed, zoom, and VCR control icons in the archive to improve visibility, and increased text size inside the SVG icons.</translation>
+        <translation translatorcomment="AI-translated">Збільшені піктограми керування швидкістю, масштабуванням і відеомагнітофоном в архіві для покращення видимості та збільшення розміру тексту всередині піктограм SVG.</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation>Removed duplicate text buttons for zoom shortcuts in the archive, fully replacing them with circular icons.</translation>
+        <translation translatorcomment="AI-translated">Видалено дублікати текстових кнопок для ярликів масштабування в архіві, повністю замінивши їх круглими значками.</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation>Added complete English and Polish translations for all tooltips in the archive window.</translation>
+        <translation translatorcomment="AI-translated">Додано повний переклад англійською та польською для всіх підказок у вікні архіву.</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation>Introduced real-time bidirectional configuration synchronization between the main window and auxiliary windows with support for unique, automatic auxiliary window IDs.</translation>
+        <translation translatorcomment="AI-translated">Представлено двонаправлену синхронізацію конфігурації в реальному часі між головним вікном і допоміжними вікнами з підтримкою унікальних автоматичних ідентифікаторів допоміжних вікон.</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation>Added automatic session recovery (auto-reconnect) in the Hikvision archive player after downloads complete or connections are dropped by the recorder.</translation>
+        <translation translatorcomment="AI-translated">Додано автоматичне відновлення сеансу (автоматичне повторне підключення) у програвачі архівів Hikvision після завершення завантажень або розриву підключень рекордером.</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation>Eliminated potential thread leaks and FFmpeg video decoder hangs during layout switching by adopting safe std::weak_ptr references for decoder media contexts.</translation>
+        <translation translatorcomment="AI-translated">Виключено потенційні витоки потоків і зависання відеодекодера FFmpeg під час перемикання макета завдяки застосуванню безпечних посилань std::weak_ptr для медіа-контексту декодера.</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation>Fixed a memory leak in ViewportsLayouts models by safely deleting layout objects using deleteLater().</translation>
+        <translation translatorcomment="AI-translated">Виправлено витік пам’яті в моделях ViewportsLayouts шляхом безпечного видалення об’єктів макета за допомогою deleteLater().</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation>Mitigated video rendering surface start errors (OpenGL) during rapid NVR tab changes - logs were demoted to Debug level, and the system silently retries rendering in the background after GPU buffers are released.</translation>
+        <translation translatorcomment="AI-translated">Пом’якшено помилки початку рендерингу відео (OpenGL) під час швидкої зміни вкладки NVR – журнали було знижено до рівня налагодження, і система мовчки повторює рендеринг у фоновому режимі після звільнення буферів GPU.</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation>Resolved the residual RAM usage (20-30 MB) after closing the Archive window through multi-step heap cleanup and QML engine cache optimizations.</translation>
+        <translation translatorcomment="AI-translated">Вирішено проблему використання залишкової оперативної пам’яті (20–30 МБ) після закриття вікна архіву за допомогою багатоетапного очищення купи та оптимізації кешу механізму QML.</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation>Optimized RAM usage during camera scaling and viewport resizing/zooming, preventing excessive memory accumulation during continuous video stream layout changes.</translation>
+        <translation translatorcomment="AI-translated">Оптимізовано використання оперативної пам’яті під час масштабування камери та зміни розміру вікна перегляду, запобігаючи надмірному накопиченню пам’яті під час безперервних змін макета відеопотоку.</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation>Added a precise, real-time frames per second (FPS) indicator in the upper-left corner of each viewport for both live and archive playback streams.</translation>
+        <translation translatorcomment="AI-translated">Додано точний індикатор кадрів за секунду (FPS) у верхньому лівому куті кожного вікна перегляду для потоків відтворення в прямому ефірі та архіву.</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation>Implemented safe termination and release of download threads in the Hikvision downloader, ensuring stable and immediate application shutdown without blocking system resources.</translation>
+        <translation translatorcomment="AI-translated">Реалізовано безпечне завершення та звільнення потоків завантажень у завантажувачі Hikvision, що забезпечує стабільне та негайне завершення роботи програми без блокування системних ресурсів.</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation>Added a dynamic camera search field in the archive window with a reset button and auto-expanding matching recorders.</translation>
+        <translation translatorcomment="AI-translated">Додано динамічне поле пошуку камери у вікні архіву з кнопкою скидання та автоматичним розгортанням відповідних рекордерів.</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation>Enabled wrapping of long camera names on list tiles in the archive.</translation>
+        <translation translatorcomment="AI-translated">Увімкнено обтікання довгих імен камер на плитках списку в архіві.</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation>Enlarged and inverted colors of the plus button (+) on camera tiles (mint background) for better visibility, with clear hover/pressed states.</translation>
+        <translation translatorcomment="AI-translated">Збільшені та інвертовані кольори кнопки плюса (+) на плитках камери (м’ятний фон) для кращої видимості з чіткими станами наведення/натискання.</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation>Fixed the 2-3 hour shift of the recording availability timeline bar in the archive player window, synchronizing the timeline with the client's local timezone (with correct daylight saving time DST support).</translation>
+        <translation translatorcomment="AI-translated">Виправлено 2-3-годинний зсув шкали часу доступності запису у вікні програвача архіву, синхронізуючи часову шкалу з місцевим часовим поясом клієнта (з підтримкою правильного переходу на літній час).</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation>Replaced the low-contrast black emoji 📺 in empty views with an elegant seledyn High-DPI vector monitor SVG.</translation>
+        <translation translatorcomment="AI-translated">Замінено низькоконтрастні чорні емодзі 📺 у порожніх поданнях на елегантний векторний монітор seledyn High-DPI SVG.</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation>Improved readability of recorder bars in the archive window (height increased from 22px to 28px, font size from 9px to 11px, larger expand arrow).</translation>
+        <translation translatorcomment="AI-translated">Покращена читаність смужок запису у вікні архіву (висота збільшена з 22 пікселів до 28 пікселів, розмір шрифту з 9 пікселів до 11 пікселів, більша стрілка розгортання).</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation>Added full, dynamic hover effects for recorder bars with distinct changes in background, text, and icon colors to seledyn/white.</translation>
+        <translation translatorcomment="AI-translated">Додано повні динамічні ефекти наведення для смуг запису з чіткими змінами кольору фону, тексту та піктограм на seledyn/білий.</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation>Replaced text action buttons on the top bar (Options, New window, Archive, Instructions) with dedicated, colored SVG icons with helpful tooltips.</translation>
+        <translation translatorcomment="AI-translated">Текстові кнопки дій на верхній панелі (Параметри, Нове вікно, Архів, Інструкції) замінено спеціальними кольоровими значками SVG із корисними підказками.</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation>Replaced the system stats toggle with an interactive SVG icon reflecting the system monitor activity state.</translation>
+        <translation translatorcomment="AI-translated">Перемикач системної статистики замінено на інтерактивну піктограму SVG, яка відображає стан активності системного монітора.</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation>Unified grid selection buttons (1x1-9x9) into consistent 30x30px circular buttons.</translation>
+        <translation translatorcomment="AI-translated">Уніфіковані кнопки вибору сітки (1x1-9x9) у узгоджені круглі кнопки розміром 30x30 пікселів.</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation>Added a vertical separator line between the options section and the grid selection section.</translation>
+        <translation translatorcomment="AI-translated">Додано вертикальну роздільну лінію між розділом параметрів і розділом вибору сітки.</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation>Redesigned view buttons to an elegant, rounded pill shape with 30px height, preserving side margins.</translation>
+        <translation translatorcomment="AI-translated">Кнопки перегляду перероблені до елегантної округлої форми таблетки висотою 30 пікселів із збереженням бічних полів.</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation>Enforced automatic uppercase display for view names.</translation>
+        <translation translatorcomment="AI-translated">Примусове автоматичне відображення у верхньому регістрі назв переглядів.</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation>Improved readability and contrast of the active view button – dark text (#121214) on a bright seledyn background.</translation>
+        <translation translatorcomment="AI-translated">Покращено читабельність і контрастність кнопки активного перегляду – темний текст (#121214) на світлому фоні селедини.</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation>Unified and improved delete icons on the recorders and views list and the preset activation button into SVG icons with tooltips.</translation>
+        <translation translatorcomment="AI-translated">Уніфіковані та вдосконалені піктограми видалення в списку записів і переглядів, а також попередньо встановлена ​​кнопка активації в піктограми SVG зі спливаючими підказками.</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation>Decreased spacing between top bar buttons to optimize interface space.</translation>
+        <translation translatorcomment="AI-translated">Зменшено відстань між кнопками верхньої панелі для оптимізації простору інтерфейсу.</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation>Restored the missing minimize icon in the auxiliary window.</translation>
+        <translation translatorcomment="AI-translated">Відновлено відсутній значок згортання у допоміжному вікні.</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation>Fixed login and playback issues in auxiliary windows.</translation>
+        <translation translatorcomment="AI-translated">Виправлено проблеми входу та відтворення в допоміжних вікнах.</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation>Fixed layout button states (1x1 vs 2x2) when opening playback directly from camera.</translation>
+        <translation translatorcomment="AI-translated">Виправлено стани кнопок розташування (1x1 проти 2x2) під час відкриття відтворення безпосередньо з камери.</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation>Added proper XML namespace in Hikvision ISAPI queries (fixes 'Invalid XML Content' error on newer recorder firmware).</translation>
+        <translation translatorcomment="AI-translated">Додано належний простір імен XML у запити ISAPI Hikvision (виправляє помилку «Недійсний вміст XML» у новішій мікропрограмі рекордера).</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation>Fixed search results pagination handling (searchResultPostion tag).</translation>
+        <translation translatorcomment="AI-translated">Виправлено обробку результатів пошуку на сторінки (тег searchResultPostion).</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation>'Refresh' button in the playback window to manually clear cache and re-fetch recording availability data.</translation>
+        <translation translatorcomment="AI-translated">Кнопка «Оновити» у вікні відтворення, щоб вручну очистити кеш і повторно отримати дані про доступність запису.</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation>Network prefetching queue optimization – restricted background fetching to 12 months, eliminating hundreds of unnecessary queries and speeding up playback start.</translation>
+        <translation translatorcomment="AI-translated">Оптимізація черги попередньої вибірки з мережі – фонова вибірка обмежена до 12 місяців, що усуває сотні непотрібних запитів і прискорює початок відтворення.</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation>Asynchronous Hikvision SDK initialization in a background thread, completely eliminating GUI freezes when opening options.</translation>
+        <translation translatorcomment="AI-translated">Асинхронна ініціалізація Hikvision SDK у фоновому потоці, що повністю усуває зависання GUI під час відкриття параметрів.</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation>Thread-safe synchronization of access to Hikvision SDK methods.</translation>
+        <translation translatorcomment="AI-translated">Потоково-безпечна синхронізація доступу до методів Hikvision SDK.</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation>Sanitizing downloaded file and screenshot names by removing recorder IP addresses.</translation>
+        <translation translatorcomment="AI-translated">Очищення завантажених файлів і імен знімків екрана шляхом видалення IP-адрес рекордера.</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation>Sleek download progress bar in turquoise (#00f5d4) with centered outlined text.</translation>
+        <translation translatorcomment="AI-translated">Витончена панель перебігу завантаження бірюзового кольору (#00f5d4) з обведеним по центру текстом.</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation>Calculation of global download progress (overallProgress) for multi-part recordings.</translation>
+        <translation translatorcomment="AI-translated">Розрахунок глобального прогресу завантаження (overallProgress) для багаточастинних записів.</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation>Changed temporary download file extension from '.ps' to '.pspart'.</translation>
+        <translation translatorcomment="AI-translated">Розширення файлу тимчасового завантаження змінено з «.ps» на «.pspart».</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation>'Show info fields only when hovering' option and button in user interface settings.</translation>
+        <translation translatorcomment="AI-translated">Параметр і кнопка «Показувати інформаційні поля лише при наведенні» в налаштуваннях інтерфейсу користувача.</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation>Visual indicator for camera discovery in the configuration panel (rotating icon, form blocking, and 'Discovering...' text).</translation>
+        <translation translatorcomment="AI-translated">Візуальний індикатор виявлення камери на панелі конфігурації (значок, що обертається, блокування форми та текст «Виявлення...»).</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation>Full localization (added official Polish and English translation support).</translation>
+        <translation translatorcomment="AI-translated">Повна локалізація (додано підтримку офіційного перекладу польською та англійською).</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation>Auxiliary window startup optimization – reduced load time from 3 seconds to under 300 ms.</translation>
+        <translation translatorcomment="AI-translated">Оптимізація запуску допоміжного вікна – час завантаження зменшено з 3 секунд до 300 мс.</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation>Aesthetic placeholder in the auxiliary window ('No view selected') with a turquoise border.</translation>
+        <translation translatorcomment="AI-translated">Естетичний заповнювач у допоміжному вікні («Вигляд не вибрано») з бірюзовою рамкою.</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation>Hikvision SDK integration for Live view and Playback mode.</translation>
+        <translation translatorcomment="AI-translated">Інтеграція Hikvision SDK для перегляду в реальному часі та режиму відтворення.</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation>Multi-camera playback player with automatic timeline positioning and centering.</translation>
+        <translation translatorcomment="AI-translated">Багатокамерний програвач із автоматичним позиціонуванням і центруванням на шкалі часу.</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation>Multi-threaded System Monitor (CPU, RAM, GPU, VRAM, and network bandwidth statistics).</translation>
+        <translation translatorcomment="AI-translated">Багатопоточний системний монітор (статистика CPU, RAM, GPU, VRAM і пропускної здатності мережі).</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation>Real-time network bandwidth consumption tracking.</translation>
+        <translation translatorcomment="AI-translated">Відстеження споживання пропускної здатності мережі в реальному часі.</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation>High-resolution app icon and refined dark theme interface.</translation>
+        <translation translatorcomment="AI-translated">Значок програми з високою роздільною здатністю та вдосконалений інтерфейс темної теми.</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation>Automatic Pacman package building script for Arch Linux.</translation>
+        <translation translatorcomment="AI-translated">Скрипт автоматичного створення пакунків Pacman для Arch Linux.</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation>KVision</translation>
+        <translation translatorcomment="AI-translated">KVision</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation>Version %1</translation>
+        <translation translatorcomment="AI-translated">Версія %1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation>Original author: Evgeny S. Maksimov</translation>
+        <translation translatorcomment="AI-translated">Автор оригіналу: Максимов Євген Сергійович</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation>Modification: arkanista (with AI assistance)</translation>
+        <translation translatorcomment="AI-translated">Модифікація: arkanista (з допомогою ШІ)</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation>Viewport%1</translation>
+        <translation translatorcomment="AI-translated">Вікно перегляду%1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation> #%1</translation>
+        <translation translatorcomment="AI-translated">#%1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation>Tools</translation>
+        <translation translatorcomment="AI-translated">Інструменти</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation>Recorders</translation>
+        <translation translatorcomment="AI-translated">Рекордери</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation>Presets</translation>
+        <translation translatorcomment="AI-translated">Предустановки</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation>Settings</translation>
+        <translation translatorcomment="AI-translated">Налаштування</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation>Changelog</translation>
+        <translation translatorcomment="AI-translated">Журнал змін</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation>Available version: %1</translation>
+        <translation translatorcomment="AI-translated">Доступна версія: %1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation>Viewport Details</translation>
+        <translation translatorcomment="AI-translated">Деталі вікна перегляду</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation>Please select a viewport in the main grid to customize its settings.</translation>
+        <translation translatorcomment="AI-translated">Виберіть вікно перегляду в головній сітці, щоб налаштувати його параметри.</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation>Unlock config pane</translation>
+        <translation translatorcomment="AI-translated">Розблокувати панель конфігурації</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation>Active Stream Connection</translation>
+        <translation translatorcomment="AI-translated">Активне підключення потоку</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation>Primary Stream URL</translation>
+        <translation translatorcomment="AI-translated">URL-адреса основного потоку</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation>Secondary Backup URL</translation>
+        <translation translatorcomment="AI-translated">Вторинна резервна URL-адреса</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation>Audio &amp; Rendering Options</translation>
+        <translation translatorcomment="AI-translated">Параметри аудіо та відтворення</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation>Mute / Unmute Audio</translation>
+        <translation translatorcomment="AI-translated">Вимкнути / увімкнути звук</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation>FFmpeg Options Override</translation>
+        <translation translatorcomment="AI-translated">Перевизначення параметрів FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation>Layout &amp; Grid Tools</translation>
+        <translation translatorcomment="AI-translated">Інструменти макета та сітки</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation>Unlock tools pane</translation>
+        <translation translatorcomment="AI-translated">Розблокувати панель інструментів</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation>Window Division</translation>
+        <translation translatorcomment="AI-translated">Віконний відділ</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation>Error reading configuration!</translation>
+        <translation translatorcomment="AI-translated">Помилка читання конфігурації!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation>Hold to edit division value</translation>
+        <translation translatorcomment="AI-translated">Утримуйте, щоб змінити значення ділення</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation>x</translation>
+        <translation translatorcomment="AI-translated">x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation>Geometry Ratio</translation>
+        <translation translatorcomment="AI-translated">Співвідношення геометрії</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation>Toggle Full Screen</translation>
+        <translation translatorcomment="AI-translated">Перемкнути повний екран</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation>Grid Operations</translation>
+        <translation translatorcomment="AI-translated">Операції з мережею</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation>Merge Highlighted Cells</translation>
+        <translation translatorcomment="AI-translated">Об’єднати виділені клітинки</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation>NVR / Hikvision Recorders Manager</translation>
+        <translation translatorcomment="AI-translated">Менеджер записів NVR / Hikvision</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation>Presets &amp; Quick Layout Views</translation>
+        <translation translatorcomment="AI-translated">Попередні налаштування та швидкі перегляди макета</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation>ONVIF and RTSP Layout settings</translation>
+        <translation translatorcomment="AI-translated">Налаштування макета ONVIF і RTSP</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation>Layout %1</translation>
+        <translation translatorcomment="AI-translated">Макет %1</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation>Visible</translation>
+        <translation translatorcomment="AI-translated">Видно</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation>Activate this preview layout</translation>
+        <translation translatorcomment="AI-translated">Активуйте цей макет попереднього перегляду</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation>Delete this preview layout</translation>
+        <translation translatorcomment="AI-translated">Видалити цей макет попереднього перегляду</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation>Add Preset Layout</translation>
+        <translation translatorcomment="AI-translated">Додати попередньо встановлений макет</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation>NVR View Layouts</translation>
+        <translation translatorcomment="AI-translated">Макети перегляду NVR</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation>NVR View</translation>
+        <translation translatorcomment="AI-translated">Перегляд NVR</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation>Activate this NVR cameras view</translation>
+        <translation translatorcomment="AI-translated">Активувати цей режим перегляду камер NVR</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation>Delete this NVR cameras view</translation>
+        <translation translatorcomment="AI-translated">Видалити цей перегляд камер NVR</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation>NVR Presets (Grid views)</translation>
+        <translation translatorcomment="AI-translated">Попередні налаштування NVR (вид сітки)</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation>NVR Preset #%1</translation>
+        <translation translatorcomment="AI-translated">Попереднє налаштування NVR #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation>Activate this NVR cameras preset</translation>
+        <translation translatorcomment="AI-translated">Активуйте це налаштування камер NVR</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation>Delete this NVR cameras preset</translation>
+        <translation translatorcomment="AI-translated">Видалити це налаштування камер NVR</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation>Add NVR Preset</translation>
+        <translation translatorcomment="AI-translated">Додайте попередні налаштування NVR</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation>System Settings</translation>
+        <translation translatorcomment="AI-translated">Налаштування системи</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation>General Settings</translation>
+        <translation translatorcomment="AI-translated">Загальні налаштування</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation>Allow running multiple application instances</translation>
+        <translation translatorcomment="AI-translated">Дозволити запуск кількох екземплярів програми</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation>This option is disabled to prevent settings file write conflicts. To enable it (dangerous and not recommended!), set 'singleApplication=false' in the kvision.conf configuration file.</translation>
+        <translation translatorcomment="AI-translated">Цей параметр вимкнено, щоб запобігти конфліктам запису файлів налаштувань. Щоб увімкнути його (небезпечно та не рекомендовано!), встановіть 'singleApplication=false' у файлі конфігурації kvision.conf.</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation>Check Hikvision NVR error status</translation>
+        <translation translatorcomment="AI-translated">Перевірте статус помилки Hikvision NVR</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation>Audio</translation>
+        <translation translatorcomment="AI-translated">Аудіо</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation>Disable audio entirely</translation>
+        <translation translatorcomment="AI-translated">Повністю вимкнути звук</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation>Maximizing camera to full screen does not unmute</translation>
+        <translation translatorcomment="AI-translated">Розгортання камери на весь екран не вмикає звук</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation>Context Menu Settings</translation>
+        <translation translatorcomment="AI-translated">Параметри контекстного меню</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation>Enable right-click context menu</translation>
+        <translation translatorcomment="AI-translated">Увімкнути контекстне меню правої кнопки миші</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation>Allow swapping viewport places</translation>
+        <translation translatorcomment="AI-translated">Дозволити міняти місця вікна перегляду</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation>Enable 'Remove camera' option</translation>
+        <translation translatorcomment="AI-translated">Увімкніть опцію «Видалити камеру».</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation>Allow changing viewport settings</translation>
+        <translation translatorcomment="AI-translated">Дозволити змінювати налаштування вікна перегляду</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation>Enable 'Stream selection' option</translation>
+        <translation translatorcomment="AI-translated">Увімкніть опцію «Вибір потоку».</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation>User Interface Settings</translation>
+        <translation translatorcomment="AI-translated">Налаштування інтерфейсу користувача</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation>Show channel status in the top left corner of the viewport</translation>
+        <translation translatorcomment="AI-translated">Показати стан каналу у верхньому лівому куті вікна перегляду</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation>Show camera info in the bottom left corner of the viewport</translation>
+        <translation translatorcomment="AI-translated">Показати інформацію про камеру в нижньому лівому куті вікна перегляду</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation>Show control icons in the bottom right corner of the viewport only when hovering</translation>
+        <translation translatorcomment="AI-translated">Показувати значки керування в нижньому правому куті вікна перегляду лише під час наведення курсора</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation>Show info fields only when hovering</translation>
+        <translation translatorcomment="AI-translated">Відображати інформаційні поля лише при наведенні</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation>Show top bar by default when opening window</translation>
+        <translation translatorcomment="AI-translated">Показувати верхню панель за умовчанням під час відкриття вікна</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation>Hide mouse cursor in Full Screen mode</translation>
+        <translation translatorcomment="AI-translated">Приховати курсор миші в повноекранному режимі</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation>Disable viewport zoom animation</translation>
+        <translation translatorcomment="AI-translated">Вимкнути анімацію масштабування вікна перегляду</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation>Language:</translation>
+        <translation translatorcomment="AI-translated">мова:</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation>System default</translation>
+        <translation translatorcomment="AI-translated">Система за умовчанням</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation>Limit auxiliary windows to:</translation>
+        <translation translatorcomment="AI-translated">Обмежити допоміжні вікна до:</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation>NVR Status Monitoring</translation>
+        <translation translatorcomment="AI-translated">Моніторинг стану NVR</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation>Monitor offline status and login errors</translation>
+        <translation translatorcomment="AI-translated">Відстежуйте офлайн-статус і помилки входу</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation>Monitor CPU overload (&gt;85%)</translation>
+        <translation translatorcomment="AI-translated">Монітор перевантаження ЦП (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation>Monitor recorder hardware errors</translation>
+        <translation translatorcomment="AI-translated">Помилки апаратного забезпечення реєстратора монітора</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation>Monitor hard disk faults/abnormalities</translation>
+        <translation translatorcomment="AI-translated">Відстежуйте несправності/несправності жорсткого диска</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation>Monitor unformatted hard disks</translation>
+        <translation translatorcomment="AI-translated">Відстежуйте неформатовані жорсткі диски</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation>Monitor full hard disks (loop coverage disabled)</translation>
+        <translation translatorcomment="AI-translated">Монітор заповнених жорстких дисків (петле покриття вимкнено)</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation>Playback</translation>
+        <translation translatorcomment="AI-translated">Відтворення</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation>Default backward playback start offset, seconds:</translation>
+        <translation translatorcomment="AI-translated">Зсув початку відтворення назад за замовчуванням, секунди:</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation>Default playback timeline range, hours:</translation>
+        <translation translatorcomment="AI-translated">Діапазон часу відтворення за замовчуванням, години:</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation>Saving</translation>
+        <translation translatorcomment="AI-translated">Збереження</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation>Activate changes in this section</translation>
+        <translation translatorcomment="AI-translated">Активувати зміни в цьому розділі</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation>Default snapshot path:</translation>
+        <translation translatorcomment="AI-translated">Шлях знімка за замовчуванням:</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation>Choose folder for snapshots</translation>
+        <translation translatorcomment="AI-translated">Виберіть папку для знімків</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation>Default recordings path:</translation>
+        <translation translatorcomment="AI-translated">Шлях запису за замовчуванням:</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation>Choose folder for recordings</translation>
+        <translation translatorcomment="AI-translated">Виберіть папку для записів</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation>open image folder</translation>
+        <translation translatorcomment="AI-translated">відкрити папку із зображеннями</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation>open video folder</translation>
+        <translation translatorcomment="AI-translated">відкрити папку відео</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation>System Media Configuration</translation>
+        <translation translatorcomment="AI-translated">Конфігурація системного носія</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation>Default FFmpeg command-line options</translation>
+        <translation translatorcomment="AI-translated">Стандартні параметри командного рядка FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation>Update all cameras</translation>
+        <translation translatorcomment="AI-translated">Оновити всі камери</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation>Changelog</translation>
+        <translation translatorcomment="AI-translated">Журнал змін</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation>History of improvements, bug fixes, and new features in KVision.</translation>
+        <translation translatorcomment="AI-translated">Історія покращень, виправлень помилок і нових функцій у KVision.</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation>Confirm Deletion</translation>
+        <translation translatorcomment="AI-translated">Підтвердити видалення</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation>Are you sure you want to delete preset \"%1\"? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Ви впевнені, що хочете видалити стиль \"%1\"? Ця дія є абсолютно незворотною.</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation>Are you sure you want to delete preset #%1? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Ви впевнені, що хочете видалити стиль #%1? Ця дія є абсолютно незворотною.</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation>Are you sure you want to delete NVR view \"%1\"? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Ви впевнені, що бажаєте видалити перегляд NVR \"%1\"? Ця дія є абсолютно незворотною.</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation>Are you sure you want to delete this NVR view layout? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Ви впевнені, що хочете видалити цей макет перегляду NVR? Ця дія є абсолютно незворотною.</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation>Are you sure you want to delete NVR Preset \"%1\"? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Ви впевнені, що бажаєте видалити попередні налаштування NVR \"%1\"? Ця дія є абсолютно незворотною.</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation>Are you sure you want to delete this NVR Preset? This action is completely irreversible.</translation>
+        <translation translatorcomment="AI-translated">Ви впевнені, що бажаєте видалити це налаштування NVR? Ця дія є абсолютно незворотною.</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4294,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation>Error reading configuration!</translation>
+        <translation translatorcomment="AI-translated">Помилка читання конфігурації!</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4313,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation>KVision</translation>
+        <translation translatorcomment="AI-translated">KVision</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation>The program is already running, you cannot start a second one</translation>
+        <translation translatorcomment="AI-translated">Програма вже запущена, ви не можете запустити другу</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation>CLOSE</translation>
+        <translation translatorcomment="AI-translated">ЗАКРИТИ</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4344,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation>Snapshot saved</translation>
+        <translation translatorcomment="AI-translated">Знімок збережено</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation>Snapshot saved - </translation>
+        <translation translatorcomment="AI-translated">Знімок збережено -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation>Browse</translation>
+        <translation translatorcomment="AI-translated">переглядати</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation>Exit</translation>
+        <translation translatorcomment="AI-translated">Вихід</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4411,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation>Layout &amp; Grid Tools</translation>
+        <translation translatorcomment="AI-translated">Інструменти макета та сітки</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation>Unlock tools pane</translation>
+        <translation translatorcomment="AI-translated">Розблокувати панель інструментів</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation>Window Division</translation>
+        <translation translatorcomment="AI-translated">Віконний відділ</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation>Error reading configuration!</translation>
+        <translation translatorcomment="AI-translated">Помилка читання конфігурації!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation>Hold to edit division value</translation>
+        <translation translatorcomment="AI-translated">Утримуйте, щоб змінити значення ділення</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation>x</translation>
+        <translation translatorcomment="AI-translated">x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation>Geometry Ratio</translation>
+        <translation translatorcomment="AI-translated">Співвідношення геометрії</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation>16:9 Aspect Ratio</translation>
+        <translation translatorcomment="AI-translated">Співвідношення сторін 16:9</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation>4:3 Aspect Ratio</translation>
+        <translation translatorcomment="AI-translated">Співвідношення сторін 4:3</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation>Toggle Full Screen</translation>
+        <translation translatorcomment="AI-translated">Перемкнути повний екран</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation>Grid Operations</translation>
+        <translation translatorcomment="AI-translated">Операції з мережею</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation>Merge Highlighted Cells</translation>
+        <translation translatorcomment="AI-translated">Об’єднати виділені клітинки</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4498,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation>Viewport Settings</translation>
+        <translation translatorcomment="AI-translated">Налаштування вікна перегляду</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation>Active Stream Connection</translation>
+        <translation translatorcomment="AI-translated">Активне підключення потоку</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation>Primary Stream URL</translation>
+        <translation translatorcomment="AI-translated">URL-адреса основного потоку</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation>Secondary Backup URL</translation>
+        <translation translatorcomment="AI-translated">Вторинна резервна URL-адреса</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation>Channel Options</translation>
+        <translation translatorcomment="AI-translated">Параметри каналу</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation>FFmpeg options</translation>
+        <translation translatorcomment="AI-translated">Параметри FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation>Do not include global FFmpeg settings changes</translation>
+        <translation translatorcomment="AI-translated">Не включайте зміни глобальних налаштувань FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation>Cancel</translation>
+        <translation translatorcomment="AI-translated">Скасувати</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation>Save</translation>
+        <translation translatorcomment="AI-translated">зберегти</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4590,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation>Swap viewports</translation>
+        <translation translatorcomment="AI-translated">Поміняти місцями вікна перегляду</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation>Stream selection</translation>
+        <translation translatorcomment="AI-translated">Вибір потоку</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation>Remove camera</translation>
+        <translation translatorcomment="AI-translated">Зняти камеру</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation>Change settings</translation>
+        <translation translatorcomment="AI-translated">Змінити налаштування</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation>Reload</translation>
+        <translation translatorcomment="AI-translated">Перезавантажити</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation>Snapshot</translation>
+        <translation translatorcomment="AI-translated">знімок</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation>Playback</translation>
+        <translation translatorcomment="AI-translated">Відтворення</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation>Automatycznie</translation>
+        <translation translatorcomment="AI-translated">Automatycznie</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation>Tylko MAIN</translation>
+        <translation translatorcomment="AI-translated">Тилько ГОЛОВНЕ</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation>Tylko SUB</translation>
+        <translation translatorcomment="AI-translated">Тилько СУБ</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation>Confirm Camera Removal</translation>
+        <translation translatorcomment="AI-translated">Підтвердити видалення камери</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation>Are you sure you want to remove the camera from this viewport?</translation>
+        <translation translatorcomment="AI-translated">Ви впевнені, що хочете видалити камеру з цього вікна перегляду?</translation>
     </message>
 </context>
 </TS>

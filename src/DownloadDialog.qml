@@ -95,11 +95,11 @@ Popup {
         var endDt = getEndDateTime()
         if (startDt >= endDt) {
             endDateField.hasError = true
-            endDateField.customErrorText = qsTr("Data i czas końcowy muszą być późniejsze niż początkowe!")
+            endDateField.customErrorText = qsTr("LNG_00054")
             endDateField.forceShow = true
             
             endTimeField.hasError = true
-            endTimeField.customErrorText = qsTr("Data i czas końcowy muszą być późniejsze niż początkowe!")
+            endTimeField.customErrorText = qsTr("LNG_00054")
             endTimeField.forceShow = true
             
             endDateField.forceActiveFocus()
@@ -157,7 +157,7 @@ Popup {
         
         property int viewYear: targetDate.getFullYear()
         property int viewMonth: targetDate.getMonth()
-        property var monthNames: [qsTr("Styczeń"), qsTr("Luty"), qsTr("Marzec"), qsTr("Kwiecień"), qsTr("Maj"), qsTr("Czerwiec"), qsTr("Lipiec"), qsTr("Sierpień"), qsTr("Wrzesień"), qsTr("Październik"), qsTr("Listopad"), qsTr("Grudzień")]
+        property var monthNames: [qsTr("LNG_00053"), qsTr("LNG_00052"), qsTr("LNG_00051"), qsTr("LNG_00050"), qsTr("LNG_00049"), qsTr("LNG_00048"), qsTr("LNG_00047"), qsTr("LNG_00046"), qsTr("LNG_00045"), qsTr("LNG_00044"), qsTr("LNG_00043"), qsTr("LNG_00042")]
         
         function updateDaysModel() {
             var firstDay = new Date(viewYear, viewMonth, 1)
@@ -276,7 +276,7 @@ Popup {
                     ToolTip.delay: 500
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Poprzedni miesiąc")
+                    ToolTip.text: qsTr("LNG_00041")
                 }
                 CctvButton {
                     text: ""
@@ -297,7 +297,7 @@ Popup {
                     ToolTip.delay: 500
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Następny miesiąc")
+                    ToolTip.text: qsTr("LNG_00040")
                 }
             }
         }
@@ -420,7 +420,7 @@ Popup {
             }
 
             Text {
-                text: qsTr("Wybierz czas")
+                text: qsTr("LNG_00039")
                 color: "white"
                 font.bold: true
                 font.pixelSize: 16
@@ -439,7 +439,7 @@ Popup {
                     Layout.fillHeight: true
                     spacing: 4
                     Text {
-                        text: qsTr("Godz")
+                        text: qsTr("LNG_00038")
                         color: timePickerPopup.activeColumn === 0 ? timePickerPopup.palette.highlight : "#8898a6"
                         font.bold: true
                         Layout.alignment: Qt.AlignHCenter
@@ -510,7 +510,7 @@ Popup {
                     Layout.fillHeight: true
                     spacing: 4
                     Text {
-                        text: qsTr("Min")
+                        text: qsTr("LNG_00037")
                         color: timePickerPopup.activeColumn === 1 ? timePickerPopup.palette.highlight : "#8898a6"
                         font.bold: true
                         Layout.alignment: Qt.AlignHCenter
@@ -581,7 +581,7 @@ Popup {
                     Layout.fillHeight: true
                     spacing: 4
                     Text {
-                        text: qsTr("Sek")
+                        text: qsTr("LNG_00036")
                         color: timePickerPopup.activeColumn === 2 ? timePickerPopup.palette.highlight : "#8898a6"
                         font.bold: true
                         Layout.alignment: Qt.AlignHCenter
@@ -651,12 +651,12 @@ Popup {
                 Layout.fillWidth: true
                 spacing: 10
                 CctvButton {
-                    text: qsTr("Anuluj")
+                    text: qsTr("LNG_00023")
                     Layout.fillWidth: true
                     onClicked: timePickerPopup.close()
                 }
                 CctvButton {
-                    text: qsTr("Zatwierdź")
+                    text: qsTr("LNG_00035")
                     isPrimary: true
                     Layout.fillWidth: true
                     onClicked: timePickerPopup.applyTime()
@@ -790,7 +790,7 @@ Popup {
         spacing: 15
 
         Text {
-            text: qsTr("Pobieranie nagrań")
+            text: qsTr("LNG_00034")
             color: "white"
             font.pixelSize: 18
             font.bold: true
@@ -803,7 +803,7 @@ Popup {
             columnSpacing: 10
             Layout.fillWidth: true
 
-            Text { text: qsTr("Od:"); color: "white"; Layout.alignment: Qt.AlignVCenter }
+            Text { text: qsTr("LNG_00033"); color: "white"; Layout.alignment: Qt.AlignVCenter }
             RowLayout {
                 spacing: 2
                 Layout.preferredWidth: 150
@@ -846,7 +846,7 @@ Popup {
                     ToolTip {
                         id: startDateFieldTip
                         visible: startDateField.hasError && (startDateField.hovered || startDateField.activeFocus || startDateField.forceShow)
-                        text: startDateField.customErrorText !== "" ? startDateField.customErrorText : qsTr("Błędny format daty! Wymagany format: DD.MM.RRRR (np. 26.06.2026)")
+                        text: startDateField.customErrorText !== "" ? startDateField.customErrorText : qsTr("LNG_00031")
                         delay: 0
                         timeout: 5000
                         background: Rectangle {
@@ -926,7 +926,7 @@ Popup {
                     ToolTip {
                         id: startTimeFieldTip
                         visible: startTimeField.hasError && (startTimeField.hovered || startTimeField.activeFocus || startTimeField.forceShow)
-                        text: startTimeField.customErrorText !== "" ? startTimeField.customErrorText : qsTr("Błędny format czasu! Wymagany format: HH.MM.SS lub HH:MM:SS (np. 12:30:00 lub 12.30.00)")
+                        text: startTimeField.customErrorText !== "" ? startTimeField.customErrorText : qsTr("LNG_00030")
                         delay: 0
                         timeout: 5000
                         background: Rectangle {
@@ -960,7 +960,7 @@ Popup {
                 Layout.fillWidth: true
             }
 
-            Text { text: qsTr("Do:"); color: "white"; Layout.alignment: Qt.AlignVCenter }
+            Text { text: qsTr("LNG_00032"); color: "white"; Layout.alignment: Qt.AlignVCenter }
             RowLayout {
                 spacing: 2
                 Layout.preferredWidth: 150
@@ -1003,7 +1003,7 @@ Popup {
                     ToolTip {
                         id: endDateFieldTip
                         visible: endDateField.hasError && (endDateField.hovered || endDateField.activeFocus || endDateField.forceShow)
-                        text: endDateField.customErrorText !== "" ? endDateField.customErrorText : qsTr("Błędny format daty! Wymagany format: DD.MM.RRRR (np. 26.06.2026)")
+                        text: endDateField.customErrorText !== "" ? endDateField.customErrorText : qsTr("LNG_00031")
                         delay: 0
                         timeout: 5000
                         background: Rectangle {
@@ -1083,7 +1083,7 @@ Popup {
                     ToolTip {
                         id: endTimeFieldTip
                         visible: endTimeField.hasError && (endTimeField.hovered || endTimeField.activeFocus || endTimeField.forceShow)
-                        text: endTimeField.customErrorText !== "" ? endTimeField.customErrorText : qsTr("Błędny format czasu! Wymagany format: HH.MM.SS lub HH:MM:SS (np. 12:30:00 lub 12.30.00)")
+                        text: endTimeField.customErrorText !== "" ? endTimeField.customErrorText : qsTr("LNG_00030")
                         delay: 0
                         timeout: 5000
                         background: Rectangle {
@@ -1155,9 +1155,9 @@ Popup {
                                     if (rowDownloader.isConverting) {
                                         model.statusText = rowDownloader.statusText + " (" + rowDownloader.overallProgress + "%)"
                                     } else if (rowDownloader.statusText !== "") {
-                                        model.statusText = rowDownloader.statusText + " " + rowDownloader.progress + "% (" + qsTr("Całkowity:") + " " + rowDownloader.overallProgress + "%)"
+                                        model.statusText = rowDownloader.statusText + " " + rowDownloader.progress + "% (" + qsTr("LNG_00029") + " " + rowDownloader.overallProgress + "%)"
                                     } else {
-                                        model.statusText = qsTr("Pobieranie...") + " " + rowDownloader.overallProgress + "%"
+                                        model.statusText = qsTr("LNG_00028") + " " + rowDownloader.overallProgress + "%"
                                     }
                                 }
                             }
@@ -1167,7 +1167,7 @@ Popup {
                                     model.statusText = message
                                     model.downloadSuccess = true
                                 } else {
-                                    model.statusText = qsTr("Błąd:") + " " + message
+                                    model.statusText = qsTr("LNG_00027") + " " + message
                                 }
                             }
                         }
@@ -1175,7 +1175,7 @@ Popup {
                         function startRowDownload(recInfo, startDt, endDt) {
                             model.downloadSuccess = false
                             model.isDownloading = true
-                            model.statusText = qsTr("Inicjalizacja...")
+                            model.statusText = qsTr("LNG_00026")
                             rowDownloader.startDownload(recInfo, model.channelId, startDt, endDt, model.savePath)
                         }
                         
@@ -1183,7 +1183,7 @@ Popup {
                             rowDownloader.stopDownload()
                             model.isDownloading = false
                             model.downloadSuccess = false
-                            model.statusText = qsTr("Zatrzymano")
+                            model.statusText = qsTr("LNG_00025")
                         }
                         
                         RowLayout {
@@ -1284,7 +1284,7 @@ Popup {
                             }
 
                             CctvButton {
-                                text: qsTr("otwórz folder zapisu")
+                                text: qsTr("LNG_00024")
                                 isSmall: true
                                 isCeladon: true
                                 visible: !!model.downloadSuccess
@@ -1313,14 +1313,14 @@ Popup {
             Item { Layout.fillWidth: true } // Spacer
 
             CctvButton {
-                text: qsTr("Anuluj")
+                text: qsTr("LNG_00023")
                 onClicked: {
                     downloadDialog.close()
                 }
             }
 
             CctvButton {
-                text: downloadDialog.isAnyDownloading() ? qsTr("Zatrzymaj") : qsTr("Pobierz")
+                text: downloadDialog.isAnyDownloading() ? qsTr("LNG_00022") : qsTr("LNG_00021")
                 isPrimary: true
                 enabled: downloadDialog.isAnyDownloading() || downloadDialog.isAnyEnabled()
                 onClicked: {

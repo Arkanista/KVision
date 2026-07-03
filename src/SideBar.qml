@@ -2251,8 +2251,27 @@ FocusScope {
                                     model: [
                                         { text: qsTr("LNG_00251"), value: "system" },
                                         { text: "English", value: "en" },
+                                        { text: "Polski", value: "pl" },
+                                        { text: "العربية (AI)", value: "ar" },
+                                        { text: "Български (AI)", value: "bg" },
+                                        { text: "简体中文 (AI)", value: "zh" },
+                                        { text: "Čeština (AI)", value: "cs" },
+                                        { text: "Dansk (AI)", value: "da" },
+                                        { text: "Deutsch (AI)", value: "de" },
                                         { text: "Español (AI)", value: "es" },
-                                        { text: "Polski", value: "pl" }
+                                        { text: "Suomi (AI)", value: "fi" },
+                                        { text: "Français (AI)", value: "fr" },
+                                        { text: "Ελληνικά (AI)", value: "el" },
+                                        { text: "Magyar (AI)", value: "hu" },
+                                        { text: "Italiano (AI)", value: "it" },
+                                        { text: "Nederlands (AI)", value: "nl" },
+                                        { text: "Norsk Bokmål (AI)", value: "no" },
+                                        { text: "Português (AI)", value: "pt" },
+                                        { text: "Română (AI)", value: "ro" },
+                                        { text: "Slovenčina (AI)", value: "sk" },
+                                        { text: "Svenska (AI)", value: "sv" },
+                                        { text: "Türkçe (AI)", value: "tr" },
+                                        { text: "Українська (AI)", value: "uk" }
                                     ]
                                     textRole: "text"
 
@@ -2299,7 +2318,7 @@ FocusScope {
                                     popup: Popup {
                                         y: sidebarLanguageCombo.height + 2
                                         width: sidebarLanguageCombo.width
-                                        implicitHeight: sidebarLanguageCombo.popup.visible ? contentItem.implicitHeight : 0
+                                        implicitHeight: Math.min(320, sidebarLanguageCombo.popup.visible ? contentItem.implicitHeight : 0)
                                         padding: 4
 
                                         contentItem: ListView {

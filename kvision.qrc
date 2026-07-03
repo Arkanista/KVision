@@ -13,6 +13,25 @@
         <file>translations/kvision_pl_PL.qm</file>
         <file>translations/kvision_en_US.qm</file>
         <file>translations/kvision_es_ES.qm</file>
+        <file>translations/kvision_ar_AR.qm</file>
+        <file>translations/kvision_bg_BG.qm</file>
+        <file>translations/kvision_cs_CZ.qm</file>
+        <file>translations/kvision_da_DK.qm</file>
+        <file>translations/kvision_de_DE.qm</file>
+        <file>translations/kvision_el_GR.qm</file>
+        <file>translations/kvision_fi_FI.qm</file>
+        <file>translations/kvision_fr_FR.qm</file>
+        <file>translations/kvision_hu_HU.qm</file>
+        <file>translations/kvision_it_IT.qm</file>
+        <file>translations/kvision_nb_NO.qm</file>
+        <file>translations/kvision_nl_NL.qm</file>
+        <file>translations/kvision_pt_PT.qm</file>
+        <file>translations/kvision_ro_RO.qm</file>
+        <file>translations/kvision_sk_SK.qm</file>
+        <file>translations/kvision_sv_SE.qm</file>
+        <file>translations/kvision_tr_TR.qm</file>
+        <file>translations/kvision_uk_UA.qm</file>
+        <file>translations/kvision_zh_CN.qm</file>
         <file>src/RootWindow.qml</file>
         <file>src/AuxiliaryWindow.qml</file>
         <file>src/InstructionsWindow.qml</file>

@@ -11,7 +11,7 @@ import CCTV_Viewer.Themes 1.0
 Window {
     id: auxWindow
 
-    title: qsTr("KVision - Okno pomocnicze") + " " + Qt.application.version
+    title: qsTr("LNG_00018") + " " + Qt.application.version
     width: 800
     height: 600
     color: "#0f151b"
@@ -138,7 +138,7 @@ Window {
                 }
 
                 Text {
-                    text: qsTr("Nie wybrano widoku, wybierz widok")
+                    text: qsTr("LNG_00017")
                     color: "#00f5d4"
                     font.bold: true
                     font.pixelSize: 18
@@ -146,7 +146,7 @@ Window {
                 }
 
                 Text {
-                    text: qsTr("Wybierz widok z menu na górnym pasku, aby rozpocząć wyświetlanie kamer.")
+                    text: qsTr("LNG_00016")
                     color: "#8898a6"
                     font.pixelSize: 12
                     Layout.alignment: Qt.AlignHCenter
@@ -307,7 +307,7 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: optionsButton.hovered
-                    ToolTip.text: qsTr("Opcje i ustawienia panelu bocznego")
+                    ToolTip.text: qsTr("LNG_00015")
                 }
 
                 Button {
@@ -343,7 +343,7 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: newWindowButton.hovered
-                    ToolTip.text: qsTr("Otwórz nowe okno pomocnicze")
+                    ToolTip.text: qsTr("LNG_00014")
                 }
 
                 Button {
@@ -379,7 +379,7 @@ Window {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: instructionsButton.hovered
-                    ToolTip.text: qsTr("Instrukcja obsługi programu")
+                    ToolTip.text: qsTr("LNG_00013")
                 }
 
                 Rectangle {
@@ -390,7 +390,7 @@ Window {
                 }
 
                 Text {
-                    text: qsTr("Siatka widoku:")
+                    text: qsTr("LNG_00012")
                     color: "#8898a6"
                     font.bold: true
                     font.pixelSize: 11
@@ -439,13 +439,13 @@ Window {
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: fullScreenBtn.hovered
-                        ToolTip.text: qsTr("Toggle Full Screen")
+                        ToolTip.text: qsTr("LNG_00011")
                     }
 
                     Switch {
                         id: lockGridSwitch
                         checked: generalSettings ? generalSettings.lockGridSize : true
-                        text: qsTr("🔒 Blokuj zmianę")
+                        text: qsTr("LNG_00010")
 
                         Layout.preferredHeight: 28
                         Layout.alignment: Qt.AlignVCenter
@@ -579,7 +579,7 @@ Window {
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: moreOptionsButton.hovered
-                        ToolTip.text: qsTr("Więcej opcji")
+                        ToolTip.text: qsTr("LNG_00009")
                     }
                 }
 
@@ -589,7 +589,7 @@ Window {
 
                 // Right-aligned Existing Views/Presets selector
                 Text {
-                    text: qsTr("Wybór widoku:")
+                    text: qsTr("LNG_00008")
                     color: "#8898a6"
                     font.bold: true
                     font.pixelSize: 11
@@ -677,10 +677,10 @@ Window {
 
     ConfirmDialog {
         id: quitConfirmDialog
-        title: qsTr("Zamknij program")
-        message: qsTr("Czy na pewno zamknąć program?")
-        confirmButtonText: qsTr("TAK")
-        cancelButtonText: qsTr("NIE")
+        title: qsTr("LNG_00007")
+        message: qsTr("LNG_00006")
+        confirmButtonText: qsTr("LNG_00005")
+        cancelButtonText: qsTr("LNG_00004")
         isDanger: true
         onAccepted: {
             auxWindow.closeAccepted = true;

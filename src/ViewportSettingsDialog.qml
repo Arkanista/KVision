@@ -5,7 +5,7 @@ import CCTV_Viewer.Utils 1.0
 
 Dialog {
     id: viewportSettingsDialog
-    title: qsTr("Viewport Settings")
+    title: qsTr("LNG_00463")
     modal: true
     anchors.centerIn: parent
     width: 420
@@ -67,7 +67,7 @@ Dialog {
 
         // Camera Streams Configuration
         GroupBox {
-            title: qsTr("Active Stream Connection")
+            title: qsTr("LNG_00305")
             Layout.fillWidth: true
 
             background: Rectangle {
@@ -91,7 +91,7 @@ Dialog {
                     spacing: 4
                     Layout.fillWidth: true
                     Label {
-                        text: qsTr("Primary Stream URL")
+                        text: qsTr("LNG_00304")
                         color: "#8898a6"
                         font.pixelSize: 11
                     }
@@ -114,7 +114,7 @@ Dialog {
                     spacing: 4
                     Layout.fillWidth: true
                     Label {
-                        text: qsTr("Secondary Backup URL")
+                        text: qsTr("LNG_00303")
                         color: "#8898a6"
                         font.pixelSize: 11
                     }
@@ -137,7 +137,7 @@ Dialog {
 
         // Channel Viewport Settings
         GroupBox {
-            title: qsTr("Channel Options")
+            title: qsTr("LNG_00462")
             Layout.fillWidth: true
 
             background: Rectangle {
@@ -162,7 +162,7 @@ Dialog {
                     Layout.fillWidth: true
 
                     Label {
-                        text: qsTr("FFmpeg options")
+                        text: qsTr("LNG_00461")
                         color: "#8898a6"
                         font.pixelSize: 11
                     }
@@ -182,7 +182,7 @@ Dialog {
 
                     CheckBox {
                         id: channelIgnoreGlobalAVFormatOptions
-                        text: qsTr("Nie uwzględniaj zmian w globalnych ustawieniach FFMpeg")
+                        text: qsTr("LNG_00460")
                         checked: false
                         contentItem: Text {
                             text: channelIgnoreGlobalAVFormatOptions.text
@@ -223,7 +223,7 @@ Dialog {
 
             Button {
                 id: cancelBtn
-                text: qsTr("Cancel")
+                text: qsTr("LNG_00059")
                 Layout.preferredWidth: 80
                 Layout.preferredHeight: 30
 
@@ -244,7 +244,7 @@ Dialog {
 
             Button {
                 id: confirmBtn
-                text: qsTr("Save")
+                text: qsTr("LNG_00058")
                 Layout.preferredWidth: 80
                 Layout.preferredHeight: 30
 

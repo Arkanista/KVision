@@ -265,7 +265,7 @@
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation translatorcomment="AI-translated">Zasymuluj dostępność nowej wersji na GitHubie w celach testowych (Disponibilidad simulada de nueva versión en GitHub).</translation>
+        <translation translatorcomment="AI-translated">Simule la disponibilidad de una nueva versión en GitHub con fines de prueba</translation>
     </message>
     <message>
         <source>LNG_00476</source>
@@ -643,11 +643,13 @@
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation translatorcomment="AI-translated">Podana ścieżka do zapisu jest nieprawidłowa lub brak do niej dostępu:\n%1</translation>
+        <translation translatorcomment="AI-translated">La ruta de guardado especificada no es válida o se deniega el acceso de escritura:
+%1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation translatorcomment="AI-translated">Brak uprawnień do zapisu w katalogu:\n%1</translation>
+        <translation translatorcomment="AI-translated">Sin permiso de escritura en el directorio:
+%1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
@@ -3357,7 +3359,7 @@
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation translatorcomment="AI-translated">Dodano plakietki \"HikSDK\" na podglądach z rejestratorów dla lepszego rozróżnienia protokołów.</translation>
+        <translation translatorcomment="AI-translated">Se agregaron insignias "HikSDK" en las ventanas gráficas de la grabadora para una mejor diferenciación de protocolos.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
@@ -3381,11 +3383,11 @@
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation translatorcomment="AI-translated">Całkowicie wyeliminowano problem czarnego ekranu przy przełączaniu jakości (SUB/MAIN) dla cámara RTSP/FFmpeg dzięki nowej, natywnej detekcji wyrenderowanych klatek (framePresented).</translation>
+        <translation translatorcomment="AI-translated">Se eliminó por completo el problema de la pantalla negra al cambiar la calidad (SUB/PRINCIPAL) para las cámaras RTSP.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation translatorcomment="AI-translated">Zoptymalizowano zegar bezszwowego przełączania strumieni do 100ms w celu zapewnienia maksymalnej szybkości reakcji przy zachowaniu pełnej stabilności bufora.</translation>
+        <translation translatorcomment="AI-translated">Optimicé el temporizador de cambio de transmisión sin interrupciones a 100 ms para obtener la máxima velocidad.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
@@ -3417,7 +3419,7 @@
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation translatorcomment="AI-translated">Dodano nową opcję w ustawieniach interfejsu użytkownika: \"Wyłącz animację powiększania viewportu\" z natychmiastowym zastosowaniem w widoku siatki kamer.</translation>
+        <translation translatorcomment="AI-translated">Se agregó una nueva opción en la configuración de la interfaz de usuario: "Deshabilitar la animación de zoom de la ventana gráfica" con aplicación inmediata en la vista de cuadrícula de la cámara.</translation>
     </message>
     <message>
         <source>LNG_00432</source>
@@ -3437,11 +3439,11 @@
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation translatorcomment="AI-translated">Dodano funkcjonalność wyciszania (Supresión) raportowania błędów dla poszczególnych rejestratorów (pole wyboru \"Wycisz\"). Wyciszenie maskuje błędy rejestratora w globalnych wskaźnikach alarmów, ale zachowuje podgląd błędów i czerwone wyróżnienie bezpośrednio na kafelkach w popupie statusu.</translation>
+        <translation translatorcomment="AI-translated">Se agregó la funcionalidad de supresión de informes de errores para grabadoras individuales.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation translatorcomment="AI-translated">Poprawiono błędną polską translację \"Symulowany Rejestrator\" w oknie statusu oraz wdrożono właściwe rozróżnienie słowne (\"Suppress\" dla błędów vs \"Mute\" dla dźwięku).</translation>
+        <translation translatorcomment="AI-translated">Se corrigió la traducción incorrecta al polaco "Grabadora simulada" en la ventana de estado e implementó la distinción de palabras adecuada ("Suprimir" para errores frente a "Silenciar" para audio).</translation>
     </message>
     <message>
         <source>LNG_00426</source>
@@ -3461,11 +3463,11 @@
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation translatorcomment="AI-translated">Stworzono eleganckie, przewijane, ograniczone do 85% wysokości ekranu okno popup \"Status rejestratorów\" ze szczegółowym podglądem błędów urządzeń, błędów disków oraz dokładnym czasem ostatniego sprawdzenia.</translation>
+        <translation translatorcomment="AI-translated">Se creó una elegante ventana emergente desplazable "Estado de la grabadora" limitada al 85% de la altura de la pantalla que presenta códigos de error detallados.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation translatorcomment="AI-translated">Dodano flagę uruchomieniową \"--simulate-error\" do natychmiastowej symulacji uszkodzeń disków oraz błędów połączenia we wszystkich rejestratorach w celach demonstracyjnych.</translation>
+        <translation translatorcomment="AI-translated">Se agregó el indicador de ejecución "--simulate-error" para simular instantáneamente fallas de disco y errores de conexión en todas las grabadoras con fines de demostración.</translation>
     </message>
     <message>
         <source>LNG_00420</source>

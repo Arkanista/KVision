@@ -915,7 +915,7 @@ FocusScope {
                         }
                         
                         MenuItem {
-                            text: qsTr("Zamień miejscami")
+                            text: qsTr("LNG_00475")
                             visible: generalSettings.allowSwappingViewports
                             enabled: model.url !== ""
                             leftPadding: 12
@@ -954,7 +954,7 @@ FocusScope {
 
                         MenuItem {
                             id: streamSelectMenuItem
-                            text: qsTr("Wybór streamu")
+                            text: qsTr("LNG_00474")
                             visible: generalSettings.enableStreamSelection
                             enabled: model.url !== ""
                             leftPadding: 12
@@ -1007,7 +1007,7 @@ FocusScope {
 
                         MenuItem {
                             id: removeCameraMenuItem
-                            text: qsTr("Usuń kamerę")
+                            text: qsTr("LNG_00473")
                             visible: generalSettings.enableRemoveCamera
                             enabled: model.url !== ""
                             leftPadding: 12
@@ -1046,7 +1046,7 @@ FocusScope {
 
                         MenuItem {
                             id: changeSettingsMenuItem
-                            text: qsTr("Zmień ustawienia")
+                            text: qsTr("LNG_00472")
                             visible: generalSettings.enableChangeViewportSettings
                             enabled: model.url !== ""
                             leftPadding: 12
@@ -1085,7 +1085,7 @@ FocusScope {
 
                         MenuItem {
                             id: reloadMenuItem
-                            text: qsTr("Przeładuj")
+                            text: qsTr("LNG_00471")
                             enabled: model.url !== "" && !playerPool.activePlayersMap[model.index].isQuickPlayback
                             leftPadding: 12
                             
@@ -1120,7 +1120,7 @@ FocusScope {
                         }
                         MenuItem {
                             id: snapshotMenuItem
-                            text: qsTr("Stopklatka")
+                            text: qsTr("LNG_00470")
                             enabled: model.url !== ""
                             leftPadding: 12
                             
@@ -1157,7 +1157,7 @@ FocusScope {
 
                         MenuItem {
                             id: playMenuItem
-                            text: qsTr("Odtwarzaj")
+                            text: qsTr("LNG_00469")
                             enabled: model.url !== ""
                             leftPadding: 12
                             
@@ -1217,7 +1217,7 @@ FocusScope {
                         
                         MenuItem {
                             id: streamAutoItem
-                            text: qsTr("Automatycznie")
+                            text: qsTr("LNG_00468")
                             leftPadding: 12
                             
                             contentItem: RowLayout {
@@ -1266,7 +1266,7 @@ FocusScope {
                         
                         MenuItem {
                             id: streamMainItem
-                            text: qsTr("Tylko MAIN")
+                            text: qsTr("LNG_00467")
                             leftPadding: 12
                             
                             contentItem: RowLayout {
@@ -1315,7 +1315,7 @@ FocusScope {
                         
                         MenuItem {
                             id: streamSubItem
-                            text: qsTr("Tylko SUB")
+                            text: qsTr("LNG_00466")
                             leftPadding: 12
                             
                             contentItem: RowLayout {
@@ -1550,9 +1550,9 @@ FocusScope {
 
     ConfirmDialog {
         id: removeCameraConfirmDialog
-        title: qsTr("Confirm Camera Removal")
+        title: qsTr("LNG_00465")
         iconSource: "qrc:/images/icon-trash.svg"
-        message: qsTr("Are you sure you want to remove the camera from this viewport?")
+        message: qsTr("LNG_00464")
         property int index: -1
         
         onAccepted: {

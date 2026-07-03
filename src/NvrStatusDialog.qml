@@ -48,7 +48,7 @@ Dialog {
             anchors.left: parent.left
             anchors.leftMargin: 16
             anchors.verticalCenter: parent.verticalCenter
-            text: qsTr("Status rejestratorów")
+            text: qsTr("LNG_00110")
             color: "#00f5d4"
             font.bold: true
             font.pixelSize: 13
@@ -73,7 +73,7 @@ Dialog {
             }
 
             Text {
-                text: qsTr("Trwa sprawdzanie stanu rejestratorów...")
+                text: qsTr("LNG_00109")
                 color: "#8898a6"
                 font.pixelSize: 11
             }
@@ -141,7 +141,7 @@ Dialog {
                                 }
 
                                 Text {
-                                    text: qsTr("Ostatnie sprawdzenie: ") + (modelData.lastCheck ? modelData.lastCheck : qsTr("brak"))
+                                    text: qsTr("LNG_00108") + (modelData.lastCheck ? modelData.lastCheck : qsTr("LNG_00107"))
                                     color: "#8898a6"
                                     font.pixelSize: 10
                                     Layout.fillWidth: true
@@ -149,7 +149,7 @@ Dialog {
                             }
 
                             CheckBox {
-                                text: qsTr("Wycisz")
+                                text: qsTr("LNG_00106")
                                 checked: modelData.muted
                                 onClicked: {
                                     NvrStatusManager.setRecorderMuted(modelData.name, checked)
@@ -169,7 +169,7 @@ Dialog {
 
                                 Text {
                                     anchors.centerIn: parent
-                                    text: modelData.hasError ? qsTr("BŁĄD") : qsTr("OK")
+                                    text: modelData.hasError ? qsTr("LNG_00105") : qsTr("LNG_00104")
                                     color: modelData.hasError ? "#ff4d4d" : "#22c55e"
                                     font.bold: true
                                     font.pixelSize: 10
@@ -236,7 +236,7 @@ Dialog {
 
             Text {
                 Layout.alignment: Qt.AlignHCenter
-                text: qsTr("Brak danych o statusie")
+                text: qsTr("LNG_00103")
                 color: "white"
                 font.pixelSize: 12
                 font.bold: true
@@ -244,7 +244,7 @@ Dialog {
 
             Text {
                 Layout.alignment: Qt.AlignHCenter
-                text: qsTr("Naciśnij przycisk poniżej, aby sprawdzić status rejestratorów.")
+                text: qsTr("LNG_00102")
                 color: "#8898a6"
                 font.pixelSize: 11
                 horizontalAlignment: Text.AlignHCenter
@@ -275,7 +275,7 @@ Dialog {
 
             Button {
                 id: checkNowBtn
-                text: qsTr("Sprawdź teraz")
+                text: qsTr("LNG_00101")
                 Layout.preferredWidth: 140
                 Layout.preferredHeight: 30
                 enabled: !NvrStatusManager.isChecking
@@ -302,7 +302,7 @@ Dialog {
 
             Button {
                 id: closeBtn
-                text: qsTr("Zamknij")
+                text: qsTr("LNG_00100")
                 Layout.preferredWidth: 80
                 Layout.preferredHeight: 30
 

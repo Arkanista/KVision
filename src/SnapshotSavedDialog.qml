@@ -64,7 +64,7 @@ Item {
             }
 
             Text {
-                text: qsTr("Zapisano stopklatkę")
+                text: qsTr("LNG_00457")
                 color: "#00f5d4"
                 font.bold: true
                 font.pixelSize: 12
@@ -81,7 +81,7 @@ Item {
 
         // Content Path Text
         Text {
-            text: qsTr("Zapisano stopklatkę - ") + rootOverlay.filePath
+            text: qsTr("LNG_00456") + rootOverlay.filePath
             color: "white"
             font.pixelSize: 11
             wrapMode: Text.WrapAnywhere
@@ -99,7 +99,7 @@ Item {
 
             Button {
                 id: browseBtn
-                text: qsTr("Przeglądaj")
+                text: qsTr("LNG_00455")
                 Layout.preferredWidth: 90
                 Layout.preferredHeight: 28
 
@@ -125,7 +125,7 @@ Item {
 
             Button {
                 id: exitBtn
-                text: qsTr("Wyjdź")
+                text: qsTr("LNG_00454")
                 Layout.preferredWidth: 70
                 Layout.preferredHeight: 28
 

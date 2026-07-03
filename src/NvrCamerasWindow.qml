@@ -12,7 +12,7 @@ Window {
     width: 900
     height: 840
     color: "#0f151b"
-    title: (recorder && recorder.ip) ? (recorder.name ? qsTr("Cameras on %1").arg(recorder.name) : qsTr("Cameras on %1").arg(recorder.ip)) : qsTr("Cameras")
+    title: (recorder && recorder.ip) ? (recorder.name ? qsTr("LNG_00074").arg(recorder.name) : qsTr("LNG_00074").arg(recorder.ip)) : qsTr("LNG_00073")
 
     property var recorder: ({})
 
@@ -90,7 +90,7 @@ Window {
                 }
 
                 Text {
-                    text: (recorder && recorder.ip) ? qsTr("IP: %1 | Port: %2 | %3 channels").arg(recorder.ip).arg(recorder.port || 0).arg(recorder.cameras ? recorder.cameras.length : 0) : ""
+                    text: (recorder && recorder.ip) ? qsTr("LNG_00072").arg(recorder.ip).arg(recorder.port || 0).arg(recorder.cameras ? recorder.cameras.length : 0) : ""
                     color: "#8898a6"
                     font.pixelSize: 9
                 }
@@ -128,7 +128,7 @@ Window {
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: generateThumbnailsBtn.hovered
-                ToolTip.text: qsTr("Generuj miniatury dla wszystkich kamer")
+                ToolTip.text: qsTr("LNG_00071")
             }
         }
 
@@ -337,7 +337,7 @@ Window {
                                             }
 
                                             Text {
-                                                text: tileWrapper.cameraName || qsTr("Camera %1").arg(modelData.channelId)
+                                                text: tileWrapper.cameraName || qsTr("LNG_00070").arg(modelData.channelId)
                                                 color: "white"
                                                 font.bold: true
                                                 font.pixelSize: 10
@@ -423,14 +423,14 @@ Window {
                                                 vp.url = tileWrapper.cameraUrl;
                                                 vp.secondaryUrl = tileWrapper.cameraUrl;
                                                 vp.streamMode = 0;
-                                                Utils.log_info(qsTr("Assigned camera %1 Ch. %2 to viewport %3").arg(recorder.name || recorder.ip).arg(modelData.channelId).arg(focusIdx + 1));
+                                                Utils.log_info(qsTr("LNG_00069").arg(recorder.name || recorder.ip).arg(modelData.channelId).arg(focusIdx + 1));
                                             }
                                         }
 
                                         ToolTip.delay: Compact.toolTipDelay
                                         ToolTip.timeout: Compact.toolTipTimeout
                                         ToolTip.visible: addBtn.hovered
-                                        ToolTip.text: qsTr("Przypisz do aktywnego podglądu")
+                                        ToolTip.text: qsTr("LNG_00068")
                                     }
 
                                     // Edit camera name button
@@ -463,7 +463,7 @@ Window {
                                         ToolTip.delay: Compact.toolTipDelay
                                         ToolTip.timeout: Compact.toolTipTimeout
                                         ToolTip.visible: editNameBtn.hovered
-                                        ToolTip.text: qsTr("Zmień nazwę kamery")
+                                        ToolTip.text: qsTr("LNG_00067")
                                     }
 
                                     // Refresh thumbnail button
@@ -504,7 +504,7 @@ Window {
                                         ToolTip.delay: Compact.toolTipDelay
                                         ToolTip.timeout: Compact.toolTipTimeout
                                         ToolTip.visible: refreshBtn.hovered
-                                        ToolTip.text: qsTr("Odśwież miniaturę kamery")
+                                        ToolTip.text: qsTr("LNG_00066")
                                     }
                                 }
                             }
@@ -568,7 +568,7 @@ Window {
     Dialog {
         id: editNameDialog
         modal: true
-        title: qsTr("Change Camera Name")
+        title: qsTr("LNG_00065")
         anchors.centerIn: parent
         width: 380
 
@@ -621,13 +621,13 @@ Window {
             spacing: 12
 
             Text {
-                text: qsTr("Channel: %1").arg(editNameDialog.targetChannelId)
+                text: qsTr("LNG_00064").arg(editNameDialog.targetChannelId)
                 color: "#8898a6"
                 font.pixelSize: 11
             }
 
             Text {
-                text: qsTr("Original name: %1").arg(editNameDialog.originalName ? editNameDialog.originalName : qsTr("None"))
+                text: qsTr("LNG_00063").arg(editNameDialog.originalName ? editNameDialog.originalName : qsTr("LNG_00062"))
                 color: "#8898a6"
                 font.pixelSize: 11
                 elide: Text.ElideRight
@@ -636,7 +636,7 @@ Window {
 
             TextField {
                 id: customNameField
-                placeholderText: qsTr("Enter new camera name...")
+                placeholderText: qsTr("LNG_00061")
                 selectByMouse: true
                 Layout.fillWidth: true
                 color: "white"
@@ -671,7 +671,7 @@ Window {
 
                 Button {
                     id: resetBtn
-                    text: qsTr("Reset")
+                    text: qsTr("LNG_00060")
                     Layout.preferredWidth: 80
                     Layout.preferredHeight: 30
 
@@ -698,7 +698,7 @@ Window {
 
                 Button {
                      id: cancelBtn
-                     text: qsTr("Cancel")
+                     text: qsTr("LNG_00059")
                      Layout.preferredWidth: 80
                      Layout.preferredHeight: 30
 
@@ -719,7 +719,7 @@ Window {
 
                 Button {
                      id: saveBtn
-                     text: qsTr("Save")
+                     text: qsTr("LNG_00058")
                      Layout.preferredWidth: 80
                      Layout.preferredHeight: 30
 

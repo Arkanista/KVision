@@ -13,7 +13,7 @@ Window {
     maximumWidth: 380
     maximumHeight: 150
     color: "#1c242c"
-    title: qsTr("KVision")
+    title: qsTr("LNG_00003")
 
     flags: Qt.Window | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowCloseButtonHint
 
@@ -61,7 +61,7 @@ Window {
             }
 
             Text {
-                text: qsTr("Program już działa, nie możesz uruchomić drugiego")
+                text: qsTr("LNG_00453")
                 color: "white"
                 font.pixelSize: 12
                 wrapMode: Text.Wrap
@@ -94,7 +94,7 @@ Window {
 
                 Button {
                     id: closeBtn
-                    text: qsTr("ZAMKNIJ")
+                    text: qsTr("LNG_00001")
                     Layout.preferredWidth: 80
                     Layout.preferredHeight: 30
 

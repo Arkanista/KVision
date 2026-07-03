@@ -15,8 +15,8 @@ Dialog {
 
     property string message: ""
     property string iconSource: "qrc:/images/icon-warning.svg"
-    property string confirmButtonText: qsTr("Yes")
-    property string cancelButtonText: qsTr("No")
+    property string confirmButtonText: qsTr("LNG_00020")
+    property string cancelButtonText: qsTr("LNG_00019")
     property bool isDanger: true
 
     background: Rectangle {

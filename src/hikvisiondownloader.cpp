@@ -75,7 +75,7 @@ int HikvisionDownloader::overallProgress() const
 void HikvisionDownloader::startDownload(const QVariantMap &recorderInfo, int channelId, const QDateTime &start, const QDateTime &end, const QString &saveFilePath)
 {
     if (m_isDownloading) {
-        emit downloadFinished(false, tr("Pobieranie już trwa."));
+        emit downloadFinished(false, tr("LNG_00504"));
         return;
     }
 
@@ -84,7 +84,7 @@ void HikvisionDownloader::startDownload(const QVariantMap &recorderInfo, int cha
 
     m_isDownloading = true;
     m_progress = 0;
-    m_statusText = tr("Inicjalizacja wyszukiwania plików...");
+    m_statusText = tr("LNG_00503");
     emit isDownloadingChanged();
     emit progressChanged();
     emit overallProgressChanged();
@@ -112,7 +112,7 @@ void HikvisionDownloader::startDownload(const QVariantMap &recorderInfo, int cha
             QMetaObject::invokeMethod(this, [this, err]() {
                 m_isDownloading = false;
                 emit isDownloadingChanged();
-                emit downloadFinished(false, tr("Błąd logowania do urządzenia: %1").arg(err));
+                emit downloadFinished(false, tr("LNG_00502").arg(err));
             });
             return;
         }
@@ -197,7 +197,7 @@ void HikvisionDownloader::startDownload(const QVariantMap &recorderInfo, int cha
                 m_lUserID = -1;
                 m_isDownloading = false;
                 emit isDownloadingChanged();
-                emit downloadFinished(false, tr("Brak nagrań w wybranym przedziale czasowym dla tej kamery."));
+                emit downloadFinished(false, tr("LNG_00501"));
                 return;
             }
 
@@ -274,7 +274,7 @@ void HikvisionDownloader::startNextSegment()
         NET_DVR_Logout(m_lUserID);
         m_lUserID = -1;
         
-        QString summaryMsg = tr("Pobrano i przekonwertowano %1 z %2 plików.").arg(m_convertedSegmentsCount).arg(m_totalSegmentsCount);
+        QString summaryMsg = tr("LNG_00500").arg(m_convertedSegmentsCount).arg(m_totalSegmentsCount);
         m_statusText = summaryMsg;
         emit statusTextChanged();
         emit downloadFinished(true, summaryMsg);
@@ -313,7 +313,7 @@ void HikvisionDownloader::startNextSegment()
         m_lUserID = -1;
         m_isDownloading = false;
         emit isDownloadingChanged();
-        emit downloadFinished(false, tr("Podana ścieżka do zapisu jest nieprawidłowa lub brak do niej dostępu:\n%1").arg(fileInfo.absolutePath()));
+        emit downloadFinished(false, tr("LNG_00499").arg(fileInfo.absolutePath()));
         return;
     }
     
@@ -323,7 +323,7 @@ void HikvisionDownloader::startNextSegment()
         m_lUserID = -1;
         m_isDownloading = false;
         emit isDownloadingChanged();
-        emit downloadFinished(false, tr("Brak uprawnień do zapisu w katalogu:\n%1").arg(fileInfo.absolutePath()));
+        emit downloadFinished(false, tr("LNG_00498").arg(fileInfo.absolutePath()));
         return;
     }
 
@@ -361,7 +361,7 @@ void HikvisionDownloader::startNextSegment()
         m_lUserID = -1;
         m_isDownloading = false;
         emit isDownloadingChanged();
-        emit downloadFinished(false, tr("Błąd inicjalizacji pobierania części %1: %2").arg(m_currentSegmentIndex + 1).arg(err));
+        emit downloadFinished(false, tr("LNG_00497").arg(m_currentSegmentIndex + 1).arg(err));
         return;
     }
 
@@ -372,7 +372,7 @@ void HikvisionDownloader::startNextSegment()
         m_lUserID = -1;
         m_isDownloading = false;
         emit isDownloadingChanged();
-        emit downloadFinished(false, tr("Błąd startu pobierania części %1: %2").arg(m_currentSegmentIndex + 1).arg(NET_DVR_GetLastError()));
+        emit downloadFinished(false, tr("LNG_00496").arg(m_currentSegmentIndex + 1).arg(NET_DVR_GetLastError()));
         return;
     }
 
@@ -381,7 +381,7 @@ void HikvisionDownloader::startNextSegment()
     emit progressChanged();
     emit overallProgressChanged();
 
-    m_statusText = tr("Pobieranie części %1 z %2...").arg(m_currentSegmentIndex + 1).arg(m_totalSegmentsCount);
+    m_statusText = tr("LNG_00495").arg(m_currentSegmentIndex + 1).arg(m_totalSegmentsCount);
     emit statusTextChanged();
 
     m_timer->start();
@@ -428,12 +428,12 @@ void HikvisionDownloader::stopDownload()
     m_isConverting = false;
     emit isConvertingChanged();
     m_progress = 0;
-    m_statusText = tr("Zatrzymano");
+    m_statusText = tr("LNG_00025");
     emit isDownloadingChanged();
     emit progressChanged();
     emit overallProgressChanged();
     emit statusTextChanged();
-    emit downloadFinished(false, tr("Pobieranie przerwane przez użytkownika."));
+    emit downloadFinished(false, tr("LNG_00494"));
 }
 
 void HikvisionDownloader::checkProgress()
@@ -477,7 +477,7 @@ void HikvisionDownloader::checkProgress()
             if (m_finalFilePath.endsWith(".mp4", Qt::CaseInsensitive)) {
                 m_isConverting = true;
                 emit isConvertingChanged();
-                m_statusText = tr("Konwertowanie części %1 z %2...").arg(m_currentSegmentIndex + 1).arg(m_totalSegmentsCount);
+                m_statusText = tr("LNG_00493").arg(m_currentSegmentIndex + 1).arg(m_totalSegmentsCount);
                 emit statusTextChanged();
                 m_ffmpegProcess->start("ffmpeg", QStringList() << "-y" << "-i" << m_tempFilePath << "-c:v" << "copy" << "-c:a" << "aac" << m_finalFilePath);
             } else {
@@ -500,7 +500,7 @@ void HikvisionDownloader::checkProgress()
             emit isDownloadingChanged();
             emit progressChanged();
             emit overallProgressChanged();
-            emit downloadFinished(false, tr("Błąd w trakcie pobierania części %1.").arg(m_currentSegmentIndex + 1));
+            emit downloadFinished(false, tr("LNG_00492").arg(m_currentSegmentIndex + 1));
         }
     } else {
         if (m_progress != pos) {
@@ -520,7 +520,7 @@ void HikvisionDownloader::onFfmpegFinished(int exitCode, QProcess::ExitStatus ex
         QFile::remove(m_tempFilePath);
         m_convertedSegmentsCount++;
         m_currentSegmentIndex++;
-        m_statusText = tr("Pobrano i przekonwertowano %1 z %2 części...").arg(m_convertedSegmentsCount).arg(m_totalSegmentsCount);
+        m_statusText = tr("LNG_00491").arg(m_convertedSegmentsCount).arg(m_totalSegmentsCount);
         emit statusTextChanged();
         
         startNextSegment();
@@ -536,7 +536,7 @@ void HikvisionDownloader::onFfmpegFinished(int exitCode, QProcess::ExitStatus ex
         
         QString shortError = QString::fromUtf8(stderrOutput.trimmed());
         if (shortError.isEmpty()) {
-            shortError = tr("Błąd wewnętrzny FFmpeg");
+            shortError = tr("LNG_00490");
         } else {
             QStringList lines = shortError.split('\n');
             if (!lines.isEmpty()) {
@@ -546,6 +546,6 @@ void HikvisionDownloader::onFfmpegFinished(int exitCode, QProcess::ExitStatus ex
                 }
             }
         }
-        emit downloadFinished(false, tr("Konwersja części %1 na MP4 nie powiodła się: %2").arg(m_currentSegmentIndex + 1).arg(shortError.left(100)));
+        emit downloadFinished(false, tr("LNG_00489").arg(m_currentSegmentIndex + 1).arg(shortError.left(100)));
     }
 }

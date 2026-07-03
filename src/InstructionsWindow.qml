@@ -6,7 +6,7 @@ import CCTV_Viewer.Core 1.0
 
 Window {
     id: instructionsWindow
-    title: qsTr("KVision - Instrukcja Obsługi / Instructions")
+    title: qsTr("LNG_00057")
     width: 750
     height: 800
     minimumWidth: 400
@@ -33,13 +33,13 @@ Window {
 
     function loadInstructions() {
         // Use a translated resource string to select correct file based on active locale
-        var fileUrl = qsTr("qrc:/INSTRUKCJA.md");
+        var fileUrl = qsTr("LNG_00056");
         var content = Context.readLocalFile(fileUrl);
         if (content) {
             rawMarkdownText = content;
             instructionsText.text = markdownToHtml(content);
         } else {
-            instructionsText.text = "<p style='color: #ff4d4d;'>" + qsTr("Błąd ładowania instrukcji.") + "</p>";
+            instructionsText.text = "<p style='color: #ff4d4d;'>" + qsTr("LNG_00055") + "</p>";
         }
     }
 

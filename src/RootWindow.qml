@@ -15,7 +15,7 @@ import Qt.labs.platform 1.1 as Platform
 ApplicationWindow {
     id: rootWindow
 
-    title: (Context.isAuxiliary ? qsTr("KVision - Okno pomocnicze") : qsTr("KVision")) + " " + Qt.application.version
+    title: (Context.isAuxiliary ? qsTr("LNG_00018") : qsTr("LNG_00003")) + " " + Qt.application.version
 
     visible: true
     visibility: Context.config.fullScreen ? Window.FullScreen : Window.Windowed
@@ -472,7 +472,7 @@ ApplicationWindow {
             try {
                 obj = JSON.parse(layoutsCollectionSettings[String(key)]);
             } catch(err) {
-                Utils.log_error(qsTr("Error reading configuration!"));
+                Utils.log_error(qsTr("LNG_00219"));
             }
 
             return obj;
@@ -629,7 +629,7 @@ ApplicationWindow {
                     fromJSValue(JSON.parse(initialModels));
                 }
             } catch(err) {
-                Utils.log_error(qsTr("Error reading configuration!"));
+                Utils.log_error(qsTr("LNG_00219"));
             } finally {
                 rootWindow.isSyncing = false;
             }
@@ -782,7 +782,7 @@ ApplicationWindow {
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: pinButton.hovered
-                ToolTip.text: pinButton.isPinned ? qsTr("Odepnij pasek górny") : qsTr("Przypnij pasek górny")
+                ToolTip.text: pinButton.isPinned ? qsTr("LNG_00120") : qsTr("LNG_00119")
             }
 
             Button {
@@ -821,7 +821,7 @@ ApplicationWindow {
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: fullScreenBtn.hovered
-                ToolTip.text: qsTr("Toggle Full Screen")
+                ToolTip.text: qsTr("LNG_00011")
             }
 
             Button {
@@ -854,7 +854,7 @@ ApplicationWindow {
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: minimizeButton.hovered
-                ToolTip.text: qsTr("Minimalizuj okno")
+                ToolTip.text: qsTr("LNG_00218")
             }
 
             Button {
@@ -894,7 +894,7 @@ ApplicationWindow {
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: optionsButton.hovered
-                ToolTip.text: qsTr("Opcje i ustawienia panelu bocznego")
+                ToolTip.text: qsTr("LNG_00015")
             }
 
             Button {
@@ -930,7 +930,7 @@ ApplicationWindow {
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: newWindowButton.hovered
-                ToolTip.text: qsTr("Otwórz nowe okno pomocnicze")
+                ToolTip.text: qsTr("LNG_00014")
             }
 
             Button {
@@ -966,7 +966,7 @@ ApplicationWindow {
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: archiveButton.hovered
-                ToolTip.text: qsTr("Archiwum nagrań i odtwarzacz")
+                ToolTip.text: qsTr("LNG_00217")
             }
 
             Button {
@@ -1004,7 +1004,7 @@ ApplicationWindow {
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: instructionsButton.hovered
-                ToolTip.text: qsTr("Instrukcja obsługi programu")
+                ToolTip.text: qsTr("LNG_00013")
             }
 
             Button {
@@ -1035,7 +1035,7 @@ ApplicationWindow {
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: systemStatsSwitch.hovered
-                ToolTip.text: systemStatsSwitch.checked ? qsTr("Wyłącz statystyki zużycia zasobów") : qsTr("Włącz statystyki zużycia zasobów")
+                ToolTip.text: systemStatsSwitch.checked ? qsTr("LNG_00216") : qsTr("LNG_00215")
             }
 
             Button {
@@ -1134,7 +1134,7 @@ ApplicationWindow {
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: nvrStatusButton.hovered
-                ToolTip.text: NvrStatusManager.hasErrors ? qsTr("Wykryto błędy rejestratorów!") : qsTr("Status rejestratorów: OK")
+                ToolTip.text: NvrStatusManager.hasErrors ? qsTr("LNG_00214") : qsTr("LNG_00213")
             }
 
             Rectangle {
@@ -1186,7 +1186,7 @@ ApplicationWindow {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: lockGridSwitch.hovered
-                    ToolTip.text: qsTr("Zablokuj zmianę rozmiaru siatki")
+                    ToolTip.text: qsTr("LNG_00212")
                 }
 
                 Rectangle {
@@ -1284,7 +1284,7 @@ ApplicationWindow {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: moreOptionsButton.hovered
-                    ToolTip.text: qsTr("Więcej opcji")
+                    ToolTip.text: qsTr("LNG_00009")
                 }
             }
 
@@ -1471,7 +1471,7 @@ ApplicationWindow {
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: containsMouse
-                ToolTip.text: qsTr("Wykryto błędy rejestratorów! Kliknij, aby zobaczyć szczegóły.")
+                ToolTip.text: qsTr("LNG_00211")
             }
         }
     }
@@ -1509,7 +1509,7 @@ ApplicationWindow {
                 }
 
                 Text {
-                    text: qsTr("Nie wybrano widoku, wybierz widok")
+                    text: qsTr("LNG_00017")
                     color: "#00f5d4"
                     font.bold: true
                     font.pixelSize: 18
@@ -1517,7 +1517,7 @@ ApplicationWindow {
                 }
 
                 Text {
-                    text: qsTr("Wybierz widok z menu na górnym pasku, aby rozpocząć wyświetlanie kamer.")
+                    text: qsTr("LNG_00016")
                     color: "#8898a6"
                     font.pixelSize: 12
                     Layout.alignment: Qt.AlignHCenter
@@ -1552,7 +1552,7 @@ ApplicationWindow {
     // Separate utility Window for options (SideBar contents)
     Window {
         id: sidebarWindow
-        title: qsTr("KVision - Panel")
+        title: qsTr("LNG_00210")
         width: Math.round(rootWindow.width * 0.85)
         height: Math.round(rootWindow.height * 0.85)
         visible: false
@@ -1686,10 +1686,10 @@ ApplicationWindow {
 
     ConfirmDialog {
         id: quitConfirmDialog
-        title: Context.isAuxiliary ? qsTr("Zamknij okno") : qsTr("Zamknij program")
-        message: Context.isAuxiliary ? qsTr("Czy na pewno zamknąć to okno?") : qsTr("Czy na pewno zamknąć program?")
-        confirmButtonText: qsTr("TAK")
-        cancelButtonText: qsTr("NIE")
+        title: Context.isAuxiliary ? qsTr("LNG_00121") : qsTr("LNG_00007")
+        message: Context.isAuxiliary ? qsTr("LNG_00209") : qsTr("LNG_00006")
+        confirmButtonText: qsTr("LNG_00005")
+        cancelButtonText: qsTr("LNG_00004")
         isDanger: true
         onAccepted: {
             if (saveTimer.running) {
@@ -1798,7 +1798,7 @@ ApplicationWindow {
                 Layout.fillWidth: true
                 
                 Text {
-                    text: qsTr("📊 SYSTEM STATS")
+                    text: qsTr("LNG_00208")
                     color: "#00ff66"
                     font.bold: true
                     font.pixelSize: 13
@@ -1839,7 +1839,7 @@ ApplicationWindow {
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: dragArea.containsMouse
-                    ToolTip.text: qsTr("Przeciągnij panel statystyk")
+                    ToolTip.text: qsTr("LNG_00207")
                 }
             }
 
@@ -1848,14 +1848,14 @@ ApplicationWindow {
                 spacing: 20
 
                 Text {
-                    text: qsTr("RAM: ") + SystemStats.ramUsage.toFixed(1) + " MB"
+                    text: qsTr("LNG_00206") + SystemStats.ramUsage.toFixed(1) + " MB"
                     color: "#00ff66"
                     font.pixelSize: 11
                     font.bold: true
                 }
 
                 Text {
-                    text: qsTr("VRAM: ") + SystemStats.vramUsage.toFixed(1) + " MB"
+                    text: qsTr("LNG_00205") + SystemStats.vramUsage.toFixed(1) + " MB"
                     color: "#00ff66"
                     font.pixelSize: 11
                     font.bold: true
@@ -1863,7 +1863,7 @@ ApplicationWindow {
             }
 
             Text {
-                text: qsTr("CPU: ") + SystemStats.cpuUsage.toFixed(1) + "%"
+                text: qsTr("LNG_00204") + SystemStats.cpuUsage.toFixed(1) + "%"
                 color: "#00ff66"
                 font.pixelSize: 11
                 font.bold: true
@@ -1945,7 +1945,7 @@ ApplicationWindow {
             }
 
             Text {
-                text: qsTr("GPU: ") + SystemStats.gpuUsage.toFixed(1) + "%"
+                text: qsTr("LNG_00203") + SystemStats.gpuUsage.toFixed(1) + "%"
                 color: "#00ff66"
                 font.pixelSize: 11
                 font.bold: true
@@ -2027,7 +2027,7 @@ ApplicationWindow {
             }
 
             Text {
-                text: qsTr("NET: ") + (SystemStats.netUsage >= 1.0 ? SystemStats.netUsage.toFixed(1) + " Mbps" : (SystemStats.netUsage * 1000.0).toFixed(0) + " kbps")
+                text: qsTr("LNG_00202") + (SystemStats.netUsage >= 1.0 ? SystemStats.netUsage.toFixed(1) + " Mbps" : (SystemStats.netUsage * 1000.0).toFixed(0) + " kbps")
                 color: "#00ff66"
                 font.pixelSize: 11
                 font.bold: true
@@ -2433,7 +2433,7 @@ ApplicationWindow {
             }
 
             Text {
-                text: qsTr("Ładowanie nowego okna...")
+                text: qsTr("LNG_00201")
                 color: "white"
                 font.bold: true
                 font.pixelSize: 13

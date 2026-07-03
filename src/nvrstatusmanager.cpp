@@ -410,20 +410,20 @@ void NvrStatusWorker::run()
         if (m_recorders.isEmpty()) {
             // Mockup simulation with no recorders
             QVariantMap mockRec;
-            mockRec["name"] = tr("Symulowany Rejestrator");
+            mockRec["name"] = tr("LNG_00516");
             mockRec["ip"] = "192.168.1.100";
             mockRec["lastCheck"] = lastCheckTime;
             mockRec["hasError"] = true;
 
             QVariantList recErrors;
             QVariantMap err1;
-            err1["target"] = tr("Dysk 1");
-            err1["details"] = tr("Krytyczny błąd/uszkodzenie dysku (Symulacja)");
+            err1["target"] = tr("LNG_00515");
+            err1["details"] = tr("LNG_00514");
             recErrors.append(err1);
 
             QVariantMap err2;
             err2["target"] = "";
-            err2["details"] = tr("Brak połączenia lub błąd logowania (Symulacja)");
+            err2["details"] = tr("LNG_00513");
             recErrors.append(err2);
 
             mockRec["errors"] = recErrors;
@@ -457,13 +457,13 @@ void NvrStatusWorker::run()
 
                 QVariantList recErrors;
                 QVariantMap err1;
-                err1["target"] = tr("Dysk 1");
-                err1["details"] = tr("Krytyczny błąd/uszkodzenie dysku (Symulacja)");
+                err1["target"] = tr("LNG_00515");
+                err1["details"] = tr("LNG_00514");
                 recErrors.append(err1);
 
                 QVariantMap err2;
                 err2["target"] = "";
-                err2["details"] = tr("Brak połączenia lub błąd logowania (Symulacja)");
+                err2["details"] = tr("LNG_00513");
                 recErrors.append(err2);
 
                 rec["errors"] = recErrors;
@@ -518,7 +518,7 @@ void NvrStatusWorker::run()
                 err["recorderIp"] = ip;
                 err["type"] = "offline";
                 err["target"] = "";
-                err["details"] = tr("Brak połączenia lub błąd logowania");
+                err["details"] = tr("LNG_00512");
                 errors.append(err);
 
                 QVariantMap localErr;
@@ -543,7 +543,7 @@ void NvrStatusWorker::run()
                 err["recorderIp"] = ip;
                 err["type"] = "offline";
                 err["target"] = "";
-                err["details"] = tr("Błąd odczytu stanu rejestratora (SDK)");
+                err["details"] = tr("LNG_00511");
                 errors.append(err);
 
                 QVariantMap localErr;
@@ -564,7 +564,7 @@ void NvrStatusWorker::run()
             err["recorderIp"] = ip;
             err["type"] = "cpu";
             err["target"] = "";
-            err["details"] = tr("Wysokie obciążenie procesora (>85%)");
+            err["details"] = tr("LNG_00510");
             errors.append(err);
 
             QVariantMap localErr;
@@ -580,7 +580,7 @@ void NvrStatusWorker::run()
             err["recorderIp"] = ip;
             err["type"] = "hw";
             err["target"] = "";
-            err["details"] = tr("Błąd sprzętowy urządzenia");
+            err["details"] = tr("LNG_00509");
             errors.append(err);
 
             QVariantMap localErr;
@@ -593,7 +593,7 @@ void NvrStatusWorker::run()
         for (int d = 0; d < MAX_DISKNUM_V30; ++d) {
             NET_DVR_DISKSTATE disk = workState.struHardDiskStatic[d];
             if (disk.dwVolume > 0) {
-                QString diskLabel = tr("Dysk %1").arg(d + 1);
+                QString diskLabel = tr("LNG_00508").arg(d + 1);
 
                 // Disk abnormal/sleep error/can't connect/other exception
                 if (checkHdd && (disk.dwHardDiskStatic == 2 || disk.dwHardDiskStatic == 3 || disk.dwHardDiskStatic == 5 || disk.dwHardDiskStatic == 8)) {
@@ -602,7 +602,7 @@ void NvrStatusWorker::run()
                     err["recorderIp"] = ip;
                     err["type"] = "hdd";
                     err["target"] = diskLabel;
-                    err["details"] = tr("Krytyczny błąd/uszkodzenie dysku");
+                    err["details"] = tr("LNG_00507");
                     errors.append(err);
 
                     QVariantMap localErr;
@@ -617,7 +617,7 @@ void NvrStatusWorker::run()
                     err["recorderIp"] = ip;
                     err["type"] = "unformatted";
                     err["target"] = diskLabel;
-                    err["details"] = tr("Dysk niesformatowany");
+                    err["details"] = tr("LNG_00506");
                     errors.append(err);
 
                     QVariantMap localErr;
@@ -632,7 +632,7 @@ void NvrStatusWorker::run()
                     err["recorderIp"] = ip;
                     err["type"] = "full";
                     err["target"] = diskLabel;
-                    err["details"] = tr("Dysk pełny (nadpisywanie wyłączone)");
+                    err["details"] = tr("LNG_00505");
                     errors.append(err);
 
                     QVariantMap localErr;

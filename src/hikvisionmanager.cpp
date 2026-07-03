@@ -272,7 +272,7 @@ void HikvisionManager::discoverCamerasAsync(const QString &ip, int port, const Q
     QThread *thread = QThread::create([this, ip, port, username, password]() {
         QVariantList cameras = discoverCameras(ip, port, username, password);
         bool success = !cameras.isEmpty();
-        QString errorMsg = success ? "" : tr("Login failed or no cameras discovered.");
+        QString errorMsg = success ? "" : tr("LNG_00099");
         emit discoveryFinished(ip, cameras, success, errorMsg);
     });
 

@@ -87,7 +87,7 @@ T.Page {
                     obj = JSON.parse(sideBarSettings.itemsState);
                 }
             } catch(err) {
-                Utils.log_error(qsTr("Error reading configuration!"));
+                Utils.log_error(qsTr("LNG_00219"));
             }
 
             return obj;
