@@ -1293,7 +1293,16 @@ void HikvisionArchivePlayer::paint(QPainter *painter)
     std::lock_guard<std::mutex> lock(m_imageMutex);
     painter->fillRect(boundingRect(), Qt::black);
     if (!m_currentImage.isNull()) {
-        painter->drawImage(boundingRect(), m_currentImage);
+        QRectF rect = boundingRect();
+        QSizeF imgSize = m_currentImage.size();
+        QSizeF scaledSize = imgSize.scaled(rect.size(), Qt::KeepAspectRatio);
+        QRectF targetRect(
+            rect.center().x() - scaledSize.width() / 2.0,
+            rect.center().y() - scaledSize.height() / 2.0,
+            scaledSize.width(),
+            scaledSize.height()
+        );
+        painter->drawImage(targetRect, m_currentImage);
     } else {
         QString msg = m_playerStatusMessage;
         if (msg.isEmpty()) {
