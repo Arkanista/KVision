@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation translatorcomment="AI-translated">Nemôžete otvoriť ďalšie pomocné okná</translation>
+        <translation>Nemôžete otvoriť ďalšie pomocné okná</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">ZATVORTE</translation>
+        <translation>ZATVORTE</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Pomocné okno</translation>
+        <translation>KVision - Pomocné okno</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Nie je vybraté žiadne zobrazenie, vyberte zobrazenie</translation>
+        <translation>Nie je vybraté žiadne zobrazenie, vyberte zobrazenie</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Ak chcete začať zobrazovať kamery, vyberte pohľad z horného menu.</translation>
+        <translation>Ak chcete začať zobrazovať kamery, vyberte pohľad z horného menu.</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Možnosti a nastavenia panela bočného panela</translation>
+        <translation>Možnosti a nastavenia panela bočného panela</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Otvorte nové pomocné okno</translation>
+        <translation>Otvorte nové pomocné okno</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Návod na použitie programu</translation>
+        <translation>Návod na použitie programu</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation translatorcomment="AI-translated">Zobrazenie mriežky:</translation>
+        <translation>Zobrazenie mriežky:</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Prepnúť na celú obrazovku</translation>
+        <translation>Prepnúť na celú obrazovku</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation translatorcomment="AI-translated">🔒 Zmena rozloženia zámku</translation>
+        <translation>🔒 Zmena rozloženia zámku</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Viac možností</translation>
+        <translation>Viac možností</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation translatorcomment="AI-translated">Zobraziť výber:</translation>
+        <translation>Zobraziť výber:</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Zatvorte program</translation>
+        <translation>Zatvorte program</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Naozaj chcete ukončiť program?</translation>
+        <translation>Naozaj chcete ukončiť program?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">ÁNO</translation>
+        <translation>ÁNO</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NIE</translation>
+        <translation>NIE</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation translatorcomment="AI-translated">áno</translation>
+        <translation>áno</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation translatorcomment="AI-translated">Nie</translation>
+        <translation>Nie</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation translatorcomment="AI-translated">Cesta ku konfiguračnému súboru.</translation>
+        <translation type="vanished">Cesta ku konfiguračnému súboru.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation translatorcomment="AI-translated">Index aktuálnej predvoľby.</translation>
+        <translation type="vanished">Index aktuálnej predvoľby.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation translatorcomment="AI-translated">Vynútiť režim celej obrazovky.</translation>
+        <translation type="vanished">Vynútiť režim celej obrazovky.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation translatorcomment="AI-translated">Funkcia kioskového režimu.</translation>
+        <translation type="vanished">Funkcia kioskového režimu.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation translatorcomment="AI-translated">Úroveň denníka [%1...%2].</translation>
+        <translation type="vanished">Úroveň denníka [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation translatorcomment="AI-translated">Začnite ako pomocné okno.</translation>
+        <translation type="vanished">Začnite ako pomocné okno.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation translatorcomment="AI-translated">ID pomocného okna.</translation>
+        <translation type="vanished">ID pomocného okna.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation translatorcomment="AI-translated">Zobraziť podrobné protokoly v konzole (podrobné protokolovanie).</translation>
+        <translation type="vanished">Zobraziť podrobné protokoly v konzole (podrobné protokolovanie).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation translatorcomment="AI-translated">Povoliť sledovanie objektov v protokoloch na ladenie únikov pamäte.</translation>
+        <translation type="vanished">Povoliť sledovanie objektov v protokoloch na ladenie únikov pamäte.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation translatorcomment="AI-translated">Vynútiť správanie pri prvom spustení a zobraziť pokyny.</translation>
+        <translation type="vanished">Vynútiť správanie pri prvom spustení a zobraziť pokyny.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation translatorcomment="AI-translated">Simulujte chyby NVR na všetkých rekordéroch.</translation>
+        <translation type="vanished">Simulujte chyby NVR na všetkých rekordéroch.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation translatorcomment="AI-translated">Predstierajte dostupnosť novej verzie na GitHub na účely testovania</translation>
+        <translation type="vanished">Predstierajte dostupnosť novej verzie na GitHub na účely testovania</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation translatorcomment="AI-translated">KVision - prehliadač a montáž video streamov.</translation>
+        <translation>KVision - prehliadač a montáž video streamov.</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation translatorcomment="AI-translated">Dátum a čas ukončenia musí byť neskorší ako dátum a čas začiatku!</translation>
+        <translation>Dátum a čas ukončenia musí byť neskorší ako dátum a čas začiatku!</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation translatorcomment="AI-translated">januára</translation>
+        <translation>januára</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation translatorcomment="AI-translated">februára</translation>
+        <translation>februára</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation translatorcomment="AI-translated">marca</translation>
+        <translation>marca</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation translatorcomment="AI-translated">apríla</translation>
+        <translation>apríla</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation translatorcomment="AI-translated">mája</translation>
+        <translation>mája</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation translatorcomment="AI-translated">júna</translation>
+        <translation>júna</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation translatorcomment="AI-translated">júla</translation>
+        <translation>júla</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation translatorcomment="AI-translated">augusta</translation>
+        <translation>augusta</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation translatorcomment="AI-translated">septembra</translation>
+        <translation>septembra</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation translatorcomment="AI-translated">októbra</translation>
+        <translation>októbra</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation translatorcomment="AI-translated">novembra</translation>
+        <translation>novembra</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation translatorcomment="AI-translated">decembra</translation>
+        <translation>decembra</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Predchádzajúci mesiac</translation>
+        <translation>Predchádzajúci mesiac</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Budúci mesiac</translation>
+        <translation>Budúci mesiac</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation translatorcomment="AI-translated">Vyberte čas</translation>
+        <translation>Vyberte čas</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation translatorcomment="AI-translated">Hr</translation>
+        <translation>Hr</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation translatorcomment="AI-translated">Min</translation>
+        <translation>Min</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation translatorcomment="AI-translated">Sek</translation>
+        <translation>Sek</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation translatorcomment="AI-translated">Zrušiť</translation>
+        <translation>Zrušiť</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation translatorcomment="AI-translated">Potvrďte</translation>
+        <translation>Potvrďte</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation translatorcomment="AI-translated">Stiahnite si nahrávky</translation>
+        <translation>Stiahnite si nahrávky</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation translatorcomment="AI-translated">Od:</translation>
+        <translation>Od:</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation translatorcomment="AI-translated">Nesprávny formát dátumu! Požadovaný formát: DD.MM.RRRR (napr. 26.06.2026)</translation>
+        <translation>Nesprávny formát dátumu! Požadovaný formát: DD.MM.RRRR (napr. 26.06.2026)</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation translatorcomment="AI-translated">Nesprávny formát času! Požadovaný formát: HH:MM:SS alebo HH.MM.SS (napr. 12:30:00 alebo 12.30.00)</translation>
+        <translation>Nesprávny formát času! Požadovaný formát: HH:MM:SS alebo HH.MM.SS (napr. 12:30:00 alebo 12.30.00)</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation translatorcomment="AI-translated">Komu:</translation>
+        <translation>Komu:</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation translatorcomment="AI-translated">Celkom:</translation>
+        <translation>Celkom:</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation translatorcomment="AI-translated">Sťahuje sa...</translation>
+        <translation>Sťahuje sa...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation translatorcomment="AI-translated">Chyba:</translation>
+        <translation>Chyba:</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation translatorcomment="AI-translated">Inicializuje sa...</translation>
+        <translation>Inicializuje sa...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Zastavené</translation>
+        <translation>Zastavené</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation translatorcomment="AI-translated">otvorte priečinok na uloženie</translation>
+        <translation>otvorte priečinok na uloženie</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation translatorcomment="AI-translated">Stop</translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Stiahnuť</translation>
+        <translation>Stiahnuť</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation translatorcomment="AI-translated">Sťahovanie už prebieha.</translation>
+        <translation>Sťahovanie už prebieha.</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation translatorcomment="AI-translated">Inicializuje sa vyhľadávanie súborov...</translation>
+        <translation>Inicializuje sa vyhľadávanie súborov...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation translatorcomment="AI-translated">Chyba pri prihlasovaní do zariadenia: %1</translation>
+        <translation>Chyba pri prihlasovaní do zariadenia: %1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation translatorcomment="AI-translated">Vo vybratom časovom rozsahu pre túto kameru nie sú žiadne záznamy.</translation>
+        <translation>Vo vybratom časovom rozsahu pre túto kameru nie sú žiadne záznamy.</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation translatorcomment="AI-translated">Stiahnuté a skonvertované %1 z %2 súborov.</translation>
+        <translation>Stiahnuté a skonvertované %1 z %2 súborov.</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation translatorcomment="AI-translated">Zadaná cesta uloženia je neplatná alebo je odmietnutý prístup na zápis:
+        <translation>Zadaná cesta uloženia je neplatná alebo je odmietnutý prístup na zápis:
 %1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation translatorcomment="AI-translated">Žiadne oprávnenie na zápis do adresára:
+        <translation>Žiadne oprávnenie na zápis do adresára:
 %1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation translatorcomment="AI-translated">Chyba pri inicializácii sťahovania časti %1: %2</translation>
+        <translation>Chyba pri inicializácii sťahovania časti %1: %2</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation translatorcomment="AI-translated">Chyba pri spustení sťahovania časti %1: %2</translation>
+        <translation>Chyba pri spustení sťahovania časti %1: %2</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation translatorcomment="AI-translated">Sťahuje sa časť %1 z %2...</translation>
+        <translation>Sťahuje sa časť %1 z %2...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Zastavené</translation>
+        <translation>Zastavené</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation translatorcomment="AI-translated">Sťahovanie bolo prerušené používateľom.</translation>
+        <translation>Sťahovanie bolo prerušené používateľom.</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation translatorcomment="AI-translated">Prevádza sa časť %1 z %2...</translation>
+        <translation>Prevádza sa časť %1 z %2...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation translatorcomment="AI-translated">Chyba pri sťahovaní časti %1.</translation>
+        <translation>Chyba pri sťahovaní časti %1.</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation translatorcomment="AI-translated">Stiahnuté a skonvertované %1 z %2 častí...</translation>
+        <translation>Stiahnuté a skonvertované %1 z %2 častí...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation translatorcomment="AI-translated">Interná chyba FFmpeg</translation>
+        <translation>Interná chyba FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation translatorcomment="AI-translated">Konverzia časti %1 na MP4 zlyhala: %2</translation>
+        <translation>Konverzia časti %1 na MP4 zlyhala: %2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Prihlásenie zlyhalo alebo neboli nájdené žiadne kamery.</translation>
+        <translation>Prihlásenie zlyhalo alebo neboli nájdené žiadne kamery.</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation translatorcomment="AI-translated">KVision - Používateľská príručka / Pokyny</translation>
+        <translation>KVision - Používateľská príručka / Pokyny</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS_sk.md</translation>
+        <translation>qrc:/INSTRUCTIONS_sk.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation translatorcomment="AI-translated">Chyba pri načítavaní pokynov.</translation>
+        <translation>Chyba pri načítavaní pokynov.</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation translatorcomment="AI-translated">Kamery na %1</translation>
+        <translation>Kamery na %1</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation translatorcomment="AI-translated">Fotoaparáty</translation>
+        <translation>Fotoaparáty</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation translatorcomment="AI-translated">IP: %1 | Port: %2 | %3 kanálov</translation>
+        <translation>IP: %1 | Port: %2 | %3 kanálov</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation translatorcomment="AI-translated">Generujte miniatúry pre všetky fotoaparáty</translation>
+        <translation>Generujte miniatúry pre všetky fotoaparáty</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation translatorcomment="AI-translated">Fotoaparát %1</translation>
+        <translation>Fotoaparát %1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation translatorcomment="AI-translated">Priradená kamera %1 Ch. %2 do výrezu %3</translation>
+        <translation>Priradená kamera %1 Ch. %2 do výrezu %3</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation translatorcomment="AI-translated">Priradiť k aktívnemu výrezu</translation>
+        <translation>Priradiť k aktívnemu výrezu</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation translatorcomment="AI-translated">Premenovať fotoaparát</translation>
+        <translation>Premenovať fotoaparát</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation translatorcomment="AI-translated">Obnoviť miniatúru fotoaparátu</translation>
+        <translation>Obnoviť miniatúru fotoaparátu</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation translatorcomment="AI-translated">Zmeňte názov fotoaparátu</translation>
+        <translation>Zmeňte názov fotoaparátu</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation translatorcomment="AI-translated">Kanál: %1</translation>
+        <translation>Kanál: %1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation translatorcomment="AI-translated">Pôvodný názov: %1</translation>
+        <translation>Pôvodný názov: %1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation translatorcomment="AI-translated">žiadne</translation>
+        <translation>žiadne</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation translatorcomment="AI-translated">Zadajte nový názov fotoaparátu...</translation>
+        <translation>Zadajte nový názov fotoaparátu...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation translatorcomment="AI-translated">Resetovať</translation>
+        <translation>Resetovať</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Zrušiť</translation>
+        <translation>Zrušiť</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Uložiť</translation>
+        <translation>Uložiť</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Prihlásenie zlyhalo alebo neboli nájdené žiadne kamery.</translation>
+        <translation>Prihlásenie zlyhalo alebo neboli nájdené žiadne kamery.</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation translatorcomment="AI-translated">Pridajte Hikvision Recorder</translation>
+        <translation>Pridajte Hikvision Recorder</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation translatorcomment="AI-translated">Meno rekordéra (voliteľné)</translation>
+        <translation>Meno rekordéra (voliteľné)</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation translatorcomment="AI-translated">IP adresa</translation>
+        <translation>IP adresa</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation translatorcomment="AI-translated">Port (8000)</translation>
+        <translation>Port (8000)</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation translatorcomment="AI-translated">Používateľské meno</translation>
+        <translation>Používateľské meno</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation translatorcomment="AI-translated">heslo</translation>
+        <translation>heslo</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation translatorcomment="AI-translated">Objavovanie...</translation>
+        <translation>Objavovanie...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation translatorcomment="AI-translated">Pripojiť a objaviť</translation>
+        <translation>Pripojiť a objaviť</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation translatorcomment="AI-translated">Uložiť a aktualizovať</translation>
+        <translation>Uložiť a aktualizovať</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation translatorcomment="AI-translated">Chyba: Vyžaduje sa IP a heslo.</translation>
+        <translation>Chyba: Vyžaduje sa IP a heslo.</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation translatorcomment="AI-translated">Pripája sa k NVR a objavuje sa kanály...</translation>
+        <translation>Pripája sa k NVR a objavuje sa kanály...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Zrušiť</translation>
+        <translation>Zrušiť</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation translatorcomment="AI-translated">Pripojené rekordéry</translation>
+        <translation>Pripojené rekordéry</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation translatorcomment="AI-translated">Počet pripojených kamier: %1</translation>
+        <translation>Počet pripojených kamier: %1</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation translatorcomment="AI-translated">PRIHLÁSENÝ</translation>
+        <translation>PRIHLÁSENÝ</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation translatorcomment="AI-translated">NIE JE PRIHLÁSENÝ</translation>
+        <translation>NIE JE PRIHLÁSENÝ</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation translatorcomment="AI-translated">Zelená: Aktívna relácia SDK (PTZ/Archiv). Červená: Žiadna aktívna relácia (RTSP stream funguje nezávisle).</translation>
+        <translation>Zelená: Aktívna relácia SDK (PTZ/Archiv). Červená: Žiadna aktívna relácia (RTSP stream funguje nezávisle).</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation translatorcomment="AI-translated">Otvorte prihlasovaciu stránku NVR v prehliadači</translation>
+        <translation>Otvorte prihlasovaciu stránku NVR v prehliadači</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation translatorcomment="AI-translated">Zobraziť zoznam kamier NVR</translation>
+        <translation>Zobraziť zoznam kamier NVR</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation translatorcomment="AI-translated">Upravte podrobnosti pripojenia rekordéra</translation>
+        <translation>Upravte podrobnosti pripojenia rekordéra</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation translatorcomment="AI-translated">Vymazať záznamník zo zoznamu</translation>
+        <translation>Vymazať záznamník zo zoznamu</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation translatorcomment="AI-translated">Potvrďte vymazanie NVR</translation>
+        <translation>Potvrďte vymazanie NVR</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation translatorcomment="AI-translated">Naozaj chcete odstrániť toto NVR?</translation>
+        <translation>Naozaj chcete odstrániť toto NVR?</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation translatorcomment="AI-translated">Upozornenie!</translation>
+        <translation>Upozornenie!</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation translatorcomment="AI-translated">Ste si úplne istý a vedomý toho, čo robíte?</translation>
+        <translation>Ste si úplne istý a vedomý toho, čo robíte?</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation translatorcomment="AI-translated">Stav NVR</translation>
+        <translation>Stav NVR</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation translatorcomment="AI-translated">Kontroluje sa stav NVR...</translation>
+        <translation>Kontroluje sa stav NVR...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation translatorcomment="AI-translated">Posledná kontrola:</translation>
+        <translation>Posledná kontrola:</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation translatorcomment="AI-translated">nikdy</translation>
+        <translation>nikdy</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Stlmiť</translation>
+        <translation>Stlmiť</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation translatorcomment="AI-translated">CHYBA</translation>
+        <translation>CHYBA</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation translatorcomment="AI-translated">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation translatorcomment="AI-translated">Žiadne údaje o stave</translation>
+        <translation>Žiadne údaje o stave</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation translatorcomment="AI-translated">Stlačením tlačidla nižšie skontrolujte stav NVR.</translation>
+        <translation>Stlačením tlačidla nižšie skontrolujte stav NVR.</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation translatorcomment="AI-translated">Skontrolujte teraz</translation>
+        <translation>Skontrolujte teraz</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation translatorcomment="AI-translated">Zavrieť</translation>
+        <translation>Zavrieť</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation translatorcomment="AI-translated">Simulované NVR</translation>
+        <translation>Simulované NVR</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation translatorcomment="AI-translated">Disk 1</translation>
+        <translation>Disk 1</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation translatorcomment="AI-translated">Kritická chyba/zlyhanie disku (Simulácia)</translation>
+        <translation>Kritická chyba/zlyhanie disku (Simulácia)</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation translatorcomment="AI-translated">Žiadna chyba pripojenia alebo prihlásenia (Simulácia)</translation>
+        <translation>Žiadna chyba pripojenia alebo prihlásenia (Simulácia)</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation translatorcomment="AI-translated">Žiadna chyba pripojenia alebo prihlásenia</translation>
+        <translation>Žiadna chyba pripojenia alebo prihlásenia</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation translatorcomment="AI-translated">Chyba pri čítaní stavu NVR (SDK)</translation>
+        <translation>Chyba pri čítaní stavu NVR (SDK)</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation translatorcomment="AI-translated">Vysoké zaťaženie procesora (&gt;85%)</translation>
+        <translation>Vysoké zaťaženie procesora (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation translatorcomment="AI-translated">Chyba hardvéru zariadenia</translation>
+        <translation>Chyba hardvéru zariadenia</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation translatorcomment="AI-translated">Disk %1</translation>
+        <translation>Disk %1</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation translatorcomment="AI-translated">Kritická chyba/zlyhanie disku</translation>
+        <translation>Kritická chyba/zlyhanie disku</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation translatorcomment="AI-translated">Disk je nenaformátovaný</translation>
+        <translation>Disk je nenaformátovaný</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation translatorcomment="AI-translated">Disk je plný (prepisovanie je zakázané)</translation>
+        <translation>Disk je plný (prepisovanie je zakázané)</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation translatorcomment="AI-translated">Archív -</translation>
+        <translation>Archív -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation translatorcomment="AI-translated">januára</translation>
+        <translation>januára</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation translatorcomment="AI-translated">februára</translation>
+        <translation>februára</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation translatorcomment="AI-translated">marca</translation>
+        <translation>marca</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation translatorcomment="AI-translated">apríla</translation>
+        <translation>apríla</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation translatorcomment="AI-translated">mája</translation>
+        <translation>mája</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation translatorcomment="AI-translated">júna</translation>
+        <translation>júna</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation translatorcomment="AI-translated">júla</translation>
+        <translation>júla</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation translatorcomment="AI-translated">augusta</translation>
+        <translation>augusta</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation translatorcomment="AI-translated">septembra</translation>
+        <translation>septembra</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation translatorcomment="AI-translated">októbra</translation>
+        <translation>októbra</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation translatorcomment="AI-translated">novembra</translation>
+        <translation>novembra</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation translatorcomment="AI-translated">decembra</translation>
+        <translation>decembra</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Predchádzajúci mesiac</translation>
+        <translation>Predchádzajúci mesiac</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation translatorcomment="AI-translated">Vyberte dátum archivácie</translation>
+        <translation>Vyberte dátum archivácie</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Budúci mesiac</translation>
+        <translation>Budúci mesiac</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation translatorcomment="AI-translated">Mo</translation>
+        <translation>Mo</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation translatorcomment="AI-translated">Ut</translation>
+        <translation>Ut</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation translatorcomment="AI-translated">my</translation>
+        <translation>my</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation translatorcomment="AI-translated">Th</translation>
+        <translation>Th</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation translatorcomment="AI-translated">O</translation>
+        <translation>O</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation translatorcomment="AI-translated">So</translation>
+        <translation>So</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation translatorcomment="AI-translated">Su</translation>
+        <translation>Su</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation translatorcomment="AI-translated">Načítava sa dostupnosť...</translation>
+        <translation>Načítava sa dostupnosť...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation translatorcomment="AI-translated">Fotoaparáty</translation>
+        <translation>Fotoaparáty</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation translatorcomment="AI-translated">Vyhľadať fotoaparát...</translation>
+        <translation>Vyhľadať fotoaparát...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation translatorcomment="AI-translated">Vymazať vyhľadávanie</translation>
+        <translation>Vymazať vyhľadávanie</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation translatorcomment="AI-translated">Určuje sa skutočný koniec nahrávania...</translation>
+        <translation>Určuje sa skutočný koniec nahrávania...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation translatorcomment="AI-translated">Načítavajú sa informácie o nahrávaní...</translation>
+        <translation>Načítavajú sa informácie o nahrávaní...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation translatorcomment="AI-translated">Načítava sa archív Hikvision...</translation>
+        <translation>Načítava sa archív Hikvision...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation translatorcomment="AI-translated">Vo vybranom momente sa nenahráva žiadny záznam</translation>
+        <translation>Vo vybranom momente sa nenahráva žiadny záznam</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Stlmiť</translation>
+        <translation>Stlmiť</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Maximálna hlasitosť</translation>
+        <translation>Maximálna hlasitosť</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Urobte snímku v plnom rozlíšení</translation>
+        <translation>Urobte snímku v plnom rozlíšení</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Zakázať režim 1:1</translation>
+        <translation>Zakázať režim 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">Povoliť režim 1:1 (pixel-to-pixel)</translation>
+        <translation>Povoliť režim 1:1 (pixel-to-pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Obnoviť priblíženie</translation>
+        <translation>Obnoviť priblíženie</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation translatorcomment="AI-translated">Vyberte oblasť, ktorú chcete priblížiť</translation>
+        <translation>Vyberte oblasť, ktorú chcete priblížiť</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation translatorcomment="AI-translated">Vyberte oblasť, ktorú chcete priblížiť</translation>
+        <translation>Vyberte oblasť, ktorú chcete priblížiť</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation translatorcomment="AI-translated">Obnoviť zobrazenie mriežky</translation>
+        <translation>Obnoviť zobrazenie mriežky</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation translatorcomment="AI-translated">Zobraziť na celej obrazovke</translation>
+        <translation>Zobraziť na celej obrazovke</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation translatorcomment="AI-translated">Odstráňte kameru zo zobrazenia</translation>
+        <translation>Odstráňte kameru zo zobrazenia</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation translatorcomment="AI-translated">Prázdny výrez</translation>
+        <translation>Prázdny výrez</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation translatorcomment="AI-translated">Vyberte toto okno, vyberte kameru zo zoznamu a kliknutím na + ju pridajte</translation>
+        <translation>Vyberte toto okno, vyberte kameru zo zoznamu a kliknutím na + ju pridajte</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation translatorcomment="AI-translated">Predchádzajúci deň</translation>
+        <translation>Predchádzajúci deň</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation translatorcomment="AI-translated">Vyberte dátum z kalendára</translation>
+        <translation>Vyberte dátum z kalendára</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation translatorcomment="AI-translated">Ďalší deň</translation>
+        <translation>Ďalší deň</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation translatorcomment="AI-translated">Dnes</translation>
+        <translation>Dnes</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation translatorcomment="AI-translated">Choďte na dnešok</translation>
+        <translation>Choďte na dnešok</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation translatorcomment="AI-translated">Obnoviť nahrávky</translation>
+        <translation>Obnoviť nahrávky</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation translatorcomment="AI-translated">Priblížiť na 1 hodinu</translation>
+        <translation>Priblížiť na 1 hodinu</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation translatorcomment="AI-translated">Priblíženie na 8 hodín</translation>
+        <translation>Priblíženie na 8 hodín</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation translatorcomment="AI-translated">Zobraziť celý deň na časovej osi</translation>
+        <translation>Zobraziť celý deň na časovej osi</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation translatorcomment="AI-translated">Stredová časová os aktuálneho času prehrávania</translation>
+        <translation>Stredová časová os aktuálneho času prehrávania</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation translatorcomment="AI-translated">rýchlosť:</translation>
+        <translation>rýchlosť:</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation translatorcomment="AI-translated">Nastavte rýchlosť prehrávania na %1x</translation>
+        <translation>Nastavte rýchlosť prehrávania na %1x</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Stiahnuť</translation>
+        <translation>Stiahnuť</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation translatorcomment="AI-translated">Stiahnite si videoklipy z vybraného časového rozsahu</translation>
+        <translation>Stiahnite si videoklipy z vybraného časového rozsahu</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation translatorcomment="AI-translated">Pretočiť späť o 60 sekúnd</translation>
+        <translation>Pretočiť späť o 60 sekúnd</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation translatorcomment="AI-translated">Pretočiť späť o 45 sekúnd</translation>
+        <translation>Pretočiť späť o 45 sekúnd</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation translatorcomment="AI-translated">Pretočiť späť o 15 sekúnd</translation>
+        <translation>Pretočiť späť o 15 sekúnd</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Pozastaviť prehrávanie</translation>
+        <translation>Pozastaviť prehrávanie</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Spustite prehrávanie</translation>
+        <translation>Spustite prehrávanie</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation translatorcomment="AI-translated">Vpred o 15 sekúnd</translation>
+        <translation>Vpred o 15 sekúnd</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation translatorcomment="AI-translated">Vpred o 45 sekúnd</translation>
+        <translation>Vpred o 45 sekúnd</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation translatorcomment="AI-translated">Vpred o 60 sekúnd</translation>
+        <translation>Vpred o 60 sekúnd</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation translatorcomment="AI-translated">Odopnite spodnú lištu</translation>
+        <translation>Odopnite spodnú lištu</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation translatorcomment="AI-translated">Pripnúť spodnú lištu</translation>
+        <translation>Pripnúť spodnú lištu</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation translatorcomment="AI-translated">Načítavajú sa informácie o dostupnosti záznamu...</translation>
+        <translation>Načítavajú sa informácie o dostupnosti záznamu...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Zavrieť okno</translation>
+        <translation>Zavrieť okno</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Odopnite hornú lištu</translation>
+        <translation>Odopnite hornú lištu</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Pin horná lišta</translation>
+        <translation>Pin horná lišta</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation translatorcomment="AI-translated">Ukončiť celú obrazovku</translation>
+        <translation>Ukončiť celú obrazovku</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation translatorcomment="AI-translated">Okno na celú obrazovku</translation>
+        <translation>Okno na celú obrazovku</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation translatorcomment="AI-translated">Skryť bočný panel</translation>
+        <translation>Skryť bočný panel</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation translatorcomment="AI-translated">Zobraziť bočný panel</translation>
+        <translation>Zobraziť bočný panel</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation translatorcomment="AI-translated">Zobraziť časovú os</translation>
+        <translation>Zobraziť časovú os</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation translatorcomment="AI-translated">Skryť časovú os</translation>
+        <translation>Skryť časovú os</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation translatorcomment="AI-translated">Otvorte priečinok s nahrávkami</translation>
+        <translation>Otvorte priečinok s nahrávkami</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation translatorcomment="AI-translated">Otvorte priečinok so snímkami</translation>
+        <translation>Otvorte priečinok so snímkami</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation translatorcomment="AI-translated">Žiadne médiá</translation>
+        <translation>Žiadne médiá</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation translatorcomment="AI-translated">Načítava sa...</translation>
+        <translation>Načítava sa...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation translatorcomment="AI-translated">Nabité</translation>
+        <translation>Nabité</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation translatorcomment="AI-translated">Zastavená</translation>
+        <translation>Zastavená</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation translatorcomment="AI-translated">Ukladanie do vyrovnávacej pamäte %1\%</translation>
+        <translation>Ukladanie do vyrovnávacej pamäte %1\%</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation translatorcomment="AI-translated">Žiadne údaje na zobrazenie</translation>
+        <translation>Žiadne údaje na zobrazenie</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation translatorcomment="AI-translated">Obnovuje sa živý náhľad...</translation>
+        <translation>Obnovuje sa živý náhľad...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Stlmiť</translation>
+        <translation>Stlmiť</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Maximálna hlasitosť</translation>
+        <translation>Maximálna hlasitosť</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Urobte snímku v plnom rozlíšení</translation>
+        <translation>Urobte snímku v plnom rozlíšení</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation translatorcomment="AI-translated">Prehrávaný archív</translation>
+        <translation>Prehrávaný archív</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation translatorcomment="AI-translated">Zakázať rýchle prehrávanie</translation>
+        <translation>Zakázať rýchle prehrávanie</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation translatorcomment="AI-translated">Rýchle prehrávanie (až 30 minút)</translation>
+        <translation>Rýchle prehrávanie (až 30 minút)</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Zakázať režim 1:1</translation>
+        <translation>Zakázať režim 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">Povoliť režim 1:1 (pixel-to-pixel)</translation>
+        <translation>Povoliť režim 1:1 (pixel-to-pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Obnoviť priblíženie</translation>
+        <translation>Obnoviť priblíženie</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation translatorcomment="AI-translated">Kliknutím a potiahnutím na feed fotoaparátu priblížite</translation>
+        <translation>Kliknutím a potiahnutím na feed fotoaparátu priblížite</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation translatorcomment="AI-translated">Vyberte oblasť na priblíženie</translation>
+        <translation>Vyberte oblasť na priblíženie</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Spustite prehrávanie</translation>
+        <translation>Spustite prehrávanie</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Pozastaviť prehrávanie</translation>
+        <translation>Pozastaviť prehrávanie</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation translatorcomment="AI-translated">Rýchlosť prehrávania</translation>
+        <translation>Rýchlosť prehrávania</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation translatorcomment="AI-translated">Zavrieť zobrazenie dozadu</translation>
+        <translation>Zavrieť zobrazenie dozadu</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Pomocné okno</translation>
+        <translation>KVision - Pomocné okno</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Chyba pri čítaní konfigurácie!</translation>
+        <translation>Chyba pri čítaní konfigurácie!</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Odopnite hornú lištu</translation>
+        <translation>Odopnite hornú lištu</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Pin horná lišta</translation>
+        <translation>Pin horná lišta</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Prepnúť na celú obrazovku</translation>
+        <translation>Prepnúť na celú obrazovku</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation translatorcomment="AI-translated">Minimalizovať okno</translation>
+        <translation>Minimalizovať okno</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Možnosti a nastavenia panela bočného panela</translation>
+        <translation>Možnosti a nastavenia panela bočného panela</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Otvorte nové pomocné okno</translation>
+        <translation>Otvorte nové pomocné okno</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation translatorcomment="AI-translated">Archív a prehrávač nahrávok</translation>
+        <translation>Archív a prehrávač nahrávok</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Návod na použitie programu</translation>
+        <translation>Návod na použitie programu</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation translatorcomment="AI-translated">Zakázať štatistiky využívania zdrojov</translation>
+        <translation>Zakázať štatistiky využívania zdrojov</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation translatorcomment="AI-translated">Povoliť štatistiky využívania zdrojov</translation>
+        <translation>Povoliť štatistiky využívania zdrojov</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation translatorcomment="AI-translated">Boli zistené chyby NVR!</translation>
+        <translation>Boli zistené chyby NVR!</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation translatorcomment="AI-translated">Stav NVR: OK</translation>
+        <translation>Stav NVR: OK</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation translatorcomment="AI-translated">Zamknúť zmeny veľkosti mriežky</translation>
+        <translation>Zamknúť zmeny veľkosti mriežky</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Viac možností</translation>
+        <translation>Viac možností</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation translatorcomment="AI-translated">Boli zistené chyby NVR! Kliknutím zobrazíte podrobnosti.</translation>
+        <translation>Boli zistené chyby NVR! Kliknutím zobrazíte podrobnosti.</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Nie je vybraté žiadne zobrazenie, vyberte zobrazenie</translation>
+        <translation>Nie je vybraté žiadne zobrazenie, vyberte zobrazenie</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Ak chcete začať zobrazovať kamery, vyberte pohľad z horného menu.</translation>
+        <translation>Ak chcete začať zobrazovať kamery, vyberte pohľad z horného menu.</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation translatorcomment="AI-translated">KVision - Panel</translation>
+        <translation>KVision - Panel</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Zavrieť okno</translation>
+        <translation>Zavrieť okno</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Zatvorte program</translation>
+        <translation>Zatvorte program</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation translatorcomment="AI-translated">Naozaj chcete zavrieť toto okno?</translation>
+        <translation>Naozaj chcete zavrieť toto okno?</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Naozaj chcete ukončiť program?</translation>
+        <translation>Naozaj chcete ukončiť program?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">ÁNO</translation>
+        <translation>ÁNO</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NIE</translation>
+        <translation>NIE</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation translatorcomment="AI-translated">📊 SYSTÉMOVÁ ŠTATISTIKA</translation>
+        <translation>📊 SYSTÉMOVÁ ŠTATISTIKA</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation translatorcomment="AI-translated">Presuňte panel štatistík</translation>
+        <translation>Presuňte panel štatistík</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation translatorcomment="AI-translated">RAM:</translation>
+        <translation>RAM:</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation translatorcomment="AI-translated">VRAM:</translation>
+        <translation>VRAM:</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation translatorcomment="AI-translated">CPU:</translation>
+        <translation>CPU:</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation translatorcomment="AI-translated">GPU:</translation>
+        <translation>GPU:</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation translatorcomment="AI-translated">NET:</translation>
+        <translation>NET:</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation translatorcomment="AI-translated">Načítava sa nové okno...</translation>
+        <translation>Načítava sa nové okno...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,1027 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation translatorcomment="AI-translated">Opravená kritická chyba, kedy strata siete a časové limity streamu RTSP spôsobili, že sa z prehrávača stal zombie, čo bránilo úspešnému opätovnému pripojeniu. Tlačidlo Reload a automatické obnovenie teraz fungujú úplne spoľahlivo.</translation>
+        <translation>Opravená kritická chyba, kedy strata siete a časové limity streamu RTSP spôsobili, že sa z prehrávača stal zombie, čo bránilo úspešnému opätovnému pripojeniu. Tlačidlo Reload a automatické obnovenie teraz fungujú úplne spoľahlivo.</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation translatorcomment="AI-translated">Obnovený vzhľad správ o stave prehrávača a archívu. Upozornenia na načítanie a obnovenie teraz obsahujú príjemnú azúrovú tému s príslušnými ikonami, ktoré ich lepšie odlíšia od kritických chýb (Žiadne médium/sieť).</translation>
+        <translation>Obnovený vzhľad správ o stave prehrávača a archívu. Upozornenia na načítanie a obnovenie teraz obsahujú príjemnú azúrovú tému s príslušnými ikonami, ktoré ich lepšie odlíšia od kritických chýb (Žiadne médium/sieť).</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation translatorcomment="AI-translated">Integrovaný hardvérový príkaz MakeKeyFrame s Hikvision SDK. Aplikácia teraz agresívne núti kameru vyslať I-Frame pri prepínaní Sub/Main streams a zo Live na Archive, čím sa eliminuje 10-sekundové čakanie na kľúčovú snímku.</translation>
+        <translation>Integrovaný hardvérový príkaz MakeKeyFrame s Hikvision SDK. Aplikácia teraz agresívne núti kameru vyslať I-Frame pri prepínaní Sub/Main streams a zo Live na Archive, čím sa eliminuje 10-sekundové čakanie na kľúčovú snímku.</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation translatorcomment="AI-translated">Odstránené prepisovanie parametra trvania analýzy za behu. Aplikácia striktne presadzuje používateľom definované hodnoty FFmpeg (dôrazne sa odporúča nastaviť ju na 100 000 pre kamery bez zvuku, aby sa prekonal 5-sekundový limit zastavenia).</translation>
+        <translation>Odstránené prepisovanie parametra trvania analýzy za behu. Aplikácia striktne presadzuje používateľom definované hodnoty FFmpeg (dôrazne sa odporúča nastaviť ju na 100 000 pre kamery bez zvuku, aby sa prekonal 5-sekundový limit zastavenia).</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation translatorcomment="AI-translated">Pridané odznaky „HikSDK“ na zobrazovacích poliach rekordéra pre lepšie rozlíšenie protokolov.</translation>
+        <translation>Pridané odznaky „HikSDK“ na zobrazovacích poliach rekordéra pre lepšie rozlíšenie protokolov.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation translatorcomment="AI-translated">Zjednodušené diagnostické protokolovanie (QDebug), ktoré umožňuje tlač varovaní a kritických chýb do konzoly mimo podrobného režimu, čo uľahčuje ladenie chýb NVR.</translation>
+        <translation>Zjednodušené diagnostické protokolovanie (QDebug), ktoré umožňuje tlač varovaní a kritických chýb do konzoly mimo podrobného režimu, čo uľahčuje ladenie chýb NVR.</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation translatorcomment="AI-translated">Odfiltrované falošne pozitívne chyby PlayM4 SDK (č. 17 a 2), ktoré spamujú konzolu počas rýchleho čistenia časovej osi v prehrávači.</translation>
+        <translation>Odfiltrované falošne pozitívne chyby PlayM4 SDK (č. 17 a 2), ktoré spamujú konzolu počas rýchleho čistenia časovej osi v prehrávači.</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation translatorcomment="AI-translated">Opravené skrátenie nelineárneho škálovania (napr. 145 %) rámcom Qt5 na plazmových systémoch KDE, čím sa presadzuje správna interpretácia politiky vysokého DPI.</translation>
+        <translation>Opravené skrátenie nelineárneho škálovania (napr. 145 %) rámcom Qt5 na plazmových systémoch KDE, čím sa presadzuje správna interpretácia politiky vysokého DPI.</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation translatorcomment="AI-translated">Vyriešené dočasné zamrznutie iných kamier na živej mriežke pri hľadaní alebo ťahaní časovej osi.</translation>
+        <translation>Vyriešené dočasné zamrznutie iných kamier na živej mriežke pri hľadaní alebo ťahaní časovej osi.</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation translatorcomment="AI-translated">Všetky blokujúce sieťové volania Hikvision SDK (prihlásenie, zastavenie, spustenie, ovládanie rýchlosti) boli presunuté do asynchrónneho pracovného vlákna.</translation>
+        <translation>Všetky blokujúce sieťové volania Hikvision SDK (prihlásenie, zastavenie, spustenie, ovládanie rýchlosti) boli presunuté do asynchrónneho pracovného vlákna.</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation translatorcomment="AI-translated">Úplne eliminovaný problém čiernej obrazovky pri prepínaní kvality (SUB/MAIN) pre kamery RTSP.</translation>
+        <translation>Úplne eliminovaný problém čiernej obrazovky pri prepínaní kvality (SUB/MAIN) pre kamery RTSP.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation translatorcomment="AI-translated">Optimalizovaný časovač bezproblémového prepínania streamu na 100 ms pre maximálnu rýchlosť.</translation>
+        <translation>Optimalizovaný časovač bezproblémového prepínania streamu na 100 ms pre maximálnu rýchlosť.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation translatorcomment="AI-translated">Pridané nízkoúrovňové možnosti FFmpeg (nobuffer, low_delay) na elimináciu oneskorenia živého vysielania (drift) počas dlhých prevádzkových období.</translation>
+        <translation>Pridané nízkoúrovňové možnosti FFmpeg (nobuffer, low_delay) na elimináciu oneskorenia živého vysielania (drift) počas dlhých prevádzkových období.</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation translatorcomment="AI-translated">Zavedené tlačidlo na hromadnú aktualizáciu parametrov FFmpeg pre všetky existujúce kamery vo všetkých rozloženiach.</translation>
+        <translation>Zavedené tlačidlo na hromadnú aktualizáciu parametrov FFmpeg pre všetky existujúce kamery vo všetkých rozloženiach.</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation translatorcomment="AI-translated">Pridaná možnosť vylúčiť konkrétne kamery z globálnych aktualizácií parametrov FFmpeg (nové zaškrtávacie políčko v nastaveniach výrezu).</translation>
+        <translation>Pridaná možnosť vylúčiť konkrétne kamery z globálnych aktualizácií parametrov FFmpeg (nové zaškrtávacie políčko v nastaveniach výrezu).</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation translatorcomment="AI-translated">Zabezpečený proces migrácie predvolených nastavení, ktorý umožňuje používateľovi natrvalo odstrániť alebo upraviť nové príznaky bez toho, aby boli nútené pri každom spustení.</translation>
+        <translation>Zabezpečený proces migrácie predvolených nastavení, ktorý umožňuje používateľovi natrvalo odstrániť alebo upraviť nové príznaky bez toho, aby boli nútené pri každom spustení.</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation translatorcomment="AI-translated">Pridaná funkcia rýchleho prehrávania (až 30 minút dozadu) priamo vo výreze kamery.</translation>
+        <translation>Pridaná funkcia rýchleho prehrávania (až 30 minút dozadu) priamo vo výreze kamery.</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation translatorcomment="AI-translated">Implementovaná úplná obojsmerná synchronizácia v reálnom čase medzi všetkými oknami a pomocnými programovými procesmi pre nastavenia: stlmenie zvuku, vypnutie animácie priblíženia a všetky možnosti monitorovania stavu Hikvision NVR.</translation>
+        <translation>Implementovaná úplná obojsmerná synchronizácia v reálnom čase medzi všetkými oknami a pomocnými programovými procesmi pre nastavenia: stlmenie zvuku, vypnutie animácie priblíženia a všetky možnosti monitorovania stavu Hikvision NVR.</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation translatorcomment="AI-translated">Pridané dynamické zobrazovanie minútových štítkov (napr. :15, :30, :45) pri minútových tikátoch na časovej osi prehrávača archívu s inteligentným nastavením hustoty štítkov (zoomHours).</translation>
+        <translation>Pridané dynamické zobrazovanie minútových štítkov (napr. :15, :30, :45) pri minútových tikátoch na časovej osi prehrávača archívu s inteligentným nastavením hustoty štítkov (zoomHours).</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation translatorcomment="AI-translated">Pridaná nová možnosť v nastaveniach používateľského rozhrania: „Zakázať animáciu priblíženia výrezu“ s okamžitou aplikáciou v zobrazení mriežky kamery.</translation>
+        <translation>Pridaná nová možnosť v nastaveniach používateľského rozhrania: „Zakázať animáciu priblíženia výrezu“ s okamžitou aplikáciou v zobrazení mriežky kamery.</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation translatorcomment="AI-translated">Prebudovaný proces inicializácie archívneho prehrávača: pozastavené pripojenie a načítanie videa, kým sa neurčia presné limity nahrávania (prostredníctvom ultrarýchleho 24-hodinového asynchrónneho vyhľadávania), čím sa eliminuje predčasné prehrávanie a preskakovanie obrazu.</translation>
+        <translation>Prebudovaný proces inicializácie archívneho prehrávača: pozastavené pripojenie a načítanie videa, kým sa neurčia presné limity nahrávania (prostredníctvom ultrarýchleho 24-hodinového asynchrónneho vyhľadávania), čím sa eliminuje predčasné prehrávanie a preskakovanie obrazu.</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation translatorcomment="AI-translated">Spresnené správy o načítavaní archívu Hikvision – stav načítania sa zobrazuje iba počas aktívneho ukladania toku do vyrovnávacej pamäte a ak sa prehrávacia hlava presunie za dostupné hranice nahrávania, zobrazí sa vyhradené varovanie.</translation>
+        <translation>Spresnené správy o načítavaní archívu Hikvision – stav načítania sa zobrazuje iba počas aktívneho ukladania toku do vyrovnávacej pamäte a ak sa prehrávacia hlava presunie za dostupné hranice nahrávania, zobrazí sa vyhradené varovanie.</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation translatorcomment="AI-translated">Zavedené nové konfiguračné polia na paneli nastavení: predvolený posun začiatku prehrávania archívu (v sekundách, predvolených 60 s) a predvolené rozpätie priblíženia na časovej osi (hodiny priblíženia, predvolené 2 hodiny).</translation>
+        <translation>Zavedené nové konfiguračné polia na paneli nastavení: predvolený posun začiatku prehrávania archívu (v sekundách, predvolených 60 s) a predvolené rozpätie priblíženia na časovej osi (hodiny priblíženia, predvolené 2 hodiny).</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation translatorcomment="AI-translated">Pridaná ikona priameho webového prihlásenia na webový panel rekordéra vo vyskakovacom okne stavu NVR.</translation>
+        <translation>Pridaná ikona priameho webového prihlásenia na webový panel rekordéra vo vyskakovacom okne stavu NVR.</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation translatorcomment="AI-translated">Pridaná funkcia potlačenia hlásenia chýb pre jednotlivé rekordéry.</translation>
+        <translation>Pridaná funkcia potlačenia hlásenia chýb pre jednotlivé rekordéry.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation translatorcomment="AI-translated">Opravený nesprávny preklad do poľštiny „Simulated Recorder“ v stavovom okne a implementované správne rozlíšenie slov („Suppress“ pre chyby vs „Mute“ pre zvuk).</translation>
+        <translation>Opravený nesprávny preklad do poľštiny „Simulated Recorder“ v stavovom okne a implementované správne rozlíšenie slov („Suppress“ pre chyby vs „Mute“ pre zvuk).</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation translatorcomment="AI-translated">Implementované pravidelné (každých 5 minút) a manuálne monitorovanie stavu chýb Hikvision NVR/DVR pomocou diagnostiky SDK/ISAPI.</translation>
+        <translation>Implementované pravidelné (každých 5 minút) a manuálne monitorovanie stavu chýb Hikvision NVR/DVR pomocou diagnostiky SDK/ISAPI.</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation translatorcomment="AI-translated">Pridané možnosti konfigurácie vo všeobecných nastaveniach na zapnutie/vypnutie kontroly stavu Hikvision NVR a prispôsobenie monitorovaných typov kritických chýb.</translation>
+        <translation>Pridané možnosti konfigurácie vo všeobecných nastaveniach na zapnutie/vypnutie kontroly stavu Hikvision NVR a prispôsobenie monitorovaných typov kritických chýb.</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation translatorcomment="AI-translated">Navrhli sme kvalitnú, teplú, zelenú/červenú ikonu stavu horného panela s hlbokými pulzujúcimi vonkajšími vlnami a animáciami zvlnenia vnútorného srdcového tepu, ktoré signalizujú aktívne kritické chyby.</translation>
+        <translation>Navrhli sme kvalitnú, teplú, zelenú/červenú ikonu stavu horného panela s hlbokými pulzujúcimi vonkajšími vlnami a animáciami zvlnenia vnútorného srdcového tepu, ktoré signalizujú aktívne kritické chyby.</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation translatorcomment="AI-translated">Zaviedol sa na hornom okraji vyčnievajúci červený kruh indikátora, ktorý pulzuje v hornej časti obrazovky, keď je hlavný panel nástrojov zbalený, čím zaisťuje, že nikdy nezmeškáte kritické varovania.</translation>
+        <translation>Zaviedol sa na hornom okraji vyčnievajúci červený kruh indikátora, ktorý pulzuje v hornej časti obrazovky, keď je hlavný panel nástrojov zbalený, čím zaisťuje, že nikdy nezmeškáte kritické varovania.</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation translatorcomment="AI-translated">Vytvorilo sa elegantné rolovateľné vyskakovacie okno „Stav rekordéra“ obmedzené na 85 % výšky obrazovky s podrobnými chybovými kódmi.</translation>
+        <translation>Vytvorilo sa elegantné rolovateľné vyskakovacie okno „Stav rekordéra“ obmedzené na 85 % výšky obrazovky s podrobnými chybovými kódmi.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation translatorcomment="AI-translated">Pridaný príznak spustenia „--simulate-error“ na okamžitú simuláciu zlyhaní disku a chýb pripojenia vo všetkých rekordéroch na demonštračné účely.</translation>
+        <translation>Pridaný príznak spustenia „--simulate-error“ na okamžitú simuláciu zlyhaní disku a chýb pripojenia vo všetkých rekordéroch na demonštračné účely.</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation translatorcomment="AI-translated">Implementované odznaky rámca zoznamu a zarovnania indikátorov stavu naprieč nakonfigurovanými zobrazeniami záznamníka.</translation>
+        <translation>Implementované odznaky rámca zoznamu a zarovnania indikátorov stavu naprieč nakonfigurovanými zobrazeniami záznamníka.</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation translatorcomment="AI-translated">Dosiahlo sa úplné pokrytie dvojjazyčného prekladu (poľština/angličtina) pre všetky diagnostiky NVR, začiarkavacie políčka, popisy nástrojov, upozornenia a možnosti analyzátora príkazového riadka.</translation>
+        <translation>Dosiahlo sa úplné pokrytie dvojjazyčného prekladu (poľština/angličtina) pre všetky diagnostiky NVR, začiarkavacie políčka, popisy nástrojov, upozornenia a možnosti analyzátora príkazového riadka.</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation translatorcomment="AI-translated">Pridaná možnosť opätovného načítania aktívneho rozloženia kliknutím na jeho tlačidlo na hornom paneli nástrojov.</translation>
+        <translation>Pridaná možnosť opätovného načítania aktívneho rozloženia kliknutím na jeho tlačidlo na hornom paneli nástrojov.</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation translatorcomment="AI-translated">Vzorky priemerného využitia NVML v priebehu času na vyhladenie grafu využitia GPU a odstránenie trhaných údajov.</translation>
+        <translation>Vzorky priemerného využitia NVML v priebehu času na vyhladenie grafu využitia GPU a odstránenie trhaných údajov.</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation translatorcomment="AI-translated">Eliminované chvíľkové blikanie videa (čierne snímky) a medzery medzi zvukom a obrazom mimo synchronizácie pri prepínaní kvality z SUB na HLAVNÝ počas maximalizácie výrezu oneskorením výmeny aktívneho prehrávača, kým sa na obrazovke nenakreslí prvá snímka.</translation>
+        <translation>Eliminované chvíľkové blikanie videa (čierne snímky) a medzery medzi zvukom a obrazom mimo synchronizácie pri prepínaní kvality z SUB na HLAVNÝ počas maximalizácie výrezu oneskorením výmeny aktívneho prehrávača, kým sa na obrazovke nenakreslí prvá snímka.</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation translatorcomment="AI-translated">Pridané interaktívne, jasné a 2x širšie posúvače do stĺpcov výberu hodín, minút a sekúnd v kontextovom okne výberu času sťahovania archívu.</translation>
+        <translation>Pridané interaktívne, jasné a 2x širšie posúvače do stĺpcov výberu hodín, minút a sekúnd v kontextovom okne výberu času sťahovania archívu.</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation translatorcomment="AI-translated">Do kontextovej ponuky výrezov boli pridané nové intuitívne možnosti: 'Snímka' (uloženie aktuálnej snímky) a 'Prehrávanie' (okamžitý prechod na prehrávanie archívu danej kamery).</translation>
+        <translation>Do kontextovej ponuky výrezov boli pridané nové intuitívne možnosti: 'Snímka' (uloženie aktuálnej snímky) a 'Prehrávanie' (okamžitý prechod na prehrávanie archívu danej kamery).</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation translatorcomment="AI-translated">Revolučné a pevné spracovanie zvuku PCM: priame presmerovanie do QAudioOutput, eliminácia zamrznutia rozhrania (ALSA/PulseAudio/Pipewire) stabilizáciou vzorkovacej frekvencie (odskok po 5 stabilných snímkach), 2s cooldown pri rekreácii výstupu, filtrovanie poškodených parametrov a 64KB vyrovnávacia pamäť znižujúca jitter siete.</translation>
+        <translation>Revolučné a pevné spracovanie zvuku PCM: priame presmerovanie do QAudioOutput, eliminácia zamrznutia rozhrania (ALSA/PulseAudio/Pipewire) stabilizáciou vzorkovacej frekvencie (odskok po 5 stabilných snímkach), 2s cooldown pri rekreácii výstupu, filtrovanie poškodených parametrov a 64KB vyrovnávacia pamäť znižujúca jitter siete.</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation translatorcomment="AI-translated">Implementovaný interaktívny posúvač hlasitosti HUD priamo na dlaždice výrezu spolu s možnosťou rýchleho stlmenia a maximalizácie hlasitosti jedným kliknutím.</translation>
+        <translation>Implementovaný interaktívny posúvač hlasitosti HUD priamo na dlaždice výrezu spolu s možnosťou rýchleho stlmenia a maximalizácie hlasitosti jedným kliknutím.</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation translatorcomment="AI-translated">Implementované automatické a okamžité stlmenie LIVE streamov v hlavnej mriežke po otvorení okna prehrávania archívu, čím sa zabráni prekrývaniu zvukov (kakofónia).</translation>
+        <translation>Implementované automatické a okamžité stlmenie LIVE streamov v hlavnej mriežke po otvorení okna prehrávania archívu, čím sa zabráni prekrývaniu zvukov (kakofónia).</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation translatorcomment="AI-translated">Zavedený centrálny oznamovací systém SnapshotSavedDialog pre uložené snímky (tmavošedý kryt, modrozelené okraje, automatické zatváranie po 10 sekundách) s rýchlym odkazom „Prehľadávať“ na otvorenie priečinka priamo v správcovi súborov systému.</translation>
+        <translation>Zavedený centrálny oznamovací systém SnapshotSavedDialog pre uložené snímky (tmavošedý kryt, modrozelené okraje, automatické zatváranie po 10 sekundách) s rýchlym odkazom „Prehľadávať“ na otvorenie priečinka priamo v správcovi súborov systému.</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation translatorcomment="AI-translated">Vstavané okno pomocníka bolo obohatené o podrobnú kapitolu „Popis funkcií tlačidiel“ pomocou natívnych, ostrých vektorových ikon SVG. Okno pomocníka sa teraz otvorí úplne automaticky a pri prvom spustení programu sa vycentruje nad hlavným oknom.</translation>
+        <translation>Vstavané okno pomocníka bolo obohatené o podrobnú kapitolu „Popis funkcií tlačidiel“ pomocou natívnych, ostrých vektorových ikon SVG. Okno pomocníka sa teraz otvorí úplne automaticky a pri prvom spustení programu sa vycentruje nad hlavným oknom.</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation translatorcomment="AI-translated">Zavedené predvolené zobrazenie hornej lišty pri spustení programu/okna a pridaná možnosť „Zobraziť predvolenú hornú lištu po otvorení okna“ v nastaveniach, čo umožňuje prispôsobenie tohto správania osobným preferenciám.</translation>
+        <translation>Zavedené predvolené zobrazenie hornej lišty pri spustení programu/okna a pridaná možnosť „Zobraziť predvolenú hornú lištu po otvorení okna“ v nastaveniach, čo umožňuje prispôsobenie tohto správania osobným preferenciám.</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation translatorcomment="AI-translated">Implementované dynamické cesty knižnice RPATH v CMakeLists.txt pomocou GNUInstallDirs, umožňujúce okamžité spustenie skompilovanej aplikácie na Ubuntu a Debiane bez potreby manuálnej konfigurácie /etc/ld.so.conf.d/ a ldconfig.</translation>
+        <translation>Implementované dynamické cesty knižnice RPATH v CMakeLists.txt pomocou GNUInstallDirs, umožňujúce okamžité spustenie skompilovanej aplikácie na Ubuntu a Debiane bez potreby manuálnej konfigurácie /etc/ld.so.conf.d/ a ldconfig.</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation translatorcomment="AI-translated">Program bol premenovaný na KVision, čo predstavuje automatickú migráciu používateľskej konfigurácie, nové ikony s viacerými veľkosťami (128px, 256px, 512px) a zobrazenie plnej verzie v záhlaví okna.</translation>
+        <translation>Program bol premenovaný na KVision, čo predstavuje automatickú migráciu používateľskej konfigurácie, nové ikony s viacerými veľkosťami (128px, 256px, 512px) a zobrazenie plnej verzie v záhlaví okna.</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation translatorcomment="AI-translated">Opravené okno s upozornením na prekročenie limitu pomocných okien (chýbajúci zdroj QML a prečítanie QSettings).</translation>
+        <translation>Opravené okno s upozornením na prekročenie limitu pomocných okien (chýbajúci zdroj QML a prečítanie QSettings).</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation translatorcomment="AI-translated">Opravená chýbajúca ikona programu pod Wayland (inštalácia témy hicolor a setDesktopFileName).</translation>
+        <translation>Opravená chýbajúca ikona programu pod Wayland (inštalácia témy hicolor a setDesktopFileName).</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation translatorcomment="AI-translated">Odstránená možnosť automatického zbalenia hornej lišty z Nastavenia – odteraz sa horná lišta v oknách LIVE (hlavné a pomocné) predvolene zbalí pri spustení a tlačidlo špendlíka ju pripne lokálne a dočasne (v pamäti) bez uloženia jej stavu.</translation>
+        <translation>Odstránená možnosť automatického zbalenia hornej lišty z Nastavenia – odteraz sa horná lišta v oknách LIVE (hlavné a pomocné) predvolene zbalí pri spustení a tlačidlo špendlíka ju pripne lokálne a dočasne (v pamäti) bez uloženia jej stavu.</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation translatorcomment="AI-translated">Zavedené obmedzenie počtu pomocných okien (konfigurovateľné od 0 do 3) s elegantným varovným oknom pri pokuse o jeho prekročenie.</translation>
+        <translation>Zavedené obmedzenie počtu pomocných okien (konfigurovateľné od 0 do 3) s elegantným varovným oknom pri pokuse o jeho prekročenie.</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation translatorcomment="AI-translated">Pridané jemné 1px tmavosivé okraje okolo nepoužívaných výrezov v mriežke rozloženia LIVE pre lepšie vymedzenie polí.</translation>
+        <translation>Pridané jemné 1px tmavosivé okraje okolo nepoužívaných výrezov v mriežke rozloženia LIVE pre lepšie vymedzenie polí.</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation translatorcomment="AI-translated">Zabezpečené úpravy ciest uloženia a možností konfigurácie systémových médií za prechodným začiarkavacím políčkom „Aktivovať zmeny v tejto sekcii“, ktoré zabraňuje náhodným úpravám (stav úprav sa pri zatvorení resetuje).</translation>
+        <translation>Zabezpečené úpravy ciest uloženia a možností konfigurácie systémových médií za prechodným začiarkavacím políčkom „Aktivovať zmeny v tejto sekcii“, ktoré zabraňuje náhodným úpravám (stav úprav sa pri zatvorení resetuje).</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation translatorcomment="AI-translated">Zavedené priame skratky pre „otvorený priečinok uloženia“ (zvýraznené v celadon po dokončení sťahovania v okne Archív) a vždy aktívne tlačidlá rýchleho otvorenia priečinkov so snímkami a videami v Nastaveniach (s automatickým vytvorením adresára na disku, ak chýba).</translation>
+        <translation>Zavedené priame skratky pre „otvorený priečinok uloženia“ (zvýraznené v celadon po dokončení sťahovania v okne Archív) a vždy aktívne tlačidlá rýchleho otvorenia priečinkov so snímkami a videami v Nastaveniach (s automatickým vytvorením adresára na disku, ak chýba).</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation translatorcomment="AI-translated">Zavedené interaktívne overenie po kliknutí na tlačidlo „Pobierz“ (Stiahnuť) v okne sťahovania: automatická kontrola formátu a chronologického dátumu, zobrazenie červeného varovného tipu a zameranie prvého neplatné pole.</translation>
+        <translation>Zavedené interaktívne overenie po kliknutí na tlačidlo „Pobierz“ (Stiahnuť) v okne sťahovania: automatická kontrola formátu a chronologického dátumu, zobrazenie červeného varovného tipu a zameranie prvého neplatné pole.</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation translatorcomment="AI-translated">Implementovaná úplná navigácia pomocou klávesnice (klávesy so šípkami nahor/nadol na zmenu hodnôt, doľava/doprava na prepínanie stĺpcov) vo vyskakovacom okne pre výber hodín.</translation>
+        <translation>Implementovaná úplná navigácia pomocou klávesnice (klávesy so šípkami nahor/nadol na zmenu hodnôt, doľava/doprava na prepínanie stĺpcov) vo vyskakovacom okne pre výber hodín.</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation translatorcomment="AI-translated">Zabezpečil úplne čisté spustenie pomocných okien (bez automatického otvárania bočného panela možností) a vylúčil ukladanie nastavení geometrie z pomocných okien, čím sa eliminovala kontaminácia zdieľanej konfigurácie.</translation>
+        <translation>Zabezpečil úplne čisté spustenie pomocných okien (bez automatického otvárania bočného panela možností) a vylúčil ukladanie nastavení geometrie z pomocných okien, čím sa eliminovala kontaminácia zdieľanej konfigurácie.</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation translatorcomment="AI-translated">Pridaná plná podpora angličtiny pre všetky nové chybové správy formátovania a chronologického overenia v okne sťahovania.</translation>
+        <translation>Pridaná plná podpora angličtiny pre všetky nové chybové správy formátovania a chronologického overenia v okne sťahovania.</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation translatorcomment="AI-translated">Eliminovali úniky pamäte RAM pri prepínaní rozloženia kamery automatickým a správnym zastavením povrchu videa pred aktualizáciou formátov a zodpovedajúcimi rozmermi renderera.</translation>
+        <translation>Eliminovali úniky pamäte RAM pri prepínaní rozloženia kamery automatickým a správnym zastavením povrchu videa pred aktualizáciou formátov a zodpovedajúcimi rozmermi renderera.</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation translatorcomment="AI-translated">Implementované bezpodmienečné uvoľnenie a zničenie objektov zvukového výstupu pri zastavení prehrávača a zavedená automatická recyklácia týchto objektov na odstránenie úniku pamäte a vlákien v systéme Linux.</translation>
+        <translation>Implementované bezpodmienečné uvoľnenie a zničenie objektov zvukového výstupu pri zastavení prehrávača a zavedená automatická recyklácia týchto objektov na odstránenie úniku pamäte a vlákien v systéme Linux.</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation translatorcomment="AI-translated">Vyriešené problémy so zamrznutím videa (jednofarebná obrazovka po priblížení výrezu) vynútením správnej signalizácie dostupnosti videa pri prezentácii prvej snímky nového streamu.</translation>
+        <translation>Vyriešené problémy so zamrznutím videa (jednofarebná obrazovka po priblížení výrezu) vynútením správnej signalizácie dostupnosti videa pri prezentácii prvej snímky nového streamu.</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation translatorcomment="AI-translated">Pridané globálne nastavenie „Úplne zakázať podporu zvuku“, čo umožňuje úplné obídenie spracovania zvuku, aby sa eliminovala možná réžia a úniky pamäte.</translation>
+        <translation>Pridané globálne nastavenie „Úplne zakázať podporu zvuku“, čo umožňuje úplné obídenie spracovania zvuku, aby sa eliminovala možná réžia a úniky pamäte.</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation translatorcomment="AI-translated">Optimalizovaný modul systémovej štatistiky, aby sa eliminovala réžia nepretržitého využívania pamäte ukladaním ID procesov do vyrovnávacej pamäte a odstránením prideľovania dynamických regulárnych výrazov.</translation>
+        <translation>Optimalizovaný modul systémovej štatistiky, aby sa eliminovala réžia nepretržitého využívania pamäte ukladaním ID procesov do vyrovnávacej pamäte a odstránením prideľovania dynamických regulárnych výrazov.</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation translatorcomment="AI-translated">Vynútené agresívne zbieranie odpadkov (GC) pri prepínačoch rozloženia kamery a vynulovanie kontextov škálovania obrazu (SwsContext) vo vyrovnávacej pamäti videa.</translation>
+        <translation>Vynútené agresívne zbieranie odpadkov (GC) pri prepínačoch rozloženia kamery a vynulovanie kontextov škálovania obrazu (SwsContext) vo vyrovnávacej pamäti videa.</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation translatorcomment="AI-translated">Zabezpečil správne vyčistenie prostriedkov detektora zmien statického konfiguračného súboru (QFileSystemWatcher) pri ukončení aplikácie.</translation>
+        <translation>Zabezpečil správne vyčistenie prostriedkov detektora zmien statického konfiguračného súboru (QFileSystemWatcher) pri ukončení aplikácie.</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation translatorcomment="AI-translated">Opravené problémy so synchronizáciou a zmrazením procesu pomocného okna na pomalších počítačoch počas postupného odstraňovania kamier a spájania alebo presúvania výrezov.</translation>
+        <translation>Opravené problémy so synchronizáciou a zmrazením procesu pomocného okna na pomalších počítačoch počas postupného odstraňovania kamier a spájania alebo presúvania výrezov.</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation translatorcomment="AI-translated">Opravená agregácia využitia GPU, využitia VRAM a štatistík šírky pásma siete zo všetkých aplikačných procesov využívajúcich zdieľanú pamäť (/dev/shm) na pozadí.</translation>
+        <translation>Opravená agregácia využitia GPU, využitia VRAM a štatistík šírky pásma siete zo všetkých aplikačných procesov využívajúcich zdieľanú pamäť (/dev/shm) na pozadí.</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation translatorcomment="AI-translated">Chránený archívny deštruktor prehrávača pred dátovými závodmi pri čistení čakajúcich úloh RGB.</translation>
+        <translation>Chránený archívny deštruktor prehrávača pred dátovými závodmi pri čistení čakajúcich úloh RGB.</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation translatorcomment="AI-translated">Implementované združovanie prehrávača videa na elimináciu špičiek v používaní pamäte RAM a blikania pri prepínaní rozložení.</translation>
+        <translation>Implementované združovanie prehrávača videa na elimináciu špičiek v používaní pamäte RAM a blikania pri prepínaní rozložení.</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation translatorcomment="AI-translated">Optimalizované monitorovanie GPU/VRAM na model špecifický pre proces (žiadne spawnovanie nvidia-smi) s natívnou podporou GPU NVIDIA, AMD a Intel (štatistiky AMD/Intel nie sú testované).</translation>
+        <translation>Optimalizované monitorovanie GPU/VRAM na model špecifický pre proces (žiadne spawnovanie nvidia-smi) s natívnou podporou GPU NVIDIA, AMD a Intel (štatistiky AMD/Intel nie sú testované).</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation translatorcomment="AI-translated">Povolená zmena veľkosti panela systémových štatistík pretiahnutím jeho okrajov a rohov pomocou grafov s automatickou mierkou.</translation>
+        <translation>Povolená zmena veľkosti panela systémových štatistík pretiahnutím jeho okrajov a rohov pomocou grafov s automatickou mierkou.</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation translatorcomment="AI-translated">Implementované okamžité skrytie hlavných a pomocných okien pri potvrdení ukončenia, vďaka čomu sa vypnutie javí používateľovi okamžite, zatiaľ čo čistenie vlákien a pamäte prebieha bezpečne na pozadí.</translation>
+        <translation>Implementované okamžité skrytie hlavných a pomocných okien pri potvrdení ukončenia, vďaka čomu sa vypnutie javí používateľovi okamžite, zatiaľ čo čistenie vlákien a pamäte prebieha bezpečne na pozadí.</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation translatorcomment="AI-translated">Skonvertované horné panely nástrojov v oknách LIVE aj ARCHIVE na centrované plávajúce doky (LIVE dock má dynamickú šírku).</translation>
+        <translation>Skonvertované horné panely nástrojov v oknách LIVE aj ARCHIVE na centrované plávajúce doky (LIVE dock má dynamickú šírku).</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation translatorcomment="AI-translated">Pridaný vertikálny oddeľovač v hornom paneli medzi možnosťami mriežky a rozloženiami.</translation>
+        <translation>Pridaný vertikálny oddeľovač v hornom paneli medzi možnosťami mriežky a rozloženiami.</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation translatorcomment="AI-translated">Zvýšená priehľadnosť horných a dolných pruhov archívu (60 % v režime okna, 26 % v režime celej obrazovky) a nastavenie pozadia časovej osi na priehľadné.</translation>
+        <translation>Zvýšená priehľadnosť horných a dolných pruhov archívu (60 % v režime okna, 26 % v režime celej obrazovky) a nastavenie pozadia časovej osi na priehľadné.</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation translatorcomment="AI-translated">Zjednodušené ikony rýchlosti prehrávania v archíve na vymazanie textu (1x, 2x, 4x) a odstránená možnosť nestabilnej rýchlosti 8x.</translation>
+        <translation>Zjednodušené ikony rýchlosti prehrávania v archíve na vymazanie textu (1x, 2x, 4x) a odstránená možnosť nestabilnej rýchlosti 8x.</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation translatorcomment="AI-translated">Mesačné navigačné textové tlačidlá v archívnych a sťahovacích kalendároch boli nahradené grafickými šípkami (v tvare šípky).</translation>
+        <translation>Mesačné navigačné textové tlačidlá v archívnych a sťahovacích kalendároch boli nahradené grafickými šípkami (v tvare šípky).</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation translatorcomment="AI-translated">Premiestnené tlačidlo zatvorenia výrezu kamery z pravého horného rohu do oblasti ovládacích prvkov vpravo dole, aby sa zabránilo náhodným kliknutiam.</translation>
+        <translation>Premiestnené tlačidlo zatvorenia výrezu kamery z pravého horného rohu do oblasti ovládacích prvkov vpravo dole, aby sa zabránilo náhodným kliknutiam.</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation translatorcomment="AI-translated">Optimalizovaný kontrast textu vybratého rozloženia mriežky v okne archívu (tmavý text na celadonovom pozadí).</translation>
+        <translation>Optimalizovaný kontrast textu vybratého rozloženia mriežky v okne archívu (tmavý text na celadonovom pozadí).</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation translatorcomment="AI-translated">Skonvertoval panel systémových štatistík na posuvný plávajúci panel (s preklikávaním) pomocou novej špeciálnej rukoväte.</translation>
+        <translation>Skonvertoval panel systémových štatistík na posuvný plávajúci panel (s preklikávaním) pomocou novej špeciálnej rukoväte.</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation translatorcomment="AI-translated">Vyriešená synchronizačná slučka kritických nastavení a zamrznutie používateľského rozhrania pri odstraňovaní rozložení výrezov.</translation>
+        <translation>Vyriešená synchronizačná slučka kritických nastavení a zamrznutie používateľského rozhrania pri odstraňovaní rozložení výrezov.</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation translatorcomment="AI-translated">Zväčšená rýchlosť, zoom a ovládacie ikony VCR v archíve na zlepšenie viditeľnosti a väčšia veľkosť textu v ikonách SVG.</translation>
+        <translation>Zväčšená rýchlosť, zoom a ovládacie ikony VCR v archíve na zlepšenie viditeľnosti a väčšia veľkosť textu v ikonách SVG.</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation translatorcomment="AI-translated">V archíve boli odstránené duplicitné textové tlačidlá pre skratky zoomu, ktoré sú plne nahradené kruhovými ikonami.</translation>
+        <translation>V archíve boli odstránené duplicitné textové tlačidlá pre skratky zoomu, ktoré sú plne nahradené kruhovými ikonami.</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation translatorcomment="AI-translated">Pridané kompletné anglické a poľské preklady pre všetky popisy v okne archívu.</translation>
+        <translation>Pridané kompletné anglické a poľské preklady pre všetky popisy v okne archívu.</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation translatorcomment="AI-translated">Zavedená obojsmerná synchronizácia konfigurácie v reálnom čase medzi hlavným oknom a pomocnými oknami s podporou jedinečných, automatických ID pomocných okien.</translation>
+        <translation>Zavedená obojsmerná synchronizácia konfigurácie v reálnom čase medzi hlavným oknom a pomocnými oknami s podporou jedinečných, automatických ID pomocných okien.</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation translatorcomment="AI-translated">Pridané automatické obnovenie relácie (automatické opätovné pripojenie) v prehrávači archívov Hikvision po dokončení sťahovania alebo po prerušení pripojenia rekordérom.</translation>
+        <translation>Pridané automatické obnovenie relácie (automatické opätovné pripojenie) v prehrávači archívov Hikvision po dokončení sťahovania alebo po prerušení pripojenia rekordérom.</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation translatorcomment="AI-translated">Eliminovali potenciálne úniky vlákien a zablokovanie video dekodéra FFmpeg počas prepínania rozloženia prijatím bezpečných odkazov std::weak_ptr pre kontexty médií dekodéra.</translation>
+        <translation>Eliminovali potenciálne úniky vlákien a zablokovanie video dekodéra FFmpeg počas prepínania rozloženia prijatím bezpečných odkazov std::weak_ptr pre kontexty médií dekodéra.</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation translatorcomment="AI-translated">Opravený únik pamäte v modeloch ViewportsLayouts bezpečným odstránením objektov rozloženia pomocou deleteLater().</translation>
+        <translation>Opravený únik pamäte v modeloch ViewportsLayouts bezpečným odstránením objektov rozloženia pomocou deleteLater().</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation translatorcomment="AI-translated">Zmiernenie chýb spustenia povrchu pri vykresľovaní videa (OpenGL) počas rýchlych zmien kariet NVR – protokoly boli znížené na úroveň ladenia a systém sa po uvoľnení vyrovnávacích pamätí GPU potichu pokúša vykresľovať na pozadí.</translation>
+        <translation>Zmiernenie chýb spustenia povrchu pri vykresľovaní videa (OpenGL) počas rýchlych zmien kariet NVR – protokoly boli znížené na úroveň ladenia a systém sa po uvoľnení vyrovnávacích pamätí GPU potichu pokúša vykresľovať na pozadí.</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation translatorcomment="AI-translated">Vyriešené zvyškové využitie pamäte RAM (20 – 30 MB) po zatvorení okna Archív prostredníctvom viackrokového čistenia haldy a optimalizácie vyrovnávacej pamäte nástroja QML.</translation>
+        <translation>Vyriešené zvyškové využitie pamäte RAM (20 – 30 MB) po zatvorení okna Archív prostredníctvom viackrokového čistenia haldy a optimalizácie vyrovnávacej pamäte nástroja QML.</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation translatorcomment="AI-translated">Optimalizované využitie pamäte RAM počas zmeny mierky kamery a zmeny veľkosti/priblíženia výrezu, čím sa zabráni nadmernému hromadeniu pamäte počas nepretržitých zmien rozloženia toku videa.</translation>
+        <translation>Optimalizované využitie pamäte RAM počas zmeny mierky kamery a zmeny veľkosti/priblíženia výrezu, čím sa zabráni nadmernému hromadeniu pamäte počas nepretržitých zmien rozloženia toku videa.</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation translatorcomment="AI-translated">Pridaný presný indikátor snímok za sekundu v reálnom čase (FPS) v ľavom hornom rohu každého výrezu pre živé aj archívne prehrávanie.</translation>
+        <translation>Pridaný presný indikátor snímok za sekundu v reálnom čase (FPS) v ľavom hornom rohu každého výrezu pre živé aj archívne prehrávanie.</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation translatorcomment="AI-translated">Implementované bezpečné ukončenie a uvoľnenie vlákien sťahovania v downloaderi Hikvision, čím sa zabezpečí stabilné a okamžité vypnutie aplikácie bez blokovania systémových zdrojov.</translation>
+        <translation>Implementované bezpečné ukončenie a uvoľnenie vlákien sťahovania v downloaderi Hikvision, čím sa zabezpečí stabilné a okamžité vypnutie aplikácie bez blokovania systémových zdrojov.</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation translatorcomment="AI-translated">Pridané pole dynamického vyhľadávania kamier v okne archívu s tlačidlom reset a automaticky sa rozširujúcimi zodpovedajúcimi záznamníkmi.</translation>
+        <translation>Pridané pole dynamického vyhľadávania kamier v okne archívu s tlačidlom reset a automaticky sa rozširujúcimi zodpovedajúcimi záznamníkmi.</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation translatorcomment="AI-translated">Povolené zalamovanie dlhých názvov kamier na dlaždice zoznamu v archíve.</translation>
+        <translation>Povolené zalamovanie dlhých názvov kamier na dlaždice zoznamu v archíve.</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation translatorcomment="AI-translated">Zväčšené a obrátené farby tlačidla plus (+) na dlaždiciach fotoaparátu (mätové pozadie) pre lepšiu viditeľnosť, s jasnými stavmi vznášania/stlačenia.</translation>
+        <translation>Zväčšené a obrátené farby tlačidla plus (+) na dlaždiciach fotoaparátu (mätové pozadie) pre lepšiu viditeľnosť, s jasnými stavmi vznášania/stlačenia.</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation translatorcomment="AI-translated">Opravený 2-3 hodinový posun lišty časovej osi nahrávania v okne prehrávača archívu, synchronizácia časovej osi s lokálnym časovým pásmom klienta (so správnou podporou letného času DST).</translation>
+        <translation>Opravený 2-3 hodinový posun lišty časovej osi nahrávania v okne prehrávača archívu, synchronizácia časovej osi s lokálnym časovým pásmom klienta (so správnou podporou letného času DST).</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation translatorcomment="AI-translated">Čierny emoji s nízkym kontrastom 📺 v prázdnych zobrazeniach nahradil elegantný seledyn vektorový monitor s vysokým DPI SVG.</translation>
+        <translation>Čierny emoji s nízkym kontrastom 📺 v prázdnych zobrazeniach nahradil elegantný seledyn vektorový monitor s vysokým DPI SVG.</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation translatorcomment="AI-translated">Vylepšená čitateľnosť pruhov záznamníka v okne archívu (výška zvýšená z 22px na 28px, veľkosť písma z 9px na 11px, väčšia šípka rozbalenia).</translation>
+        <translation>Vylepšená čitateľnosť pruhov záznamníka v okne archívu (výška zvýšená z 22px na 28px, veľkosť písma z 9px na 11px, väčšia šípka rozbalenia).</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation translatorcomment="AI-translated">Pridané plné, dynamické efekty vznášania pre pruhy záznamníka s výraznými zmenami farieb pozadia, textu a ikon na seledyn/bielu.</translation>
+        <translation>Pridané plné, dynamické efekty vznášania pre pruhy záznamníka s výraznými zmenami farieb pozadia, textu a ikon na seledyn/bielu.</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation translatorcomment="AI-translated">Tlačidlá textových akcií na hornej lište (Možnosti, Nové okno, Archív, Pokyny) boli nahradené špeciálnymi farebnými ikonami SVG s užitočnými popismi.</translation>
+        <translation>Tlačidlá textových akcií na hornej lište (Možnosti, Nové okno, Archív, Pokyny) boli nahradené špeciálnymi farebnými ikonami SVG s užitočnými popismi.</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation translatorcomment="AI-translated">Prepínač systémových štatistík bol nahradený interaktívnou ikonou SVG, ktorá odráža stav aktivity monitora systému.</translation>
+        <translation>Prepínač systémových štatistík bol nahradený interaktívnou ikonou SVG, ktorá odráža stav aktivity monitora systému.</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation translatorcomment="AI-translated">Zjednotené tlačidlá na výber mriežky (1x1-9x9) do konzistentných kruhových tlačidiel s rozmermi 30x30px.</translation>
+        <translation>Zjednotené tlačidlá na výber mriežky (1x1-9x9) do konzistentných kruhových tlačidiel s rozmermi 30x30px.</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation translatorcomment="AI-translated">Pridaná zvislá oddeľovacia čiara medzi sekciu možností a sekciu výberu mriežky.</translation>
+        <translation>Pridaná zvislá oddeľovacia čiara medzi sekciu možností a sekciu výberu mriežky.</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation translatorcomment="AI-translated">Prepracované tlačidlá zobrazenia na elegantný zaoblený tvar pilulky s výškou 30 pixlov so zachovaním bočných okrajov.</translation>
+        <translation>Prepracované tlačidlá zobrazenia na elegantný zaoblený tvar pilulky s výškou 30 pixlov so zachovaním bočných okrajov.</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation translatorcomment="AI-translated">Vynútené automatické zobrazovanie názvov zobrazení veľkými písmenami.</translation>
+        <translation>Vynútené automatické zobrazovanie názvov zobrazení veľkými písmenami.</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation translatorcomment="AI-translated">Vylepšená čitateľnosť a kontrast tlačidla aktívneho zobrazenia – tmavý text (#121214) na svetlom pozadí.</translation>
+        <translation>Vylepšená čitateľnosť a kontrast tlačidla aktívneho zobrazenia – tmavý text (#121214) na svetlom pozadí.</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation translatorcomment="AI-translated">Zjednotené a vylepšené ikony odstránenia v zozname záznamníkov a zobrazení a prednastavené aktivačné tlačidlo na ikony SVG s popismi.</translation>
+        <translation>Zjednotené a vylepšené ikony odstránenia v zozname záznamníkov a zobrazení a prednastavené aktivačné tlačidlo na ikony SVG s popismi.</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation translatorcomment="AI-translated">Zmenšený rozostup medzi tlačidlami hornej lišty na optimalizáciu priestoru rozhrania.</translation>
+        <translation>Zmenšený rozostup medzi tlačidlami hornej lišty na optimalizáciu priestoru rozhrania.</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation translatorcomment="AI-translated">Obnovená chýbajúca ikona minimalizácie v pomocnom okne.</translation>
+        <translation>Obnovená chýbajúca ikona minimalizácie v pomocnom okne.</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation translatorcomment="AI-translated">Opravené problémy s prihlásením a prehrávaním v pomocných oknách.</translation>
+        <translation>Opravené problémy s prihlásením a prehrávaním v pomocných oknách.</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation translatorcomment="AI-translated">Opravené stavy tlačidiel rozloženia (1x1 vs 2x2) pri otvorení prehrávania priamo z fotoaparátu.</translation>
+        <translation>Opravené stavy tlačidiel rozloženia (1x1 vs 2x2) pri otvorení prehrávania priamo z fotoaparátu.</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation translatorcomment="AI-translated">Pridaný správny priestor názvov XML v dotazoch Hikvision ISAPI (opravuje chybu „Neplatný obsah XML“ na novšom firmvéri rekordéra).</translation>
+        <translation>Pridaný správny priestor názvov XML v dotazoch Hikvision ISAPI (opravuje chybu „Neplatný obsah XML“ na novšom firmvéri rekordéra).</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation translatorcomment="AI-translated">Opravené spracovanie stránkovania výsledkov vyhľadávania (značka searchResultPostion).</translation>
+        <translation>Opravené spracovanie stránkovania výsledkov vyhľadávania (značka searchResultPostion).</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation translatorcomment="AI-translated">Tlačidlo „Obnoviť“ v okne prehrávania na manuálne vymazanie vyrovnávacej pamäte a opätovné načítanie údajov o dostupnosti záznamu.</translation>
+        <translation>Tlačidlo „Obnoviť“ v okne prehrávania na manuálne vymazanie vyrovnávacej pamäte a opätovné načítanie údajov o dostupnosti záznamu.</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation translatorcomment="AI-translated">Optimalizácia frontu predbežného načítania siete – obmedzené načítanie na pozadí na 12 mesiacov, čím sa eliminujú stovky zbytočných dopytov a zrýchli sa spustenie prehrávania.</translation>
+        <translation>Optimalizácia frontu predbežného načítania siete – obmedzené načítanie na pozadí na 12 mesiacov, čím sa eliminujú stovky zbytočných dopytov a zrýchli sa spustenie prehrávania.</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation translatorcomment="AI-translated">Asynchrónna inicializácia Hikvision SDK vo vlákne na pozadí, ktorá úplne eliminuje zamrznutie GUI pri otváraní možností.</translation>
+        <translation>Asynchrónna inicializácia Hikvision SDK vo vlákne na pozadí, ktorá úplne eliminuje zamrznutie GUI pri otváraní možností.</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation translatorcomment="AI-translated">Bezpečná synchronizácia prístupu k metódam Hikvision SDK.</translation>
+        <translation>Bezpečná synchronizácia prístupu k metódam Hikvision SDK.</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation translatorcomment="AI-translated">Dezinfekcia stiahnutých súborov a názvov snímok obrazovky odstránením adries IP rekordéra.</translation>
+        <translation>Dezinfekcia stiahnutých súborov a názvov snímok obrazovky odstránením adries IP rekordéra.</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation translatorcomment="AI-translated">Elegantný ukazovateľ priebehu sťahovania v tyrkysovej farbe (#00f5d4) so zarovnaným textom v strede.</translation>
+        <translation>Elegantný ukazovateľ priebehu sťahovania v tyrkysovej farbe (#00f5d4) so zarovnaným textom v strede.</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation translatorcomment="AI-translated">Výpočet globálneho priebehu sťahovania (overallProgress) pre viacdielne nahrávky.</translation>
+        <translation>Výpočet globálneho priebehu sťahovania (overallProgress) pre viacdielne nahrávky.</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation translatorcomment="AI-translated">Prípona dočasného sťahovaného súboru bola zmenená z „.ps“ na „.pspart“.</translation>
+        <translation>Prípona dočasného sťahovaného súboru bola zmenená z „.ps“ na „.pspart“.</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation translatorcomment="AI-translated">Možnosť a tlačidlo „Zobraziť informačné polia iba pri umiestnení kurzora myši“ v nastaveniach používateľského rozhrania.</translation>
+        <translation>Možnosť a tlačidlo „Zobraziť informačné polia iba pri umiestnení kurzora myši“ v nastaveniach používateľského rozhrania.</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation translatorcomment="AI-translated">Vizuálny indikátor detekcie kamery na konfiguračnom paneli (otočná ikona, blokovanie formulára a text „Objavujem...“).</translation>
+        <translation>Vizuálny indikátor detekcie kamery na konfiguračnom paneli (otočná ikona, blokovanie formulára a text „Objavujem...“).</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation translatorcomment="AI-translated">Úplná lokalizácia (pridaná oficiálna podpora prekladu do poľštiny a angličtiny).</translation>
+        <translation>Úplná lokalizácia (pridaná oficiálna podpora prekladu do poľštiny a angličtiny).</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation translatorcomment="AI-translated">Optimalizácia spustenia pomocného okna – skrátená doba načítania z 3 sekúnd na menej ako 300 ms.</translation>
+        <translation>Optimalizácia spustenia pomocného okna – skrátená doba načítania z 3 sekúnd na menej ako 300 ms.</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation translatorcomment="AI-translated">Estetický zástupný symbol v pomocnom okne („Nie je vybratý žiadny pohľad“) s tyrkysovým okrajom.</translation>
+        <translation>Estetický zástupný symbol v pomocnom okne („Nie je vybratý žiadny pohľad“) s tyrkysovým okrajom.</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation translatorcomment="AI-translated">Integrácia Hikvision SDK pre živé zobrazenie a režim prehrávania.</translation>
+        <translation>Integrácia Hikvision SDK pre živé zobrazenie a režim prehrávania.</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation translatorcomment="AI-translated">Prehrávač prehrávania z viacerých kamier s automatickým polohovaním a centrovaním na časovej osi.</translation>
+        <translation>Prehrávač prehrávania z viacerých kamier s automatickým polohovaním a centrovaním na časovej osi.</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation translatorcomment="AI-translated">Viacvláknový systémový monitor (CPU, RAM, GPU, VRAM a štatistiky šírky pásma siete).</translation>
+        <translation>Viacvláknový systémový monitor (CPU, RAM, GPU, VRAM a štatistiky šírky pásma siete).</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation translatorcomment="AI-translated">Sledovanie spotreby šírky pásma siete v reálnom čase.</translation>
+        <translation>Sledovanie spotreby šírky pásma siete v reálnom čase.</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation translatorcomment="AI-translated">Ikona aplikácie s vysokým rozlíšením a vylepšené rozhranie tmavých tém.</translation>
+        <translation>Ikona aplikácie s vysokým rozlíšením a vylepšené rozhranie tmavých tém.</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation translatorcomment="AI-translated">Automatický skript na vytváranie balíkov Pacman pre Arch Linux.</translation>
+        <translation>Automatický skript na vytváranie balíkov Pacman pre Arch Linux.</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation translatorcomment="AI-translated">Verzia %1</translation>
+        <translation>Verzia %1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation translatorcomment="AI-translated">Pôvodný autor: Evgeny S. Maksimov</translation>
+        <translation>Pôvodný autor: Evgeny S. Maksimov</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation translatorcomment="AI-translated">Modifikácia: arkanista (s pomocou AI)</translation>
+        <translation>Modifikácia: arkanista (s pomocou AI)</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation translatorcomment="AI-translated">Zobrazená oblasť%1</translation>
+        <translation>Zobrazená oblasť%1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation translatorcomment="AI-translated">#%1</translation>
+        <translation>#%1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation translatorcomment="AI-translated">Nástroje</translation>
+        <translation>Nástroje</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation translatorcomment="AI-translated">rekordéry</translation>
+        <translation>rekordéry</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation translatorcomment="AI-translated">Predvoľby</translation>
+        <translation>Predvoľby</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation translatorcomment="AI-translated">Nastavenia</translation>
+        <translation>Nastavenia</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation translatorcomment="AI-translated">Denník zmien</translation>
+        <translation>Denník zmien</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation translatorcomment="AI-translated">Dostupná verzia: %1</translation>
+        <translation>Dostupná verzia: %1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation translatorcomment="AI-translated">Podrobnosti výrezu</translation>
+        <translation>Podrobnosti výrezu</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation translatorcomment="AI-translated">Vyberte výrez v hlavnej mriežke a prispôsobte jeho nastavenia.</translation>
+        <translation>Vyberte výrez v hlavnej mriežke a prispôsobte jeho nastavenia.</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation translatorcomment="AI-translated">Odomknite konfiguračný panel</translation>
+        <translation>Odomknite konfiguračný panel</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Pripojenie aktívneho streamu</translation>
+        <translation>Pripojenie aktívneho streamu</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Adresa URL primárneho streamu</translation>
+        <translation>Adresa URL primárneho streamu</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Sekundárna záložná adresa URL</translation>
+        <translation>Sekundárna záložná adresa URL</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation translatorcomment="AI-translated">Možnosti zvuku a vykresľovania</translation>
+        <translation>Možnosti zvuku a vykresľovania</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation translatorcomment="AI-translated">Vypnúť / Zapnúť zvuk</translation>
+        <translation>Vypnúť / Zapnúť zvuk</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation translatorcomment="AI-translated">Prepísanie možností FFmpeg</translation>
+        <translation>Prepísanie možností FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Nástroje na rozloženie a mriežku</translation>
+        <translation>Nástroje na rozloženie a mriežku</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Odomknite panel nástrojov</translation>
+        <translation>Odomknite panel nástrojov</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Rozdelenie okien</translation>
+        <translation>Rozdelenie okien</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Chyba pri čítaní konfigurácie!</translation>
+        <translation>Chyba pri čítaní konfigurácie!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Podržaním upravíte hodnotu delenia</translation>
+        <translation>Podržaním upravíte hodnotu delenia</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Pomer geometrie</translation>
+        <translation>Pomer geometrie</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Prepnúť na celú obrazovku</translation>
+        <translation>Prepnúť na celú obrazovku</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Grid Operations</translation>
+        <translation>Grid Operations</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Zlúčiť zvýraznené bunky</translation>
+        <translation>Zlúčiť zvýraznené bunky</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation translatorcomment="AI-translated">NVR / Hikvision Recorders Manager</translation>
+        <translation>NVR / Hikvision Recorders Manager</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation translatorcomment="AI-translated">Predvoľby a rýchle zobrazenia rozloženia</translation>
+        <translation>Predvoľby a rýchle zobrazenia rozloženia</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation translatorcomment="AI-translated">Nastavenia rozloženia ONVIF a RTSP</translation>
+        <translation>Nastavenia rozloženia ONVIF a RTSP</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation translatorcomment="AI-translated">Rozloženie %1</translation>
+        <translation>Rozloženie %1</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation translatorcomment="AI-translated">Viditeľné</translation>
+        <translation>Viditeľné</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation translatorcomment="AI-translated">Aktivujte toto rozloženie ukážky</translation>
+        <translation>Aktivujte toto rozloženie ukážky</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation translatorcomment="AI-translated">Odstrániť toto rozloženie ukážky</translation>
+        <translation>Odstrániť toto rozloženie ukážky</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation translatorcomment="AI-translated">Pridať prednastavené rozloženie</translation>
+        <translation>Pridať prednastavené rozloženie</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation translatorcomment="AI-translated">Rozloženie zobrazenia NVR</translation>
+        <translation>Rozloženie zobrazenia NVR</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation translatorcomment="AI-translated">Zobrazenie NVR</translation>
+        <translation>Zobrazenie NVR</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation translatorcomment="AI-translated">Aktivujte toto zobrazenie kamier NVR</translation>
+        <translation>Aktivujte toto zobrazenie kamier NVR</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation translatorcomment="AI-translated">Odstrániť toto zobrazenie kamier NVR</translation>
+        <translation>Odstrániť toto zobrazenie kamier NVR</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation translatorcomment="AI-translated">Predvoľby NVR (zobrazenia mriežky)</translation>
+        <translation>Predvoľby NVR (zobrazenia mriežky)</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation translatorcomment="AI-translated">Predvoľba NVR #%1</translation>
+        <translation>Predvoľba NVR #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation translatorcomment="AI-translated">Aktivujte túto predvoľbu kamier NVR</translation>
+        <translation>Aktivujte túto predvoľbu kamier NVR</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation translatorcomment="AI-translated">Odstrániť túto predvoľbu kamier NVR</translation>
+        <translation>Odstrániť túto predvoľbu kamier NVR</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation translatorcomment="AI-translated">Pridať predvoľbu NVR</translation>
+        <translation>Pridať predvoľbu NVR</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation translatorcomment="AI-translated">Systémové nastavenia</translation>
+        <translation>Systémové nastavenia</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation translatorcomment="AI-translated">Všeobecné nastavenia</translation>
+        <translation>Všeobecné nastavenia</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation translatorcomment="AI-translated">Povoliť spustenie viacerých inštancií aplikácií</translation>
+        <translation>Povoliť spustenie viacerých inštancií aplikácií</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation translatorcomment="AI-translated">Táto možnosť je zakázaná, aby sa predišlo konfliktom pri zápise súboru nastavení. Aby ste to povolili (nebezpečné a neodporúčame!), nastavte 'singleApplication=false' v konfiguračnom súbore kvision.conf.</translation>
+        <translation>Táto možnosť je zakázaná, aby sa predišlo konfliktom pri zápise súboru nastavení. Aby ste to povolili (nebezpečné a neodporúčame!), nastavte 'singleApplication=false' v konfiguračnom súbore kvision.conf.</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation translatorcomment="AI-translated">Skontrolujte chybový stav Hikvision NVR</translation>
+        <translation>Skontrolujte chybový stav Hikvision NVR</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation translatorcomment="AI-translated">Zvuk</translation>
+        <translation>Zvuk</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation translatorcomment="AI-translated">Úplne zakázať zvuk</translation>
+        <translation>Úplne zakázať zvuk</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation translatorcomment="AI-translated">Maximalizácia fotoaparátu na celú obrazovku sa nezapne</translation>
+        <translation>Maximalizácia fotoaparátu na celú obrazovku sa nezapne</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation translatorcomment="AI-translated">Nastavenia kontextovej ponuky</translation>
+        <translation>Nastavenia kontextovej ponuky</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation translatorcomment="AI-translated">Povoliť kontextovú ponuku kliknutím pravým tlačidlom myši</translation>
+        <translation>Povoliť kontextovú ponuku kliknutím pravým tlačidlom myši</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation translatorcomment="AI-translated">Povoliť výmenu miest výrezu</translation>
+        <translation>Povoliť výmenu miest výrezu</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation translatorcomment="AI-translated">Povoľte možnosť „Odstrániť fotoaparát“.</translation>
+        <translation>Povoľte možnosť „Odstrániť fotoaparát“.</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation translatorcomment="AI-translated">Povoliť zmenu nastavení výrezu</translation>
+        <translation>Povoliť zmenu nastavení výrezu</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation translatorcomment="AI-translated">Povoľte možnosť „Výber streamu“.</translation>
+        <translation>Povoľte možnosť „Výber streamu“.</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation translatorcomment="AI-translated">Nastavenia používateľského rozhrania</translation>
+        <translation>Nastavenia používateľského rozhrania</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation translatorcomment="AI-translated">Zobraziť stav kanála v ľavom hornom rohu zobrazovanej oblasti</translation>
+        <translation>Zobraziť stav kanála v ľavom hornom rohu zobrazovanej oblasti</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation translatorcomment="AI-translated">Zobraziť informácie o kamere v ľavom dolnom rohu výrezu</translation>
+        <translation>Zobraziť informácie o kamere v ľavom dolnom rohu výrezu</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation translatorcomment="AI-translated">Zobrazovať ovládacie ikony v pravom dolnom rohu výrezu iba pri umiestnení kurzora myši</translation>
+        <translation>Zobrazovať ovládacie ikony v pravom dolnom rohu výrezu iba pri umiestnení kurzora myši</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation translatorcomment="AI-translated">Zobraziť informačné polia iba pri umiestnení kurzora myši</translation>
+        <translation>Zobraziť informačné polia iba pri umiestnení kurzora myši</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation translatorcomment="AI-translated">Pri otváraní okna štandardne zobrazovať hornú lištu</translation>
+        <translation>Pri otváraní okna štandardne zobrazovať hornú lištu</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation translatorcomment="AI-translated">Skryť kurzor myši v režime celej obrazovky</translation>
+        <translation>Skryť kurzor myši v režime celej obrazovky</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation translatorcomment="AI-translated">Zakázať animáciu priblíženia výrezu</translation>
+        <translation>Zakázať animáciu priblíženia výrezu</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation translatorcomment="AI-translated">jazyk:</translation>
+        <translation>jazyk:</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation translatorcomment="AI-translated">Predvolené nastavenie systému</translation>
+        <translation>Predvolené nastavenie systému</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation translatorcomment="AI-translated">Obmedzte pomocné okná na:</translation>
+        <translation>Obmedzte pomocné okná na:</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation translatorcomment="AI-translated">Monitorovanie stavu NVR</translation>
+        <translation>Monitorovanie stavu NVR</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation translatorcomment="AI-translated">Monitorujte stav offline a chyby prihlásenia</translation>
+        <translation>Monitorujte stav offline a chyby prihlásenia</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation translatorcomment="AI-translated">Monitorovať preťaženie procesora (&gt;85 %)</translation>
+        <translation>Monitorovať preťaženie procesora (&gt;85 %)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation translatorcomment="AI-translated">Monitorujte chyby hardvéru rekordéra</translation>
+        <translation>Monitorujte chyby hardvéru rekordéra</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation translatorcomment="AI-translated">Monitorujte chyby/abnormality pevného disku</translation>
+        <translation>Monitorujte chyby/abnormality pevného disku</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation translatorcomment="AI-translated">Monitorujte nenaformátované pevné disky</translation>
+        <translation>Monitorujte nenaformátované pevné disky</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation translatorcomment="AI-translated">Monitorujte plné pevné disky (pokrytie slučky je vypnuté)</translation>
+        <translation>Monitorujte plné pevné disky (pokrytie slučky je vypnuté)</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation translatorcomment="AI-translated">Prehrávanie</translation>
+        <translation>Prehrávanie</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation translatorcomment="AI-translated">Predvolený posun spustenia spätného prehrávania v sekundách:</translation>
+        <translation>Predvolený posun spustenia spätného prehrávania v sekundách:</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation translatorcomment="AI-translated">Predvolený rozsah časovej osi prehrávania, hodiny:</translation>
+        <translation>Predvolený rozsah časovej osi prehrávania, hodiny:</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation translatorcomment="AI-translated">Ukladanie</translation>
+        <translation>Ukladanie</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation translatorcomment="AI-translated">Aktivujte zmeny v tejto sekcii</translation>
+        <translation>Aktivujte zmeny v tejto sekcii</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation translatorcomment="AI-translated">Predvolená cesta k snímke:</translation>
+        <translation>Predvolená cesta k snímke:</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation translatorcomment="AI-translated">Vyberte priečinok pre snímky</translation>
+        <translation>Vyberte priečinok pre snímky</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation translatorcomment="AI-translated">Predvolená cesta k nahrávkam:</translation>
+        <translation>Predvolená cesta k nahrávkam:</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation translatorcomment="AI-translated">Vyberte priečinok pre nahrávky</translation>
+        <translation>Vyberte priečinok pre nahrávky</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation translatorcomment="AI-translated">otvorte priečinok s obrázkami</translation>
+        <translation>otvorte priečinok s obrázkami</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation translatorcomment="AI-translated">otvorte priečinok s videom</translation>
+        <translation>otvorte priečinok s videom</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation translatorcomment="AI-translated">Konfigurácia systémových médií</translation>
+        <translation>Konfigurácia systémových médií</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation translatorcomment="AI-translated">Predvolené možnosti príkazového riadka FFmpeg</translation>
+        <translation>Predvolené možnosti príkazového riadka FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation translatorcomment="AI-translated">Aktualizujte všetky kamery</translation>
+        <translation>Aktualizujte všetky kamery</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation translatorcomment="AI-translated">Denník zmien</translation>
+        <translation>Denník zmien</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation translatorcomment="AI-translated">História vylepšení, opráv chýb a nových funkcií v KVision.</translation>
+        <translation>História vylepšení, opráv chýb a nových funkcií v KVision.</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation translatorcomment="AI-translated">Potvrďte vymazanie</translation>
+        <translation>Potvrďte vymazanie</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation translatorcomment="AI-translated">Naozaj chcete odstrániť predvoľbu \"%1\"? Táto akcia je úplne nezvratná.</translation>
+        <translation>Naozaj chcete odstrániť predvoľbu \"%1\"? Táto akcia je úplne nezvratná.</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation translatorcomment="AI-translated">Naozaj chcete vymazať predvoľbu #%1? Táto akcia je úplne nezvratná.</translation>
+        <translation>Naozaj chcete vymazať predvoľbu #%1? Táto akcia je úplne nezvratná.</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation translatorcomment="AI-translated">Naozaj chcete odstrániť zobrazenie NVR \"%1\"? Táto akcia je úplne nezvratná.</translation>
+        <translation>Naozaj chcete odstrániť zobrazenie NVR \"%1\"? Táto akcia je úplne nezvratná.</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation translatorcomment="AI-translated">Naozaj chcete odstrániť toto rozloženie zobrazenia NVR? Táto akcia je úplne nezvratná.</translation>
+        <translation>Naozaj chcete odstrániť toto rozloženie zobrazenia NVR? Táto akcia je úplne nezvratná.</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation translatorcomment="AI-translated">Naozaj chcete odstrániť predvoľbu NVR \"%1\"? Táto akcia je úplne nezvratná.</translation>
+        <translation>Naozaj chcete odstrániť predvoľbu NVR \"%1\"? Táto akcia je úplne nezvratná.</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation translatorcomment="AI-translated">Naozaj chcete odstrániť túto predvoľbu NVR? Táto akcia je úplne nezvratná.</translation>
+        <translation>Naozaj chcete odstrániť túto predvoľbu NVR? Táto akcia je úplne nezvratná.</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">Nezahŕňajte globálne zmeny nastavení FFmpeg</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">možnosti FFmpeg</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">Možnosti kanála</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">Nastavenia výrezu</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">Naozaj chcete odstrániť kameru z tohto výrezu?</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">Potvrďte odstránenie fotoaparátu</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">Tylko SUB</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">Tylko HLAVNÝ</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">Automatycznie</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">Prehrávanie</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>Rozšírenie lokalizácie: KVision je teraz plne lokalizovaný do 20 nových jazykov preložených AI, čím sa celkový počet podporovaných jazykov zvyšuje na 22 (angličtina, poľština a 20 nových jazykov). Preložené bolo ako celé aplikačné rozhranie (UI), tak aj kompletné užívateľské manuály.</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>Viewport Quick Playback dokumentácia: Pridaná komplexná dokumentácia vysvetľujúca prekrývajúce tlačidlo s kruhovou šípkou (Miniplayer) a jeho podrobné funkcie vo všetkých 22 používateľských príručkách.</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>Pan Zoom: Pridaná možnosť voľne posúvať priblížené video (Live, Mini-player, Archive) podržaním stredného tlačidla myši (rolovacie koliesko) a ťahaním kurzora.</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>Výber proporcionálneho priblíženia: Predstavenie skratky Shift. Ak pri kreslení obdĺžnika priblíženia podržíte stlačený kláves Shift, výber sa uzamkne v pomere strán 16:9, ktorý je prísne obmedzený na hranice výrezu.</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>Vynútené polohovanie okien: Úplne nahradilo staré mechanizmy na ukladanie geometrie okna kvôli neriešiteľným problémom s projekciou na viacerých monitoroch v Qt. Aplikácia (hlavné aj pomocné okná) teraz striktne presadzuje spustenie sústredené na primárnom monitore pri 90 % jeho rozlíšenia, čím zabezpečuje stabilitu a predvídateľnosť vo všetkých nastaveniach.</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>Refaktorovanie lokalizácie: Nahradené všetky pevne zakódované poľské a anglické reťazce vložené do zdrojového kódu (qsTr, tr). Viac ako 500 jedinečných reťazcov bolo prerobených na identifikátory LNG_XXXX, bezpečne zmapované prostredníctvom vylepšeného systému súborov .ts/.qm.</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>CLI len v angličtine: Možnosti rozhrania príkazového riadka a parametre --help sú teraz trvalo v angličtine, aby sa predišlo problémom s oneskorenou inicializáciou lokalizačného jadra.</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>Pomer strán archívu: Opravený problém, pri ktorom bol pomer strán videa skreslený vo výreze prehrávača archívu. Komponent HikvisionArchivePlayer teraz správne vykresľuje pôvodnú snímku, pričom zachováva jej prirodzený pomer strán (letterboxing), namiesto toho, aby rozťahoval video tak, aby zodpovedalo hraniciam používateľského rozhrania.</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>Úniky pamäte demuxera: Vylepšená logika čistenia objektov v rutine QmlAVPlayer::stop(), ktorá zabraňuje hromadeniu „zombie“ inštancií demuxera na pozadí.</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>writeSetting Fix: Pridaná chýbajúca implementácia metódy writeSetting v triede Context, čím sa eliminujú TypeErrors a prerušenia vykonávania QML počas migrácií nastavení.</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4374,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Chyba pri čítaní konfigurácie!</translation>
+        <translation>Chyba pri čítaní konfigurácie!</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4393,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation translatorcomment="AI-translated">Program už beží, nemôžete spustiť druhý</translation>
+        <translation>Program už beží, nemôžete spustiť druhý</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">ZATVORTE</translation>
+        <translation>ZATVORTE</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4424,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation translatorcomment="AI-translated">Snímka bola uložená</translation>
+        <translation>Snímka bola uložená</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation translatorcomment="AI-translated">Snímka uložená -</translation>
+        <translation>Snímka uložená -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation translatorcomment="AI-translated">Prehľadávať</translation>
+        <translation>Prehľadávať</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation translatorcomment="AI-translated">Odísť</translation>
+        <translation>Odísť</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4491,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Nástroje na rozloženie a mriežku</translation>
+        <translation>Nástroje na rozloženie a mriežku</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Odomknite panel nástrojov</translation>
+        <translation>Odomknite panel nástrojov</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Rozdelenie okien</translation>
+        <translation>Rozdelenie okien</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Chyba pri čítaní konfigurácie!</translation>
+        <translation>Chyba pri čítaní konfigurácie!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Podržaním upravíte hodnotu delenia</translation>
+        <translation>Podržaním upravíte hodnotu delenia</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Pomer geometrie</translation>
+        <translation>Pomer geometrie</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation translatorcomment="AI-translated">Pomer strán 16:9</translation>
+        <translation>Pomer strán 16:9</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation translatorcomment="AI-translated">Pomer strán 4:3</translation>
+        <translation>Pomer strán 4:3</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Prepnúť na celú obrazovku</translation>
+        <translation>Prepnúť na celú obrazovku</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Grid Operations</translation>
+        <translation>Grid Operations</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Zlúčiť zvýraznené bunky</translation>
+        <translation>Zlúčiť zvýraznené bunky</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4578,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation translatorcomment="AI-translated">Nastavenia výrezu</translation>
+        <translation>Nastavenia výrezu</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Pripojenie aktívneho streamu</translation>
+        <translation>Pripojenie aktívneho streamu</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Adresa URL primárneho streamu</translation>
+        <translation>Adresa URL primárneho streamu</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Sekundárna záložná adresa URL</translation>
+        <translation>Sekundárna záložná adresa URL</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation translatorcomment="AI-translated">Možnosti kanála</translation>
+        <translation>Možnosti kanála</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation translatorcomment="AI-translated">možnosti FFmpeg</translation>
+        <translation>možnosti FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation translatorcomment="AI-translated">Nezahŕňajte globálne zmeny nastavení FFmpeg</translation>
+        <translation>Nezahŕňajte globálne zmeny nastavení FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Zrušiť</translation>
+        <translation>Zrušiť</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Uložiť</translation>
+        <translation>Uložiť</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4670,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation translatorcomment="AI-translated">Vymeňte výrezy</translation>
+        <translation>Vymeňte výrezy</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation translatorcomment="AI-translated">Výber streamu</translation>
+        <translation>Výber streamu</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation translatorcomment="AI-translated">Odstráňte fotoaparát</translation>
+        <translation>Odstráňte fotoaparát</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation translatorcomment="AI-translated">Zmeňte nastavenia</translation>
+        <translation>Zmeňte nastavenia</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation translatorcomment="AI-translated">Znovu načítať</translation>
+        <translation>Znovu načítať</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation translatorcomment="AI-translated">Snímka</translation>
+        <translation>Snímka</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation translatorcomment="AI-translated">Prehrávanie</translation>
+        <translation>Prehrávanie</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation translatorcomment="AI-translated">Automatycznie</translation>
+        <translation>Automatycznie</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation translatorcomment="AI-translated">Tylko HLAVNÝ</translation>
+        <translation>Tylko HLAVNÝ</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation translatorcomment="AI-translated">Tylko SUB</translation>
+        <translation>Tylko SUB</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation translatorcomment="AI-translated">Potvrďte odstránenie fotoaparátu</translation>
+        <translation>Potvrďte odstránenie fotoaparátu</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation translatorcomment="AI-translated">Naozaj chcete odstrániť kameru z tohto výrezu?</translation>
+        <translation>Naozaj chcete odstrániť kameru z tohto výrezu?</translation>
     </message>
 </context>
 </TS>

@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation translatorcomment="AI-translated">Nem nyithat ki több kiegészítő ablakot</translation>
+        <translation>Nem nyithat ki több kiegészítő ablakot</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">ZÁRJA</translation>
+        <translation>ZÁRJA</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Kiegészítő ablak</translation>
+        <translation>KVision - Kiegészítő ablak</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Nincs kiválasztva nézet, válasszon egy nézetet</translation>
+        <translation>Nincs kiválasztva nézet, válasszon egy nézetet</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">A kamerák megjelenítéséhez válasszon egy nézetet a felső menüből.</translation>
+        <translation>A kamerák megjelenítéséhez válasszon egy nézetet a felső menüből.</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Az oldalsáv panel beállításai és beállításai</translation>
+        <translation>Az oldalsáv panel beállításai és beállításai</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Új segédablak megnyitása</translation>
+        <translation>Új segédablak megnyitása</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Program felhasználói kézikönyv</translation>
+        <translation>Program felhasználói kézikönyv</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation translatorcomment="AI-translated">Rács nézet:</translation>
+        <translation>Rács nézet:</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Teljes képernyő váltás</translation>
+        <translation>Teljes képernyő váltás</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation translatorcomment="AI-translated">🔒 A zár elrendezésének módosítása</translation>
+        <translation>🔒 A zár elrendezésének módosítása</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">További lehetőségek</translation>
+        <translation>További lehetőségek</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation translatorcomment="AI-translated">Kiválasztás megtekintése:</translation>
+        <translation>Kiválasztás megtekintése:</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Program bezárása</translation>
+        <translation>Program bezárása</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Biztosan bezárja a programot?</translation>
+        <translation>Biztosan bezárja a programot?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">IGEN</translation>
+        <translation>IGEN</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NEM</translation>
+        <translation>NEM</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation translatorcomment="AI-translated">Igen</translation>
+        <translation>Igen</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation translatorcomment="AI-translated">Nem</translation>
+        <translation>Nem</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation translatorcomment="AI-translated">A konfigurációs fájl elérési útja.</translation>
+        <translation type="vanished">A konfigurációs fájl elérési útja.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation translatorcomment="AI-translated">Az aktuális preset indexe.</translation>
+        <translation type="vanished">Az aktuális preset indexe.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation translatorcomment="AI-translated">Teljes képernyős mód kényszerítése.</translation>
+        <translation type="vanished">Teljes képernyős mód kényszerítése.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation translatorcomment="AI-translated">Kioszk mód funkció.</translation>
+        <translation type="vanished">Kioszk mód funkció.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation translatorcomment="AI-translated">Naplózási szint [%1...%2].</translation>
+        <translation type="vanished">Naplózási szint [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation translatorcomment="AI-translated">Kezdje segédablakként.</translation>
+        <translation type="vanished">Kezdje segédablakként.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation translatorcomment="AI-translated">A segédablak azonosítója.</translation>
+        <translation type="vanished">A segédablak azonosítója.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation translatorcomment="AI-translated">Részletes naplók megjelenítése a konzolban (bőbeszédű naplózás).</translation>
+        <translation type="vanished">Részletes naplók megjelenítése a konzolban (bőbeszédű naplózás).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation translatorcomment="AI-translated">Engedélyezze az objektumkövetést a naplókban a memóriaszivárgások hibakereséséhez.</translation>
+        <translation type="vanished">Engedélyezze az objektumkövetést a naplókban a memóriaszivárgások hibakereséséhez.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation translatorcomment="AI-translated">Az első futtatás viselkedésének kényszerítése és utasítások megjelenítése.</translation>
+        <translation type="vanished">Az első futtatás viselkedésének kényszerítése és utasítások megjelenítése.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation translatorcomment="AI-translated">Szimulálja az NVR hibákat az összes rögzítőn.</translation>
+        <translation type="vanished">Szimulálja az NVR hibákat az összes rögzítőn.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation translatorcomment="AI-translated">Tesztelési célból gúnyolja ki az új verzió elérhetőségét a GitHubon</translation>
+        <translation type="vanished">Tesztelési célból gúnyolja ki az új verzió elérhetőségét a GitHubon</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation translatorcomment="AI-translated">KVision - videó streamek megtekintő és csatlakoztatható.</translation>
+        <translation>KVision - videó streamek megtekintő és csatlakoztatható.</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation translatorcomment="AI-translated">A befejezés dátumának és időpontjának későbbinek kell lennie, mint a kezdő dátum és idő!</translation>
+        <translation>A befejezés dátumának és időpontjának későbbinek kell lennie, mint a kezdő dátum és idő!</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation translatorcomment="AI-translated">január</translation>
+        <translation>január</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation translatorcomment="AI-translated">február</translation>
+        <translation>február</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation translatorcomment="AI-translated">március</translation>
+        <translation>március</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation translatorcomment="AI-translated">április</translation>
+        <translation>április</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation translatorcomment="AI-translated">május</translation>
+        <translation>május</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation translatorcomment="AI-translated">június</translation>
+        <translation>június</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation translatorcomment="AI-translated">július</translation>
+        <translation>július</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation translatorcomment="AI-translated">augusztus</translation>
+        <translation>augusztus</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation translatorcomment="AI-translated">szeptember</translation>
+        <translation>szeptember</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation translatorcomment="AI-translated">október</translation>
+        <translation>október</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation translatorcomment="AI-translated">november</translation>
+        <translation>november</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation translatorcomment="AI-translated">december</translation>
+        <translation>december</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Előző hónap</translation>
+        <translation>Előző hónap</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Következő hónapban</translation>
+        <translation>Következő hónapban</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation translatorcomment="AI-translated">Válassza ki az időt</translation>
+        <translation>Válassza ki az időt</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation translatorcomment="AI-translated">Hr</translation>
+        <translation>Hr</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation translatorcomment="AI-translated">Min</translation>
+        <translation>Min</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation translatorcomment="AI-translated">Sec</translation>
+        <translation>Sec</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation translatorcomment="AI-translated">Mégse</translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation translatorcomment="AI-translated">Erősítse meg</translation>
+        <translation>Erősítse meg</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation translatorcomment="AI-translated">Felvételek letöltése</translation>
+        <translation>Felvételek letöltése</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation translatorcomment="AI-translated">Feladó:</translation>
+        <translation>Feladó:</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation translatorcomment="AI-translated">Hibás dátumformátum! Kötelező formátum: DD.MM.YYYY (pl. 2026.06.26)</translation>
+        <translation>Hibás dátumformátum! Kötelező formátum: DD.MM.YYYY (pl. 2026.06.26)</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation translatorcomment="AI-translated">Helytelen időformátum! Kötelező formátum: ÓÓ:PP:SS vagy ÓÓ.MM.SS (pl. 12:30:00 vagy 12:30:00)</translation>
+        <translation>Helytelen időformátum! Kötelező formátum: ÓÓ:PP:SS vagy ÓÓ.MM.SS (pl. 12:30:00 vagy 12:30:00)</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation translatorcomment="AI-translated">Címzett:</translation>
+        <translation>Címzett:</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation translatorcomment="AI-translated">Összesen:</translation>
+        <translation>Összesen:</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation translatorcomment="AI-translated">Letöltés...</translation>
+        <translation>Letöltés...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation translatorcomment="AI-translated">Hiba:</translation>
+        <translation>Hiba:</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation translatorcomment="AI-translated">Inicializálás...</translation>
+        <translation>Inicializálás...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Megállt</translation>
+        <translation>Megállt</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation translatorcomment="AI-translated">nyissa meg a mentési mappát</translation>
+        <translation>nyissa meg a mentési mappát</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation translatorcomment="AI-translated">Állj</translation>
+        <translation>Állj</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Letöltés</translation>
+        <translation>Letöltés</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation translatorcomment="AI-translated">A letöltés már folyamatban van.</translation>
+        <translation>A letöltés már folyamatban van.</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation translatorcomment="AI-translated">Fájlkeresés inicializálása...</translation>
+        <translation>Fájlkeresés inicializálása...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation translatorcomment="AI-translated">Hiba az eszközre való bejelentkezéskor: %1</translation>
+        <translation>Hiba az eszközre való bejelentkezéskor: %1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation translatorcomment="AI-translated">Nincs felvétel a kiválasztott időtartományban ehhez a kamerához.</translation>
+        <translation>Nincs felvétel a kiválasztott időtartományban ehhez a kamerához.</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation translatorcomment="AI-translated">Letöltve és konvertálva %1/%2 fájlból.</translation>
+        <translation>Letöltve és konvertálva %1/%2 fájlból.</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation translatorcomment="AI-translated">A megadott mentési útvonal érvénytelen, vagy az írási hozzáférés megtagadva:
+        <translation>A megadott mentési útvonal érvénytelen, vagy az írási hozzáférés megtagadva:
 %1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation translatorcomment="AI-translated">Nincs írási engedély a könyvtárba:
+        <translation>Nincs írási engedély a könyvtárba:
 %1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation translatorcomment="AI-translated">Hiba a(z) %1 rész letöltésének inicializálása során: %2</translation>
+        <translation>Hiba a(z) %1 rész letöltésének inicializálása során: %2</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation translatorcomment="AI-translated">Hiba a(z) %1 rész letöltésének indításakor: %2</translation>
+        <translation>Hiba a(z) %1 rész letöltésének indításakor: %2</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation translatorcomment="AI-translated">A(z) %2/%1 rész letöltése...</translation>
+        <translation>A(z) %2/%1 rész letöltése...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Megállt</translation>
+        <translation>Megállt</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation translatorcomment="AI-translated">A letöltést a felhasználó megszakította.</translation>
+        <translation>A letöltést a felhasználó megszakította.</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation translatorcomment="AI-translated">% 2/% 1 rész konvertálása...</translation>
+        <translation>% 2/% 1 rész konvertálása...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation translatorcomment="AI-translated">Hiba a(z) %1 rész letöltése közben.</translation>
+        <translation>Hiba a(z) %1 rész letöltése közben.</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation translatorcomment="AI-translated">Letöltve és konvertálva %1/%2 rész...</translation>
+        <translation>Letöltve és konvertálva %1/%2 rész...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation translatorcomment="AI-translated">Belső FFmpeg hiba</translation>
+        <translation>Belső FFmpeg hiba</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation translatorcomment="AI-translated">A(z) %1 rész átalakítása MP4-re nem sikerült: %2</translation>
+        <translation>A(z) %1 rész átalakítása MP4-re nem sikerült: %2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Sikertelen bejelentkezés, vagy nem található kamera.</translation>
+        <translation>Sikertelen bejelentkezés, vagy nem található kamera.</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation translatorcomment="AI-translated">KVision - Felhasználói kézikönyv / Utasítások</translation>
+        <translation>KVision - Felhasználói kézikönyv / Utasítások</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS_hu.md</translation>
+        <translation>qrc:/INSTRUCTIONS_hu.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation translatorcomment="AI-translated">Hiba az utasítások betöltésekor.</translation>
+        <translation>Hiba az utasítások betöltésekor.</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation translatorcomment="AI-translated">Kamerák a következőn: %1</translation>
+        <translation>Kamerák a következőn: %1</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation translatorcomment="AI-translated">Fényképezőgépek</translation>
+        <translation>Fényképezőgépek</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation translatorcomment="AI-translated">IP: %1 | Port: %2 | %3 csatorna</translation>
+        <translation>IP: %1 | Port: %2 | %3 csatorna</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation translatorcomment="AI-translated">Miniatűrök létrehozása az összes kamerához</translation>
+        <translation>Miniatűrök létrehozása az összes kamerához</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation translatorcomment="AI-translated">Kamera %1</translation>
+        <translation>Kamera %1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation translatorcomment="AI-translated">Hozzárendelt kamera %1 Ch. %2 a %3 nézetablakhoz</translation>
+        <translation>Hozzárendelt kamera %1 Ch. %2 a %3 nézetablakhoz</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation translatorcomment="AI-translated">Hozzárendelés aktív nézetablakhoz</translation>
+        <translation>Hozzárendelés aktív nézetablakhoz</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation translatorcomment="AI-translated">Kamera átnevezése</translation>
+        <translation>Kamera átnevezése</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation translatorcomment="AI-translated">A kamera indexképének frissítése</translation>
+        <translation>A kamera indexképének frissítése</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation translatorcomment="AI-translated">Változtassa meg a kamera nevét</translation>
+        <translation>Változtassa meg a kamera nevét</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation translatorcomment="AI-translated">Csatorna: %1</translation>
+        <translation>Csatorna: %1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation translatorcomment="AI-translated">Eredeti név: %1</translation>
+        <translation>Eredeti név: %1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation translatorcomment="AI-translated">Egyik sem</translation>
+        <translation>Egyik sem</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation translatorcomment="AI-translated">Adja meg az új kamera nevét...</translation>
+        <translation>Adja meg az új kamera nevét...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation translatorcomment="AI-translated">Reset</translation>
+        <translation>Reset</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Mégse</translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Mentés</translation>
+        <translation>Mentés</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Sikertelen bejelentkezés, vagy nem található kamera.</translation>
+        <translation>Sikertelen bejelentkezés, vagy nem található kamera.</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation translatorcomment="AI-translated">Add hozzá a Hikvision Recordert</translation>
+        <translation>Add hozzá a Hikvision Recordert</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation translatorcomment="AI-translated">Felvevő neve (nem kötelező)</translation>
+        <translation>Felvevő neve (nem kötelező)</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation translatorcomment="AI-translated">IP-cím</translation>
+        <translation>IP-cím</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation translatorcomment="AI-translated">Port (8000)</translation>
+        <translation>Port (8000)</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation translatorcomment="AI-translated">Felhasználónév</translation>
+        <translation>Felhasználónév</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation translatorcomment="AI-translated">Jelszó</translation>
+        <translation>Jelszó</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation translatorcomment="AI-translated">Felfedezés...</translation>
+        <translation>Felfedezés...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation translatorcomment="AI-translated">Csatlakozás és felfedezés</translation>
+        <translation>Csatlakozás és felfedezés</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation translatorcomment="AI-translated">Mentés és frissítés</translation>
+        <translation>Mentés és frissítés</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation translatorcomment="AI-translated">Hiba: IP és jelszó szükséges.</translation>
+        <translation>Hiba: IP és jelszó szükséges.</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation translatorcomment="AI-translated">Csatlakozás az NVR-hez és csatornák felfedezése...</translation>
+        <translation>Csatlakozás az NVR-hez és csatornák felfedezése...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Mégse</translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation translatorcomment="AI-translated">Csatlakoztatott felvevők</translation>
+        <translation>Csatlakoztatott felvevők</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation translatorcomment="AI-translated">%1 kamera csatlakoztatva</translation>
+        <translation>%1 kamera csatlakoztatva</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation translatorcomment="AI-translated">BEJELENTKEZTETT</translation>
+        <translation>BEJELENTKEZTETT</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation translatorcomment="AI-translated">NEM BEJELENTKEZTETT</translation>
+        <translation>NEM BEJELENTKEZTETT</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation translatorcomment="AI-translated">Zöld: Aktív SDK-munkamenet (PTZ/Archívum). Piros: Nincs aktív munkamenet (az RTSP adatfolyam függetlenül működik).</translation>
+        <translation>Zöld: Aktív SDK-munkamenet (PTZ/Archívum). Piros: Nincs aktív munkamenet (az RTSP adatfolyam függetlenül működik).</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation translatorcomment="AI-translated">Nyissa meg az NVR bejelentkezési oldalát a böngészőben</translation>
+        <translation>Nyissa meg az NVR bejelentkezési oldalát a böngészőben</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation translatorcomment="AI-translated">Az NVR-kamerák listájának megjelenítése</translation>
+        <translation>Az NVR-kamerák listájának megjelenítése</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation translatorcomment="AI-translated">Szerkessze a felvevő csatlakozási adatait</translation>
+        <translation>Szerkessze a felvevő csatlakozási adatait</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation translatorcomment="AI-translated">A felvevő törlése a listáról</translation>
+        <translation>A felvevő törlése a listáról</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation translatorcomment="AI-translated">Erősítse meg az NVR törlését</translation>
+        <translation>Erősítse meg az NVR törlését</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation translatorcomment="AI-translated">Biztosan törli ezt az NVR-t?</translation>
+        <translation>Biztosan törli ezt az NVR-t?</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation translatorcomment="AI-translated">Figyelmeztetés!</translation>
+        <translation>Figyelmeztetés!</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation translatorcomment="AI-translated">Teljesen biztos vagy benne, és tisztában vagy azzal, amit csinálsz?</translation>
+        <translation>Teljesen biztos vagy benne, és tisztában vagy azzal, amit csinálsz?</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation translatorcomment="AI-translated">NVR állapot</translation>
+        <translation>NVR állapot</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation translatorcomment="AI-translated">NVR állapotának ellenőrzése...</translation>
+        <translation>NVR állapotának ellenőrzése...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation translatorcomment="AI-translated">Utolsó ellenőrzés:</translation>
+        <translation>Utolsó ellenőrzés:</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation translatorcomment="AI-translated">soha</translation>
+        <translation>soha</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Némítás</translation>
+        <translation>Némítás</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation translatorcomment="AI-translated">HIBA</translation>
+        <translation>HIBA</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation translatorcomment="AI-translated">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation translatorcomment="AI-translated">Nincsenek állapotadatok</translation>
+        <translation>Nincsenek állapotadatok</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation translatorcomment="AI-translated">Nyomja meg az alábbi gombot az NVR állapotának ellenőrzéséhez.</translation>
+        <translation>Nyomja meg az alábbi gombot az NVR állapotának ellenőrzéséhez.</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation translatorcomment="AI-translated">Ellenőrizze most</translation>
+        <translation>Ellenőrizze most</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation translatorcomment="AI-translated">Bezárás</translation>
+        <translation>Bezárás</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation translatorcomment="AI-translated">Szimulált NVR</translation>
+        <translation>Szimulált NVR</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation translatorcomment="AI-translated">1. lemez</translation>
+        <translation>1. lemez</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation translatorcomment="AI-translated">Kritikus lemezhiba/hiba (szimuláció)</translation>
+        <translation>Kritikus lemezhiba/hiba (szimuláció)</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation translatorcomment="AI-translated">Nincs kapcsolat vagy bejelentkezési hiba (szimuláció)</translation>
+        <translation>Nincs kapcsolat vagy bejelentkezési hiba (szimuláció)</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation translatorcomment="AI-translated">Nincs kapcsolat vagy bejelentkezési hiba</translation>
+        <translation>Nincs kapcsolat vagy bejelentkezési hiba</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation translatorcomment="AI-translated">Hiba az NVR állapotának (SDK) olvasásakor</translation>
+        <translation>Hiba az NVR állapotának (SDK) olvasásakor</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation translatorcomment="AI-translated">Magas CPU terhelés (&gt;85%)</translation>
+        <translation>Magas CPU terhelés (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation translatorcomment="AI-translated">Eszköz hardverhiba</translation>
+        <translation>Eszköz hardverhiba</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation translatorcomment="AI-translated">%1 lemez</translation>
+        <translation>%1 lemez</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation translatorcomment="AI-translated">Kritikus lemezhiba/hiba</translation>
+        <translation>Kritikus lemezhiba/hiba</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation translatorcomment="AI-translated">A lemez formázatlan</translation>
+        <translation>A lemez formázatlan</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation translatorcomment="AI-translated">Lemez megtelt (felülírás letiltva)</translation>
+        <translation>Lemez megtelt (felülírás letiltva)</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation translatorcomment="AI-translated">Archívum -</translation>
+        <translation>Archívum -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation translatorcomment="AI-translated">január</translation>
+        <translation>január</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation translatorcomment="AI-translated">február</translation>
+        <translation>február</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation translatorcomment="AI-translated">március</translation>
+        <translation>március</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation translatorcomment="AI-translated">április</translation>
+        <translation>április</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation translatorcomment="AI-translated">május</translation>
+        <translation>május</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation translatorcomment="AI-translated">június</translation>
+        <translation>június</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation translatorcomment="AI-translated">július</translation>
+        <translation>július</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation translatorcomment="AI-translated">augusztus</translation>
+        <translation>augusztus</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation translatorcomment="AI-translated">szeptember</translation>
+        <translation>szeptember</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation translatorcomment="AI-translated">október</translation>
+        <translation>október</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation translatorcomment="AI-translated">november</translation>
+        <translation>november</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation translatorcomment="AI-translated">december</translation>
+        <translation>december</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Előző hónap</translation>
+        <translation>Előző hónap</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation translatorcomment="AI-translated">Válassza ki az archiválás dátumát</translation>
+        <translation>Válassza ki az archiválás dátumát</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Következő hónapban</translation>
+        <translation>Következő hónapban</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation translatorcomment="AI-translated">Mo</translation>
+        <translation>Mo</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation translatorcomment="AI-translated">Tu</translation>
+        <translation>Tu</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation translatorcomment="AI-translated">Mi</translation>
+        <translation>Mi</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation translatorcomment="AI-translated">Th</translation>
+        <translation>Th</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation translatorcomment="AI-translated">Fr</translation>
+        <translation>Fr</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation translatorcomment="AI-translated">Sa</translation>
+        <translation>Sa</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation translatorcomment="AI-translated">Su</translation>
+        <translation>Su</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation translatorcomment="AI-translated">Elérhetőség lekérése...</translation>
+        <translation>Elérhetőség lekérése...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation translatorcomment="AI-translated">Fényképezőgépek</translation>
+        <translation>Fényképezőgépek</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation translatorcomment="AI-translated">Kamera keresése...</translation>
+        <translation>Kamera keresése...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation translatorcomment="AI-translated">Keresés törlése</translation>
+        <translation>Keresés törlése</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation translatorcomment="AI-translated">A rögzítés tényleges végének meghatározása...</translation>
+        <translation>A rögzítés tényleges végének meghatározása...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation translatorcomment="AI-translated">Felvételi információk lekérése...</translation>
+        <translation>Felvételi információk lekérése...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation translatorcomment="AI-translated">Hikvision archívum betöltése...</translation>
+        <translation>Hikvision archívum betöltése...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation translatorcomment="AI-translated">Nincs felvétel a kiválasztott pillanatban</translation>
+        <translation>Nincs felvétel a kiválasztott pillanatban</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Némítás</translation>
+        <translation>Némítás</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Maximális hangerő</translation>
+        <translation>Maximális hangerő</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Készítsen pillanatfelvételt teljes felbontásban</translation>
+        <translation>Készítsen pillanatfelvételt teljes felbontásban</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Az 1:1 mód letiltása</translation>
+        <translation>Az 1:1 mód letiltása</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">1:1 mód engedélyezése (pixel-pixel)</translation>
+        <translation>1:1 mód engedélyezése (pixel-pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Állítsa vissza a nagyítást</translation>
+        <translation>Állítsa vissza a nagyítást</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation translatorcomment="AI-translated">Válassza ki a nagyítandó területet</translation>
+        <translation>Válassza ki a nagyítandó területet</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation translatorcomment="AI-translated">Válassza ki a nagyítandó területet</translation>
+        <translation>Válassza ki a nagyítandó területet</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation translatorcomment="AI-translated">Rácsnézet visszaállítása</translation>
+        <translation>Rácsnézet visszaállítása</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation translatorcomment="AI-translated">Megjelenítés teljes képernyőn</translation>
+        <translation>Megjelenítés teljes képernyőn</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation translatorcomment="AI-translated">Távolítsa el a kamerát a látómezőből</translation>
+        <translation>Távolítsa el a kamerát a látómezőből</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation translatorcomment="AI-translated">Üres nézet</translation>
+        <translation>Üres nézet</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation translatorcomment="AI-translated">Válassza ezt az ablakot, válasszon egy kamerát a listából, és kattintson a + gombra a hozzáadáshoz</translation>
+        <translation>Válassza ezt az ablakot, válasszon egy kamerát a listából, és kattintson a + gombra a hozzáadáshoz</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation translatorcomment="AI-translated">Előző nap</translation>
+        <translation>Előző nap</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation translatorcomment="AI-translated">Válassza ki a dátumot a naptárból</translation>
+        <translation>Válassza ki a dátumot a naptárból</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation translatorcomment="AI-translated">Másnap</translation>
+        <translation>Másnap</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation translatorcomment="AI-translated">Ma</translation>
+        <translation>Ma</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation translatorcomment="AI-translated">Menj a mai napra</translation>
+        <translation>Menj a mai napra</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation translatorcomment="AI-translated">Felvételek frissítése</translation>
+        <translation>Felvételek frissítése</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation translatorcomment="AI-translated">Nagyítás 1 óráig tart</translation>
+        <translation>Nagyítás 1 óráig tart</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation translatorcomment="AI-translated">Nagyítás 8 óráig tart</translation>
+        <translation>Nagyítás 8 óráig tart</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation translatorcomment="AI-translated">Teljes nap megjelenítése az idővonalon</translation>
+        <translation>Teljes nap megjelenítése az idővonalon</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation translatorcomment="AI-translated">Az idővonal középre állítva az aktuális lejátszási időt</translation>
+        <translation>Az idővonal középre állítva az aktuális lejátszási időt</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation translatorcomment="AI-translated">Sebesség:</translation>
+        <translation>Sebesség:</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation translatorcomment="AI-translated">Lejátszási sebesség beállítása %1x-re</translation>
+        <translation>Lejátszási sebesség beállítása %1x-re</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Letöltés</translation>
+        <translation>Letöltés</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation translatorcomment="AI-translated">Videók letöltése a kiválasztott időtartományból</translation>
+        <translation>Videók letöltése a kiválasztott időtartományból</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation translatorcomment="AI-translated">Tekerjen vissza 60 másodpercet</translation>
+        <translation>Tekerjen vissza 60 másodpercet</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation translatorcomment="AI-translated">Tekerjen vissza 45 másodpercet</translation>
+        <translation>Tekerjen vissza 45 másodpercet</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation translatorcomment="AI-translated">Tekerjen vissza 15 másodpercet</translation>
+        <translation>Tekerjen vissza 15 másodpercet</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Lejátszás szüneteltetése</translation>
+        <translation>Lejátszás szüneteltetése</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Indítsa el a lejátszást</translation>
+        <translation>Indítsa el a lejátszást</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation translatorcomment="AI-translated">Előre 15 másodperccel</translation>
+        <translation>Előre 15 másodperccel</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation translatorcomment="AI-translated">Előre 45 másodperccel</translation>
+        <translation>Előre 45 másodperccel</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation translatorcomment="AI-translated">Előre 60 másodperccel</translation>
+        <translation>Előre 60 másodperccel</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation translatorcomment="AI-translated">Oldja fel az alsó sávot</translation>
+        <translation>Oldja fel az alsó sávot</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation translatorcomment="AI-translated">Pin alsó sáv</translation>
+        <translation>Pin alsó sáv</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation translatorcomment="AI-translated">Felvétel elérhetőségi információinak betöltése...</translation>
+        <translation>Felvétel elérhetőségi információinak betöltése...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Zárja be az ablakot</translation>
+        <translation>Zárja be az ablakot</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Oldja fel a felső sávot</translation>
+        <translation>Oldja fel a felső sávot</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Pin felső sáv</translation>
+        <translation>Pin felső sáv</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation translatorcomment="AI-translated">Kilépés a teljes képernyőről</translation>
+        <translation>Kilépés a teljes képernyőről</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation translatorcomment="AI-translated">Teljes képernyős ablak</translation>
+        <translation>Teljes képernyős ablak</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation translatorcomment="AI-translated">Oldalsáv elrejtése</translation>
+        <translation>Oldalsáv elrejtése</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation translatorcomment="AI-translated">Oldalsáv megjelenítése</translation>
+        <translation>Oldalsáv megjelenítése</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation translatorcomment="AI-translated">Idővonal megjelenítése</translation>
+        <translation>Idővonal megjelenítése</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation translatorcomment="AI-translated">Idővonal elrejtése</translation>
+        <translation>Idővonal elrejtése</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation translatorcomment="AI-translated">Nyissa meg a felvételek mappát</translation>
+        <translation>Nyissa meg a felvételek mappát</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation translatorcomment="AI-translated">Nyissa meg a pillanatképek mappát</translation>
+        <translation>Nyissa meg a pillanatképek mappát</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation translatorcomment="AI-translated">Nincs média</translation>
+        <translation>Nincs média</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation translatorcomment="AI-translated">Betöltés...</translation>
+        <translation>Betöltés...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation translatorcomment="AI-translated">Betöltve</translation>
+        <translation>Betöltve</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation translatorcomment="AI-translated">Elakadt</translation>
+        <translation>Elakadt</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation translatorcomment="AI-translated">%1\% pufferelés</translation>
+        <translation>%1\% pufferelés</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation translatorcomment="AI-translated">Nincs megjeleníthető adat</translation>
+        <translation>Nincs megjeleníthető adat</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation translatorcomment="AI-translated">Élő nézet visszaállítása...</translation>
+        <translation>Élő nézet visszaállítása...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Némítás</translation>
+        <translation>Némítás</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Maximális hangerő</translation>
+        <translation>Maximális hangerő</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Készítsen pillanatfelvételt teljes felbontásban</translation>
+        <translation>Készítsen pillanatfelvételt teljes felbontásban</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation translatorcomment="AI-translated">Lejátszási archívum</translation>
+        <translation>Lejátszási archívum</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation translatorcomment="AI-translated">Gyors lejátszás letiltása</translation>
+        <translation>Gyors lejátszás letiltása</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation translatorcomment="AI-translated">Gyors lejátszás (akár 30 perc)</translation>
+        <translation>Gyors lejátszás (akár 30 perc)</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Az 1:1 mód letiltása</translation>
+        <translation>Az 1:1 mód letiltása</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">1:1 mód engedélyezése (pixel-pixel)</translation>
+        <translation>1:1 mód engedélyezése (pixel-pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Állítsa vissza a nagyítást</translation>
+        <translation>Állítsa vissza a nagyítást</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation translatorcomment="AI-translated">Kattintson és húzza a kamera hírcsatornáját a nagyításhoz</translation>
+        <translation>Kattintson és húzza a kamera hírcsatornáját a nagyításhoz</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation translatorcomment="AI-translated">Válassza ki a nagyításhoz szükséges régiót</translation>
+        <translation>Válassza ki a nagyításhoz szükséges régiót</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Indítsa el a lejátszást</translation>
+        <translation>Indítsa el a lejátszást</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Lejátszás szüneteltetése</translation>
+        <translation>Lejátszás szüneteltetése</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation translatorcomment="AI-translated">Lejátszási sebesség</translation>
+        <translation>Lejátszási sebesség</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation translatorcomment="AI-translated">Visszatekerési nézet bezárása</translation>
+        <translation>Visszatekerési nézet bezárása</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Kiegészítő ablak</translation>
+        <translation>KVision - Kiegészítő ablak</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Hiba a konfiguráció olvasása közben!</translation>
+        <translation>Hiba a konfiguráció olvasása közben!</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Oldja fel a felső sávot</translation>
+        <translation>Oldja fel a felső sávot</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Pin felső sáv</translation>
+        <translation>Pin felső sáv</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Teljes képernyő váltás</translation>
+        <translation>Teljes képernyő váltás</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation translatorcomment="AI-translated">Az ablak kicsinyítése</translation>
+        <translation>Az ablak kicsinyítése</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Az oldalsáv panel beállításai és beállításai</translation>
+        <translation>Az oldalsáv panel beállításai és beállításai</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Új segédablak megnyitása</translation>
+        <translation>Új segédablak megnyitása</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation translatorcomment="AI-translated">Felvétel archívum és lejátszó</translation>
+        <translation>Felvétel archívum és lejátszó</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Program felhasználói kézikönyv</translation>
+        <translation>Program felhasználói kézikönyv</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation translatorcomment="AI-translated">Az erőforrás-használati statisztikák letiltása</translation>
+        <translation>Az erőforrás-használati statisztikák letiltása</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation translatorcomment="AI-translated">Erőforrás-használati statisztikák engedélyezése</translation>
+        <translation>Erőforrás-használati statisztikák engedélyezése</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation translatorcomment="AI-translated">NVR hibák észlelve!</translation>
+        <translation>NVR hibák észlelve!</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation translatorcomment="AI-translated">NVR állapot: OK</translation>
+        <translation>NVR állapot: OK</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation translatorcomment="AI-translated">A zárrács mérete megváltozik</translation>
+        <translation>A zárrács mérete megváltozik</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">További lehetőségek</translation>
+        <translation>További lehetőségek</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation translatorcomment="AI-translated">NVR hibák észlelve! Kattintson a részletek megtekintéséhez.</translation>
+        <translation>NVR hibák észlelve! Kattintson a részletek megtekintéséhez.</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Nincs kiválasztva nézet, válasszon egy nézetet</translation>
+        <translation>Nincs kiválasztva nézet, válasszon egy nézetet</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">A kamerák megjelenítéséhez válasszon egy nézetet a felső menüből.</translation>
+        <translation>A kamerák megjelenítéséhez válasszon egy nézetet a felső menüből.</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation translatorcomment="AI-translated">KVision - Panel</translation>
+        <translation>KVision - Panel</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Zárja be az ablakot</translation>
+        <translation>Zárja be az ablakot</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Program bezárása</translation>
+        <translation>Program bezárása</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation translatorcomment="AI-translated">Biztosan bezárja ezt az ablakot?</translation>
+        <translation>Biztosan bezárja ezt az ablakot?</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Biztosan bezárja a programot?</translation>
+        <translation>Biztosan bezárja a programot?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">IGEN</translation>
+        <translation>IGEN</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NEM</translation>
+        <translation>NEM</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation translatorcomment="AI-translated">📊 RENDSZERSTATISZTIKA</translation>
+        <translation>📊 RENDSZERSTATISZTIKA</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation translatorcomment="AI-translated">Húzza a statisztikai panelt</translation>
+        <translation>Húzza a statisztikai panelt</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation translatorcomment="AI-translated">RAM:</translation>
+        <translation>RAM:</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation translatorcomment="AI-translated">VRAM:</translation>
+        <translation>VRAM:</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation translatorcomment="AI-translated">CPU:</translation>
+        <translation>CPU:</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation translatorcomment="AI-translated">GPU:</translation>
+        <translation>GPU:</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation translatorcomment="AI-translated">NET:</translation>
+        <translation>NET:</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation translatorcomment="AI-translated">Új ablak betöltése...</translation>
+        <translation>Új ablak betöltése...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,1027 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation translatorcomment="AI-translated">Javítottunk egy kritikus hibát, amely miatt a hálózat elvesztése és az RTSP adatfolyam időtúllépése miatt a lejátszó zombivá vált, ami megakadályozta a sikeres újracsatlakozást. Az Újratöltés gomb és az automatikus folytatás most teljesen megbízhatóan működik.</translation>
+        <translation>Javítottunk egy kritikus hibát, amely miatt a hálózat elvesztése és az RTSP adatfolyam időtúllépése miatt a lejátszó zombivá vált, ami megakadályozta a sikeres újracsatlakozást. Az Újratöltés gomb és az automatikus folytatás most teljesen megbízhatóan működik.</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation translatorcomment="AI-translated">Frissítettük a lejátszó és az archív állapotüzenetek megjelenését. Az értesítések betöltése és visszaállítása mostantól kellemes ciánkék témát tartalmaz, megfelelő ikonokkal, amelyek jobban megkülönböztetik őket a kritikus hibáktól (nincs média/hálózat).</translation>
+        <translation>Frissítettük a lejátszó és az archív állapotüzenetek megjelenését. Az értesítések betöltése és visszaállítása mostantól kellemes ciánkék témát tartalmaz, megfelelő ikonokkal, amelyek jobban megkülönböztetik őket a kritikus hibáktól (nincs média/hálózat).</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation translatorcomment="AI-translated">Integrált MakeKeyFrame hardveres parancs a Hikvision SDK-val. Az alkalmazás immár agresszíven kényszeríti a kamerát, hogy I-Frame-et adjon ki az al-/fő streamek váltásakor, illetve az élő módból az archívumba, így kiküszöböli a 10 másodperces kulcsképkocka-várakozást.</translation>
+        <translation>Integrált MakeKeyFrame hardveres parancs a Hikvision SDK-val. Az alkalmazás immár agresszíven kényszeríti a kamerát, hogy I-Frame-et adjon ki az al-/fő streamek váltásakor, illetve az élő módból az archívumba, így kiküszöböli a 10 másodperces kulcsképkocka-várakozást.</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation translatorcomment="AI-translated">Eltávolítottuk az elemzési időtartam paraméter menet közbeni felülbírálását. Az alkalmazás szigorúan betartja a felhasználó által meghatározott FFmpeg értékeket (erõsen ajánlott 100 000-re állítani az audio nélküli kameráknál, hogy megkerüljék az 5 másodperces leállási korlátot).</translation>
+        <translation>Eltávolítottuk az elemzési időtartam paraméter menet közbeni felülbírálását. Az alkalmazás szigorúan betartja a felhasználó által meghatározott FFmpeg értékeket (erõsen ajánlott 100 000-re állítani az audio nélküli kameráknál, hogy megkerüljék az 5 másodperces leállási korlátot).</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation translatorcomment="AI-translated">"HikSDK" jelvények hozzáadva a felvevő nézetablakhoz a jobb protokoll-megkülönböztetés érdekében.</translation>
+        <translation>"HikSDK" jelvények hozzáadva a felvevő nézetablakhoz a jobb protokoll-megkülönböztetés érdekében.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation translatorcomment="AI-translated">Egyszerűsített diagnosztikai naplózás (QDebug), amely lehetővé teszi a figyelmeztetések és kritikus hibák kinyomtatását a konzolra a bőbeszédű módon kívül, megkönnyítve az NVR hibakeresését.</translation>
+        <translation>Egyszerűsített diagnosztikai naplózás (QDebug), amely lehetővé teszi a figyelmeztetések és kritikus hibák kinyomtatását a konzolra a bőbeszédű módon kívül, megkönnyítve az NVR hibakeresését.</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation translatorcomment="AI-translated">Kiszűrte a téves pozitív PlayM4 SDK hibákat (17. és 2.), amelyek spameket küldenek a konzolra a lejátszó gyors idővonal-tisztítása során.</translation>
+        <translation>Kiszűrte a téves pozitív PlayM4 SDK hibákat (17. és 2.), amelyek spameket küldenek a konzolra a lejátszó gyors idővonal-tisztítása során.</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation translatorcomment="AI-translated">Javítva a nemlineáris skálázás csonkolása (pl. 145%) a Qt5 keretrendszer által a KDE Plasma rendszereken, kikényszerítve a High DPI szabályzat megfelelő értelmezését.</translation>
+        <translation>Javítva a nemlineáris skálázás csonkolása (pl. 145%) a Qt5 keretrendszer által a KDE Plasma rendszereken, kikényszerítve a High DPI szabályzat megfelelő értelmezését.</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation translatorcomment="AI-translated">Megoldott az élő rács többi kamerájának ideiglenes lefagyása az idővonal keresésekor vagy húzásakor.</translation>
+        <translation>Megoldott az élő rács többi kamerájának ideiglenes lefagyása az idővonal keresésekor vagy húzásakor.</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation translatorcomment="AI-translated">Minden blokkoló Hikvision SDK hálózati hívást (bejelentkezés, leállítás, indítás, sebességszabályozás) áthelyezett egy aszinkron munkaszálba.</translation>
+        <translation>Minden blokkoló Hikvision SDK hálózati hívást (bejelentkezés, leállítás, indítás, sebességszabályozás) áthelyezett egy aszinkron munkaszálba.</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation translatorcomment="AI-translated">Teljesen kiküszöbölte a fekete képernyő problémáját az RTSP kamerák minőségének (SUB/MAIN) váltásakor.</translation>
+        <translation>Teljesen kiküszöbölte a fekete képernyő problémáját az RTSP kamerák minőségének (SUB/MAIN) váltásakor.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation translatorcomment="AI-translated">A zökkenőmentes adatfolyam kapcsolási időzítőt 100 ms-ra optimalizáltuk a maximális sebesség érdekében.</translation>
+        <translation>A zökkenőmentes adatfolyam kapcsolási időzítőt 100 ms-ra optimalizáltuk a maximális sebesség érdekében.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation translatorcomment="AI-translated">Hozzáadott alacsony szintű FFmpeg opciók (nobuffer, low_delay) az élő közvetítés késleltetésének (sodródásának) kiküszöbölése érdekében a hosszú működési időszakok során.</translation>
+        <translation>Hozzáadott alacsony szintű FFmpeg opciók (nobuffer, low_delay) az élő közvetítés késleltetésének (sodródásának) kiküszöbölése érdekében a hosszú működési időszakok során.</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation translatorcomment="AI-translated">Bevezetett egy gombot az FFmpeg paraméterek tömeges frissítésére az összes létező kameránál, minden elrendezésben.</translation>
+        <translation>Bevezetett egy gombot az FFmpeg paraméterek tömeges frissítésére az összes létező kameránál, minden elrendezésben.</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation translatorcomment="AI-translated">Hozzáadott lehetőség adott kamerák kizárására a globális FFmpeg paraméterfrissítésekből (új jelölőnégyzet a nézetablak beállításaiban).</translation>
+        <translation>Hozzáadott lehetőség adott kamerák kizárására a globális FFmpeg paraméterfrissítésekből (új jelölőnégyzet a nézetablak beállításaiban).</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation translatorcomment="AI-translated">Biztosította az alapértelmezett beállítások áttelepítési folyamatát, lehetővé téve a felhasználó számára, hogy véglegesen eltávolítsa vagy módosítsa az új jelzőket anélkül, hogy minden indításkor kényszeríteni kellene őket.</translation>
+        <translation>Biztosította az alapértelmezett beállítások áttelepítési folyamatát, lehetővé téve a felhasználó számára, hogy véglegesen eltávolítsa vagy módosítsa az új jelzőket anélkül, hogy minden indításkor kényszeríteni kellene őket.</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation translatorcomment="AI-translated">Gyors lejátszási funkció hozzáadva (akár 30 perces visszatekerés) közvetlenül a kamera nézetablakában.</translation>
+        <translation>Gyors lejátszási funkció hozzáadva (akár 30 perces visszatekerés) közvetlenül a kamera nézetablakában.</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation translatorcomment="AI-translated">Teljes, kétirányú valós idejű szinkronizálás az összes ablak és a segédprogram-folyamatok között a beállításokhoz: hang elnémítása, zoom-animáció letiltása és az összes Hikvision NVR állapotfigyelési lehetőség.</translation>
+        <translation>Teljes, kétirányú valós idejű szinkronizálás az összes ablak és a segédprogram-folyamatok között a beállításokhoz: hang elnémítása, zoom-animáció letiltása és az összes Hikvision NVR állapotfigyelési lehetőség.</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation translatorcomment="AI-translated">A perccímkék dinamikus megjelenítése (pl. :15, :30, :45) az archív lejátszó idővonalán, az intelligens címkesűrűség-beállítással (zoomHours).</translation>
+        <translation>A perccímkék dinamikus megjelenítése (pl. :15, :30, :45) az archív lejátszó idővonalán, az intelligens címkesűrűség-beállítással (zoomHours).</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation translatorcomment="AI-translated">Új lehetőség hozzáadva a felhasználói felület beállításaihoz: „A nézetablak zoom-animációjának letiltása” azonnali alkalmazással a kamerarács nézetben.</translation>
+        <translation>Új lehetőség hozzáadva a felhasználói felület beállításaihoz: „A nézetablak zoom-animációjának letiltása” azonnali alkalmazással a kamerarács nézetben.</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation translatorcomment="AI-translated">Újraépítettük az archív lejátszó inicializálási folyamatát: a kapcsolat felfüggesztése és a videó betöltése a pontos felvételi határok meghatározásáig (egy ultragyors, 24 órás aszinkron kereséssel), kiküszöbölve az idő előtti lejátszást és a képugrást.</translation>
+        <translation>Újraépítettük az archív lejátszó inicializálási folyamatát: a kapcsolat felfüggesztése és a videó betöltése a pontos felvételi határok meghatározásáig (egy ultragyors, 24 órás aszinkron kereséssel), kiküszöbölve az idő előtti lejátszást és a képugrást.</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation translatorcomment="AI-translated">Finomított Hikvision archív betöltési üzenetek – a betöltés állapota csak aktív adatfolyam-pufferelés közben jelenik meg, és külön figyelmeztetés jelenik meg, ha a lejátszófej túllép a rendelkezésre álló felvételi határokon.</translation>
+        <translation>Finomított Hikvision archív betöltési üzenetek – a betöltés állapota csak aktív adatfolyam-pufferelés közben jelenik meg, és külön figyelmeztetés jelenik meg, ha a lejátszófej túllép a rendelkezésre álló felvételi határokon.</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation translatorcomment="AI-translated">Új konfigurációs mezők kerültek bevezetésre a beállítások panelen: alapértelmezett archív lejátszás kezdeti eltolása (másodpercben, alapértelmezett 60 másodperc) és alapértelmezett idővonal nagyítási időtartama (zoom óra, alapértelmezett 2 óra).</translation>
+        <translation>Új konfigurációs mezők kerültek bevezetésre a beállítások panelen: alapértelmezett archív lejátszás kezdeti eltolása (másodpercben, alapértelmezett 60 másodperc) és alapértelmezett idővonal nagyítási időtartama (zoom óra, alapértelmezett 2 óra).</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation translatorcomment="AI-translated">Közvetlen webes bejelentkezési ikon hozzáadva a rögzítő webpaneléhez az NVR állapot felugró ablakában.</translation>
+        <translation>Közvetlen webes bejelentkezési ikon hozzáadva a rögzítő webpaneléhez az NVR állapot felugró ablakában.</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation translatorcomment="AI-translated">Hibajelentés-elnyomási funkció hozzáadva az egyes rögzítőkhöz.</translation>
+        <translation>Hibajelentés-elnyomási funkció hozzáadva az egyes rögzítőkhöz.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation translatorcomment="AI-translated">Javítottuk a hibás lengyel „szimulált felvevő” fordítást az állapotablakban, és bevezettük a megfelelő szómegkülönböztetést („Elnyom” a hibákhoz, míg „Némítás” a hanghoz).</translation>
+        <translation>Javítottuk a hibás lengyel „szimulált felvevő” fordítást az állapotablakban, és bevezettük a megfelelő szómegkülönböztetést („Elnyom” a hibákhoz, míg „Némítás” a hanghoz).</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation translatorcomment="AI-translated">Megvalósított időszakos (5 percenként) és manuális Hikvision NVR/DVR hibaállapot-figyelés SDK/ISAPI diagnosztikával.</translation>
+        <translation>Megvalósított időszakos (5 percenként) és manuális Hikvision NVR/DVR hibaállapot-figyelés SDK/ISAPI diagnosztikával.</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation translatorcomment="AI-translated">Konfigurációs beállítások hozzáadva az Általános beállításokhoz a Hikvision NVR állapotellenőrzésének engedélyezéséhez/letiltásához és a figyelt kritikus hibatípusok testreszabásához.</translation>
+        <translation>Konfigurációs beállítások hozzáadva az Általános beállításokhoz a Hikvision NVR állapotellenőrzésének engedélyezéséhez/letiltásához és a figyelt kritikus hibatípusok testreszabásához.</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation translatorcomment="AI-translated">Nagy pontosságú meleg-zöld/piros felső sáv állapotikont terveztek mélyen pulzáló külső hullámokkal és belső szívverés hullámzási animációkkal az aktív kritikus hibák jelzésére.</translation>
+        <translation>Nagy pontosságú meleg-zöld/piros felső sáv állapotikont terveztek mélyen pulzáló külső hullámokkal és belső szívverés hullámzási animációkkal az aktív kritikus hibák jelzésére.</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation translatorcomment="AI-translated">Bevezetett egy felső szélén kiálló piros jelzőkört, amely a fő eszköztár összecsukásakor a képernyő tetején villog, így biztosítva, hogy a kritikus figyelmeztetések soha ne maradjanak el.</translation>
+        <translation>Bevezetett egy felső szélén kiálló piros jelzőkört, amely a fő eszköztár összecsukásakor a képernyő tetején villog, így biztosítva, hogy a kritikus figyelmeztetések soha ne maradjanak el.</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation translatorcomment="AI-translated">Létrehozott egy elegáns, görgethető "Rögzítő állapota" felugró ablakot, amely a képernyő magasságának 85%-ára korlátozódik, és részletes hibakódokat mutat be.</translation>
+        <translation>Létrehozott egy elegáns, görgethető "Rögzítő állapota" felugró ablakot, amely a képernyő magasságának 85%-ára korlátozódik, és részletes hibakódokat mutat be.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation translatorcomment="AI-translated">Hozzáadott "--simulate-error" futtatási jelző, amely demonstrációs célból azonnal szimulálja a lemezhibákat és a csatlakozási hibákat az összes rögzítőn.</translation>
+        <translation>Hozzáadott "--simulate-error" futtatási jelző, amely demonstrációs célból azonnal szimulálja a lemezhibákat és a csatlakozási hibákat az összes rögzítőn.</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation translatorcomment="AI-translated">Megvalósított listakeret-jelvények és állapotjelző igazítások a konfigurált rögzítőnézetekben.</translation>
+        <translation>Megvalósított listakeret-jelvények és állapotjelző igazítások a konfigurált rögzítőnézetekben.</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation translatorcomment="AI-translated">Teljes kétnyelvű fordítási lefedettséget ért el (lengyel/angol) az összes NVR-diagnosztikához, a jelölőnégyzetek beállításához, az eszköztippekhez, a figyelmeztetésekhez és a parancssori elemző opciókhoz.</translation>
+        <translation>Teljes kétnyelvű fordítási lefedettséget ért el (lengyel/angol) az összes NVR-diagnosztikához, a jelölőnégyzetek beállításához, az eszköztippekhez, a figyelmeztetésekhez és a parancssori elemző opciókhoz.</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation translatorcomment="AI-translated">Lehetőséget adtunk az aktív elrendezés újratöltésére a felső eszköztáron lévő gombra kattintva.</translation>
+        <translation>Lehetőséget adtunk az aktív elrendezés újratöltésére a felső eszköztáron lévő gombra kattintva.</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation translatorcomment="AI-translated">Átlagos NVML-használati minták idővel a GPU-használati grafikon simítása és a szaggatott leolvasások kiküszöbölése érdekében.</translation>
+        <translation>Átlagos NVML-használati minták idővel a GPU-használati grafikon simítása és a szaggatott leolvasások kiküszöbölése érdekében.</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation translatorcomment="AI-translated">Kiküszöbölte a pillanatnyi videó villogását (fekete keretek) és az audio-videó szinkronon kívüli hézagokat, amikor a minőséget SUB-ról MAIN adatfolyamra váltja a nézetablak maximalizálása során az aktív lejátszó cseréjének késleltetésével, amíg az első képkocka megjelenik a képernyőn.</translation>
+        <translation>Kiküszöbölte a pillanatnyi videó villogását (fekete keretek) és az audio-videó szinkronon kívüli hézagokat, amikor a minőséget SUB-ról MAIN adatfolyamra váltja a nézetablak maximalizálása során az aktív lejátszó cseréjének késleltetésével, amíg az első képkocka megjelenik a képernyőn.</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation translatorcomment="AI-translated">Interaktív, áttekinthető és kétszer szélesebb görgetősávok hozzáadva az óra, perc és másodperc kiválasztási oszlopokhoz az archív letöltési idő választó előugró ablakában.</translation>
+        <translation>Interaktív, áttekinthető és kétszer szélesebb görgetősávok hozzáadva az óra, perc és másodperc kiválasztási oszlopokhoz az archív letöltési idő választó előugró ablakában.</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation translatorcomment="AI-translated">Új, intuitív opciókkal bővült a nézetablak helyi menüje: „Pillanatfelvétel” (az aktuális képkocka mentése) és „Lejátszás” (azonnali áttérés az adott kamera archív lejátszására).</translation>
+        <translation>Új, intuitív opciókkal bővült a nézetablak helyi menüje: „Pillanatfelvétel” (az aktuális képkocka mentése) és „Lejátszás” (azonnali áttérés az adott kamera archív lejátszására).</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation translatorcomment="AI-translated">Forradalmasított és rögzített PCM hangkezelés: közvetlen csővezeték továbbítás a QAudioOutput felé, az interfész lefagyások (ALSA/PulseAudio/Pipewire) kiküszöbölése a mintavételi sebesség stabilizálásával (5 stabil képkocka utáni visszapattanás), 2 másodperces lehűlés a kimeneti rekreációnál, a sérült paraméterek szűrése és a 64 KB-os puffer csökkenti a hálózati remegést.</translation>
+        <translation>Forradalmasított és rögzített PCM hangkezelés: közvetlen csővezeték továbbítás a QAudioOutput felé, az interfész lefagyások (ALSA/PulseAudio/Pipewire) kiküszöbölése a mintavételi sebesség stabilizálásával (5 stabil képkocka utáni visszapattanás), 2 másodperces lehűlés a kimeneti rekreációnál, a sérült paraméterek szűrése és a 64 KB-os puffer csökkenti a hálózati remegést.</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation translatorcomment="AI-translated">Interaktív HUD hangerőcsúszkát implementált közvetlenül a nézetablak csempéken, gyors némítási opcióval és egy kattintással történő hangerő maximalizálással együtt.</translation>
+        <translation>Interaktív HUD hangerőcsúszkát implementált közvetlenül a nézetablak csempéken, gyors némítási opcióval és egy kattintással történő hangerő maximalizálással együtt.</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation translatorcomment="AI-translated">Az archív lejátszási ablak megnyitásakor a LIVE streamek automatikus és azonnali elnémítása a fő rácsban, megakadályozva az átfedő hangokat (kakofónia).</translation>
+        <translation>Az archív lejátszási ablak megnyitásakor a LIVE streamek automatikus és azonnali elnémítása a fő rácsban, megakadályozva az átfedő hangokat (kakofónia).</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation translatorcomment="AI-translated">Bevezetett egy központi SnapshotSavedDialog értesítési rendszert a mentett pillanatképekhez (sötétszürke burkolat, kékeszöld szegélyek, automatikus bezárás 10 másodperc után), egy gyors "Tallózás" hivatkozással a mappa közvetlenül a rendszerfájlkezelőben történő megnyitásához.</translation>
+        <translation>Bevezetett egy központi SnapshotSavedDialog értesítési rendszert a mentett pillanatképekhez (sötétszürke burkolat, kékeszöld szegélyek, automatikus bezárás 10 másodperc után), egy gyors "Tallózás" hivatkozással a mappa közvetlenül a rendszerfájlkezelőben történő megnyitásához.</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation translatorcomment="AI-translated">A beépített súgóablakot gazdagította egy részletes „Gombfunkciók leírása” fejezettel, natív, éles SVG vektor ikonok használatával. A súgóablak most teljesen automatikusan megnyílik, és a főablak közepén helyezkedik el a program első indításakor.</translation>
+        <translation>A beépített súgóablakot gazdagította egy részletes „Gombfunkciók leírása” fejezettel, natív, éles SVG vektor ikonok használatával. A súgóablak most teljesen automatikusan megnyílik, és a főablak közepén helyezkedik el a program első indításakor.</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation translatorcomment="AI-translated">Bevezette a felső sáv alapértelmezett megjelenítését a program/ablak indításakor, és hozzáadta a „Felső sáv megjelenítése alapértelmezés szerint ablak megnyitása után” opciót a beállításokhoz, lehetővé téve ennek a viselkedésnek a személyre szabását.</translation>
+        <translation>Bevezette a felső sáv alapértelmezett megjelenítését a program/ablak indításakor, és hozzáadta a „Felső sáv megjelenítése alapértelmezés szerint ablak megnyitása után” opciót a beállításokhoz, lehetővé téve ennek a viselkedésnek a személyre szabását.</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation translatorcomment="AI-translated">A CMakeLists.txt fájlban a GNUInstallDirs segítségével megvalósított dinamikus RPATH-könyvtár-útvonalak, lehetővé téve a lefordított alkalmazás azonnali futtatását Ubuntu és Debian rendszeren anélkül, hogy az /etc/ld.so.conf.d/ és az ldconfig kézi konfigurálása szükséges lenne.</translation>
+        <translation>A CMakeLists.txt fájlban a GNUInstallDirs segítségével megvalósított dinamikus RPATH-könyvtár-útvonalak, lehetővé téve a lefordított alkalmazás azonnali futtatását Ubuntu és Debian rendszeren anélkül, hogy az /etc/ld.so.conf.d/ és az ldconfig kézi konfigurálása szükséges lenne.</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation translatorcomment="AI-translated">Átnevezte a programot KVisionra, bevezetve az automatikus felhasználói konfiguráció migrációt, új, több méretű ikonokat (128px, 256px, 512px) és a teljes verzió megjelenítését az ablak címsorában.</translation>
+        <translation>Átnevezte a programot KVisionra, bevezetve az automatikus felhasználói konfiguráció migrációt, új, több méretű ikonokat (128px, 256px, 512px) és a teljes verzió megjelenítését az ablak címsorában.</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation translatorcomment="AI-translated">Javítva a figyelmeztető ablak a kiegészítő ablakok korlátjának túllépése miatt (hiányzó QML-erőforrás és QSettings beolvasása).</translation>
+        <translation>Javítva a figyelmeztető ablak a kiegészítő ablakok korlátjának túllépése miatt (hiányzó QML-erőforrás és QSettings beolvasása).</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation translatorcomment="AI-translated">Javítva a hiányzó program ikon a Wayland alatt (hicolor téma telepítése és setDesktopFileName).</translation>
+        <translation>Javítva a hiányzó program ikon a Wayland alatt (hicolor téma telepítése és setDesktopFileName).</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation translatorcomment="AI-translated">Eltávolítottuk a felső sáv automatikus összecsukása opciót a Beállításokból – mostantól a LIVE ablakokban (fő és kiegészítő) a felső sáv alapértelmezés szerint összecsukódik indításkor, a kitűző gomb pedig helyben és ideiglenesen (memóriában) rögzíti az állapot mentése nélkül.</translation>
+        <translation>Eltávolítottuk a felső sáv automatikus összecsukása opciót a Beállításokból – mostantól a LIVE ablakokban (fő és kiegészítő) a felső sáv alapértelmezés szerint összecsukódik indításkor, a kitűző gomb pedig helyben és ideiglenesen (memóriában) rögzíti az állapot mentése nélkül.</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation translatorcomment="AI-translated">Korlátozást vezetett be a kiegészítő ablakok számában (0-tól 3-ig konfigurálható), elegáns figyelmeztető ablakkal, amikor megpróbálják túllépni.</translation>
+        <translation>Korlátozást vezetett be a kiegészítő ablakok számában (0-tól 3-ig konfigurálható), elegáns figyelmeztető ablakkal, amikor megpróbálják túllépni.</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation translatorcomment="AI-translated">Finom, 1 képpontos sötétszürke szegélyek hozzáadva a nem használt nézetablakok körül az ÉLŐ elrendezési rácsban a mezők jobb körülhatárolásához.</translation>
+        <translation>Finom, 1 képpontos sötétszürke szegélyek hozzáadva a nem használt nézetablakok körül az ÉLŐ elrendezési rácsban a mezők jobb körülhatárolásához.</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation translatorcomment="AI-translated">A mentési útvonalak és a rendszer adathordozó-konfigurációs opcióinak biztonságos szerkesztése egy átmeneti „Változások aktiválása ebben a szakaszban” jelölőnégyzet mögött, megakadályozva a véletlen módosításokat (a szerkesztési állapot visszaállítása bezáráskor).</translation>
+        <translation>A mentési útvonalak és a rendszer adathordozó-konfigurációs opcióinak biztonságos szerkesztése egy átmeneti „Változások aktiválása ebben a szakaszban” jelölőnégyzet mögött, megakadályozva a véletlen módosításokat (a szerkesztési állapot visszaállítása bezáráskor).</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation translatorcomment="AI-translated">Közvetlen parancsikonokat vezettünk be a „nyissa meg a mentési mappát” (az archívum ablakban a letöltés befejeztével celadon kiemelve), valamint a pillanatkép- és videómappák mindig aktív gyorsnyitó gombjait a Beállításokban (a lemezen automatikus könyvtár létrehozásával, ha hiányzik).</translation>
+        <translation>Közvetlen parancsikonokat vezettünk be a „nyissa meg a mentési mappát” (az archívum ablakban a letöltés befejeztével celadon kiemelve), valamint a pillanatkép- és videómappák mindig aktív gyorsnyitó gombjait a Beállításokban (a lemezen automatikus könyvtár létrehozásával, ha hiányzik).</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation translatorcomment="AI-translated">Bevezettük az interaktív érvényesítést, amikor a letöltési ablakban a „Pobierz” (Letöltés) gombra kattintunk: automatikus formátum- és időrendi dátum-ellenőrzés, piros figyelmeztető eszköztipp megjelenítése és az első érvénytelen mező fókuszálása.</translation>
+        <translation>Bevezettük az interaktív érvényesítést, amikor a letöltési ablakban a „Pobierz” (Letöltés) gombra kattintunk: automatikus formátum- és időrendi dátum-ellenőrzés, piros figyelmeztető eszköztipp megjelenítése és az első érvénytelen mező fókuszálása.</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation translatorcomment="AI-translated">Teljes billentyűzet-navigáció (fel/le nyílbillentyűk az értékek megváltoztatásához, bal/jobb az oszlopok váltásához) az óraválasztó előugró ablakában.</translation>
+        <translation>Teljes billentyűzet-navigáció (fel/le nyílbillentyűk az értékek megváltoztatásához, bal/jobb az oszlopok váltásához) az óraválasztó előugró ablakában.</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation translatorcomment="AI-translated">Biztosította a kiegészítő ablakok teljesen tiszta indítását (az opciók oldalsávjának automatikus megnyitása nélkül), és kizárta a geometria-beállítások mentését a segédablakokból, kiküszöbölve a megosztott konfigurációs szennyeződéseket.</translation>
+        <translation>Biztosította a kiegészítő ablakok teljesen tiszta indítását (az opciók oldalsávjának automatikus megnyitása nélkül), és kizárta a geometria-beállítások mentését a segédablakokból, kiküszöbölve a megosztott konfigurációs szennyeződéseket.</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation translatorcomment="AI-translated">Teljes angol nyelvi támogatás hozzáadva az összes új formázási és kronológiai érvényesítési hibaüzenethez a letöltési ablakban.</translation>
+        <translation>Teljes angol nyelvi támogatás hozzáadva az összes új formázási és kronológiai érvényesítési hibaüzenethez a letöltési ablakban.</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation translatorcomment="AI-translated">Kiküszöbölte a RAM memória szivárgását a kamera elrendezésének váltásakor azáltal, hogy automatikusan és helyesen leállítja a videofelületet a formátumok frissítése és a renderer méreteinek egyeztetése előtt.</translation>
+        <translation>Kiküszöbölte a RAM memória szivárgását a kamera elrendezésének váltásakor azáltal, hogy automatikusan és helyesen leállítja a videofelületet a formátumok frissítése és a renderer méreteinek egyeztetése előtt.</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation translatorcomment="AI-translated">Megvalósította az audiokimeneti objektumok feltétel nélküli felszabadítását és megsemmisítését a lejátszó leállásakor, és bevezette ezen objektumok automatikus újrahasznosítását, hogy kiküszöbölje a memória- és szálszivárgást Linuxon.</translation>
+        <translation>Megvalósította az audiokimeneti objektumok feltétel nélküli felszabadítását és megsemmisítését a lejátszó leállásakor, és bevezette ezen objektumok automatikus újrahasznosítását, hogy kiküszöbölje a memória- és szálszivárgást Linuxon.</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation translatorcomment="AI-translated">Megoldotta a videó lefagyásával kapcsolatos problémákat (egyszínű képernyő a nézetablak nagyítása után) azáltal, hogy egy új adatfolyam első képkockájának bemutatásakor kikényszerítette a megfelelő videó elérhetőség jelzését.</translation>
+        <translation>Megoldotta a videó lefagyásával kapcsolatos problémákat (egyszínű képernyő a nézetablak nagyítása után) azáltal, hogy egy új adatfolyam első képkockájának bemutatásakor kikényszerítette a megfelelő videó elérhetőség jelzését.</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation translatorcomment="AI-translated">Hozzáadott egy globális beállítást „A hangtámogatás teljes letiltása”, amely lehetővé teszi a hangfeldolgozás teljes megkerülését az esetleges többletterhelés és memóriaszivárgás kiküszöbölése érdekében.</translation>
+        <translation>Hozzáadott egy globális beállítást „A hangtámogatás teljes letiltása”, amely lehetővé teszi a hangfeldolgozás teljes megkerülését az esetleges többletterhelés és memóriaszivárgás kiküszöbölése érdekében.</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation translatorcomment="AI-translated">A rendszerstatisztikai modul optimalizálása a folyamatos memóriahasználati többlet kiküszöbölésére a folyamatazonosítók gyorsítótárazásával és a dinamikus reguláris kifejezés-lefoglalások eltávolításával.</translation>
+        <translation>A rendszerstatisztikai modul optimalizálása a folyamatos memóriahasználati többlet kiküszöbölésére a folyamatazonosítók gyorsítótárazásával és a dinamikus reguláris kifejezés-lefoglalások eltávolításával.</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation translatorcomment="AI-translated">Kényszerített agresszív szemétgyűjtés (GC) a kameraelrendezési kapcsolókon és a nullázott képméretezési kontextusokon (SwsContext) a videó pufferekben.</translation>
+        <translation>Kényszerített agresszív szemétgyűjtés (GC) a kameraelrendezési kapcsolókon és a nullázott képméretezési kontextusokon (SwsContext) a videó pufferekben.</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation translatorcomment="AI-translated">Biztosította a statikus konfigurációs fájl változásérzékelőjének (QFileSystemWatcher) megfelelő erőforrás-tisztítását az alkalmazás kilépésekor.</translation>
+        <translation>Biztosította a statikus konfigurációs fájl változásérzékelőjének (QFileSystemWatcher) megfelelő erőforrás-tisztítását az alkalmazás kilépésekor.</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation translatorcomment="AI-translated">Kijavítottuk a segédablak-folyamat szinkronizálási és lefagyási problémáit lassabb gépeken a kamera szekvenciális törlése és a nézetablak egyesítése vagy mozgatása során.</translation>
+        <translation>Kijavítottuk a segédablak-folyamat szinkronizálási és lefagyási problémáit lassabb gépeken a kamera szekvenciális törlése és a nézetablak egyesítése vagy mozgatása során.</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation translatorcomment="AI-translated">Javítva a GPU kihasználtság, a VRAM használat és a hálózati sávszélesség statisztikáinak összesítése az összes alkalmazásfolyamatból, osztott memóriát (/dev/shm) használva a háttérben.</translation>
+        <translation>Javítva a GPU kihasználtság, a VRAM használat és a hálózati sávszélesség statisztikáinak összesítése az összes alkalmazásfolyamatból, osztott memóriát (/dev/shm) használva a háttérben.</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation translatorcomment="AI-translated">Védett archív lejátszóromboló az adatversenyek ellen a függőben lévő RGB feladatok tisztítása során.</translation>
+        <translation>Védett archív lejátszóromboló az adatversenyek ellen a függőben lévő RGB feladatok tisztítása során.</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation translatorcomment="AI-translated">Megvalósított videolejátszó pooling, hogy kiküszöbölje a RAM-használati kiugrásokat és a villogást az elrendezés váltásakor.</translation>
+        <translation>Megvalósított videolejátszó pooling, hogy kiküszöbölje a RAM-használati kiugrásokat és a villogást az elrendezés váltásakor.</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation translatorcomment="AI-translated">Optimalizált GPU/VRAM figyelés folyamat-specifikus modellre (nincs nvidia-smi spawning) az NVIDIA, AMD és Intel GPU-k natív támogatásával (az AMD/Intel statisztikák nem teszteltek).</translation>
+        <translation>Optimalizált GPU/VRAM figyelés folyamat-specifikus modellre (nincs nvidia-smi spawning) az NVIDIA, AMD és Intel GPU-k natív támogatásával (az AMD/Intel statisztikák nem teszteltek).</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation translatorcomment="AI-translated">Megengedett a rendszerstatisztikai panel átméretezése széleinek és sarkainak húzásával az automatikus skálázási grafikonokkal.</translation>
+        <translation>Megengedett a rendszerstatisztikai panel átméretezése széleinek és sarkainak húzásával az automatikus skálázási grafikonokkal.</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation translatorcomment="AI-translated">A fő- és a segédablak azonnali elrejtése a kilépés megerősítésekor, így a leállás azonnal megjelenik a felhasználó számára, miközben a szál- és memóriatisztítás biztonságosan fut a háttérben.</translation>
+        <translation>A fő- és a segédablak azonnali elrejtése a kilépés megerősítésekor, így a leállás azonnal megjelenik a felhasználó számára, miközben a szál- és memóriatisztítás biztonságosan fut a háttérben.</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation translatorcomment="AI-translated">A LIVE és az ARCHÍV ablakok felső eszköztárait középre helyezett lebegő dokkolóvá alakította (a LIVE dokkoló dinamikus szélességű).</translation>
+        <translation>A LIVE és az ARCHÍV ablakok felső eszköztárait középre helyezett lebegő dokkolóvá alakította (a LIVE dokkoló dinamikus szélességű).</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation translatorcomment="AI-translated">Függőleges elválasztó hozzáadva a felső sávhoz, amely a rácsbeállítások és az elrendezések közé dokkolódik.</translation>
+        <translation>Függőleges elválasztó hozzáadva a felső sávhoz, amely a rácsbeállítások és az elrendezések közé dokkolódik.</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation translatorcomment="AI-translated">Az archívum felső és alsó sávjainak megnövelt átlátszósága (60% ablakos módban, 26% teljes képernyőn), és átlátszóra állította az idővonal hátterét.</translation>
+        <translation>Az archívum felső és alsó sávjainak megnövelt átlátszósága (60% ablakos módban, 26% teljes képernyőn), és átlátszóra állította az idővonal hátterét.</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation translatorcomment="AI-translated">Egyszerűsített lejátszási sebesség ikonok az archívumban a szöveg törléséhez (1x, 2x, 4x), és eltávolították az instabil 8x sebesség opciót.</translation>
+        <translation>Egyszerűsített lejátszási sebesség ikonok az archívumban a szöveg törléséhez (1x, 2x, 4x), és eltávolították az instabil 8x sebesség opciót.</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation translatorcomment="AI-translated">Az archív és letöltő naptárak havi navigációs szöveggombjait grafikus nyilakra (chevron) cserélték le.</translation>
+        <translation>Az archív és letöltő naptárak havi navigációs szöveggombjait grafikus nyilakra (chevron) cserélték le.</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation translatorcomment="AI-translated">A kamera nézetablak bezárása gomb áthelyezve a jobb felső sarokból a jobb alsó vezérlőterületre a véletlen kattintások elkerülése érdekében.</translation>
+        <translation>A kamera nézetablak bezárása gomb áthelyezve a jobb felső sarokból a jobb alsó vezérlőterületre a véletlen kattintások elkerülése érdekében.</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation translatorcomment="AI-translated">Optimalizált kiválasztott rácselrendezési szöveg kontraszt az archív ablakban (sötét szöveg szeladon háttéren).</translation>
+        <translation>Optimalizált kiválasztott rácselrendezési szöveg kontraszt az archív ablakban (sötét szöveg szeladon háttéren).</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation translatorcomment="AI-translated">A rendszerstatisztikai panelt húzható lebegő panellé alakította át (átkattintással) egy új, dedikált fogófogantyú segítségével.</translation>
+        <translation>A rendszerstatisztikai panelt húzható lebegő panellé alakította át (átkattintással) egy új, dedikált fogófogantyú segítségével.</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation translatorcomment="AI-translated">A kritikus beállítások szinkronizálási ciklusa és a felhasználói felület lefagy a nézetablak-elrendezések törlésekor.</translation>
+        <translation>A kritikus beállítások szinkronizálási ciklusa és a felhasználói felület lefagy a nézetablak-elrendezések törlésekor.</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation translatorcomment="AI-translated">Megnövelt sebesség-, nagyítás- és videomagnó-vezérlőikonok az archívumban a jobb láthatóság érdekében, valamint megnövelt szövegméret az SVG-ikonokon belül.</translation>
+        <translation>Megnövelt sebesség-, nagyítás- és videomagnó-vezérlőikonok az archívumban a jobb láthatóság érdekében, valamint megnövelt szövegméret az SVG-ikonokon belül.</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation translatorcomment="AI-translated">Eltávolítottuk az archívumból a nagyítási parancsikonokhoz tartozó ismétlődő szöveggombokat, és teljesen körkörös ikonokra cseréltük őket.</translation>
+        <translation>Eltávolítottuk az archívumból a nagyítási parancsikonokhoz tartozó ismétlődő szöveggombokat, és teljesen körkörös ikonokra cseréltük őket.</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation translatorcomment="AI-translated">Teljes angol és lengyel fordítások hozzáadva az archív ablakban található összes eszköztipphez.</translation>
+        <translation>Teljes angol és lengyel fordítások hozzáadva az archív ablakban található összes eszköztipphez.</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation translatorcomment="AI-translated">Bevezettük a valós idejű kétirányú konfigurációs szinkronizálást a főablak és a kiegészítő ablakok között, egyedi, automatikus segédablak-azonosítók támogatásával.</translation>
+        <translation>Bevezettük a valós idejű kétirányú konfigurációs szinkronizálást a főablak és a kiegészítő ablakok között, egyedi, automatikus segédablak-azonosítók támogatásával.</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation translatorcomment="AI-translated">Automatikus munkamenet-helyreállítás (automatikus újracsatlakozás) hozzáadva a Hikvision archív lejátszóhoz, miután a letöltés befejeződött, vagy a rögzítő megszakította a kapcsolatokat.</translation>
+        <translation>Automatikus munkamenet-helyreállítás (automatikus újracsatlakozás) hozzáadva a Hikvision archív lejátszóhoz, miután a letöltés befejeződött, vagy a rögzítő megszakította a kapcsolatokat.</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation translatorcomment="AI-translated">Kiküszöbölte a lehetséges szálszivárgást és az FFmpeg videodekóder lefagyását az elrendezésváltás során a biztonságos std::weak_ptr hivatkozások átvételével a dekóder médiakontextusaihoz.</translation>
+        <translation>Kiküszöbölte a lehetséges szálszivárgást és az FFmpeg videodekóder lefagyását az elrendezésváltás során a biztonságos std::weak_ptr hivatkozások átvételével a dekóder médiakontextusaihoz.</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation translatorcomment="AI-translated">Memóriaszivárgás javítása a ViewportsLayouts modellekben az elrendezési objektumok biztonságos törlésével a deleteLater() segítségével.</translation>
+        <translation>Memóriaszivárgás javítása a ViewportsLayouts modellekben az elrendezési objektumok biztonságos törlésével a deleteLater() segítségével.</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation translatorcomment="AI-translated">Csökkentette a videomegjelenítési felület indítási hibáit (OpenGL) az NVR lapok gyors változásai során – a naplókat Debug szintre csökkentették, és a rendszer a GPU-pufferek felszabadítása után csendben újrapróbálja a renderelést a háttérben.</translation>
+        <translation>Csökkentette a videomegjelenítési felület indítási hibáit (OpenGL) az NVR lapok gyors változásai során – a naplókat Debug szintre csökkentették, és a rendszer a GPU-pufferek felszabadítása után csendben újrapróbálja a renderelést a háttérben.</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation translatorcomment="AI-translated">Megoldotta a fennmaradó RAM-használatot (20-30 MB) az Archívum ablak bezárása után a többlépcsős halomtisztítás és a QML-motor gyorsítótár-optimalizálása révén.</translation>
+        <translation>Megoldotta a fennmaradó RAM-használatot (20-30 MB) az Archívum ablak bezárása után a többlépcsős halomtisztítás és a QML-motor gyorsítótár-optimalizálása révén.</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation translatorcomment="AI-translated">Optimalizált RAM-használat a kamera méretezése és a nézetablak átméretezése/nagyítása során, megakadályozva a túlzott memóriafelhalmozódást a videofolyam elrendezésének folyamatos változtatásakor.</translation>
+        <translation>Optimalizált RAM-használat a kamera méretezése és a nézetablak átméretezése/nagyítása során, megakadályozva a túlzott memóriafelhalmozódást a videofolyam elrendezésének folyamatos változtatásakor.</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation translatorcomment="AI-translated">Pontos, valós idejű képkocka per másodperc (FPS) jelző hozzáadva az egyes nézetablakok bal felső sarkához mind az élő, mind az archív lejátszási adatfolyamokhoz.</translation>
+        <translation>Pontos, valós idejű képkocka per másodperc (FPS) jelző hozzáadva az egyes nézetablakok bal felső sarkához mind az élő, mind az archív lejátszási adatfolyamokhoz.</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation translatorcomment="AI-translated">A letöltési szálak biztonságos leállítása és felszabadítása a Hikvision letöltőben, stabil és azonnali alkalmazásleállást biztosítva a rendszererőforrások blokkolása nélkül.</translation>
+        <translation>A letöltési szálak biztonságos leállítása és felszabadítása a Hikvision letöltőben, stabil és azonnali alkalmazásleállást biztosítva a rendszererőforrások blokkolása nélkül.</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation translatorcomment="AI-translated">Az archív ablakhoz hozzáadtunk egy dinamikus kamerakereső mezőt egy reset gombbal és automatikusan bővülő, megfelelő rögzítőkkel.</translation>
+        <translation>Az archív ablakhoz hozzáadtunk egy dinamikus kamerakereső mezőt egy reset gombbal és automatikusan bővülő, megfelelő rögzítőkkel.</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation translatorcomment="AI-translated">Engedélyezve a hosszú kameranevek tördelését az archívumban lévő listalapokon.</translation>
+        <translation>Engedélyezve a hosszú kameranevek tördelését az archívumban lévő listalapokon.</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation translatorcomment="AI-translated">A plusz gomb (+) kinagyított és fordított színei a kameralapokon (menta háttér) a jobb láthatóság érdekében, tiszta lebegés/lenyomott állapotokkal.</translation>
+        <translation>A plusz gomb (+) kinagyított és fordított színei a kameralapokon (menta háttér) a jobb láthatóság érdekében, tiszta lebegés/lenyomott állapotokkal.</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation translatorcomment="AI-translated">Javítva a felvétel elérhetőségi idővonal sávjának 2-3 órás eltolódása az archív lejátszó ablakában, az idővonal szinkronizálása a kliens helyi időzónájával (megfelelő nyári időszámítás DST támogatással).</translation>
+        <translation>Javítva a felvétel elérhetőségi idővonal sávjának 2-3 órás eltolódása az archív lejátszó ablakában, az idővonal szinkronizálása a kliens helyi időzónájával (megfelelő nyári időszámítás DST támogatással).</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation translatorcomment="AI-translated">Az üres nézetekben az alacsony kontrasztú fekete emojit 📺 egy elegáns seledyn High DPI vektoros SVG monitorra cseréltük.</translation>
+        <translation>Az üres nézetekben az alacsony kontrasztú fekete emojit 📺 egy elegáns seledyn High DPI vektoros SVG monitorra cseréltük.</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation translatorcomment="AI-translated">A rögzítősávok jobb olvashatósága az archív ablakban (a magasság 22 képpontról 28 képpontra nőtt, a betűméret 9 képpontról 11 képpontra, nagyobb kibontó nyíl).</translation>
+        <translation>A rögzítősávok jobb olvashatósága az archív ablakban (a magasság 22 képpontról 28 képpontra nőtt, a betűméret 9 képpontról 11 képpontra, nagyobb kibontó nyíl).</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation translatorcomment="AI-translated">Teljes, dinamikus lebegtetési effektusok hozzáadva a rögzítősávokhoz, a háttér, a szöveg és az ikonok színének határozott változásaival a seledyn/fehér színben.</translation>
+        <translation>Teljes, dinamikus lebegtetési effektusok hozzáadva a rögzítősávokhoz, a háttér, a szöveg és az ikonok színének határozott változásaival a seledyn/fehér színben.</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation translatorcomment="AI-translated">A felső sáv szöveges műveleti gombjait (Opciók, Új ablak, Archívum, Utasítások) lecseréltük dedikált, színes SVG ikonokra, hasznos eszköztippekkel.</translation>
+        <translation>A felső sáv szöveges műveleti gombjait (Opciók, Új ablak, Archívum, Utasítások) lecseréltük dedikált, színes SVG ikonokra, hasznos eszköztippekkel.</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation translatorcomment="AI-translated">A rendszerstatisztika kapcsolót egy interaktív SVG ikonra cserélték, amely tükrözi a rendszerfigyelő tevékenység állapotát.</translation>
+        <translation>A rendszerstatisztika kapcsolót egy interaktív SVG ikonra cserélték, amely tükrözi a rendszerfigyelő tevékenység állapotát.</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation translatorcomment="AI-translated">Egységesített rácsválasztó gombok (1x1-9x9) egységes 30x30 képpontos kör alakú gombokká.</translation>
+        <translation>Egységesített rácsválasztó gombok (1x1-9x9) egységes 30x30 képpontos kör alakú gombokká.</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation translatorcomment="AI-translated">Függőleges elválasztó vonal hozzáadva az opciók szakasza és a rácskiválasztási szakasz közé.</translation>
+        <translation>Függőleges elválasztó vonal hozzáadva az opciók szakasza és a rácskiválasztási szakasz közé.</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation translatorcomment="AI-translated">Újratervezett nézetgombok elegáns, lekerekített tabletta alakúra, 30 képpont magassággal, megőrizve az oldalsó margókat.</translation>
+        <translation>Újratervezett nézetgombok elegáns, lekerekített tabletta alakúra, 30 képpont magassággal, megőrizve az oldalsó margókat.</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation translatorcomment="AI-translated">Kényszerített automatikus nagybetűs megjelenítés a nézetnevekben.</translation>
+        <translation>Kényszerített automatikus nagybetűs megjelenítés a nézetnevekben.</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation translatorcomment="AI-translated">Az aktív nézet gomb jobb olvashatósága és kontrasztja – sötét szöveg (#121214) világos seledyn háttéren.</translation>
+        <translation>Az aktív nézet gomb jobb olvashatósága és kontrasztja – sötét szöveg (#121214) világos seledyn háttéren.</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation translatorcomment="AI-translated">Egységes és továbbfejlesztett törlési ikonok a felvevők és nézetek listáján, valamint az előre beállított aktiváló gomb SVG ikonokká, eszköztippekkel.</translation>
+        <translation>Egységes és továbbfejlesztett törlési ikonok a felvevők és nézetek listáján, valamint az előre beállított aktiváló gomb SVG ikonokká, eszköztippekkel.</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation translatorcomment="AI-translated">Csökkentett távolság a felső sáv gombjai között a felület optimalizálása érdekében.</translation>
+        <translation>Csökkentett távolság a felső sáv gombjai között a felület optimalizálása érdekében.</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation translatorcomment="AI-translated">Visszaállította a hiányzó kicsinyítés ikont a segédablakban.</translation>
+        <translation>Visszaállította a hiányzó kicsinyítés ikont a segédablakban.</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation translatorcomment="AI-translated">Kijavítottuk a bejelentkezési és lejátszási problémákat a segédablakokban.</translation>
+        <translation>Kijavítottuk a bejelentkezési és lejátszási problémákat a segédablakokban.</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation translatorcomment="AI-translated">Rögzített elrendezésű gombállapotok (1x1 vs 2x2), amikor a lejátszást közvetlenül a fényképezőgépről nyitják meg.</translation>
+        <translation>Rögzített elrendezésű gombállapotok (1x1 vs 2x2), amikor a lejátszást közvetlenül a fényképezőgépről nyitják meg.</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation translatorcomment="AI-translated">Megfelelő XML névtér hozzáadva a Hikvision ISAPI lekérdezésekhez (kijavítja az „Érvénytelen XML tartalom” hibát az újabb rögzítő firmware-en).</translation>
+        <translation>Megfelelő XML névtér hozzáadva a Hikvision ISAPI lekérdezésekhez (kijavítja az „Érvénytelen XML tartalom” hibát az újabb rögzítő firmware-en).</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation translatorcomment="AI-translated">Javítva a keresési eredmények oldalszámozásának kezelése (searchResultPostion címke).</translation>
+        <translation>Javítva a keresési eredmények oldalszámozásának kezelése (searchResultPostion címke).</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation translatorcomment="AI-translated">„Frissítés” gomb a lejátszási ablakban a gyorsítótár kézi törléséhez és a felvétel rendelkezésre állási adatainak újbóli lekéréséhez.</translation>
+        <translation>„Frissítés” gomb a lejátszási ablakban a gyorsítótár kézi törléséhez és a felvétel rendelkezésre állási adatainak újbóli lekéréséhez.</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation translatorcomment="AI-translated">Hálózati előzetes letöltési sor optimalizálása – a háttérben történő lekérés 12 hónapra korlátozva, felesleges lekérdezések százainak kiküszöbölése és a lejátszás elindításának felgyorsítása.</translation>
+        <translation>Hálózati előzetes letöltési sor optimalizálása – a háttérben történő lekérés 12 hónapra korlátozva, felesleges lekérdezések százainak kiküszöbölése és a lejátszás elindításának felgyorsítása.</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation translatorcomment="AI-translated">Aszinkron Hikvision SDK inicializálás egy háttérszálban, teljesen kiküszöbölve a GUI lefagyását az opciók megnyitásakor.</translation>
+        <translation>Aszinkron Hikvision SDK inicializálás egy háttérszálban, teljesen kiküszöbölve a GUI lefagyását az opciók megnyitásakor.</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation translatorcomment="AI-translated">A Hikvision SDK metódusokhoz való hozzáférés szálbiztos szinkronizálása.</translation>
+        <translation>A Hikvision SDK metódusokhoz való hozzáférés szálbiztos szinkronizálása.</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation translatorcomment="AI-translated">A letöltött fájlok és képernyőképek nevének megtisztítása a rögzítő IP-címeinek eltávolításával.</translation>
+        <translation>A letöltött fájlok és képernyőképek nevének megtisztítása a rögzítő IP-címeinek eltávolításával.</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation translatorcomment="AI-translated">Elegáns letöltési folyamatjelző türkiz színben (#00f5d4), középen vázolt szöveggel.</translation>
+        <translation>Elegáns letöltési folyamatjelző türkiz színben (#00f5d4), középen vázolt szöveggel.</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation translatorcomment="AI-translated">A globális letöltési folyamat kiszámítása (overallProgress) többrészes felvételek esetén.</translation>
+        <translation>A globális letöltési folyamat kiszámítása (overallProgress) többrészes felvételek esetén.</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation translatorcomment="AI-translated">Az ideiglenes letöltési fájl kiterjesztése „.ps”-ről „.pspart”-ra módosult.</translation>
+        <translation>Az ideiglenes letöltési fájl kiterjesztése „.ps”-ről „.pspart”-ra módosult.</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation translatorcomment="AI-translated">"Információs mezők megjelenítése csak lebegve" opció és gomb a felhasználói felület beállításaiban.</translation>
+        <translation>"Információs mezők megjelenítése csak lebegve" opció és gomb a felhasználói felület beállításaiban.</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation translatorcomment="AI-translated">Vizuális jelző a kamera felfedezéséhez a konfigurációs panelen (forgó ikon, űrlapblokkolás és "Felfedezés..." szöveg).</translation>
+        <translation>Vizuális jelző a kamera felfedezéséhez a konfigurációs panelen (forgó ikon, űrlapblokkolás és "Felfedezés..." szöveg).</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation translatorcomment="AI-translated">Teljes lokalizáció (hozzáadott hivatalos lengyel és angol fordítási támogatás).</translation>
+        <translation>Teljes lokalizáció (hozzáadott hivatalos lengyel és angol fordítási támogatás).</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation translatorcomment="AI-translated">Kiegészítő ablak indítási optimalizálása – 3 másodpercről 300 ms alá csökkentett betöltési idő.</translation>
+        <translation>Kiegészítő ablak indítási optimalizálása – 3 másodpercről 300 ms alá csökkentett betöltési idő.</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation translatorcomment="AI-translated">Esztétikus helyőrző a segédablakban ("Nincs nézet kiválasztva") türkiz szegéllyel.</translation>
+        <translation>Esztétikus helyőrző a segédablakban ("Nincs nézet kiválasztva") türkiz szegéllyel.</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation translatorcomment="AI-translated">Hikvision SDK integráció élő nézethez és lejátszási módhoz.</translation>
+        <translation>Hikvision SDK integráció élő nézethez és lejátszási módhoz.</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation translatorcomment="AI-translated">Többkamerás lejátszó automatikus idővonal pozicionálással és központosítással.</translation>
+        <translation>Többkamerás lejátszó automatikus idővonal pozicionálással és központosítással.</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation translatorcomment="AI-translated">Többszálú rendszerfigyelő (CPU, RAM, GPU, VRAM és hálózati sávszélesség statisztika).</translation>
+        <translation>Többszálú rendszerfigyelő (CPU, RAM, GPU, VRAM és hálózati sávszélesség statisztika).</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation translatorcomment="AI-translated">Valós idejű hálózati sávszélesség-fogyasztás nyomon követése.</translation>
+        <translation>Valós idejű hálózati sávszélesség-fogyasztás nyomon követése.</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation translatorcomment="AI-translated">Nagy felbontású alkalmazás ikon és kifinomult sötét téma felület.</translation>
+        <translation>Nagy felbontású alkalmazás ikon és kifinomult sötét téma felület.</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation translatorcomment="AI-translated">Automatikus Pacman csomagépítő szkript Arch Linuxhoz.</translation>
+        <translation>Automatikus Pacman csomagépítő szkript Arch Linuxhoz.</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation translatorcomment="AI-translated">Verzió %1</translation>
+        <translation>Verzió %1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation translatorcomment="AI-translated">Eredeti szerző: Evgeny S. Maksimov</translation>
+        <translation>Eredeti szerző: Evgeny S. Maksimov</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation translatorcomment="AI-translated">Módosítás: arkanista (AI segítséggel)</translation>
+        <translation>Módosítás: arkanista (AI segítséggel)</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation translatorcomment="AI-translated">Viewport%1</translation>
+        <translation>Viewport%1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation translatorcomment="AI-translated">#%1</translation>
+        <translation>#%1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation translatorcomment="AI-translated">Eszközök</translation>
+        <translation>Eszközök</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation translatorcomment="AI-translated">Felvevők</translation>
+        <translation>Felvevők</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation translatorcomment="AI-translated">Előbeállítások</translation>
+        <translation>Előbeállítások</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation translatorcomment="AI-translated">Beállítások elemre</translation>
+        <translation>Beállítások elemre</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation translatorcomment="AI-translated">Változásnapló</translation>
+        <translation>Változásnapló</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation translatorcomment="AI-translated">Elérhető verzió: %1</translation>
+        <translation>Elérhető verzió: %1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation translatorcomment="AI-translated">Nézetablak részletei</translation>
+        <translation>Nézetablak részletei</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation translatorcomment="AI-translated">A beállítások testreszabásához válasszon egy nézetablakot a fő rácsban.</translation>
+        <translation>A beállítások testreszabásához válasszon egy nézetablakot a fő rácsban.</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation translatorcomment="AI-translated">A konfigurációs ablak feloldása</translation>
+        <translation>A konfigurációs ablak feloldása</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Aktív adatfolyam kapcsolat</translation>
+        <translation>Aktív adatfolyam kapcsolat</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Elsődleges adatfolyam URL-je</translation>
+        <translation>Elsődleges adatfolyam URL-je</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Másodlagos biztonsági mentési URL</translation>
+        <translation>Másodlagos biztonsági mentési URL</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation translatorcomment="AI-translated">Hang és renderelési lehetőségek</translation>
+        <translation>Hang és renderelési lehetőségek</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation translatorcomment="AI-translated">Hang némítása / némítás feloldása</translation>
+        <translation>Hang némítása / némítás feloldása</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation translatorcomment="AI-translated">FFmpeg Options Override</translation>
+        <translation>FFmpeg Options Override</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Elrendezés és rács eszközök</translation>
+        <translation>Elrendezés és rács eszközök</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Oldja fel az eszközök panelt</translation>
+        <translation>Oldja fel az eszközök panelt</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Ablakosztály</translation>
+        <translation>Ablakosztály</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Hiba a konfiguráció olvasása közben!</translation>
+        <translation>Hiba a konfiguráció olvasása közben!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Tartsa lenyomva az osztás értékének szerkesztéséhez</translation>
+        <translation>Tartsa lenyomva az osztás értékének szerkesztéséhez</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Geometriai arány</translation>
+        <translation>Geometriai arány</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Teljes képernyő váltás</translation>
+        <translation>Teljes képernyő váltás</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Rácsműveletek</translation>
+        <translation>Rácsműveletek</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Kiemelt cellák egyesítése</translation>
+        <translation>Kiemelt cellák egyesítése</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation translatorcomment="AI-translated">NVR / Hikvision Recorders Manager</translation>
+        <translation>NVR / Hikvision Recorders Manager</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation translatorcomment="AI-translated">Előbeállítások és gyors elrendezési nézetek</translation>
+        <translation>Előbeállítások és gyors elrendezési nézetek</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation translatorcomment="AI-translated">ONVIF és RTSP elrendezés beállításai</translation>
+        <translation>ONVIF és RTSP elrendezés beállításai</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation translatorcomment="AI-translated">%1 elrendezés</translation>
+        <translation>%1 elrendezés</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation translatorcomment="AI-translated">Látható</translation>
+        <translation>Látható</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation translatorcomment="AI-translated">Aktiválja ezt az előnézeti elrendezést</translation>
+        <translation>Aktiválja ezt az előnézeti elrendezést</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation translatorcomment="AI-translated">Törölje ezt az előnézeti elrendezést</translation>
+        <translation>Törölje ezt az előnézeti elrendezést</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation translatorcomment="AI-translated">Előre beállított elrendezés hozzáadása</translation>
+        <translation>Előre beállított elrendezés hozzáadása</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation translatorcomment="AI-translated">NVR nézet elrendezések</translation>
+        <translation>NVR nézet elrendezések</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation translatorcomment="AI-translated">NVR nézet</translation>
+        <translation>NVR nézet</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation translatorcomment="AI-translated">Aktiválja ezt az NVR-kamerák nézetet</translation>
+        <translation>Aktiválja ezt az NVR-kamerák nézetet</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation translatorcomment="AI-translated">Törölje ezt az NVR-kameranézetet</translation>
+        <translation>Törölje ezt az NVR-kameranézetet</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation translatorcomment="AI-translated">Előre beállított NVR (Rács nézet)</translation>
+        <translation>Előre beállított NVR (Rács nézet)</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation translatorcomment="AI-translated">NVR előbeállítás #%1</translation>
+        <translation>NVR előbeállítás #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation translatorcomment="AI-translated">Aktiválja ezt az NVR-kamera-beállítást</translation>
+        <translation>Aktiválja ezt az NVR-kamera-beállítást</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation translatorcomment="AI-translated">Törölje ezt az NVR-kamera-előbeállítást</translation>
+        <translation>Törölje ezt az NVR-kamera-előbeállítást</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation translatorcomment="AI-translated">Adja hozzá az NVR-beállítást</translation>
+        <translation>Adja hozzá az NVR-beállítást</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation translatorcomment="AI-translated">Rendszerbeállítások</translation>
+        <translation>Rendszerbeállítások</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation translatorcomment="AI-translated">Általános beállítások</translation>
+        <translation>Általános beállítások</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation translatorcomment="AI-translated">Több alkalmazáspéldány futtatásának engedélyezése</translation>
+        <translation>Több alkalmazáspéldány futtatásának engedélyezése</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation translatorcomment="AI-translated">This option is disabled to prevent settings file write conflicts. To enable it (dangerous and not recommended!), set 'singleApplication=false' in the kvision.conf configuration file.</translation>
+        <translation>This option is disabled to prevent settings file write conflicts. To enable it (dangerous and not recommended!), set 'singleApplication=false' in the kvision.conf configuration file.</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation translatorcomment="AI-translated">Ellenőrizze a Hikvision NVR hibaállapotát</translation>
+        <translation>Ellenőrizze a Hikvision NVR hibaállapotát</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation translatorcomment="AI-translated">Hang</translation>
+        <translation>Hang</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation translatorcomment="AI-translated">A hang teljes letiltása</translation>
+        <translation>A hang teljes letiltása</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation translatorcomment="AI-translated">A kamera teljes képernyőre állítása nem szünteti meg a némítást</translation>
+        <translation>A kamera teljes képernyőre állítása nem szünteti meg a némítást</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation translatorcomment="AI-translated">Helyi menü beállításai</translation>
+        <translation>Helyi menü beállításai</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation translatorcomment="AI-translated">Jobb gombbal kattintson a helyi menüre</translation>
+        <translation>Jobb gombbal kattintson a helyi menüre</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation translatorcomment="AI-translated">A nézetablak helyeinek cseréjének engedélyezése</translation>
+        <translation>A nézetablak helyeinek cseréjének engedélyezése</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation translatorcomment="AI-translated">Engedélyezze a „Kamera eltávolítása” opciót</translation>
+        <translation>Engedélyezze a „Kamera eltávolítása” opciót</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation translatorcomment="AI-translated">A nézetablak beállításainak módosításának engedélyezése</translation>
+        <translation>A nézetablak beállításainak módosításának engedélyezése</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation translatorcomment="AI-translated">Engedélyezze a „Streamválasztás” opciót</translation>
+        <translation>Engedélyezze a „Streamválasztás” opciót</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation translatorcomment="AI-translated">Felhasználói felület beállításai</translation>
+        <translation>Felhasználói felület beállításai</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation translatorcomment="AI-translated">Csatorna állapotának megjelenítése a nézetablak bal felső sarkában</translation>
+        <translation>Csatorna állapotának megjelenítése a nézetablak bal felső sarkában</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation translatorcomment="AI-translated">A kameraadatok megjelenítése a nézetablak bal alsó sarkában</translation>
+        <translation>A kameraadatok megjelenítése a nézetablak bal alsó sarkában</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation translatorcomment="AI-translated">A vezérlőikonok megjelenítése a nézetablak jobb alsó sarkában csak akkor, ha lebeg</translation>
+        <translation>A vezérlőikonok megjelenítése a nézetablak jobb alsó sarkában csak akkor, ha lebeg</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation translatorcomment="AI-translated">Az információs mezők csak akkor jelenjenek meg, amikor az egérmutatót lebegteti</translation>
+        <translation>Az információs mezők csak akkor jelenjenek meg, amikor az egérmutatót lebegteti</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation translatorcomment="AI-translated">Alapértelmezés szerint a felső sáv megjelenítése ablak megnyitásakor</translation>
+        <translation>Alapértelmezés szerint a felső sáv megjelenítése ablak megnyitásakor</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation translatorcomment="AI-translated">Az egérkurzor elrejtése teljes képernyős módban</translation>
+        <translation>Az egérkurzor elrejtése teljes képernyős módban</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation translatorcomment="AI-translated">A nézetablak nagyítási animációjának letiltása</translation>
+        <translation>A nézetablak nagyítási animációjának letiltása</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation translatorcomment="AI-translated">Nyelv:</translation>
+        <translation>Nyelv:</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation translatorcomment="AI-translated">Rendszer alapértelmezett</translation>
+        <translation>Rendszer alapértelmezett</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation translatorcomment="AI-translated">A kiegészítő ablakok korlátozása a következőkre:</translation>
+        <translation>A kiegészítő ablakok korlátozása a következőkre:</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation translatorcomment="AI-translated">NVR állapotfigyelés</translation>
+        <translation>NVR állapotfigyelés</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation translatorcomment="AI-translated">Az offline állapot és a bejelentkezési hibák figyelése</translation>
+        <translation>Az offline állapot és a bejelentkezési hibák figyelése</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation translatorcomment="AI-translated">Monitor CPU túlterhelés (&gt;85%)</translation>
+        <translation>Monitor CPU túlterhelés (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation translatorcomment="AI-translated">Figyelje a felvevő hardverhibáit</translation>
+        <translation>Figyelje a felvevő hardverhibáit</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation translatorcomment="AI-translated">Figyelje a merevlemez hibáit/rendellenességeit</translation>
+        <translation>Figyelje a merevlemez hibáit/rendellenességeit</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation translatorcomment="AI-translated">Figyelje a formázatlan merevlemezeket</translation>
+        <translation>Figyelje a formázatlan merevlemezeket</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation translatorcomment="AI-translated">Teljes merevlemez figyelése (huroklefedettség letiltva)</translation>
+        <translation>Teljes merevlemez figyelése (huroklefedettség letiltva)</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation translatorcomment="AI-translated">Lejátszás</translation>
+        <translation>Lejátszás</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation translatorcomment="AI-translated">A visszafelé történő lejátszás alapértelmezett eltolása, másodperc:</translation>
+        <translation>A visszafelé történő lejátszás alapértelmezett eltolása, másodperc:</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation translatorcomment="AI-translated">Lejátszási idővonal alapértelmezett tartománya, óra:</translation>
+        <translation>Lejátszási idővonal alapértelmezett tartománya, óra:</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation translatorcomment="AI-translated">Mentés</translation>
+        <translation>Mentés</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation translatorcomment="AI-translated">Aktiválja a módosításokat ebben a szakaszban</translation>
+        <translation>Aktiválja a módosításokat ebben a szakaszban</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation translatorcomment="AI-translated">A pillanatkép alapértelmezett elérési útja:</translation>
+        <translation>A pillanatkép alapértelmezett elérési útja:</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation translatorcomment="AI-translated">Válasszon mappát a pillanatképekhez</translation>
+        <translation>Válasszon mappát a pillanatképekhez</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation translatorcomment="AI-translated">Alapértelmezett felvételi útvonal:</translation>
+        <translation>Alapértelmezett felvételi útvonal:</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation translatorcomment="AI-translated">Válasszon mappát a felvételekhez</translation>
+        <translation>Válasszon mappát a felvételekhez</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation translatorcomment="AI-translated">nyissa meg a képmappát</translation>
+        <translation>nyissa meg a képmappát</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation translatorcomment="AI-translated">nyissa meg a videó mappát</translation>
+        <translation>nyissa meg a videó mappát</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation translatorcomment="AI-translated">System Media Configuration</translation>
+        <translation>System Media Configuration</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation translatorcomment="AI-translated">Alapértelmezett FFmpeg parancssori beállítások</translation>
+        <translation>Alapértelmezett FFmpeg parancssori beállítások</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation translatorcomment="AI-translated">Frissítse az összes kamerát</translation>
+        <translation>Frissítse az összes kamerát</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation translatorcomment="AI-translated">Változásnapló</translation>
+        <translation>Változásnapló</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation translatorcomment="AI-translated">A KVision fejlesztéseinek, hibajavításainak és új szolgáltatásainak története.</translation>
+        <translation>A KVision fejlesztéseinek, hibajavításainak és új szolgáltatásainak története.</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation translatorcomment="AI-translated">Erősítse meg a törlést</translation>
+        <translation>Erősítse meg a törlést</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation translatorcomment="AI-translated">Biztosan törölni szeretné a következőt: \"%1\"? Ez a művelet teljesen visszafordíthatatlan.</translation>
+        <translation>Biztosan törölni szeretné a következőt: \"%1\"? Ez a művelet teljesen visszafordíthatatlan.</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation translatorcomment="AI-translated">Biztosan törli a #% 1 előre beállított értéket? Ez a művelet teljesen visszafordíthatatlan.</translation>
+        <translation>Biztosan törli a #% 1 előre beállított értéket? Ez a művelet teljesen visszafordíthatatlan.</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation translatorcomment="AI-translated">Biztosan törli a \"%1\" NVR-nézetet? Ez a művelet teljesen visszafordíthatatlan.</translation>
+        <translation>Biztosan törli a \"%1\" NVR-nézetet? Ez a művelet teljesen visszafordíthatatlan.</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation translatorcomment="AI-translated">Biztosan törli ezt az NVR nézetelrendezést? Ez a művelet teljesen visszafordíthatatlan.</translation>
+        <translation>Biztosan törli ezt az NVR nézetelrendezést? Ez a művelet teljesen visszafordíthatatlan.</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation translatorcomment="AI-translated">Biztosan törli a \"%1\" NVR-előbeállítást? Ez a művelet teljesen visszafordíthatatlan.</translation>
+        <translation>Biztosan törli a \"%1\" NVR-előbeállítást? Ez a művelet teljesen visszafordíthatatlan.</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation translatorcomment="AI-translated">Biztosan törli ezt az NVR-előbeállítást? Ez a művelet teljesen visszafordíthatatlan.</translation>
+        <translation>Biztosan törli ezt az NVR-előbeállítást? Ez a művelet teljesen visszafordíthatatlan.</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">Ne vegye figyelembe az FFmpeg globális beállításainak módosításait</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">FFmpeg opciók</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">Csatornabeállítások</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">Nézetablak beállításai</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">Biztosan eltávolítja a kamerát ebből a nézetből?</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">Erősítse meg a kamera eltávolítását</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">Tylko SUB</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">Tylko FŐ</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">Automatycznie</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">Lejátszás</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>Lokalizációs bővítés: A KVision immár 20 új, mesterséges intelligencia által lefordított nyelvre honosított, így a támogatott nyelvek száma összesen 22 (angol, lengyel és 20 új nyelv). A teljes alkalmazási felületet (UI) és a teljes felhasználói kézikönyvet is lefordították.</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>Viewport Quick Playback dokumentáció: Hozzáadott átfogó dokumentáció, amely elmagyarázza a kör alakú nyíl átfedő gombot (minilejátszó) és annak részletes jellemzőit mind a 22 felhasználói kézikönyvben.</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>Pásztázási zoom: A nagyított videó szabadon pásztázható (élő, minilejátszó, archívum) az egér középső gombjának (görgetőkerék) lenyomva tartásával és a kurzor húzásával.</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>Arányos nagyítás kiválasztása: Bevezettük a Shift billentyűparancsot. Ha a Shift billentyűt lenyomva tartja a nagyítási téglalap rajzolása közben, a kijelölést 16:9-es képarányra kényszeríti, szigorúan a nézetablak határaihoz.</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>Kényszerített ablakpozícionálás: Teljesen lecserélték a régi ablakgeometria-mentési mechanizmusokat a Qt-ben feloldhatatlan többmonitoros vetítési problémák miatt. Az alkalmazás (mind a főablak, mind a kiegészítő ablakok) mostantól szigorúan kényszeríti az elsődleges monitorra összpontosító indítást a felbontás 90%-án, biztosítva a stabilitást és a kiszámíthatóságot minden beállításnál.</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>Lokalizációs újrafaktorálás: Lecserélte a forráskódba ágyazott összes keménykódolt lengyel és angol karakterláncot (qsTr, tr). Több mint 500 egyedi karakterláncot alakítottak át LNG_XXXXX azonosítókká, biztonságosan leképezve a továbbfejlesztett .ts/.qm fájlrendszer segítségével.</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>Csak angol nyelvű CLI: A parancssori felület opciói és a --help paraméterek mostantól állandóan angol nyelvűek, hogy elkerüljék a késleltetett lokalizációs motor inicializálásával kapcsolatos problémákat.</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>Archiválási képarány: Kijavítottuk azt a hibát, amely miatt a videó képaránya torzult az archív lejátszó nézeti ablakában. A HikvisionArchivePlayer komponens most helyesen jeleníti meg az eredeti képkockát, megőrizve annak természetes képarányát (letterboxing), ahelyett, hogy a videót a felhasználói felület határaihoz igazítaná.</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>Demuxer memóriaszivárgás: Javított az objektum-tisztítási logika a QmlAVPlayer::stop() rutinban, megakadályozva, hogy a háttérben felhalmozódjanak a "zombi" demuxer példányok.</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>writeSetting javítás: Hozzáadtuk a writeSetting metódus hiányzó megvalósítását a Context osztályban, kiküszöbölve a TypeErrors és a QML végrehajtási megszakításokat a beállítások áttelepítése során.</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4374,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Hiba a konfiguráció olvasása közben!</translation>
+        <translation>Hiba a konfiguráció olvasása közben!</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4393,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation translatorcomment="AI-translated">A program már fut, nem indíthat másodikat</translation>
+        <translation>A program már fut, nem indíthat másodikat</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">ZÁRJA</translation>
+        <translation>ZÁRJA</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4424,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation translatorcomment="AI-translated">Pillanatkép mentve</translation>
+        <translation>Pillanatkép mentve</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation translatorcomment="AI-translated">Pillanatkép mentve -</translation>
+        <translation>Pillanatkép mentve -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation translatorcomment="AI-translated">Tallózás</translation>
+        <translation>Tallózás</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation translatorcomment="AI-translated">Kilépés</translation>
+        <translation>Kilépés</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4491,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Elrendezés és rács eszközök</translation>
+        <translation>Elrendezés és rács eszközök</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Oldja fel az eszközök panelt</translation>
+        <translation>Oldja fel az eszközök panelt</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Ablakosztály</translation>
+        <translation>Ablakosztály</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Hiba a konfiguráció olvasása közben!</translation>
+        <translation>Hiba a konfiguráció olvasása közben!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Tartsa lenyomva az osztás értékének szerkesztéséhez</translation>
+        <translation>Tartsa lenyomva az osztás értékének szerkesztéséhez</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Geometriai arány</translation>
+        <translation>Geometriai arány</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation translatorcomment="AI-translated">16:9 képarány</translation>
+        <translation>16:9 képarány</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation translatorcomment="AI-translated">4:3 képarány</translation>
+        <translation>4:3 képarány</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Teljes képernyő váltás</translation>
+        <translation>Teljes képernyő váltás</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Rácsműveletek</translation>
+        <translation>Rácsműveletek</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Kiemelt cellák egyesítése</translation>
+        <translation>Kiemelt cellák egyesítése</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4578,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation translatorcomment="AI-translated">Nézetablak beállításai</translation>
+        <translation>Nézetablak beállításai</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Aktív adatfolyam kapcsolat</translation>
+        <translation>Aktív adatfolyam kapcsolat</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Elsődleges adatfolyam URL-je</translation>
+        <translation>Elsődleges adatfolyam URL-je</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Másodlagos biztonsági mentési URL</translation>
+        <translation>Másodlagos biztonsági mentési URL</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation translatorcomment="AI-translated">Csatornabeállítások</translation>
+        <translation>Csatornabeállítások</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation translatorcomment="AI-translated">FFmpeg opciók</translation>
+        <translation>FFmpeg opciók</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation translatorcomment="AI-translated">Ne vegye figyelembe az FFmpeg globális beállításainak módosításait</translation>
+        <translation>Ne vegye figyelembe az FFmpeg globális beállításainak módosításait</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Mégse</translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Mentés</translation>
+        <translation>Mentés</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4670,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation translatorcomment="AI-translated">Nézetablakok cseréje</translation>
+        <translation>Nézetablakok cseréje</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation translatorcomment="AI-translated">Stream kiválasztása</translation>
+        <translation>Stream kiválasztása</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation translatorcomment="AI-translated">Távolítsa el a kamerát</translation>
+        <translation>Távolítsa el a kamerát</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation translatorcomment="AI-translated">Módosítsa a beállításokat</translation>
+        <translation>Módosítsa a beállításokat</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation translatorcomment="AI-translated">Újratöltés</translation>
+        <translation>Újratöltés</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation translatorcomment="AI-translated">Pillanatkép</translation>
+        <translation>Pillanatkép</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation translatorcomment="AI-translated">Lejátszás</translation>
+        <translation>Lejátszás</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation translatorcomment="AI-translated">Automatycznie</translation>
+        <translation>Automatycznie</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation translatorcomment="AI-translated">Tylko FŐ</translation>
+        <translation>Tylko FŐ</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation translatorcomment="AI-translated">Tylko SUB</translation>
+        <translation>Tylko SUB</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation translatorcomment="AI-translated">Erősítse meg a kamera eltávolítását</translation>
+        <translation>Erősítse meg a kamera eltávolítását</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation translatorcomment="AI-translated">Biztosan eltávolítja a kamerát ebből a nézetből?</translation>
+        <translation>Biztosan eltávolítja a kamerát ebből a nézetből?</translation>
     </message>
 </context>
 </TS>

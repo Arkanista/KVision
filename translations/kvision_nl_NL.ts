@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVisie</translation>
+        <translation>KVisie</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation translatorcomment="AI-translated">U kunt geen extra ruiten meer openen</translation>
+        <translation>U kunt geen extra ruiten meer openen</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">SLUIT</translation>
+        <translation>SLUIT</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Hulpvenster</translation>
+        <translation>KVision - Hulpvenster</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Geen weergave geselecteerd, selecteer een weergave</translation>
+        <translation>Geen weergave geselecteerd, selecteer een weergave</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Selecteer een weergave in het hoofdmenu om camera's weer te geven.</translation>
+        <translation>Selecteer een weergave in het hoofdmenu om camera's weer te geven.</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Opties en instellingen van het zijbalkpaneel</translation>
+        <translation>Opties en instellingen van het zijbalkpaneel</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Open een nieuw hulpvenster</translation>
+        <translation>Open een nieuw hulpvenster</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Programma gebruikershandleiding</translation>
+        <translation>Programma gebruikershandleiding</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation translatorcomment="AI-translated">Rasterweergave:</translation>
+        <translation>Rasterweergave:</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Schakel Volledig scherm in</translation>
+        <translation>Schakel Volledig scherm in</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation translatorcomment="AI-translated">🔒 Wijziging van lay-out vergrendelen</translation>
+        <translation>🔒 Wijziging van lay-out vergrendelen</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Meer opties</translation>
+        <translation>Meer opties</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation translatorcomment="AI-translated">Bekijk selectie:</translation>
+        <translation>Bekijk selectie:</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Sluit programma</translation>
+        <translation>Sluit programma</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Weet u zeker dat u het programma wilt sluiten?</translation>
+        <translation>Weet u zeker dat u het programma wilt sluiten?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">JA</translation>
+        <translation>JA</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NEE</translation>
+        <translation>NEE</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation translatorcomment="AI-translated">Ja</translation>
+        <translation>Ja</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation translatorcomment="AI-translated">Nee</translation>
+        <translation>Nee</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation translatorcomment="AI-translated">Pad naar het configuratiebestand.</translation>
+        <translation type="vanished">Pad naar het configuratiebestand.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation translatorcomment="AI-translated">Index van de huidige preset.</translation>
+        <translation type="vanished">Index van de huidige preset.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation translatorcomment="AI-translated">Forceer de modus Volledig scherm.</translation>
+        <translation type="vanished">Forceer de modus Volledig scherm.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation translatorcomment="AI-translated">Kioskmodusfunctionaliteit.</translation>
+        <translation type="vanished">Kioskmodusfunctionaliteit.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation translatorcomment="AI-translated">Logboekniveau [%1...%2].</translation>
+        <translation type="vanished">Logboekniveau [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation translatorcomment="AI-translated">Begin als een hulpvenster.</translation>
+        <translation type="vanished">Begin als een hulpvenster.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation translatorcomment="AI-translated">ID van het hulpvenster.</translation>
+        <translation type="vanished">ID van het hulpvenster.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation translatorcomment="AI-translated">Toon uitgebreide logboeken in de console (uitgebreide logboekregistratie).</translation>
+        <translation type="vanished">Toon uitgebreide logboeken in de console (uitgebreide logboekregistratie).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation translatorcomment="AI-translated">Schakel het volgen van objecten in logboeken in voor het opsporen van geheugenlekken.</translation>
+        <translation type="vanished">Schakel het volgen van objecten in logboeken in voor het opsporen van geheugenlekken.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation translatorcomment="AI-translated">Forceer het eerste run-gedrag en toon instructies.</translation>
+        <translation type="vanished">Forceer het eerste run-gedrag en toon instructies.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation translatorcomment="AI-translated">Simuleer NVR-fouten op alle recorders.</translation>
+        <translation type="vanished">Simuleer NVR-fouten op alle recorders.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation translatorcomment="AI-translated">Mock-up van de beschikbaarheid van nieuwe versies op GitHub voor testdoeleinden</translation>
+        <translation type="vanished">Mock-up van de beschikbaarheid van nieuwe versies op GitHub voor testdoeleinden</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation translatorcomment="AI-translated">KVision - videostreams voor kijkers en mounters.</translation>
+        <translation>KVision - videostreams voor kijkers en mounters.</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation translatorcomment="AI-translated">Einddatum en -tijd moeten later zijn dan de startdatum en -tijd!</translation>
+        <translation>Einddatum en -tijd moeten later zijn dan de startdatum en -tijd!</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation translatorcomment="AI-translated">Januari</translation>
+        <translation>Januari</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation translatorcomment="AI-translated">Februari</translation>
+        <translation>Februari</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation translatorcomment="AI-translated">Maart</translation>
+        <translation>Maart</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation translatorcomment="AI-translated">April</translation>
+        <translation>April</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation translatorcomment="AI-translated">Mei</translation>
+        <translation>Mei</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation translatorcomment="AI-translated">Juni</translation>
+        <translation>Juni</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation translatorcomment="AI-translated">Juli</translation>
+        <translation>Juli</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation translatorcomment="AI-translated">Augustus</translation>
+        <translation>Augustus</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation translatorcomment="AI-translated">September</translation>
+        <translation>September</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation translatorcomment="AI-translated">Oktober</translation>
+        <translation>Oktober</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation translatorcomment="AI-translated">November</translation>
+        <translation>November</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation translatorcomment="AI-translated">December</translation>
+        <translation>December</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Vorige maand</translation>
+        <translation>Vorige maand</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Volgende maand</translation>
+        <translation>Volgende maand</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation translatorcomment="AI-translated">Selecteer tijd</translation>
+        <translation>Selecteer tijd</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation translatorcomment="AI-translated">Uur</translation>
+        <translation>Uur</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation translatorcomment="AI-translated">Min</translation>
+        <translation>Min</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation translatorcomment="AI-translated">Sec</translation>
+        <translation>Sec</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation translatorcomment="AI-translated">Annuleer</translation>
+        <translation>Annuleer</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation translatorcomment="AI-translated">Bevestig</translation>
+        <translation>Bevestig</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation translatorcomment="AI-translated">Opnames downloaden</translation>
+        <translation>Opnames downloaden</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation translatorcomment="AI-translated">Van:</translation>
+        <translation>Van:</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation translatorcomment="AI-translated">Onjuist datumformaat! Vereist formaat: DD.MM.JJJJ (bijv. 26.06.2026)</translation>
+        <translation>Onjuist datumformaat! Vereist formaat: DD.MM.JJJJ (bijv. 26.06.2026)</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation translatorcomment="AI-translated">Onjuist tijdformaat! Vereist formaat: UU:MM:SS of UU.MM.SS (bijvoorbeeld 12:30:00 of 12.30.00)</translation>
+        <translation>Onjuist tijdformaat! Vereist formaat: UU:MM:SS of UU.MM.SS (bijvoorbeeld 12:30:00 of 12.30.00)</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation translatorcomment="AI-translated">Aan:</translation>
+        <translation>Aan:</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation translatorcomment="AI-translated">Totaal:</translation>
+        <translation>Totaal:</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation translatorcomment="AI-translated">Downloaden...</translation>
+        <translation>Downloaden...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation translatorcomment="AI-translated">Fout:</translation>
+        <translation>Fout:</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation translatorcomment="AI-translated">Initialiseren...</translation>
+        <translation>Initialiseren...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Gestopt</translation>
+        <translation>Gestopt</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation translatorcomment="AI-translated">map opslaan openen</translation>
+        <translation>map opslaan openen</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation translatorcomment="AI-translated">Stop</translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Downloaden</translation>
+        <translation>Downloaden</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation translatorcomment="AI-translated">Het downloaden is al bezig.</translation>
+        <translation>Het downloaden is al bezig.</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation translatorcomment="AI-translated">Zoeken naar bestanden initialiseren...</translation>
+        <translation>Zoeken naar bestanden initialiseren...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation translatorcomment="AI-translated">Fout bij inloggen op apparaat: %1</translation>
+        <translation>Fout bij inloggen op apparaat: %1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation translatorcomment="AI-translated">Geen opnamen in het geselecteerde tijdsbereik voor deze camera.</translation>
+        <translation>Geen opnamen in het geselecteerde tijdsbereik voor deze camera.</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation translatorcomment="AI-translated">%1 van %2 bestanden gedownload en geconverteerd.</translation>
+        <translation>%1 van %2 bestanden gedownload en geconverteerd.</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation translatorcomment="AI-translated">Het opgegeven opslagpad is ongeldig of schrijftoegang is geweigerd:
+        <translation>Het opgegeven opslagpad is ongeldig of schrijftoegang is geweigerd:
 %1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation translatorcomment="AI-translated">Geen schrijfrechten in de directory:
+        <translation>Geen schrijfrechten in de directory:
 %1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation translatorcomment="AI-translated">Fout bij het initialiseren van het downloaden van onderdeel %1: %2</translation>
+        <translation>Fout bij het initialiseren van het downloaden van onderdeel %1: %2</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation translatorcomment="AI-translated">Fout bij het starten van het downloaden van deel %1: %2</translation>
+        <translation>Fout bij het starten van het downloaden van deel %1: %2</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation translatorcomment="AI-translated">Deel %1 van %2 downloaden...</translation>
+        <translation>Deel %1 van %2 downloaden...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Gestopt</translation>
+        <translation>Gestopt</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation translatorcomment="AI-translated">Download onderbroken door gebruiker.</translation>
+        <translation>Download onderbroken door gebruiker.</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation translatorcomment="AI-translated">Deel %1 van %2 converteren...</translation>
+        <translation>Deel %1 van %2 converteren...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation translatorcomment="AI-translated">Fout bij downloaden van onderdeel %1.</translation>
+        <translation>Fout bij downloaden van onderdeel %1.</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation translatorcomment="AI-translated">%1 van %2 delen gedownload en geconverteerd...</translation>
+        <translation>%1 van %2 delen gedownload en geconverteerd...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation translatorcomment="AI-translated">Interne FFmpeg-fout</translation>
+        <translation>Interne FFmpeg-fout</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation translatorcomment="AI-translated">Conversie van deel %1 naar MP4 mislukt: %2</translation>
+        <translation>Conversie van deel %1 naar MP4 mislukt: %2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Inloggen mislukt of er zijn geen camera's ontdekt.</translation>
+        <translation>Inloggen mislukt of er zijn geen camera's ontdekt.</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation translatorcomment="AI-translated">KVision - Gebruikershandleiding / Instructies</translation>
+        <translation>KVision - Gebruikershandleiding / Instructies</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS_nl.md</translation>
+        <translation>qrc:/INSTRUCTIONS_nl.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation translatorcomment="AI-translated">Fout bij het laden van instructies.</translation>
+        <translation>Fout bij het laden van instructies.</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation translatorcomment="AI-translated">Camera's op %1</translation>
+        <translation>Camera's op %1</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation translatorcomment="AI-translated">Camera's</translation>
+        <translation>Camera's</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation translatorcomment="AI-translated">IP-adres: %1 | Poort: %2 | %3 kanalen</translation>
+        <translation>IP-adres: %1 | Poort: %2 | %3 kanalen</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation translatorcomment="AI-translated">Genereer miniaturen voor alle camera's</translation>
+        <translation>Genereer miniaturen voor alle camera's</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation translatorcomment="AI-translated">Camera %1</translation>
+        <translation>Camera %1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation translatorcomment="AI-translated">Toegewezen camera %1 Ch. %2 naar kijkvenster %3</translation>
+        <translation>Toegewezen camera %1 Ch. %2 naar kijkvenster %3</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation translatorcomment="AI-translated">Toewijzen aan actieve viewport</translation>
+        <translation>Toewijzen aan actieve viewport</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation translatorcomment="AI-translated">Naam van camera wijzigen</translation>
+        <translation>Naam van camera wijzigen</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation translatorcomment="AI-translated">Ververs de miniatuur van de camera</translation>
+        <translation>Ververs de miniatuur van de camera</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation translatorcomment="AI-translated">Wijzig de cameranaam</translation>
+        <translation>Wijzig de cameranaam</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation translatorcomment="AI-translated">Kanaal: %1</translation>
+        <translation>Kanaal: %1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation translatorcomment="AI-translated">Oorspronkelijke naam: %1</translation>
+        <translation>Oorspronkelijke naam: %1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation translatorcomment="AI-translated">Geen</translation>
+        <translation>Geen</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation translatorcomment="AI-translated">Voer een nieuwe cameranaam in...</translation>
+        <translation>Voer een nieuwe cameranaam in...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation translatorcomment="AI-translated">Opnieuw instellen</translation>
+        <translation>Opnieuw instellen</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Annuleer</translation>
+        <translation>Annuleer</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Opslaan</translation>
+        <translation>Opslaan</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Inloggen mislukt of er zijn geen camera's ontdekt.</translation>
+        <translation>Inloggen mislukt of er zijn geen camera's ontdekt.</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation translatorcomment="AI-translated">Voeg Hikvision-recorder toe</translation>
+        <translation>Voeg Hikvision-recorder toe</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation translatorcomment="AI-translated">Recordernaam (optioneel)</translation>
+        <translation>Recordernaam (optioneel)</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation translatorcomment="AI-translated">IP-adres</translation>
+        <translation>IP-adres</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation translatorcomment="AI-translated">Haven (8000)</translation>
+        <translation>Haven (8000)</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation translatorcomment="AI-translated">Gebruikersnaam</translation>
+        <translation>Gebruikersnaam</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation translatorcomment="AI-translated">Wachtwoord</translation>
+        <translation>Wachtwoord</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation translatorcomment="AI-translated">Ontdekken...</translation>
+        <translation>Ontdekken...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation translatorcomment="AI-translated">Verbind &amp; Ontdek</translation>
+        <translation>Verbind &amp; Ontdek</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation translatorcomment="AI-translated">Opslaan en bijwerken</translation>
+        <translation>Opslaan en bijwerken</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation translatorcomment="AI-translated">Fout: IP en wachtwoord zijn vereist.</translation>
+        <translation>Fout: IP en wachtwoord zijn vereist.</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation translatorcomment="AI-translated">Verbinding maken met NVR en kanalen ontdekken...</translation>
+        <translation>Verbinding maken met NVR en kanalen ontdekken...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Annuleer</translation>
+        <translation>Annuleer</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation translatorcomment="AI-translated">Verbonden recorders</translation>
+        <translation>Verbonden recorders</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation translatorcomment="AI-translated">%1 camera's verbonden</translation>
+        <translation>%1 camera's verbonden</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation translatorcomment="AI-translated">INGELOGD</translation>
+        <translation>INGELOGD</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation translatorcomment="AI-translated">NIET INGELOGD</translation>
+        <translation>NIET INGELOGD</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation translatorcomment="AI-translated">Groen: actieve SDK-sessie (PTZ/archief). Rood: Geen actieve sessie (RTSP-stream werkt onafhankelijk).</translation>
+        <translation>Groen: actieve SDK-sessie (PTZ/archief). Rood: Geen actieve sessie (RTSP-stream werkt onafhankelijk).</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation translatorcomment="AI-translated">Open de NVR-inlogpagina in de browser</translation>
+        <translation>Open de NVR-inlogpagina in de browser</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation translatorcomment="AI-translated">Toon NVR-cameralijst</translation>
+        <translation>Toon NVR-cameralijst</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation translatorcomment="AI-translated">Bewerk de details van de recorderverbinding</translation>
+        <translation>Bewerk de details van de recorderverbinding</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation translatorcomment="AI-translated">Recorder uit de lijst verwijderen</translation>
+        <translation>Recorder uit de lijst verwijderen</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation translatorcomment="AI-translated">Bevestig NVR-verwijdering</translation>
+        <translation>Bevestig NVR-verwijdering</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation translatorcomment="AI-translated">Weet u zeker dat u deze NVR wilt verwijderen?</translation>
+        <translation>Weet u zeker dat u deze NVR wilt verwijderen?</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation translatorcomment="AI-translated">Waarschuwing!</translation>
+        <translation>Waarschuwing!</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation translatorcomment="AI-translated">Bent u er absoluut zeker van en weet u wat u doet?</translation>
+        <translation>Bent u er absoluut zeker van en weet u wat u doet?</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation translatorcomment="AI-translated">NVR-status</translation>
+        <translation>NVR-status</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation translatorcomment="AI-translated">NVR-status controleren...</translation>
+        <translation>NVR-status controleren...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation translatorcomment="AI-translated">Laatste controle:</translation>
+        <translation>Laatste controle:</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation translatorcomment="AI-translated">nooit</translation>
+        <translation>nooit</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Dempen</translation>
+        <translation>Dempen</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation translatorcomment="AI-translated">FOUT</translation>
+        <translation>FOUT</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation translatorcomment="AI-translated">Oké</translation>
+        <translation>Oké</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation translatorcomment="AI-translated">Geen statusgegevens</translation>
+        <translation>Geen statusgegevens</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation translatorcomment="AI-translated">Druk op de onderstaande knop om de NVR-status te controleren.</translation>
+        <translation>Druk op de onderstaande knop om de NVR-status te controleren.</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation translatorcomment="AI-translated">Controleer nu</translation>
+        <translation>Controleer nu</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation translatorcomment="AI-translated">Sluiten</translation>
+        <translation>Sluiten</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation translatorcomment="AI-translated">Gesimuleerde NVR</translation>
+        <translation>Gesimuleerde NVR</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation translatorcomment="AI-translated">Schijf 1</translation>
+        <translation>Schijf 1</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation translatorcomment="AI-translated">Kritieke schijffout/storing (simulatie)</translation>
+        <translation>Kritieke schijffout/storing (simulatie)</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation translatorcomment="AI-translated">Geen verbindings- of inlogfout (simulatie)</translation>
+        <translation>Geen verbindings- of inlogfout (simulatie)</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation translatorcomment="AI-translated">Geen verbindings- of inlogfout</translation>
+        <translation>Geen verbindings- of inlogfout</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation translatorcomment="AI-translated">Fout bij lezen NVR-status (SDK)</translation>
+        <translation>Fout bij lezen NVR-status (SDK)</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation translatorcomment="AI-translated">Hoge CPU-belasting (&gt;85%)</translation>
+        <translation>Hoge CPU-belasting (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation translatorcomment="AI-translated">Hardwarefout apparaat</translation>
+        <translation>Hardwarefout apparaat</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation translatorcomment="AI-translated">Schijf %1</translation>
+        <translation>Schijf %1</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation translatorcomment="AI-translated">Kritieke schijffout/-fout</translation>
+        <translation>Kritieke schijffout/-fout</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation translatorcomment="AI-translated">Schijf niet geformatteerd</translation>
+        <translation>Schijf niet geformatteerd</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation translatorcomment="AI-translated">Schijf vol (overschrijven uitgeschakeld)</translation>
+        <translation>Schijf vol (overschrijven uitgeschakeld)</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation translatorcomment="AI-translated">Archief -</translation>
+        <translation>Archief -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation translatorcomment="AI-translated">Januari</translation>
+        <translation>Januari</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation translatorcomment="AI-translated">Februari</translation>
+        <translation>Februari</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation translatorcomment="AI-translated">Maart</translation>
+        <translation>Maart</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation translatorcomment="AI-translated">April</translation>
+        <translation>April</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation translatorcomment="AI-translated">Mei</translation>
+        <translation>Mei</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation translatorcomment="AI-translated">Juni</translation>
+        <translation>Juni</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation translatorcomment="AI-translated">Juli</translation>
+        <translation>Juli</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation translatorcomment="AI-translated">Augustus</translation>
+        <translation>Augustus</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation translatorcomment="AI-translated">September</translation>
+        <translation>September</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation translatorcomment="AI-translated">Oktober</translation>
+        <translation>Oktober</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation translatorcomment="AI-translated">November</translation>
+        <translation>November</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation translatorcomment="AI-translated">December</translation>
+        <translation>December</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Vorige maand</translation>
+        <translation>Vorige maand</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation translatorcomment="AI-translated">Selecteer archiefdatum</translation>
+        <translation>Selecteer archiefdatum</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Volgende maand</translation>
+        <translation>Volgende maand</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation translatorcomment="AI-translated">ma</translation>
+        <translation>ma</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation translatorcomment="AI-translated">Di</translation>
+        <translation>Di</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation translatorcomment="AI-translated">Wij</translation>
+        <translation>Wij</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation translatorcomment="AI-translated">Th</translation>
+        <translation>Th</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation translatorcomment="AI-translated">Fr</translation>
+        <translation>Fr</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation translatorcomment="AI-translated">Za</translation>
+        <translation>Za</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation translatorcomment="AI-translated">Zo</translation>
+        <translation>Zo</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation translatorcomment="AI-translated">Beschikbaarheid ophalen...</translation>
+        <translation>Beschikbaarheid ophalen...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation translatorcomment="AI-translated">Camera's</translation>
+        <translation>Camera's</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation translatorcomment="AI-translated">Camera zoeken...</translation>
+        <translation>Camera zoeken...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation translatorcomment="AI-translated">Duidelijke zoekopdracht</translation>
+        <translation>Duidelijke zoekopdracht</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation translatorcomment="AI-translated">Bepalen van het werkelijke einde van de opname...</translation>
+        <translation>Bepalen van het werkelijke einde van de opname...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation translatorcomment="AI-translated">Opnamegegevens ophalen...</translation>
+        <translation>Opnamegegevens ophalen...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation translatorcomment="AI-translated">Hikvision-archief laden...</translation>
+        <translation>Hikvision-archief laden...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation translatorcomment="AI-translated">Geen opname op het geselecteerde moment</translation>
+        <translation>Geen opname op het geselecteerde moment</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Dempen</translation>
+        <translation>Dempen</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Maximaal volume</translation>
+        <translation>Maximaal volume</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Maak een momentopname in volledige resolutie</translation>
+        <translation>Maak een momentopname in volledige resolutie</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Schakel de 1:1-modus uit</translation>
+        <translation>Schakel de 1:1-modus uit</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">1:1-modus inschakelen (pixel-tot-pixel)</translation>
+        <translation>1:1-modus inschakelen (pixel-tot-pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Zoom opnieuw instellen</translation>
+        <translation>Zoom opnieuw instellen</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation translatorcomment="AI-translated">Selecteer het gebied om in te zoomen</translation>
+        <translation>Selecteer het gebied om in te zoomen</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation translatorcomment="AI-translated">Selecteer het gebied om in te zoomen</translation>
+        <translation>Selecteer het gebied om in te zoomen</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation translatorcomment="AI-translated">Rasterweergave herstellen</translation>
+        <translation>Rasterweergave herstellen</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation translatorcomment="AI-translated">Toon op volledig scherm</translation>
+        <translation>Toon op volledig scherm</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation translatorcomment="AI-translated">Verwijder de camera uit het zicht</translation>
+        <translation>Verwijder de camera uit het zicht</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation translatorcomment="AI-translated">Leeg zichtvenster</translation>
+        <translation>Leeg zichtvenster</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation translatorcomment="AI-translated">Selecteer dit venster, kies een camera uit de lijst en klik op + om deze toe te voegen</translation>
+        <translation>Selecteer dit venster, kies een camera uit de lijst en klik op + om deze toe te voegen</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation translatorcomment="AI-translated">Vorige dag</translation>
+        <translation>Vorige dag</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation translatorcomment="AI-translated">Datum uit kalender selecteren</translation>
+        <translation>Datum uit kalender selecteren</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation translatorcomment="AI-translated">Volgende dag</translation>
+        <translation>Volgende dag</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation translatorcomment="AI-translated">Vandaag</translation>
+        <translation>Vandaag</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation translatorcomment="AI-translated">Ga naar vandaag</translation>
+        <translation>Ga naar vandaag</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation translatorcomment="AI-translated">Opnames vernieuwen</translation>
+        <translation>Opnames vernieuwen</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation translatorcomment="AI-translated">Zoom naar laatste 1 uur</translation>
+        <translation>Zoom naar laatste 1 uur</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation translatorcomment="AI-translated">Zoom naar de laatste 8 uur</translation>
+        <translation>Zoom naar de laatste 8 uur</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation translatorcomment="AI-translated">Toon de hele dag op de tijdlijn</translation>
+        <translation>Toon de hele dag op de tijdlijn</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation translatorcomment="AI-translated">Centreer de tijdlijn op de huidige afspeeltijd</translation>
+        <translation>Centreer de tijdlijn op de huidige afspeeltijd</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation translatorcomment="AI-translated">Snelheid:</translation>
+        <translation>Snelheid:</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation translatorcomment="AI-translated">Stel de afspeelsnelheid in op %1x</translation>
+        <translation>Stel de afspeelsnelheid in op %1x</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Downloaden</translation>
+        <translation>Downloaden</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation translatorcomment="AI-translated">Download videoclips uit het geselecteerde tijdsbereik</translation>
+        <translation>Download videoclips uit het geselecteerde tijdsbereik</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation translatorcomment="AI-translated">Spoel 60 seconden terug</translation>
+        <translation>Spoel 60 seconden terug</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation translatorcomment="AI-translated">Spoel 45 seconden terug</translation>
+        <translation>Spoel 45 seconden terug</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation translatorcomment="AI-translated">Spoel 15 seconden terug</translation>
+        <translation>Spoel 15 seconden terug</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Pauzeer het afspelen</translation>
+        <translation>Pauzeer het afspelen</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Start het afspelen</translation>
+        <translation>Start het afspelen</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation translatorcomment="AI-translated">15 seconden vooruit</translation>
+        <translation>15 seconden vooruit</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation translatorcomment="AI-translated">45 seconden vooruit</translation>
+        <translation>45 seconden vooruit</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation translatorcomment="AI-translated">60 seconden vooruit</translation>
+        <translation>60 seconden vooruit</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation translatorcomment="AI-translated">Maak de onderste balk los</translation>
+        <translation>Maak de onderste balk los</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation translatorcomment="AI-translated">Onderste balk vastzetten</translation>
+        <translation>Onderste balk vastzetten</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation translatorcomment="AI-translated">Informatie over opnamebeschikbaarheid laden...</translation>
+        <translation>Informatie over opnamebeschikbaarheid laden...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Sluit venster</translation>
+        <translation>Sluit venster</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Maak de bovenste balk los</translation>
+        <translation>Maak de bovenste balk los</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Pin-bovenbalk</translation>
+        <translation>Pin-bovenbalk</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation translatorcomment="AI-translated">Sluit het volledige scherm af</translation>
+        <translation>Sluit het volledige scherm af</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation translatorcomment="AI-translated">Venster op volledig scherm</translation>
+        <translation>Venster op volledig scherm</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation translatorcomment="AI-translated">Zijbalk verbergen</translation>
+        <translation>Zijbalk verbergen</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation translatorcomment="AI-translated">Zijbalk tonen</translation>
+        <translation>Zijbalk tonen</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation translatorcomment="AI-translated">Tijdlijn weergeven</translation>
+        <translation>Tijdlijn weergeven</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation translatorcomment="AI-translated">Tijdlijn verbergen</translation>
+        <translation>Tijdlijn verbergen</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation translatorcomment="AI-translated">Open de map met opnames</translation>
+        <translation>Open de map met opnames</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation translatorcomment="AI-translated">Open de map met momentopnamen</translation>
+        <translation>Open de map met momentopnamen</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation translatorcomment="AI-translated">Geen media</translation>
+        <translation>Geen media</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation translatorcomment="AI-translated">Laden...</translation>
+        <translation>Laden...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation translatorcomment="AI-translated">Geladen</translation>
+        <translation>Geladen</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation translatorcomment="AI-translated">Vastgelopen</translation>
+        <translation>Vastgelopen</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation translatorcomment="AI-translated">Buffer %1\%</translation>
+        <translation>Buffer %1\%</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation translatorcomment="AI-translated">Geen gegevens om weer te geven</translation>
+        <translation>Geen gegevens om weer te geven</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation translatorcomment="AI-translated">Liveweergave herstellen...</translation>
+        <translation>Liveweergave herstellen...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Dempen</translation>
+        <translation>Dempen</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Maximaal volume</translation>
+        <translation>Maximaal volume</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Maak een momentopname in volledige resolutie</translation>
+        <translation>Maak een momentopname in volledige resolutie</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation translatorcomment="AI-translated">Afspeelarchief</translation>
+        <translation>Afspeelarchief</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation translatorcomment="AI-translated">Schakel snel afspelen uit</translation>
+        <translation>Schakel snel afspelen uit</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation translatorcomment="AI-translated">Snel afspelen (tot 30 min)</translation>
+        <translation>Snel afspelen (tot 30 min)</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Schakel de 1:1-modus uit</translation>
+        <translation>Schakel de 1:1-modus uit</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">1:1-modus inschakelen (pixel-tot-pixel)</translation>
+        <translation>1:1-modus inschakelen (pixel-tot-pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Zoom opnieuw instellen</translation>
+        <translation>Zoom opnieuw instellen</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation translatorcomment="AI-translated">Klik en sleep op de camerafeed om in te zoomen</translation>
+        <translation>Klik en sleep op de camerafeed om in te zoomen</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation translatorcomment="AI-translated">Selecteer een regio om in te zoomen</translation>
+        <translation>Selecteer een regio om in te zoomen</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Start het afspelen</translation>
+        <translation>Start het afspelen</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Pauzeer het afspelen</translation>
+        <translation>Pauzeer het afspelen</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation translatorcomment="AI-translated">Afspeelsnelheid</translation>
+        <translation>Afspeelsnelheid</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation translatorcomment="AI-translated">Terugspoelweergave sluiten</translation>
+        <translation>Terugspoelweergave sluiten</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Hulpvenster</translation>
+        <translation>KVision - Hulpvenster</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVisie</translation>
+        <translation>KVisie</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Fout bij het lezen van de configuratie!</translation>
+        <translation>Fout bij het lezen van de configuratie!</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Maak de bovenste balk los</translation>
+        <translation>Maak de bovenste balk los</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Pin-bovenbalk</translation>
+        <translation>Pin-bovenbalk</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Schakel Volledig scherm in</translation>
+        <translation>Schakel Volledig scherm in</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation translatorcomment="AI-translated">Minimaliseer het venster</translation>
+        <translation>Minimaliseer het venster</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Opties en instellingen van het zijbalkpaneel</translation>
+        <translation>Opties en instellingen van het zijbalkpaneel</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Open een nieuw hulpvenster</translation>
+        <translation>Open een nieuw hulpvenster</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation translatorcomment="AI-translated">Opnamearchief en speler</translation>
+        <translation>Opnamearchief en speler</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Programma gebruikershandleiding</translation>
+        <translation>Programma gebruikershandleiding</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation translatorcomment="AI-translated">Schakel statistieken over resourcegebruik uit</translation>
+        <translation>Schakel statistieken over resourcegebruik uit</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation translatorcomment="AI-translated">Statistieken over resourcegebruik inschakelen</translation>
+        <translation>Statistieken over resourcegebruik inschakelen</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation translatorcomment="AI-translated">NVR-fouten gedetecteerd!</translation>
+        <translation>NVR-fouten gedetecteerd!</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation translatorcomment="AI-translated">NVR-status: OK</translation>
+        <translation>NVR-status: OK</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation translatorcomment="AI-translated">Wijzigingen in de rastergrootte vergrendelen</translation>
+        <translation>Wijzigingen in de rastergrootte vergrendelen</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Meer opties</translation>
+        <translation>Meer opties</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation translatorcomment="AI-translated">NVR-fouten gedetecteerd! Klik om details te bekijken.</translation>
+        <translation>NVR-fouten gedetecteerd! Klik om details te bekijken.</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Geen weergave geselecteerd, selecteer een weergave</translation>
+        <translation>Geen weergave geselecteerd, selecteer een weergave</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Selecteer een weergave in het hoofdmenu om camera's weer te geven.</translation>
+        <translation>Selecteer een weergave in het hoofdmenu om camera's weer te geven.</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation translatorcomment="AI-translated">KVision - Paneel</translation>
+        <translation>KVision - Paneel</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Sluit venster</translation>
+        <translation>Sluit venster</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Sluit programma</translation>
+        <translation>Sluit programma</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation translatorcomment="AI-translated">Weet u zeker dat u dit venster wilt sluiten?</translation>
+        <translation>Weet u zeker dat u dit venster wilt sluiten?</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Weet u zeker dat u het programma wilt sluiten?</translation>
+        <translation>Weet u zeker dat u het programma wilt sluiten?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">JA</translation>
+        <translation>JA</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NEE</translation>
+        <translation>NEE</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation translatorcomment="AI-translated">📊 SYSTEEMSTATISTIEKEN</translation>
+        <translation>📊 SYSTEEMSTATISTIEKEN</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation translatorcomment="AI-translated">Versleep het statistiekenpaneel</translation>
+        <translation>Versleep het statistiekenpaneel</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation translatorcomment="AI-translated">RAM-geheugen:</translation>
+        <translation>RAM-geheugen:</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation translatorcomment="AI-translated">VRAM:</translation>
+        <translation>VRAM:</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation translatorcomment="AI-translated">CPU:</translation>
+        <translation>CPU:</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation translatorcomment="AI-translated">GPU:</translation>
+        <translation>GPU:</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation translatorcomment="AI-translated">netto:</translation>
+        <translation>netto:</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation translatorcomment="AI-translated">Nieuw venster laden...</translation>
+        <translation>Nieuw venster laden...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,1027 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation translatorcomment="AI-translated">Er is een kritieke bug opgelost waarbij netwerkverlies en RTSP-streamtime-outs ervoor zorgden dat de speler een zombie werd, waardoor succesvolle herverbindingen werden voorkomen. De knop Opnieuw laden en automatisch hervatten werken nu volledig betrouwbaar.</translation>
+        <translation>Er is een kritieke bug opgelost waarbij netwerkverlies en RTSP-streamtime-outs ervoor zorgden dat de speler een zombie werd, waardoor succesvolle herverbindingen werden voorkomen. De knop Opnieuw laden en automatisch hervatten werken nu volledig betrouwbaar.</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation translatorcomment="AI-translated">Het uiterlijk van speler- en archiefstatusberichten vernieuwd. Het laden en herstellen van meldingen heeft nu een prettig cyaan thema met passende pictogrammen om ze beter te onderscheiden van kritieke fouten (geen media/netwerk).</translation>
+        <translation>Het uiterlijk van speler- en archiefstatusberichten vernieuwd. Het laden en herstellen van meldingen heeft nu een prettig cyaan thema met passende pictogrammen om ze beter te onderscheiden van kritieke fouten (geen media/netwerk).</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation translatorcomment="AI-translated">Geïntegreerde MakeKeyFrame-hardwareopdracht met Hikvision SDK. De app dwingt de camera nu agressief om een ​​I-Frame uit te zenden bij het schakelen tussen sub-/hoofdstreams en van live naar archief, waardoor de keyframe-wachttijd van 10 seconden wordt geëlimineerd.</translation>
+        <translation>Geïntegreerde MakeKeyFrame-hardwareopdracht met Hikvision SDK. De app dwingt de camera nu agressief om een ​​I-Frame uit te zenden bij het schakelen tussen sub-/hoofdstreams en van live naar archief, waardoor de keyframe-wachttijd van 10 seconden wordt geëlimineerd.</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation translatorcomment="AI-translated">On-the-fly overschrijven van de analyseuratieparameter verwijderd. De app handhaaft strikt de door de gebruiker gedefinieerde FFmpeg-waarden (het wordt ten zeerste aanbevolen om deze in te stellen op 100.000 voor camera's zonder audio om de blokkeringslimiet van 5 seconden te omzeilen).</translation>
+        <translation>On-the-fly overschrijven van de analyseuratieparameter verwijderd. De app handhaaft strikt de door de gebruiker gedefinieerde FFmpeg-waarden (het wordt ten zeerste aanbevolen om deze in te stellen op 100.000 voor camera's zonder audio om de blokkeringslimiet van 5 seconden te omzeilen).</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation translatorcomment="AI-translated">"HikSDK"-badges toegevoegd aan recorderviewports voor betere protocoldifferentiatie.</translation>
+        <translation>"HikSDK"-badges toegevoegd aan recorderviewports voor betere protocoldifferentiatie.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation translatorcomment="AI-translated">Gestroomlijnde diagnostische logboekregistratie (QDebug), waardoor waarschuwingen en kritieke fouten buiten de uitgebreide modus naar de console kunnen worden afgedrukt, waardoor het opsporen van NVR-fouten eenvoudiger wordt.</translation>
+        <translation>Gestroomlijnde diagnostische logboekregistratie (QDebug), waardoor waarschuwingen en kritieke fouten buiten de uitgebreide modus naar de console kunnen worden afgedrukt, waardoor het opsporen van NVR-fouten eenvoudiger wordt.</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation translatorcomment="AI-translated">Vals-positieve PlayM4 SDK-fouten (nr. 17 en 2) uitgefilterd die de console spammen tijdens het snelle scrubben van de tijdlijn in de speler.</translation>
+        <translation>Vals-positieve PlayM4 SDK-fouten (nr. 17 en 2) uitgefilterd die de console spammen tijdens het snelle scrubben van de tijdlijn in de speler.</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation translatorcomment="AI-translated">Vaste afkapping van niet-lineaire schaling (bijvoorbeeld 145%) door het Qt5-framework op KDE Plasma-systemen, waardoor een juiste interpretatie van het hoge DPI-beleid wordt afgedwongen.</translation>
+        <translation>Vaste afkapping van niet-lineaire schaling (bijvoorbeeld 145%) door het Qt5-framework op KDE Plasma-systemen, waardoor een juiste interpretatie van het hoge DPI-beleid wordt afgedwongen.</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation translatorcomment="AI-translated">Tijdelijke bevriezing van andere camera's op het liveraster opgelost tijdens het zoeken of slepen van de tijdlijn.</translation>
+        <translation>Tijdelijke bevriezing van andere camera's op het liveraster opgelost tijdens het zoeken of slepen van de tijdlijn.</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation translatorcomment="AI-translated">Alle blokkerende Hikvision SDK-netwerkoproepen (inloggen, stoppen, starten, snelheidsregeling) zijn verplaatst naar een asynchrone werkthread.</translation>
+        <translation>Alle blokkerende Hikvision SDK-netwerkoproepen (inloggen, stoppen, starten, snelheidsregeling) zijn verplaatst naar een asynchrone werkthread.</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation translatorcomment="AI-translated">Het probleem met het zwarte scherm bij het wisselen van kwaliteit (SUB/MAIN) voor RTSP-camera's is volledig geëlimineerd.</translation>
+        <translation>Het probleem met het zwarte scherm bij het wisselen van kwaliteit (SUB/MAIN) voor RTSP-camera's is volledig geëlimineerd.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation translatorcomment="AI-translated">De timer voor naadloos schakelen tussen streams is geoptimaliseerd tot 100 ms voor maximale snelheid.</translation>
+        <translation>De timer voor naadloos schakelen tussen streams is geoptimaliseerd tot 100 ms voor maximale snelheid.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation translatorcomment="AI-translated">FFmpeg-opties op laag niveau toegevoegd (nobuffer, low_delay) om vertraging van livestreams (drift) over lange operationele perioden te elimineren.</translation>
+        <translation>FFmpeg-opties op laag niveau toegevoegd (nobuffer, low_delay) om vertraging van livestreams (drift) over lange operationele perioden te elimineren.</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation translatorcomment="AI-translated">Er is een knop geïntroduceerd om FFmpeg-parameters in bulk bij te werken voor alle bestaande camera's in alle lay-outs.</translation>
+        <translation>Er is een knop geïntroduceerd om FFmpeg-parameters in bulk bij te werken voor alle bestaande camera's in alle lay-outs.</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation translatorcomment="AI-translated">Optie toegevoegd om specifieke camera's uit te sluiten van globale FFmpeg-parameterupdates (nieuw selectievakje in viewport-instellingen).</translation>
+        <translation>Optie toegevoegd om specifieke camera's uit te sluiten van globale FFmpeg-parameterupdates (nieuw selectievakje in viewport-instellingen).</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation translatorcomment="AI-translated">Beveiligde het migratieproces van de standaardinstellingen, waardoor de gebruiker nieuwe vlaggen permanent kan verwijderen of wijzigen zonder dat deze bij elke opstart worden geforceerd.</translation>
+        <translation>Beveiligde het migratieproces van de standaardinstellingen, waardoor de gebruiker nieuwe vlaggen permanent kan verwijderen of wijzigen zonder dat deze bij elke opstart worden geforceerd.</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation translatorcomment="AI-translated">Snelle afspeelfunctionaliteit toegevoegd (tot 30 minuten terugspoelen) direct in de cameraviewport.</translation>
+        <translation>Snelle afspeelfunctionaliteit toegevoegd (tot 30 minuten terugspoelen) direct in de cameraviewport.</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation translatorcomment="AI-translated">Volledige, bidirectionele realtime synchronisatie geïmplementeerd tussen alle vensters en hulpprogrammaprocessen voor instellingen: audio dempen, zoomanimatie uitschakelen en alle Hikvision NVR-statusbewakingsopties.</translation>
+        <translation>Volledige, bidirectionele realtime synchronisatie geïmplementeerd tussen alle vensters en hulpprogrammaprocessen voor instellingen: audio dempen, zoomanimatie uitschakelen en alle Hikvision NVR-statusbewakingsopties.</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation translatorcomment="AI-translated">Dynamische weergave van minutenlabels toegevoegd (bijvoorbeeld:15,:30,:45) bij minutentikken op de tijdlijn van de archiefspeler met intelligente aanpassing van de labeldichtheid (zoomHours).</translation>
+        <translation>Dynamische weergave van minutenlabels toegevoegd (bijvoorbeeld:15,:30,:45) bij minutentikken op de tijdlijn van de archiefspeler met intelligente aanpassing van de labeldichtheid (zoomHours).</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation translatorcomment="AI-translated">Een nieuwe optie toegevoegd in de UI-instellingen: "Zoomanimatie van viewport uitschakelen" met onmiddellijke toepassing in camerarasterweergave.</translation>
+        <translation>Een nieuwe optie toegevoegd in de UI-instellingen: "Zoomanimatie van viewport uitschakelen" met onmiddellijke toepassing in camerarasterweergave.</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation translatorcomment="AI-translated">Het initialisatieproces van de archiefspeler is opnieuw opgebouwd: de verbinding en het laden van video's zijn opgeschort totdat de exacte opnamelimieten zijn bepaald (via een ultrasnelle 24-uurs asynchrone zoekactie), waardoor voortijdig afspelen en beeldsprongen worden geëlimineerd.</translation>
+        <translation>Het initialisatieproces van de archiefspeler is opnieuw opgebouwd: de verbinding en het laden van video's zijn opgeschort totdat de exacte opnamelimieten zijn bepaald (via een ultrasnelle 24-uurs asynchrone zoekactie), waardoor voortijdig afspelen en beeldsprongen worden geëlimineerd.</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation translatorcomment="AI-translated">Verfijnde berichten over het laden van Hikvision-archief – de laadstatus wordt alleen weergegeven tijdens actieve streambuffering, en er wordt een speciale waarschuwing weergegeven als de afspeelkop buiten de beschikbare opnamegrenzen wordt bewogen.</translation>
+        <translation>Verfijnde berichten over het laden van Hikvision-archief – de laadstatus wordt alleen weergegeven tijdens actieve streambuffering, en er wordt een speciale waarschuwing weergegeven als de afspeelkop buiten de beschikbare opnamegrenzen wordt bewogen.</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation translatorcomment="AI-translated">Nieuwe configuratievelden geïntroduceerd in het instellingenpaneel: standaard startoffset voor het afspelen van archief (in seconden, standaard 60s) en standaard tijdlijnzoombereik (zoomuren, standaard 2 uur).</translation>
+        <translation>Nieuwe configuratievelden geïntroduceerd in het instellingenpaneel: standaard startoffset voor het afspelen van archief (in seconden, standaard 60s) en standaard tijdlijnzoombereik (zoomuren, standaard 2 uur).</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation translatorcomment="AI-translated">Er is een pictogram voor direct inloggen op het web toegevoegd aan het webpaneel van de recorder in de NVR-statuspop-up.</translation>
+        <translation>Er is een pictogram voor direct inloggen op het web toegevoegd aan het webpaneel van de recorder in de NVR-statuspop-up.</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation translatorcomment="AI-translated">Onderdrukkingsfunctionaliteit voor foutrapportage toegevoegd voor individuele recorders.</translation>
+        <translation>Onderdrukkingsfunctionaliteit voor foutrapportage toegevoegd voor individuele recorders.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation translatorcomment="AI-translated">Een onjuiste Poolse vertaling "Gesimuleerde recorder" in het statusvenster opgelost en het juiste woordonderscheid geïmplementeerd ("Onderdrukken" voor fouten versus "Dempen" voor audio).</translation>
+        <translation>Een onjuiste Poolse vertaling "Gesimuleerde recorder" in het statusvenster opgelost en het juiste woordonderscheid geïmplementeerd ("Onderdrukken" voor fouten versus "Dempen" voor audio).</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation translatorcomment="AI-translated">Periodieke (elke 5 minuten) en handmatige Hikvision NVR/DVR-foutstatusmonitoring geïmplementeerd met behulp van SDK/ISAPI-diagnostiek.</translation>
+        <translation>Periodieke (elke 5 minuten) en handmatige Hikvision NVR/DVR-foutstatusmonitoring geïmplementeerd met behulp van SDK/ISAPI-diagnostiek.</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation translatorcomment="AI-translated">Configuratieopties toegevoegd in Algemene instellingen om Hikvision NVR-statuscontrole in/uit te schakelen en bewaakte kritische fouttypen aan te passen.</translation>
+        <translation>Configuratieopties toegevoegd in Algemene instellingen om Hikvision NVR-statuscontrole in/uit te schakelen en bewaakte kritische fouttypen aan te passen.</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation translatorcomment="AI-translated">Een hifi warmgroen/rood statuspictogram in de bovenste balk ontworpen met diep pulserende buitenste golven en innerlijke hartslagrimpelanimaties om actieve kritieke fouten aan te geven.</translation>
+        <translation>Een hifi warmgroen/rood statuspictogram in de bovenste balk ontworpen met diep pulserende buitenste golven en innerlijke hartslagrimpelanimaties om actieve kritieke fouten aan te geven.</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation translatorcomment="AI-translated">Introductie van een uitstekende rode indicatiecirkel aan de bovenrand die bovenaan het scherm pulseert wanneer de hoofdwerkbalk is samengevouwen, zodat kritische waarschuwingen nooit worden gemist.</translation>
+        <translation>Introductie van een uitstekende rode indicatiecirkel aan de bovenrand die bovenaan het scherm pulseert wanneer de hoofdwerkbalk is samengevouwen, zodat kritische waarschuwingen nooit worden gemist.</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation translatorcomment="AI-translated">Er is een elegant, schuifbaar pop-upvenster "Recorderstatus" gecreëerd, beperkt tot 85% van de schermhoogte, met gedetailleerde foutcodes.</translation>
+        <translation>Er is een elegant, schuifbaar pop-upvenster "Recorderstatus" gecreëerd, beperkt tot 85% van de schermhoogte, met gedetailleerde foutcodes.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation translatorcomment="AI-translated">Run flag "--simulate-error" toegevoegd om voor demonstratiedoeleinden onmiddellijk schijfstoringen en verbindingsfouten op alle recorders te simuleren.</translation>
+        <translation>Run flag "--simulate-error" toegevoegd om voor demonstratiedoeleinden onmiddellijk schijfstoringen en verbindingsfouten op alle recorders te simuleren.</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation translatorcomment="AI-translated">Uitlijning van lijstframe-badges en statusindicatoren geïmplementeerd in geconfigureerde recorderweergaven.</translation>
+        <translation>Uitlijning van lijstframe-badges en statusindicatoren geïmplementeerd in geconfigureerde recorderweergaven.</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation translatorcomment="AI-translated">Volledige tweetalige vertalingsdekking (Pools/Engels) bereikt voor alle NVR-diagnostiek, het instellen van selectievakjes, tooltips, waarschuwingen en parseropties voor de opdrachtregel.</translation>
+        <translation>Volledige tweetalige vertalingsdekking (Pools/Engels) bereikt voor alle NVR-diagnostiek, het instellen van selectievakjes, tooltips, waarschuwingen en parseropties voor de opdrachtregel.</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation translatorcomment="AI-translated">De mogelijkheid toegevoegd om de actieve lay-out opnieuw te laden door op de knop op de bovenste werkbalk te klikken.</translation>
+        <translation>De mogelijkheid toegevoegd om de actieve lay-out opnieuw te laden door op de knop op de bovenste werkbalk te klikken.</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation translatorcomment="AI-translated">Gemiddelde NVML-gebruiksmonsters in de loop van de tijd om de GPU-gebruiksgrafiek vloeiender te maken en onregelmatige metingen te elimineren.</translation>
+        <translation>Gemiddelde NVML-gebruiksmonsters in de loop van de tijd om de GPU-gebruiksgrafiek vloeiender te maken en onregelmatige metingen te elimineren.</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation translatorcomment="AI-translated">Een einde gemaakt aan het kortstondig knipperen van video (zwarte frames) en niet-gesynchroniseerde hiaten in audio en video bij het overschakelen van de kwaliteit van SUB- naar MAIN-streams tijdens viewport-maximalisatie door de actieve spelerswissel uit te stellen totdat het eerste frame op het scherm wordt weergegeven.</translation>
+        <translation>Een einde gemaakt aan het kortstondig knipperen van video (zwarte frames) en niet-gesynchroniseerde hiaten in audio en video bij het overschakelen van de kwaliteit van SUB- naar MAIN-streams tijdens viewport-maximalisatie door de actieve spelerswissel uit te stellen totdat het eerste frame op het scherm wordt weergegeven.</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation translatorcomment="AI-translated">Er zijn interactieve, duidelijke en 2x bredere schuifbalken toegevoegd aan de selectiekolommen voor uren, minuten en seconden in de pop-up voor het downloaden van archiefbestanden.</translation>
+        <translation>Er zijn interactieve, duidelijke en 2x bredere schuifbalken toegevoegd aan de selectiekolommen voor uren, minuten en seconden in de pop-up voor het downloaden van archiefbestanden.</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation translatorcomment="AI-translated">Nieuwe intuïtieve opties toegevoegd aan het contextmenu van de viewports: 'Snapshot' (het huidige frame opslaan) en 'Playback' (onmiddellijke overgang naar het afspelen van het archief van de gegeven camera).</translation>
+        <translation>Nieuwe intuïtieve opties toegevoegd aan het contextmenu van de viewports: 'Snapshot' (het huidige frame opslaan) en 'Playback' (onmiddellijke overgang naar het afspelen van het archief van de gegeven camera).</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation translatorcomment="AI-translated">Revolutionaire en vaste PCM-audioverwerking: directe pijplijndoorschakeling naar QAudioOutput, eliminatie van interface-bevriezingen (ALSA/PulseAudio/Pipewire) door de bemonsteringssnelheid te stabiliseren (debounce na 5 stabiele frames), 2s cooldown bij het opnieuw afspelen van de uitvoer, het filteren van beschadigde parameters en een buffer van 64 KB die netwerkjitter vermindert.</translation>
+        <translation>Revolutionaire en vaste PCM-audioverwerking: directe pijplijndoorschakeling naar QAudioOutput, eliminatie van interface-bevriezingen (ALSA/PulseAudio/Pipewire) door de bemonsteringssnelheid te stabiliseren (debounce na 5 stabiele frames), 2s cooldown bij het opnieuw afspelen van de uitvoer, het filteren van beschadigde parameters en een buffer van 64 KB die netwerkjitter vermindert.</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation translatorcomment="AI-translated">Implementeerde een interactieve HUD-volumeschuifregelaar rechtstreeks op de viewport-tegels, samen met een snelle dempoptie en volumemaximalisatie met één klik.</translation>
+        <translation>Implementeerde een interactieve HUD-volumeschuifregelaar rechtstreeks op de viewport-tegels, samen met een snelle dempoptie en volumemaximalisatie met één klik.</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation translatorcomment="AI-translated">Automatische en onmiddellijke demping van LIVE-streams in het hoofdraster geïmplementeerd bij het openen van het archiefafspeelvenster, waardoor overlappende geluiden (kakofonie) worden voorkomen.</translation>
+        <translation>Automatische en onmiddellijke demping van LIVE-streams in het hoofdraster geïmplementeerd bij het openen van het archiefafspeelvenster, waardoor overlappende geluiden (kakofonie) worden voorkomen.</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation translatorcomment="AI-translated">Introductie van een centraal SnapshotSavedDialog notificatiesysteem voor opgeslagen snapshots (donkergrijze behuizing, groenblauwe randen, automatisch sluiten na 10 seconden) met een snelle 'Browse'-link om de map rechtstreeks in de systeembestandsbeheerder te openen.</translation>
+        <translation>Introductie van een centraal SnapshotSavedDialog notificatiesysteem voor opgeslagen snapshots (donkergrijze behuizing, groenblauwe randen, automatisch sluiten na 10 seconden) met een snelle 'Browse'-link om de map rechtstreeks in de systeembestandsbeheerder te openen.</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation translatorcomment="AI-translated">Het ingebouwde helpvenster is verrijkt met een gedetailleerd hoofdstuk 'Knopfunctiesbeschrijving' met behulp van native, scherpe SVG-vectorpictogrammen. Het helpvenster wordt nu volledig automatisch geopend en gecentreerd boven het hoofdvenster wanneer het programma voor de eerste keer wordt gestart.</translation>
+        <translation>Het ingebouwde helpvenster is verrijkt met een gedetailleerd hoofdstuk 'Knopfunctiesbeschrijving' met behulp van native, scherpe SVG-vectorpictogrammen. Het helpvenster wordt nu volledig automatisch geopend en gecentreerd boven het hoofdvenster wanneer het programma voor de eerste keer wordt gestart.</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation translatorcomment="AI-translated">Standaardweergave van de bovenste balk geïntroduceerd bij het opstarten van programma/venster en een optie 'Toon bovenste balk standaard na het openen van een venster' toegevoegd in de instellingen, waardoor dit gedrag kan worden aangepast aan persoonlijke voorkeuren.</translation>
+        <translation>Standaardweergave van de bovenste balk geïntroduceerd bij het opstarten van programma/venster en een optie 'Toon bovenste balk standaard na het openen van een venster' toegevoegd in de instellingen, waardoor dit gedrag kan worden aangepast aan persoonlijke voorkeuren.</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation translatorcomment="AI-translated">Implementeerde dynamische RPATH-bibliotheekpaden in CMakeLists.txt met behulp van GNUInstallDirs, waardoor onmiddellijke uitvoering van de gecompileerde applicatie op Ubuntu en Debian mogelijk werd zonder de noodzaak van handmatige configuratie van /etc/ld.so.conf.d/ en ldconfig.</translation>
+        <translation>Implementeerde dynamische RPATH-bibliotheekpaden in CMakeLists.txt met behulp van GNUInstallDirs, waardoor onmiddellijke uitvoering van de gecompileerde applicatie op Ubuntu en Debian mogelijk werd zonder de noodzaak van handmatige configuratie van /etc/ld.so.conf.d/ en ldconfig.</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation translatorcomment="AI-translated">Hernoemde het programma naar KVision, met introductie van automatische migratie van gebruikersconfiguraties, nieuwe pictogrammen met meerdere formaten (128px, 256px, 512px) en weergave van de volledige versie in de titelbalk van het venster.</translation>
+        <translation>Hernoemde het programma naar KVision, met introductie van automatische migratie van gebruikersconfiguraties, nieuwe pictogrammen met meerdere formaten (128px, 256px, 512px) en weergave van de volledige versie in de titelbalk van het venster.</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation translatorcomment="AI-translated">Probleem opgelost met het waarschuwingsvenster voor het overschrijden van de limiet voor hulpvensters (ontbrekende QML-bron en gelezen QSettings).</translation>
+        <translation>Probleem opgelost met het waarschuwingsvenster voor het overschrijden van de limiet voor hulpvensters (ontbrekende QML-bron en gelezen QSettings).</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation translatorcomment="AI-translated">Het ontbrekende programmapictogram onder Wayland opgelost (hicolor-thema-installatie en setDesktopFileName).</translation>
+        <translation>Het ontbrekende programmapictogram onder Wayland opgelost (hicolor-thema-installatie en setDesktopFileName).</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation translatorcomment="AI-translated">De optie voor het automatisch samenvouwen van de bovenste balk is verwijderd uit Instellingen - vanaf nu klapt de bovenste balk in LIVE-vensters (hoofd- en hulpvensters) standaard samen bij het opstarten, en de pin-knop zet deze lokaal en tijdelijk vast (in het geheugen) zonder de status ervan op te slaan.</translation>
+        <translation>De optie voor het automatisch samenvouwen van de bovenste balk is verwijderd uit Instellingen - vanaf nu klapt de bovenste balk in LIVE-vensters (hoofd- en hulpvensters) standaard samen bij het opstarten, en de pin-knop zet deze lokaal en tijdelijk vast (in het geheugen) zonder de status ervan op te slaan.</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation translatorcomment="AI-translated">Er is een limiet geïntroduceerd voor het aantal hulpvensters (configureerbaar van 0 tot 3) met een elegant waarschuwingsvenster wanneer wordt geprobeerd dit te overschrijden.</translation>
+        <translation>Er is een limiet geïntroduceerd voor het aantal hulpvensters (configureerbaar van 0 tot 3) met een elegant waarschuwingsvenster wanneer wordt geprobeerd dit te overschrijden.</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation translatorcomment="AI-translated">Subtiele donkergrijze randen van 1px toegevoegd rond ongebruikte vensters in het LIVE-indelingsraster voor een betere afbakening van velden.</translation>
+        <translation>Subtiele donkergrijze randen van 1px toegevoegd rond ongebruikte vensters in het LIVE-indelingsraster voor een betere afbakening van velden.</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation translatorcomment="AI-translated">Beveiligd bewerken van opslagpaden en configuratieopties voor systeemmedia achter een tijdelijk selectievakje 'Wijzigingen in deze sectie activeren', waardoor onbedoelde wijzigingen worden voorkomen (bewerkingsstatus wordt gereset bij sluiten).</translation>
+        <translation>Beveiligd bewerken van opslagpaden en configuratieopties voor systeemmedia achter een tijdelijk selectievakje 'Wijzigingen in deze sectie activeren', waardoor onbedoelde wijzigingen worden voorkomen (bewerkingsstatus wordt gereset bij sluiten).</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation translatorcomment="AI-translated">Introductie van directe snelkoppelingen voor 'open opslagmap' (gemarkeerd in celadon na voltooide download in het archiefvenster) en altijd actieve snelopenknoppen voor snapshot- en videomappen in Instellingen (met automatische mapaanmaak op schijf als deze ontbreekt).</translation>
+        <translation>Introductie van directe snelkoppelingen voor 'open opslagmap' (gemarkeerd in celadon na voltooide download in het archiefvenster) en altijd actieve snelopenknoppen voor snapshot- en videomappen in Instellingen (met automatische mapaanmaak op schijf als deze ontbreekt).</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation translatorcomment="AI-translated">Interactieve validatie geïntroduceerd bij het klikken op de knop 'Pobierz' (Downloaden) in het downloadvenster: automatische controles van het formaat en de chronologische datum, weergave van een rode waarschuwingstooltip en focus op het eerste ongeldige veld.</translation>
+        <translation>Interactieve validatie geïntroduceerd bij het klikken op de knop 'Pobierz' (Downloaden) in het downloadvenster: automatische controles van het formaat en de chronologische datum, weergave van een rode waarschuwingstooltip en focus op het eerste ongeldige veld.</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation translatorcomment="AI-translated">Volledige toetsenbordnavigatie geïmplementeerd (pijltjestoetsen omhoog/omlaag om waarden te wijzigen, links/rechts om van kolom te wisselen) in de klokkiezerpop-up.</translation>
+        <translation>Volledige toetsenbordnavigatie geïmplementeerd (pijltjestoetsen omhoog/omlaag om waarden te wijzigen, links/rechts om van kolom te wisselen) in de klokkiezerpop-up.</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation translatorcomment="AI-translated">Zorgde voor een volledig schone lancering voor hulpvensters (zonder automatisch de zijbalk met opties te openen) en sloot geometrie-instellingen uit die werden opgeslagen in hulpvensters, waardoor gedeelde configuratievervuiling werd geëlimineerd.</translation>
+        <translation>Zorgde voor een volledig schone lancering voor hulpvensters (zonder automatisch de zijbalk met opties te openen) en sloot geometrie-instellingen uit die werden opgeslagen in hulpvensters, waardoor gedeelde configuratievervuiling werd geëlimineerd.</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation translatorcomment="AI-translated">Volledige Engelstalige ondersteuning toegevoegd voor alle nieuwe opmaak- en chronologische validatiefoutmeldingen in het downloadvenster.</translation>
+        <translation>Volledige Engelstalige ondersteuning toegevoegd voor alle nieuwe opmaak- en chronologische validatiefoutmeldingen in het downloadvenster.</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation translatorcomment="AI-translated">Geëlimineerde RAM-geheugenlekken bij het wisselen van camera-indeling door het videooppervlak automatisch en correct te stoppen voordat formaten worden bijgewerkt en de afmetingen van de renderer overeenkomen.</translation>
+        <translation>Geëlimineerde RAM-geheugenlekken bij het wisselen van camera-indeling door het videooppervlak automatisch en correct te stoppen voordat formaten worden bijgewerkt en de afmetingen van de renderer overeenkomen.</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation translatorcomment="AI-translated">Implementeerde het onvoorwaardelijk vrijgeven en vernietigen van audio-uitvoerobjecten bij het stoppen van de speler, en introduceerde automatische recycling van deze objecten om geheugen- en threadlekken op Linux te elimineren.</translation>
+        <translation>Implementeerde het onvoorwaardelijk vrijgeven en vernietigen van audio-uitvoerobjecten bij het stoppen van de speler, en introduceerde automatische recycling van deze objecten om geheugen- en threadlekken op Linux te elimineren.</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation translatorcomment="AI-translated">Problemen met het bevriezen van video's opgelost (effen kleurenscherm na zoom in de viewport) door correcte signalering van de videobeschikbaarheid te forceren bij het presenteren van het eerste frame van een nieuwe stream.</translation>
+        <translation>Problemen met het bevriezen van video's opgelost (effen kleurenscherm na zoom in de viewport) door correcte signalering van de videobeschikbaarheid te forceren bij het presenteren van het eerste frame van een nieuwe stream.</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation translatorcomment="AI-translated">Een algemene instelling toegevoegd 'Audio-ondersteuning volledig uitschakelen', waardoor de audioverwerking volledig kan worden omzeild om mogelijke overhead- en geheugenlekken te elimineren.</translation>
+        <translation>Een algemene instelling toegevoegd 'Audio-ondersteuning volledig uitschakelen', waardoor de audioverwerking volledig kan worden omzeild om mogelijke overhead- en geheugenlekken te elimineren.</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation translatorcomment="AI-translated">De module voor systeemstatistieken is geoptimaliseerd om de overhead van continu geheugengebruik te elimineren door proces-ID's in de cache op te slaan en toewijzingen van dynamische reguliere expressies te verwijderen.</translation>
+        <translation>De module voor systeemstatistieken is geoptimaliseerd om de overhead van continu geheugengebruik te elimineren door proces-ID's in de cache op te slaan en toewijzingen van dynamische reguliere expressies te verwijderen.</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation translatorcomment="AI-translated">Dwingt agressieve Garbage Collection (GC) af bij het wisselen van camera-indeling en maakt beeldschalingscontexten (SwsContext) in videobuffers teniet.</translation>
+        <translation>Dwingt agressieve Garbage Collection (GC) af bij het wisselen van camera-indeling en maakt beeldschalingscontexten (SwsContext) in videobuffers teniet.</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation translatorcomment="AI-translated">Zorgde voor een goede opschoning van de bronnen van de wijzigingsdetector voor statische configuratiebestanden (QFileSystemWatcher) bij het afsluiten van de applicatie.</translation>
+        <translation>Zorgde voor een goede opschoning van de bronnen van de wijzigingsdetector voor statische configuratiebestanden (QFileSystemWatcher) bij het afsluiten van de applicatie.</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation translatorcomment="AI-translated">Er zijn synchronisatie- en bevriezingsproblemen opgelost van het hulpvensterproces op langzamere machines tijdens het opeenvolgend verwijderen van camera's en het samenvoegen of verplaatsen van viewports.</translation>
+        <translation>Er zijn synchronisatie- en bevriezingsproblemen opgelost van het hulpvensterproces op langzamere machines tijdens het opeenvolgend verwijderen van camera's en het samenvoegen of verplaatsen van viewports.</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation translatorcomment="AI-translated">Vaste aggregatie van GPU-gebruik, VRAM-gebruik en netwerkbandbreedtestatistieken van alle applicatieprocessen die gedeeld geheugen (/dev/shm) op de achtergrond gebruiken.</translation>
+        <translation>Vaste aggregatie van GPU-gebruik, VRAM-gebruik en netwerkbandbreedtestatistieken van alle applicatieprocessen die gedeeld geheugen (/dev/shm) op de achtergrond gebruiken.</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation translatorcomment="AI-translated">Beschermde archiefspeler-destructor tegen dataraces bij het opschonen van openstaande RGB-taken.</translation>
+        <translation>Beschermde archiefspeler-destructor tegen dataraces bij het opschonen van openstaande RGB-taken.</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation translatorcomment="AI-translated">Implementatie van pooling van videospelers om pieken in het RAM-gebruik en flikkering bij het wisselen van lay-out te elimineren.</translation>
+        <translation>Implementatie van pooling van videospelers om pieken in het RAM-gebruik en flikkering bij het wisselen van lay-out te elimineren.</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation translatorcomment="AI-translated">Geoptimaliseerde GPU/VRAM-monitoring voor een processpecifiek model (geen nvidia-smi-spawning) met native ondersteuning voor NVIDIA-, AMD- en Intel GPU's (AMD/Intel-statistieken zijn niet getest).</translation>
+        <translation>Geoptimaliseerde GPU/VRAM-monitoring voor een processpecifiek model (geen nvidia-smi-spawning) met native ondersteuning voor NVIDIA-, AMD- en Intel GPU's (AMD/Intel-statistieken zijn niet getest).</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation translatorcomment="AI-translated">Toegestaan om het formaat van het paneel met systeemstatistieken aan te passen door de randen en hoeken te slepen met automatisch geschaalde grafieken.</translation>
+        <translation>Toegestaan om het formaat van het paneel met systeemstatistieken aan te passen door de randen en hoeken te slepen met automatisch geschaalde grafieken.</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation translatorcomment="AI-translated">Implementeerde het onmiddellijk verbergen van het hoofd- en hulpvenster bij het afsluiten van de bevestiging, waardoor het afsluiten onmiddellijk voor de gebruiker lijkt, terwijl het opschonen van threads en geheugen veilig op de achtergrond wordt uitgevoerd.</translation>
+        <translation>Implementeerde het onmiddellijk verbergen van het hoofd- en hulpvenster bij het afsluiten van de bevestiging, waardoor het afsluiten onmiddellijk voor de gebruiker lijkt, terwijl het opschonen van threads en geheugen veilig op de achtergrond wordt uitgevoerd.</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation translatorcomment="AI-translated">Bovenste werkbalken in zowel LIVE- als ARCHIVE-vensters geconverteerd naar gecentreerde zwevende dokken (LIVE-dock heeft dynamische breedte).</translation>
+        <translation>Bovenste werkbalken in zowel LIVE- als ARCHIVE-vensters geconverteerd naar gecentreerde zwevende dokken (LIVE-dock heeft dynamische breedte).</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation translatorcomment="AI-translated">Er is een verticaal scheidingsteken toegevoegd in de bovenste balk, tussen rasteropties en lay-outs.</translation>
+        <translation>Er is een verticaal scheidingsteken toegevoegd in de bovenste balk, tussen rasteropties en lay-outs.</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation translatorcomment="AI-translated">Verhoogde transparantie van de bovenste en onderste balken van het archief (60% in venstermodus, 26% op volledig scherm) en stel de achtergrond van de tijdlijn in op transparant.</translation>
+        <translation>Verhoogde transparantie van de bovenste en onderste balken van het archief (60% in venstermodus, 26% op volledig scherm) en stel de achtergrond van de tijdlijn in op transparant.</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation translatorcomment="AI-translated">Vereenvoudigde afspeelsnelheidpictogrammen in het archief om tekst te wissen (1x, 2x, 4x) en verwijderde de onstabiele 8x snelheidsoptie.</translation>
+        <translation>Vereenvoudigde afspeelsnelheidpictogrammen in het archief om tekst te wissen (1x, 2x, 4x) en verwijderde de onstabiele 8x snelheidsoptie.</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation translatorcomment="AI-translated">Maandelijkse navigatietekstknoppen in archief- en downloaderkalenders vervangen door grafische pijlen (chevrons).</translation>
+        <translation>Maandelijkse navigatietekstknoppen in archief- en downloaderkalenders vervangen door grafische pijlen (chevrons).</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation translatorcomment="AI-translated">De knop voor het sluiten van het cameravenster is verplaatst van de rechterbovenhoek naar het bedieningsgedeelte rechtsonder om onbedoelde klikken te voorkomen.</translation>
+        <translation>De knop voor het sluiten van het cameravenster is verplaatst van de rechterbovenhoek naar het bedieningsgedeelte rechtsonder om onbedoelde klikken te voorkomen.</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation translatorcomment="AI-translated">Geoptimaliseerd tekstcontrast van de geselecteerde rasterindeling in het archiefvenster (donkere tekst op een celadonachtergrond).</translation>
+        <translation>Geoptimaliseerd tekstcontrast van de geselecteerde rasterindeling in het archiefvenster (donkere tekst op een celadonachtergrond).</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation translatorcomment="AI-translated">Het systeemstatistiekenpaneel is geconverteerd naar een versleepbaar zwevend paneel (met doorklikfunctie) met behulp van een nieuwe speciale handgreep.</translation>
+        <translation>Het systeemstatistiekenpaneel is geconverteerd naar een versleepbaar zwevend paneel (met doorklikfunctie) met behulp van een nieuwe speciale handgreep.</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation translatorcomment="AI-translated">Een oplossing voor de synchronisatielus van kritieke instellingen en het vastlopen van de gebruikersinterface bij het verwijderen van viewport-indelingen.</translation>
+        <translation>Een oplossing voor de synchronisatielus van kritieke instellingen en het vastlopen van de gebruikersinterface bij het verwijderen van viewport-indelingen.</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation translatorcomment="AI-translated">Vergrote pictogrammen voor snelheids-, zoom- en videorecorderbediening in het archief om de zichtbaarheid te verbeteren, en een grotere tekstgrootte binnen de SVG-pictogrammen.</translation>
+        <translation>Vergrote pictogrammen voor snelheids-, zoom- en videorecorderbediening in het archief om de zichtbaarheid te verbeteren, en een grotere tekstgrootte binnen de SVG-pictogrammen.</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation translatorcomment="AI-translated">Dubbele tekstknoppen verwijderd voor zoomsnelkoppelingen in het archief, volledig vervangen door ronde pictogrammen.</translation>
+        <translation>Dubbele tekstknoppen verwijderd voor zoomsnelkoppelingen in het archief, volledig vervangen door ronde pictogrammen.</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation translatorcomment="AI-translated">Volledige Engelse en Poolse vertalingen toegevoegd voor alle tooltips in het archiefvenster.</translation>
+        <translation>Volledige Engelse en Poolse vertalingen toegevoegd voor alle tooltips in het archiefvenster.</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation translatorcomment="AI-translated">Introductie van real-time bidirectionele configuratiesynchronisatie tussen het hoofdvenster en hulpvensters met ondersteuning voor unieke, automatische hulpvenster-ID's.</translation>
+        <translation>Introductie van real-time bidirectionele configuratiesynchronisatie tussen het hoofdvenster en hulpvensters met ondersteuning voor unieke, automatische hulpvenster-ID's.</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation translatorcomment="AI-translated">Automatisch sessieherstel (automatisch opnieuw verbinden) toegevoegd in de Hikvision-archiefspeler nadat het downloaden is voltooid of de verbindingen door de recorder zijn verbroken.</translation>
+        <translation>Automatisch sessieherstel (automatisch opnieuw verbinden) toegevoegd in de Hikvision-archiefspeler nadat het downloaden is voltooid of de verbindingen door de recorder zijn verbroken.</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation translatorcomment="AI-translated">Mogelijke threadlekken geëlimineerd en FFmpeg-videodecoder blijft hangen tijdens het wisselen van lay-out door veilige std::weak_ptr-referenties over te nemen voor decodermediacontexten.</translation>
+        <translation>Mogelijke threadlekken geëlimineerd en FFmpeg-videodecoder blijft hangen tijdens het wisselen van lay-out door veilige std::weak_ptr-referenties over te nemen voor decodermediacontexten.</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation translatorcomment="AI-translated">Een geheugenlek in ViewportsLayouts-modellen opgelost door lay-outobjecten veilig te verwijderen met behulp van deleteLater().</translation>
+        <translation>Een geheugenlek in ViewportsLayouts-modellen opgelost door lay-outobjecten veilig te verwijderen met behulp van deleteLater().</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation translatorcomment="AI-translated">Beperkte video rendering oppervlak startfouten (OpenGL) tijdens snelle NVR-tabbladen - logs zijn gedegradeerd naar Debug-niveau en het systeem probeert stilletjes opnieuw te renderen op de achtergrond nadat GPU-buffers zijn vrijgegeven.</translation>
+        <translation>Beperkte video rendering oppervlak startfouten (OpenGL) tijdens snelle NVR-tabbladen - logs zijn gedegradeerd naar Debug-niveau en het systeem probeert stilletjes opnieuw te renderen op de achtergrond nadat GPU-buffers zijn vrijgegeven.</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation translatorcomment="AI-translated">Het resterende RAM-gebruik (20-30 MB) opgelost na het sluiten van het archiefvenster via meerstaps heap-opschoning en QML-engine cache-optimalisaties.</translation>
+        <translation>Het resterende RAM-gebruik (20-30 MB) opgelost na het sluiten van het archiefvenster via meerstaps heap-opschoning en QML-engine cache-optimalisaties.</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation translatorcomment="AI-translated">Geoptimaliseerd RAM-gebruik tijdens het schalen van de camera en het wijzigen van de grootte/zoom van de viewport, waardoor overmatige geheugenaccumulatie wordt voorkomen tijdens voortdurende wijzigingen in de lay-out van de videostream.</translation>
+        <translation>Geoptimaliseerd RAM-gebruik tijdens het schalen van de camera en het wijzigen van de grootte/zoom van de viewport, waardoor overmatige geheugenaccumulatie wordt voorkomen tijdens voortdurende wijzigingen in de lay-out van de videostream.</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation translatorcomment="AI-translated">Een nauwkeurige, realtime frames per seconde (FPS)-indicator toegevoegd in de linkerbovenhoek van elke viewport voor zowel live- als archiefafspeelstreams.</translation>
+        <translation>Een nauwkeurige, realtime frames per seconde (FPS)-indicator toegevoegd in de linkerbovenhoek van elke viewport voor zowel live- als archiefafspeelstreams.</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation translatorcomment="AI-translated">Implementeerde veilige beëindiging en vrijgave van downloadthreads in de Hikvision-downloader, waardoor een stabiele en onmiddellijke afsluiting van applicaties werd gegarandeerd zonder systeembronnen te blokkeren.</translation>
+        <translation>Implementeerde veilige beëindiging en vrijgave van downloadthreads in de Hikvision-downloader, waardoor een stabiele en onmiddellijke afsluiting van applicaties werd gegarandeerd zonder systeembronnen te blokkeren.</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation translatorcomment="AI-translated">Een dynamisch camerazoekveld toegevoegd in het archiefvenster met een resetknop en automatisch uitvouwbare overeenkomende recorders.</translation>
+        <translation>Een dynamisch camerazoekveld toegevoegd in het archiefvenster met een resetknop en automatisch uitvouwbare overeenkomende recorders.</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation translatorcomment="AI-translated">Terugloop van lange cameranamen op lijsttegels in het archief ingeschakeld.</translation>
+        <translation>Terugloop van lange cameranamen op lijsttegels in het archief ingeschakeld.</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation translatorcomment="AI-translated">Vergrote en omgekeerde kleuren van de plusknop (+) op camerategels (mintkleurige achtergrond) voor betere zichtbaarheid, met duidelijke zweef-/ingedrukte statussen.</translation>
+        <translation>Vergrote en omgekeerde kleuren van de plusknop (+) op camerategels (mintkleurige achtergrond) voor betere zichtbaarheid, met duidelijke zweef-/ingedrukte statussen.</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation translatorcomment="AI-translated">De 2-3 uur durende verschuiving van de tijdlijnbalk voor opnamebeschikbaarheid in het archiefspelervenster is opgelost, waardoor de tijdlijn werd gesynchroniseerd met de lokale tijdzone van de klant (met ondersteuning voor de juiste zomertijd).</translation>
+        <translation>De 2-3 uur durende verschuiving van de tijdlijnbalk voor opnamebeschikbaarheid in het archiefspelervenster is opgelost, waardoor de tijdlijn werd gesynchroniseerd met de lokale tijdzone van de klant (met ondersteuning voor de juiste zomertijd).</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation translatorcomment="AI-translated">De zwarte emoji 📺 met laag contrast in lege weergaven vervangen door een elegante Seledyn High-DPI vectormonitor SVG.</translation>
+        <translation>De zwarte emoji 📺 met laag contrast in lege weergaven vervangen door een elegante Seledyn High-DPI vectormonitor SVG.</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation translatorcomment="AI-translated">Verbeterde leesbaarheid van recorderbalken in het archiefvenster (hoogte verhoogd van 22px naar 28px, lettergrootte van 9px naar 11px, grotere uitvouwpijl).</translation>
+        <translation>Verbeterde leesbaarheid van recorderbalken in het archiefvenster (hoogte verhoogd van 22px naar 28px, lettergrootte van 9px naar 11px, grotere uitvouwpijl).</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation translatorcomment="AI-translated">Volledige, dynamische zweefeffecten toegevoegd voor recorderbalken met duidelijke veranderingen in achtergrond-, tekst- en pictogramkleuren naar seledyn/wit.</translation>
+        <translation>Volledige, dynamische zweefeffecten toegevoegd voor recorderbalken met duidelijke veranderingen in achtergrond-, tekst- en pictogramkleuren naar seledyn/wit.</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation translatorcomment="AI-translated">Tekstactieknoppen op de bovenste balk (Opties, Nieuw venster, Archief, Instructies) vervangen door speciale, gekleurde SVG-pictogrammen met handige tooltips.</translation>
+        <translation>Tekstactieknoppen op de bovenste balk (Opties, Nieuw venster, Archief, Instructies) vervangen door speciale, gekleurde SVG-pictogrammen met handige tooltips.</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation translatorcomment="AI-translated">De schakelaar voor systeemstatistieken is vervangen door een interactief SVG-pictogram dat de activiteitsstatus van de systeemmonitor weergeeft.</translation>
+        <translation>De schakelaar voor systeemstatistieken is vervangen door een interactief SVG-pictogram dat de activiteitsstatus van de systeemmonitor weergeeft.</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation translatorcomment="AI-translated">Uniforme rasterselectieknoppen (1x1-9x9) in consistente ronde knoppen van 30x30px.</translation>
+        <translation>Uniforme rasterselectieknoppen (1x1-9x9) in consistente ronde knoppen van 30x30px.</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation translatorcomment="AI-translated">Een verticale scheidingslijn toegevoegd tussen het optiegedeelte en het rasterselectiegedeelte.</translation>
+        <translation>Een verticale scheidingslijn toegevoegd tussen het optiegedeelte en het rasterselectiegedeelte.</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation translatorcomment="AI-translated">Opnieuw ontworpen weergaveknoppen in een elegante, afgeronde pilvorm met een hoogte van 30px, waarbij de zijmarges behouden blijven.</translation>
+        <translation>Opnieuw ontworpen weergaveknoppen in een elegante, afgeronde pilvorm met een hoogte van 30px, waarbij de zijmarges behouden blijven.</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation translatorcomment="AI-translated">Afgedwongen automatische weergave in hoofdletters voor weergavenamen.</translation>
+        <translation>Afgedwongen automatische weergave in hoofdletters voor weergavenamen.</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation translatorcomment="AI-translated">Verbeterde leesbaarheid en contrast van de actieve weergaveknop – donkere tekst (#121214) op een heldere seledynachtergrond.</translation>
+        <translation>Verbeterde leesbaarheid en contrast van de actieve weergaveknop – donkere tekst (#121214) op een heldere seledynachtergrond.</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation translatorcomment="AI-translated">Uniforme en verbeterde verwijderpictogrammen in de lijst met recorders en weergaven en de vooraf ingestelde activeringsknop in SVG-pictogrammen met tooltips.</translation>
+        <translation>Uniforme en verbeterde verwijderpictogrammen in de lijst met recorders en weergaven en de vooraf ingestelde activeringsknop in SVG-pictogrammen met tooltips.</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation translatorcomment="AI-translated">Kleinere afstand tussen de knoppen op de bovenste balk om de interfaceruimte te optimaliseren.</translation>
+        <translation>Kleinere afstand tussen de knoppen op de bovenste balk om de interfaceruimte te optimaliseren.</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation translatorcomment="AI-translated">Het ontbrekende minimalisatiepictogram in het hulpvenster hersteld.</translation>
+        <translation>Het ontbrekende minimalisatiepictogram in het hulpvenster hersteld.</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation translatorcomment="AI-translated">Problemen met inloggen en afspelen in hulpvensters opgelost.</translation>
+        <translation>Problemen met inloggen en afspelen in hulpvensters opgelost.</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation translatorcomment="AI-translated">Vaste knopstatussen (1x1 versus 2x2) bij het rechtstreeks openen van het afspelen vanaf de camera.</translation>
+        <translation>Vaste knopstatussen (1x1 versus 2x2) bij het rechtstreeks openen van het afspelen vanaf de camera.</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation translatorcomment="AI-translated">De juiste XML-naamruimte toegevoegd in Hikvision ISAPI-query's (fixeert de fout 'Ongeldige XML-inhoud' op nieuwere recorderfirmware).</translation>
+        <translation>De juiste XML-naamruimte toegevoegd in Hikvision ISAPI-query's (fixeert de fout 'Ongeldige XML-inhoud' op nieuwere recorderfirmware).</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation translatorcomment="AI-translated">Probleem opgelost met de paginering van zoekresultaten (searchResultPostion-tag).</translation>
+        <translation>Probleem opgelost met de paginering van zoekresultaten (searchResultPostion-tag).</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation translatorcomment="AI-translated">'Ververs'-knop in het afspeelvenster om de cache handmatig te wissen en de beschikbaarheidsgegevens van de opname opnieuw op te halen.</translation>
+        <translation>'Ververs'-knop in het afspeelvenster om de cache handmatig te wissen en de beschikbaarheidsgegevens van de opname opnieuw op te halen.</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation translatorcomment="AI-translated">Optimalisatie van netwerkprefetchwachtrijen – beperkt ophalen op de achtergrond tot 12 maanden, waardoor honderden onnodige zoekopdrachten worden geëlimineerd en het afspelen wordt versneld.</translation>
+        <translation>Optimalisatie van netwerkprefetchwachtrijen – beperkt ophalen op de achtergrond tot 12 maanden, waardoor honderden onnodige zoekopdrachten worden geëlimineerd en het afspelen wordt versneld.</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation translatorcomment="AI-translated">Asynchrone Hikvision SDK-initialisatie in een achtergrondthread, waardoor het vastlopen van de GUI bij het openen van opties volledig wordt geëlimineerd.</translation>
+        <translation>Asynchrone Hikvision SDK-initialisatie in een achtergrondthread, waardoor het vastlopen van de GUI bij het openen van opties volledig wordt geëlimineerd.</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation translatorcomment="AI-translated">Thread-safe synchronisatie van toegang tot Hikvision SDK-methoden.</translation>
+        <translation>Thread-safe synchronisatie van toegang tot Hikvision SDK-methoden.</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation translatorcomment="AI-translated">Het opschonen van gedownloade bestands- en screenshotnamen door het verwijderen van de IP-adressen van de recorder.</translation>
+        <translation>Het opschonen van gedownloade bestands- en screenshotnamen door het verwijderen van de IP-adressen van de recorder.</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation translatorcomment="AI-translated">Strakke downloadvoortgangsbalk in turkoois (#00f5d4) met gecentreerde omlijnde tekst.</translation>
+        <translation>Strakke downloadvoortgangsbalk in turkoois (#00f5d4) met gecentreerde omlijnde tekst.</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation translatorcomment="AI-translated">Berekening van de globale downloadvoortgang (overallProgress) voor meerdelige opnamen.</translation>
+        <translation>Berekening van de globale downloadvoortgang (overallProgress) voor meerdelige opnamen.</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation translatorcomment="AI-translated">Tijdelijke downloadbestandsextensie gewijzigd van '.ps' in '.pspart'.</translation>
+        <translation>Tijdelijke downloadbestandsextensie gewijzigd van '.ps' in '.pspart'.</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation translatorcomment="AI-translated">Optie en knop 'Alleen informatievelden weergeven bij zweven' in de instellingen van de gebruikersinterface.</translation>
+        <translation>Optie en knop 'Alleen informatievelden weergeven bij zweven' in de instellingen van de gebruikersinterface.</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation translatorcomment="AI-translated">Visuele indicator voor cameradetectie in het configuratiepaneel (roterend pictogram, formulierblokkering en tekst 'Ontdekken...').</translation>
+        <translation>Visuele indicator voor cameradetectie in het configuratiepaneel (roterend pictogram, formulierblokkering en tekst 'Ontdekken...').</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation translatorcomment="AI-translated">Volledige lokalisatie (officiële ondersteuning voor Poolse en Engelse vertalingen toegevoegd).</translation>
+        <translation>Volledige lokalisatie (officiële ondersteuning voor Poolse en Engelse vertalingen toegevoegd).</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation translatorcomment="AI-translated">Opstartoptimalisatie van hulpvensters – verminderde laadtijd van 3 seconden tot minder dan 300 ms.</translation>
+        <translation>Opstartoptimalisatie van hulpvensters – verminderde laadtijd van 3 seconden tot minder dan 300 ms.</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation translatorcomment="AI-translated">Esthetische tijdelijke aanduiding in het hulpvenster ('Geen weergave geselecteerd') met een turquoise rand.</translation>
+        <translation>Esthetische tijdelijke aanduiding in het hulpvenster ('Geen weergave geselecteerd') met een turquoise rand.</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation translatorcomment="AI-translated">Hikvision SDK-integratie voor liveweergave en afspeelmodus.</translation>
+        <translation>Hikvision SDK-integratie voor liveweergave en afspeelmodus.</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation translatorcomment="AI-translated">Afspeelspeler voor meerdere camera's met automatische positionering en centrering van de tijdlijn.</translation>
+        <translation>Afspeelspeler voor meerdere camera's met automatische positionering en centrering van de tijdlijn.</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation translatorcomment="AI-translated">Multi-threaded systeemmonitor (CPU-, RAM-, GPU-, VRAM- en netwerkbandbreedtestatistieken).</translation>
+        <translation>Multi-threaded systeemmonitor (CPU-, RAM-, GPU-, VRAM- en netwerkbandbreedtestatistieken).</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation translatorcomment="AI-translated">Realtime tracking van netwerkbandbreedteverbruik.</translation>
+        <translation>Realtime tracking van netwerkbandbreedteverbruik.</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation translatorcomment="AI-translated">App-pictogram met hoge resolutie en verfijnde donkere thema-interface.</translation>
+        <translation>App-pictogram met hoge resolutie en verfijnde donkere thema-interface.</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation translatorcomment="AI-translated">Automatisch Pacman-pakketbouwscript voor Arch Linux.</translation>
+        <translation>Automatisch Pacman-pakketbouwscript voor Arch Linux.</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVisie</translation>
+        <translation>KVisie</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation translatorcomment="AI-translated">Versie %1</translation>
+        <translation>Versie %1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation translatorcomment="AI-translated">Oorspronkelijke auteur: Evgeny S. Maksimov</translation>
+        <translation>Oorspronkelijke auteur: Evgeny S. Maksimov</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation translatorcomment="AI-translated">Wijziging: arkanista (met AI-assistentie)</translation>
+        <translation>Wijziging: arkanista (met AI-assistentie)</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation translatorcomment="AI-translated">Viewport%1</translation>
+        <translation>Viewport%1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation translatorcomment="AI-translated">#%1</translation>
+        <translation>#%1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation translatorcomment="AI-translated">Gereedschap</translation>
+        <translation>Gereedschap</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation translatorcomment="AI-translated">Recorders</translation>
+        <translation>Recorders</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation translatorcomment="AI-translated">Voorinstellingen</translation>
+        <translation>Voorinstellingen</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation translatorcomment="AI-translated">Instellingen</translation>
+        <translation>Instellingen</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation translatorcomment="AI-translated">Wijzigingslog</translation>
+        <translation>Wijzigingslog</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation translatorcomment="AI-translated">Beschikbare versie: %1</translation>
+        <translation>Beschikbare versie: %1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation translatorcomment="AI-translated">Viewport-details</translation>
+        <translation>Viewport-details</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation translatorcomment="AI-translated">Selecteer een viewport in het hoofdraster om de instellingen ervan aan te passen.</translation>
+        <translation>Selecteer een viewport in het hoofdraster om de instellingen ervan aan te passen.</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation translatorcomment="AI-translated">Ontgrendel het configuratievenster</translation>
+        <translation>Ontgrendel het configuratievenster</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Actieve streamverbinding</translation>
+        <translation>Actieve streamverbinding</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Primaire stream-URL</translation>
+        <translation>Primaire stream-URL</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Secundaire back-up-URL</translation>
+        <translation>Secundaire back-up-URL</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation translatorcomment="AI-translated">Audio- en weergaveopties</translation>
+        <translation>Audio- en weergaveopties</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation translatorcomment="AI-translated">Audio dempen / dempen opheffen</translation>
+        <translation>Audio dempen / dempen opheffen</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation translatorcomment="AI-translated">FFmpeg-opties negeren</translation>
+        <translation>FFmpeg-opties negeren</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Lay-out- en rasterhulpmiddelen</translation>
+        <translation>Lay-out- en rasterhulpmiddelen</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Ontgrendel het gereedschapsvenster</translation>
+        <translation>Ontgrendel het gereedschapsvenster</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Vensterverdeling</translation>
+        <translation>Vensterverdeling</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Fout bij het lezen van de configuratie!</translation>
+        <translation>Fout bij het lezen van de configuratie!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Houd ingedrukt om de deelwaarde te bewerken</translation>
+        <translation>Houd ingedrukt om de deelwaarde te bewerken</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Geometrie verhouding</translation>
+        <translation>Geometrie verhouding</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Schakel Volledig scherm in</translation>
+        <translation>Schakel Volledig scherm in</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Netoperaties</translation>
+        <translation>Netoperaties</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Gemarkeerde cellen samenvoegen</translation>
+        <translation>Gemarkeerde cellen samenvoegen</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation translatorcomment="AI-translated">NVR / Hikvision Recordersbeheerder</translation>
+        <translation>NVR / Hikvision Recordersbeheerder</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation translatorcomment="AI-translated">Voorinstellingen en snelle lay-outweergaven</translation>
+        <translation>Voorinstellingen en snelle lay-outweergaven</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation translatorcomment="AI-translated">ONVIF- en RTSP-lay-outinstellingen</translation>
+        <translation>ONVIF- en RTSP-lay-outinstellingen</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation translatorcomment="AI-translated">Indeling %1</translation>
+        <translation>Indeling %1</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation translatorcomment="AI-translated">Zichtbaar</translation>
+        <translation>Zichtbaar</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation translatorcomment="AI-translated">Activeer deze voorbeeldlay-out</translation>
+        <translation>Activeer deze voorbeeldlay-out</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation translatorcomment="AI-translated">Verwijder deze voorbeeldlay-out</translation>
+        <translation>Verwijder deze voorbeeldlay-out</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation translatorcomment="AI-translated">Vooraf ingestelde lay-out toevoegen</translation>
+        <translation>Vooraf ingestelde lay-out toevoegen</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation translatorcomment="AI-translated">NVR-weergavelay-outs</translation>
+        <translation>NVR-weergavelay-outs</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation translatorcomment="AI-translated">NVR-weergave</translation>
+        <translation>NVR-weergave</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation translatorcomment="AI-translated">Activeer deze NVR-cameraweergave</translation>
+        <translation>Activeer deze NVR-cameraweergave</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation translatorcomment="AI-translated">Verwijder deze NVR-cameraweergave</translation>
+        <translation>Verwijder deze NVR-cameraweergave</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation translatorcomment="AI-translated">NVR-voorinstellingen (rasterweergaven)</translation>
+        <translation>NVR-voorinstellingen (rasterweergaven)</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation translatorcomment="AI-translated">NVR-voorinstelling #%1</translation>
+        <translation>NVR-voorinstelling #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation translatorcomment="AI-translated">Activeer deze voorinstelling voor NVR-camera's</translation>
+        <translation>Activeer deze voorinstelling voor NVR-camera's</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation translatorcomment="AI-translated">Verwijder deze NVR-cameravoorinstelling</translation>
+        <translation>Verwijder deze NVR-cameravoorinstelling</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation translatorcomment="AI-translated">NVR-voorinstelling toevoegen</translation>
+        <translation>NVR-voorinstelling toevoegen</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation translatorcomment="AI-translated">Systeeminstellingen</translation>
+        <translation>Systeeminstellingen</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation translatorcomment="AI-translated">Algemene instellingen</translation>
+        <translation>Algemene instellingen</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation translatorcomment="AI-translated">Sta het uitvoeren van meerdere applicatie-exemplaren toe</translation>
+        <translation>Sta het uitvoeren van meerdere applicatie-exemplaren toe</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation translatorcomment="AI-translated">Deze optie is uitgeschakeld om schrijfconflicten in het instellingenbestand te voorkomen. Om dit in te schakelen (gevaarlijk en niet aanbevolen!), stelt u 'singleApplication=false' in het kvision.conf-configuratiebestand in.</translation>
+        <translation>Deze optie is uitgeschakeld om schrijfconflicten in het instellingenbestand te voorkomen. Om dit in te schakelen (gevaarlijk en niet aanbevolen!), stelt u 'singleApplication=false' in het kvision.conf-configuratiebestand in.</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation translatorcomment="AI-translated">Controleer de Hikvision NVR-foutstatus</translation>
+        <translation>Controleer de Hikvision NVR-foutstatus</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation translatorcomment="AI-translated">Audio</translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation translatorcomment="AI-translated">Schakel audio volledig uit</translation>
+        <translation>Schakel audio volledig uit</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation translatorcomment="AI-translated">Bij het maximaliseren van de camera naar volledig scherm wordt het dempen niet opgeheven</translation>
+        <translation>Bij het maximaliseren van de camera naar volledig scherm wordt het dempen niet opgeheven</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation translatorcomment="AI-translated">Contextmenu-instellingen</translation>
+        <translation>Contextmenu-instellingen</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation translatorcomment="AI-translated">Schakel het contextmenu met de rechtermuisknop in</translation>
+        <translation>Schakel het contextmenu met de rechtermuisknop in</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation translatorcomment="AI-translated">Sta het wisselen van viewportplaatsen toe</translation>
+        <translation>Sta het wisselen van viewportplaatsen toe</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation translatorcomment="AI-translated">Schakel de optie 'Camera verwijderen' in</translation>
+        <translation>Schakel de optie 'Camera verwijderen' in</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation translatorcomment="AI-translated">Sta het wijzigen van de viewport-instellingen toe</translation>
+        <translation>Sta het wijzigen van de viewport-instellingen toe</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation translatorcomment="AI-translated">Schakel de optie 'Streamselectie' in</translation>
+        <translation>Schakel de optie 'Streamselectie' in</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation translatorcomment="AI-translated">Instellingen gebruikersinterface</translation>
+        <translation>Instellingen gebruikersinterface</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation translatorcomment="AI-translated">Toon de kanaalstatus in de linkerbovenhoek van de viewport</translation>
+        <translation>Toon de kanaalstatus in de linkerbovenhoek van de viewport</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation translatorcomment="AI-translated">Toon camera-informatie in de linkerbenedenhoek van de viewport</translation>
+        <translation>Toon camera-informatie in de linkerbenedenhoek van de viewport</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation translatorcomment="AI-translated">Toon bedieningspictogrammen in de rechterbenedenhoek van het kijkvenster alleen wanneer u zweeft</translation>
+        <translation>Toon bedieningspictogrammen in de rechterbenedenhoek van het kijkvenster alleen wanneer u zweeft</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation translatorcomment="AI-translated">Toon informatievelden alleen wanneer u zweeft</translation>
+        <translation>Toon informatievelden alleen wanneer u zweeft</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation translatorcomment="AI-translated">Toon standaard de bovenste balk bij het openen van een venster</translation>
+        <translation>Toon standaard de bovenste balk bij het openen van een venster</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation translatorcomment="AI-translated">Verberg de muiscursor in de modus Volledig scherm</translation>
+        <translation>Verberg de muiscursor in de modus Volledig scherm</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation translatorcomment="AI-translated">Schakel viewport-zoomanimatie uit</translation>
+        <translation>Schakel viewport-zoomanimatie uit</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation translatorcomment="AI-translated">Taal:</translation>
+        <translation>Taal:</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation translatorcomment="AI-translated">Systeemstandaard</translation>
+        <translation>Systeemstandaard</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation translatorcomment="AI-translated">Beperk hulpvensters tot:</translation>
+        <translation>Beperk hulpvensters tot:</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation translatorcomment="AI-translated">NVR-statusbewaking</translation>
+        <translation>NVR-statusbewaking</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation translatorcomment="AI-translated">Bewaak de offlinestatus en inlogfouten</translation>
+        <translation>Bewaak de offlinestatus en inlogfouten</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation translatorcomment="AI-translated">Monitor CPU-overbelasting (&gt;85%)</translation>
+        <translation>Monitor CPU-overbelasting (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation translatorcomment="AI-translated">Monitor hardwarefouten van de recorder</translation>
+        <translation>Monitor hardwarefouten van de recorder</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation translatorcomment="AI-translated">Monitor fouten/afwijkingen op de harde schijf</translation>
+        <translation>Monitor fouten/afwijkingen op de harde schijf</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation translatorcomment="AI-translated">Monitor ongeformatteerde harde schijven</translation>
+        <translation>Monitor ongeformatteerde harde schijven</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation translatorcomment="AI-translated">Monitor volledige harde schijven (lusdekking uitgeschakeld)</translation>
+        <translation>Monitor volledige harde schijven (lusdekking uitgeschakeld)</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation translatorcomment="AI-translated">Afspelen</translation>
+        <translation>Afspelen</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation translatorcomment="AI-translated">Standaard startoffset voor achteruit afspelen, seconden:</translation>
+        <translation>Standaard startoffset voor achteruit afspelen, seconden:</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation translatorcomment="AI-translated">Standaard afspeeltijdlijnbereik, uren:</translation>
+        <translation>Standaard afspeeltijdlijnbereik, uren:</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation translatorcomment="AI-translated">Opslaan</translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation translatorcomment="AI-translated">Activeer wijzigingen in deze sectie</translation>
+        <translation>Activeer wijzigingen in deze sectie</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation translatorcomment="AI-translated">Standaard snapshotpad:</translation>
+        <translation>Standaard snapshotpad:</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation translatorcomment="AI-translated">Kies een map voor momentopnamen</translation>
+        <translation>Kies een map voor momentopnamen</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation translatorcomment="AI-translated">Standaard opnamepad:</translation>
+        <translation>Standaard opnamepad:</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation translatorcomment="AI-translated">Kies een map voor opnamen</translation>
+        <translation>Kies een map voor opnamen</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation translatorcomment="AI-translated">afbeeldingsmap openen</translation>
+        <translation>afbeeldingsmap openen</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation translatorcomment="AI-translated">videomap openen</translation>
+        <translation>videomap openen</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation translatorcomment="AI-translated">Systeemmediaconfiguratie</translation>
+        <translation>Systeemmediaconfiguratie</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation translatorcomment="AI-translated">Standaard FFmpeg-opdrachtregelopties</translation>
+        <translation>Standaard FFmpeg-opdrachtregelopties</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation translatorcomment="AI-translated">Update alle camera's</translation>
+        <translation>Update alle camera's</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation translatorcomment="AI-translated">Wijzigingslog</translation>
+        <translation>Wijzigingslog</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation translatorcomment="AI-translated">Geschiedenis van verbeteringen, bugfixes en nieuwe functies in KVision.</translation>
+        <translation>Geschiedenis van verbeteringen, bugfixes en nieuwe functies in KVision.</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation translatorcomment="AI-translated">Bevestig verwijdering</translation>
+        <translation>Bevestig verwijdering</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation translatorcomment="AI-translated">Weet u zeker dat u de voorinstelling \"%1\" wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
+        <translation>Weet u zeker dat u de voorinstelling \"%1\" wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation translatorcomment="AI-translated">Weet u zeker dat u voorinstelling #%1 wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
+        <translation>Weet u zeker dat u voorinstelling #%1 wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation translatorcomment="AI-translated">Weet u zeker dat u de NVR-weergave \"%1\" wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
+        <translation>Weet u zeker dat u de NVR-weergave \"%1\" wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation translatorcomment="AI-translated">Weet u zeker dat u deze NVR-weergavelay-out wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
+        <translation>Weet u zeker dat u deze NVR-weergavelay-out wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation translatorcomment="AI-translated">Weet u zeker dat u NVR-voorinstelling \"%1\" wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
+        <translation>Weet u zeker dat u NVR-voorinstelling \"%1\" wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation translatorcomment="AI-translated">Weet u zeker dat u deze NVR-voorinstelling wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
+        <translation>Weet u zeker dat u deze NVR-voorinstelling wilt verwijderen? Deze actie is volledig onomkeerbaar.</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">Neem geen algemene wijzigingen in de FFmpeg-instellingen op</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">FFmpeg-opties</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">Kanaalopties</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">Viewport-instellingen</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">Weet u zeker dat u de camera uit deze viewport wilt verwijderen?</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">Bevestig cameraverwijdering</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">Tylko SUB</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">Tylko HOOFD</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">Automatisering</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">Afspelen</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>Lokalisatie-uitbreiding: KVision is nu volledig gelokaliseerd in 20 nieuwe AI-vertaalde talen, waardoor het totale aantal ondersteunde talen op 22 komt (Engels, Pools en 20 nieuwe talen). Zowel de gehele applicatie-interface (UI) als de volledige gebruikershandleidingen zijn vertaald.</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>Viewport Quick Playback-documentatie: Uitgebreide documentatie toegevoegd met uitleg over de cirkelvormige pijl-overlay-knop (Miniplayer) en de gedetailleerde functies ervan in alle 22 gebruikershandleidingen.</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>Pan Zoom: De mogelijkheid toegevoegd om de ingezoomde video vrijelijk te pannen (Live, Mini-speler, Archief) door de middelste muisknop (scrollwiel) ingedrukt te houden en de cursor te slepen.</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>Proportionele zoomselectie: introductie van de Shift-sneltoets. Als u de Shift-toets ingedrukt houdt terwijl u een zoomrechthoek tekent, wordt de selectie gedwongen zich te vergrendelen in een beeldverhouding van 16:9, strikt beperkt tot de grenzen van het venster.</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>Afgedwongen vensterpositionering: De verouderde mechanismen voor het opslaan van venstergeometrie zijn volledig vervangen vanwege onoplosbare projectieproblemen met meerdere monitoren in Qt. De applicatie (zowel het hoofdvenster als de hulpvensters) dwingt nu strikt het opstarten gecentreerd op de primaire monitor af op 90% van de resolutie, waardoor stabiliteit en voorspelbaarheid in alle opstellingen wordt gegarandeerd.</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>Lokalisatie-refactoring: alle hardgecodeerde Poolse en Engelse tekenreeksen vervangen die in de broncode zijn ingebed (qsTr, tr). Meer dan 500 unieke strings zijn opnieuw omgezet in LNG_XXXXX-identifiers, veilig in kaart gebracht via een verbeterd .ts/.qm-bestandssysteem.</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>CLI alleen in het Engels: Opties voor de opdrachtregelinterface en --help-parameters zijn nu permanent in het Engels om problemen met vertraagde initialisatie van de lokalisatie-engine te voorkomen.</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>Beeldverhouding archiveren: Er is een probleem opgelost waarbij de beeldverhouding van de video vervormd was in de weergavepoort van de archiefspeler. De HikvisionArchivePlayer-component geeft nu het originele frame correct weer met behoud van de natuurlijke beeldverhouding (letterboxing), in plaats van de video uit te rekken zodat deze binnen de UI-grenzen past.</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>Demuxer-geheugenlekken: Verbeterde logica voor het opschonen van objecten in de QmlAVPlayer::stop()-routine, waardoor wordt voorkomen dat 'zombie'-demuxer-instanties zich ophopen op de achtergrond.</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>writeSetting-oplossing: De ontbrekende implementatie van de writeSetting-methode in de Context-klasse toegevoegd, waardoor TypeErrors en QML-uitvoeringsonderbrekingen tijdens instellingenmigraties worden geëlimineerd.</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4374,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Fout bij het lezen van de configuratie!</translation>
+        <translation>Fout bij het lezen van de configuratie!</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4393,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVisie</translation>
+        <translation>KVisie</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation translatorcomment="AI-translated">Het programma is al actief, u kunt geen tweede starten</translation>
+        <translation>Het programma is al actief, u kunt geen tweede starten</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">SLUIT</translation>
+        <translation>SLUIT</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4424,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation translatorcomment="AI-translated">Momentopname opgeslagen</translation>
+        <translation>Momentopname opgeslagen</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation translatorcomment="AI-translated">Momentopname opgeslagen -</translation>
+        <translation>Momentopname opgeslagen -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation translatorcomment="AI-translated">Blader</translation>
+        <translation>Blader</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation translatorcomment="AI-translated">Afsluiten</translation>
+        <translation>Afsluiten</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4491,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Lay-out- en rasterhulpmiddelen</translation>
+        <translation>Lay-out- en rasterhulpmiddelen</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Ontgrendel het gereedschapsvenster</translation>
+        <translation>Ontgrendel het gereedschapsvenster</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Vensterverdeling</translation>
+        <translation>Vensterverdeling</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Fout bij het lezen van de configuratie!</translation>
+        <translation>Fout bij het lezen van de configuratie!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Houd ingedrukt om de deelwaarde te bewerken</translation>
+        <translation>Houd ingedrukt om de deelwaarde te bewerken</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Geometrie verhouding</translation>
+        <translation>Geometrie verhouding</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation translatorcomment="AI-translated">16:9 Beeldverhouding</translation>
+        <translation>16:9 Beeldverhouding</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation translatorcomment="AI-translated">4:3 Beeldverhouding</translation>
+        <translation>4:3 Beeldverhouding</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Schakel Volledig scherm in</translation>
+        <translation>Schakel Volledig scherm in</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Netoperaties</translation>
+        <translation>Netoperaties</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Gemarkeerde cellen samenvoegen</translation>
+        <translation>Gemarkeerde cellen samenvoegen</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4578,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation translatorcomment="AI-translated">Viewport-instellingen</translation>
+        <translation>Viewport-instellingen</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Actieve streamverbinding</translation>
+        <translation>Actieve streamverbinding</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Primaire stream-URL</translation>
+        <translation>Primaire stream-URL</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Secundaire back-up-URL</translation>
+        <translation>Secundaire back-up-URL</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation translatorcomment="AI-translated">Kanaalopties</translation>
+        <translation>Kanaalopties</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation translatorcomment="AI-translated">FFmpeg-opties</translation>
+        <translation>FFmpeg-opties</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation translatorcomment="AI-translated">Neem geen algemene wijzigingen in de FFmpeg-instellingen op</translation>
+        <translation>Neem geen algemene wijzigingen in de FFmpeg-instellingen op</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Annuleer</translation>
+        <translation>Annuleer</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Opslaan</translation>
+        <translation>Opslaan</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4670,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation translatorcomment="AI-translated">Verwissel zichtvensters</translation>
+        <translation>Verwissel zichtvensters</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation translatorcomment="AI-translated">Streamselectie</translation>
+        <translation>Streamselectie</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation translatorcomment="AI-translated">Camera verwijderen</translation>
+        <translation>Camera verwijderen</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation translatorcomment="AI-translated">Instellingen wijzigen</translation>
+        <translation>Instellingen wijzigen</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation translatorcomment="AI-translated">Herladen</translation>
+        <translation>Herladen</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation translatorcomment="AI-translated">Momentopname</translation>
+        <translation>Momentopname</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation translatorcomment="AI-translated">Afspelen</translation>
+        <translation>Afspelen</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation translatorcomment="AI-translated">Automatisering</translation>
+        <translation>Automatisering</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation translatorcomment="AI-translated">Tylko HOOFD</translation>
+        <translation>Tylko HOOFD</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation translatorcomment="AI-translated">Tylko SUB</translation>
+        <translation>Tylko SUB</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation translatorcomment="AI-translated">Bevestig cameraverwijdering</translation>
+        <translation>Bevestig cameraverwijdering</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation translatorcomment="AI-translated">Weet u zeker dat u de camera uit deze viewport wilt verwijderen?</translation>
+        <translation>Weet u zeker dat u de camera uit deze viewport wilt verwijderen?</translation>
     </message>
 </context>
 </TS>

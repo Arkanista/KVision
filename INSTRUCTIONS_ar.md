@@ -92,7 +92,7 @@
 ### التثبيت على Arch Linux (Pacman)
 لتثبيت البرنامج من الحزمة الثنائية المعدة، انتقل إلى الدليل `packaging/arch/` وقم بتشغيل:
 ```bash
-sudo pacman -U kvision-2.4.6-2-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.6.0-1-x86_64.pkg.tar.zst
 ```
 ستقوم الحزمة تلقائيًا بتثبيت البرنامج وملف التنشيط `.desktop` ومكتبات Hikvision SDK المطلوبة على مسار النظام `/usr/lib/kvision`.
 

@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation translatorcomment="AI-translated">Δεν μπορείτε να ανοίξετε περισσότερα βοηθητικά παράθυρα</translation>
+        <translation>Δεν μπορείτε να ανοίξετε περισσότερα βοηθητικά παράθυρα</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">ΚΟΝΤΑ</translation>
+        <translation>ΚΟΝΤΑ</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Βοηθητικό Παράθυρο</translation>
+        <translation>KVision - Βοηθητικό Παράθυρο</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Δεν έχει επιλεγεί προβολή, επιλέξτε προβολή</translation>
+        <translation>Δεν έχει επιλεγεί προβολή, επιλέξτε προβολή</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε μια προβολή από το επάνω μενού για να ξεκινήσει η εμφάνιση των καμερών.</translation>
+        <translation>Επιλέξτε μια προβολή από το επάνω μενού για να ξεκινήσει η εμφάνιση των καμερών.</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Επιλογές και ρυθμίσεις του πλαϊνού πίνακα</translation>
+        <translation>Επιλογές και ρυθμίσεις του πλαϊνού πίνακα</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Άνοιγμα νέου βοηθητικού παραθύρου</translation>
+        <translation>Άνοιγμα νέου βοηθητικού παραθύρου</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Εγχειρίδιο χρήσης προγράμματος</translation>
+        <translation>Εγχειρίδιο χρήσης προγράμματος</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation translatorcomment="AI-translated">Προβολή πλέγματος:</translation>
+        <translation>Προβολή πλέγματος:</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Εναλλαγή πλήρους οθόνης</translation>
+        <translation>Εναλλαγή πλήρους οθόνης</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation translatorcomment="AI-translated">🔒 Αλλαγή διάταξης κλειδώματος</translation>
+        <translation>🔒 Αλλαγή διάταξης κλειδώματος</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Περισσότερες επιλογές</translation>
+        <translation>Περισσότερες επιλογές</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation translatorcomment="AI-translated">Προβολή επιλογής:</translation>
+        <translation>Προβολή επιλογής:</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Κλείσιμο προγράμματος</translation>
+        <translation>Κλείσιμο προγράμματος</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Είστε βέβαιοι ότι θέλετε να κλείσετε το πρόγραμμα;</translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να κλείσετε το πρόγραμμα;</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">ΝΑΙ</translation>
+        <translation>ΝΑΙ</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">ΟΧΙ</translation>
+        <translation>ΟΧΙ</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation translatorcomment="AI-translated">Ναί</translation>
+        <translation>Ναί</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation translatorcomment="AI-translated">Οχι</translation>
+        <translation>Οχι</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation translatorcomment="AI-translated">Διαδρομή προς το αρχείο ρυθμίσεων.</translation>
+        <translation type="vanished">Διαδρομή προς το αρχείο ρυθμίσεων.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation translatorcomment="AI-translated">Ευρετήριο της τρέχουσας προεπιλογής.</translation>
+        <translation type="vanished">Ευρετήριο της τρέχουσας προεπιλογής.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation translatorcomment="AI-translated">Αναγκαστική λειτουργία πλήρους οθόνης.</translation>
+        <translation type="vanished">Αναγκαστική λειτουργία πλήρους οθόνης.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation translatorcomment="AI-translated">Λειτουργία λειτουργίας Kiosk.</translation>
+        <translation type="vanished">Λειτουργία λειτουργίας Kiosk.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation translatorcomment="AI-translated">Επίπεδο καταγραφής [%1...%2].</translation>
+        <translation type="vanished">Επίπεδο καταγραφής [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation translatorcomment="AI-translated">Ξεκινήστε ως βοηθητικό παράθυρο.</translation>
+        <translation type="vanished">Ξεκινήστε ως βοηθητικό παράθυρο.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation translatorcomment="AI-translated">ID του βοηθητικού παραθύρου.</translation>
+        <translation type="vanished">ID του βοηθητικού παραθύρου.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation translatorcomment="AI-translated">Εμφάνιση αναλυτικών αρχείων καταγραφής στην κονσόλα (περιεκτική καταγραφή).</translation>
+        <translation type="vanished">Εμφάνιση αναλυτικών αρχείων καταγραφής στην κονσόλα (περιεκτική καταγραφή).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation translatorcomment="AI-translated">Ενεργοποιήστε την παρακολούθηση αντικειμένων στα αρχεία καταγραφής για τον εντοπισμό σφαλμάτων διαρροών μνήμης.</translation>
+        <translation type="vanished">Ενεργοποιήστε την παρακολούθηση αντικειμένων στα αρχεία καταγραφής για τον εντοπισμό σφαλμάτων διαρροών μνήμης.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation translatorcomment="AI-translated">Επιβολή συμπεριφοράς πρώτης εκτέλεσης και εμφάνιση οδηγιών.</translation>
+        <translation type="vanished">Επιβολή συμπεριφοράς πρώτης εκτέλεσης και εμφάνιση οδηγιών.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation translatorcomment="AI-translated">Προσομοίωση σφαλμάτων NVR σε όλες τις συσκευές εγγραφής.</translation>
+        <translation type="vanished">Προσομοίωση σφαλμάτων NVR σε όλες τις συσκευές εγγραφής.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation translatorcomment="AI-translated">Κλείστε τη διαθεσιμότητα νέας έκδοσης στο GitHub για δοκιμαστικούς σκοπούς</translation>
+        <translation type="vanished">Κλείστε τη διαθεσιμότητα νέας έκδοσης στο GitHub για δοκιμαστικούς σκοπούς</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation translatorcomment="AI-translated">KVision - ροές βίντεο προβολής και προσάρτησης.</translation>
+        <translation>KVision - ροές βίντεο προβολής και προσάρτησης.</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation translatorcomment="AI-translated">Η ημερομηνία και η ώρα λήξης πρέπει να είναι μεταγενέστερες από την ημερομηνία και την ώρα έναρξης!</translation>
+        <translation>Η ημερομηνία και η ώρα λήξης πρέπει να είναι μεταγενέστερες από την ημερομηνία και την ώρα έναρξης!</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation translatorcomment="AI-translated">Ιανουάριος</translation>
+        <translation>Ιανουάριος</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation translatorcomment="AI-translated">Φεβρουάριος</translation>
+        <translation>Φεβρουάριος</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation translatorcomment="AI-translated">Πορεία</translation>
+        <translation>Πορεία</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation translatorcomment="AI-translated">Απρίλιος</translation>
+        <translation>Απρίλιος</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation translatorcomment="AI-translated">Μάιος</translation>
+        <translation>Μάιος</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation translatorcomment="AI-translated">Ιούνιος</translation>
+        <translation>Ιούνιος</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation translatorcomment="AI-translated">Ιούλιος</translation>
+        <translation>Ιούλιος</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation translatorcomment="AI-translated">Αύγουστος</translation>
+        <translation>Αύγουστος</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation translatorcomment="AI-translated">Σεπτέμβριος</translation>
+        <translation>Σεπτέμβριος</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation translatorcomment="AI-translated">Οκτώβριος</translation>
+        <translation>Οκτώβριος</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation translatorcomment="AI-translated">Νοέμβριος</translation>
+        <translation>Νοέμβριος</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation translatorcomment="AI-translated">Δεκέμβριος</translation>
+        <translation>Δεκέμβριος</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Προηγούμενος μήνας</translation>
+        <translation>Προηγούμενος μήνας</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Τον επόμενο μήνα</translation>
+        <translation>Τον επόμενο μήνα</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε ώρα</translation>
+        <translation>Επιλέξτε ώρα</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation translatorcomment="AI-translated">Hr</translation>
+        <translation>Hr</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation translatorcomment="AI-translated">Ελάχ</translation>
+        <translation>Ελάχ</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation translatorcomment="AI-translated">Sec</translation>
+        <translation>Sec</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation translatorcomment="AI-translated">Ματαίωση</translation>
+        <translation>Ματαίωση</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation translatorcomment="AI-translated">Επιβεβαιώνω</translation>
+        <translation>Επιβεβαιώνω</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation translatorcomment="AI-translated">Λήψη ηχογραφήσεων</translation>
+        <translation>Λήψη ηχογραφήσεων</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation translatorcomment="AI-translated">Από:</translation>
+        <translation>Από:</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation translatorcomment="AI-translated">Λανθασμένη μορφή ημερομηνίας! Απαιτούμενη μορφή: ΗΗ.ΜΜ.ΕΕΕΕ (π.χ. 26.06.2026)</translation>
+        <translation>Λανθασμένη μορφή ημερομηνίας! Απαιτούμενη μορφή: ΗΗ.ΜΜ.ΕΕΕΕ (π.χ. 26.06.2026)</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation translatorcomment="AI-translated">Λανθασμένη μορφή ώρας! Απαιτούμενη μορφή: ΩΩ:ΜΛ:ΣΔ ή ΩΩ.ΜΜ.ΣΔ (π.χ. 12:30:00 ή 12.30.00)</translation>
+        <translation>Λανθασμένη μορφή ώρας! Απαιτούμενη μορφή: ΩΩ:ΜΛ:ΣΔ ή ΩΩ.ΜΜ.ΣΔ (π.χ. 12:30:00 ή 12.30.00)</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation translatorcomment="AI-translated">Να:</translation>
+        <translation>Να:</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation translatorcomment="AI-translated">Σύνολο:</translation>
+        <translation>Σύνολο:</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation translatorcomment="AI-translated">Λήψη...</translation>
+        <translation>Λήψη...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation translatorcomment="AI-translated">Σφάλμα:</translation>
+        <translation>Σφάλμα:</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation translatorcomment="AI-translated">Αρχικοποίηση...</translation>
+        <translation>Αρχικοποίηση...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Σταμάτησε</translation>
+        <translation>Σταμάτησε</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation translatorcomment="AI-translated">ανοίξτε τον φάκελο αποθήκευσης</translation>
+        <translation>ανοίξτε τον φάκελο αποθήκευσης</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation translatorcomment="AI-translated">Στάση</translation>
+        <translation>Στάση</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Λήψη</translation>
+        <translation>Λήψη</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation translatorcomment="AI-translated">Η λήψη είναι ήδη σε εξέλιξη.</translation>
+        <translation>Η λήψη είναι ήδη σε εξέλιξη.</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation translatorcomment="AI-translated">Εκκίνηση αναζήτησης αρχείων...</translation>
+        <translation>Εκκίνηση αναζήτησης αρχείων...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation translatorcomment="AI-translated">Σφάλμα σύνδεσης στη συσκευή: %1</translation>
+        <translation>Σφάλμα σύνδεσης στη συσκευή: %1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation translatorcomment="AI-translated">Δεν υπάρχουν εγγραφές στο επιλεγμένο χρονικό εύρος για αυτήν την κάμερα.</translation>
+        <translation>Δεν υπάρχουν εγγραφές στο επιλεγμένο χρονικό εύρος για αυτήν την κάμερα.</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation translatorcomment="AI-translated">Έγινε λήψη και μετατροπή %1 από %2 αρχεία.</translation>
+        <translation>Έγινε λήψη και μετατροπή %1 από %2 αρχεία.</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation translatorcomment="AI-translated">Η καθορισμένη διαδρομή αποθήκευσης δεν είναι έγκυρη ή δεν επιτρέπεται η πρόσβαση εγγραφής:
+        <translation>Η καθορισμένη διαδρομή αποθήκευσης δεν είναι έγκυρη ή δεν επιτρέπεται η πρόσβαση εγγραφής:
 % 1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation translatorcomment="AI-translated">Δεν υπάρχει άδεια εγγραφής στον κατάλογο:
+        <translation>Δεν υπάρχει άδεια εγγραφής στον κατάλογο:
 % 1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation translatorcomment="AI-translated">Σφάλμα κατά την προετοιμασία της λήψης του μέρους %1: %2</translation>
+        <translation>Σφάλμα κατά την προετοιμασία της λήψης του μέρους %1: %2</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation translatorcomment="AI-translated">Σφάλμα έναρξης λήψης του μέρους %1: %2</translation>
+        <translation>Σφάλμα έναρξης λήψης του μέρους %1: %2</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation translatorcomment="AI-translated">Λήψη μέρους %1 από %2...</translation>
+        <translation>Λήψη μέρους %1 από %2...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Σταμάτησε</translation>
+        <translation>Σταμάτησε</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation translatorcomment="AI-translated">Η λήψη διακόπηκε από τον χρήστη.</translation>
+        <translation>Η λήψη διακόπηκε από τον χρήστη.</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation translatorcomment="AI-translated">Μετατροπή μέρους % 1 από % 2...</translation>
+        <translation>Μετατροπή μέρους % 1 από % 2...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation translatorcomment="AI-translated">Σφάλμα κατά τη λήψη του μέρους %1.</translation>
+        <translation>Σφάλμα κατά τη λήψη του μέρους %1.</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation translatorcomment="AI-translated">Λήψη και μετατροπή %1 από %2 μέρη...</translation>
+        <translation>Λήψη και μετατροπή %1 από %2 μέρη...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation translatorcomment="AI-translated">Εσωτερικό σφάλμα FFmpeg</translation>
+        <translation>Εσωτερικό σφάλμα FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation translatorcomment="AI-translated">Η μετατροπή του μέρους %1 σε MP4 απέτυχε: %2</translation>
+        <translation>Η μετατροπή του μέρους %1 σε MP4 απέτυχε: %2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Η σύνδεση απέτυχε ή δεν εντοπίστηκαν κάμερες.</translation>
+        <translation>Η σύνδεση απέτυχε ή δεν εντοπίστηκαν κάμερες.</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation translatorcomment="AI-translated">KVision - Εγχειρίδιο χρήστη / Οδηγίες</translation>
+        <translation>KVision - Εγχειρίδιο χρήστη / Οδηγίες</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS_el.md</translation>
+        <translation>qrc:/INSTRUCTIONS_el.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation translatorcomment="AI-translated">Σφάλμα κατά τη φόρτωση οδηγιών.</translation>
+        <translation>Σφάλμα κατά τη φόρτωση οδηγιών.</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation translatorcomment="AI-translated">Κάμερες στο %1</translation>
+        <translation>Κάμερες στο %1</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation translatorcomment="AI-translated">Κάμερες</translation>
+        <translation>Κάμερες</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation translatorcomment="AI-translated">IP: %1 | Θύρα: %2 | %3 κανάλια</translation>
+        <translation>IP: %1 | Θύρα: %2 | %3 κανάλια</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation translatorcomment="AI-translated">Δημιουργήστε μικρογραφίες για όλες τις κάμερες</translation>
+        <translation>Δημιουργήστε μικρογραφίες για όλες τις κάμερες</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation translatorcomment="AI-translated">Κάμερα % 1</translation>
+        <translation>Κάμερα % 1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation translatorcomment="AI-translated">Αντιστοιχισμένη κάμερα % 1 Κεφ. % 2 στη θύρα προβολής % 3</translation>
+        <translation>Αντιστοιχισμένη κάμερα % 1 Κεφ. % 2 στη θύρα προβολής % 3</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation translatorcomment="AI-translated">Εκχώρηση σε ενεργή θύρα προβολής</translation>
+        <translation>Εκχώρηση σε ενεργή θύρα προβολής</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation translatorcomment="AI-translated">Μετονομασία κάμερας</translation>
+        <translation>Μετονομασία κάμερας</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation translatorcomment="AI-translated">Ανανεώστε τη μικρογραφία της κάμερας</translation>
+        <translation>Ανανεώστε τη μικρογραφία της κάμερας</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation translatorcomment="AI-translated">Αλλαγή ονόματος κάμερας</translation>
+        <translation>Αλλαγή ονόματος κάμερας</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation translatorcomment="AI-translated">Κανάλι: %1</translation>
+        <translation>Κανάλι: %1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation translatorcomment="AI-translated">Αρχικό όνομα: %1</translation>
+        <translation>Αρχικό όνομα: %1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation translatorcomment="AI-translated">Κανένας</translation>
+        <translation>Κανένας</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation translatorcomment="AI-translated">Εισαγάγετε νέο όνομα κάμερας...</translation>
+        <translation>Εισαγάγετε νέο όνομα κάμερας...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation translatorcomment="AI-translated">Επαναφορά</translation>
+        <translation>Επαναφορά</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Ματαίωση</translation>
+        <translation>Ματαίωση</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Εκτός</translation>
+        <translation>Εκτός</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Η σύνδεση απέτυχε ή δεν εντοπίστηκαν κάμερες.</translation>
+        <translation>Η σύνδεση απέτυχε ή δεν εντοπίστηκαν κάμερες.</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation translatorcomment="AI-translated">Προσθήκη Hikvision Recorder</translation>
+        <translation>Προσθήκη Hikvision Recorder</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation translatorcomment="AI-translated">Όνομα συσκευής εγγραφής (προαιρετικό)</translation>
+        <translation>Όνομα συσκευής εγγραφής (προαιρετικό)</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation translatorcomment="AI-translated">Διεύθυνση IP</translation>
+        <translation>Διεύθυνση IP</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation translatorcomment="AI-translated">Port (8000)</translation>
+        <translation>Port (8000)</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation translatorcomment="AI-translated">Όνομα χρήστη</translation>
+        <translation>Όνομα χρήστη</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation translatorcomment="AI-translated">Σύνθημα</translation>
+        <translation>Σύνθημα</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation translatorcomment="AI-translated">Ανακαλύπτοντας...</translation>
+        <translation>Ανακαλύπτοντας...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation translatorcomment="AI-translated">Σύνδεση &amp; Ανακάλυψη</translation>
+        <translation>Σύνδεση &amp; Ανακάλυψη</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation translatorcomment="AI-translated">Αποθήκευση &amp; Ενημέρωση</translation>
+        <translation>Αποθήκευση &amp; Ενημέρωση</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation translatorcomment="AI-translated">Σφάλμα: Απαιτούνται IP και Κωδικός πρόσβασης.</translation>
+        <translation>Σφάλμα: Απαιτούνται IP και Κωδικός πρόσβασης.</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation translatorcomment="AI-translated">Σύνδεση σε NVR και ανακάλυψη καναλιών...</translation>
+        <translation>Σύνδεση σε NVR και ανακάλυψη καναλιών...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Ματαίωση</translation>
+        <translation>Ματαίωση</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation translatorcomment="AI-translated">Συνδεδεμένες συσκευές εγγραφής</translation>
+        <translation>Συνδεδεμένες συσκευές εγγραφής</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation translatorcomment="AI-translated">% 1 κάμερες συνδεδεμένες</translation>
+        <translation>% 1 κάμερες συνδεδεμένες</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation translatorcomment="AI-translated">ΣΥΝΔΕΣΗ</translation>
+        <translation>ΣΥΝΔΕΣΗ</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation translatorcomment="AI-translated">ΔΕΝ ΕΧΕΤΕ ΣΥΝΔΕΣΗ</translation>
+        <translation>ΔΕΝ ΕΧΕΤΕ ΣΥΝΔΕΣΗ</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation translatorcomment="AI-translated">Πράσινο: Ενεργή περίοδος λειτουργίας SDK (PTZ/Αρχείο). Κόκκινο: Δεν υπάρχει ενεργή περίοδος λειτουργίας (η ροή RTSP λειτουργεί ανεξάρτητα).</translation>
+        <translation>Πράσινο: Ενεργή περίοδος λειτουργίας SDK (PTZ/Αρχείο). Κόκκινο: Δεν υπάρχει ενεργή περίοδος λειτουργίας (η ροή RTSP λειτουργεί ανεξάρτητα).</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation translatorcomment="AI-translated">Ανοίξτε τη σελίδα σύνδεσης NVR στο πρόγραμμα περιήγησης</translation>
+        <translation>Ανοίξτε τη σελίδα σύνδεσης NVR στο πρόγραμμα περιήγησης</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation translatorcomment="AI-translated">Εμφάνιση λίστας καμερών NVR</translation>
+        <translation>Εμφάνιση λίστας καμερών NVR</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation translatorcomment="AI-translated">Επεξεργασία στοιχείων σύνδεσης συσκευής εγγραφής</translation>
+        <translation>Επεξεργασία στοιχείων σύνδεσης συσκευής εγγραφής</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation translatorcomment="AI-translated">Διαγραφή συσκευής εγγραφής από τη λίστα</translation>
+        <translation>Διαγραφή συσκευής εγγραφής από τη λίστα</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation translatorcomment="AI-translated">Επιβεβαίωση διαγραφής NVR</translation>
+        <translation>Επιβεβαίωση διαγραφής NVR</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation translatorcomment="AI-translated">Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το NVR;</translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το NVR;</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation translatorcomment="AI-translated">Προειδοποίηση!</translation>
+        <translation>Προειδοποίηση!</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation translatorcomment="AI-translated">Είστε απόλυτα σίγουροι και ενήμεροι για αυτό που κάνετε;</translation>
+        <translation>Είστε απόλυτα σίγουροι και ενήμεροι για αυτό που κάνετε;</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation translatorcomment="AI-translated">Κατάσταση NVR</translation>
+        <translation>Κατάσταση NVR</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation translatorcomment="AI-translated">Έλεγχος κατάστασης NVR...</translation>
+        <translation>Έλεγχος κατάστασης NVR...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation translatorcomment="AI-translated">Τελευταίος έλεγχος:</translation>
+        <translation>Τελευταίος έλεγχος:</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation translatorcomment="AI-translated">ποτέ</translation>
+        <translation>ποτέ</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Βουβός</translation>
+        <translation>Βουβός</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation translatorcomment="AI-translated">ΣΦΑΛΜΑ</translation>
+        <translation>ΣΦΑΛΜΑ</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation translatorcomment="AI-translated">ΕΝΤΑΞΕΙ</translation>
+        <translation>ΕΝΤΑΞΕΙ</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation translatorcomment="AI-translated">Δεν υπάρχουν δεδομένα κατάστασης</translation>
+        <translation>Δεν υπάρχουν δεδομένα κατάστασης</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation translatorcomment="AI-translated">Πατήστε το κουμπί παρακάτω για να ελέγξετε την κατάσταση NVR.</translation>
+        <translation>Πατήστε το κουμπί παρακάτω για να ελέγξετε την κατάσταση NVR.</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation translatorcomment="AI-translated">Ελέγξτε τώρα</translation>
+        <translation>Ελέγξτε τώρα</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation translatorcomment="AI-translated">Κοντά</translation>
+        <translation>Κοντά</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation translatorcomment="AI-translated">Προσομοίωση NVR</translation>
+        <translation>Προσομοίωση NVR</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation translatorcomment="AI-translated">Δίσκος 1</translation>
+        <translation>Δίσκος 1</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation translatorcomment="AI-translated">Κρίσιμο σφάλμα/αποτυχία δίσκου (Προομοίωση)</translation>
+        <translation>Κρίσιμο σφάλμα/αποτυχία δίσκου (Προομοίωση)</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation translatorcomment="AI-translated">Χωρίς σύνδεση ή σφάλμα σύνδεσης (Προομοίωση)</translation>
+        <translation>Χωρίς σύνδεση ή σφάλμα σύνδεσης (Προομοίωση)</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation translatorcomment="AI-translated">Δεν υπάρχει σφάλμα σύνδεσης ή σύνδεσης</translation>
+        <translation>Δεν υπάρχει σφάλμα σύνδεσης ή σύνδεσης</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation translatorcomment="AI-translated">Σφάλμα κατά την ανάγνωση της κατάστασης NVR (SDK)</translation>
+        <translation>Σφάλμα κατά την ανάγνωση της κατάστασης NVR (SDK)</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation translatorcomment="AI-translated">Υψηλό φορτίο CPU (&gt;85%)</translation>
+        <translation>Υψηλό φορτίο CPU (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation translatorcomment="AI-translated">Σφάλμα υλικού συσκευής</translation>
+        <translation>Σφάλμα υλικού συσκευής</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation translatorcomment="AI-translated">Δίσκος % 1</translation>
+        <translation>Δίσκος % 1</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation translatorcomment="AI-translated">Κρίσιμο σφάλμα/αποτυχία δίσκου</translation>
+        <translation>Κρίσιμο σφάλμα/αποτυχία δίσκου</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation translatorcomment="AI-translated">Δίσκος χωρίς μορφοποίηση</translation>
+        <translation>Δίσκος χωρίς μορφοποίηση</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation translatorcomment="AI-translated">Ο δίσκος είναι γεμάτος (απενεργοποίηση αντικατάστασης)</translation>
+        <translation>Ο δίσκος είναι γεμάτος (απενεργοποίηση αντικατάστασης)</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation translatorcomment="AI-translated">Αρχείο -</translation>
+        <translation>Αρχείο -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation translatorcomment="AI-translated">Ιανουάριος</translation>
+        <translation>Ιανουάριος</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation translatorcomment="AI-translated">Φεβρουάριος</translation>
+        <translation>Φεβρουάριος</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation translatorcomment="AI-translated">Πορεία</translation>
+        <translation>Πορεία</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation translatorcomment="AI-translated">Απρίλιος</translation>
+        <translation>Απρίλιος</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation translatorcomment="AI-translated">Μάιος</translation>
+        <translation>Μάιος</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation translatorcomment="AI-translated">Ιούνιος</translation>
+        <translation>Ιούνιος</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation translatorcomment="AI-translated">Ιούλιος</translation>
+        <translation>Ιούλιος</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation translatorcomment="AI-translated">Αύγουστος</translation>
+        <translation>Αύγουστος</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation translatorcomment="AI-translated">Σεπτέμβριος</translation>
+        <translation>Σεπτέμβριος</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation translatorcomment="AI-translated">Οκτώβριος</translation>
+        <translation>Οκτώβριος</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation translatorcomment="AI-translated">Νοέμβριος</translation>
+        <translation>Νοέμβριος</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation translatorcomment="AI-translated">Δεκέμβριος</translation>
+        <translation>Δεκέμβριος</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Προηγούμενος μήνας</translation>
+        <translation>Προηγούμενος μήνας</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε ημερομηνία αρχειοθέτησης</translation>
+        <translation>Επιλέξτε ημερομηνία αρχειοθέτησης</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Τον επόμενο μήνα</translation>
+        <translation>Τον επόμενο μήνα</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation translatorcomment="AI-translated">Μο</translation>
+        <translation>Μο</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation translatorcomment="AI-translated">Tu</translation>
+        <translation>Tu</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation translatorcomment="AI-translated">Εμείς</translation>
+        <translation>Εμείς</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation translatorcomment="AI-translated">Th</translation>
+        <translation>Th</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation translatorcomment="AI-translated">Ο π</translation>
+        <translation>Ο π</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation translatorcomment="AI-translated">Sa</translation>
+        <translation>Sa</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation translatorcomment="AI-translated">Su</translation>
+        <translation>Su</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation translatorcomment="AI-translated">Ανάκτηση διαθεσιμότητας...</translation>
+        <translation>Ανάκτηση διαθεσιμότητας...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation translatorcomment="AI-translated">Κάμερες</translation>
+        <translation>Κάμερες</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation translatorcomment="AI-translated">Αναζήτηση κάμερας...</translation>
+        <translation>Αναζήτηση κάμερας...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation translatorcomment="AI-translated">Εκκαθάριση αναζήτησης</translation>
+        <translation>Εκκαθάριση αναζήτησης</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation translatorcomment="AI-translated">Προσδιορισμός του πραγματικού τέλους της εγγραφής...</translation>
+        <translation>Προσδιορισμός του πραγματικού τέλους της εγγραφής...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation translatorcomment="AI-translated">Ανάκτηση πληροφοριών εγγραφής...</translation>
+        <translation>Ανάκτηση πληροφοριών εγγραφής...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation translatorcomment="AI-translated">Φόρτωση αρχείου Hikvision...</translation>
+        <translation>Φόρτωση αρχείου Hikvision...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation translatorcomment="AI-translated">Δεν υπάρχει εγγραφή την επιλεγμένη στιγμή</translation>
+        <translation>Δεν υπάρχει εγγραφή την επιλεγμένη στιγμή</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Βουβός</translation>
+        <translation>Βουβός</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Μέγιστη ένταση</translation>
+        <translation>Μέγιστη ένταση</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Λήψη στιγμιότυπου σε πλήρη ανάλυση</translation>
+        <translation>Λήψη στιγμιότυπου σε πλήρη ανάλυση</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Απενεργοποιήστε τη λειτουργία 1:1</translation>
+        <translation>Απενεργοποιήστε τη λειτουργία 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">Ενεργοποίηση λειτουργίας 1:1 (pixel-to-pixel)</translation>
+        <translation>Ενεργοποίηση λειτουργίας 1:1 (pixel-to-pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Επαναφορά ζουμ</translation>
+        <translation>Επαναφορά ζουμ</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε περιοχή για μεγέθυνση</translation>
+        <translation>Επιλέξτε περιοχή για μεγέθυνση</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε περιοχή για μεγέθυνση</translation>
+        <translation>Επιλέξτε περιοχή για μεγέθυνση</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation translatorcomment="AI-translated">Επαναφορά προβολής πλέγματος</translation>
+        <translation>Επαναφορά προβολής πλέγματος</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation translatorcomment="AI-translated">Εμφάνιση σε πλήρη οθόνη</translation>
+        <translation>Εμφάνιση σε πλήρη οθόνη</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation translatorcomment="AI-translated">Αφαιρέστε την κάμερα από την προβολή</translation>
+        <translation>Αφαιρέστε την κάμερα από την προβολή</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation translatorcomment="AI-translated">Κενό παράθυρο προβολής</translation>
+        <translation>Κενό παράθυρο προβολής</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε αυτό το παράθυρο, επιλέξτε μια κάμερα από τη λίστα και κάντε κλικ στο + για να την προσθέσετε</translation>
+        <translation>Επιλέξτε αυτό το παράθυρο, επιλέξτε μια κάμερα από τη λίστα και κάντε κλικ στο + για να την προσθέσετε</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation translatorcomment="AI-translated">Προηγούμενη μέρα</translation>
+        <translation>Προηγούμενη μέρα</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε ημερομηνία από το ημερολόγιο</translation>
+        <translation>Επιλέξτε ημερομηνία από το ημερολόγιο</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation translatorcomment="AI-translated">Επόμενη μέρα</translation>
+        <translation>Επόμενη μέρα</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation translatorcomment="AI-translated">Σήμερα</translation>
+        <translation>Σήμερα</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation translatorcomment="AI-translated">Πηγαίνετε στο σήμερα</translation>
+        <translation>Πηγαίνετε στο σήμερα</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation translatorcomment="AI-translated">Ανανέωση εγγραφών</translation>
+        <translation>Ανανέωση εγγραφών</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation translatorcomment="AI-translated">Μεγέθυνση για να διαρκέσει 1 ώρα</translation>
+        <translation>Μεγέθυνση για να διαρκέσει 1 ώρα</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation translatorcomment="AI-translated">Ζουμ για να διαρκέσει 8 ώρες</translation>
+        <translation>Ζουμ για να διαρκέσει 8 ώρες</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation translatorcomment="AI-translated">Εμφάνιση ολόκληρης της ημέρας στο χρονοδιάγραμμα</translation>
+        <translation>Εμφάνιση ολόκληρης της ημέρας στο χρονοδιάγραμμα</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation translatorcomment="AI-translated">Επικεντρώστε το χρονοδιάγραμμα στον τρέχοντα χρόνο αναπαραγωγής</translation>
+        <translation>Επικεντρώστε το χρονοδιάγραμμα στον τρέχοντα χρόνο αναπαραγωγής</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation translatorcomment="AI-translated">Ταχύτητα:</translation>
+        <translation>Ταχύτητα:</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation translatorcomment="AI-translated">Ρυθμίστε την ταχύτητα αναπαραγωγής σε %1x</translation>
+        <translation>Ρυθμίστε την ταχύτητα αναπαραγωγής σε %1x</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Λήψη</translation>
+        <translation>Λήψη</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation translatorcomment="AI-translated">Λήψη βίντεο κλιπ από επιλεγμένο χρονικό εύρος</translation>
+        <translation>Λήψη βίντεο κλιπ από επιλεγμένο χρονικό εύρος</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation translatorcomment="AI-translated">Επαναφορά 60 δευτερόλεπτα</translation>
+        <translation>Επαναφορά 60 δευτερόλεπτα</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation translatorcomment="AI-translated">Επαναφορά 45 δευτερόλεπτα</translation>
+        <translation>Επαναφορά 45 δευτερόλεπτα</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation translatorcomment="AI-translated">Επαναφορά 15 δευτερόλεπτα</translation>
+        <translation>Επαναφορά 15 δευτερόλεπτα</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Παύση αναπαραγωγής</translation>
+        <translation>Παύση αναπαραγωγής</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Έναρξη αναπαραγωγής</translation>
+        <translation>Έναρξη αναπαραγωγής</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation translatorcomment="AI-translated">Εμπρός 15 δευτερόλεπτα</translation>
+        <translation>Εμπρός 15 δευτερόλεπτα</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation translatorcomment="AI-translated">Εμπρός 45 δευτερόλεπτα</translation>
+        <translation>Εμπρός 45 δευτερόλεπτα</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation translatorcomment="AI-translated">Εμπρός 60 δευτερόλεπτα</translation>
+        <translation>Εμπρός 60 δευτερόλεπτα</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation translatorcomment="AI-translated">Ξεκαρφιτσώστε την κάτω γραμμή</translation>
+        <translation>Ξεκαρφιτσώστε την κάτω γραμμή</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation translatorcomment="AI-translated">Καρφιτσώστε την κάτω μπάρα</translation>
+        <translation>Καρφιτσώστε την κάτω μπάρα</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation translatorcomment="AI-translated">Φόρτωση πληροφοριών διαθεσιμότητας εγγραφής...</translation>
+        <translation>Φόρτωση πληροφοριών διαθεσιμότητας εγγραφής...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Κλείσιμο παραθύρου</translation>
+        <translation>Κλείσιμο παραθύρου</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Ξεκαρφιτσώστε την επάνω γραμμή</translation>
+        <translation>Ξεκαρφιτσώστε την επάνω γραμμή</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Καρφιτσώστε την επάνω μπάρα</translation>
+        <translation>Καρφιτσώστε την επάνω μπάρα</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation translatorcomment="AI-translated">Έξοδος από πλήρη οθόνη</translation>
+        <translation>Έξοδος από πλήρη οθόνη</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation translatorcomment="AI-translated">Παράθυρο σε πλήρη οθόνη</translation>
+        <translation>Παράθυρο σε πλήρη οθόνη</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation translatorcomment="AI-translated">Απόκρυψη πλαϊνής γραμμής</translation>
+        <translation>Απόκρυψη πλαϊνής γραμμής</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation translatorcomment="AI-translated">Εμφάνιση πλαϊνής γραμμής</translation>
+        <translation>Εμφάνιση πλαϊνής γραμμής</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation translatorcomment="AI-translated">Εμφάνιση χρονολογίου</translation>
+        <translation>Εμφάνιση χρονολογίου</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation translatorcomment="AI-translated">Απόκρυψη χρονολογίου</translation>
+        <translation>Απόκρυψη χρονολογίου</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation translatorcomment="AI-translated">Ανοίξτε το φάκελο εγγραφών</translation>
+        <translation>Ανοίξτε το φάκελο εγγραφών</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation translatorcomment="AI-translated">Ανοίξτε το φάκελο στιγμιότυπων</translation>
+        <translation>Ανοίξτε το φάκελο στιγμιότυπων</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation translatorcomment="AI-translated">Χωρίς μέσα</translation>
+        <translation>Χωρίς μέσα</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation translatorcomment="AI-translated">Φόρτωση...</translation>
+        <translation>Φόρτωση...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation translatorcomment="AI-translated">Φορτωμένος</translation>
+        <translation>Φορτωμένος</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation translatorcomment="AI-translated">Σταματημένο</translation>
+        <translation>Σταματημένο</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation translatorcomment="AI-translated">Αποθήκευση %1\%</translation>
+        <translation>Αποθήκευση %1\%</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation translatorcomment="AI-translated">Δεν υπάρχουν δεδομένα για εμφάνιση</translation>
+        <translation>Δεν υπάρχουν δεδομένα για εμφάνιση</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation translatorcomment="AI-translated">Επαναφορά ζωντανής προβολής...</translation>
+        <translation>Επαναφορά ζωντανής προβολής...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Βουβός</translation>
+        <translation>Βουβός</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Μέγιστη ένταση</translation>
+        <translation>Μέγιστη ένταση</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Λήψη στιγμιότυπου σε πλήρη ανάλυση</translation>
+        <translation>Λήψη στιγμιότυπου σε πλήρη ανάλυση</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation translatorcomment="AI-translated">Αρχείο αναπαραγωγής</translation>
+        <translation>Αρχείο αναπαραγωγής</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation translatorcomment="AI-translated">Απενεργοποιήστε τη γρήγορη αναπαραγωγή</translation>
+        <translation>Απενεργοποιήστε τη γρήγορη αναπαραγωγή</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation translatorcomment="AI-translated">Γρήγορη αναπαραγωγή (έως 30 λεπτά)</translation>
+        <translation>Γρήγορη αναπαραγωγή (έως 30 λεπτά)</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Απενεργοποιήστε τη λειτουργία 1:1</translation>
+        <translation>Απενεργοποιήστε τη λειτουργία 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">Ενεργοποίηση λειτουργίας 1:1 (pixel-to-pixel)</translation>
+        <translation>Ενεργοποίηση λειτουργίας 1:1 (pixel-to-pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Επαναφορά ζουμ</translation>
+        <translation>Επαναφορά ζουμ</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation translatorcomment="AI-translated">Κάντε κλικ και σύρετε στη ροή της κάμερας για μεγέθυνση</translation>
+        <translation>Κάντε κλικ και σύρετε στη ροή της κάμερας για μεγέθυνση</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε περιοχή για μεγέθυνση</translation>
+        <translation>Επιλέξτε περιοχή για μεγέθυνση</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Έναρξη αναπαραγωγής</translation>
+        <translation>Έναρξη αναπαραγωγής</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Παύση αναπαραγωγής</translation>
+        <translation>Παύση αναπαραγωγής</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation translatorcomment="AI-translated">Ταχύτητα αναπαραγωγής</translation>
+        <translation>Ταχύτητα αναπαραγωγής</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation translatorcomment="AI-translated">Κλείσιμο προβολής προς τα πίσω</translation>
+        <translation>Κλείσιμο προβολής προς τα πίσω</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Βοηθητικό Παράθυρο</translation>
+        <translation>KVision - Βοηθητικό Παράθυρο</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Σφάλμα κατά την ανάγνωση της διαμόρφωσης!</translation>
+        <translation>Σφάλμα κατά την ανάγνωση της διαμόρφωσης!</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Ξεκαρφιτσώστε την επάνω γραμμή</translation>
+        <translation>Ξεκαρφιτσώστε την επάνω γραμμή</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Καρφιτσώστε την επάνω μπάρα</translation>
+        <translation>Καρφιτσώστε την επάνω μπάρα</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Εναλλαγή πλήρους οθόνης</translation>
+        <translation>Εναλλαγή πλήρους οθόνης</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation translatorcomment="AI-translated">Ελαχιστοποίηση παραθύρου</translation>
+        <translation>Ελαχιστοποίηση παραθύρου</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Επιλογές και ρυθμίσεις του πλαϊνού πίνακα</translation>
+        <translation>Επιλογές και ρυθμίσεις του πλαϊνού πίνακα</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Άνοιγμα νέου βοηθητικού παραθύρου</translation>
+        <translation>Άνοιγμα νέου βοηθητικού παραθύρου</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation translatorcomment="AI-translated">Αρχείο ηχογράφησης και συσκευή αναπαραγωγής</translation>
+        <translation>Αρχείο ηχογράφησης και συσκευή αναπαραγωγής</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Εγχειρίδιο χρήσης προγράμματος</translation>
+        <translation>Εγχειρίδιο χρήσης προγράμματος</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation translatorcomment="AI-translated">Απενεργοποιήστε τα στατιστικά στοιχεία χρήσης πόρων</translation>
+        <translation>Απενεργοποιήστε τα στατιστικά στοιχεία χρήσης πόρων</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation translatorcomment="AI-translated">Ενεργοποίηση στατιστικών χρήσης πόρων</translation>
+        <translation>Ενεργοποίηση στατιστικών χρήσης πόρων</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation translatorcomment="AI-translated">Εντοπίστηκαν σφάλματα NVR!</translation>
+        <translation>Εντοπίστηκαν σφάλματα NVR!</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation translatorcomment="AI-translated">Κατάσταση NVR: ΟΚ</translation>
+        <translation>Κατάσταση NVR: ΟΚ</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation translatorcomment="AI-translated">Αλλάζει το μέγεθος του πλέγματος κλειδαριάς</translation>
+        <translation>Αλλάζει το μέγεθος του πλέγματος κλειδαριάς</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Περισσότερες επιλογές</translation>
+        <translation>Περισσότερες επιλογές</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation translatorcomment="AI-translated">Εντοπίστηκαν σφάλματα NVR! Κάντε κλικ για να δείτε λεπτομέρειες.</translation>
+        <translation>Εντοπίστηκαν σφάλματα NVR! Κάντε κλικ για να δείτε λεπτομέρειες.</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Δεν έχει επιλεγεί προβολή, επιλέξτε προβολή</translation>
+        <translation>Δεν έχει επιλεγεί προβολή, επιλέξτε προβολή</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε μια προβολή από το επάνω μενού για να ξεκινήσει η εμφάνιση των καμερών.</translation>
+        <translation>Επιλέξτε μια προβολή από το επάνω μενού για να ξεκινήσει η εμφάνιση των καμερών.</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation translatorcomment="AI-translated">KVision - Πάνελ</translation>
+        <translation>KVision - Πάνελ</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Κλείσιμο παραθύρου</translation>
+        <translation>Κλείσιμο παραθύρου</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Κλείσιμο προγράμματος</translation>
+        <translation>Κλείσιμο προγράμματος</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation translatorcomment="AI-translated">Είστε βέβαιοι ότι θέλετε να κλείσετε αυτό το παράθυρο;</translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να κλείσετε αυτό το παράθυρο;</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Είστε βέβαιοι ότι θέλετε να κλείσετε το πρόγραμμα;</translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να κλείσετε το πρόγραμμα;</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">ΝΑΙ</translation>
+        <translation>ΝΑΙ</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">ΟΧΙ</translation>
+        <translation>ΟΧΙ</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation translatorcomment="AI-translated">📊 ΣΤΑΤΙΣΤΙΚΑ ΣΥΣΤΗΜΑΤΟΣ</translation>
+        <translation>📊 ΣΤΑΤΙΣΤΙΚΑ ΣΥΣΤΗΜΑΤΟΣ</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation translatorcomment="AI-translated">Σύρετε τον πίνακα στατιστικών στοιχείων</translation>
+        <translation>Σύρετε τον πίνακα στατιστικών στοιχείων</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation translatorcomment="AI-translated">ΕΜΒΟΛΟ:</translation>
+        <translation>ΕΜΒΟΛΟ:</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation translatorcomment="AI-translated">VRAM:</translation>
+        <translation>VRAM:</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation translatorcomment="AI-translated">CPU:</translation>
+        <translation>CPU:</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation translatorcomment="AI-translated">GPU:</translation>
+        <translation>GPU:</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation translatorcomment="AI-translated">ΚΑΘΑΡΑ:</translation>
+        <translation>ΚΑΘΑΡΑ:</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation translatorcomment="AI-translated">Φόρτωση νέου παραθύρου...</translation>
+        <translation>Φόρτωση νέου παραθύρου...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,1027 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation translatorcomment="AI-translated">Διορθώθηκε ένα κρίσιμο σφάλμα όπου η απώλεια δικτύου και τα χρονικά όρια ροής RTSP έκαναν τη συσκευή αναπαραγωγής να γίνει ζόμπι, αποτρέποντας τις επιτυχημένες επανασυνδέσεις. Το κουμπί Reload και η αυτόματη συνέχιση λειτουργούν πλέον πλήρως αξιόπιστα.</translation>
+        <translation>Διορθώθηκε ένα κρίσιμο σφάλμα όπου η απώλεια δικτύου και τα χρονικά όρια ροής RTSP έκαναν τη συσκευή αναπαραγωγής να γίνει ζόμπι, αποτρέποντας τις επιτυχημένες επανασυνδέσεις. Το κουμπί Reload και η αυτόματη συνέχιση λειτουργούν πλέον πλήρως αξιόπιστα.</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation translatorcomment="AI-translated">Ανανεώθηκε η εμφάνιση των μηνυμάτων κατάστασης προγράμματος αναπαραγωγής και αρχείου. Οι ειδοποιήσεις φόρτωσης και επαναφοράς διαθέτουν πλέον ένα ευχάριστο κυανό θέμα με κατάλληλα εικονίδια για καλύτερη διάκρισή τους από κρίσιμα σφάλματα (Χωρίς μέσα/δίκτυο).</translation>
+        <translation>Ανανεώθηκε η εμφάνιση των μηνυμάτων κατάστασης προγράμματος αναπαραγωγής και αρχείου. Οι ειδοποιήσεις φόρτωσης και επαναφοράς διαθέτουν πλέον ένα ευχάριστο κυανό θέμα με κατάλληλα εικονίδια για καλύτερη διάκρισή τους από κρίσιμα σφάλματα (Χωρίς μέσα/δίκτυο).</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation translatorcomment="AI-translated">Ενσωματωμένη εντολή υλικού MakeKeyFrame με το Hikvision SDK. Η εφαρμογή πλέον αναγκάζει επιθετικά την κάμερα να εκπέμπει ένα I-Frame όταν αλλάζει τις δευτερεύουσες/κύριες ροές και από το Live στο Archive, εξαλείφοντας την αναμονή των 10 δευτερολέπτων για βασικό καρέ.</translation>
+        <translation>Ενσωματωμένη εντολή υλικού MakeKeyFrame με το Hikvision SDK. Η εφαρμογή πλέον αναγκάζει επιθετικά την κάμερα να εκπέμπει ένα I-Frame όταν αλλάζει τις δευτερεύουσες/κύριες ροές και από το Live στο Archive, εξαλείφοντας την αναμονή των 10 δευτερολέπτων για βασικό καρέ.</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation translatorcomment="AI-translated">Καταργήθηκε η on-the-fly παράκαμψη της παραμέτρου διάρκειας ανάλυσης. Η εφαρμογή επιβάλλει αυστηρά τις τιμές FFmpeg που καθορίζονται από τον χρήστη (συνιστάται ιδιαίτερα να ρυθμίσετε το 100000 για κάμερες χωρίς ήχο για να παρακάμψετε το όριο ακινητοποίησης των 5 δευτερολέπτων).</translation>
+        <translation>Καταργήθηκε η on-the-fly παράκαμψη της παραμέτρου διάρκειας ανάλυσης. Η εφαρμογή επιβάλλει αυστηρά τις τιμές FFmpeg που καθορίζονται από τον χρήστη (συνιστάται ιδιαίτερα να ρυθμίσετε το 100000 για κάμερες χωρίς ήχο για να παρακάμψετε το όριο ακινητοποίησης των 5 δευτερολέπτων).</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation translatorcomment="AI-translated">Προστέθηκαν σήματα "HikSDK" στις θύρες προβολής της συσκευής εγγραφής για καλύτερη διαφοροποίηση πρωτοκόλλου.</translation>
+        <translation>Προστέθηκαν σήματα "HikSDK" στις θύρες προβολής της συσκευής εγγραφής για καλύτερη διαφοροποίηση πρωτοκόλλου.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation translatorcomment="AI-translated">Βελτιωμένη καταγραφή διαγνωστικού ελέγχου (QDebug), που επιτρέπει την εκτύπωση προειδοποιήσεων και κρίσιμων σφαλμάτων στην κονσόλα εκτός της αναλυτικής λειτουργίας, διευκολύνοντας τον ευκολότερο εντοπισμό σφαλμάτων NVR.</translation>
+        <translation>Βελτιωμένη καταγραφή διαγνωστικού ελέγχου (QDebug), που επιτρέπει την εκτύπωση προειδοποιήσεων και κρίσιμων σφαλμάτων στην κονσόλα εκτός της αναλυτικής λειτουργίας, διευκολύνοντας τον ευκολότερο εντοπισμό σφαλμάτων NVR.</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation translatorcomment="AI-translated">Φιλτράρονται ψευδώς θετικά σφάλματα SDK PlayM4 (αρ. 17 και 2) που στέλνουν ανεπιθύμητη αλληλογραφία στην κονσόλα κατά τη διάρκεια του γρήγορου καθαρισμού της γραμμής χρόνου στη συσκευή αναπαραγωγής.</translation>
+        <translation>Φιλτράρονται ψευδώς θετικά σφάλματα SDK PlayM4 (αρ. 17 και 2) που στέλνουν ανεπιθύμητη αλληλογραφία στην κονσόλα κατά τη διάρκεια του γρήγορου καθαρισμού της γραμμής χρόνου στη συσκευή αναπαραγωγής.</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation translatorcomment="AI-translated">Διορθώθηκε η περικοπή της μη γραμμικής κλιμάκωσης (π.χ. 145%) από το πλαίσιο Qt5 σε συστήματα πλάσματος KDE, επιβάλλοντας τη σωστή ερμηνεία της πολιτικής υψηλού DPI.</translation>
+        <translation>Διορθώθηκε η περικοπή της μη γραμμικής κλιμάκωσης (π.χ. 145%) από το πλαίσιο Qt5 σε συστήματα πλάσματος KDE, επιβάλλοντας τη σωστή ερμηνεία της πολιτικής υψηλού DPI.</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation translatorcomment="AI-translated">Επιλύθηκαν τα προσωρινά παγώματα άλλων καμερών στο ζωντανό πλέγμα κατά την αναζήτηση ή τη μεταφορά της γραμμής χρόνου.</translation>
+        <translation>Επιλύθηκαν τα προσωρινά παγώματα άλλων καμερών στο ζωντανό πλέγμα κατά την αναζήτηση ή τη μεταφορά της γραμμής χρόνου.</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation translatorcomment="AI-translated">Μετακίνησε όλες τις κλήσεις δικτύου Hikvision SDK που μπλοκάρουν (σύνδεση, διακοπή, εκκίνηση, έλεγχος ταχύτητας) σε ένα ασύγχρονο νήμα εργασίας.</translation>
+        <translation>Μετακίνησε όλες τις κλήσεις δικτύου Hikvision SDK που μπλοκάρουν (σύνδεση, διακοπή, εκκίνηση, έλεγχος ταχύτητας) σε ένα ασύγχρονο νήμα εργασίας.</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation translatorcomment="AI-translated">Εξάλειψε πλήρως το πρόβλημα της μαύρης οθόνης κατά την εναλλαγή ποιότητας (SUB/MAIN) για κάμερες RTSP.</translation>
+        <translation>Εξάλειψε πλήρως το πρόβλημα της μαύρης οθόνης κατά την εναλλαγή ποιότητας (SUB/MAIN) για κάμερες RTSP.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation translatorcomment="AI-translated">Βελτιστοποιήθηκε ο χρονοδιακόπτης απρόσκοπτης εναλλαγής ροής στα 100ms για μέγιστη ταχύτητα.</translation>
+        <translation>Βελτιστοποιήθηκε ο χρονοδιακόπτης απρόσκοπτης εναλλαγής ροής στα 100ms για μέγιστη ταχύτητα.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation translatorcomment="AI-translated">Προστέθηκαν επιλογές FFmpeg χαμηλού επιπέδου (nobuffer, low_delay) για την εξάλειψη της καθυστέρησης ζωντανής ροής (drift) για μεγάλες περιόδους λειτουργίας.</translation>
+        <translation>Προστέθηκαν επιλογές FFmpeg χαμηλού επιπέδου (nobuffer, low_delay) για την εξάλειψη της καθυστέρησης ζωντανής ροής (drift) για μεγάλες περιόδους λειτουργίας.</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation translatorcomment="AI-translated">Παρουσιάστηκε ένα κουμπί για μαζική ενημέρωση των παραμέτρων FFmpeg για όλες τις υπάρχουσες κάμερες σε όλες τις διατάξεις.</translation>
+        <translation>Παρουσιάστηκε ένα κουμπί για μαζική ενημέρωση των παραμέτρων FFmpeg για όλες τις υπάρχουσες κάμερες σε όλες τις διατάξεις.</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε η επιλογή εξαίρεσης συγκεκριμένων καμερών από καθολικές ενημερώσεις παραμέτρων FFmpeg (νέο πλαίσιο ελέγχου στις ρυθμίσεις της θύρας προβολής).</translation>
+        <translation>Προστέθηκε η επιλογή εξαίρεσης συγκεκριμένων καμερών από καθολικές ενημερώσεις παραμέτρων FFmpeg (νέο πλαίσιο ελέγχου στις ρυθμίσεις της θύρας προβολής).</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation translatorcomment="AI-translated">Εξασφάλισε τη διαδικασία μετεγκατάστασης προεπιλεγμένων ρυθμίσεων, επιτρέποντας στον χρήστη να αφαιρεί ή να τροποποιεί μόνιμα νέες σημαίες χωρίς να επιβάλλονται σε κάθε εκκίνηση.</translation>
+        <translation>Εξασφάλισε τη διαδικασία μετεγκατάστασης προεπιλεγμένων ρυθμίσεων, επιτρέποντας στον χρήστη να αφαιρεί ή να τροποποιεί μόνιμα νέες σημαίες χωρίς να επιβάλλονται σε κάθε εκκίνηση.</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε λειτουργία γρήγορης αναπαραγωγής (έως και 30 λεπτά προς τα πίσω) απευθείας μέσα στο παράθυρο προβολής της κάμερας.</translation>
+        <translation>Προστέθηκε λειτουργία γρήγορης αναπαραγωγής (έως και 30 λεπτά προς τα πίσω) απευθείας μέσα στο παράθυρο προβολής της κάμερας.</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation translatorcomment="AI-translated">Εφαρμόστηκε πλήρης, αμφίδρομος συγχρονισμός σε πραγματικό χρόνο μεταξύ όλων των παραθύρων και των βοηθητικών διεργασιών προγραμμάτων για ρυθμίσεις: σίγαση ήχου, απενεργοποίηση κινούμενων εικόνων ζουμ και όλες οι επιλογές παρακολούθησης κατάστασης Hikvision NVR.</translation>
+        <translation>Εφαρμόστηκε πλήρης, αμφίδρομος συγχρονισμός σε πραγματικό χρόνο μεταξύ όλων των παραθύρων και των βοηθητικών διεργασιών προγραμμάτων για ρυθμίσεις: σίγαση ήχου, απενεργοποίηση κινούμενων εικόνων ζουμ και όλες οι επιλογές παρακολούθησης κατάστασης Hikvision NVR.</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε δυναμική εμφάνιση ετικετών λεπτών (π.χ., :15, :30, :45) με σημάδια λεπτών στη λωρίδα χρόνου του προγράμματος αναπαραγωγής αρχείων με έξυπνη προσαρμογή πυκνότητας ετικετών (Ώρες ζουμ).</translation>
+        <translation>Προστέθηκε δυναμική εμφάνιση ετικετών λεπτών (π.χ., :15, :30, :45) με σημάδια λεπτών στη λωρίδα χρόνου του προγράμματος αναπαραγωγής αρχείων με έξυπνη προσαρμογή πυκνότητας ετικετών (Ώρες ζουμ).</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε μια νέα επιλογή στις ρυθμίσεις διεπαφής χρήστη: "Απενεργοποίηση κινούμενων σχεδίων μεγέθυνσης θυρών προβολής" με άμεση εφαρμογή στην προβολή πλέγματος κάμερας.</translation>
+        <translation>Προστέθηκε μια νέα επιλογή στις ρυθμίσεις διεπαφής χρήστη: "Απενεργοποίηση κινούμενων σχεδίων μεγέθυνσης θυρών προβολής" με άμεση εφαρμογή στην προβολή πλέγματος κάμερας.</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation translatorcomment="AI-translated">Ανακατασκευάστηκε η διαδικασία προετοιμασίας του προγράμματος αναπαραγωγής αρχείων: αναστολή σύνδεσης και φόρτωσης βίντεο μέχρι να καθοριστούν τα ακριβή όρια εγγραφής (μέσω μιας εξαιρετικά γρήγορης ασύγχρονης αναζήτησης 24 ωρών), εξαλείφοντας την πρόωρη αναπαραγωγή και το άλμα εικόνας.</translation>
+        <translation>Ανακατασκευάστηκε η διαδικασία προετοιμασίας του προγράμματος αναπαραγωγής αρχείων: αναστολή σύνδεσης και φόρτωσης βίντεο μέχρι να καθοριστούν τα ακριβή όρια εγγραφής (μέσω μιας εξαιρετικά γρήγορης ασύγχρονης αναζήτησης 24 ωρών), εξαλείφοντας την πρόωρη αναπαραγωγή και το άλμα εικόνας.</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation translatorcomment="AI-translated">Βελτιωμένα μηνύματα φόρτωσης αρχείων Hikvision – η κατάσταση φόρτωσης εμφανίζεται μόνο κατά την ενεργή προσωρινή αποθήκευση ροής και εμφανίζεται μια ειδική προειδοποίηση εάν η κεφαλή αναπαραγωγής μετακινηθεί πέρα ​​από τα διαθέσιμα όρια εγγραφής.</translation>
+        <translation>Βελτιωμένα μηνύματα φόρτωσης αρχείων Hikvision – η κατάσταση φόρτωσης εμφανίζεται μόνο κατά την ενεργή προσωρινή αποθήκευση ροής και εμφανίζεται μια ειδική προειδοποίηση εάν η κεφαλή αναπαραγωγής μετακινηθεί πέρα ​​από τα διαθέσιμα όρια εγγραφής.</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation translatorcomment="AI-translated">Παρουσιάστηκαν νέα πεδία διαμόρφωσης στον πίνακα ρυθμίσεων: προεπιλεγμένη μετατόπιση έναρξης αναπαραγωγής αρχείου (σε δευτερόλεπτα, προεπιλεγμένα 60s) και προεπιλεγμένο εύρος ζουμ στο χρονοδιάγραμμα (ώρες ζουμ, προεπιλογή 2 ώρες).</translation>
+        <translation>Παρουσιάστηκαν νέα πεδία διαμόρφωσης στον πίνακα ρυθμίσεων: προεπιλεγμένη μετατόπιση έναρξης αναπαραγωγής αρχείου (σε δευτερόλεπτα, προεπιλεγμένα 60s) και προεπιλεγμένο εύρος ζουμ στο χρονοδιάγραμμα (ώρες ζουμ, προεπιλογή 2 ώρες).</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε ένα εικονίδιο απευθείας σύνδεσης στο web στον πίνακα web της συσκευής εγγραφής μέσα στο αναδυόμενο παράθυρο κατάστασης NVR.</translation>
+        <translation>Προστέθηκε ένα εικονίδιο απευθείας σύνδεσης στο web στον πίνακα web της συσκευής εγγραφής μέσα στο αναδυόμενο παράθυρο κατάστασης NVR.</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε η λειτουργία καταστολής αναφοράς σφαλμάτων για μεμονωμένες συσκευές εγγραφής.</translation>
+        <translation>Προστέθηκε η λειτουργία καταστολής αναφοράς σφαλμάτων για μεμονωμένες συσκευές εγγραφής.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation translatorcomment="AI-translated">Διορθώθηκε η λανθασμένη μετάφραση στα πολωνικά "Simulated Recorder" στο παράθυρο κατάστασης και εφαρμόστηκε η σωστή διάκριση λέξεων ("Suppress" για σφάλματα έναντι "Σίγαση" για ήχο).</translation>
+        <translation>Διορθώθηκε η λανθασμένη μετάφραση στα πολωνικά "Simulated Recorder" στο παράθυρο κατάστασης και εφαρμόστηκε η σωστή διάκριση λέξεων ("Suppress" για σφάλματα έναντι "Σίγαση" για ήχο).</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation translatorcomment="AI-translated">Εφαρμόστηκε περιοδική (κάθε 5 λεπτά) και μη αυτόματη παρακολούθηση κατάστασης σφαλμάτων Hikvision NVR/DVR με χρήση διαγνωστικών SDK/ISAPI.</translation>
+        <translation>Εφαρμόστηκε περιοδική (κάθε 5 λεπτά) και μη αυτόματη παρακολούθηση κατάστασης σφαλμάτων Hikvision NVR/DVR με χρήση διαγνωστικών SDK/ISAPI.</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation translatorcomment="AI-translated">Προστέθηκαν επιλογές διαμόρφωσης στις Γενικές ρυθμίσεις για την ενεργοποίηση/απενεργοποίηση του ελέγχου κατάστασης Hikvision NVR και την προσαρμογή των τύπων κρίσιμων σφαλμάτων που παρακολουθούνται.</translation>
+        <translation>Προστέθηκαν επιλογές διαμόρφωσης στις Γενικές ρυθμίσεις για την ενεργοποίηση/απενεργοποίηση του ελέγχου κατάστασης Hikvision NVR και την προσαρμογή των τύπων κρίσιμων σφαλμάτων που παρακολουθούνται.</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation translatorcomment="AI-translated">Σχεδίασε ένα υψηλής πιστότητας θερμό-πράσινο/κόκκινο εικονίδιο κατάστασης επάνω γραμμής με βαθιά παλμικά εξωτερικά κύματα και κινούμενα σχέδια με κυματισμό εσωτερικού παλμού για να σηματοδοτούν ενεργά κρίσιμα σφάλματα.</translation>
+        <translation>Σχεδίασε ένα υψηλής πιστότητας θερμό-πράσινο/κόκκινο εικονίδιο κατάστασης επάνω γραμμής με βαθιά παλμικά εξωτερικά κύματα και κινούμενα σχέδια με κυματισμό εσωτερικού παλμού για να σηματοδοτούν ενεργά κρίσιμα σφάλματα.</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation translatorcomment="AI-translated">Παρουσιάστηκε ένας προεξέχων κόκκινος κύκλος ένδειξης στην επάνω άκρη που πάλλεται στο επάνω μέρος της οθόνης όταν η κύρια γραμμή εργαλείων συμπτύσσεται, διασφαλίζοντας ότι δεν θα χάνονται ποτέ οι κρίσιμες προειδοποιήσεις.</translation>
+        <translation>Παρουσιάστηκε ένας προεξέχων κόκκινος κύκλος ένδειξης στην επάνω άκρη που πάλλεται στο επάνω μέρος της οθόνης όταν η κύρια γραμμή εργαλείων συμπτύσσεται, διασφαλίζοντας ότι δεν θα χάνονται ποτέ οι κρίσιμες προειδοποιήσεις.</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation translatorcomment="AI-translated">Δημιουργήθηκε ένα κομψό αναδυόμενο παράθυρο με δυνατότητα κύλισης "Κατάσταση εγγραφής" που περιορίζεται στο 85% του ύψους της οθόνης, παρουσιάζοντας λεπτομερείς κωδικούς σφάλματος.</translation>
+        <translation>Δημιουργήθηκε ένα κομψό αναδυόμενο παράθυρο με δυνατότητα κύλισης "Κατάσταση εγγραφής" που περιορίζεται στο 85% του ύψους της οθόνης, παρουσιάζοντας λεπτομερείς κωδικούς σφάλματος.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε η σημαία εκτέλεσης "--simulate-error" για την άμεση προσομοίωση αστοχιών δίσκου και σφαλμάτων σύνδεσης σε όλες τις συσκευές εγγραφής για σκοπούς επίδειξης.</translation>
+        <translation>Προστέθηκε η σημαία εκτέλεσης "--simulate-error" για την άμεση προσομοίωση αστοχιών δίσκου και σφαλμάτων σύνδεσης σε όλες τις συσκευές εγγραφής για σκοπούς επίδειξης.</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation translatorcomment="AI-translated">Εφαρμόστηκαν σήματα πλαισίου λίστας και ευθυγραμμίσεις ενδείξεων κατάστασης σε διαμορφωμένες προβολές συσκευής εγγραφής.</translation>
+        <translation>Εφαρμόστηκαν σήματα πλαισίου λίστας και ευθυγραμμίσεις ενδείξεων κατάστασης σε διαμορφωμένες προβολές συσκευής εγγραφής.</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation translatorcomment="AI-translated">Επιτεύχθηκε πλήρης κάλυψη δίγλωσσης μετάφρασης (Πολωνικά/Αγγλικά) για όλα τα διαγνωστικά NVR, ρύθμιση πλαισίων ελέγχου, συμβουλές εργαλείων, προειδοποιήσεις και επιλογές ανάλυσης γραμμής εντολών.</translation>
+        <translation>Επιτεύχθηκε πλήρης κάλυψη δίγλωσσης μετάφρασης (Πολωνικά/Αγγλικά) για όλα τα διαγνωστικά NVR, ρύθμιση πλαισίων ελέγχου, συμβουλές εργαλείων, προειδοποιήσεις και επιλογές ανάλυσης γραμμής εντολών.</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε η δυνατότητα επαναφόρτωσης της ενεργής διάταξης κάνοντας κλικ στο κουμπί της στην επάνω γραμμή εργαλείων.</translation>
+        <translation>Προστέθηκε η δυνατότητα επαναφόρτωσης της ενεργής διάταξης κάνοντας κλικ στο κουμπί της στην επάνω γραμμή εργαλείων.</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation translatorcomment="AI-translated">Μέσος όρος δειγμάτων χρήσης NVML με την πάροδο του χρόνου για την εξομάλυνση του γραφήματος χρήσης GPU και την εξάλειψη των οδοντωτών μετρήσεων.</translation>
+        <translation>Μέσος όρος δειγμάτων χρήσης NVML με την πάροδο του χρόνου για την εξομάλυνση του γραφήματος χρήσης GPU και την εξάλειψη των οδοντωτών μετρήσεων.</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation translatorcomment="AI-translated">Εξαλείφει το στιγμιαίο αναβοσβήσιμο βίντεο (μαύρα καρέ) και τα κενά εκτός συγχρονισμού ήχου-εικόνας κατά την εναλλαγή ποιότητας από SUB σε ΚΥΡΙΕΣ ροές κατά τη μεγιστοποίηση της θύρας προβολής καθυστερώντας την εναλλαγή ενεργού προγράμματος αναπαραγωγής έως ότου το πρώτο καρέ ζωγραφιστεί στην οθόνη.</translation>
+        <translation>Εξαλείφει το στιγμιαίο αναβοσβήσιμο βίντεο (μαύρα καρέ) και τα κενά εκτός συγχρονισμού ήχου-εικόνας κατά την εναλλαγή ποιότητας από SUB σε ΚΥΡΙΕΣ ροές κατά τη μεγιστοποίηση της θύρας προβολής καθυστερώντας την εναλλαγή ενεργού προγράμματος αναπαραγωγής έως ότου το πρώτο καρέ ζωγραφιστεί στην οθόνη.</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation translatorcomment="AI-translated">Προστέθηκαν διαδραστικές, καθαρές και 2 φορές ευρύτερες γραμμές κύλισης στις στήλες επιλογής ώρας, λεπτών και δεύτερης στο αναδυόμενο παράθυρο επιλογής χρόνου λήψης αρχείου.</translation>
+        <translation>Προστέθηκαν διαδραστικές, καθαρές και 2 φορές ευρύτερες γραμμές κύλισης στις στήλες επιλογής ώρας, λεπτών και δεύτερης στο αναδυόμενο παράθυρο επιλογής χρόνου λήψης αρχείου.</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation translatorcomment="AI-translated">Προστέθηκαν νέες έξυπνες επιλογές στο μενού περιβάλλοντος των θυρών προβολής: «Στιγμιότυπο» (αποθήκευση του τρέχοντος καρέ) και «Αναπαραγωγή» (άμεση μετάβαση στην αναπαραγωγή αρχειοθέτησης της συγκεκριμένης κάμερας).</translation>
+        <translation>Προστέθηκαν νέες έξυπνες επιλογές στο μενού περιβάλλοντος των θυρών προβολής: «Στιγμιότυπο» (αποθήκευση του τρέχοντος καρέ) και «Αναπαραγωγή» (άμεση μετάβαση στην αναπαραγωγή αρχειοθέτησης της συγκεκριμένης κάμερας).</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation translatorcomment="AI-translated">Επανάσταση και σταθερός χειρισμός ήχου PCM: απευθείας προώθηση αγωγών στο QAudioOutput, εξάλειψη παγώσεων διεπαφής (ALSA/PulseAudio/Pipewire) με σταθεροποίηση του ρυθμού δειγματοληψίας (debounce μετά από 5 σταθερά καρέ), cooldown 2 δευτερολέπτων κατά την αναδημιουργία εξόδου, φιλτράρισμα κατεστραμμένων παραμέτρων και επαναφορά του butter δικτύου 64KB.</translation>
+        <translation>Επανάσταση και σταθερός χειρισμός ήχου PCM: απευθείας προώθηση αγωγών στο QAudioOutput, εξάλειψη παγώσεων διεπαφής (ALSA/PulseAudio/Pipewire) με σταθεροποίηση του ρυθμού δειγματοληψίας (debounce μετά από 5 σταθερά καρέ), cooldown 2 δευτερολέπτων κατά την αναδημιουργία εξόδου, φιλτράρισμα κατεστραμμένων παραμέτρων και επαναφορά του butter δικτύου 64KB.</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation translatorcomment="AI-translated">Εφάρμοσε ένα διαδραστικό ρυθμιστικό έντασης HUD απευθείας στα πλακίδια της θύρας προβολής, μαζί με μια γρήγορη επιλογή σίγασης και μεγιστοποίηση της έντασης με ένα κλικ.</translation>
+        <translation>Εφάρμοσε ένα διαδραστικό ρυθμιστικό έντασης HUD απευθείας στα πλακίδια της θύρας προβολής, μαζί με μια γρήγορη επιλογή σίγασης και μεγιστοποίηση της έντασης με ένα κλικ.</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation translatorcomment="AI-translated">Εφαρμόστηκε αυτόματη και άμεση σίγαση των LIVE ροών στο κύριο πλέγμα κατά το άνοιγμα του παραθύρου αναπαραγωγής Archive, αποτρέποντας την επικάλυψη ήχων (κακοφωνία).</translation>
+        <translation>Εφαρμόστηκε αυτόματη και άμεση σίγαση των LIVE ροών στο κύριο πλέγμα κατά το άνοιγμα του παραθύρου αναπαραγωγής Archive, αποτρέποντας την επικάλυψη ήχων (κακοφωνία).</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation translatorcomment="AI-translated">Παρουσιάστηκε ένα κεντρικό σύστημα ειδοποιήσεων SnapshotSavedDialog για αποθηκευμένα στιγμιότυπα (σκούρο γκρι περίβλημα, γαλαζοπράσινο περίβλημα, αυτόματο κλείσιμο μετά από 10 δευτερόλεπτα) με έναν γρήγορο σύνδεσμο «Αναζήτηση» για άνοιγμα του φακέλου απευθείας στη διαχείριση αρχείων συστήματος.</translation>
+        <translation>Παρουσιάστηκε ένα κεντρικό σύστημα ειδοποιήσεων SnapshotSavedDialog για αποθηκευμένα στιγμιότυπα (σκούρο γκρι περίβλημα, γαλαζοπράσινο περίβλημα, αυτόματο κλείσιμο μετά από 10 δευτερόλεπτα) με έναν γρήγορο σύνδεσμο «Αναζήτηση» για άνοιγμα του φακέλου απευθείας στη διαχείριση αρχείων συστήματος.</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation translatorcomment="AI-translated">Εμπλουτίστηκε το ενσωματωμένο παράθυρο βοήθειας με ένα λεπτομερές κεφάλαιο «Περιγραφή λειτουργιών κουμπιών» χρησιμοποιώντας εγγενή, καθαρά διανυσματικά εικονίδια SVG. Το παράθυρο βοήθειας ανοίγει τώρα πλήρως αυτόματα και κεντραρισμένο πάνω από το κύριο παράθυρο κατά την πρώτη εκκίνηση του προγράμματος.</translation>
+        <translation>Εμπλουτίστηκε το ενσωματωμένο παράθυρο βοήθειας με ένα λεπτομερές κεφάλαιο «Περιγραφή λειτουργιών κουμπιών» χρησιμοποιώντας εγγενή, καθαρά διανυσματικά εικονίδια SVG. Το παράθυρο βοήθειας ανοίγει τώρα πλήρως αυτόματα και κεντραρισμένο πάνω από το κύριο παράθυρο κατά την πρώτη εκκίνηση του προγράμματος.</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation translatorcomment="AI-translated">Εισήγαγε την προεπιλεγμένη εμφάνιση της επάνω γραμμής κατά την εκκίνηση του προγράμματος/παραθύρου και προστέθηκε μια επιλογή «Εμφάνιση επάνω γραμμής από προεπιλογή μετά το άνοιγμα ενός παραθύρου» στις ρυθμίσεις, επιτρέποντας την προσαρμογή αυτής της συμπεριφοράς στις προσωπικές προτιμήσεις.</translation>
+        <translation>Εισήγαγε την προεπιλεγμένη εμφάνιση της επάνω γραμμής κατά την εκκίνηση του προγράμματος/παραθύρου και προστέθηκε μια επιλογή «Εμφάνιση επάνω γραμμής από προεπιλογή μετά το άνοιγμα ενός παραθύρου» στις ρυθμίσεις, επιτρέποντας την προσαρμογή αυτής της συμπεριφοράς στις προσωπικές προτιμήσεις.</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation translatorcomment="AI-translated">Εφάρμοσε δυναμικές διαδρομές βιβλιοθήκης RPATH στο CMakeLists.txt χρησιμοποιώντας GNUInstallDirs, επιτρέποντας την άμεση εκτέλεση της μεταγλωττισμένης εφαρμογής σε Ubuntu και Debian χωρίς την ανάγκη μη αυτόματης ρύθμισης παραμέτρων του /etc/ld.so.conf.d/ και του ldconfig.</translation>
+        <translation>Εφάρμοσε δυναμικές διαδρομές βιβλιοθήκης RPATH στο CMakeLists.txt χρησιμοποιώντας GNUInstallDirs, επιτρέποντας την άμεση εκτέλεση της μεταγλωττισμένης εφαρμογής σε Ubuntu και Debian χωρίς την ανάγκη μη αυτόματης ρύθμισης παραμέτρων του /etc/ld.so.conf.d/ και του ldconfig.</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation translatorcomment="AI-translated">Μετονόμασε το πρόγραμμα σε KVision, εισάγοντας την αυτόματη μετεγκατάσταση ρυθμίσεων χρήστη, νέα εικονίδια πολλαπλών μεγεθών (128 px, 256 px, 512 px) και προβολή πλήρους έκδοσης στη γραμμή τίτλου του παραθύρου.</translation>
+        <translation>Μετονόμασε το πρόγραμμα σε KVision, εισάγοντας την αυτόματη μετεγκατάσταση ρυθμίσεων χρήστη, νέα εικονίδια πολλαπλών μεγεθών (128 px, 256 px, 512 px) και προβολή πλήρους έκδοσης στη γραμμή τίτλου του παραθύρου.</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation translatorcomment="AI-translated">Διορθώθηκε το παράθυρο προειδοποίησης για υπέρβαση του ορίου των βοηθητικών παραθύρων (έλλειπε ο πόρος QML και οι Ρυθμίσεις QML διαβάστηκαν).</translation>
+        <translation>Διορθώθηκε το παράθυρο προειδοποίησης για υπέρβαση του ορίου των βοηθητικών παραθύρων (έλλειπε ο πόρος QML και οι Ρυθμίσεις QML διαβάστηκαν).</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation translatorcomment="AI-translated">Διορθώθηκε το εικονίδιο του προγράμματος που λείπει στο Wayland (εγκατάσταση θέματος hicolor και setDesktopFileName).</translation>
+        <translation>Διορθώθηκε το εικονίδιο του προγράμματος που λείπει στο Wayland (εγκατάσταση θέματος hicolor και setDesktopFileName).</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation translatorcomment="AI-translated">Καταργήθηκε η επιλογή της επάνω γραμμής αυτόματης σύμπτυξης από τις Ρυθμίσεις - από εδώ και στο εξής, η επάνω γραμμή στα LIVE παράθυρα (κύρια και βοηθητικά) συμπτύσσεται από προεπιλογή κατά την εκκίνηση και το κουμπί καρφίτσας την καρφιτσώνει τοπικά και προσωρινά (στη μνήμη) χωρίς να αποθηκεύεται η κατάστασή της.</translation>
+        <translation>Καταργήθηκε η επιλογή της επάνω γραμμής αυτόματης σύμπτυξης από τις Ρυθμίσεις - από εδώ και στο εξής, η επάνω γραμμή στα LIVE παράθυρα (κύρια και βοηθητικά) συμπτύσσεται από προεπιλογή κατά την εκκίνηση και το κουμπί καρφίτσας την καρφιτσώνει τοπικά και προσωρινά (στη μνήμη) χωρίς να αποθηκεύεται η κατάστασή της.</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation translatorcomment="AI-translated">Εισήγαγε ένα όριο στον αριθμό των βοηθητικών παραθύρων (με δυνατότητα διαμόρφωσης από 0 έως 3) με ένα κομψό παράθυρο προειδοποίησης όταν προσπαθείτε να το υπερβείτε.</translation>
+        <translation>Εισήγαγε ένα όριο στον αριθμό των βοηθητικών παραθύρων (με δυνατότητα διαμόρφωσης από 0 έως 3) με ένα κομψό παράθυρο προειδοποίησης όταν προσπαθείτε να το υπερβείτε.</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation translatorcomment="AI-translated">Προστέθηκαν διακριτικά σκούρα γκρι περιγράμματα 1 εικονοστοιχείου γύρω από τις αχρησιμοποίητες θύρες προβολής στο πλέγμα διάταξης LIVE για καλύτερη οριοθέτηση των πεδίων.</translation>
+        <translation>Προστέθηκαν διακριτικά σκούρα γκρι περιγράμματα 1 εικονοστοιχείου γύρω από τις αχρησιμοποίητες θύρες προβολής στο πλέγμα διάταξης LIVE για καλύτερη οριοθέτηση των πεδίων.</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation translatorcomment="AI-translated">Ασφαλής επεξεργασία των διαδρομών αποθήκευσης και των επιλογών διαμόρφωσης μέσων συστήματος πίσω από ένα παροδικό πλαίσιο ελέγχου «Ενεργοποίηση αλλαγών σε αυτήν την ενότητα», αποτρέποντας τυχαίες τροποποιήσεις (επαναφορά κατάστασης επεξεργασίας στο κλείσιμο).</translation>
+        <translation>Ασφαλής επεξεργασία των διαδρομών αποθήκευσης και των επιλογών διαμόρφωσης μέσων συστήματος πίσω από ένα παροδικό πλαίσιο ελέγχου «Ενεργοποίηση αλλαγών σε αυτήν την ενότητα», αποτρέποντας τυχαίες τροποποιήσεις (επαναφορά κατάστασης επεξεργασίας στο κλείσιμο).</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation translatorcomment="AI-translated">Παρουσιάστηκαν άμεσες συντομεύσεις για «άνοιγμα φακέλου αποθήκευσης» (επισημαίνονται σε celadon μετά την ολοκλήρωση της λήψης στο παράθυρο Αρχείο) και πάντα ενεργά κουμπιά γρήγορου ανοίγματος για φακέλους στιγμιότυπων και βίντεο στις Ρυθμίσεις (με αυτόματη δημιουργία καταλόγου στο δίσκο εάν λείπουν).</translation>
+        <translation>Παρουσιάστηκαν άμεσες συντομεύσεις για «άνοιγμα φακέλου αποθήκευσης» (επισημαίνονται σε celadon μετά την ολοκλήρωση της λήψης στο παράθυρο Αρχείο) και πάντα ενεργά κουμπιά γρήγορου ανοίγματος για φακέλους στιγμιότυπων και βίντεο στις Ρυθμίσεις (με αυτόματη δημιουργία καταλόγου στο δίσκο εάν λείπουν).</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation translatorcomment="AI-translated">Παρουσιάστηκε η διαδραστική επικύρωση όταν κάνετε κλικ στο κουμπί «Pobierz» (Λήψη) στο παράθυρο λήψης: αυτόματοι έλεγχοι μορφής και χρονολογικής ημερομηνίας, εμφάνιση μιας κόκκινης προειδοποιητικής επεξήγησης εργαλείου και εστίαση στο πρώτο μη έγκυρο πεδίο.</translation>
+        <translation>Παρουσιάστηκε η διαδραστική επικύρωση όταν κάνετε κλικ στο κουμπί «Pobierz» (Λήψη) στο παράθυρο λήψης: αυτόματοι έλεγχοι μορφής και χρονολογικής ημερομηνίας, εμφάνιση μιας κόκκινης προειδοποιητικής επεξήγησης εργαλείου και εστίαση στο πρώτο μη έγκυρο πεδίο.</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation translatorcomment="AI-translated">Εφαρμόστηκε πλήρης πλοήγηση με πληκτρολόγιο (πλήκτρα βέλους πάνω/κάτω για αλλαγή τιμών, αριστερά/δεξιά για εναλλαγή στηλών) μέσα στο αναδυόμενο παράθυρο επιλογής ρολογιού.</translation>
+        <translation>Εφαρμόστηκε πλήρης πλοήγηση με πληκτρολόγιο (πλήκτρα βέλους πάνω/κάτω για αλλαγή τιμών, αριστερά/δεξιά για εναλλαγή στηλών) μέσα στο αναδυόμενο παράθυρο επιλογής ρολογιού.</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation translatorcomment="AI-translated">Εξασφάλισε μια εντελώς καθαρή εκκίνηση για βοηθητικά παράθυρα (χωρίς αυτόματο άνοιγμα της πλαϊνής γραμμής επιλογών) και απέκλεισε τις ρυθμίσεις γεωμετρίας που αποθηκεύονται από τα βοηθητικά παράθυρα, εξαλείφοντας τη μόλυνση της κοινής διαμόρφωσης.</translation>
+        <translation>Εξασφάλισε μια εντελώς καθαρή εκκίνηση για βοηθητικά παράθυρα (χωρίς αυτόματο άνοιγμα της πλαϊνής γραμμής επιλογών) και απέκλεισε τις ρυθμίσεις γεωμετρίας που αποθηκεύονται από τα βοηθητικά παράθυρα, εξαλείφοντας τη μόλυνση της κοινής διαμόρφωσης.</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε πλήρης υποστήριξη αγγλικής γλώσσας για όλα τα νέα μηνύματα σφάλματος μορφοποίησης και χρονολογικής επικύρωσης στο παράθυρο λήψης.</translation>
+        <translation>Προστέθηκε πλήρης υποστήριξη αγγλικής γλώσσας για όλα τα νέα μηνύματα σφάλματος μορφοποίησης και χρονολογικής επικύρωσης στο παράθυρο λήψης.</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation translatorcomment="AI-translated">Εξαλείφονται οι διαρροές μνήμης RAM κατά την εναλλαγή των διατάξεων της κάμερας, διακόπτοντας αυτόματα και σωστά την επιφάνεια του βίντεο πριν από την ενημέρωση των μορφών και την αντιστοίχιση διαστάσεων απόδοσης.</translation>
+        <translation>Εξαλείφονται οι διαρροές μνήμης RAM κατά την εναλλαγή των διατάξεων της κάμερας, διακόπτοντας αυτόματα και σωστά την επιφάνεια του βίντεο πριν από την ενημέρωση των μορφών και την αντιστοίχιση διαστάσεων απόδοσης.</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation translatorcomment="AI-translated">Εφάρμοσε την άνευ όρων απελευθέρωση και καταστροφή αντικειμένων εξόδου ήχου στη στάση του προγράμματος αναπαραγωγής και εισήγαγε την αυτόματη ανακύκλωση αυτών των αντικειμένων για την εξάλειψη των διαρροών μνήμης και νημάτων στο Linux.</translation>
+        <translation>Εφάρμοσε την άνευ όρων απελευθέρωση και καταστροφή αντικειμένων εξόδου ήχου στη στάση του προγράμματος αναπαραγωγής και εισήγαγε την αυτόματη ανακύκλωση αυτών των αντικειμένων για την εξάλειψη των διαρροών μνήμης και νημάτων στο Linux.</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation translatorcomment="AI-translated">Επιλύθηκαν προβλήματα παγώματος βίντεο (μονόχρωμη οθόνη μετά το ζουμ της θύρας προβολής) επιβάλλοντας τη σωστή σηματοδότηση διαθεσιμότητας βίντεο κατά την παρουσίαση του πρώτου καρέ μιας νέας ροής.</translation>
+        <translation>Επιλύθηκαν προβλήματα παγώματος βίντεο (μονόχρωμη οθόνη μετά το ζουμ της θύρας προβολής) επιβάλλοντας τη σωστή σηματοδότηση διαθεσιμότητας βίντεο κατά την παρουσίαση του πρώτου καρέ μιας νέας ροής.</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε μια καθολική ρύθμιση «Απενεργοποίηση υποστήριξης ήχου εντελώς», επιτρέποντας την πλήρη παράκαμψη της επεξεργασίας ήχου για την εξάλειψη πιθανών γενικών εξόδων και διαρροών μνήμης.</translation>
+        <translation>Προστέθηκε μια καθολική ρύθμιση «Απενεργοποίηση υποστήριξης ήχου εντελώς», επιτρέποντας την πλήρη παράκαμψη της επεξεργασίας ήχου για την εξάλειψη πιθανών γενικών εξόδων και διαρροών μνήμης.</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation translatorcomment="AI-translated">Βελτιστοποιήθηκε η μονάδα στατιστικών στοιχείων συστήματος για την εξάλειψη των επιβαρύνσεων της συνεχούς χρήσης μνήμης, αποθηκεύοντας τα αναγνωριστικά διεργασίας στην κρυφή μνήμη και αφαιρώντας τις εκχωρήσεις δυναμικών κανονικών εκφράσεων.</translation>
+        <translation>Βελτιστοποιήθηκε η μονάδα στατιστικών στοιχείων συστήματος για την εξάλειψη των επιβαρύνσεων της συνεχούς χρήσης μνήμης, αποθηκεύοντας τα αναγνωριστικά διεργασίας στην κρυφή μνήμη και αφαιρώντας τις εκχωρήσεις δυναμικών κανονικών εκφράσεων.</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation translatorcomment="AI-translated">Ενίσχυσε την επιθετική συλλογή σκουπιδιών (GC) με διακόπτες διάταξης κάμερας και ακυρωμένα περιβάλλοντα κλίμακας εικόνας (SwsContext) σε buffer βίντεο.</translation>
+        <translation>Ενίσχυσε την επιθετική συλλογή σκουπιδιών (GC) με διακόπτες διάταξης κάμερας και ακυρωμένα περιβάλλοντα κλίμακας εικόνας (SwsContext) σε buffer βίντεο.</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation translatorcomment="AI-translated">Εξασφαλισμένος σωστός καθαρισμός πόρων του ανιχνευτή αλλαγής αρχείων στατικής διαμόρφωσης (QFileSystemWatcher) κατά την έξοδο από την εφαρμογή.</translation>
+        <translation>Εξασφαλισμένος σωστός καθαρισμός πόρων του ανιχνευτή αλλαγής αρχείων στατικής διαμόρφωσης (QFileSystemWatcher) κατά την έξοδο από την εφαρμογή.</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation translatorcomment="AI-translated">Διορθώθηκαν προβλήματα συγχρονισμού και παγώματος της διαδικασίας του βοηθητικού παραθύρου σε πιο αργά μηχανήματα κατά τη διαδοχική διαγραφή της κάμερας και τη συγχώνευση ή μετακίνηση θυρών προβολής.</translation>
+        <translation>Διορθώθηκαν προβλήματα συγχρονισμού και παγώματος της διαδικασίας του βοηθητικού παραθύρου σε πιο αργά μηχανήματα κατά τη διαδοχική διαγραφή της κάμερας και τη συγχώνευση ή μετακίνηση θυρών προβολής.</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation translatorcomment="AI-translated">Διορθώθηκε η συγκέντρωση στατιστικών στοιχείων χρήσης GPU, χρήσης VRAM και εύρους ζώνης δικτύου από όλες τις διαδικασίες εφαρμογής χρησιμοποιώντας κοινόχρηστη μνήμη (/dev/shm) στο παρασκήνιο.</translation>
+        <translation>Διορθώθηκε η συγκέντρωση στατιστικών στοιχείων χρήσης GPU, χρήσης VRAM και εύρους ζώνης δικτύου από όλες τις διαδικασίες εφαρμογής χρησιμοποιώντας κοινόχρηστη μνήμη (/dev/shm) στο παρασκήνιο.</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation translatorcomment="AI-translated">Προστατεύεται ο καταστροφέας του προγράμματος αναπαραγωγής αρχείων από αγώνες δεδομένων κατά τον καθαρισμό εκκρεμών εργασιών RGB.</translation>
+        <translation>Προστατεύεται ο καταστροφέας του προγράμματος αναπαραγωγής αρχείων από αγώνες δεδομένων κατά τον καθαρισμό εκκρεμών εργασιών RGB.</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation translatorcomment="AI-translated">Εφαρμοσμένη συγκέντρωση προγράμματος αναπαραγωγής βίντεο για την εξάλειψη των αιχμών χρήσης της μνήμης RAM και του τρεμοπαίζει κατά την εναλλαγή διατάξεων.</translation>
+        <translation>Εφαρμοσμένη συγκέντρωση προγράμματος αναπαραγωγής βίντεο για την εξάλειψη των αιχμών χρήσης της μνήμης RAM και του τρεμοπαίζει κατά την εναλλαγή διατάξεων.</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation translatorcomment="AI-translated">Βελτιστοποιημένη παρακολούθηση GPU/VRAM σε μοντέλο συγκεκριμένης διαδικασίας (χωρίς αναπαραγωγή nvidia-smi) με εγγενή υποστήριξη για NVIDIA, AMD και GPU της Intel (τα στατιστικά στοιχεία AMD/Intel δεν έχουν δοκιμαστεί).</translation>
+        <translation>Βελτιστοποιημένη παρακολούθηση GPU/VRAM σε μοντέλο συγκεκριμένης διαδικασίας (χωρίς αναπαραγωγή nvidia-smi) με εγγενή υποστήριξη για NVIDIA, AMD και GPU της Intel (τα στατιστικά στοιχεία AMD/Intel δεν έχουν δοκιμαστεί).</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation translatorcomment="AI-translated">Επιτρέπεται η αλλαγή μεγέθους του πίνακα στατιστικών στοιχείων συστήματος σύροντας τις άκρες και τις γωνίες του με γραφήματα αυτόματης κλιμάκωσης.</translation>
+        <translation>Επιτρέπεται η αλλαγή μεγέθους του πίνακα στατιστικών στοιχείων συστήματος σύροντας τις άκρες και τις γωνίες του με γραφήματα αυτόματης κλιμάκωσης.</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation translatorcomment="AI-translated">Εφαρμόστηκε άμεση απόκρυψη των κύριων και των βοηθητικών παραθύρων κατά την επιβεβαίωση τερματισμού, κάνοντας τον τερματισμό να φαίνεται άμεσος στον χρήστη ενώ η εκκαθάριση νήματος και μνήμης εκτελείται με ασφάλεια στο παρασκήνιο.</translation>
+        <translation>Εφαρμόστηκε άμεση απόκρυψη των κύριων και των βοηθητικών παραθύρων κατά την επιβεβαίωση τερματισμού, κάνοντας τον τερματισμό να φαίνεται άμεσος στον χρήστη ενώ η εκκαθάριση νήματος και μνήμης εκτελείται με ασφάλεια στο παρασκήνιο.</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation translatorcomment="AI-translated">Μετατροπή κορυφαίων γραμμών εργαλείων τόσο στα παράθυρα LIVE όσο και στα ΑΡΧΕΙΟ σε κεντρικές πλωτές αποβάθρες (η αποβάθρα LIVE έχει δυναμικό πλάτος).</translation>
+        <translation>Μετατροπή κορυφαίων γραμμών εργαλείων τόσο στα παράθυρα LIVE όσο και στα ΑΡΧΕΙΟ σε κεντρικές πλωτές αποβάθρες (η αποβάθρα LIVE έχει δυναμικό πλάτος).</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε ένα κατακόρυφο διαχωριστικό στις βάσεις της επάνω γραμμής μεταξύ των επιλογών πλέγματος και των διατάξεων.</translation>
+        <translation>Προστέθηκε ένα κατακόρυφο διαχωριστικό στις βάσεις της επάνω γραμμής μεταξύ των επιλογών πλέγματος και των διατάξεων.</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation translatorcomment="AI-translated">Αυξημένη διαφάνεια των επάνω και κάτω γραμμών αρχειοθέτησης (60% σε λειτουργία παραθύρου, 26% σε πλήρη οθόνη) και ορίστε το φόντο του χρονοδιαγράμματος σε διαφανές.</translation>
+        <translation>Αυξημένη διαφάνεια των επάνω και κάτω γραμμών αρχειοθέτησης (60% σε λειτουργία παραθύρου, 26% σε πλήρη οθόνη) και ορίστε το φόντο του χρονοδιαγράμματος σε διαφανές.</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation translatorcomment="AI-translated">Απλοποίησε τα εικονίδια ταχύτητας αναπαραγωγής στο αρχείο για διαγραφή κειμένου (1x, 2x, 4x) και αφαίρεσε την επιλογή ασταθούς ταχύτητας 8x.</translation>
+        <translation>Απλοποίησε τα εικονίδια ταχύτητας αναπαραγωγής στο αρχείο για διαγραφή κειμένου (1x, 2x, 4x) και αφαίρεσε την επιλογή ασταθούς ταχύτητας 8x.</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation translatorcomment="AI-translated">Αντικαταστάθηκαν τα μηνιαία κουμπιά κειμένου πλοήγησης σε ημερολόγια αρχειοθέτησης και λήψης με γραφικά βέλη (σεβρόν).</translation>
+        <translation>Αντικαταστάθηκαν τα μηνιαία κουμπιά κειμένου πλοήγησης σε ημερολόγια αρχειοθέτησης και λήψης με γραφικά βέλη (σεβρόν).</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation translatorcomment="AI-translated">Μετατόπισε το κουμπί κλεισίματος της θύρας προβολής κάμερας από την επάνω δεξιά γωνία στην κάτω δεξιά περιοχή ελέγχου για την αποφυγή τυχαίων κλικ.</translation>
+        <translation>Μετατόπισε το κουμπί κλεισίματος της θύρας προβολής κάμερας από την επάνω δεξιά γωνία στην κάτω δεξιά περιοχή ελέγχου για την αποφυγή τυχαίων κλικ.</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation translatorcomment="AI-translated">Βελτιστοποιήθηκε η αντίθεση κειμένου της επιλεγμένης διάταξης πλέγματος στο παράθυρο αρχειοθέτησης (σκούρο κείμενο σε φόντο Celadon).</translation>
+        <translation>Βελτιστοποιήθηκε η αντίθεση κειμένου της επιλεγμένης διάταξης πλέγματος στο παράθυρο αρχειοθέτησης (σκούρο κείμενο σε φόντο Celadon).</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation translatorcomment="AI-translated">Μετ.</translation>
+        <translation>Μετ.</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation translatorcomment="AI-translated">Επιλύθηκαν κρίσιμες ρυθμίσεις βρόχος συγχρονισμού και η διεπαφή χρήστη παγώνει κατά τη διαγραφή των διατάξεων θυρών προβολής.</translation>
+        <translation>Επιλύθηκαν κρίσιμες ρυθμίσεις βρόχος συγχρονισμού και η διεπαφή χρήστη παγώνει κατά τη διαγραφή των διατάξεων θυρών προβολής.</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation translatorcomment="AI-translated">Μεγεθυσμένα εικονίδια ελέγχου ταχύτητας, ζουμ και VCR στο αρχείο για βελτίωση της ορατότητας και αυξημένο μέγεθος κειμένου μέσα στα εικονίδια SVG.</translation>
+        <translation>Μεγεθυσμένα εικονίδια ελέγχου ταχύτητας, ζουμ και VCR στο αρχείο για βελτίωση της ορατότητας και αυξημένο μέγεθος κειμένου μέσα στα εικονίδια SVG.</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation translatorcomment="AI-translated">Καταργήθηκαν τα διπλά κουμπιά κειμένου για συντομεύσεις μεγέθυνσης στο αρχείο, αντικαθιστώντας τα πλήρως με κυκλικά εικονίδια.</translation>
+        <translation>Καταργήθηκαν τα διπλά κουμπιά κειμένου για συντομεύσεις μεγέθυνσης στο αρχείο, αντικαθιστώντας τα πλήρως με κυκλικά εικονίδια.</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation translatorcomment="AI-translated">Προστέθηκαν πλήρεις μεταφράσεις στα αγγλικά και στα πολωνικά για όλες τις συμβουλές εργαλείων στο παράθυρο αρχειοθέτησης.</translation>
+        <translation>Προστέθηκαν πλήρεις μεταφράσεις στα αγγλικά και στα πολωνικά για όλες τις συμβουλές εργαλείων στο παράθυρο αρχειοθέτησης.</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation translatorcomment="AI-translated">Παρουσιάστηκε ο συγχρονισμός αμφίδρομης διαμόρφωσης σε πραγματικό χρόνο μεταξύ του κύριου παραθύρου και των βοηθητικών παραθύρων με υποστήριξη για μοναδικά, αυτόματα βοηθητικά αναγνωριστικά παραθύρων.</translation>
+        <translation>Παρουσιάστηκε ο συγχρονισμός αμφίδρομης διαμόρφωσης σε πραγματικό χρόνο μεταξύ του κύριου παραθύρου και των βοηθητικών παραθύρων με υποστήριξη για μοναδικά, αυτόματα βοηθητικά αναγνωριστικά παραθύρων.</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε αυτόματη ανάκτηση περιόδου λειτουργίας (αυτόματη επανασύνδεση) στο πρόγραμμα αναπαραγωγής αρχείων της Hikvision μετά την ολοκλήρωση των λήψεων ή την απόρριψη των συνδέσεων από τη συσκευή εγγραφής.</translation>
+        <translation>Προστέθηκε αυτόματη ανάκτηση περιόδου λειτουργίας (αυτόματη επανασύνδεση) στο πρόγραμμα αναπαραγωγής αρχείων της Hikvision μετά την ολοκλήρωση των λήψεων ή την απόρριψη των συνδέσεων από τη συσκευή εγγραφής.</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation translatorcomment="AI-translated">Εξαλείφονται οι πιθανές διαρροές νημάτων και ο αποκωδικοποιητής βίντεο FFmpeg κολλάει κατά την εναλλαγή διάταξης, υιοθετώντας ασφαλείς αναφορές std::weak_ptr για περιβάλλοντα μέσων αποκωδικοποιητή.</translation>
+        <translation>Εξαλείφονται οι πιθανές διαρροές νημάτων και ο αποκωδικοποιητής βίντεο FFmpeg κολλάει κατά την εναλλαγή διάταξης, υιοθετώντας ασφαλείς αναφορές std::weak_ptr για περιβάλλοντα μέσων αποκωδικοποιητή.</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation translatorcomment="AI-translated">Διορθώθηκε μια διαρροή μνήμης στα μοντέλα ViewportsLayouts διαγράφοντας με ασφάλεια αντικείμενα διάταξης χρησιμοποιώντας το deleteLater().</translation>
+        <translation>Διορθώθηκε μια διαρροή μνήμης στα μοντέλα ViewportsLayouts διαγράφοντας με ασφάλεια αντικείμενα διάταξης χρησιμοποιώντας το deleteLater().</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation translatorcomment="AI-translated">Μετριάστηκαν τα σφάλματα έναρξης επιφάνειας απόδοσης βίντεο (OpenGL) κατά τη διάρκεια γρήγορων αλλαγών καρτέλας NVR - τα αρχεία καταγραφής υποβιβάστηκαν στο επίπεδο εντοπισμού σφαλμάτων και το σύστημα επαναλαμβάνει σιωπηλά την απόδοση στο παρασκήνιο μετά την απελευθέρωση των buffer της GPU.</translation>
+        <translation>Μετριάστηκαν τα σφάλματα έναρξης επιφάνειας απόδοσης βίντεο (OpenGL) κατά τη διάρκεια γρήγορων αλλαγών καρτέλας NVR - τα αρχεία καταγραφής υποβιβάστηκαν στο επίπεδο εντοπισμού σφαλμάτων και το σύστημα επαναλαμβάνει σιωπηλά την απόδοση στο παρασκήνιο μετά την απελευθέρωση των buffer της GPU.</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation translatorcomment="AI-translated">Επιλύθηκε η υπολειπόμενη χρήση μνήμης RAM (20-30 MB) μετά το κλείσιμο του παραθύρου Αρχειοθέτησης μέσω εκκαθάρισης σωρού πολλαπλών βημάτων και βελτιστοποιήσεων κρυφής μνήμης του κινητήρα QML.</translation>
+        <translation>Επιλύθηκε η υπολειπόμενη χρήση μνήμης RAM (20-30 MB) μετά το κλείσιμο του παραθύρου Αρχειοθέτησης μέσω εκκαθάρισης σωρού πολλαπλών βημάτων και βελτιστοποιήσεων κρυφής μνήμης του κινητήρα QML.</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation translatorcomment="AI-translated">Βελτιστοποιημένη χρήση μνήμης RAM κατά τη διάρκεια της κλιμάκωσης της κάμερας και της αλλαγής μεγέθους/ζουμ της θύρας προβολής, αποτρέποντας την υπερβολική συσσώρευση μνήμης κατά τις συνεχείς αλλαγές διάταξης ροής βίντεο.</translation>
+        <translation>Βελτιστοποιημένη χρήση μνήμης RAM κατά τη διάρκεια της κλιμάκωσης της κάμερας και της αλλαγής μεγέθους/ζουμ της θύρας προβολής, αποτρέποντας την υπερβολική συσσώρευση μνήμης κατά τις συνεχείς αλλαγές διάταξης ροής βίντεο.</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε μια ακριβής ένδειξη καρέ ανά δευτερόλεπτο (FPS) σε πραγματικό χρόνο στην επάνω αριστερή γωνία κάθε θύρας προβολής τόσο για ζωντανές ροές αναπαραγωγής όσο και για ροές αρχειοθέτησης.</translation>
+        <translation>Προστέθηκε μια ακριβής ένδειξη καρέ ανά δευτερόλεπτο (FPS) σε πραγματικό χρόνο στην επάνω αριστερή γωνία κάθε θύρας προβολής τόσο για ζωντανές ροές αναπαραγωγής όσο και για ροές αρχειοθέτησης.</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation translatorcomment="AI-translated">Εφαρμόστηκε ασφαλής τερματισμός και απελευθέρωση νημάτων λήψης στο πρόγραμμα λήψης Hikvision, διασφαλίζοντας σταθερό και άμεσο τερματισμό της εφαρμογής χωρίς αποκλεισμό των πόρων του συστήματος.</translation>
+        <translation>Εφαρμόστηκε ασφαλής τερματισμός και απελευθέρωση νημάτων λήψης στο πρόγραμμα λήψης Hikvision, διασφαλίζοντας σταθερό και άμεσο τερματισμό της εφαρμογής χωρίς αποκλεισμό των πόρων του συστήματος.</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε ένα πεδίο δυναμικής αναζήτησης κάμερας στο παράθυρο αρχειοθέτησης με κουμπί επαναφοράς και αυτόματη επέκταση αντιστοίχισης καταγραφικών.</translation>
+        <translation>Προστέθηκε ένα πεδίο δυναμικής αναζήτησης κάμερας στο παράθυρο αρχειοθέτησης με κουμπί επαναφοράς και αυτόματη επέκταση αντιστοίχισης καταγραφικών.</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation translatorcomment="AI-translated">Ενεργοποιήθηκε η αναδίπλωση μεγάλων ονομάτων καμερών σε πλακίδια λίστας στο αρχείο.</translation>
+        <translation>Ενεργοποιήθηκε η αναδίπλωση μεγάλων ονομάτων καμερών σε πλακίδια λίστας στο αρχείο.</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation translatorcomment="AI-translated">Μεγεθυμένα και ανεστραμμένα χρώματα του κουμπιού συν (+) σε πλακίδια κάμερας (φόντο μέντας) για καλύτερη ορατότητα, με καθαρές καταστάσεις αιώρησης/πάτησης.</translation>
+        <translation>Μεγεθυμένα και ανεστραμμένα χρώματα του κουμπιού συν (+) σε πλακίδια κάμερας (φόντο μέντας) για καλύτερη ορατότητα, με καθαρές καταστάσεις αιώρησης/πάτησης.</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation translatorcomment="AI-translated">Διορθώθηκε η μετατόπιση 2-3 ωρών της γραμμής χρόνου διαθεσιμότητας εγγραφής στο παράθυρο του προγράμματος αναπαραγωγής αρχειοθέτησης, συγχρονίζοντας τη γραμμή χρόνου με την τοπική ζώνη ώρας του πελάτη (με σωστή υποστήριξη θερινής ώρας DST).</translation>
+        <translation>Διορθώθηκε η μετατόπιση 2-3 ωρών της γραμμής χρόνου διαθεσιμότητας εγγραφής στο παράθυρο του προγράμματος αναπαραγωγής αρχειοθέτησης, συγχρονίζοντας τη γραμμή χρόνου με την τοπική ζώνη ώρας του πελάτη (με σωστή υποστήριξη θερινής ώρας DST).</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation translatorcomment="AI-translated">Αντικατέστησε το μαύρο emoji χαμηλής αντίθεσης 📺 σε κενές προβολές με μια κομψή διανυσματική οθόνη υψηλής ανάλυσης DPI SVG.</translation>
+        <translation>Αντικατέστησε το μαύρο emoji χαμηλής αντίθεσης 📺 σε κενές προβολές με μια κομψή διανυσματική οθόνη υψηλής ανάλυσης DPI SVG.</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation translatorcomment="AI-translated">Βελτιωμένη αναγνωσιμότητα των γραμμών εγγραφής στο παράθυρο αρχειοθέτησης (το ύψος αυξήθηκε από 22 σε 28 εικονοστοιχεία, μέγεθος γραμματοσειράς από 9 σε 11 εικονοστοιχεία, μεγαλύτερο βέλος επέκτασης).</translation>
+        <translation>Βελτιωμένη αναγνωσιμότητα των γραμμών εγγραφής στο παράθυρο αρχειοθέτησης (το ύψος αυξήθηκε από 22 σε 28 εικονοστοιχεία, μέγεθος γραμματοσειράς από 9 σε 11 εικονοστοιχεία, μεγαλύτερο βέλος επέκτασης).</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation translatorcomment="AI-translated">Προστέθηκαν πλήρη, δυναμικά εφέ αιώρησης για γραμμές εγγραφής με ευδιάκριτες αλλαγές στα χρώματα φόντου, κειμένου και εικονιδίων σε seledyn/λευκό.</translation>
+        <translation>Προστέθηκαν πλήρη, δυναμικά εφέ αιώρησης για γραμμές εγγραφής με ευδιάκριτες αλλαγές στα χρώματα φόντου, κειμένου και εικονιδίων σε seledyn/λευκό.</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation translatorcomment="AI-translated">Αντικαταστάθηκαν τα κουμπιά ενεργειών κειμένου στην επάνω γραμμή (Επιλογές, Νέο παράθυρο, Αρχείο, Οδηγίες) με ειδικά, έγχρωμα εικονίδια SVG με χρήσιμες συμβουλές εργαλείων.</translation>
+        <translation>Αντικαταστάθηκαν τα κουμπιά ενεργειών κειμένου στην επάνω γραμμή (Επιλογές, Νέο παράθυρο, Αρχείο, Οδηγίες) με ειδικά, έγχρωμα εικονίδια SVG με χρήσιμες συμβουλές εργαλείων.</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation translatorcomment="AI-translated">Αντικαταστάθηκε η εναλλαγή στατιστικών συστήματος με ένα διαδραστικό εικονίδιο SVG που αντικατοπτρίζει την κατάσταση δραστηριότητας της παρακολούθησης συστήματος.</translation>
+        <translation>Αντικαταστάθηκε η εναλλαγή στατιστικών συστήματος με ένα διαδραστικό εικονίδιο SVG που αντικατοπτρίζει την κατάσταση δραστηριότητας της παρακολούθησης συστήματος.</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation translatorcomment="AI-translated">Ενοποιημένα κουμπιά επιλογής πλέγματος (1x1-9x9) σε συνεπή κυκλικά κουμπιά 30x30px.</translation>
+        <translation>Ενοποιημένα κουμπιά επιλογής πλέγματος (1x1-9x9) σε συνεπή κυκλικά κουμπιά 30x30px.</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε μια κατακόρυφη διαχωριστική γραμμή μεταξύ της ενότητας επιλογών και της ενότητας επιλογής πλέγματος.</translation>
+        <translation>Προστέθηκε μια κατακόρυφη διαχωριστική γραμμή μεταξύ της ενότητας επιλογών και της ενότητας επιλογής πλέγματος.</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation translatorcomment="AI-translated">Επανασχεδιασμένα κουμπιά προβολής σε κομψό, στρογγυλεμένο σχήμα χαπιού με ύψος 30 px, διατηρώντας τα πλευρικά περιθώρια.</translation>
+        <translation>Επανασχεδιασμένα κουμπιά προβολής σε κομψό, στρογγυλεμένο σχήμα χαπιού με ύψος 30 px, διατηρώντας τα πλευρικά περιθώρια.</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation translatorcomment="AI-translated">Επιβεβλημένη αυτόματη εμφάνιση κεφαλαίων για ονόματα προβολών.</translation>
+        <translation>Επιβεβλημένη αυτόματη εμφάνιση κεφαλαίων για ονόματα προβολών.</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation translatorcomment="AI-translated">Βελτιωμένη αναγνωσιμότητα και αντίθεση του κουμπιού ενεργής προβολής – σκούρο κείμενο (#121214) σε φωτεινό φόντο.</translation>
+        <translation>Βελτιωμένη αναγνωσιμότητα και αντίθεση του κουμπιού ενεργής προβολής – σκούρο κείμενο (#121214) σε φωτεινό φόντο.</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation translatorcomment="AI-translated">Ενοποιημένα και βελτιωμένα εικονίδια διαγραφής στη λίστα συσκευών εγγραφής και προβολών και το προκαθορισμένο κουμπί ενεργοποίησης σε εικονίδια SVG με συμβουλές εργαλείων.</translation>
+        <translation>Ενοποιημένα και βελτιωμένα εικονίδια διαγραφής στη λίστα συσκευών εγγραφής και προβολών και το προκαθορισμένο κουμπί ενεργοποίησης σε εικονίδια SVG με συμβουλές εργαλείων.</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation translatorcomment="AI-translated">Μειωμένη απόσταση μεταξύ των κουμπιών της επάνω γραμμής για βελτιστοποίηση του χώρου διεπαφής.</translation>
+        <translation>Μειωμένη απόσταση μεταξύ των κουμπιών της επάνω γραμμής για βελτιστοποίηση του χώρου διεπαφής.</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation translatorcomment="AI-translated">Επαναφέρθηκε το εικονίδιο ελαχιστοποίησης που λείπει στο βοηθητικό παράθυρο.</translation>
+        <translation>Επαναφέρθηκε το εικονίδιο ελαχιστοποίησης που λείπει στο βοηθητικό παράθυρο.</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation translatorcomment="AI-translated">Διορθώθηκαν προβλήματα σύνδεσης και αναπαραγωγής σε βοηθητικά παράθυρα.</translation>
+        <translation>Διορθώθηκαν προβλήματα σύνδεσης και αναπαραγωγής σε βοηθητικά παράθυρα.</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation translatorcomment="AI-translated">Σταθερές καταστάσεις του κουμπιού διάταξης (1x1 έναντι 2x2) όταν ανοίγετε την αναπαραγωγή απευθείας από την κάμερα.</translation>
+        <translation>Σταθερές καταστάσεις του κουμπιού διάταξης (1x1 έναντι 2x2) όταν ανοίγετε την αναπαραγωγή απευθείας από την κάμερα.</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation translatorcomment="AI-translated">Προστέθηκε κατάλληλος χώρος ονομάτων XML στα ερωτήματα ISAPI της Hikvision (διορθώνει το σφάλμα 'Invalid XML Content' σε νεότερο υλικολογισμικό εγγραφής).</translation>
+        <translation>Προστέθηκε κατάλληλος χώρος ονομάτων XML στα ερωτήματα ISAPI της Hikvision (διορθώνει το σφάλμα 'Invalid XML Content' σε νεότερο υλικολογισμικό εγγραφής).</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation translatorcomment="AI-translated">Διορθώθηκε ο χειρισμός σελιδοποίησης αποτελεσμάτων αναζήτησης (ετικέτα SearchResultPostion).</translation>
+        <translation>Διορθώθηκε ο χειρισμός σελιδοποίησης αποτελεσμάτων αναζήτησης (ετικέτα SearchResultPostion).</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation translatorcomment="AI-translated">Κουμπί «Ανανέωση» στο παράθυρο αναπαραγωγής για μη αυτόματη εκκαθάριση της προσωρινής μνήμης και εκ νέου ανάκτηση δεδομένων διαθεσιμότητας εγγραφής.</translation>
+        <translation>Κουμπί «Ανανέωση» στο παράθυρο αναπαραγωγής για μη αυτόματη εκκαθάριση της προσωρινής μνήμης και εκ νέου ανάκτηση δεδομένων διαθεσιμότητας εγγραφής.</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation translatorcomment="AI-translated">Βελτιστοποίηση ουράς προανάκτησης δικτύου – περιορίζει την ανάκτηση φόντου σε 12 μήνες, εξαλείφοντας εκατοντάδες περιττά ερωτήματα και επιταχύνοντας την έναρξη της αναπαραγωγής.</translation>
+        <translation>Βελτιστοποίηση ουράς προανάκτησης δικτύου – περιορίζει την ανάκτηση φόντου σε 12 μήνες, εξαλείφοντας εκατοντάδες περιττά ερωτήματα και επιταχύνοντας την έναρξη της αναπαραγωγής.</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation translatorcomment="AI-translated">Ασύγχρονη προετοιμασία Hikvision SDK σε ένα νήμα φόντου, εξαλείφοντας εντελώς το πάγωμα του GUI κατά το άνοιγμα των επιλογών.</translation>
+        <translation>Ασύγχρονη προετοιμασία Hikvision SDK σε ένα νήμα φόντου, εξαλείφοντας εντελώς το πάγωμα του GUI κατά το άνοιγμα των επιλογών.</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation translatorcomment="AI-translated">Ασφαλής σε νήματα συγχρονισμός πρόσβασης στις μεθόδους Hikvision SDK.</translation>
+        <translation>Ασφαλής σε νήματα συγχρονισμός πρόσβασης στις μεθόδους Hikvision SDK.</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation translatorcomment="AI-translated">Απολύμανση ονομάτων αρχείων και στιγμιότυπων οθόνης που έχουν ληφθεί, αφαιρώντας τις διευθύνσεις IP της συσκευής εγγραφής.</translation>
+        <translation>Απολύμανση ονομάτων αρχείων και στιγμιότυπων οθόνης που έχουν ληφθεί, αφαιρώντας τις διευθύνσεις IP της συσκευής εγγραφής.</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation translatorcomment="AI-translated">Κομψή γραμμή προόδου λήψης σε τιρκουάζ (#00f5d4) με κεντραρισμένο περιγραμμένο κείμενο.</translation>
+        <translation>Κομψή γραμμή προόδου λήψης σε τιρκουάζ (#00f5d4) με κεντραρισμένο περιγραμμένο κείμενο.</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation translatorcomment="AI-translated">Υπολογισμός της συνολικής προόδου λήψης (overallProgress) για εγγραφές πολλαπλών τμημάτων.</translation>
+        <translation>Υπολογισμός της συνολικής προόδου λήψης (overallProgress) για εγγραφές πολλαπλών τμημάτων.</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation translatorcomment="AI-translated">Άλλαξε η επέκταση αρχείου προσωρινής λήψης από ".ps" σε ".pspart".</translation>
+        <translation>Άλλαξε η επέκταση αρχείου προσωρινής λήψης από ".ps" σε ".pspart".</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation translatorcomment="AI-translated">Επιλογή και κουμπί "Εμφάνιση πεδίων πληροφοριών μόνο όταν αιωρείται" στις ρυθμίσεις διεπαφής χρήστη.</translation>
+        <translation>Επιλογή και κουμπί "Εμφάνιση πεδίων πληροφοριών μόνο όταν αιωρείται" στις ρυθμίσεις διεπαφής χρήστη.</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation translatorcomment="AI-translated">Οπτική ένδειξη για τον εντοπισμό της κάμερας στον πίνακα διαμόρφωσης (περιστρεφόμενο εικονίδιο, αποκλεισμός φόρμας και κείμενο "Ανακάλυψη...").</translation>
+        <translation>Οπτική ένδειξη για τον εντοπισμό της κάμερας στον πίνακα διαμόρφωσης (περιστρεφόμενο εικονίδιο, αποκλεισμός φόρμας και κείμενο "Ανακάλυψη...").</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation translatorcomment="AI-translated">Πλήρης τοπική προσαρμογή (προστέθηκε επίσημη υποστήριξη μετάφρασης στα πολωνικά και στα αγγλικά).</translation>
+        <translation>Πλήρης τοπική προσαρμογή (προστέθηκε επίσημη υποστήριξη μετάφρασης στα πολωνικά και στα αγγλικά).</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation translatorcomment="AI-translated">Βελτιστοποίηση εκκίνησης βοηθητικού παραθύρου – μειωμένος χρόνος φόρτωσης από 3 δευτερόλεπτα σε λιγότερο από 300 ms.</translation>
+        <translation>Βελτιστοποίηση εκκίνησης βοηθητικού παραθύρου – μειωμένος χρόνος φόρτωσης από 3 δευτερόλεπτα σε λιγότερο από 300 ms.</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation translatorcomment="AI-translated">Αισθητικό σύμβολο κράτησης θέσης στο βοηθητικό παράθυρο («Δεν έχει επιλεγεί προβολή») με τιρκουάζ περίγραμμα.</translation>
+        <translation>Αισθητικό σύμβολο κράτησης θέσης στο βοηθητικό παράθυρο («Δεν έχει επιλεγεί προβολή») με τιρκουάζ περίγραμμα.</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation translatorcomment="AI-translated">Ενσωμάτωση Hikvision SDK για ζωντανή προβολή και λειτουργία αναπαραγωγής.</translation>
+        <translation>Ενσωμάτωση Hikvision SDK για ζωντανή προβολή και λειτουργία αναπαραγωγής.</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation translatorcomment="AI-translated">Αναπαραγωγή αναπαραγωγής πολλαπλών καμερών με αυτόματη τοποθέτηση και κεντράρισμα της γραμμής χρόνου.</translation>
+        <translation>Αναπαραγωγή αναπαραγωγής πολλαπλών καμερών με αυτόματη τοποθέτηση και κεντράρισμα της γραμμής χρόνου.</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation translatorcomment="AI-translated">Παρακολούθηση συστήματος πολλαπλών νημάτων (CPU, RAM, GPU, VRAM και στατιστικά εύρους ζώνης δικτύου).</translation>
+        <translation>Παρακολούθηση συστήματος πολλαπλών νημάτων (CPU, RAM, GPU, VRAM και στατιστικά εύρους ζώνης δικτύου).</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation translatorcomment="AI-translated">Παρακολούθηση κατανάλωσης εύρους ζώνης δικτύου σε πραγματικό χρόνο.</translation>
+        <translation>Παρακολούθηση κατανάλωσης εύρους ζώνης δικτύου σε πραγματικό χρόνο.</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation translatorcomment="AI-translated">Εικονίδιο εφαρμογής υψηλής ανάλυσης και εκλεπτυσμένη διεπαφή σκούρου θέματος.</translation>
+        <translation>Εικονίδιο εφαρμογής υψηλής ανάλυσης και εκλεπτυσμένη διεπαφή σκούρου θέματος.</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation translatorcomment="AI-translated">Αυτόματο σενάριο δημιουργίας πακέτων Pacman για Arch Linux.</translation>
+        <translation>Αυτόματο σενάριο δημιουργίας πακέτων Pacman για Arch Linux.</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation translatorcomment="AI-translated">Έκδοση %1</translation>
+        <translation>Έκδοση %1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation translatorcomment="AI-translated">Πρωτότυπος συγγραφέας: Evgeny S. Maksimov</translation>
+        <translation>Πρωτότυπος συγγραφέας: Evgeny S. Maksimov</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation translatorcomment="AI-translated">Τροποποίηση: arkanista (με τη βοήθεια AI)</translation>
+        <translation>Τροποποίηση: arkanista (με τη βοήθεια AI)</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation translatorcomment="AI-translated">Θύρα προβολής% 1</translation>
+        <translation>Θύρα προβολής% 1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation translatorcomment="AI-translated">#% 1</translation>
+        <translation>#% 1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation translatorcomment="AI-translated">Εργαλεία</translation>
+        <translation>Εργαλεία</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation translatorcomment="AI-translated">Καταγραφείς</translation>
+        <translation>Καταγραφείς</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation translatorcomment="AI-translated">Προεπιλογές</translation>
+        <translation>Προεπιλογές</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation translatorcomment="AI-translated">Ρυθμίσεις</translation>
+        <translation>Ρυθμίσεις</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation translatorcomment="AI-translated">Καταγραφή αλλαγών</translation>
+        <translation>Καταγραφή αλλαγών</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation translatorcomment="AI-translated">Διαθέσιμη έκδοση: %1</translation>
+        <translation>Διαθέσιμη έκδοση: %1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation translatorcomment="AI-translated">Λεπτομέρειες θύρας προβολής</translation>
+        <translation>Λεπτομέρειες θύρας προβολής</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε μια θύρα προβολής στο κύριο πλέγμα για να προσαρμόσετε τις ρυθμίσεις του.</translation>
+        <translation>Επιλέξτε μια θύρα προβολής στο κύριο πλέγμα για να προσαρμόσετε τις ρυθμίσεις του.</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation translatorcomment="AI-translated">Ξεκλείδωμα παραθύρου διαμόρφωσης</translation>
+        <translation>Ξεκλείδωμα παραθύρου διαμόρφωσης</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Σύνδεση ενεργής ροής</translation>
+        <translation>Σύνδεση ενεργής ροής</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Κύρια διεύθυνση URL ροής</translation>
+        <translation>Κύρια διεύθυνση URL ροής</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Δευτερεύουσα διεύθυνση URL δημιουργίας αντιγράφων ασφαλείας</translation>
+        <translation>Δευτερεύουσα διεύθυνση URL δημιουργίας αντιγράφων ασφαλείας</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation translatorcomment="AI-translated">Επιλογές ήχου και απόδοσης</translation>
+        <translation>Επιλογές ήχου και απόδοσης</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation translatorcomment="AI-translated">Σίγαση / Κατάργηση σίγασης ήχου</translation>
+        <translation>Σίγαση / Κατάργηση σίγασης ήχου</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation translatorcomment="AI-translated">Παράκαμψη επιλογών FFmpeg</translation>
+        <translation>Παράκαμψη επιλογών FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Layout &amp; Grid Tools</translation>
+        <translation>Layout &amp; Grid Tools</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Ξεκλειδώστε το παράθυρο εργαλείων</translation>
+        <translation>Ξεκλειδώστε το παράθυρο εργαλείων</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Διεύθυνση παραθύρων</translation>
+        <translation>Διεύθυνση παραθύρων</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Σφάλμα κατά την ανάγνωση της διαμόρφωσης!</translation>
+        <translation>Σφάλμα κατά την ανάγνωση της διαμόρφωσης!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Κρατήστε πατημένο για να επεξεργαστείτε την τιμή διαίρεσης</translation>
+        <translation>Κρατήστε πατημένο για να επεξεργαστείτε την τιμή διαίρεσης</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Αναλογία Γεωμετρίας</translation>
+        <translation>Αναλογία Γεωμετρίας</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Εναλλαγή πλήρους οθόνης</translation>
+        <translation>Εναλλαγή πλήρους οθόνης</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Λειτουργίες Πλέγματος</translation>
+        <translation>Λειτουργίες Πλέγματος</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Συγχώνευση επισημασμένων κελιών</translation>
+        <translation>Συγχώνευση επισημασμένων κελιών</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation translatorcomment="AI-translated">Υπεύθυνος εγγραφής NVR / Hikvision</translation>
+        <translation>Υπεύθυνος εγγραφής NVR / Hikvision</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation translatorcomment="AI-translated">Προεπιλογές και προβολές γρήγορης διάταξης</translation>
+        <translation>Προεπιλογές και προβολές γρήγορης διάταξης</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation translatorcomment="AI-translated">Ρυθμίσεις διάταξης ONVIF και RTSP</translation>
+        <translation>Ρυθμίσεις διάταξης ONVIF και RTSP</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation translatorcomment="AI-translated">Διάταξη % 1</translation>
+        <translation>Διάταξη % 1</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation translatorcomment="AI-translated">Ορατός</translation>
+        <translation>Ορατός</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation translatorcomment="AI-translated">Ενεργοποιήστε αυτήν τη διάταξη προεπισκόπησης</translation>
+        <translation>Ενεργοποιήστε αυτήν τη διάταξη προεπισκόπησης</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation translatorcomment="AI-translated">Διαγράψτε αυτήν τη διάταξη προεπισκόπησης</translation>
+        <translation>Διαγράψτε αυτήν τη διάταξη προεπισκόπησης</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation translatorcomment="AI-translated">Προσθήκη προκαθορισμένης διάταξης</translation>
+        <translation>Προσθήκη προκαθορισμένης διάταξης</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation translatorcomment="AI-translated">Διατάξεις προβολής NVR</translation>
+        <translation>Διατάξεις προβολής NVR</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation translatorcomment="AI-translated">Προβολή NVR</translation>
+        <translation>Προβολή NVR</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation translatorcomment="AI-translated">Ενεργοποιήστε αυτήν την προβολή καμερών NVR</translation>
+        <translation>Ενεργοποιήστε αυτήν την προβολή καμερών NVR</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation translatorcomment="AI-translated">Διαγράψτε αυτήν την προβολή καμερών NVR</translation>
+        <translation>Διαγράψτε αυτήν την προβολή καμερών NVR</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation translatorcomment="AI-translated">Προεπιλογές NVR (προβολές πλέγματος)</translation>
+        <translation>Προεπιλογές NVR (προβολές πλέγματος)</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation translatorcomment="AI-translated">Προεπιλογή NVR #%1</translation>
+        <translation>Προεπιλογή NVR #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation translatorcomment="AI-translated">Ενεργοποιήστε αυτήν την προεπιλογή καμερών NVR</translation>
+        <translation>Ενεργοποιήστε αυτήν την προεπιλογή καμερών NVR</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation translatorcomment="AI-translated">Διαγράψτε αυτήν την προεπιλογή καμερών NVR</translation>
+        <translation>Διαγράψτε αυτήν την προεπιλογή καμερών NVR</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation translatorcomment="AI-translated">Προσθήκη προεπιλογής NVR</translation>
+        <translation>Προσθήκη προεπιλογής NVR</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation translatorcomment="AI-translated">Ρυθμίσεις συστήματος</translation>
+        <translation>Ρυθμίσεις συστήματος</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation translatorcomment="AI-translated">Γενικές Ρυθμίσεις</translation>
+        <translation>Γενικές Ρυθμίσεις</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation translatorcomment="AI-translated">Να επιτρέπεται η εκτέλεση πολλαπλών παρουσιών εφαρμογών</translation>
+        <translation>Να επιτρέπεται η εκτέλεση πολλαπλών παρουσιών εφαρμογών</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation translatorcomment="AI-translated">Αυτή η επιλογή είναι απενεργοποιημένη για την αποφυγή διενέξεων εγγραφής αρχείων ρυθμίσεων. Για να το ενεργοποιήσετε (επικίνδυνο και δεν συνιστάται!), ορίστε το 'singleApplication=false' στο αρχείο διαμόρφωσης kvision.conf.</translation>
+        <translation>Αυτή η επιλογή είναι απενεργοποιημένη για την αποφυγή διενέξεων εγγραφής αρχείων ρυθμίσεων. Για να το ενεργοποιήσετε (επικίνδυνο και δεν συνιστάται!), ορίστε το 'singleApplication=false' στο αρχείο διαμόρφωσης kvision.conf.</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation translatorcomment="AI-translated">Ελέγξτε την κατάσταση σφάλματος Hikvision NVR</translation>
+        <translation>Ελέγξτε την κατάσταση σφάλματος Hikvision NVR</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation translatorcomment="AI-translated">Ήχος</translation>
+        <translation>Ήχος</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation translatorcomment="AI-translated">Απενεργοποιήστε εντελώς τον ήχο</translation>
+        <translation>Απενεργοποιήστε εντελώς τον ήχο</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation translatorcomment="AI-translated">Η μεγιστοποίηση της κάμερας σε πλήρη οθόνη δεν καταργεί τη σίγαση</translation>
+        <translation>Η μεγιστοποίηση της κάμερας σε πλήρη οθόνη δεν καταργεί τη σίγαση</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation translatorcomment="AI-translated">Ρυθμίσεις μενού περιβάλλοντος</translation>
+        <translation>Ρυθμίσεις μενού περιβάλλοντος</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation translatorcomment="AI-translated">Ενεργοποίηση μενού περιβάλλοντος με δεξί κλικ</translation>
+        <translation>Ενεργοποίηση μενού περιβάλλοντος με δεξί κλικ</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation translatorcomment="AI-translated">Να επιτρέπεται η εναλλαγή θέσεων θυρών προβολής</translation>
+        <translation>Να επιτρέπεται η εναλλαγή θέσεων θυρών προβολής</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation translatorcomment="AI-translated">Ενεργοποιήστε την επιλογή "Κατάργηση κάμερας".</translation>
+        <translation>Ενεργοποιήστε την επιλογή "Κατάργηση κάμερας".</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation translatorcomment="AI-translated">Να επιτρέπεται η αλλαγή των ρυθμίσεων της θύρας προβολής</translation>
+        <translation>Να επιτρέπεται η αλλαγή των ρυθμίσεων της θύρας προβολής</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation translatorcomment="AI-translated">Ενεργοποιήστε την επιλογή «Επιλογή ροής».</translation>
+        <translation>Ενεργοποιήστε την επιλογή «Επιλογή ροής».</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation translatorcomment="AI-translated">Ρυθμίσεις διεπαφής χρήστη</translation>
+        <translation>Ρυθμίσεις διεπαφής χρήστη</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation translatorcomment="AI-translated">Εμφάνιση της κατάστασης του καναλιού στην επάνω αριστερή γωνία της θύρας προβολής</translation>
+        <translation>Εμφάνιση της κατάστασης του καναλιού στην επάνω αριστερή γωνία της θύρας προβολής</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation translatorcomment="AI-translated">Εμφάνιση πληροφοριών κάμερας στην κάτω αριστερή γωνία της θύρας προβολής</translation>
+        <translation>Εμφάνιση πληροφοριών κάμερας στην κάτω αριστερή γωνία της θύρας προβολής</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation translatorcomment="AI-translated">Εμφάνιση εικονιδίων ελέγχου στην κάτω δεξιά γωνία της θύρας προβολής μόνο όταν τοποθετείτε το δείκτη του ποντικιού</translation>
+        <translation>Εμφάνιση εικονιδίων ελέγχου στην κάτω δεξιά γωνία της θύρας προβολής μόνο όταν τοποθετείτε το δείκτη του ποντικιού</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation translatorcomment="AI-translated">Εμφάνιση πεδίων πληροφοριών μόνο όταν τοποθετείτε το δείκτη του ποντικιού</translation>
+        <translation>Εμφάνιση πεδίων πληροφοριών μόνο όταν τοποθετείτε το δείκτη του ποντικιού</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation translatorcomment="AI-translated">Εμφάνιση της επάνω γραμμής από προεπιλογή κατά το άνοιγμα του παραθύρου</translation>
+        <translation>Εμφάνιση της επάνω γραμμής από προεπιλογή κατά το άνοιγμα του παραθύρου</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation translatorcomment="AI-translated">Απόκρυψη του δρομέα του ποντικιού σε λειτουργία πλήρους οθόνης</translation>
+        <translation>Απόκρυψη του δρομέα του ποντικιού σε λειτουργία πλήρους οθόνης</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation translatorcomment="AI-translated">Απενεργοποιήστε την κίνηση μεγέθυνσης θυρών προβολής</translation>
+        <translation>Απενεργοποιήστε την κίνηση μεγέθυνσης θυρών προβολής</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation translatorcomment="AI-translated">Γλώσσα:</translation>
+        <translation>Γλώσσα:</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation translatorcomment="AI-translated">Προεπιλογή συστήματος</translation>
+        <translation>Προεπιλογή συστήματος</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation translatorcomment="AI-translated">Περιορίστε τα βοηθητικά παράθυρα σε:</translation>
+        <translation>Περιορίστε τα βοηθητικά παράθυρα σε:</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation translatorcomment="AI-translated">Παρακολούθηση κατάστασης NVR</translation>
+        <translation>Παρακολούθηση κατάστασης NVR</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation translatorcomment="AI-translated">Παρακολούθηση της κατάστασης εκτός σύνδεσης και των σφαλμάτων σύνδεσης</translation>
+        <translation>Παρακολούθηση της κατάστασης εκτός σύνδεσης και των σφαλμάτων σύνδεσης</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation translatorcomment="AI-translated">Παρακολούθηση υπερφόρτωσης CPU (&gt;85%)</translation>
+        <translation>Παρακολούθηση υπερφόρτωσης CPU (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation translatorcomment="AI-translated">Παρακολούθηση σφαλμάτων υλικού συσκευής εγγραφής</translation>
+        <translation>Παρακολούθηση σφαλμάτων υλικού συσκευής εγγραφής</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation translatorcomment="AI-translated">Παρακολούθηση βλαβών/ανωμαλιών του σκληρού δίσκου</translation>
+        <translation>Παρακολούθηση βλαβών/ανωμαλιών του σκληρού δίσκου</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation translatorcomment="AI-translated">Παρακολούθηση μη μορφοποιημένων σκληρών δίσκων</translation>
+        <translation>Παρακολούθηση μη μορφοποιημένων σκληρών δίσκων</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation translatorcomment="AI-translated">Παρακολούθηση πλήρων σκληρών δίσκων (η κάλυψη βρόχου είναι απενεργοποιημένη)</translation>
+        <translation>Παρακολούθηση πλήρων σκληρών δίσκων (η κάλυψη βρόχου είναι απενεργοποιημένη)</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation translatorcomment="AI-translated">Αναπαραγωγή</translation>
+        <translation>Αναπαραγωγή</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation translatorcomment="AI-translated">Προεπιλεγμένη μετατόπιση έναρξης αναπαραγωγής προς τα πίσω, δευτερόλεπτα:</translation>
+        <translation>Προεπιλεγμένη μετατόπιση έναρξης αναπαραγωγής προς τα πίσω, δευτερόλεπτα:</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation translatorcomment="AI-translated">Προεπιλεγμένο εύρος γραμμής χρόνου αναπαραγωγής, ώρες:</translation>
+        <translation>Προεπιλεγμένο εύρος γραμμής χρόνου αναπαραγωγής, ώρες:</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation translatorcomment="AI-translated">Οικονομία</translation>
+        <translation>Οικονομία</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation translatorcomment="AI-translated">Ενεργοποιήστε τις αλλαγές σε αυτήν την ενότητα</translation>
+        <translation>Ενεργοποιήστε τις αλλαγές σε αυτήν την ενότητα</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation translatorcomment="AI-translated">Προεπιλεγμένη διαδρομή στιγμιότυπου:</translation>
+        <translation>Προεπιλεγμένη διαδρομή στιγμιότυπου:</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε φάκελο για στιγμιότυπα</translation>
+        <translation>Επιλέξτε φάκελο για στιγμιότυπα</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation translatorcomment="AI-translated">Προεπιλεγμένη διαδρομή εγγραφών:</translation>
+        <translation>Προεπιλεγμένη διαδρομή εγγραφών:</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation translatorcomment="AI-translated">Επιλέξτε φάκελο για εγγραφές</translation>
+        <translation>Επιλέξτε φάκελο για εγγραφές</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation translatorcomment="AI-translated">ανοίξτε το φάκελο εικόνων</translation>
+        <translation>ανοίξτε το φάκελο εικόνων</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation translatorcomment="AI-translated">ανοίξτε το φάκελο βίντεο</translation>
+        <translation>ανοίξτε το φάκελο βίντεο</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation translatorcomment="AI-translated">Διαμόρφωση μέσων συστήματος</translation>
+        <translation>Διαμόρφωση μέσων συστήματος</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation translatorcomment="AI-translated">Προεπιλεγμένες επιλογές γραμμής εντολών FFmpeg</translation>
+        <translation>Προεπιλεγμένες επιλογές γραμμής εντολών FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation translatorcomment="AI-translated">Ενημερώστε όλες τις κάμερες</translation>
+        <translation>Ενημερώστε όλες τις κάμερες</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation translatorcomment="AI-translated">Καταγραφή αλλαγών</translation>
+        <translation>Καταγραφή αλλαγών</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation translatorcomment="AI-translated">Ιστορικό βελτιώσεων, διορθώσεων σφαλμάτων και νέων λειτουργιών στο KVision.</translation>
+        <translation>Ιστορικό βελτιώσεων, διορθώσεων σφαλμάτων και νέων λειτουργιών στο KVision.</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation translatorcomment="AI-translated">Επιβεβαίωση Διαγραφής</translation>
+        <translation>Επιβεβαίωση Διαγραφής</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation translatorcomment="AI-translated">Είστε βέβαιοι ότι θέλετε να διαγράψετε την προεπιλογή \"%1\"; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε την προεπιλογή \"%1\"; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation translatorcomment="AI-translated">Είστε βέβαιοι ότι θέλετε να διαγράψετε την προεπιλογή #%1; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε την προεπιλογή #%1; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation translatorcomment="AI-translated">Είστε βέβαιοι ότι θέλετε να διαγράψετε την προβολή NVR \"%1\"; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε την προβολή NVR \"%1\"; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation translatorcomment="AI-translated">Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν τη διάταξη προβολής NVR; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν τη διάταξη προβολής NVR; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation translatorcomment="AI-translated">Είστε βέβαιοι ότι θέλετε να διαγράψετε την προεπιλογή NVR \"%1\"; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε την προεπιλογή NVR \"%1\"; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation translatorcomment="AI-translated">Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν την προεπιλογή NVR; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν την προεπιλογή NVR; Αυτή η ενέργεια είναι εντελώς μη αναστρέψιμη.</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">Μην συμπεριλάβετε τις καθολικές αλλαγές ρυθμίσεων FFmpeg</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">Επιλογές FFmpeg</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">Επιλογές καναλιού</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">Ρυθμίσεις θύρας προβολής</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">Είστε βέβαιοι ότι θέλετε να αφαιρέσετε την κάμερα από αυτό το παράθυρο προβολής;</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">Επιβεβαιώστε την αφαίρεση κάμερας</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">Tylko SUB</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">Tylko MAIN</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">Automatycznie</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">Αναπαραγωγή</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>Επέκταση τοπικής προσαρμογής: Το KVision είναι πλέον πλήρως προσαρμοσμένο σε 20 νέες μεταφρασμένες γλώσσες AI, ανεβάζοντας τον συνολικό αριθμό των υποστηριζόμενων γλωσσών σε 22 (Αγγλικά, Πολωνικά και 20 νέες γλώσσες). Τόσο ολόκληρη η διεπαφή εφαρμογής (UI) όσο και τα πλήρη εγχειρίδια χρήστη έχουν μεταφραστεί.</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>Τεκμηρίωση γρήγορης αναπαραγωγής θύρας προβολής: Προστέθηκε ολοκληρωμένη τεκμηρίωση που εξηγεί το κουμπί επικάλυψης κυκλικού βέλους (Miniplayer) και τις λεπτομερείς λειτουργίες του και στα 22 εγχειρίδια χρήστη.</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>Pan Zoom: Προστέθηκε η δυνατότητα ελεύθερα μετατόπισης του μεγεθυσμένου βίντεο (Ζωντανό, Mini-player, Archive) κρατώντας πατημένο το μεσαίο κουμπί του ποντικιού (τροχός κύλισης) και σύροντας τον κέρσορα.</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>Επιλογή αναλογικού ζουμ: Παρουσιάστηκε η συντόμευση Shift. Κρατώντας πατημένο το πλήκτρο Shift ενώ σχεδιάζετε ένα ορθογώνιο ζουμ αναγκάζει την επιλογή να κλειδώσει σε αναλογία διαστάσεων 16:9, αυστηρά περιορισμένη στα όρια της θύρας προβολής.</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>Επιβεβλημένη τοποθέτηση παραθύρου: Αντικατέστησε πλήρως τους παλαιού τύπου μηχανισμούς αποθήκευσης γεωμετρίας παραθύρου λόγω μη επιλύσιμων προβλημάτων προβολής πολλαπλών οθονών στο Qt. Η εφαρμογή (τόσο το κύριο παράθυρο όσο και τα βοηθητικά παράθυρα) επιβάλλει πλέον αυστηρά την εκκίνηση με επίκεντρο την κύρια οθόνη στο 90% της ανάλυσής της, διασφαλίζοντας σταθερότητα και προβλεψιμότητα σε όλες τις ρυθμίσεις.</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>Localization Refactoring: Αντικατέστησε όλες τις κωδικοποιημένες πολωνικές και αγγλικές συμβολοσειρές που είναι ενσωματωμένες στον πηγαίο κώδικα (qsTr, tr). Πάνω από 500 μοναδικές συμβολοσειρές έχουν ανακατασκευαστεί σε αναγνωριστικά LNG_XXXXXXX, αντιστοιχισμένα με ασφάλεια μέσω ενός βελτιωμένου συστήματος αρχείων .ts/.qm.</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>CLI μόνο στα Αγγλικά: Οι επιλογές διεπαφής γραμμής εντολών και οι παράμετροι --βοήθειας είναι πλέον μόνιμα στα Αγγλικά για την αποφυγή προβλημάτων με την καθυστερημένη προετοιμασία της μηχανής τοπικής προσαρμογής.</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>Αναλογία διαστάσεων αρχειοθέτησης: Διορθώθηκε ένα πρόβλημα όπου ο λόγος διαστάσεων του βίντεο παραμορφώθηκε στη θύρα προβολής του προγράμματος αναπαραγωγής Αρχειοθέτησης. Το στοιχείο HikvisionArchivePlayer αποδίδει τώρα σωστά το αρχικό καρέ διατηρώντας τη φυσική του αναλογία διαστάσεων (γράμμα κουτί), αντί να επεκτείνει το βίντεο ώστε να ταιριάζει στα όρια της διεπαφής χρήστη.</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>Διαρροές μνήμης Demuxer: Βελτίωσε τη λογική καθαρισμού αντικειμένων στη ρουτίνα QmlAVPlayer::stop(), αποτρέποντας τη συσσώρευση παρουσιών απομόξιμου ζόμπι στο παρασκήνιο.</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>writeSetting Fix: Προστέθηκε η εφαρμογή της μεθόδου writeSetting που λείπει στην κλάση Context, εξαλείφοντας τα TypeErrors και τις διακοπές εκτέλεσης QML κατά τη μετεγκατάσταση ρυθμίσεων.</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4374,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Σφάλμα κατά την ανάγνωση της διαμόρφωσης!</translation>
+        <translation>Σφάλμα κατά την ανάγνωση της διαμόρφωσης!</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4393,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation translatorcomment="AI-translated">Το πρόγραμμα εκτελείται ήδη, δεν μπορείτε να ξεκινήσετε δεύτερο</translation>
+        <translation>Το πρόγραμμα εκτελείται ήδη, δεν μπορείτε να ξεκινήσετε δεύτερο</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">ΚΟΝΤΑ</translation>
+        <translation>ΚΟΝΤΑ</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4424,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation translatorcomment="AI-translated">Το στιγμιότυπο αποθηκεύτηκε</translation>
+        <translation>Το στιγμιότυπο αποθηκεύτηκε</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation translatorcomment="AI-translated">Το στιγμιότυπο αποθηκεύτηκε -</translation>
+        <translation>Το στιγμιότυπο αποθηκεύτηκε -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation translatorcomment="AI-translated">Ξεφυλλίζω</translation>
+        <translation>Ξεφυλλίζω</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation translatorcomment="AI-translated">Εξοδος</translation>
+        <translation>Εξοδος</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4491,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Layout &amp; Grid Tools</translation>
+        <translation>Layout &amp; Grid Tools</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Ξεκλειδώστε το παράθυρο εργαλείων</translation>
+        <translation>Ξεκλειδώστε το παράθυρο εργαλείων</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Διεύθυνση παραθύρων</translation>
+        <translation>Διεύθυνση παραθύρων</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Σφάλμα κατά την ανάγνωση της διαμόρφωσης!</translation>
+        <translation>Σφάλμα κατά την ανάγνωση της διαμόρφωσης!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Κρατήστε πατημένο για να επεξεργαστείτε την τιμή διαίρεσης</translation>
+        <translation>Κρατήστε πατημένο για να επεξεργαστείτε την τιμή διαίρεσης</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Αναλογία Γεωμετρίας</translation>
+        <translation>Αναλογία Γεωμετρίας</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation translatorcomment="AI-translated">Αναλογία διαστάσεων 16:9</translation>
+        <translation>Αναλογία διαστάσεων 16:9</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation translatorcomment="AI-translated">Αναλογία διαστάσεων 4:3</translation>
+        <translation>Αναλογία διαστάσεων 4:3</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Εναλλαγή πλήρους οθόνης</translation>
+        <translation>Εναλλαγή πλήρους οθόνης</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Λειτουργίες Πλέγματος</translation>
+        <translation>Λειτουργίες Πλέγματος</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Συγχώνευση επισημασμένων κελιών</translation>
+        <translation>Συγχώνευση επισημασμένων κελιών</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4578,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation translatorcomment="AI-translated">Ρυθμίσεις θύρας προβολής</translation>
+        <translation>Ρυθμίσεις θύρας προβολής</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Σύνδεση ενεργής ροής</translation>
+        <translation>Σύνδεση ενεργής ροής</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Κύρια διεύθυνση URL ροής</translation>
+        <translation>Κύρια διεύθυνση URL ροής</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Δευτερεύουσα διεύθυνση URL δημιουργίας αντιγράφων ασφαλείας</translation>
+        <translation>Δευτερεύουσα διεύθυνση URL δημιουργίας αντιγράφων ασφαλείας</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation translatorcomment="AI-translated">Επιλογές καναλιού</translation>
+        <translation>Επιλογές καναλιού</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation translatorcomment="AI-translated">Επιλογές FFmpeg</translation>
+        <translation>Επιλογές FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation translatorcomment="AI-translated">Μην συμπεριλάβετε τις καθολικές αλλαγές ρυθμίσεων FFmpeg</translation>
+        <translation>Μην συμπεριλάβετε τις καθολικές αλλαγές ρυθμίσεων FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Ματαίωση</translation>
+        <translation>Ματαίωση</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Εκτός</translation>
+        <translation>Εκτός</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4670,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation translatorcomment="AI-translated">Εναλλαγή θυρών προβολής</translation>
+        <translation>Εναλλαγή θυρών προβολής</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation translatorcomment="AI-translated">Επιλογή ροής</translation>
+        <translation>Επιλογή ροής</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation translatorcomment="AI-translated">Αφαιρέστε την κάμερα</translation>
+        <translation>Αφαιρέστε την κάμερα</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation translatorcomment="AI-translated">Αλλαγή ρυθμίσεων</translation>
+        <translation>Αλλαγή ρυθμίσεων</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation translatorcomment="AI-translated">Γεμίζω πάλι</translation>
+        <translation>Γεμίζω πάλι</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation translatorcomment="AI-translated">Στιγμιότυπο</translation>
+        <translation>Στιγμιότυπο</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation translatorcomment="AI-translated">Αναπαραγωγή</translation>
+        <translation>Αναπαραγωγή</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation translatorcomment="AI-translated">Automatycznie</translation>
+        <translation>Automatycznie</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation translatorcomment="AI-translated">Tylko MAIN</translation>
+        <translation>Tylko MAIN</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation translatorcomment="AI-translated">Tylko SUB</translation>
+        <translation>Tylko SUB</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation translatorcomment="AI-translated">Επιβεβαιώστε την αφαίρεση κάμερας</translation>
+        <translation>Επιβεβαιώστε την αφαίρεση κάμερας</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation translatorcomment="AI-translated">Είστε βέβαιοι ότι θέλετε να αφαιρέσετε την κάμερα από αυτό το παράθυρο προβολής;</translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να αφαιρέσετε την κάμερα από αυτό το παράθυρο προβολής;</translation>
     </message>
 </context>
 </TS>

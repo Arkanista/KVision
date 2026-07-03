@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation translatorcomment="AI-translated">Daha fazla yardımcı pencere açamazsınız</translation>
+        <translation>Daha fazla yardımcı pencere açamazsınız</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">KAPALI</translation>
+        <translation>KAPALI</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Yardımcı Pencere</translation>
+        <translation>KVision - Yardımcı Pencere</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Hiçbir görünüm seçilmedi, bir görünüm seçin</translation>
+        <translation>Hiçbir görünüm seçilmedi, bir görünüm seçin</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Kameraları görüntülemeye başlamak için üst menüden bir görünüm seçin.</translation>
+        <translation>Kameraları görüntülemeye başlamak için üst menüden bir görünüm seçin.</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Kenar çubuğu panelinin seçenekleri ve ayarları</translation>
+        <translation>Kenar çubuğu panelinin seçenekleri ve ayarları</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Yeni yardımcı pencereyi aç</translation>
+        <translation>Yeni yardımcı pencereyi aç</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Programın kullanım kılavuzu</translation>
+        <translation>Programın kullanım kılavuzu</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation translatorcomment="AI-translated">Izgara görünümü:</translation>
+        <translation>Izgara görünümü:</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Tam Ekrana Geçiş Yap</translation>
+        <translation>Tam Ekrana Geçiş Yap</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation translatorcomment="AI-translated">🔒 Kilit düzeni değişikliği</translation>
+        <translation>🔒 Kilit düzeni değişikliği</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Daha fazla seçenek</translation>
+        <translation>Daha fazla seçenek</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation translatorcomment="AI-translated">Seçimi görüntüle:</translation>
+        <translation>Seçimi görüntüle:</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Programı kapat</translation>
+        <translation>Programı kapat</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Programı kapatmak istediğinizden emin misiniz?</translation>
+        <translation>Programı kapatmak istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">EVET</translation>
+        <translation>EVET</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">HAYIR</translation>
+        <translation>HAYIR</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation translatorcomment="AI-translated">Evet</translation>
+        <translation>Evet</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation translatorcomment="AI-translated">HAYIR</translation>
+        <translation>HAYIR</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation translatorcomment="AI-translated">Yapılandırma dosyasının yolu.</translation>
+        <translation type="vanished">Yapılandırma dosyasının yolu.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation translatorcomment="AI-translated">Geçerli ön ayarın dizini.</translation>
+        <translation type="vanished">Geçerli ön ayarın dizini.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation translatorcomment="AI-translated">Tam ekran modunu zorla.</translation>
+        <translation type="vanished">Tam ekran modunu zorla.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation translatorcomment="AI-translated">Kiosk modu işlevselliği.</translation>
+        <translation type="vanished">Kiosk modu işlevselliği.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation translatorcomment="AI-translated">Günlük düzeyi [%1...%2].</translation>
+        <translation type="vanished">Günlük düzeyi [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation translatorcomment="AI-translated">Yardımcı pencere olarak başlayın.</translation>
+        <translation type="vanished">Yardımcı pencere olarak başlayın.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation translatorcomment="AI-translated">Yardımcı pencerenin kimliği.</translation>
+        <translation type="vanished">Yardımcı pencerenin kimliği.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation translatorcomment="AI-translated">Ayrıntılı günlükleri konsolda göster (ayrıntılı günlük kaydı).</translation>
+        <translation type="vanished">Ayrıntılı günlükleri konsolda göster (ayrıntılı günlük kaydı).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation translatorcomment="AI-translated">Bellek sızıntılarında hata ayıklamak için günlüklerde nesne izlemeyi etkinleştirin.</translation>
+        <translation type="vanished">Bellek sızıntılarında hata ayıklamak için günlüklerde nesne izlemeyi etkinleştirin.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation translatorcomment="AI-translated">İlk çalıştırma davranışını zorlayın ve talimatları gösterin.</translation>
+        <translation type="vanished">İlk çalıştırma davranışını zorlayın ve talimatları gösterin.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation translatorcomment="AI-translated">Tüm kayıt cihazlarında NVR hatalarını simüle edin.</translation>
+        <translation type="vanished">Tüm kayıt cihazlarında NVR hatalarını simüle edin.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation translatorcomment="AI-translated">Test amacıyla GitHub'da yeni sürümün kullanılabilirliğiyle ilgili bir deneme yapın</translation>
+        <translation type="vanished">Test amacıyla GitHub'da yeni sürümün kullanılabilirliğiyle ilgili bir deneme yapın</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation translatorcomment="AI-translated">KVision - görüntüleyici ve yükleyici video akışları.</translation>
+        <translation>KVision - görüntüleyici ve yükleyici video akışları.</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation translatorcomment="AI-translated">Bitiş tarihi ve saati, başlangıç ​​tarihi ve saatinden sonra olmalıdır!</translation>
+        <translation>Bitiş tarihi ve saati, başlangıç ​​tarihi ve saatinden sonra olmalıdır!</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation translatorcomment="AI-translated">Ocak</translation>
+        <translation>Ocak</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation translatorcomment="AI-translated">Şubat</translation>
+        <translation>Şubat</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation translatorcomment="AI-translated">Mart</translation>
+        <translation>Mart</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation translatorcomment="AI-translated">Nisan</translation>
+        <translation>Nisan</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation translatorcomment="AI-translated">Mayıs</translation>
+        <translation>Mayıs</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation translatorcomment="AI-translated">Haziran</translation>
+        <translation>Haziran</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation translatorcomment="AI-translated">Temmuz</translation>
+        <translation>Temmuz</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation translatorcomment="AI-translated">Ağustos</translation>
+        <translation>Ağustos</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation translatorcomment="AI-translated">Eylül</translation>
+        <translation>Eylül</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation translatorcomment="AI-translated">Ekim</translation>
+        <translation>Ekim</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation translatorcomment="AI-translated">Kasım</translation>
+        <translation>Kasım</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation translatorcomment="AI-translated">Aralık</translation>
+        <translation>Aralık</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Önceki ay</translation>
+        <translation>Önceki ay</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Gelecek ay</translation>
+        <translation>Gelecek ay</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation translatorcomment="AI-translated">Zamanı seçin</translation>
+        <translation>Zamanı seçin</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation translatorcomment="AI-translated">İK</translation>
+        <translation>İK</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation translatorcomment="AI-translated">Min.</translation>
+        <translation>Min.</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation translatorcomment="AI-translated">saniye</translation>
+        <translation>saniye</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation translatorcomment="AI-translated">İptal etmek</translation>
+        <translation>İptal etmek</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation translatorcomment="AI-translated">Onaylamak</translation>
+        <translation>Onaylamak</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation translatorcomment="AI-translated">Kayıtları indir</translation>
+        <translation>Kayıtları indir</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation translatorcomment="AI-translated">İtibaren:</translation>
+        <translation>İtibaren:</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation translatorcomment="AI-translated">Yanlış tarih formatı! Gerekli format: GG.AA.YYYY (ör. 26.06.2026)</translation>
+        <translation>Yanlış tarih formatı! Gerekli format: GG.AA.YYYY (ör. 26.06.2026)</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation translatorcomment="AI-translated">Yanlış saat formatı! Gerekli format: SS:DD:SS veya SS.MM.SS (ör. 12:30:00 veya 12.30.00)</translation>
+        <translation>Yanlış saat formatı! Gerekli format: SS:DD:SS veya SS.MM.SS (ör. 12:30:00 veya 12.30.00)</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation translatorcomment="AI-translated">İle:</translation>
+        <translation>İle:</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation translatorcomment="AI-translated">Toplam:</translation>
+        <translation>Toplam:</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation translatorcomment="AI-translated">İndiriliyor...</translation>
+        <translation>İndiriliyor...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation translatorcomment="AI-translated">Hata:</translation>
+        <translation>Hata:</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation translatorcomment="AI-translated">Başlatılıyor...</translation>
+        <translation>Başlatılıyor...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Durduruldu</translation>
+        <translation>Durduruldu</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation translatorcomment="AI-translated">kaydetme klasörünü aç</translation>
+        <translation>kaydetme klasörünü aç</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation translatorcomment="AI-translated">Durmak</translation>
+        <translation>Durmak</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">İndirmek</translation>
+        <translation>İndirmek</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation translatorcomment="AI-translated">İndirme işlemi zaten devam ediyor.</translation>
+        <translation>İndirme işlemi zaten devam ediyor.</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation translatorcomment="AI-translated">Dosya arama başlatılıyor...</translation>
+        <translation>Dosya arama başlatılıyor...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation translatorcomment="AI-translated">Cihazda oturum açma hatası: %1</translation>
+        <translation>Cihazda oturum açma hatası: %1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation translatorcomment="AI-translated">Bu kamera için seçilen zaman aralığında kayıt yok.</translation>
+        <translation>Bu kamera için seçilen zaman aralığında kayıt yok.</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation translatorcomment="AI-translated">%2 dosyanın %1'i indirildi ve dönüştürüldü.</translation>
+        <translation>%2 dosyanın %1'i indirildi ve dönüştürüldü.</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation translatorcomment="AI-translated">Belirtilen kaydetme yolu geçersiz veya yazma erişimi reddedildi:
+        <translation>Belirtilen kaydetme yolu geçersiz veya yazma erişimi reddedildi:
 %1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation translatorcomment="AI-translated">Dizine yazma izni yok:
+        <translation>Dizine yazma izni yok:
 %1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation translatorcomment="AI-translated">%1: %2 parçasının indirilmesi başlatılırken hata oluştu</translation>
+        <translation>%1: %2 parçasının indirilmesi başlatılırken hata oluştu</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation translatorcomment="AI-translated">%1: %2 parçasının indirilmesi başlatılırken hata oluştu</translation>
+        <translation>%1: %2 parçasının indirilmesi başlatılırken hata oluştu</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation translatorcomment="AI-translated">%2 parçasının %1 kısmı indiriliyor...</translation>
+        <translation>%2 parçasının %1 kısmı indiriliyor...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Durduruldu</translation>
+        <translation>Durduruldu</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation translatorcomment="AI-translated">İndirme işlemi kullanıcı tarafından kesintiye uğradı.</translation>
+        <translation>İndirme işlemi kullanıcı tarafından kesintiye uğradı.</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation translatorcomment="AI-translated">%2'nin %1 kısmı dönüştürülüyor...</translation>
+        <translation>%2'nin %1 kısmı dönüştürülüyor...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation translatorcomment="AI-translated">%1 parçası indirilirken hata oluştu.</translation>
+        <translation>%1 parçası indirilirken hata oluştu.</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation translatorcomment="AI-translated">%2 parçanın %1'i indirildi ve dönüştürüldü...</translation>
+        <translation>%2 parçanın %1'i indirildi ve dönüştürüldü...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation translatorcomment="AI-translated">Dahili FFmpeg hatası</translation>
+        <translation>Dahili FFmpeg hatası</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation translatorcomment="AI-translated">%1 parçasının MP4'e dönüştürülmesi başarısız oldu: %2</translation>
+        <translation>%1 parçasının MP4'e dönüştürülmesi başarısız oldu: %2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Giriş başarısız oldu veya kamera bulunamadı.</translation>
+        <translation>Giriş başarısız oldu veya kamera bulunamadı.</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation translatorcomment="AI-translated">KVision - Kullanım Kılavuzu / Talimatlar</translation>
+        <translation>KVision - Kullanım Kılavuzu / Talimatlar</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS_tr.md</translation>
+        <translation>qrc:/INSTRUCTIONS_tr.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation translatorcomment="AI-translated">Talimatlar yüklenirken hata oluştu.</translation>
+        <translation>Talimatlar yüklenirken hata oluştu.</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation translatorcomment="AI-translated">%1'deki kameralar</translation>
+        <translation>%1'deki kameralar</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation translatorcomment="AI-translated">Kameralar</translation>
+        <translation>Kameralar</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation translatorcomment="AI-translated">IP: %1 | Bağlantı Noktası: %2 | %3 kanal</translation>
+        <translation>IP: %1 | Bağlantı Noktası: %2 | %3 kanal</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation translatorcomment="AI-translated">Tüm kameralar için küçük resimler oluşturun</translation>
+        <translation>Tüm kameralar için küçük resimler oluşturun</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation translatorcomment="AI-translated">Kamera %1</translation>
+        <translation>Kamera %1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation translatorcomment="AI-translated">Atanan kamera %1 Kanal. %2'den %3 görüntü alanına</translation>
+        <translation>Atanan kamera %1 Kanal. %2'den %3 görüntü alanına</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation translatorcomment="AI-translated">Aktif görünüm alanına ata</translation>
+        <translation>Aktif görünüm alanına ata</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation translatorcomment="AI-translated">Kamerayı yeniden adlandır</translation>
+        <translation>Kamerayı yeniden adlandır</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation translatorcomment="AI-translated">Kamera küçük resmini yenile</translation>
+        <translation>Kamera küçük resmini yenile</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation translatorcomment="AI-translated">Kamera Adını Değiştir</translation>
+        <translation>Kamera Adını Değiştir</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation translatorcomment="AI-translated">Kanal: %1</translation>
+        <translation>Kanal: %1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation translatorcomment="AI-translated">Orijinal ad: %1</translation>
+        <translation>Orijinal ad: %1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation translatorcomment="AI-translated">Hiçbiri</translation>
+        <translation>Hiçbiri</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation translatorcomment="AI-translated">Yeni kamera adını girin...</translation>
+        <translation>Yeni kamera adını girin...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation translatorcomment="AI-translated">Sıfırla</translation>
+        <translation>Sıfırla</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">İptal etmek</translation>
+        <translation>İptal etmek</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Kaydetmek</translation>
+        <translation>Kaydetmek</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Giriş başarısız oldu veya kamera bulunamadı.</translation>
+        <translation>Giriş başarısız oldu veya kamera bulunamadı.</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation translatorcomment="AI-translated">Hikvision Kaydedici Ekle</translation>
+        <translation>Hikvision Kaydedici Ekle</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation translatorcomment="AI-translated">Kaydedici Adı (isteğe bağlı)</translation>
+        <translation>Kaydedici Adı (isteğe bağlı)</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation translatorcomment="AI-translated">IP Adresi</translation>
+        <translation>IP Adresi</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation translatorcomment="AI-translated">Liman (8000)</translation>
+        <translation>Liman (8000)</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation translatorcomment="AI-translated">Kullanıcı adı</translation>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation translatorcomment="AI-translated">Şifre</translation>
+        <translation>Şifre</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation translatorcomment="AI-translated">Keşfediliyor...</translation>
+        <translation>Keşfediliyor...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation translatorcomment="AI-translated">Bağlanın ve Keşfedin</translation>
+        <translation>Bağlanın ve Keşfedin</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation translatorcomment="AI-translated">Kaydet ve Güncelle</translation>
+        <translation>Kaydet ve Güncelle</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation translatorcomment="AI-translated">Hata: IP ve Şifre gerekli.</translation>
+        <translation>Hata: IP ve Şifre gerekli.</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation translatorcomment="AI-translated">NVR'ye bağlanılıyor ve kanallar keşfediliyor...</translation>
+        <translation>NVR'ye bağlanılıyor ve kanallar keşfediliyor...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">İptal etmek</translation>
+        <translation>İptal etmek</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation translatorcomment="AI-translated">Bağlı Kayıt Cihazları</translation>
+        <translation>Bağlı Kayıt Cihazları</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation translatorcomment="AI-translated">%1 kamera bağlandı</translation>
+        <translation>%1 kamera bağlandı</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation translatorcomment="AI-translated">GİRİŞ YAPILDI</translation>
+        <translation>GİRİŞ YAPILDI</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation translatorcomment="AI-translated">GİRİŞ YAPILMADI</translation>
+        <translation>GİRİŞ YAPILMADI</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation translatorcomment="AI-translated">Yeşil: Aktif SDK oturumu (PTZ/Arşiv). Kırmızı: Etkin oturum yok (RTSP akışı bağımsız olarak çalışır).</translation>
+        <translation>Yeşil: Aktif SDK oturumu (PTZ/Arşiv). Kırmızı: Etkin oturum yok (RTSP akışı bağımsız olarak çalışır).</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation translatorcomment="AI-translated">NVR giriş sayfasını tarayıcıda açın</translation>
+        <translation>NVR giriş sayfasını tarayıcıda açın</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation translatorcomment="AI-translated">NVR kamera listesini göster</translation>
+        <translation>NVR kamera listesini göster</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation translatorcomment="AI-translated">Kaydedici bağlantı ayrıntılarını düzenleyin</translation>
+        <translation>Kaydedici bağlantı ayrıntılarını düzenleyin</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation translatorcomment="AI-translated">Kaydediciyi listeden sil</translation>
+        <translation>Kaydediciyi listeden sil</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation translatorcomment="AI-translated">NVR Silmeyi Onayla</translation>
+        <translation>NVR Silmeyi Onayla</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation translatorcomment="AI-translated">Bu NVR'yi silmek istediğinizden emin misiniz?</translation>
+        <translation>Bu NVR'yi silmek istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation translatorcomment="AI-translated">Uyarı!</translation>
+        <translation>Uyarı!</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation translatorcomment="AI-translated">Ne yaptığınızdan kesinlikle emin misiniz ve bunun farkında mısınız?</translation>
+        <translation>Ne yaptığınızdan kesinlikle emin misiniz ve bunun farkında mısınız?</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation translatorcomment="AI-translated">NVR Durumu</translation>
+        <translation>NVR Durumu</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation translatorcomment="AI-translated">NVR durumu kontrol ediliyor...</translation>
+        <translation>NVR durumu kontrol ediliyor...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation translatorcomment="AI-translated">Son kontrol:</translation>
+        <translation>Son kontrol:</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation translatorcomment="AI-translated">Asla</translation>
+        <translation>Asla</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Sesini kapatmak</translation>
+        <translation>Sesini kapatmak</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation translatorcomment="AI-translated">HATA</translation>
+        <translation>HATA</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation translatorcomment="AI-translated">TAMAM</translation>
+        <translation>TAMAM</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation translatorcomment="AI-translated">Durum verisi yok</translation>
+        <translation>Durum verisi yok</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation translatorcomment="AI-translated">NVR durumunu kontrol etmek için aşağıdaki düğmeye basın.</translation>
+        <translation>NVR durumunu kontrol etmek için aşağıdaki düğmeye basın.</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation translatorcomment="AI-translated">Şimdi kontrol et</translation>
+        <translation>Şimdi kontrol et</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation translatorcomment="AI-translated">Kapalı</translation>
+        <translation>Kapalı</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation translatorcomment="AI-translated">Simüle edilmiş NVR</translation>
+        <translation>Simüle edilmiş NVR</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation translatorcomment="AI-translated">Disk 1</translation>
+        <translation>Disk 1</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation translatorcomment="AI-translated">Kritik disk hatası/arızası (Simülasyon)</translation>
+        <translation>Kritik disk hatası/arızası (Simülasyon)</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation translatorcomment="AI-translated">Bağlantı yok veya oturum açma hatası (Simülasyon)</translation>
+        <translation>Bağlantı yok veya oturum açma hatası (Simülasyon)</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation translatorcomment="AI-translated">Bağlantı yok veya oturum açma hatası</translation>
+        <translation>Bağlantı yok veya oturum açma hatası</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation translatorcomment="AI-translated">NVR durumu (SDK) okunurken hata oluştu</translation>
+        <translation>NVR durumu (SDK) okunurken hata oluştu</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation translatorcomment="AI-translated">Yüksek CPU yükü (&gt;%85)</translation>
+        <translation>Yüksek CPU yükü (&gt;%85)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation translatorcomment="AI-translated">Cihaz donanım hatası</translation>
+        <translation>Cihaz donanım hatası</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation translatorcomment="AI-translated">Disk %1</translation>
+        <translation>Disk %1</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation translatorcomment="AI-translated">Kritik disk hatası/arızası</translation>
+        <translation>Kritik disk hatası/arızası</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation translatorcomment="AI-translated">Disk biçimlendirilmemiş</translation>
+        <translation>Disk biçimlendirilmemiş</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation translatorcomment="AI-translated">Disk dolu (üzerine yazma devre dışı)</translation>
+        <translation>Disk dolu (üzerine yazma devre dışı)</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation translatorcomment="AI-translated">Arşiv -</translation>
+        <translation>Arşiv -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation translatorcomment="AI-translated">Ocak</translation>
+        <translation>Ocak</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation translatorcomment="AI-translated">Şubat</translation>
+        <translation>Şubat</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation translatorcomment="AI-translated">Mart</translation>
+        <translation>Mart</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation translatorcomment="AI-translated">Nisan</translation>
+        <translation>Nisan</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation translatorcomment="AI-translated">Mayıs</translation>
+        <translation>Mayıs</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation translatorcomment="AI-translated">Haziran</translation>
+        <translation>Haziran</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation translatorcomment="AI-translated">Temmuz</translation>
+        <translation>Temmuz</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation translatorcomment="AI-translated">Ağustos</translation>
+        <translation>Ağustos</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation translatorcomment="AI-translated">Eylül</translation>
+        <translation>Eylül</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation translatorcomment="AI-translated">Ekim</translation>
+        <translation>Ekim</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation translatorcomment="AI-translated">Kasım</translation>
+        <translation>Kasım</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation translatorcomment="AI-translated">Aralık</translation>
+        <translation>Aralık</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Önceki ay</translation>
+        <translation>Önceki ay</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation translatorcomment="AI-translated">Arşiv tarihini seçin</translation>
+        <translation>Arşiv tarihini seçin</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Gelecek ay</translation>
+        <translation>Gelecek ay</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation translatorcomment="AI-translated">Ay</translation>
+        <translation>Ay</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation translatorcomment="AI-translated">Salı</translation>
+        <translation>Salı</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation translatorcomment="AI-translated">Biz</translation>
+        <translation>Biz</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation translatorcomment="AI-translated">Bu</translation>
+        <translation>Bu</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation translatorcomment="AI-translated">Fr</translation>
+        <translation>Fr</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation translatorcomment="AI-translated">Sa</translation>
+        <translation>Sa</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation translatorcomment="AI-translated">Su</translation>
+        <translation>Su</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation translatorcomment="AI-translated">Kullanılabilirlik alınıyor...</translation>
+        <translation>Kullanılabilirlik alınıyor...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation translatorcomment="AI-translated">Kameralar</translation>
+        <translation>Kameralar</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation translatorcomment="AI-translated">Kamerayı ara...</translation>
+        <translation>Kamerayı ara...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation translatorcomment="AI-translated">Aramayı temizle</translation>
+        <translation>Aramayı temizle</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation translatorcomment="AI-translated">Kaydın gerçek sonu belirleniyor...</translation>
+        <translation>Kaydın gerçek sonu belirleniyor...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation translatorcomment="AI-translated">Kayıt bilgileri alınıyor...</translation>
+        <translation>Kayıt bilgileri alınıyor...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation translatorcomment="AI-translated">Hikvision arşivi yükleniyor...</translation>
+        <translation>Hikvision arşivi yükleniyor...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation translatorcomment="AI-translated">Seçilen anda kayıt yok</translation>
+        <translation>Seçilen anda kayıt yok</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Sesini kapatmak</translation>
+        <translation>Sesini kapatmak</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Maksimum ses seviyesi</translation>
+        <translation>Maksimum ses seviyesi</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Anlık görüntüyü tam çözünürlükte alın</translation>
+        <translation>Anlık görüntüyü tam çözünürlükte alın</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">1:1 modunu devre dışı bırak</translation>
+        <translation>1:1 modunu devre dışı bırak</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">1:1 modunu etkinleştirin (pikselden piksele)</translation>
+        <translation>1:1 modunu etkinleştirin (pikselden piksele)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Yakınlaştırmayı Sıfırla</translation>
+        <translation>Yakınlaştırmayı Sıfırla</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation translatorcomment="AI-translated">Yakınlaştırılacak alanı seçin</translation>
+        <translation>Yakınlaştırılacak alanı seçin</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation translatorcomment="AI-translated">Yakınlaştırılacak alanı seçin</translation>
+        <translation>Yakınlaştırılacak alanı seçin</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation translatorcomment="AI-translated">Izgara görünümünü geri yükle</translation>
+        <translation>Izgara görünümünü geri yükle</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation translatorcomment="AI-translated">Tam ekranda göster</translation>
+        <translation>Tam ekranda göster</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation translatorcomment="AI-translated">Kamerayı görünümden kaldır</translation>
+        <translation>Kamerayı görünümden kaldır</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation translatorcomment="AI-translated">Boş görünüm alanı</translation>
+        <translation>Boş görünüm alanı</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation translatorcomment="AI-translated">Bu pencereyi seçin, listeden bir kamera seçin ve eklemek için + öğesine tıklayın</translation>
+        <translation>Bu pencereyi seçin, listeden bir kamera seçin ve eklemek için + öğesine tıklayın</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation translatorcomment="AI-translated">Önceki gün</translation>
+        <translation>Önceki gün</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation translatorcomment="AI-translated">Takvimden tarih seçin</translation>
+        <translation>Takvimden tarih seçin</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation translatorcomment="AI-translated">Ertesi gün</translation>
+        <translation>Ertesi gün</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation translatorcomment="AI-translated">Bugün</translation>
+        <translation>Bugün</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation translatorcomment="AI-translated">Bugüne git</translation>
+        <translation>Bugüne git</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation translatorcomment="AI-translated">Kayıtları yenile</translation>
+        <translation>Kayıtları yenile</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation translatorcomment="AI-translated">1 saat sürecek şekilde yakınlaştır</translation>
+        <translation>1 saat sürecek şekilde yakınlaştır</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation translatorcomment="AI-translated">8 saat sürecek şekilde yakınlaştır</translation>
+        <translation>8 saat sürecek şekilde yakınlaştır</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation translatorcomment="AI-translated">Zaman çizelgesinde tüm günü göster</translation>
+        <translation>Zaman çizelgesinde tüm günü göster</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation translatorcomment="AI-translated">Zaman çizelgesini geçerli oynatma süresine ortala</translation>
+        <translation>Zaman çizelgesini geçerli oynatma süresine ortala</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation translatorcomment="AI-translated">Hız:</translation>
+        <translation>Hız:</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation translatorcomment="AI-translated">Oynatma hızını %1x olarak ayarla</translation>
+        <translation>Oynatma hızını %1x olarak ayarla</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">İndirmek</translation>
+        <translation>İndirmek</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation translatorcomment="AI-translated">Seçilen zaman aralığındaki video klipleri indirin</translation>
+        <translation>Seçilen zaman aralığındaki video klipleri indirin</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation translatorcomment="AI-translated">60 saniye geri sar</translation>
+        <translation>60 saniye geri sar</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation translatorcomment="AI-translated">45 saniye geri sar</translation>
+        <translation>45 saniye geri sar</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation translatorcomment="AI-translated">15 saniye geri sar</translation>
+        <translation>15 saniye geri sar</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Oynatmayı duraklat</translation>
+        <translation>Oynatmayı duraklat</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Oynatmayı başlat</translation>
+        <translation>Oynatmayı başlat</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation translatorcomment="AI-translated">15 saniye ileri sar</translation>
+        <translation>15 saniye ileri sar</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation translatorcomment="AI-translated">45 saniye ileri sar</translation>
+        <translation>45 saniye ileri sar</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation translatorcomment="AI-translated">60 saniye ileri sar</translation>
+        <translation>60 saniye ileri sar</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation translatorcomment="AI-translated">Alt çubuğun sabitlemesini kaldır</translation>
+        <translation>Alt çubuğun sabitlemesini kaldır</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation translatorcomment="AI-translated">Alt çubuğu sabitle</translation>
+        <translation>Alt çubuğu sabitle</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation translatorcomment="AI-translated">Kayıt kullanılabilirliği bilgileri yükleniyor...</translation>
+        <translation>Kayıt kullanılabilirliği bilgileri yükleniyor...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Pencereyi kapat</translation>
+        <translation>Pencereyi kapat</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Üst çubuğun sabitlemesini kaldır</translation>
+        <translation>Üst çubuğun sabitlemesini kaldır</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Üst çubuğu sabitle</translation>
+        <translation>Üst çubuğu sabitle</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation translatorcomment="AI-translated">Tam ekrandan çık</translation>
+        <translation>Tam ekrandan çık</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation translatorcomment="AI-translated">Pencere tam ekran</translation>
+        <translation>Pencere tam ekran</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation translatorcomment="AI-translated">Kenar çubuğunu gizle</translation>
+        <translation>Kenar çubuğunu gizle</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation translatorcomment="AI-translated">Kenar çubuğunu göster</translation>
+        <translation>Kenar çubuğunu göster</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation translatorcomment="AI-translated">Zaman çizelgesini göster</translation>
+        <translation>Zaman çizelgesini göster</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation translatorcomment="AI-translated">Zaman çizelgesini gizle</translation>
+        <translation>Zaman çizelgesini gizle</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation translatorcomment="AI-translated">Kayıtlar klasörünü aç</translation>
+        <translation>Kayıtlar klasörünü aç</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation translatorcomment="AI-translated">Anlık görüntüler klasörünü aç</translation>
+        <translation>Anlık görüntüler klasörünü aç</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation translatorcomment="AI-translated">Medya yok</translation>
+        <translation>Medya yok</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation translatorcomment="AI-translated">Yükleniyor...</translation>
+        <translation>Yükleniyor...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation translatorcomment="AI-translated">Yüklendi</translation>
+        <translation>Yüklendi</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation translatorcomment="AI-translated">Durdu</translation>
+        <translation>Durdu</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation translatorcomment="AI-translated">%1\% ara belleğe alınıyor</translation>
+        <translation>%1\% ara belleğe alınıyor</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation translatorcomment="AI-translated">Görüntülenecek veri yok</translation>
+        <translation>Görüntülenecek veri yok</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation translatorcomment="AI-translated">Canlı görüntü geri yükleniyor...</translation>
+        <translation>Canlı görüntü geri yükleniyor...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Sesini kapatmak</translation>
+        <translation>Sesini kapatmak</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Maksimum ses seviyesi</translation>
+        <translation>Maksimum ses seviyesi</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Anlık görüntüyü tam çözünürlükte alın</translation>
+        <translation>Anlık görüntüyü tam çözünürlükte alın</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation translatorcomment="AI-translated">Oynatma arşivi</translation>
+        <translation>Oynatma arşivi</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation translatorcomment="AI-translated">Hızlı oynatmayı devre dışı bırak</translation>
+        <translation>Hızlı oynatmayı devre dışı bırak</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation translatorcomment="AI-translated">Hızlı oynatma (30 dakikaya kadar)</translation>
+        <translation>Hızlı oynatma (30 dakikaya kadar)</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">1:1 modunu devre dışı bırak</translation>
+        <translation>1:1 modunu devre dışı bırak</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">1:1 modunu etkinleştirin (pikselden piksele)</translation>
+        <translation>1:1 modunu etkinleştirin (pikselden piksele)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Yakınlaştırmayı Sıfırla</translation>
+        <translation>Yakınlaştırmayı Sıfırla</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation translatorcomment="AI-translated">Yakınlaştırmak için kamera yayınına tıklayın ve sürükleyin</translation>
+        <translation>Yakınlaştırmak için kamera yayınına tıklayın ve sürükleyin</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation translatorcomment="AI-translated">Yakınlaştırılacak bölgeyi seçin</translation>
+        <translation>Yakınlaştırılacak bölgeyi seçin</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Oynatmayı başlat</translation>
+        <translation>Oynatmayı başlat</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Oynatmayı duraklat</translation>
+        <translation>Oynatmayı duraklat</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation translatorcomment="AI-translated">Oynatma hızı</translation>
+        <translation>Oynatma hızı</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation translatorcomment="AI-translated">Geri sarma görünümünü kapat</translation>
+        <translation>Geri sarma görünümünü kapat</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Yardımcı Pencere</translation>
+        <translation>KVision - Yardımcı Pencere</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Yapılandırma okunurken hata oluştu!</translation>
+        <translation>Yapılandırma okunurken hata oluştu!</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Üst çubuğun sabitlemesini kaldır</translation>
+        <translation>Üst çubuğun sabitlemesini kaldır</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Üst çubuğu sabitle</translation>
+        <translation>Üst çubuğu sabitle</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Tam Ekrana Geçiş Yap</translation>
+        <translation>Tam Ekrana Geçiş Yap</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation translatorcomment="AI-translated">Pencereyi simge durumuna küçült</translation>
+        <translation>Pencereyi simge durumuna küçült</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Kenar çubuğu panelinin seçenekleri ve ayarları</translation>
+        <translation>Kenar çubuğu panelinin seçenekleri ve ayarları</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Yeni yardımcı pencereyi aç</translation>
+        <translation>Yeni yardımcı pencereyi aç</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation translatorcomment="AI-translated">Arşiv ve oynatıcıyı kaydetme</translation>
+        <translation>Arşiv ve oynatıcıyı kaydetme</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Programın kullanım kılavuzu</translation>
+        <translation>Programın kullanım kılavuzu</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation translatorcomment="AI-translated">Kaynak kullanım istatistiklerini devre dışı bırak</translation>
+        <translation>Kaynak kullanım istatistiklerini devre dışı bırak</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation translatorcomment="AI-translated">Kaynak kullanım istatistiklerini etkinleştir</translation>
+        <translation>Kaynak kullanım istatistiklerini etkinleştir</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation translatorcomment="AI-translated">NVR hataları algılandı!</translation>
+        <translation>NVR hataları algılandı!</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation translatorcomment="AI-translated">NVR durumu: Tamam</translation>
+        <translation>NVR durumu: Tamam</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation translatorcomment="AI-translated">Izgara boyutu değişikliklerini kilitle</translation>
+        <translation>Izgara boyutu değişikliklerini kilitle</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Daha fazla seçenek</translation>
+        <translation>Daha fazla seçenek</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation translatorcomment="AI-translated">NVR hataları algılandı! Ayrıntıları görüntülemek için tıklayın.</translation>
+        <translation>NVR hataları algılandı! Ayrıntıları görüntülemek için tıklayın.</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Hiçbir görünüm seçilmedi, bir görünüm seçin</translation>
+        <translation>Hiçbir görünüm seçilmedi, bir görünüm seçin</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Kameraları görüntülemeye başlamak için üst menüden bir görünüm seçin.</translation>
+        <translation>Kameraları görüntülemeye başlamak için üst menüden bir görünüm seçin.</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation translatorcomment="AI-translated">KVision - Panel</translation>
+        <translation>KVision - Panel</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Pencereyi kapat</translation>
+        <translation>Pencereyi kapat</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Programı kapat</translation>
+        <translation>Programı kapat</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation translatorcomment="AI-translated">Bu pencereyi kapatmak istediğinizden emin misiniz?</translation>
+        <translation>Bu pencereyi kapatmak istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Programı kapatmak istediğinizden emin misiniz?</translation>
+        <translation>Programı kapatmak istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">EVET</translation>
+        <translation>EVET</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">HAYIR</translation>
+        <translation>HAYIR</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation translatorcomment="AI-translated">📊 SİSTEM İSTATİSTİKLERİ</translation>
+        <translation>📊 SİSTEM İSTATİSTİKLERİ</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation translatorcomment="AI-translated">İstatistik panelini sürükleyin</translation>
+        <translation>İstatistik panelini sürükleyin</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation translatorcomment="AI-translated">VERİ DEPOSU:</translation>
+        <translation>VERİ DEPOSU:</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation translatorcomment="AI-translated">VRAM:</translation>
+        <translation>VRAM:</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation translatorcomment="AI-translated">İŞLEMCİ:</translation>
+        <translation>İŞLEMCİ:</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation translatorcomment="AI-translated">GPU:</translation>
+        <translation>GPU:</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation translatorcomment="AI-translated">AÇIK:</translation>
+        <translation>AÇIK:</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation translatorcomment="AI-translated">Yeni pencere yükleniyor...</translation>
+        <translation>Yeni pencere yükleniyor...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,1027 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation translatorcomment="AI-translated">Ağ kaybı ve RTSP akışı zaman aşımlarının, oyuncunun bir Zombi haline gelmesine neden olarak başarılı yeniden bağlanmayı engellediği kritik bir hata düzeltildi. Yeniden Yükle düğmesi ve otomatik devam etme artık tamamen güvenilir bir şekilde çalışıyor.</translation>
+        <translation>Ağ kaybı ve RTSP akışı zaman aşımlarının, oyuncunun bir Zombi haline gelmesine neden olarak başarılı yeniden bağlanmayı engellediği kritik bir hata düzeltildi. Yeniden Yükle düğmesi ve otomatik devam etme artık tamamen güvenilir bir şekilde çalışıyor.</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation translatorcomment="AI-translated">Oynatıcı ve Arşiv durum mesajlarının görünümü yenilendi. Yükleme ve geri yükleme bildirimleri artık kritik hatalardan (Medya/ağ yok) daha iyi ayırt edilebilmesi için uygun simgelerle birlikte hoş bir camgöbeği teması içeriyor.</translation>
+        <translation>Oynatıcı ve Arşiv durum mesajlarının görünümü yenilendi. Yükleme ve geri yükleme bildirimleri artık kritik hatalardan (Medya/ağ yok) daha iyi ayırt edilebilmesi için uygun simgelerle birlikte hoş bir camgöbeği teması içeriyor.</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation translatorcomment="AI-translated">Hikvision SDK ile entegre MakeKeyFrame donanım komutu. Uygulama artık, Alt/Ana akışlar arasında ve Canlı yayından Arşive geçiş yaparken kamerayı agresif bir şekilde bir I-Frame yaymaya zorlayarak 10 saniyelik ana kare bekleme süresini ortadan kaldırıyor.</translation>
+        <translation>Hikvision SDK ile entegre MakeKeyFrame donanım komutu. Uygulama artık, Alt/Ana akışlar arasında ve Canlı yayından Arşive geçiş yaparken kamerayı agresif bir şekilde bir I-Frame yaymaya zorlayarak 10 saniyelik ana kare bekleme süresini ortadan kaldırıyor.</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation translatorcomment="AI-translated">Analiz parametresinin anında geçersiz kılınması kaldırıldı. Uygulama, kullanıcı tanımlı FFmpeg değerlerini sıkı bir şekilde uygular (sessiz kameraların 5 saniyelik duraklama sınırını aşması için bu değerin 100000'e ayarlanması önemle tavsiye edilir).</translation>
+        <translation>Analiz parametresinin anında geçersiz kılınması kaldırıldı. Uygulama, kullanıcı tanımlı FFmpeg değerlerini sıkı bir şekilde uygular (sessiz kameraların 5 saniyelik duraklama sınırını aşması için bu değerin 100000'e ayarlanması önemle tavsiye edilir).</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation translatorcomment="AI-translated">Daha iyi protokol farklılaşması için kaydedici görünüm pencerelerine "HikSDK" rozetleri eklendi.</translation>
+        <translation>Daha iyi protokol farklılaşması için kaydedici görünüm pencerelerine "HikSDK" rozetleri eklendi.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation translatorcomment="AI-translated">Uyarıların ve kritik hataların ayrıntılı modun dışında konsola yazdırılmasına olanak tanıyan kolaylaştırılmış tanılama günlüğü (QDebug), NVR hata ayıklamasını kolaylaştırır.</translation>
+        <translation>Uyarıların ve kritik hataların ayrıntılı modun dışında konsola yazdırılmasına olanak tanıyan kolaylaştırılmış tanılama günlüğü (QDebug), NVR hata ayıklamasını kolaylaştırır.</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation translatorcomment="AI-translated">Oynatıcıdaki hızlı zaman çizelgesi temizleme sırasında konsolu spamlayan hatalı pozitif PlayM4 SDK hataları (no. 17 ve 2) filtrelendi.</translation>
+        <translation>Oynatıcıdaki hızlı zaman çizelgesi temizleme sırasında konsolu spamlayan hatalı pozitif PlayM4 SDK hataları (no. 17 ve 2) filtrelendi.</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation translatorcomment="AI-translated">KDE Plazma sistemlerinde Qt5 çerçevesi tarafından doğrusal olmayan ölçeklendirmenin (örneğin %145) kesilmesi düzeltilerek Yüksek DPI politikasının doğru şekilde yorumlanmasını zorunlu kıldı.</translation>
+        <translation>KDE Plazma sistemlerinde Qt5 çerçevesi tarafından doğrusal olmayan ölçeklendirmenin (örneğin %145) kesilmesi düzeltilerek Yüksek DPI politikasının doğru şekilde yorumlanmasını zorunlu kıldı.</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation translatorcomment="AI-translated">Zaman çizelgesini ararken veya sürüklerken canlı kılavuzdaki diğer kameraların geçici olarak donması sorunu çözüldü.</translation>
+        <translation>Zaman çizelgesini ararken veya sürüklerken canlı kılavuzdaki diğer kameraların geçici olarak donması sorunu çözüldü.</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation translatorcomment="AI-translated">Engelleyen tüm Hikvision SDK ağ çağrıları (oturum açma, durdurma, başlatma, hız kontrolü) eşzamansız bir çalışan iş parçacığına taşındı.</translation>
+        <translation>Engelleyen tüm Hikvision SDK ağ çağrıları (oturum açma, durdurma, başlatma, hız kontrolü) eşzamansız bir çalışan iş parçacığına taşındı.</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation translatorcomment="AI-translated">RTSP kameralar için kalite (ALT/ANA) değiştirilirken siyah ekran sorunu tamamen ortadan kaldırıldı.</translation>
+        <translation>RTSP kameralar için kalite (ALT/ANA) değiştirilirken siyah ekran sorunu tamamen ortadan kaldırıldı.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation translatorcomment="AI-translated">Kesintisiz akış değiştirme zamanlayıcısı maksimum hız için 100 ms'ye optimize edildi.</translation>
+        <translation>Kesintisiz akış değiştirme zamanlayıcısı maksimum hız için 100 ms'ye optimize edildi.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation translatorcomment="AI-translated">Uzun çalışma süreleri boyunca canlı akış gecikmesini (kaymayı) ortadan kaldırmak için düşük seviyeli FFmpeg seçenekleri (nobuffer, low_delay) eklendi.</translation>
+        <translation>Uzun çalışma süreleri boyunca canlı akış gecikmesini (kaymayı) ortadan kaldırmak için düşük seviyeli FFmpeg seçenekleri (nobuffer, low_delay) eklendi.</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation translatorcomment="AI-translated">Tüm düzenlerde mevcut tüm kameralar için FFmpeg parametrelerini toplu olarak güncellemeye yönelik bir düğme eklendi.</translation>
+        <translation>Tüm düzenlerde mevcut tüm kameralar için FFmpeg parametrelerini toplu olarak güncellemeye yönelik bir düğme eklendi.</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation translatorcomment="AI-translated">Belirli kameraları genel FFmpeg parametre güncellemelerinden hariç tutma seçeneği eklendi (görüntü alanı ayarlarında yeni onay kutusu).</translation>
+        <translation>Belirli kameraları genel FFmpeg parametre güncellemelerinden hariç tutma seçeneği eklendi (görüntü alanı ayarlarında yeni onay kutusu).</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation translatorcomment="AI-translated">Kullanıcının her başlatmada zorlanmadan yeni bayrakları kalıcı olarak kaldırmasına veya değiştirmesine olanak tanıyarak varsayılan ayarları taşıma sürecini güvence altına aldı.</translation>
+        <translation>Kullanıcının her başlatmada zorlanmadan yeni bayrakları kalıcı olarak kaldırmasına veya değiştirmesine olanak tanıyarak varsayılan ayarları taşıma sürecini güvence altına aldı.</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation translatorcomment="AI-translated">Doğrudan kamera görüntüleme alanının içine hızlı oynatma işlevi (30 dakikaya kadar geri sarma) eklendi.</translation>
+        <translation>Doğrudan kamera görüntüleme alanının içine hızlı oynatma işlevi (30 dakikaya kadar geri sarma) eklendi.</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation translatorcomment="AI-translated">Ayarlar için tüm pencereler ve yardımcı program süreçleri arasında tam, çift yönlü gerçek zamanlı senkronizasyon uygulandı: ses kapatma, yakınlaştırma animasyonunu devre dışı bırakma ve tüm Hikvision NVR durum izleme seçenekleri.</translation>
+        <translation>Ayarlar için tüm pencereler ve yardımcı program süreçleri arasında tam, çift yönlü gerçek zamanlı senkronizasyon uygulandı: ses kapatma, yakınlaştırma animasyonunu devre dışı bırakma ve tüm Hikvision NVR durum izleme seçenekleri.</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation translatorcomment="AI-translated">Akıllı etiket yoğunluğu ayarıyla (zoomHours) arşiv oynatıcı zaman çizelgesine dakika işaretlerinde dakika etiketlerinin dinamik gösterimi (örn.:15, :30, :45) eklendi.</translation>
+        <translation>Akıllı etiket yoğunluğu ayarıyla (zoomHours) arşiv oynatıcı zaman çizelgesine dakika işaretlerinde dakika etiketlerinin dinamik gösterimi (örn.:15, :30, :45) eklendi.</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation translatorcomment="AI-translated">Kullanıcı arayüzü ayarlarına yeni bir seçenek eklendi: Kamera ızgara görünümünde anında uygulama ile "Görünüm alanı yakınlaştırma animasyonunu devre dışı bırak".</translation>
+        <translation>Kullanıcı arayüzü ayarlarına yeni bir seçenek eklendi: Kamera ızgara görünümünde anında uygulama ile "Görünüm alanı yakınlaştırma animasyonunu devre dışı bırak".</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation translatorcomment="AI-translated">Arşiv oynatıcı başlatma sürecini yeniden oluşturduk: Kesin kayıt sınırları belirlenene kadar (ultra hızlı 24 saatlik eşzamansız arama yoluyla) bağlantı ve video yükleme askıya alındı, erken oynatma ve görüntü atlama ortadan kaldırıldı.</translation>
+        <translation>Arşiv oynatıcı başlatma sürecini yeniden oluşturduk: Kesin kayıt sınırları belirlenene kadar (ultra hızlı 24 saatlik eşzamansız arama yoluyla) bağlantı ve video yükleme askıya alındı, erken oynatma ve görüntü atlama ortadan kaldırıldı.</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation translatorcomment="AI-translated">İyileştirilmiş Hikvision arşiv yükleme mesajları – yükleme durumu yalnızca aktif akış arabelleğe alma sırasında gösterilir ve oynatma kafası mevcut kayıt sınırlarının ötesine taşınırsa özel bir uyarı görüntülenir.</translation>
+        <translation>İyileştirilmiş Hikvision arşiv yükleme mesajları – yükleme durumu yalnızca aktif akış arabelleğe alma sırasında gösterilir ve oynatma kafası mevcut kayıt sınırlarının ötesine taşınırsa özel bir uyarı görüntülenir.</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation translatorcomment="AI-translated">Ayarlar paneline yeni yapılandırma alanları eklendi: varsayılan arşiv oynatma başlangıç ​​uzaklığı (saniye olarak, varsayılan 60 saniye) ve varsayılan zaman çizelgesi yakınlaştırma aralığı (yakınlaştırma saatleri, varsayılan 2 saat).</translation>
+        <translation>Ayarlar paneline yeni yapılandırma alanları eklendi: varsayılan arşiv oynatma başlangıç ​​uzaklığı (saniye olarak, varsayılan 60 saniye) ve varsayılan zaman çizelgesi yakınlaştırma aralığı (yakınlaştırma saatleri, varsayılan 2 saat).</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation translatorcomment="AI-translated">Kayıt cihazının web paneline, NVR durum açılır penceresinin içine doğrudan bir web oturum açma simgesi eklendi.</translation>
+        <translation>Kayıt cihazının web paneline, NVR durum açılır penceresinin içine doğrudan bir web oturum açma simgesi eklendi.</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation translatorcomment="AI-translated">Bireysel kayıt cihazları için hata raporlamayı engelleme işlevi eklendi.</translation>
+        <translation>Bireysel kayıt cihazları için hata raporlamayı engelleme işlevi eklendi.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation translatorcomment="AI-translated">Durum penceresindeki hatalı Lehçe çeviri "Simüle Edilmiş Kaydedici" düzeltildi ve doğru kelime ayrımı uygulandı (hatalar için "Bastır" ve ses için "Sessiz").</translation>
+        <translation>Durum penceresindeki hatalı Lehçe çeviri "Simüle Edilmiş Kaydedici" düzeltildi ve doğru kelime ayrımı uygulandı (hatalar için "Bastır" ve ses için "Sessiz").</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation translatorcomment="AI-translated">SDK/ISAPI teşhisini kullanarak periyodik (her 5 dakikada bir) ve manuel Hikvision NVR/DVR hata durumu izleme uygulandı.</translation>
+        <translation>SDK/ISAPI teşhisini kullanarak periyodik (her 5 dakikada bir) ve manuel Hikvision NVR/DVR hata durumu izleme uygulandı.</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation translatorcomment="AI-translated">Hikvision NVR durum kontrolünü etkinleştirmek/devre dışı bırakmak ve izlenen kritik hata türlerini özelleştirmek için Genel Ayarlar'a yapılandırma seçenekleri eklendi.</translation>
+        <translation>Hikvision NVR durum kontrolünü etkinleştirmek/devre dışı bırakmak ve izlenen kritik hata türlerini özelleştirmek için Genel Ayarlar'a yapılandırma seçenekleri eklendi.</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation translatorcomment="AI-translated">Aktif kritik hataları işaret etmek için derin darbeli dış dalgalar ve iç kalp atışı dalgalanma animasyonları içeren, yüksek kaliteli, sıcak yeşil/kırmızı bir üst çubuk durum simgesi tasarlandı.</translation>
+        <translation>Aktif kritik hataları işaret etmek için derin darbeli dış dalgalar ve iç kalp atışı dalgalanma animasyonları içeren, yüksek kaliteli, sıcak yeşil/kırmızı bir üst çubuk durum simgesi tasarlandı.</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation translatorcomment="AI-translated">Ana araç çubuğu daraltıldığında ekranın üst kısmında yanıp sönen, kritik uyarıların asla kaçırılmamasını sağlayan, üst kenardan çıkıntılı kırmızı bir gösterge dairesi tanıtıldı.</translation>
+        <translation>Ana araç çubuğu daraltıldığında ekranın üst kısmında yanıp sönen, kritik uyarıların asla kaçırılmamasını sağlayan, üst kenardan çıkıntılı kırmızı bir gösterge dairesi tanıtıldı.</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation translatorcomment="AI-translated">Ayrıntılı hata kodları sunan, ekran yüksekliğinin %85'iyle sınırlı, zarif, kaydırılabilir bir "Kaydedici durumu" açılır penceresi oluşturuldu.</translation>
+        <translation>Ayrıntılı hata kodları sunan, ekran yüksekliğinin %85'iyle sınırlı, zarif, kaydırılabilir bir "Kaydedici durumu" açılır penceresi oluşturuldu.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation translatorcomment="AI-translated">Gösterim amacıyla tüm kaydedicilerdeki disk arızalarını ve bağlantı hatalarını anında simüle etmek için "--simulate-error" çalıştırma bayrağı eklendi.</translation>
+        <translation>Gösterim amacıyla tüm kaydedicilerdeki disk arızalarını ve bağlantı hatalarını anında simüle etmek için "--simulate-error" çalıştırma bayrağı eklendi.</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation translatorcomment="AI-translated">Yapılandırılmış kaydedici görünümlerinde liste çerçevesi rozetleri ve durum göstergesi hizalamaları uygulandı.</translation>
+        <translation>Yapılandırılmış kaydedici görünümlerinde liste çerçevesi rozetleri ve durum göstergesi hizalamaları uygulandı.</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation translatorcomment="AI-translated">Tüm NVR teşhisleri, onay kutuları, araç ipuçları, uyarılar ve komut satırı ayrıştırıcı seçeneklerinin ayarlanması için tam iki dilli çeviri kapsamı (Lehçe/İngilizce) elde edildi.</translation>
+        <translation>Tüm NVR teşhisleri, onay kutuları, araç ipuçları, uyarılar ve komut satırı ayrıştırıcı seçeneklerinin ayarlanması için tam iki dilli çeviri kapsamı (Lehçe/İngilizce) elde edildi.</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation translatorcomment="AI-translated">Üst araç çubuğundaki düğmesine tıklayarak aktif düzeni yeniden yükleme yeteneği eklendi.</translation>
+        <translation>Üst araç çubuğundaki düğmesine tıklayarak aktif düzeni yeniden yükleme yeteneği eklendi.</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation translatorcomment="AI-translated">GPU kullanım grafiğini düzeltmek ve pürüzlü okumaları ortadan kaldırmak için zaman içindeki ortalama NVML kullanım örnekleri.</translation>
+        <translation>GPU kullanım grafiğini düzeltmek ve pürüzlü okumaları ortadan kaldırmak için zaman içindeki ortalama NVML kullanım örnekleri.</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation translatorcomment="AI-translated">Aktif oynatıcı değişimini ilk kare ekranda boyanana kadar geciktirerek görüntü alanı büyütme sırasında kalite ALT akıştan ANA akışa geçerken anlık video yanıp sönmesi (siyah çerçeveler) ve ses-video senkronizasyon dışı boşlukları ortadan kaldırıldı.</translation>
+        <translation>Aktif oynatıcı değişimini ilk kare ekranda boyanana kadar geciktirerek görüntü alanı büyütme sırasında kalite ALT akıştan ANA akışa geçerken anlık video yanıp sönmesi (siyah çerçeveler) ve ses-video senkronizasyon dışı boşlukları ortadan kaldırıldı.</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation translatorcomment="AI-translated">Arşiv indirme zamanı seçici açılır penceresindeki saat, dakika ve ikinci seçim sütunlarına etkileşimli, anlaşılır ve 2 kat daha geniş kaydırma çubukları eklendi.</translation>
+        <translation>Arşiv indirme zamanı seçici açılır penceresindeki saat, dakika ve ikinci seçim sütunlarına etkileşimli, anlaşılır ve 2 kat daha geniş kaydırma çubukları eklendi.</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation translatorcomment="AI-translated">Görünüm pencerelerinin bağlam menüsüne yeni sezgisel seçenekler eklendi: 'Anlık Görüntü' (geçerli kareyi kaydetme) ve 'Oynatma' (belirli bir kameranın arşiv oynatımına anında geçiş).</translation>
+        <translation>Görünüm pencerelerinin bağlam menüsüne yeni sezgisel seçenekler eklendi: 'Anlık Görüntü' (geçerli kareyi kaydetme) ve 'Oynatma' (belirli bir kameranın arşiv oynatımına anında geçiş).</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation translatorcomment="AI-translated">Devrim niteliğinde ve sabit PCM ses işleme: QAudioOutput'a doğrudan boru hattı iletme, örnekleme hızını sabitleyerek arayüz donmalarının ortadan kaldırılması (ALSA/PulseAudio/Pipewire), çıktı yeniden oluşturmada 2 saniyelik bekleme süresi, hasarlı parametrelerin filtrelenmesi ve ağ titreşimini azaltan 64KB arabellek.</translation>
+        <translation>Devrim niteliğinde ve sabit PCM ses işleme: QAudioOutput'a doğrudan boru hattı iletme, örnekleme hızını sabitleyerek arayüz donmalarının ortadan kaldırılması (ALSA/PulseAudio/Pipewire), çıktı yeniden oluşturmada 2 saniyelik bekleme süresi, hasarlı parametrelerin filtrelenmesi ve ağ titreşimini azaltan 64KB arabellek.</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation translatorcomment="AI-translated">Hızlı sessize alma seçeneği ve tek tıklamayla ses seviyesini en üst düzeye çıkarmanın yanı sıra, doğrudan görünüm alanı döşemelerine etkileşimli bir HUD ses düzeyi kaydırıcısı uygulandı.</translation>
+        <translation>Hızlı sessize alma seçeneği ve tek tıklamayla ses seviyesini en üst düzeye çıkarmanın yanı sıra, doğrudan görünüm alanı döşemelerine etkileşimli bir HUD ses düzeyi kaydırıcısı uygulandı.</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation translatorcomment="AI-translated">Arşiv oynatma penceresini açtıktan sonra ana ızgaradaki CANLI akışların otomatik ve anında susturulması uygulandı, böylece seslerin çakışması (kakofoni) önlendi.</translation>
+        <translation>Arşiv oynatma penceresini açtıktan sonra ana ızgaradaki CANLI akışların otomatik ve anında susturulması uygulandı, böylece seslerin çakışması (kakofoni) önlendi.</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation translatorcomment="AI-translated">Kaydedilen anlık görüntüler için merkezi bir SnapshotSavedDialog bildirim sistemi (koyu gri muhafaza, deniz mavisi kenarlıklar, 10 saniye sonra otomatik kapanma) ve klasörü doğrudan sistem dosya yöneticisinde açmak için hızlı bir 'Gözat' bağlantısı sunuldu.</translation>
+        <translation>Kaydedilen anlık görüntüler için merkezi bir SnapshotSavedDialog bildirim sistemi (koyu gri muhafaza, deniz mavisi kenarlıklar, 10 saniye sonra otomatik kapanma) ve klasörü doğrudan sistem dosya yöneticisinde açmak için hızlı bir 'Gözat' bağlantısı sunuldu.</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation translatorcomment="AI-translated">Yerleşik yardım penceresi, yerel, net SVG vektör simgelerini kullanan ayrıntılı bir 'Düğme işlevleri açıklaması' bölümüyle zenginleştirildi. Yardım penceresi artık tamamen otomatik olarak açılıyor ve programın ilk başlatılışında ana pencerenin üzerinde ortalanıyor.</translation>
+        <translation>Yerleşik yardım penceresi, yerel, net SVG vektör simgelerini kullanan ayrıntılı bir 'Düğme işlevleri açıklaması' bölümüyle zenginleştirildi. Yardım penceresi artık tamamen otomatik olarak açılıyor ve programın ilk başlatılışında ana pencerenin üzerinde ortalanıyor.</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation translatorcomment="AI-translated">Program/pencere başlatıldığında üst çubuğun varsayılan olarak görüntülenmesi sağlandı ve ayarlara 'Pencere açıldıktan sonra üst çubuğu varsayılan olarak göster' seçeneği eklendi, bu davranışın kişisel tercihlere göre özelleştirilmesine olanak sağlandı.</translation>
+        <translation>Program/pencere başlatıldığında üst çubuğun varsayılan olarak görüntülenmesi sağlandı ve ayarlara 'Pencere açıldıktan sonra üst çubuğu varsayılan olarak göster' seçeneği eklendi, bu davranışın kişisel tercihlere göre özelleştirilmesine olanak sağlandı.</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation translatorcomment="AI-translated">GNUInstallDirs kullanılarak CMakeLists.txt dosyasına dinamik RPATH kitaplık yolları uygulandı ve derlenmiş uygulamanın /etc/ld.so.conf.d/ ve ldconfig'in manuel olarak yapılandırılmasına gerek kalmadan Ubuntu ve Debian'da anında yürütülmesine olanak sağlandı.</translation>
+        <translation>GNUInstallDirs kullanılarak CMakeLists.txt dosyasına dinamik RPATH kitaplık yolları uygulandı ve derlenmiş uygulamanın /etc/ld.so.conf.d/ ve ldconfig'in manuel olarak yapılandırılmasına gerek kalmadan Ubuntu ve Debian'da anında yürütülmesine olanak sağlandı.</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation translatorcomment="AI-translated">Programın adı KVision olarak yeniden adlandırıldı; otomatik kullanıcı yapılandırması geçişi, yeni çok boyutlu simgeler (128 piksel, 256 piksel, 512 piksel) ve pencere başlık çubuğunda tam sürüm ekranı eklendi.</translation>
+        <translation>Programın adı KVision olarak yeniden adlandırıldı; otomatik kullanıcı yapılandırması geçişi, yeni çok boyutlu simgeler (128 piksel, 256 piksel, 512 piksel) ve pencere başlık çubuğunda tam sürüm ekranı eklendi.</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation translatorcomment="AI-translated">Yardımcı pencere sınırını aşmaya ilişkin uyarı penceresi düzeltildi (eksik QML kaynağı ve QSettings okuması).</translation>
+        <translation>Yardımcı pencere sınırını aşmaya ilişkin uyarı penceresi düzeltildi (eksik QML kaynağı ve QSettings okuması).</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation translatorcomment="AI-translated">Wayland'in altındaki eksik program simgesi düzeltildi (hicolor tema kurulumu ve setDesktopFileName).</translation>
+        <translation>Wayland'in altındaki eksik program simgesi düzeltildi (hicolor tema kurulumu ve setDesktopFileName).</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation translatorcomment="AI-translated">Üst çubuğu otomatik olarak daraltma seçeneği Ayarlar'dan kaldırıldı - bundan sonra, CANLI pencerelerdeki (ana ve yardımcı) üst çubuk başlangıçta varsayılan olarak daraltılacak ve sabitleme düğmesi, durumunu kaydetmeden yerel ve geçici olarak (bellekte) sabitleyecektir.</translation>
+        <translation>Üst çubuğu otomatik olarak daraltma seçeneği Ayarlar'dan kaldırıldı - bundan sonra, CANLI pencerelerdeki (ana ve yardımcı) üst çubuk başlangıçta varsayılan olarak daraltılacak ve sabitleme düğmesi, durumunu kaydetmeden yerel ve geçici olarak (bellekte) sabitleyecektir.</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation translatorcomment="AI-translated">Yardımcı pencerelerin sayısına (0'dan 3'e kadar yapılandırılabilir) sınır aşılmaya çalışıldığında şık bir uyarı penceresi eklendi.</translation>
+        <translation>Yardımcı pencerelerin sayısına (0'dan 3'e kadar yapılandırılabilir) sınır aşılmaya çalışıldığında şık bir uyarı penceresi eklendi.</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation translatorcomment="AI-translated">Alanların daha iyi tanımlanması için CANLI düzen ızgarasında kullanılmayan görünüm pencerelerinin etrafına ince 1 piksellik koyu gri kenarlıklar eklendi.</translation>
+        <translation>Alanların daha iyi tanımlanması için CANLI düzen ızgarasında kullanılmayan görünüm pencerelerinin etrafına ince 1 piksellik koyu gri kenarlıklar eklendi.</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation translatorcomment="AI-translated">Geçici bir 'Bu bölümdeki değişiklikleri etkinleştir' onay kutusunun arkasında kaydetme yollarının ve sistem medya yapılandırma seçeneklerinin güvenli bir şekilde düzenlenmesi, kazara yapılan değişiklikleri önler (düzenleme durumu kapatıldığında sıfırlanır).</translation>
+        <translation>Geçici bir 'Bu bölümdeki değişiklikleri etkinleştir' onay kutusunun arkasında kaydetme yollarının ve sistem medya yapılandırma seçeneklerinin güvenli bir şekilde düzenlenmesi, kazara yapılan değişiklikleri önler (düzenleme durumu kapatıldığında sıfırlanır).</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation translatorcomment="AI-translated">'Kayıt klasörünü aç' için doğrudan kısayollar (Arşiv penceresinde indirme tamamlandıktan sonra seladon olarak vurgulanır) ve Ayarlar'daki anlık görüntü ve video klasörleri için her zaman etkin olan hızlı açma düğmeleri (eksikse diskte otomatik dizin oluşturma özelliğiyle) tanıtıldı.</translation>
+        <translation>'Kayıt klasörünü aç' için doğrudan kısayollar (Arşiv penceresinde indirme tamamlandıktan sonra seladon olarak vurgulanır) ve Ayarlar'daki anlık görüntü ve video klasörleri için her zaman etkin olan hızlı açma düğmeleri (eksikse diskte otomatik dizin oluşturma özelliğiyle) tanıtıldı.</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation translatorcomment="AI-translated">İndirme penceresinde 'Pobierz' (İndir) düğmesine tıklandığında etkileşimli doğrulama eklendi: otomatik format ve kronolojik tarih kontrolleri, kırmızı bir uyarı ipucu görüntüleme ve ilk geçersiz alana odaklanma.</translation>
+        <translation>İndirme penceresinde 'Pobierz' (İndir) düğmesine tıklandığında etkileşimli doğrulama eklendi: otomatik format ve kronolojik tarih kontrolleri, kırmızı bir uyarı ipucu görüntüleme ve ilk geçersiz alana odaklanma.</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation translatorcomment="AI-translated">Saat seçici açılır penceresinde tam klavye gezinmesi (değerleri değiştirmek için yukarı/aşağı ok tuşları, sütunları değiştirmek için sol/sağ) uygulandı.</translation>
+        <translation>Saat seçici açılır penceresinde tam klavye gezinmesi (değerleri değiştirmek için yukarı/aşağı ok tuşları, sütunları değiştirmek için sol/sağ) uygulandı.</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation translatorcomment="AI-translated">Yardımcı pencereler için tamamen temiz bir başlatma sağlandı (seçenekler kenar çubuğunu otomatik olarak açmadan) ve geometri ayarlarının yardımcı pencerelerden kaydedilmesi hariç tutuldu, böylece paylaşılan konfigürasyon kirliliği ortadan kaldırıldı.</translation>
+        <translation>Yardımcı pencereler için tamamen temiz bir başlatma sağlandı (seçenekler kenar çubuğunu otomatik olarak açmadan) ve geometri ayarlarının yardımcı pencerelerden kaydedilmesi hariç tutuldu, böylece paylaşılan konfigürasyon kirliliği ortadan kaldırıldı.</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation translatorcomment="AI-translated">İndirme penceresindeki tüm yeni biçimlendirme ve kronolojik doğrulama hata mesajları için tam İngilizce dil desteği eklendi.</translation>
+        <translation>İndirme penceresindeki tüm yeni biçimlendirme ve kronolojik doğrulama hata mesajları için tam İngilizce dil desteği eklendi.</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation translatorcomment="AI-translated">Formatları güncellemeden ve oluşturucu boyutlarını eşleştirmeden önce video yüzeyini otomatik ve doğru şekilde durdurarak kamera düzenlerini değiştirirken RAM bellek sızıntılarını ortadan kaldırdı.</translation>
+        <translation>Formatları güncellemeden ve oluşturucu boyutlarını eşleştirmeden önce video yüzeyini otomatik ve doğru şekilde durdurarak kamera düzenlerini değiştirirken RAM bellek sızıntılarını ortadan kaldırdı.</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation translatorcomment="AI-translated">Oynatıcı durdurulduğunda ses çıkışı nesnelerinin koşulsuz olarak serbest bırakılması ve imha edilmesi uygulandı ve Linux'ta bellek ve iş parçacığı sızıntılarını ortadan kaldırmak için bu nesnelerin otomatik olarak geri dönüştürülmesi sağlandı.</translation>
+        <translation>Oynatıcı durdurulduğunda ses çıkışı nesnelerinin koşulsuz olarak serbest bırakılması ve imha edilmesi uygulandı ve Linux'ta bellek ve iş parçacığı sızıntılarını ortadan kaldırmak için bu nesnelerin otomatik olarak geri dönüştürülmesi sağlandı.</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation translatorcomment="AI-translated">Yeni bir akışın ilk karesini sunarken doğru video kullanılabilirliği sinyalini zorlayarak video donma sorunları (görüntü alanı yakınlaştırmasından sonra düz renkli ekran) çözüldü.</translation>
+        <translation>Yeni bir akışın ilk karesini sunarken doğru video kullanılabilirliği sinyalini zorlayarak video donma sorunları (görüntü alanı yakınlaştırmasından sonra düz renkli ekran) çözüldü.</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation translatorcomment="AI-translated">Potansiyel ek yükü ve bellek sızıntılarını ortadan kaldırmak için ses işlemenin tamamen atlanmasına olanak tanıyan genel bir 'Ses desteğini tamamen devre dışı bırak' ayarı eklendi.</translation>
+        <translation>Potansiyel ek yükü ve bellek sızıntılarını ortadan kaldırmak için ses işlemenin tamamen atlanmasına olanak tanıyan genel bir 'Ses desteğini tamamen devre dışı bırak' ayarı eklendi.</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation translatorcomment="AI-translated">Süreç kimliklerini önbelleğe alarak ve dinamik düzenli ifade tahsislerini kaldırarak sürekli bellek kullanımı yükünü ortadan kaldırmak için sistem istatistik modülünü optimize etti.</translation>
+        <translation>Süreç kimliklerini önbelleğe alarak ve dinamik düzenli ifade tahsislerini kaldırarak sürekli bellek kullanımı yükünü ortadan kaldırmak için sistem istatistik modülünü optimize etti.</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation translatorcomment="AI-translated">Kamera yerleşimi anahtarları üzerinde zorlanan agresif Çöp Toplama (GC) ve video arabelleklerindeki görüntü ölçeklendirme bağlamları (SwsContext) geçersiz kılındı.</translation>
+        <translation>Kamera yerleşimi anahtarları üzerinde zorlanan agresif Çöp Toplama (GC) ve video arabelleklerindeki görüntü ölçeklendirme bağlamları (SwsContext) geçersiz kılındı.</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation translatorcomment="AI-translated">Uygulama çıkışında statik yapılandırma dosyası değişiklik algılayıcısının (QFileSystemWatcher) uygun kaynak temizliği sağlandı.</translation>
+        <translation>Uygulama çıkışında statik yapılandırma dosyası değişiklik algılayıcısının (QFileSystemWatcher) uygun kaynak temizliği sağlandı.</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation translatorcomment="AI-translated">Sıralı kamera silme ve görüntü alanı birleştirme veya taşıma sırasında daha yavaş makinelerde yardımcı pencere işleminin senkronizasyon ve donma sorunları düzeltildi.</translation>
+        <translation>Sıralı kamera silme ve görüntü alanı birleştirme veya taşıma sırasında daha yavaş makinelerde yardımcı pencere işleminin senkronizasyon ve donma sorunları düzeltildi.</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation translatorcomment="AI-translated">Arka planda paylaşılan belleği (/dev/shm) kullanan tüm uygulama işlemlerinden GPU kullanımı, VRAM kullanımı ve ağ bant genişliği istatistiklerinin toplanması düzeltildi.</translation>
+        <translation>Arka planda paylaşılan belleği (/dev/shm) kullanan tüm uygulama işlemlerinden GPU kullanımı, VRAM kullanımı ve ağ bant genişliği istatistiklerinin toplanması düzeltildi.</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation translatorcomment="AI-translated">Bekleyen RGB görevlerini temizlerken arşiv oynatıcı yıkıcısını veri yarışlarından korudu.</translation>
+        <translation>Bekleyen RGB görevlerini temizlerken arşiv oynatıcı yıkıcısını veri yarışlarından korudu.</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation translatorcomment="AI-translated">Düzenleri değiştirirken RAM kullanımındaki ani artışları ve titremeyi ortadan kaldırmak için video oynatıcı havuzu uygulandı.</translation>
+        <translation>Düzenleri değiştirirken RAM kullanımındaki ani artışları ve titremeyi ortadan kaldırmak için video oynatıcı havuzu uygulandı.</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation translatorcomment="AI-translated">NVIDIA, AMD ve Intel GPU'lar için yerel destekle (AMD/Intel istatistikleri test edilmemiştir) sürece özel bir modele (nvidia-smi ortaya çıkma yok) göre optimize edilmiş GPU/VRAM izleme.</translation>
+        <translation>NVIDIA, AMD ve Intel GPU'lar için yerel destekle (AMD/Intel istatistikleri test edilmemiştir) sürece özel bir modele (nvidia-smi ortaya çıkma yok) göre optimize edilmiş GPU/VRAM izleme.</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation translatorcomment="AI-translated">Otomatik ölçeklendirme grafikleriyle kenarlarını ve köşelerini sürükleyerek sistem istatistikleri panelinin yeniden boyutlandırılmasına izin verildi.</translation>
+        <translation>Otomatik ölçeklendirme grafikleriyle kenarlarını ve köşelerini sürükleyerek sistem istatistikleri panelinin yeniden boyutlandırılmasına izin verildi.</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation translatorcomment="AI-translated">Çıkış onayında ana ve yardımcı pencerelerin anında gizlenmesi uygulandı; iş parçacığı ve bellek temizleme arka planda güvenli bir şekilde çalışırken kapatmanın kullanıcıya anında görünmesini sağladı.</translation>
+        <translation>Çıkış onayında ana ve yardımcı pencerelerin anında gizlenmesi uygulandı; iş parçacığı ve bellek temizleme arka planda güvenli bir şekilde çalışırken kapatmanın kullanıcıya anında görünmesini sağladı.</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation translatorcomment="AI-translated">Hem CANLI hem de ARŞİV pencerelerindeki üst araç çubukları ortalanmış yüzer yuvalara dönüştürüldü (CANLI yuva dinamik genişliğe sahiptir).</translation>
+        <translation>Hem CANLI hem de ARŞİV pencerelerindeki üst araç çubukları ortalanmış yüzer yuvalara dönüştürüldü (CANLI yuva dinamik genişliğe sahiptir).</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation translatorcomment="AI-translated">Üst çubuktaki ızgara seçenekleri ve düzenler arasına dikey bir ayırıcı eklendi.</translation>
+        <translation>Üst çubuktaki ızgara seçenekleri ve düzenler arasına dikey bir ayırıcı eklendi.</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation translatorcomment="AI-translated">Arşiv üst ve alt çubuklarının şeffaflığı artırıldı (pencereli modda %60, tam ekranda %26) ve zaman çizelgesi arka planı şeffaf olarak ayarlandı.</translation>
+        <translation>Arşiv üst ve alt çubuklarının şeffaflığı artırıldı (pencereli modda %60, tam ekranda %26) ve zaman çizelgesi arka planı şeffaf olarak ayarlandı.</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation translatorcomment="AI-translated">Metni temizlemek için arşivdeki oynatma hızı simgeleri basitleştirildi (1x, 2x, 4x) ve kararsız 8x hız seçeneği kaldırıldı.</translation>
+        <translation>Metni temizlemek için arşivdeki oynatma hızı simgeleri basitleştirildi (1x, 2x, 4x) ve kararsız 8x hız seçeneği kaldırıldı.</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation translatorcomment="AI-translated">Arşiv ve indirme takvimlerindeki aylık gezinme metni düğmeleri grafik oklarla (köşeli ayraçlar) değiştirildi.</translation>
+        <translation>Arşiv ve indirme takvimlerindeki aylık gezinme metni düğmeleri grafik oklarla (köşeli ayraçlar) değiştirildi.</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation translatorcomment="AI-translated">Yanlışlıkla tıklamaları önlemek için kamera görüntüleme alanı kapatma düğmesi sağ üst köşeden sağ alt kontrol alanına taşındı.</translation>
+        <translation>Yanlışlıkla tıklamaları önlemek için kamera görüntüleme alanı kapatma düğmesi sağ üst köşeden sağ alt kontrol alanına taşındı.</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation translatorcomment="AI-translated">Arşiv penceresinde seçilen ızgara düzeni metin kontrastı optimize edildi (seladon arka planında koyu metin).</translation>
+        <translation>Arşiv penceresinde seçilen ızgara düzeni metin kontrastı optimize edildi (seladon arka planında koyu metin).</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation translatorcomment="AI-translated">Sistem istatistik paneli, yeni bir özel tutma kolu kullanılarak sürüklenebilir, kayan bir panele (tıklamalı) dönüştürüldü.</translation>
+        <translation>Sistem istatistik paneli, yeni bir özel tutma kolu kullanılarak sürüklenebilir, kayan bir panele (tıklamalı) dönüştürüldü.</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation translatorcomment="AI-translated">Görünüm portu düzenleri silinirken kritik ayarlar senkronizasyon döngüsü ve kullanıcı arayüzünün donması sorunu çözüldü.</translation>
+        <translation>Görünüm portu düzenleri silinirken kritik ayarlar senkronizasyon döngüsü ve kullanıcı arayüzünün donması sorunu çözüldü.</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation translatorcomment="AI-translated">Görünürlüğü artırmak için arşivdeki büyütülmüş hız, yakınlaştırma ve VCR kontrol simgeleri ve SVG simgelerinin içindeki metin boyutu artırıldı.</translation>
+        <translation>Görünürlüğü artırmak için arşivdeki büyütülmüş hız, yakınlaştırma ve VCR kontrol simgeleri ve SVG simgelerinin içindeki metin boyutu artırıldı.</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation translatorcomment="AI-translated">Arşivdeki yakınlaştırma kısayolları için yinelenen metin düğmeleri kaldırıldı ve bunların yerini tamamen dairesel simgeler aldı.</translation>
+        <translation>Arşivdeki yakınlaştırma kısayolları için yinelenen metin düğmeleri kaldırıldı ve bunların yerini tamamen dairesel simgeler aldı.</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation translatorcomment="AI-translated">Arşiv penceresindeki tüm ipuçlarının tam İngilizce ve Lehçe çevirileri eklendi.</translation>
+        <translation>Arşiv penceresindeki tüm ipuçlarının tam İngilizce ve Lehçe çevirileri eklendi.</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation translatorcomment="AI-translated">Benzersiz, otomatik yardımcı pencere kimlikleri desteğiyle ana pencere ile yardımcı pencereler arasında gerçek zamanlı çift yönlü yapılandırma senkronizasyonu tanıtıldı.</translation>
+        <translation>Benzersiz, otomatik yardımcı pencere kimlikleri desteğiyle ana pencere ile yardımcı pencereler arasında gerçek zamanlı çift yönlü yapılandırma senkronizasyonu tanıtıldı.</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation translatorcomment="AI-translated">İndirmeler tamamlandıktan veya kayıt cihazı tarafından bağlantılar kesildikten sonra Hikvision arşiv oynatıcısına otomatik oturum kurtarma (otomatik yeniden bağlanma) eklendi.</translation>
+        <translation>İndirmeler tamamlandıktan veya kayıt cihazı tarafından bağlantılar kesildikten sonra Hikvision arşiv oynatıcısına otomatik oturum kurtarma (otomatik yeniden bağlanma) eklendi.</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation translatorcomment="AI-translated">Kod çözücü ortam bağlamları için güvenli std::weak_ptr referanslarını benimseyerek, düzen değiştirme sırasında potansiyel iş parçacığı sızıntıları ve FFmpeg video kod çözücünün kilitlenmesi ortadan kaldırıldı.</translation>
+        <translation>Kod çözücü ortam bağlamları için güvenli std::weak_ptr referanslarını benimseyerek, düzen değiştirme sırasında potansiyel iş parçacığı sızıntıları ve FFmpeg video kod çözücünün kilitlenmesi ortadan kaldırıldı.</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation translatorcomment="AI-translated">Görünüm nesnelerinin deleteLater() kullanılarak güvenli bir şekilde silinmesiyle ViewportsLayouts modellerindeki bellek sızıntısı düzeltildi.</translation>
+        <translation>Görünüm nesnelerinin deleteLater() kullanılarak güvenli bir şekilde silinmesiyle ViewportsLayouts modellerindeki bellek sızıntısı düzeltildi.</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation translatorcomment="AI-translated">Hızlı NVR sekmesi değişiklikleri sırasında video işleme yüzeyi başlangıç ​​hataları (OpenGL) azaltıldı - günlükler Hata Ayıklama düzeyine indirildi ve sistem, GPU arabellekleri serbest bırakıldıktan sonra arka planda işlemeyi sessizce yeniden deniyor.</translation>
+        <translation>Hızlı NVR sekmesi değişiklikleri sırasında video işleme yüzeyi başlangıç ​​hataları (OpenGL) azaltıldı - günlükler Hata Ayıklama düzeyine indirildi ve sistem, GPU arabellekleri serbest bırakıldıktan sonra arka planda işlemeyi sessizce yeniden deniyor.</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation translatorcomment="AI-translated">Çok adımlı yığın temizleme ve QML motoru önbellek optimizasyonları yoluyla Arşiv penceresini kapattıktan sonra kalan RAM kullanımı (20-30 MB) çözüldü.</translation>
+        <translation>Çok adımlı yığın temizleme ve QML motoru önbellek optimizasyonları yoluyla Arşiv penceresini kapattıktan sonra kalan RAM kullanımı (20-30 MB) çözüldü.</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation translatorcomment="AI-translated">Kamera ölçeklendirme ve görüntü alanı yeniden boyutlandırma/yakınlaştırma sırasında optimize edilmiş RAM kullanımı, sürekli video akışı düzeni değişiklikleri sırasında aşırı bellek birikmesini önler.</translation>
+        <translation>Kamera ölçeklendirme ve görüntü alanı yeniden boyutlandırma/yakınlaştırma sırasında optimize edilmiş RAM kullanımı, sürekli video akışı düzeni değişiklikleri sırasında aşırı bellek birikmesini önler.</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation translatorcomment="AI-translated">Hem canlı hem de arşiv oynatma akışları için her görünüm alanının sol üst köşesine hassas, gerçek zamanlı saniye başına kare (FPS) göstergesi eklendi.</translation>
+        <translation>Hem canlı hem de arşiv oynatma akışları için her görünüm alanının sol üst köşesine hassas, gerçek zamanlı saniye başına kare (FPS) göstergesi eklendi.</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation translatorcomment="AI-translated">Hikvision indiricisinde güvenli sonlandırma ve indirme iş parçacıklarının serbest bırakılması uygulandı, böylece sistem kaynaklarını engellemeden uygulamanın istikrarlı ve anında kapatılması sağlandı.</translation>
+        <translation>Hikvision indiricisinde güvenli sonlandırma ve indirme iş parçacıklarının serbest bırakılması uygulandı, böylece sistem kaynaklarını engellemeden uygulamanın istikrarlı ve anında kapatılması sağlandı.</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation translatorcomment="AI-translated">Arşiv penceresine sıfırlama düğmesi ve otomatik genişleyen eşleşen kayıt cihazlarıyla dinamik bir kamera arama alanı eklendi.</translation>
+        <translation>Arşiv penceresine sıfırlama düğmesi ve otomatik genişleyen eşleşen kayıt cihazlarıyla dinamik bir kamera arama alanı eklendi.</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation translatorcomment="AI-translated">Arşivdeki liste kutucuklarına uzun kamera adlarının kaydırılması etkinleştirildi.</translation>
+        <translation>Arşivdeki liste kutucuklarına uzun kamera adlarının kaydırılması etkinleştirildi.</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation translatorcomment="AI-translated">Net vurgulu/basılı durumlarla daha iyi görünürlük için kamera döşemelerindeki (nane arka planı) artı düğmesinin (+) büyütülmüş ve ters çevrilmiş renkleri.</translation>
+        <translation>Net vurgulu/basılı durumlarla daha iyi görünürlük için kamera döşemelerindeki (nane arka planı) artı düğmesinin (+) büyütülmüş ve ters çevrilmiş renkleri.</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation translatorcomment="AI-translated">Arşiv oynatıcı penceresinde kayıt kullanılabilirliği zaman çizelgesi çubuğunun 2-3 saatlik kayması düzeltilerek zaman çizelgesi istemcinin yerel saat dilimiyle senkronize edildi (doğru gün ışığından yararlanma saati DST desteğiyle).</translation>
+        <translation>Arşiv oynatıcı penceresinde kayıt kullanılabilirliği zaman çizelgesi çubuğunun 2-3 saatlik kayması düzeltilerek zaman çizelgesi istemcinin yerel saat dilimiyle senkronize edildi (doğru gün ışığından yararlanma saati DST desteğiyle).</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation translatorcomment="AI-translated">Boş görünümlerdeki düşük kontrastlı siyah emoji 📺, zarif seledyn Yüksek DPI vektör monitörü SVG ile değiştirildi.</translation>
+        <translation>Boş görünümlerdeki düşük kontrastlı siyah emoji 📺, zarif seledyn Yüksek DPI vektör monitörü SVG ile değiştirildi.</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation translatorcomment="AI-translated">Arşiv penceresindeki kayıt çubuklarının okunabilirliği iyileştirildi (yükseklik 22 pikselden 28 piksele, yazı tipi boyutu 9 pikselden 11 piksele çıkarıldı, genişletme oku daha büyük).</translation>
+        <translation>Arşiv penceresindeki kayıt çubuklarının okunabilirliği iyileştirildi (yükseklik 22 pikselden 28 piksele, yazı tipi boyutu 9 pikselden 11 piksele çıkarıldı, genişletme oku daha büyük).</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation translatorcomment="AI-translated">Arka plan, metin ve simge renklerinde seledyn/beyaza belirgin değişikliklerle, kayıt cihazı çubukları için tam, dinamik vurgulu efektler eklendi.</translation>
+        <translation>Arka plan, metin ve simge renklerinde seledyn/beyaza belirgin değişikliklerle, kayıt cihazı çubukları için tam, dinamik vurgulu efektler eklendi.</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation translatorcomment="AI-translated">Üst çubuktaki metin eylem düğmeleri (Seçenekler, Yeni pencere, Arşiv, Talimatlar) yararlı araç ipuçlarına sahip özel, renkli SVG simgeleriyle değiştirildi.</translation>
+        <translation>Üst çubuktaki metin eylem düğmeleri (Seçenekler, Yeni pencere, Arşiv, Talimatlar) yararlı araç ipuçlarına sahip özel, renkli SVG simgeleriyle değiştirildi.</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation translatorcomment="AI-translated">Sistem istatistikleri düğmesi, sistem monitörü etkinlik durumunu yansıtan etkileşimli bir SVG simgesiyle değiştirildi.</translation>
+        <translation>Sistem istatistikleri düğmesi, sistem monitörü etkinlik durumunu yansıtan etkileşimli bir SVG simgesiyle değiştirildi.</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation translatorcomment="AI-translated">Izgara seçim düğmeleri (1x1-9x9) tutarlı 30x30 piksellik dairesel düğmelere dönüştürüldü.</translation>
+        <translation>Izgara seçim düğmeleri (1x1-9x9) tutarlı 30x30 piksellik dairesel düğmelere dönüştürüldü.</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation translatorcomment="AI-translated">Seçenekler bölümü ile ızgara seçim bölümü arasına dikey bir ayırıcı çizgi eklendi.</translation>
+        <translation>Seçenekler bölümü ile ızgara seçim bölümü arasına dikey bir ayırıcı çizgi eklendi.</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation translatorcomment="AI-translated">Yeniden tasarlanan görünüm düğmeleri, yan kenar boşlukları korunarak 30 piksel yüksekliğinde zarif, yuvarlak hap şeklindedir.</translation>
+        <translation>Yeniden tasarlanan görünüm düğmeleri, yan kenar boşlukları korunarak 30 piksel yüksekliğinde zarif, yuvarlak hap şeklindedir.</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation translatorcomment="AI-translated">Görünüm adları için zorunlu otomatik büyük harf gösterimi.</translation>
+        <translation>Görünüm adları için zorunlu otomatik büyük harf gösterimi.</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation translatorcomment="AI-translated">Aktif görüntüleme düğmesinin iyileştirilmiş okunabilirliği ve kontrastı – parlak seledyn arka plan üzerinde koyu metin (#121214).</translation>
+        <translation>Aktif görüntüleme düğmesinin iyileştirilmiş okunabilirliği ve kontrastı – parlak seledyn arka plan üzerinde koyu metin (#121214).</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation translatorcomment="AI-translated">Kaydedicilerdeki ve görünümler listesindeki silme simgeleri ve önceden ayarlanmış etkinleştirme düğmesi, araç ipuçlarıyla birlikte SVG simgelerine dönüştürülerek birleştirildi ve iyileştirildi.</translation>
+        <translation>Kaydedicilerdeki ve görünümler listesindeki silme simgeleri ve önceden ayarlanmış etkinleştirme düğmesi, araç ipuçlarıyla birlikte SVG simgelerine dönüştürülerek birleştirildi ve iyileştirildi.</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation translatorcomment="AI-translated">Arayüz alanını optimize etmek için üst çubuk düğmeleri arasındaki boşluk azaltıldı.</translation>
+        <translation>Arayüz alanını optimize etmek için üst çubuk düğmeleri arasındaki boşluk azaltıldı.</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation translatorcomment="AI-translated">Yardımcı penceredeki eksik simge durumuna küçültme simgesi geri yüklendi.</translation>
+        <translation>Yardımcı penceredeki eksik simge durumuna küçültme simgesi geri yüklendi.</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation translatorcomment="AI-translated">Yardımcı pencerelerdeki oturum açma ve oynatma sorunları düzeltildi.</translation>
+        <translation>Yardımcı pencerelerdeki oturum açma ve oynatma sorunları düzeltildi.</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation translatorcomment="AI-translated">Doğrudan kameradan oynatmayı açarken düğme durumlarının düzeni (1x1 ve 2x2) düzeltildi.</translation>
+        <translation>Doğrudan kameradan oynatmayı açarken düğme durumlarının düzeni (1x1 ve 2x2) düzeltildi.</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation translatorcomment="AI-translated">Hikvision ISAPI sorgularına uygun XML ad alanı eklendi (daha yeni kaydedici donanım yazılımındaki 'Geçersiz XML İçeriği' hatasını düzeltir).</translation>
+        <translation>Hikvision ISAPI sorgularına uygun XML ad alanı eklendi (daha yeni kaydedici donanım yazılımındaki 'Geçersiz XML İçeriği' hatasını düzeltir).</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation translatorcomment="AI-translated">Arama sonuçları sayfalandırma işlemi düzeltildi (searchResultPostion etiketi).</translation>
+        <translation>Arama sonuçları sayfalandırma işlemi düzeltildi (searchResultPostion etiketi).</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation translatorcomment="AI-translated">Önbelleği manuel olarak temizlemek ve kayıt kullanılabilirliği verilerini yeniden getirmek için oynatma penceresindeki 'Yenile' düğmesi.</translation>
+        <translation>Önbelleği manuel olarak temizlemek ve kayıt kullanılabilirliği verilerini yeniden getirmek için oynatma penceresindeki 'Yenile' düğmesi.</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation translatorcomment="AI-translated">Ağdan önceden getirme sırası optimizasyonu – arka planda getirme işlemi 12 ay ile sınırlandırılarak yüzlerce gereksiz sorgu ortadan kaldırılır ve oynatmanın başlatılması hızlandırılır.</translation>
+        <translation>Ağdan önceden getirme sırası optimizasyonu – arka planda getirme işlemi 12 ay ile sınırlandırılarak yüzlerce gereksiz sorgu ortadan kaldırılır ve oynatmanın başlatılması hızlandırılır.</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation translatorcomment="AI-translated">Arka plan iş parçacığında eşzamansız Hikvision SDK başlatma, seçenekleri açarken GUI donmalarını tamamen ortadan kaldırır.</translation>
+        <translation>Arka plan iş parçacığında eşzamansız Hikvision SDK başlatma, seçenekleri açarken GUI donmalarını tamamen ortadan kaldırır.</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation translatorcomment="AI-translated">Hikvision SDK yöntemlerine erişimin iş parçacığı güvenli senkronizasyonu.</translation>
+        <translation>Hikvision SDK yöntemlerine erişimin iş parçacığı güvenli senkronizasyonu.</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation translatorcomment="AI-translated">Kaydedici IP adreslerini kaldırarak indirilen dosya ve ekran görüntüsü adlarını temizliyoruz.</translation>
+        <translation>Kaydedici IP adreslerini kaldırarak indirilen dosya ve ekran görüntüsü adlarını temizliyoruz.</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation translatorcomment="AI-translated">Ortalanmış ana hatlarıyla metin içeren, turkuaz renkli (#00f5d4) şık indirme ilerleme çubuğu.</translation>
+        <translation>Ortalanmış ana hatlarıyla metin içeren, turkuaz renkli (#00f5d4) şık indirme ilerleme çubuğu.</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation translatorcomment="AI-translated">Çok parçalı kayıtlar için genel indirme ilerlemesinin (genel ilerleme) hesaplanması.</translation>
+        <translation>Çok parçalı kayıtlar için genel indirme ilerlemesinin (genel ilerleme) hesaplanması.</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation translatorcomment="AI-translated">Geçici indirme dosyası uzantısı '.ps'ten '.pspart'a değiştirildi.</translation>
+        <translation>Geçici indirme dosyası uzantısı '.ps'ten '.pspart'a değiştirildi.</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation translatorcomment="AI-translated">Kullanıcı arayüzü ayarlarında 'Bilgi alanlarını yalnızca fareyle üzerine gelindiğinde göster' seçeneği ve düğmesi.</translation>
+        <translation>Kullanıcı arayüzü ayarlarında 'Bilgi alanlarını yalnızca fareyle üzerine gelindiğinde göster' seçeneği ve düğmesi.</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation translatorcomment="AI-translated">Yapılandırma panelinde kamera keşfine ilişkin görsel gösterge (dönen simge, form engelleme ve 'Keşfediliyor...' metni).</translation>
+        <translation>Yapılandırma panelinde kamera keşfine ilişkin görsel gösterge (dönen simge, form engelleme ve 'Keşfediliyor...' metni).</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation translatorcomment="AI-translated">Tam yerelleştirme (resmi Lehçe ve İngilizce çeviri desteği eklendi).</translation>
+        <translation>Tam yerelleştirme (resmi Lehçe ve İngilizce çeviri desteği eklendi).</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation translatorcomment="AI-translated">Yardımcı pencere başlatma optimizasyonu – yükleme süresini 3 saniyeden 300 ms'nin altına düşürdü.</translation>
+        <translation>Yardımcı pencere başlatma optimizasyonu – yükleme süresini 3 saniyeden 300 ms'nin altına düşürdü.</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation translatorcomment="AI-translated">Yardımcı pencerede turkuaz kenarlıklı estetik yer tutucu ("Görünüm seçilmedi").</translation>
+        <translation>Yardımcı pencerede turkuaz kenarlıklı estetik yer tutucu ("Görünüm seçilmedi").</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation translatorcomment="AI-translated">Canlı görüntüleme ve Oynatma modu için Hikvision SDK entegrasyonu.</translation>
+        <translation>Canlı görüntüleme ve Oynatma modu için Hikvision SDK entegrasyonu.</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation translatorcomment="AI-translated">Otomatik zaman çizelgesi konumlandırma ve ortalama özelliğine sahip çoklu kamera oynatma oynatıcısı.</translation>
+        <translation>Otomatik zaman çizelgesi konumlandırma ve ortalama özelliğine sahip çoklu kamera oynatma oynatıcısı.</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation translatorcomment="AI-translated">Çok iş parçacıklı Sistem Monitörü (CPU, RAM, GPU, VRAM ve ağ bant genişliği istatistikleri).</translation>
+        <translation>Çok iş parçacıklı Sistem Monitörü (CPU, RAM, GPU, VRAM ve ağ bant genişliği istatistikleri).</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation translatorcomment="AI-translated">Gerçek zamanlı ağ bant genişliği tüketimi takibi.</translation>
+        <translation>Gerçek zamanlı ağ bant genişliği tüketimi takibi.</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation translatorcomment="AI-translated">Yüksek çözünürlüklü uygulama simgesi ve iyileştirilmiş koyu tema arayüzü.</translation>
+        <translation>Yüksek çözünürlüklü uygulama simgesi ve iyileştirilmiş koyu tema arayüzü.</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation translatorcomment="AI-translated">Arch Linux için otomatik Pacman paket oluşturma komut dosyası.</translation>
+        <translation>Arch Linux için otomatik Pacman paket oluşturma komut dosyası.</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation translatorcomment="AI-translated">Sürüm %1</translation>
+        <translation>Sürüm %1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation translatorcomment="AI-translated">Orijinal yazar: Evgeny S. Maksimov</translation>
+        <translation>Orijinal yazar: Evgeny S. Maksimov</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation translatorcomment="AI-translated">Modifikasyon: arkanista (AI yardımıyla)</translation>
+        <translation>Modifikasyon: arkanista (AI yardımıyla)</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation translatorcomment="AI-translated">Görünüm%1</translation>
+        <translation>Görünüm%1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation translatorcomment="AI-translated">#%1</translation>
+        <translation>#%1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation translatorcomment="AI-translated">Aletler</translation>
+        <translation>Aletler</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation translatorcomment="AI-translated">Kayıt cihazları</translation>
+        <translation>Kayıt cihazları</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation translatorcomment="AI-translated">Ön ayarlar</translation>
+        <translation>Ön ayarlar</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation translatorcomment="AI-translated">Ayarlar</translation>
+        <translation>Ayarlar</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation translatorcomment="AI-translated">Değişiklik günlüğü</translation>
+        <translation>Değişiklik günlüğü</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation translatorcomment="AI-translated">Mevcut sürüm: %1</translation>
+        <translation>Mevcut sürüm: %1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation translatorcomment="AI-translated">Görünüm Ayrıntıları</translation>
+        <translation>Görünüm Ayrıntıları</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation translatorcomment="AI-translated">Ayarlarını özelleştirmek için lütfen ana kılavuzda bir görünüm alanı seçin.</translation>
+        <translation>Ayarlarını özelleştirmek için lütfen ana kılavuzda bir görünüm alanı seçin.</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation translatorcomment="AI-translated">Yapılandırma bölmesinin kilidini açın</translation>
+        <translation>Yapılandırma bölmesinin kilidini açın</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Aktif Akış Bağlantısı</translation>
+        <translation>Aktif Akış Bağlantısı</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Birincil Akış URL'si</translation>
+        <translation>Birincil Akış URL'si</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">İkincil Yedekleme URL'si</translation>
+        <translation>İkincil Yedekleme URL'si</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation translatorcomment="AI-translated">Ses ve İşleme Seçenekleri</translation>
+        <translation>Ses ve İşleme Seçenekleri</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation translatorcomment="AI-translated">Sesi Kapatma / Sesi Açma</translation>
+        <translation>Sesi Kapatma / Sesi Açma</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation translatorcomment="AI-translated">FFmpeg Seçeneklerini Geçersiz Kılma</translation>
+        <translation>FFmpeg Seçeneklerini Geçersiz Kılma</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Düzen ve Izgara Araçları</translation>
+        <translation>Düzen ve Izgara Araçları</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Araçlar bölmesinin kilidini açın</translation>
+        <translation>Araçlar bölmesinin kilidini açın</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Pencere Bölümü</translation>
+        <translation>Pencere Bölümü</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Yapılandırma okunurken hata oluştu!</translation>
+        <translation>Yapılandırma okunurken hata oluştu!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Bölme değerini düzenlemek için basılı tutun</translation>
+        <translation>Bölme değerini düzenlemek için basılı tutun</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Geometri Oranı</translation>
+        <translation>Geometri Oranı</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Tam Ekrana Geçiş Yap</translation>
+        <translation>Tam Ekrana Geçiş Yap</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Izgara Operasyonları</translation>
+        <translation>Izgara Operasyonları</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Vurgulanan Hücreleri Birleştir</translation>
+        <translation>Vurgulanan Hücreleri Birleştir</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation translatorcomment="AI-translated">NVR / Hikvision Kayıt Cihazları Yöneticisi</translation>
+        <translation>NVR / Hikvision Kayıt Cihazları Yöneticisi</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation translatorcomment="AI-translated">Ön Ayarlar ve Hızlı Düzen Görünümleri</translation>
+        <translation>Ön Ayarlar ve Hızlı Düzen Görünümleri</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation translatorcomment="AI-translated">ONVIF ve RTSP Düzeni ayarları</translation>
+        <translation>ONVIF ve RTSP Düzeni ayarları</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation translatorcomment="AI-translated">Düzen %1</translation>
+        <translation>Düzen %1</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation translatorcomment="AI-translated">Görünür</translation>
+        <translation>Görünür</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation translatorcomment="AI-translated">Bu önizleme düzenini etkinleştir</translation>
+        <translation>Bu önizleme düzenini etkinleştir</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation translatorcomment="AI-translated">Bu önizleme düzenini sil</translation>
+        <translation>Bu önizleme düzenini sil</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation translatorcomment="AI-translated">Ön Ayar Düzeni Ekle</translation>
+        <translation>Ön Ayar Düzeni Ekle</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation translatorcomment="AI-translated">NVR Görünüm Düzenleri</translation>
+        <translation>NVR Görünüm Düzenleri</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation translatorcomment="AI-translated">NVR Görünümü</translation>
+        <translation>NVR Görünümü</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation translatorcomment="AI-translated">Bu NVR kamera görünümünü etkinleştir</translation>
+        <translation>Bu NVR kamera görünümünü etkinleştir</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation translatorcomment="AI-translated">Bu NVR kameraları görünümünü sil</translation>
+        <translation>Bu NVR kameraları görünümünü sil</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation translatorcomment="AI-translated">NVR Ön Ayarları (Tablo görünümleri)</translation>
+        <translation>NVR Ön Ayarları (Tablo görünümleri)</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation translatorcomment="AI-translated">NVR Ön Ayarı #%1</translation>
+        <translation>NVR Ön Ayarı #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation translatorcomment="AI-translated">Bu NVR kamera ön ayarını etkinleştirin</translation>
+        <translation>Bu NVR kamera ön ayarını etkinleştirin</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation translatorcomment="AI-translated">Bu NVR kamera ön ayarını silin</translation>
+        <translation>Bu NVR kamera ön ayarını silin</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation translatorcomment="AI-translated">NVR Ön Ayarı Ekle</translation>
+        <translation>NVR Ön Ayarı Ekle</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation translatorcomment="AI-translated">Sistem Ayarları</translation>
+        <translation>Sistem Ayarları</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation translatorcomment="AI-translated">Genel Ayarlar</translation>
+        <translation>Genel Ayarlar</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation translatorcomment="AI-translated">Birden fazla uygulama örneğinin çalıştırılmasına izin ver</translation>
+        <translation>Birden fazla uygulama örneğinin çalıştırılmasına izin ver</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation translatorcomment="AI-translated">Bu seçenek, ayarlar dosyası yazma çakışmalarını önlemek için devre dışı bırakılır. Bunu etkinleştirmek için (tehlikelidir ve önerilmez!), kvision.conf yapılandırma dosyasında 'singleApplication=false' ayarını yapın.</translation>
+        <translation>Bu seçenek, ayarlar dosyası yazma çakışmalarını önlemek için devre dışı bırakılır. Bunu etkinleştirmek için (tehlikelidir ve önerilmez!), kvision.conf yapılandırma dosyasında 'singleApplication=false' ayarını yapın.</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation translatorcomment="AI-translated">Hikvision NVR hata durumunu kontrol edin</translation>
+        <translation>Hikvision NVR hata durumunu kontrol edin</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation translatorcomment="AI-translated">Ses</translation>
+        <translation>Ses</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation translatorcomment="AI-translated">Sesi tamamen devre dışı bırak</translation>
+        <translation>Sesi tamamen devre dışı bırak</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation translatorcomment="AI-translated">Kamerayı tam ekrana büyütmek sesi açmıyor</translation>
+        <translation>Kamerayı tam ekrana büyütmek sesi açmıyor</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation translatorcomment="AI-translated">İçerik Menüsü Ayarları</translation>
+        <translation>İçerik Menüsü Ayarları</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation translatorcomment="AI-translated">Sağ tıklama içerik menüsünü etkinleştir</translation>
+        <translation>Sağ tıklama içerik menüsünü etkinleştir</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation translatorcomment="AI-translated">Görüntü alanı yerlerinin değiştirilmesine izin ver</translation>
+        <translation>Görüntü alanı yerlerinin değiştirilmesine izin ver</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation translatorcomment="AI-translated">'Kamerayı kaldır' seçeneğini etkinleştirin</translation>
+        <translation>'Kamerayı kaldır' seçeneğini etkinleştirin</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation translatorcomment="AI-translated">Görüntü alanı ayarlarının değiştirilmesine izin ver</translation>
+        <translation>Görüntü alanı ayarlarının değiştirilmesine izin ver</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation translatorcomment="AI-translated">'Yayın seçimi' seçeneğini etkinleştirin</translation>
+        <translation>'Yayın seçimi' seçeneğini etkinleştirin</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation translatorcomment="AI-translated">Kullanıcı Arayüzü Ayarları</translation>
+        <translation>Kullanıcı Arayüzü Ayarları</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation translatorcomment="AI-translated">Görünüm alanının sol üst köşesinde kanal durumunu göster</translation>
+        <translation>Görünüm alanının sol üst köşesinde kanal durumunu göster</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation translatorcomment="AI-translated">Kamera bilgilerini görünümün sol alt köşesinde göster</translation>
+        <translation>Kamera bilgilerini görünümün sol alt köşesinde göster</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation translatorcomment="AI-translated">Kontrol simgelerini yalnızca fareyle üzerine gelindiğinde görünümün sağ alt köşesinde göster</translation>
+        <translation>Kontrol simgelerini yalnızca fareyle üzerine gelindiğinde görünümün sağ alt köşesinde göster</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation translatorcomment="AI-translated">Bilgi alanlarını yalnızca fareyle üzerine gelindiğinde göster</translation>
+        <translation>Bilgi alanlarını yalnızca fareyle üzerine gelindiğinde göster</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation translatorcomment="AI-translated">Pencereyi açarken üst çubuğu varsayılan olarak göster</translation>
+        <translation>Pencereyi açarken üst çubuğu varsayılan olarak göster</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation translatorcomment="AI-translated">Tam Ekran modunda fare imlecini gizle</translation>
+        <translation>Tam Ekran modunda fare imlecini gizle</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation translatorcomment="AI-translated">Görüntü alanı yakınlaştırma animasyonunu devre dışı bırak</translation>
+        <translation>Görüntü alanı yakınlaştırma animasyonunu devre dışı bırak</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation translatorcomment="AI-translated">Dil:</translation>
+        <translation>Dil:</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation translatorcomment="AI-translated">Sistem varsayılanı</translation>
+        <translation>Sistem varsayılanı</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation translatorcomment="AI-translated">Yardımcı pencereleri aşağıdakilerle sınırlayın:</translation>
+        <translation>Yardımcı pencereleri aşağıdakilerle sınırlayın:</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation translatorcomment="AI-translated">NVR Durum İzleme</translation>
+        <translation>NVR Durum İzleme</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation translatorcomment="AI-translated">Çevrimdışı durumu ve oturum açma hatalarını izleyin</translation>
+        <translation>Çevrimdışı durumu ve oturum açma hatalarını izleyin</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation translatorcomment="AI-translated">CPU aşırı yükünü izleyin (&gt;%85)</translation>
+        <translation>CPU aşırı yükünü izleyin (&gt;%85)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation translatorcomment="AI-translated">Kaydedici donanım hatalarını izleyin</translation>
+        <translation>Kaydedici donanım hatalarını izleyin</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation translatorcomment="AI-translated">Sabit disk hatalarını/anormalliklerini izleyin</translation>
+        <translation>Sabit disk hatalarını/anormalliklerini izleyin</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation translatorcomment="AI-translated">Biçimlendirilmemiş sabit diskleri izleyin</translation>
+        <translation>Biçimlendirilmemiş sabit diskleri izleyin</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation translatorcomment="AI-translated">Tam sabit diskleri izleyin (döngü kapsamı devre dışı)</translation>
+        <translation>Tam sabit diskleri izleyin (döngü kapsamı devre dışı)</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation translatorcomment="AI-translated">Playback</translation>
+        <translation>Playback</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation translatorcomment="AI-translated">Varsayılan geriye doğru oynatma başlangıç ​​ofseti, saniye:</translation>
+        <translation>Varsayılan geriye doğru oynatma başlangıç ​​ofseti, saniye:</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation translatorcomment="AI-translated">Varsayılan oynatma zaman çizelgesi aralığı, saat:</translation>
+        <translation>Varsayılan oynatma zaman çizelgesi aralığı, saat:</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation translatorcomment="AI-translated">Kaydediliyor</translation>
+        <translation>Kaydediliyor</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation translatorcomment="AI-translated">Bu bölümdeki değişiklikleri etkinleştirin</translation>
+        <translation>Bu bölümdeki değişiklikleri etkinleştirin</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation translatorcomment="AI-translated">Varsayılan anlık görüntü yolu:</translation>
+        <translation>Varsayılan anlık görüntü yolu:</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation translatorcomment="AI-translated">Anlık görüntüler için klasör seçin</translation>
+        <translation>Anlık görüntüler için klasör seçin</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation translatorcomment="AI-translated">Varsayılan kayıt yolu:</translation>
+        <translation>Varsayılan kayıt yolu:</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation translatorcomment="AI-translated">Kayıtlar için klasör seçin</translation>
+        <translation>Kayıtlar için klasör seçin</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation translatorcomment="AI-translated">resim klasörünü aç</translation>
+        <translation>resim klasörünü aç</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation translatorcomment="AI-translated">video klasörünü aç</translation>
+        <translation>video klasörünü aç</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation translatorcomment="AI-translated">Sistem Medya Yapılandırması</translation>
+        <translation>Sistem Medya Yapılandırması</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation translatorcomment="AI-translated">Varsayılan FFmpeg komut satırı seçenekleri</translation>
+        <translation>Varsayılan FFmpeg komut satırı seçenekleri</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation translatorcomment="AI-translated">Tüm kameraları güncelle</translation>
+        <translation>Tüm kameraları güncelle</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation translatorcomment="AI-translated">Değişiklik günlüğü</translation>
+        <translation>Değişiklik günlüğü</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation translatorcomment="AI-translated">KVision'daki iyileştirmelerin, hata düzeltmelerinin ve yeni özelliklerin geçmişi.</translation>
+        <translation>KVision'daki iyileştirmelerin, hata düzeltmelerinin ve yeni özelliklerin geçmişi.</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation translatorcomment="AI-translated">Silmeyi Onayla</translation>
+        <translation>Silmeyi Onayla</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation translatorcomment="AI-translated">\"%1\" ön ayarını silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
+        <translation>\"%1\" ön ayarını silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation translatorcomment="AI-translated">#%1 ön ayarını silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
+        <translation>#%1 ön ayarını silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation translatorcomment="AI-translated">\"%1\" NVR görünümünü silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
+        <translation>\"%1\" NVR görünümünü silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation translatorcomment="AI-translated">Bu NVR görünüm düzenini silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
+        <translation>Bu NVR görünüm düzenini silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation translatorcomment="AI-translated">\"%1\" NVR Ön Ayarını silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
+        <translation>\"%1\" NVR Ön Ayarını silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation translatorcomment="AI-translated">Bu NVR Ön Ayarını silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
+        <translation>Bu NVR Ön Ayarını silmek istediğinizden emin misiniz? Bu eylem tamamen geri döndürülemez.</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">Genel FFmpeg ayar değişikliklerini dahil etmeyin</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">FFmpeg seçenekleri</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">Kanal Seçenekleri</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">Görünüm Ayarları</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">Kamerayı bu görünüm alanından kaldırmak istediğinizden emin misiniz?</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">Kameranın Kaldırılmasını Onayla</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">Tylko SUB</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">Tylko ANA SAYFA</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">Otomatikleştirme</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">Playback</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>Yerelleştirme Genişletme: KVision artık yapay zeka tarafından çevrilmiş 20 yeni dile tamamen yerelleştirildi ve desteklenen dillerin toplam sayısı 22'ye (İngilizce, Lehçe ve 20 yeni dil) ulaştı. Hem uygulama arayüzünün (UI) tamamı hem de kullanım kılavuzlarının tamamı çevrildi.</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>Viewport Hızlı Oynatma belgeleri: 22 kullanım kılavuzunun tamamında dairesel ok yer paylaşımı düğmesini (Mini Oynatıcı) ve onun ayrıntılı özelliklerini açıklayan kapsamlı belgeler eklendi.</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>Kaydırma Yakınlaştırma: Farenin orta düğmesini (kaydırma tekerleği) basılı tutarak ve imleci sürükleyerek yakınlaştırılan videoyu (Canlı, Mini Oynatıcı, Arşiv) serbestçe kaydırma yeteneği eklendi.</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>Orantılı Yakınlaştırma Seçimi: Shift kısayolu tanıtıldı. Yakınlaştırma dikdörtgeni çizerken Shift tuşunu basılı tutmak, seçimi 16:9 en boy oranına kilitlemeye zorlar ve bu oran, görüntü alanı sınırlarıyla sıkı bir şekilde sınırlandırılır.</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>Zorunlu Pencere Konumlandırma: Qt'deki çözülemeyen çoklu monitör projeksiyon sorunları nedeniyle eski pencere geometrisi kaydetme mekanizmaları tamamen değiştirildi. Uygulama (hem ana pencere hem de yardımcı pencereler) artık, çözünürlüğünün %90'ında birincil monitör merkezli başlatmayı sıkı bir şekilde zorunlu kılarak tüm kurulumlarda kararlılık ve öngörülebilirlik sağlıyor.</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>Yerelleştirmenin Yeniden Düzenlenmesi: Kaynak koduna (qsTr, tr) yerleştirilmiş tüm sabit kodlu Lehçe ve İngilizce dizeler değiştirildi. 500'den fazla benzersiz dize, LNG_XXXXX tanımlayıcılarına yeniden düzenlendi ve geliştirilmiş bir .ts/.qm dosya sistemi aracılığıyla güvenli bir şekilde eşlendi.</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>Yalnızca İngilizce CLI: Yerelleştirme motorunun başlatılmasının gecikmesiyle ilgili sorunları önlemek için komut satırı arabirimi seçenekleri ve --help parametreleri artık kalıcı olarak İngilizce'dir.</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>Arşiv En Boy Oranı: Arşiv oynatıcı görünüm alanında videonun en boy oranının bozulması sorunu düzeltildi. HikvisionArchivePlayer bileşeni artık videoyu kullanıcı arayüzü sınırlarına uyacak şekilde genişletmek yerine orijinal çerçeveyi doğal en boy oranını (mektup kutusu oluşturma) koruyarak doğru bir şekilde oluşturuyor.</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>Demuxer Bellek Sızıntıları: QmlAVPlayer::stop() rutinindeki nesne temizleme mantığı iyileştirildi ve 'zombi' demuxer örneklerinin arka planda birikmesi önlendi.</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>writeSetting Düzeltmesi: Context sınıfına writeSetting yönteminin eksik uygulaması eklendi ve ayarların taşınması sırasında TypeErrors ve QML yürütme kesintileri ortadan kaldırıldı.</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4374,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Yapılandırma okunurken hata oluştu!</translation>
+        <translation>Yapılandırma okunurken hata oluştu!</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4393,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation translatorcomment="AI-translated">Program zaten çalışıyor, ikincisini başlatamazsınız</translation>
+        <translation>Program zaten çalışıyor, ikincisini başlatamazsınız</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">KAPALI</translation>
+        <translation>KAPALI</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4424,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation translatorcomment="AI-translated">Anlık görüntü kaydedildi</translation>
+        <translation>Anlık görüntü kaydedildi</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation translatorcomment="AI-translated">Anlık görüntü kaydedildi -</translation>
+        <translation>Anlık görüntü kaydedildi -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation translatorcomment="AI-translated">Göz at</translation>
+        <translation>Göz at</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation translatorcomment="AI-translated">Çıkış</translation>
+        <translation>Çıkış</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4491,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Düzen ve Izgara Araçları</translation>
+        <translation>Düzen ve Izgara Araçları</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Araçlar bölmesinin kilidini açın</translation>
+        <translation>Araçlar bölmesinin kilidini açın</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Pencere Bölümü</translation>
+        <translation>Pencere Bölümü</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Yapılandırma okunurken hata oluştu!</translation>
+        <translation>Yapılandırma okunurken hata oluştu!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Bölme değerini düzenlemek için basılı tutun</translation>
+        <translation>Bölme değerini düzenlemek için basılı tutun</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Geometri Oranı</translation>
+        <translation>Geometri Oranı</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation translatorcomment="AI-translated">16:9 En Boy Oranı</translation>
+        <translation>16:9 En Boy Oranı</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation translatorcomment="AI-translated">4:3 En Boy Oranı</translation>
+        <translation>4:3 En Boy Oranı</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Tam Ekrana Geçiş Yap</translation>
+        <translation>Tam Ekrana Geçiş Yap</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Izgara Operasyonları</translation>
+        <translation>Izgara Operasyonları</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Vurgulanan Hücreleri Birleştir</translation>
+        <translation>Vurgulanan Hücreleri Birleştir</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4578,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation translatorcomment="AI-translated">Görünüm Ayarları</translation>
+        <translation>Görünüm Ayarları</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Aktif Akış Bağlantısı</translation>
+        <translation>Aktif Akış Bağlantısı</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Birincil Akış URL'si</translation>
+        <translation>Birincil Akış URL'si</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">İkincil Yedekleme URL'si</translation>
+        <translation>İkincil Yedekleme URL'si</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation translatorcomment="AI-translated">Kanal Seçenekleri</translation>
+        <translation>Kanal Seçenekleri</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation translatorcomment="AI-translated">FFmpeg seçenekleri</translation>
+        <translation>FFmpeg seçenekleri</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation translatorcomment="AI-translated">Genel FFmpeg ayar değişikliklerini dahil etmeyin</translation>
+        <translation>Genel FFmpeg ayar değişikliklerini dahil etmeyin</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">İptal etmek</translation>
+        <translation>İptal etmek</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Kaydetmek</translation>
+        <translation>Kaydetmek</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4670,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation translatorcomment="AI-translated">Görünüm pencerelerini değiştir</translation>
+        <translation>Görünüm pencerelerini değiştir</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation translatorcomment="AI-translated">Akış seçimi</translation>
+        <translation>Akış seçimi</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation translatorcomment="AI-translated">Kamerayı kaldır</translation>
+        <translation>Kamerayı kaldır</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation translatorcomment="AI-translated">Ayarları değiştir</translation>
+        <translation>Ayarları değiştir</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation translatorcomment="AI-translated">Yeniden yükle</translation>
+        <translation>Yeniden yükle</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation translatorcomment="AI-translated">Anlık Görüntü</translation>
+        <translation>Anlık Görüntü</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation translatorcomment="AI-translated">Playback</translation>
+        <translation>Playback</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation translatorcomment="AI-translated">Otomatikleştirme</translation>
+        <translation>Otomatikleştirme</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation translatorcomment="AI-translated">Tylko ANA SAYFA</translation>
+        <translation>Tylko ANA SAYFA</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation translatorcomment="AI-translated">Tylko SUB</translation>
+        <translation>Tylko SUB</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation translatorcomment="AI-translated">Kameranın Kaldırılmasını Onayla</translation>
+        <translation>Kameranın Kaldırılmasını Onayla</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation translatorcomment="AI-translated">Kamerayı bu görünüm alanından kaldırmak istediğinizden emin misiniz?</translation>
+        <translation>Kamerayı bu görünüm alanından kaldırmak istediğinizden emin misiniz?</translation>
     </message>
 </context>
 </TS>

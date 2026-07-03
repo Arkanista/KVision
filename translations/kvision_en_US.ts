@@ -221,51 +221,51 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation>Path to the config file.</translation>
+        <translation type="vanished">Path to the config file.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation>Index of the current preset.</translation>
+        <translation type="vanished">Index of the current preset.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation>Force full-screen mode.</translation>
+        <translation type="vanished">Force full-screen mode.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation>Kiosk mode functionality.</translation>
+        <translation type="vanished">Kiosk mode functionality.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation>Log level [%1...%2].</translation>
+        <translation type="vanished">Log level [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation>Start as an auxiliary window.</translation>
+        <translation type="vanished">Start as an auxiliary window.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation>ID of the auxiliary window.</translation>
+        <translation type="vanished">ID of the auxiliary window.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation>Show verbose logs in console (verbose logging).</translation>
+        <translation type="vanished">Show verbose logs in console (verbose logging).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation>Enable object tracking in logs for debugging memory leaks.</translation>
+        <translation type="vanished">Enable object tracking in logs for debugging memory leaks.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation>Force first run behavior and show instructions.</translation>
+        <translation type="vanished">Force first run behavior and show instructions.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation>Simulate NVR errors on all recorders.</translation>
+        <translation type="vanished">Simulate NVR errors on all recorders.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation>Mock new version availability on GitHub for testing purposes</translation>
+        <translation type="vanished">Mock new version availability on GitHub for testing purposes</translation>
     </message>
     <message>
         <source>LNG_00476</source>
@@ -4284,6 +4284,86 @@
     <message>
         <source>LNG_00220</source>
         <translation>Are you sure you want to delete this NVR Preset? This action is completely irreversible.</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">Do not include global FFmpeg settings changes</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">FFmpeg options</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">Channel Options</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">Viewport Settings</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">Are you sure you want to remove the camera from this viewport?</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">Confirm Camera Removal</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">Tylko SUB</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">Tylko MAIN</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">Automatycznie</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">Playback</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>Localization Expansion: KVision is now fully localized into 20 new AI-translated languages, bringing the total number of supported languages to 22 (English, Polish, and 20 new languages). Both the entire application interface (UI) and the complete user manuals have been translated.</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>Viewport Quick Playback documentation: Added comprehensive documentation explaining the circular arrow overlay button (Miniplayer) and its detailed features in all 22 user manuals.</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>Pan Zoom: Added the ability to freely pan the zoomed-in video (Live, Mini-player, Archive) by holding down the middle mouse button (scroll wheel) and dragging the cursor.</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>Proportional Zoom Selection: Introduced the Shift shortcut. Holding down the Shift key while drawing a zoom rectangle forces the selection to lock into a 16:9 aspect ratio, strictly constrained to the viewport boundaries.</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>Enforced Window Positioning: Completely replaced the legacy window geometry saving mechanisms due to unresolvable multi-monitor projection issues in Qt. The application (both the main window and auxiliary windows) now strictly enforces launching centered on the primary monitor at 90% of its resolution, ensuring stability and predictability across all setups.</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>Localization Refactoring: Replaced all hardcoded Polish and English strings embedded in the source code (qsTr, tr). Over 500 unique strings have been refactored into LNG_XXXXX identifiers, securely mapped via an improved .ts/.qm file system.</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>English-only CLI: Command-line interface options and --help parameters are now permanently in English to prevent issues with delayed localization engine initialization.</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>Archive Aspect Ratio: Fixed an issue where the aspect ratio of the video was distorted in the Archive player viewport. The HikvisionArchivePlayer component now correctly renders the original frame preserving its natural aspect ratio (letterboxing), instead of stretching the video to fit the UI boundaries.</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>Demuxer Memory Leaks: Improved the object cleanup logic in the QmlAVPlayer::stop() routine, preventing 'zombie' demuxer instances from accumulating in the background.</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>writeSetting Fix: Added the missing implementation of the writeSetting method in the Context class, eliminating TypeErrors and QML execution interruptions during settings migrations.</translation>
     </message>
 </context>
 <context>

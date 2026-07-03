@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">凯维视</translation>
+        <translation>凯维视</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation translatorcomment="AI-translated">您无法打开更多辅助窗口</translation>
+        <translation>您无法打开更多辅助窗口</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">关闭</translation>
+        <translation>关闭</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - 辅助窗口</translation>
+        <translation>KVision - 辅助窗口</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">未选择视图，请选择一个视图</translation>
+        <translation>未选择视图，请选择一个视图</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">从顶部菜单中选择一个视图以开始显示摄像机。</translation>
+        <translation>从顶部菜单中选择一个视图以开始显示摄像机。</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">侧边栏面板的选项和设置</translation>
+        <translation>侧边栏面板的选项和设置</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">打开新的辅助窗口</translation>
+        <translation>打开新的辅助窗口</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">程序用户手册</translation>
+        <translation>程序用户手册</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation translatorcomment="AI-translated">网格视图：</translation>
+        <translation>网格视图：</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">切换全屏</translation>
+        <translation>切换全屏</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation translatorcomment="AI-translated">🔒 锁定布局更改</translation>
+        <translation>🔒 锁定布局更改</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">更多选择</translation>
+        <translation>更多选择</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation translatorcomment="AI-translated">查看选择：</translation>
+        <translation>查看选择：</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">关闭程序</translation>
+        <translation>关闭程序</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">您确定要关闭该程序吗？</translation>
+        <translation>您确定要关闭该程序吗？</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">是的</translation>
+        <translation>是的</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">不</translation>
+        <translation>不</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation translatorcomment="AI-translated">是的</translation>
+        <translation>是的</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation translatorcomment="AI-translated">不</translation>
+        <translation>不</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation translatorcomment="AI-translated">配置文件的路径。</translation>
+        <translation type="vanished">配置文件的路径。</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation translatorcomment="AI-translated">当前预设的索引。</translation>
+        <translation type="vanished">当前预设的索引。</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation translatorcomment="AI-translated">强制全屏模式。</translation>
+        <translation type="vanished">强制全屏模式。</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation translatorcomment="AI-translated">信息亭模式功能。</translation>
+        <translation type="vanished">信息亭模式功能。</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation translatorcomment="AI-translated">日志级别 [%1...%2]。</translation>
+        <translation type="vanished">日志级别 [%1...%2]。</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation translatorcomment="AI-translated">作为辅助窗口启动。</translation>
+        <translation type="vanished">作为辅助窗口启动。</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation translatorcomment="AI-translated">辅助窗口的ID。</translation>
+        <translation type="vanished">辅助窗口的ID。</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation translatorcomment="AI-translated">在控制台中显示详细日志（详细日志记录）。</translation>
+        <translation type="vanished">在控制台中显示详细日志（详细日志记录）。</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation translatorcomment="AI-translated">在日志中启用对象跟踪以调试内存泄漏。</translation>
+        <translation type="vanished">在日志中启用对象跟踪以调试内存泄漏。</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation translatorcomment="AI-translated">强制首次运行行为并显示说明。</translation>
+        <translation type="vanished">强制首次运行行为并显示说明。</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation translatorcomment="AI-translated">在所有录像机上模拟 NVR 错误。</translation>
+        <translation type="vanished">在所有录像机上模拟 NVR 错误。</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation translatorcomment="AI-translated">出于测试目的在 GitHub 上模拟新版本的可用性</translation>
+        <translation type="vanished">出于测试目的在 GitHub 上模拟新版本的可用性</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation translatorcomment="AI-translated">KVision - 查看器和安装器视频流。</translation>
+        <translation>KVision - 查看器和安装器视频流。</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation translatorcomment="AI-translated">结束日期和时间必须晚于开始日期和时间！</translation>
+        <translation>结束日期和时间必须晚于开始日期和时间！</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation translatorcomment="AI-translated">一月</translation>
+        <translation>一月</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation translatorcomment="AI-translated">二月</translation>
+        <translation>二月</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation translatorcomment="AI-translated">行进</translation>
+        <translation>行进</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation translatorcomment="AI-translated">四月</translation>
+        <translation>四月</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation translatorcomment="AI-translated">可能</translation>
+        <translation>可能</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation translatorcomment="AI-translated">六月</translation>
+        <translation>六月</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation translatorcomment="AI-translated">七月</translation>
+        <translation>七月</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation translatorcomment="AI-translated">八月</translation>
+        <translation>八月</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation translatorcomment="AI-translated">九月</translation>
+        <translation>九月</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation translatorcomment="AI-translated">十月</translation>
+        <translation>十月</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation translatorcomment="AI-translated">十一月</translation>
+        <translation>十一月</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation translatorcomment="AI-translated">十二月</translation>
+        <translation>十二月</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">上个月</translation>
+        <translation>上个月</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">下个月</translation>
+        <translation>下个月</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation translatorcomment="AI-translated">选择时间</translation>
+        <translation>选择时间</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation translatorcomment="AI-translated">小时</translation>
+        <translation>小时</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation translatorcomment="AI-translated">最小</translation>
+        <translation>最小</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation translatorcomment="AI-translated">秒</translation>
+        <translation>秒</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation translatorcomment="AI-translated">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation translatorcomment="AI-translated">确认</translation>
+        <translation>确认</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation translatorcomment="AI-translated">下载录音</translation>
+        <translation>下载录音</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation translatorcomment="AI-translated">从：</translation>
+        <translation>从：</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation translatorcomment="AI-translated">日期格式不正确！所需格式：DD.MM.YYYY（例如 26.06.2026）</translation>
+        <translation>日期格式不正确！所需格式：DD.MM.YYYY（例如 26.06.2026）</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation translatorcomment="AI-translated">时间格式不正确！所需格式：HH:MM:SS 或 HH.MM.SS（例如 12:30:00 或 12.30.00）</translation>
+        <translation>时间格式不正确！所需格式：HH:MM:SS 或 HH.MM.SS（例如 12:30:00 或 12.30.00）</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation translatorcomment="AI-translated">到：</translation>
+        <translation>到：</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation translatorcomment="AI-translated">全部的：</translation>
+        <translation>全部的：</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation translatorcomment="AI-translated">正在下载...</translation>
+        <translation>正在下载...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation translatorcomment="AI-translated">错误：</translation>
+        <translation>错误：</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation translatorcomment="AI-translated">正在初始化...</translation>
+        <translation>正在初始化...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">已停止</translation>
+        <translation>已停止</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation translatorcomment="AI-translated">打开保存文件夹</translation>
+        <translation>打开保存文件夹</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation translatorcomment="AI-translated">停止</translation>
+        <translation>停止</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">下载</translation>
+        <translation>下载</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation translatorcomment="AI-translated">下载已经在进行中。</translation>
+        <translation>下载已经在进行中。</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation translatorcomment="AI-translated">正在初始化文件搜索...</translation>
+        <translation>正在初始化文件搜索...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation translatorcomment="AI-translated">登录设备时出错：%1</translation>
+        <translation>登录设备时出错：%1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation translatorcomment="AI-translated">该摄像机在所选时间范围内没有录制内容。</translation>
+        <translation>该摄像机在所选时间范围内没有录制内容。</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation translatorcomment="AI-translated">已下载并转换 %1 个文件（共 %2 个）。</translation>
+        <translation>已下载并转换 %1 个文件（共 %2 个）。</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation translatorcomment="AI-translated">指定的保存路径无效或写访问被拒绝：
+        <translation>指定的保存路径无效或写访问被拒绝：
 %1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation translatorcomment="AI-translated">该目录没有写权限：
+        <translation>该目录没有写权限：
 %1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation translatorcomment="AI-translated">初始化第 %1 部分的下载时出错：%2</translation>
+        <translation>初始化第 %1 部分的下载时出错：%2</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation translatorcomment="AI-translated">开始下载部分 %1 时出错：%2</translation>
+        <translation>开始下载部分 %1 时出错：%2</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation translatorcomment="AI-translated">正在下载 %2 的第 %1 部分...</translation>
+        <translation>正在下载 %2 的第 %1 部分...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">已停止</translation>
+        <translation>已停止</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation translatorcomment="AI-translated">下载被用户中断。</translation>
+        <translation>下载被用户中断。</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation translatorcomment="AI-translated">正在转换 %2 的第 %1 部分...</translation>
+        <translation>正在转换 %2 的第 %1 部分...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation translatorcomment="AI-translated">下载部分 %1 时出错。</translation>
+        <translation>下载部分 %1 时出错。</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation translatorcomment="AI-translated">已下载并转换 %1 个部分（共 %2 个部分）...</translation>
+        <translation>已下载并转换 %1 个部分（共 %2 个部分）...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation translatorcomment="AI-translated">FFmpeg 内部错误</translation>
+        <translation>FFmpeg 内部错误</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation translatorcomment="AI-translated">将部分 %1 转换为 MP4 失败：%2</translation>
+        <translation>将部分 %1 转换为 MP4 失败：%2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">登录失败或未发现摄像头。</translation>
+        <translation>登录失败或未发现摄像头。</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation translatorcomment="AI-translated">KVision - 用户手册/说明</translation>
+        <translation>KVision - 用户手册/说明</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS_zh.md</translation>
+        <translation>qrc:/INSTRUCTIONS_zh.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation translatorcomment="AI-translated">加载说明时出错。</translation>
+        <translation>加载说明时出错。</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation translatorcomment="AI-translated">%1 上的摄像头</translation>
+        <translation>%1 上的摄像头</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation translatorcomment="AI-translated">相机</translation>
+        <translation>相机</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation translatorcomment="AI-translated">IP：%1 |端口：%2 | %3 个频道</translation>
+        <translation>IP：%1 |端口：%2 | %3 个频道</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation translatorcomment="AI-translated">为所有相机生成缩略图</translation>
+        <translation>为所有相机生成缩略图</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation translatorcomment="AI-translated">相机%1</translation>
+        <translation>相机%1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation translatorcomment="AI-translated">已分配摄像机 %1 通道%2 到视口 %3</translation>
+        <translation>已分配摄像机 %1 通道%2 到视口 %3</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation translatorcomment="AI-translated">指定到活动视口</translation>
+        <translation>指定到活动视口</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation translatorcomment="AI-translated">重命名相机</translation>
+        <translation>重命名相机</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation translatorcomment="AI-translated">刷新相机缩略图</translation>
+        <translation>刷新相机缩略图</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation translatorcomment="AI-translated">更改相机名称</translation>
+        <translation>更改相机名称</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation translatorcomment="AI-translated">频道：%1</translation>
+        <translation>频道：%1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation translatorcomment="AI-translated">原名：%1</translation>
+        <translation>原名：%1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation translatorcomment="AI-translated">没有任何</translation>
+        <translation>没有任何</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation translatorcomment="AI-translated">输入新相机名称...</translation>
+        <translation>输入新相机名称...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation translatorcomment="AI-translated">重置</translation>
+        <translation>重置</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">节省</translation>
+        <translation>节省</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">登录失败或未发现摄像头。</translation>
+        <translation>登录失败或未发现摄像头。</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation translatorcomment="AI-translated">添加海康录像机</translation>
+        <translation>添加海康录像机</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation translatorcomment="AI-translated">记录器名称（可选）</translation>
+        <translation>记录器名称（可选）</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation translatorcomment="AI-translated">IP地址</translation>
+        <translation>IP地址</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation translatorcomment="AI-translated">端口（8000）</translation>
+        <translation>端口（8000）</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation translatorcomment="AI-translated">用户名</translation>
+        <translation>用户名</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation translatorcomment="AI-translated">密码</translation>
+        <translation>密码</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation translatorcomment="AI-translated">发现...</translation>
+        <translation>发现...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation translatorcomment="AI-translated">连接与发现</translation>
+        <translation>连接与发现</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation translatorcomment="AI-translated">保存并更新</translation>
+        <translation>保存并更新</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation translatorcomment="AI-translated">错误：需要 IP 和密码。</translation>
+        <translation>错误：需要 IP 和密码。</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation translatorcomment="AI-translated">正在连接到 NVR 并发现频道...</translation>
+        <translation>正在连接到 NVR 并发现频道...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation translatorcomment="AI-translated">联网录音机</translation>
+        <translation>联网录音机</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation translatorcomment="AI-translated">已连接 %1 个摄像机</translation>
+        <translation>已连接 %1 个摄像机</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation translatorcomment="AI-translated">已登录</translation>
+        <translation>已登录</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation translatorcomment="AI-translated">未登录</translation>
+        <translation>未登录</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation translatorcomment="AI-translated">绿色：活动 SDK 会话（PTZ/存档）。红色：没有活动会话（RTSP 流独立工作）。</translation>
+        <translation>绿色：活动 SDK 会话（PTZ/存档）。红色：没有活动会话（RTSP 流独立工作）。</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation translatorcomment="AI-translated">在浏览器中打开NVR登录页面</translation>
+        <translation>在浏览器中打开NVR登录页面</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation translatorcomment="AI-translated">显示 NVR 摄像机列表</translation>
+        <translation>显示 NVR 摄像机列表</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation translatorcomment="AI-translated">编辑录音机连接详细信息</translation>
+        <translation>编辑录音机连接详细信息</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation translatorcomment="AI-translated">从列表中删除录音机</translation>
+        <translation>从列表中删除录音机</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation translatorcomment="AI-translated">确认 NVR 删除</translation>
+        <translation>确认 NVR 删除</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation translatorcomment="AI-translated">您确定要删除此 NVR 吗？</translation>
+        <translation>您确定要删除此 NVR 吗？</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation translatorcomment="AI-translated">警告！</translation>
+        <translation>警告！</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation translatorcomment="AI-translated">您绝对确定并了解自己在做什么吗？</translation>
+        <translation>您绝对确定并了解自己在做什么吗？</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation translatorcomment="AI-translated">NVR状态</translation>
+        <translation>NVR状态</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation translatorcomment="AI-translated">正在检查 NVR 状态...</translation>
+        <translation>正在检查 NVR 状态...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation translatorcomment="AI-translated">最后一次检查：</translation>
+        <translation>最后一次检查：</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation translatorcomment="AI-translated">绝不</translation>
+        <translation>绝不</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">沉默的</translation>
+        <translation>沉默的</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation translatorcomment="AI-translated">错误</translation>
+        <translation>错误</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation translatorcomment="AI-translated">好的</translation>
+        <translation>好的</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation translatorcomment="AI-translated">无状态数据</translation>
+        <translation>无状态数据</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation translatorcomment="AI-translated">按下面的按钮检查 NVR 状态。</translation>
+        <translation>按下面的按钮检查 NVR 状态。</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation translatorcomment="AI-translated">立即查看</translation>
+        <translation>立即查看</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation translatorcomment="AI-translated">关闭</translation>
+        <translation>关闭</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation translatorcomment="AI-translated">模拟NVR</translation>
+        <translation>模拟NVR</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation translatorcomment="AI-translated">磁盘1</translation>
+        <translation>磁盘1</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation translatorcomment="AI-translated">严重磁盘错误/故障（模拟）</translation>
+        <translation>严重磁盘错误/故障（模拟）</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation translatorcomment="AI-translated">无连接或登录错误（模拟）</translation>
+        <translation>无连接或登录错误（模拟）</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation translatorcomment="AI-translated">无连接或登录错误</translation>
+        <translation>无连接或登录错误</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation translatorcomment="AI-translated">读取 NVR 状态时出错 (SDK)</translation>
+        <translation>读取 NVR 状态时出错 (SDK)</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation translatorcomment="AI-translated">CPU 负载高 (&gt;85%)</translation>
+        <translation>CPU 负载高 (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation translatorcomment="AI-translated">设备硬件错误</translation>
+        <translation>设备硬件错误</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation translatorcomment="AI-translated">磁盘%1</translation>
+        <translation>磁盘%1</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation translatorcomment="AI-translated">严重磁盘错误/故障</translation>
+        <translation>严重磁盘错误/故障</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation translatorcomment="AI-translated">磁盘未格式化</translation>
+        <translation>磁盘未格式化</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation translatorcomment="AI-translated">磁盘已满（禁用覆盖）</translation>
+        <translation>磁盘已满（禁用覆盖）</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation translatorcomment="AI-translated">档案 -</translation>
+        <translation>档案 -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation translatorcomment="AI-translated">一月</translation>
+        <translation>一月</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation translatorcomment="AI-translated">二月</translation>
+        <translation>二月</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation translatorcomment="AI-translated">行进</translation>
+        <translation>行进</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation translatorcomment="AI-translated">四月</translation>
+        <translation>四月</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation translatorcomment="AI-translated">可能</translation>
+        <translation>可能</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation translatorcomment="AI-translated">六月</translation>
+        <translation>六月</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation translatorcomment="AI-translated">七月</translation>
+        <translation>七月</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation translatorcomment="AI-translated">八月</translation>
+        <translation>八月</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation translatorcomment="AI-translated">九月</translation>
+        <translation>九月</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation translatorcomment="AI-translated">十月</translation>
+        <translation>十月</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation translatorcomment="AI-translated">十一月</translation>
+        <translation>十一月</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation translatorcomment="AI-translated">十二月</translation>
+        <translation>十二月</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">上个月</translation>
+        <translation>上个月</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation translatorcomment="AI-translated">选择存档日期</translation>
+        <translation>选择存档日期</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">下个月</translation>
+        <translation>下个月</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation translatorcomment="AI-translated">莫</translation>
+        <translation>莫</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation translatorcomment="AI-translated">涂</translation>
+        <translation>涂</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation translatorcomment="AI-translated">我们</translation>
+        <translation>我们</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation translatorcomment="AI-translated">钍</translation>
+        <translation>钍</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation translatorcomment="AI-translated">Fr</translation>
+        <translation>Fr</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation translatorcomment="AI-translated">萨</translation>
+        <translation>萨</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation translatorcomment="AI-translated">苏</translation>
+        <translation>苏</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation translatorcomment="AI-translated">正在获取可用性...</translation>
+        <translation>正在获取可用性...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation translatorcomment="AI-translated">相机</translation>
+        <translation>相机</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation translatorcomment="AI-translated">搜索相机...</translation>
+        <translation>搜索相机...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation translatorcomment="AI-translated">清除搜索</translation>
+        <translation>清除搜索</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation translatorcomment="AI-translated">确定录音的实际结束...</translation>
+        <translation>确定录音的实际结束...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation translatorcomment="AI-translated">正在获取录音信息...</translation>
+        <translation>正在获取录音信息...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation translatorcomment="AI-translated">正在加载海康威视存档...</translation>
+        <translation>正在加载海康威视存档...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation translatorcomment="AI-translated">所选时刻没有录音</translation>
+        <translation>所选时刻没有录音</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">沉默的</translation>
+        <translation>沉默的</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">最大音量</translation>
+        <translation>最大音量</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">以全分辨率拍摄快照</translation>
+        <translation>以全分辨率拍摄快照</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">禁用 1:1 模式</translation>
+        <translation>禁用 1:1 模式</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">启用 1:1 模式（像素到像素）</translation>
+        <translation>启用 1:1 模式（像素到像素）</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">重置缩放</translation>
+        <translation>重置缩放</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation translatorcomment="AI-translated">选择要缩放的区域</translation>
+        <translation>选择要缩放的区域</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation translatorcomment="AI-translated">选择要缩放的区域</translation>
+        <translation>选择要缩放的区域</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation translatorcomment="AI-translated">恢复网格视图</translation>
+        <translation>恢复网格视图</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation translatorcomment="AI-translated">全屏显示</translation>
+        <translation>全屏显示</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation translatorcomment="AI-translated">从视图中删除相机</translation>
+        <translation>从视图中删除相机</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation translatorcomment="AI-translated">空视口</translation>
+        <translation>空视口</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation translatorcomment="AI-translated">选择此窗口，从列表中选择一个摄像头，然后单击 + 添加它</translation>
+        <translation>选择此窗口，从列表中选择一个摄像头，然后单击 + 添加它</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation translatorcomment="AI-translated">前一天</translation>
+        <translation>前一天</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation translatorcomment="AI-translated">从日历中选择日期</translation>
+        <translation>从日历中选择日期</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation translatorcomment="AI-translated">第二天</translation>
+        <translation>第二天</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation translatorcomment="AI-translated">今天</translation>
+        <translation>今天</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation translatorcomment="AI-translated">转到今天</translation>
+        <translation>转到今天</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation translatorcomment="AI-translated">刷新录音</translation>
+        <translation>刷新录音</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation translatorcomment="AI-translated">缩放至最后 1 小时</translation>
+        <translation>缩放至最后 1 小时</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation translatorcomment="AI-translated">缩放至过去 8 小时</translation>
+        <translation>缩放至过去 8 小时</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation translatorcomment="AI-translated">在时间轴上显示全天</translation>
+        <translation>在时间轴上显示全天</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation translatorcomment="AI-translated">以当前播放时间为中心的时间轴</translation>
+        <translation>以当前播放时间为中心的时间轴</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation translatorcomment="AI-translated">速度：</translation>
+        <translation>速度：</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation translatorcomment="AI-translated">将播放速度设置为%1x</translation>
+        <translation>将播放速度设置为%1x</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">下载</translation>
+        <translation>下载</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation translatorcomment="AI-translated">下载选定时间范围内的视频片段</translation>
+        <translation>下载选定时间范围内的视频片段</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation translatorcomment="AI-translated">快退 60 秒</translation>
+        <translation>快退 60 秒</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation translatorcomment="AI-translated">快退 45 秒</translation>
+        <translation>快退 45 秒</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation translatorcomment="AI-translated">快退 15 秒</translation>
+        <translation>快退 15 秒</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">暂停播放</translation>
+        <translation>暂停播放</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">开始播放</translation>
+        <translation>开始播放</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation translatorcomment="AI-translated">快进 15 秒</translation>
+        <translation>快进 15 秒</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation translatorcomment="AI-translated">前进 45 秒</translation>
+        <translation>前进 45 秒</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation translatorcomment="AI-translated">快进 60 秒</translation>
+        <translation>快进 60 秒</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation translatorcomment="AI-translated">取消固定底部栏</translation>
+        <translation>取消固定底部栏</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation translatorcomment="AI-translated">固定底部栏</translation>
+        <translation>固定底部栏</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation translatorcomment="AI-translated">正在加载录音可用性信息...</translation>
+        <translation>正在加载录音可用性信息...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">关闭窗口</translation>
+        <translation>关闭窗口</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">取消固定顶栏</translation>
+        <translation>取消固定顶栏</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">顶栏针</translation>
+        <translation>顶栏针</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation translatorcomment="AI-translated">退出全屏</translation>
+        <translation>退出全屏</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation translatorcomment="AI-translated">窗口全屏</translation>
+        <translation>窗口全屏</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation translatorcomment="AI-translated">隐藏侧边栏</translation>
+        <translation>隐藏侧边栏</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation translatorcomment="AI-translated">显示侧边栏</translation>
+        <translation>显示侧边栏</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation translatorcomment="AI-translated">显示时间线</translation>
+        <translation>显示时间线</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation translatorcomment="AI-translated">隐藏时间线</translation>
+        <translation>隐藏时间线</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation translatorcomment="AI-translated">打开录音文件夹</translation>
+        <translation>打开录音文件夹</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation translatorcomment="AI-translated">打开快照文件夹</translation>
+        <translation>打开快照文件夹</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation translatorcomment="AI-translated">没有媒体</translation>
+        <translation>没有媒体</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation translatorcomment="AI-translated">加载中...</translation>
+        <translation>加载中...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation translatorcomment="AI-translated">已加载</translation>
+        <translation>已加载</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation translatorcomment="AI-translated">停滞</translation>
+        <translation>停滞</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation translatorcomment="AI-translated">缓冲%1\%</translation>
+        <translation>缓冲%1\%</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation translatorcomment="AI-translated">无数据可显示</translation>
+        <translation>无数据可显示</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation translatorcomment="AI-translated">正在恢复实时取景...</translation>
+        <translation>正在恢复实时取景...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">沉默的</translation>
+        <translation>沉默的</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">最大音量</translation>
+        <translation>最大音量</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">以全分辨率拍摄快照</translation>
+        <translation>以全分辨率拍摄快照</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation translatorcomment="AI-translated">回放存档</translation>
+        <translation>回放存档</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation translatorcomment="AI-translated">禁用快速播放</translation>
+        <translation>禁用快速播放</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation translatorcomment="AI-translated">快速播放（最长 30 分钟）</translation>
+        <translation>快速播放（最长 30 分钟）</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">禁用 1:1 模式</translation>
+        <translation>禁用 1:1 模式</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">启用 1:1 模式（像素到像素）</translation>
+        <translation>启用 1:1 模式（像素到像素）</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">重置缩放</translation>
+        <translation>重置缩放</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation translatorcomment="AI-translated">单击并拖动相机源以进行缩放</translation>
+        <translation>单击并拖动相机源以进行缩放</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation translatorcomment="AI-translated">选择要缩放的区域</translation>
+        <translation>选择要缩放的区域</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">开始播放</translation>
+        <translation>开始播放</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">暂停播放</translation>
+        <translation>暂停播放</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation translatorcomment="AI-translated">播放速度</translation>
+        <translation>播放速度</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation translatorcomment="AI-translated">关闭快退视图</translation>
+        <translation>关闭快退视图</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - 辅助窗口</translation>
+        <translation>KVision - 辅助窗口</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">凯维视</translation>
+        <translation>凯维视</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">读取配置错误！</translation>
+        <translation>读取配置错误！</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">取消固定顶栏</translation>
+        <translation>取消固定顶栏</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">顶栏针</translation>
+        <translation>顶栏针</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">切换全屏</translation>
+        <translation>切换全屏</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation translatorcomment="AI-translated">最小化窗口</translation>
+        <translation>最小化窗口</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">侧边栏面板的选项和设置</translation>
+        <translation>侧边栏面板的选项和设置</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">打开新的辅助窗口</translation>
+        <translation>打开新的辅助窗口</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation translatorcomment="AI-translated">录音档案和播放器</translation>
+        <translation>录音档案和播放器</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">程序用户手册</translation>
+        <translation>程序用户手册</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation translatorcomment="AI-translated">禁用资源使用统计</translation>
+        <translation>禁用资源使用统计</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation translatorcomment="AI-translated">启用资源使用统计</translation>
+        <translation>启用资源使用统计</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation translatorcomment="AI-translated">检测到 NVR 错误！</translation>
+        <translation>检测到 NVR 错误！</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation translatorcomment="AI-translated">NVR状态：正常</translation>
+        <translation>NVR状态：正常</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation translatorcomment="AI-translated">锁定网格大小变化</translation>
+        <translation>锁定网格大小变化</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">更多选择</translation>
+        <translation>更多选择</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation translatorcomment="AI-translated">检测到 NVR 错误！点击查看详情。</translation>
+        <translation>检测到 NVR 错误！点击查看详情。</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">未选择视图，请选择一个视图</translation>
+        <translation>未选择视图，请选择一个视图</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">从顶部菜单中选择一个视图以开始显示摄像机。</translation>
+        <translation>从顶部菜单中选择一个视图以开始显示摄像机。</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation translatorcomment="AI-translated">KVision - 面板</translation>
+        <translation>KVision - 面板</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">关闭窗口</translation>
+        <translation>关闭窗口</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">关闭程序</translation>
+        <translation>关闭程序</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation translatorcomment="AI-translated">您确定要关闭此窗口吗？</translation>
+        <translation>您确定要关闭此窗口吗？</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">您确定要关闭该程序吗？</translation>
+        <translation>您确定要关闭该程序吗？</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">是的</translation>
+        <translation>是的</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">不</translation>
+        <translation>不</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation translatorcomment="AI-translated">📊 系统统计</translation>
+        <translation>📊 系统统计</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation translatorcomment="AI-translated">拖动统计面板</translation>
+        <translation>拖动统计面板</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation translatorcomment="AI-translated">内存：</translation>
+        <translation>内存：</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation translatorcomment="AI-translated">显存：</translation>
+        <translation>显存：</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation translatorcomment="AI-translated">中央处理器：</translation>
+        <translation>中央处理器：</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation translatorcomment="AI-translated">图形处理器：</translation>
+        <translation>图形处理器：</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation translatorcomment="AI-translated">网：</translation>
+        <translation>网：</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation translatorcomment="AI-translated">正在加载新窗口...</translation>
+        <translation>正在加载新窗口...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,1027 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation translatorcomment="AI-translated">修复了网络丢失和 RTSP 流超时导致玩家变成僵尸、无法成功重新连接的严重错误。重新加载按钮和自动恢复现在可以完全可靠地工作。</translation>
+        <translation>修复了网络丢失和 RTSP 流超时导致玩家变成僵尸、无法成功重新连接的严重错误。重新加载按钮和自动恢复现在可以完全可靠地工作。</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation translatorcomment="AI-translated">刷新了播放器和存档状态消息的外观。加载和恢复通知现在具有令人愉快的青色主题和适当的图标，以更好地将它们与严重错误（无媒体/网络）区分开来。</translation>
+        <translation>刷新了播放器和存档状态消息的外观。加载和恢复通知现在具有令人愉快的青色主题和适当的图标，以更好地将它们与严重错误（无媒体/网络）区分开来。</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation translatorcomment="AI-translated">与海康威视 SDK 集成 MakeKeyFrame 硬件命令。现在，该应用程序在切换子/主流以及从实时到存档时积极强制摄像机发出 I 帧，从而消除了 10 秒的关键帧等待。</translation>
+        <translation>与海康威视 SDK 集成 MakeKeyFrame 硬件命令。现在，该应用程序在切换子/主流以及从实时到存档时积极强制摄像机发出 I 帧，从而消除了 10 秒的关键帧等待。</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation translatorcomment="AI-translated">删除了对analyzeduration参数的即时覆盖。该应用程序严格执行用户定义的 FFmpeg 值（强烈建议将其设置为 100000，以便无音频摄像机绕过 5 秒停顿限制）。</translation>
+        <translation>删除了对analyzeduration参数的即时覆盖。该应用程序严格执行用户定义的 FFmpeg 值（强烈建议将其设置为 100000，以便无音频摄像机绕过 5 秒停顿限制）。</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation translatorcomment="AI-translated">在记录器视口上添加了“HikSDK”徽章，以更好地区分协议。</translation>
+        <translation>在记录器视口上添加了“HikSDK”徽章，以更好地区分协议。</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation translatorcomment="AI-translated">简化的诊断日志记录 (QDebug)，允许在详细模式之外将警告和严重错误打印到控制台，从而更轻松地进行 NVR 故障调试。</translation>
+        <translation>简化的诊断日志记录 (QDebug)，允许在详细模式之外将警告和严重错误打印到控制台，从而更轻松地进行 NVR 故障调试。</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation translatorcomment="AI-translated">过滤掉误报的 PlayM4 SDK 错误（第 17 号和第 2 号），这些错误在播放器中快速时间线清理期间向控制台发送垃圾邮件。</translation>
+        <translation>过滤掉误报的 PlayM4 SDK 错误（第 17 号和第 2 号），这些错误在播放器中快速时间线清理期间向控制台发送垃圾邮件。</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation translatorcomment="AI-translated">修复了 KDE Plasma 系统上 Qt5 框架对非线性缩放（例如 145%）的截断，强制正确解释高 DPI 策略。</translation>
+        <translation>修复了 KDE Plasma 系统上 Qt5 框架对非线性缩放（例如 145%）的截断，强制正确解释高 DPI 策略。</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation translatorcomment="AI-translated">解决了搜索或拖动时间线时实时网格上其他摄像机的临时冻结问题。</translation>
+        <translation>解决了搜索或拖动时间线时实时网格上其他摄像机的临时冻结问题。</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation translatorcomment="AI-translated">将所有阻塞的 Hikvision SDK 网络调用（登录、停止、启动、速度控制）移至异步工作线程。</translation>
+        <translation>将所有阻塞的 Hikvision SDK 网络调用（登录、停止、启动、速度控制）移至异步工作线程。</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation translatorcomment="AI-translated">彻底解决了RTSP摄像机切换画质（SUB/MAIN）时的黑屏问题。</translation>
+        <translation>彻底解决了RTSP摄像机切换画质（SUB/MAIN）时的黑屏问题。</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation translatorcomment="AI-translated">将无缝流切换定时器优化至 100ms，以实现最大速度。</translation>
+        <translation>将无缝流切换定时器优化至 100ms，以实现最大速度。</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation translatorcomment="AI-translated">添加了低级 FFmpeg 选项（nobuffer、low_delay），以消除长时间运行期间的实时流延迟（漂移）。</translation>
+        <translation>添加了低级 FFmpeg 选项（nobuffer、low_delay），以消除长时间运行期间的实时流延迟（漂移）。</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation translatorcomment="AI-translated">引入了一个按钮来批量更新所有布局中所有现有摄像机的 FFmpeg 参数。</translation>
+        <translation>引入了一个按钮来批量更新所有布局中所有现有摄像机的 FFmpeg 参数。</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation translatorcomment="AI-translated">添加了从全局 FFmpeg 参数更新中排除特定摄像机的选项（视口设置中的新复选框）。</translation>
+        <translation>添加了从全局 FFmpeg 参数更新中排除特定摄像机的选项（视口设置中的新复选框）。</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation translatorcomment="AI-translated">保护默认设置迁移过程，允许用户永久删除或修改新标志，而无需在每次启动时强制执行这些标志。</translation>
+        <translation>保护默认设置迁移过程，允许用户永久删除或修改新标志，而无需在每次启动时强制执行这些标志。</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation translatorcomment="AI-translated">直接在相机视口内添加了快速播放功能（最多可倒带 30 分钟）。</translation>
+        <translation>直接在相机视口内添加了快速播放功能（最多可倒带 30 分钟）。</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation translatorcomment="AI-translated">在所有窗口和辅助程序进程之间实现完全、双向实时同步，用于设置：音频静音、禁用缩放动画以及所有海康威视 NVR 状态监控选项。</translation>
+        <translation>在所有窗口和辅助程序进程之间实现完全、双向实时同步，用于设置：音频静音、禁用缩放动画以及所有海康威视 NVR 状态监控选项。</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation translatorcomment="AI-translated">通过智能标签密度调整 (zoomHours)，在存档播放器时间轴上的分钟刻度处添加了分钟标签的动态显示（例如：15、:30、:45）。</translation>
+        <translation>通过智能标签密度调整 (zoomHours)，在存档播放器时间轴上的分钟刻度处添加了分钟标签的动态显示（例如：15、:30、:45）。</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation translatorcomment="AI-translated">在 UI 设置中添加了一个新选项：“禁用视口缩放动画”，并在相机网格视图中立即应用。</translation>
+        <translation>在 UI 设置中添加了一个新选项：“禁用视口缩放动画”，并在相机网格视图中立即应用。</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation translatorcomment="AI-translated">重建存档播放器初始化过程：暂停连接和视频加载，直到确定准确的录制限制（通过超快的 24 小时异步搜索），消除过早播放和图像跳跃。</translation>
+        <translation>重建存档播放器初始化过程：暂停连接和视频加载，直到确定准确的录制限制（通过超快的 24 小时异步搜索），消除过早播放和图像跳跃。</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation translatorcomment="AI-translated">完善的海康威视存档加载消息 - 仅在活动流缓冲期间显示加载状态，并且如果播放头移动到可用录制边界之外，则会显示专用警告。</translation>
+        <translation>完善的海康威视存档加载消息 - 仅在活动流缓冲期间显示加载状态，并且如果播放头移动到可用录制边界之外，则会显示专用警告。</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation translatorcomment="AI-translated">在设置面板中引入了新的配置字段：默认存档播放开始偏移（以秒为单位，默认 60 秒）和默认时间线缩放跨度（缩放小时数，默认 2 小时）。</translation>
+        <translation>在设置面板中引入了新的配置字段：默认存档播放开始偏移（以秒为单位，默认 60 秒）和默认时间线缩放跨度（缩放小时数，默认 2 小时）。</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation translatorcomment="AI-translated">在 NVR 状态弹出窗口内的录像机 Web 面板中添加了直接 Web 登录图标。</translation>
+        <translation>在 NVR 状态弹出窗口内的录像机 Web 面板中添加了直接 Web 登录图标。</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation translatorcomment="AI-translated">为单个记录器添加了错误报告抑制功能。</translation>
+        <translation>为单个记录器添加了错误报告抑制功能。</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation translatorcomment="AI-translated">修复了状态窗口中不正确的波兰语翻译“模拟录音机”，并实现了正确的单词区分（“抑制”错误与“静音”音频）。</translation>
+        <translation>修复了状态窗口中不正确的波兰语翻译“模拟录音机”，并实现了正确的单词区分（“抑制”错误与“静音”音频）。</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation translatorcomment="AI-translated">使用 SDK/ISAPI 诊断实施定期（每 5 分钟）和手动 Hikvision NVR/DVR 错误状态监控。</translation>
+        <translation>使用 SDK/ISAPI 诊断实施定期（每 5 分钟）和手动 Hikvision NVR/DVR 错误状态监控。</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation translatorcomment="AI-translated">常规设置中添加了配置选项，用于启用/禁用海康威视 NVR 状态检查并自定义监控的严重错误类型。</translation>
+        <translation>常规设置中添加了配置选项，用于启用/禁用海康威视 NVR 状态检查并自定义监控的严重错误类型。</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation translatorcomment="AI-translated">设计了一个高保真暖绿色/红色顶栏状态图标，具有深脉冲外波和内部心跳波纹动画，以表示活动的严重错误。</translation>
+        <translation>设计了一个高保真暖绿色/红色顶栏状态图标，具有深脉冲外波和内部心跳波纹动画，以表示活动的严重错误。</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation translatorcomment="AI-translated">引入了顶部边缘突出的红色指示器圆圈，当主工具栏折叠时，该指示器圆圈会在屏幕顶部闪烁，确保永远不会错过重要警告。</translation>
+        <translation>引入了顶部边缘突出的红色指示器圆圈，当主工具栏折叠时，该指示器圆圈会在屏幕顶部闪烁，确保永远不会错过重要警告。</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation translatorcomment="AI-translated">创建了一个优雅的、可滚动的弹出窗口“记录器状态”，限制为屏幕高度的 85%，显示详细的错误代码。</translation>
+        <translation>创建了一个优雅的、可滚动的弹出窗口“记录器状态”，限制为屏幕高度的 85%，显示详细的错误代码。</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation translatorcomment="AI-translated">添加了运行标志“--simulate-error”以立即模拟所有记录器的磁盘故障和连接错误，以用于演示目的。</translation>
+        <translation>添加了运行标志“--simulate-error”以立即模拟所有记录器的磁盘故障和连接错误，以用于演示目的。</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation translatorcomment="AI-translated">在配置的记录器视图中实现了列表框徽章和状态指示器对齐。</translation>
+        <translation>在配置的记录器视图中实现了列表框徽章和状态指示器对齐。</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation translatorcomment="AI-translated">为所有 NVR 诊断、设置复选框、工具提示、警告和命令行解析器选项实现了完整的双语翻译覆盖（波兰语/英语）。</translation>
+        <translation>为所有 NVR 诊断、设置复选框、工具提示、警告和命令行解析器选项实现了完整的双语翻译覆盖（波兰语/英语）。</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation translatorcomment="AI-translated">添加了通过单击顶部工具栏上的按钮来重新加载活动布局的功能。</translation>
+        <translation>添加了通过单击顶部工具栏上的按钮来重新加载活动布局的功能。</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation translatorcomment="AI-translated">随着时间的推移平均 NVML 使用率样本，以平滑 GPU 使用率图表并消除锯齿状读数。</translation>
+        <translation>随着时间的推移平均 NVML 使用率样本，以平滑 GPU 使用率图表并消除锯齿状读数。</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation translatorcomment="AI-translated">通过延迟活动播放器交换直到第一帧绘制在屏幕上，消除了在视口最大化期间将质量从 SUB 流切换到主流时的瞬时视频闪烁（黑帧）和音频视频不同步间隙。</translation>
+        <translation>通过延迟活动播放器交换直到第一帧绘制在屏幕上，消除了在视口最大化期间将质量从 SUB 流切换到主流时的瞬时视频闪烁（黑帧）和音频视频不同步间隙。</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation translatorcomment="AI-translated">在存档下载时间选择器弹出窗口中的小时、分钟和秒选择列中添加了交互式、清晰且 2 倍宽的滚动条。</translation>
+        <translation>在存档下载时间选择器弹出窗口中的小时、分钟和秒选择列中添加了交互式、清晰且 2 倍宽的滚动条。</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation translatorcomment="AI-translated">在视口上下文菜单中添加了新的直观选项：“快照”（保存当前帧）和“回放”（立即转换到给定摄像机的存档回放）。</translation>
+        <translation>在视口上下文菜单中添加了新的直观选项：“快照”（保存当前帧）和“回放”（立即转换到给定摄像机的存档回放）。</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation translatorcomment="AI-translated">革命性和固定的 PCM 音频处理：直接管道转发到 QAudioOutput、通过稳定采样率（5 个稳定帧后去抖）消除接口冻结（ALSA/PulseAudio/Pipewire）、输出重新创建 2 秒冷却、过滤损坏的参数和减少网络抖动的 64KB 缓冲区。</translation>
+        <translation>革命性和固定的 PCM 音频处理：直接管道转发到 QAudioOutput、通过稳定采样率（5 个稳定帧后去抖）消除接口冻结（ALSA/PulseAudio/Pipewire）、输出重新创建 2 秒冷却、过滤损坏的参数和减少网络抖动的 64KB 缓冲区。</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation translatorcomment="AI-translated">直接在视口图块上实现交互式 HUD 音量滑块，以及快速静音选项和一键音量最大化。</translation>
+        <translation>直接在视口图块上实现交互式 HUD 音量滑块，以及快速静音选项和一键音量最大化。</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation translatorcomment="AI-translated">打开存档播放窗口后，在主网格中实现实时流的自动和立即静音，防止声音重叠（刺耳的声音）。</translation>
+        <translation>打开存档播放窗口后，在主网格中实现实时流的自动和立即静音，防止声音重叠（刺耳的声音）。</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation translatorcomment="AI-translated">引入了用于保存快照的中央 SnapshotSavedDialog 通知系统（深灰色外壳，青色边框，10 秒后自动关闭），并带有快速“浏览”链接，可直接在系统文件管理器中打开文件夹。</translation>
+        <translation>引入了用于保存快照的中央 SnapshotSavedDialog 通知系统（深灰色外壳，青色边框，10 秒后自动关闭），并带有快速“浏览”链接，可直接在系统文件管理器中打开文件夹。</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation translatorcomment="AI-translated">使用原生、清晰的 SVG 矢量图标，通过详细的“按钮功能描述”章节丰富了内置帮助窗口。现在，在程序首次启动时，帮助窗口会完全自动打开并位于主窗口的中央。</translation>
+        <translation>使用原生、清晰的 SVG 矢量图标，通过详细的“按钮功能描述”章节丰富了内置帮助窗口。现在，在程序首次启动时，帮助窗口会完全自动打开并位于主窗口的中央。</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation translatorcomment="AI-translated">在程序/窗口启动时引入了顶部栏的默认显示，并在设置中添加了“打开窗口后默认显示顶部栏”选项，允许根据个人喜好自定义此行为。</translation>
+        <translation>在程序/窗口启动时引入了顶部栏的默认显示，并在设置中添加了“打开窗口后默认显示顶部栏”选项，允许根据个人喜好自定义此行为。</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation translatorcomment="AI-translated">使用 GNUInstallDirs 在 CMakeLists.txt 中实现动态 RPATH 库路径，从而可以在 Ubuntu 和 Debian 上立即执行已编译的应用程序，而无需手动配置 /etc/ld.so.conf.d/ 和 ldconfig。</translation>
+        <translation>使用 GNUInstallDirs 在 CMakeLists.txt 中实现动态 RPATH 库路径，从而可以在 Ubuntu 和 Debian 上立即执行已编译的应用程序，而无需手动配置 /etc/ld.so.conf.d/ 和 ldconfig。</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation translatorcomment="AI-translated">将程序重命名为 KVision，引入自动用户配置迁移、新的多尺寸图标（128px、256px、512px）以及窗口标题栏中的完整版本显示。</translation>
+        <translation>将程序重命名为 KVision，引入自动用户配置迁移、新的多尺寸图标（128px、256px、512px）以及窗口标题栏中的完整版本显示。</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation translatorcomment="AI-translated">修复了超出辅助窗口限制的警告窗口（缺少 QML 资源和 QSettings 读取）。</translation>
+        <translation>修复了超出辅助窗口限制的警告窗口（缺少 QML 资源和 QSettings 读取）。</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation translatorcomment="AI-translated">修复了 Wayland 下丢失的程序图标（hicolor 主题安装和 setDesktopFileName）。</translation>
+        <translation>修复了 Wayland 下丢失的程序图标（hicolor 主题安装和 setDesktopFileName）。</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation translatorcomment="AI-translated">从“设置”中删除了自动折叠顶部栏选项 - 从现在开始，实时窗口（主窗口和辅助窗口）中的顶部栏在启动时默认折叠，并且固定按钮将其固定在本地和临时（在内存中）而不保存其状态。</translation>
+        <translation>从“设置”中删除了自动折叠顶部栏选项 - 从现在开始，实时窗口（主窗口和辅助窗口）中的顶部栏在启动时默认折叠，并且固定按钮将其固定在本地和临时（在内存中）而不保存其状态。</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation translatorcomment="AI-translated">引入了对辅助窗口数量的限制（可配置为 0 到 3），并在尝试超过该数量时显示一个优雅的警告窗口。</translation>
+        <translation>引入了对辅助窗口数量的限制（可配置为 0 到 3），并在尝试超过该数量时显示一个优雅的警告窗口。</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation translatorcomment="AI-translated">在实时布局网格中未使用的视口周围添加了微妙的 1px 深灰色边框，以更好地描绘字段。</translation>
+        <translation>在实时布局网格中未使用的视口周围添加了微妙的 1px 深灰色边框，以更好地描绘字段。</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation translatorcomment="AI-translated">在临时“激活此部分中的更改”复选框后面安全地编辑保存路径和系统媒体配置选项，防止意外修改（编辑状态在关闭时重置）。</translation>
+        <translation>在临时“激活此部分中的更改”复选框后面安全地编辑保存路径和系统媒体配置选项，防止意外修改（编辑状态在关闭时重置）。</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation translatorcomment="AI-translated">引入了“打开保存文件夹”的直接快捷方式（在“存档”窗口中完成下载后以青瓷突出显示）以及“设置”中快照和视频文件夹的始终有效的快速打开按钮（如果丢失，则会在磁盘上自动创建目录）。</translation>
+        <translation>引入了“打开保存文件夹”的直接快捷方式（在“存档”窗口中完成下载后以青瓷突出显示）以及“设置”中快照和视频文件夹的始终有效的快速打开按钮（如果丢失，则会在磁盘上自动创建目录）。</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation translatorcomment="AI-translated">单击下载窗口中的“Pobierz”（下载）按钮时引入了交互式验证：自动格式和时间顺序日期检查，显示红色警告工具提示并聚焦第一个无效字段。</translation>
+        <translation>单击下载窗口中的“Pobierz”（下载）按钮时引入了交互式验证：自动格式和时间顺序日期检查，显示红色警告工具提示并聚焦第一个无效字段。</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation translatorcomment="AI-translated">在时钟选择器弹出窗口中实现了完整的键盘导航（向上/向下箭头键更改值，向左/向右切换列）。</translation>
+        <translation>在时钟选择器弹出窗口中实现了完整的键盘导航（向上/向下箭头键更改值，向左/向右切换列）。</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation translatorcomment="AI-translated">确保辅助窗口完全干净地启动（不会自动打开选项侧边栏）并排除从辅助窗口保存的几何设置，从而消除共享配置污染。</translation>
+        <translation>确保辅助窗口完全干净地启动（不会自动打开选项侧边栏）并排除从辅助窗口保存的几何设置，从而消除共享配置污染。</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation translatorcomment="AI-translated">在下载窗口中添加了对所有新格式和时间顺序验证错误消息的完整英语支持。</translation>
+        <translation>在下载窗口中添加了对所有新格式和时间顺序验证错误消息的完整英语支持。</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation translatorcomment="AI-translated">通过在更新格式和匹配渲染器尺寸之前自动正确停止视频表面，消除了切换摄像机布局时的 RAM 内存泄漏。</translation>
+        <translation>通过在更新格式和匹配渲染器尺寸之前自动正确停止视频表面，消除了切换摄像机布局时的 RAM 内存泄漏。</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation translatorcomment="AI-translated">实现了播放器停止时音频输出对象的无条件释放和销毁，并引入了这些对象的自动回收以消除 Linux 上的内存和线程泄漏。</translation>
+        <translation>实现了播放器停止时音频输出对象的无条件释放和销毁，并引入了这些对象的自动回收以消除 Linux 上的内存和线程泄漏。</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation translatorcomment="AI-translated">通过在呈现新流的第一帧时强制发出正确的视频可用性信号，解决了视频冻结问题（视口缩放后的纯色屏幕）。</translation>
+        <translation>通过在呈现新流的第一帧时强制发出正确的视频可用性信号，解决了视频冻结问题（视口缩放后的纯色屏幕）。</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation translatorcomment="AI-translated">添加了全局设置“完全禁用音频支持”，允许完全绕过音频处理，以消除潜在的开销和内存泄漏。</translation>
+        <translation>添加了全局设置“完全禁用音频支持”，允许完全绕过音频处理，以消除潜在的开销和内存泄漏。</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation translatorcomment="AI-translated">优化系统统计模块，通过缓存进程 ID 和删除动态正则表达式分配来消除连续的内存使用开销。</translation>
+        <translation>优化系统统计模块，通过缓存进程 ID 和删除动态正则表达式分配来消除连续的内存使用开销。</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation translatorcomment="AI-translated">对摄像机布局切换强制执行积极的垃圾收集 (GC)，并取消视频缓冲区中的图像缩放上下文 (SwsContext)。</translation>
+        <translation>对摄像机布局切换强制执行积极的垃圾收集 (GC)，并取消视频缓冲区中的图像缩放上下文 (SwsContext)。</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation translatorcomment="AI-translated">确保在应用程序退出时正确清理静态配置文件更改检测器 (QFileSystemWatcher) 的资源。</translation>
+        <translation>确保在应用程序退出时正确清理静态配置文件更改检测器 (QFileSystemWatcher) 的资源。</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation translatorcomment="AI-translated">修复了在顺序相机删除和视口合并或移动过程中较慢机器上辅助窗口进程的同步和冻结问题。</translation>
+        <translation>修复了在顺序相机删除和视口合并或移动过程中较慢机器上辅助窗口进程的同步和冻结问题。</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation translatorcomment="AI-translated">修复了后台使用共享内存 (/dev/shm) 的所有应用程序进程的 GPU 利用率、VRAM 使用率和网络带宽统计数据的聚合。</translation>
+        <translation>修复了后台使用共享内存 (/dev/shm) 的所有应用程序进程的 GPU 利用率、VRAM 使用率和网络带宽统计数据的聚合。</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation translatorcomment="AI-translated">清理待处理的 RGB 任务时，保护存档播放器析构函数免受数据竞争的影响。</translation>
+        <translation>清理待处理的 RGB 任务时，保护存档播放器析构函数免受数据竞争的影响。</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation translatorcomment="AI-translated">实施视频播放器池，以消除切换布局时的 RAM 使用峰值和闪烁。</translation>
+        <translation>实施视频播放器池，以消除切换布局时的 RAM 使用峰值和闪烁。</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation translatorcomment="AI-translated">针对特定于进程的模型（无 nvidia-smi 生成）优化 GPU/VRAM 监控，并提供对 NVIDIA、AMD 和 Intel GPU 的本机支持（AMD/Intel 统计数据未经测试）。</translation>
+        <translation>针对特定于进程的模型（无 nvidia-smi 生成）优化 GPU/VRAM 监控，并提供对 NVIDIA、AMD 和 Intel GPU 的本机支持（AMD/Intel 统计数据未经测试）。</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation translatorcomment="AI-translated">允许通过使用自动缩放图表拖动其边缘和角落来调整系统统计面板的大小。</translation>
+        <translation>允许通过使用自动缩放图表拖动其边缘和角落来调整系统统计面板的大小。</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation translatorcomment="AI-translated">在退出确认时实现了主窗口和辅助窗口的即时隐藏，使用户可以立即看到关闭，同时线程和内存清理在后台安全运行。</translation>
+        <translation>在退出确认时实现了主窗口和辅助窗口的即时隐藏，使用户可以立即看到关闭，同时线程和内存清理在后台安全运行。</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation translatorcomment="AI-translated">将 LIVE 和 ARCHIVE 窗口中的顶部工具栏转换为居中的浮动停靠栏（LIVE 停靠栏具有动态宽度）。</translation>
+        <translation>将 LIVE 和 ARCHIVE 窗口中的顶部工具栏转换为居中的浮动停靠栏（LIVE 停靠栏具有动态宽度）。</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation translatorcomment="AI-translated">在网格选项和布局之间的顶部栏停靠处添加了垂直分隔符。</translation>
+        <translation>在网格选项和布局之间的顶部栏停靠处添加了垂直分隔符。</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation translatorcomment="AI-translated">提高了存档顶部和底部栏的透明度（窗口模式下为 60%，全屏模式下为 26%）并将时间线背景设置为透明。</translation>
+        <translation>提高了存档顶部和底部栏的透明度（窗口模式下为 60%，全屏模式下为 26%）并将时间线背景设置为透明。</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation translatorcomment="AI-translated">将存档中的播放速度图标简化为清晰文本（1x、2x、4x），并删除了不稳定的 8x 速度选项。</translation>
+        <translation>将存档中的播放速度图标简化为清晰文本（1x、2x、4x），并删除了不稳定的 8x 速度选项。</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation translatorcomment="AI-translated">将存档和下载日历中的每月导航文本按钮替换为图形箭头（V 形）。</translation>
+        <translation>将存档和下载日历中的每月导航文本按钮替换为图形箭头（V 形）。</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation translatorcomment="AI-translated">将相机视口关闭按钮从右上角重新定位到右下控制区域，以防止意外点击。</translation>
+        <translation>将相机视口关闭按钮从右上角重新定位到右下控制区域，以防止意外点击。</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation translatorcomment="AI-translated">优化了存档窗口中所选网格布局文本的对比度（青瓷背景上的深色文本）。</translation>
+        <translation>优化了存档窗口中所选网格布局文本的对比度（青瓷背景上的深色文本）。</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation translatorcomment="AI-translated">使用新的专用抓柄将系统统计面板转换为可拖动的浮动面板（可点击）。</translation>
+        <translation>使用新的专用抓柄将系统统计面板转换为可拖动的浮动面板（可点击）。</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation translatorcomment="AI-translated">解决了删除视口布局时关键设置同步循环和 UI 冻结的问题。</translation>
+        <translation>解决了删除视口布局时关键设置同步循环和 UI 冻结的问题。</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation translatorcomment="AI-translated">放大了存档中的速度、缩放和 VCR 控制图标以提高可视性，并增加了 SVG 图标内的文本大小。</translation>
+        <translation>放大了存档中的速度、缩放和 VCR 控制图标以提高可视性，并增加了 SVG 图标内的文本大小。</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation translatorcomment="AI-translated">删除了存档中缩放快捷方式的重复文本按钮，将其完全替换为圆形图标。</translation>
+        <translation>删除了存档中缩放快捷方式的重复文本按钮，将其完全替换为圆形图标。</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation translatorcomment="AI-translated">为存档窗口中的所有工具提示添加了完整的英语和波兰语翻译。</translation>
+        <translation>为存档窗口中的所有工具提示添加了完整的英语和波兰语翻译。</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation translatorcomment="AI-translated">在主窗口和辅助窗口之间引入了实时双向配置同步，并支持唯一的自动辅助窗口 ID。</translation>
+        <translation>在主窗口和辅助窗口之间引入了实时双向配置同步，并支持唯一的自动辅助窗口 ID。</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation translatorcomment="AI-translated">下载完成或记录仪断开连接后，在海康威视存档播放器中添加了自动会话恢复（自动重新连接）。</translation>
+        <translation>下载完成或记录仪断开连接后，在海康威视存档播放器中添加了自动会话恢复（自动重新连接）。</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation translatorcomment="AI-translated">通过对解码器媒体上下文采用安全的 std::weak_ptr 引用，消除了潜在的线程泄漏和 FFmpeg 视频解码器在布局切换期间挂起的情况。</translation>
+        <translation>通过对解码器媒体上下文采用安全的 std::weak_ptr 引用，消除了潜在的线程泄漏和 FFmpeg 视频解码器在布局切换期间挂起的情况。</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation translatorcomment="AI-translated">通过使用 deleteLater() 安全删除布局对象，修复了 ViewportsLayouts 模型中的内存泄漏。</translation>
+        <translation>通过使用 deleteLater() 安全删除布局对象，修复了 ViewportsLayouts 模型中的内存泄漏。</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation translatorcomment="AI-translated">减少了 NVR 选项卡快速更改期间的视频渲染表面启动错误 (OpenGL) - 日志被降级为调试级别，并且系统在释放 GPU 缓冲区后以静默方式在后台重试渲染。</translation>
+        <translation>减少了 NVR 选项卡快速更改期间的视频渲染表面启动错误 (OpenGL) - 日志被降级为调试级别，并且系统在释放 GPU 缓冲区后以静默方式在后台重试渲染。</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation translatorcomment="AI-translated">通过多步堆清理和 QML 引擎缓存优化，解决了关闭存档窗口后剩余 RAM 使用量 (20-30 MB) 的问题。</translation>
+        <translation>通过多步堆清理和 QML 引擎缓存优化，解决了关闭存档窗口后剩余 RAM 使用量 (20-30 MB) 的问题。</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation translatorcomment="AI-translated">优化了相机缩放和视口调整大小/缩放期间的 RAM 使用情况，防止连续视频流布局更改期间内存过多积累。</translation>
+        <translation>优化了相机缩放和视口调整大小/缩放期间的 RAM 使用情况，防止连续视频流布局更改期间内存过多积累。</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation translatorcomment="AI-translated">在实时和存档播放流的每个视口的左上角添加了精确的实时每秒帧数 (FPS) 指示器。</translation>
+        <translation>在实时和存档播放流的每个视口的左上角添加了精确的实时每秒帧数 (FPS) 指示器。</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation translatorcomment="AI-translated">在海康威视下载器中实现下载线程的安全终止和释放，确保应用程序稳定、立即关闭，而不阻塞系统资源。</translation>
+        <translation>在海康威视下载器中实现下载线程的安全终止和释放，确保应用程序稳定、立即关闭，而不阻塞系统资源。</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation translatorcomment="AI-translated">在存档窗口中添加了动态摄像机搜索字段，带有重置按钮和自动扩展的匹配录像机。</translation>
+        <translation>在存档窗口中添加了动态摄像机搜索字段，带有重置按钮和自动扩展的匹配录像机。</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation translatorcomment="AI-translated">启用了存档中列表图块上长摄像机名称的换行。</translation>
+        <translation>启用了存档中列表图块上长摄像机名称的换行。</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation translatorcomment="AI-translated">相机图块（薄荷色背景）上加号按钮 (+) 的放大和反转颜色，以获得更好的可视性，并具有清晰的悬停/按下状态。</translation>
+        <translation>相机图块（薄荷色背景）上加号按钮 (+) 的放大和反转颜色，以获得更好的可视性，并具有清晰的悬停/按下状态。</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation translatorcomment="AI-translated">修复了存档播放器窗口中录制可用性时间线栏 2-3 小时的偏移，使时间线与客户端的本地时区同步（具有正确的夏令时 DST 支持）。</translation>
+        <translation>修复了存档播放器窗口中录制可用性时间线栏 2-3 小时的偏移，使时间线与客户端的本地时区同步（具有正确的夏令时 DST 支持）。</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation translatorcomment="AI-translated">将空视图中的低对比度黑色表情符号 📺 替换为优雅的 Seledyn 高 DPI 矢量监视器 SVG。</translation>
+        <translation>将空视图中的低对比度黑色表情符号 📺 替换为优雅的 Seledyn 高 DPI 矢量监视器 SVG。</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation translatorcomment="AI-translated">改进了存档窗口中记录器栏的可读性（高度从 22 像素增加到 28 像素，字体大小从 9 像素增加到 11 像素，展开箭头更大）。</translation>
+        <translation>改进了存档窗口中记录器栏的可读性（高度从 22 像素增加到 28 像素，字体大小从 9 像素增加到 11 像素，展开箭头更大）。</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation translatorcomment="AI-translated">为记录器栏添加了完整的动态悬停效果，背景、文本和图标颜色明显变化为 seledyn/white。</translation>
+        <translation>为记录器栏添加了完整的动态悬停效果，背景、文本和图标颜色明显变化为 seledyn/white。</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation translatorcomment="AI-translated">将顶部栏上的文本操作按钮（选项、新窗口、存档、说明）替换为带有有用工具提示的专用彩色 SVG 图标。</translation>
+        <translation>将顶部栏上的文本操作按钮（选项、新窗口、存档、说明）替换为带有有用工具提示的专用彩色 SVG 图标。</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation translatorcomment="AI-translated">将系统统计开关替换为反映系统监视器活动状态的交互式 SVG 图标。</translation>
+        <translation>将系统统计开关替换为反映系统监视器活动状态的交互式 SVG 图标。</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation translatorcomment="AI-translated">将网格选择按钮 (1x1-9x9) 统一为一致的 30x30px 圆形按钮。</translation>
+        <translation>将网格选择按钮 (1x1-9x9) 统一为一致的 30x30px 圆形按钮。</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation translatorcomment="AI-translated">在选项部分和网格选择部分之间添加了垂直分隔线。</translation>
+        <translation>在选项部分和网格选择部分之间添加了垂直分隔线。</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation translatorcomment="AI-translated">将视图按钮重新设计为优雅的圆形药丸形状，高度为 30 像素，保留侧边距。</translation>
+        <translation>将视图按钮重新设计为优雅的圆形药丸形状，高度为 30 像素，保留侧边距。</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation translatorcomment="AI-translated">视图名称强制自动显示大写。</translation>
+        <translation>视图名称强制自动显示大写。</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation translatorcomment="AI-translated">改进了活动视图按钮的可读性和对比度 - 明亮的 Seledyn 背景上的深色文本 (#121214)。</translation>
+        <translation>改进了活动视图按钮的可读性和对比度 - 明亮的 Seledyn 背景上的深色文本 (#121214)。</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation translatorcomment="AI-translated">将记录器和视图列表上的删除图标以及预设激活按钮统一并改进为带有工具提示的 SVG 图标。</translation>
+        <translation>将记录器和视图列表上的删除图标以及预设激活按钮统一并改进为带有工具提示的 SVG 图标。</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation translatorcomment="AI-translated">减少顶部栏按钮之间的间距以优化界面空间。</translation>
+        <translation>减少顶部栏按钮之间的间距以优化界面空间。</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation translatorcomment="AI-translated">恢复了辅助窗口中丢失的最小化图标。</translation>
+        <translation>恢复了辅助窗口中丢失的最小化图标。</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation translatorcomment="AI-translated">修复了辅助窗口中的登录和播放问题。</translation>
+        <translation>修复了辅助窗口中的登录和播放问题。</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation translatorcomment="AI-translated">修复了直接从相机打开播放时的布局按钮状态（1x1 与 2x2）。</translation>
+        <translation>修复了直接从相机打开播放时的布局按钮状态（1x1 与 2x2）。</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation translatorcomment="AI-translated">在 Hikvision ISAPI 查询中添加了正确的 XML 命名空间（修复了较新记录器固件上的“无效 XML 内容”错误）。</translation>
+        <translation>在 Hikvision ISAPI 查询中添加了正确的 XML 命名空间（修复了较新记录器固件上的“无效 XML 内容”错误）。</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation translatorcomment="AI-translated">修复了搜索结果分页处理（searchResultPostion 标记）。</translation>
+        <translation>修复了搜索结果分页处理（searchResultPostion 标记）。</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation translatorcomment="AI-translated">播放窗口中的“刷新”按钮可手动清除缓存并重新获取录制可用性数据。</translation>
+        <translation>播放窗口中的“刷新”按钮可手动清除缓存并重新获取录制可用性数据。</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation translatorcomment="AI-translated">网络预取队列优化 - 将后台提取限制为 12 个月，消除了数百个不必要的查询并加快播放启动速度。</translation>
+        <translation>网络预取队列优化 - 将后台提取限制为 12 个月，消除了数百个不必要的查询并加快播放启动速度。</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation translatorcomment="AI-translated">在后台线程中异步初始化 Hikvision SDK，完全消除打开选项时 GUI 冻结的情况。</translation>
+        <translation>在后台线程中异步初始化 Hikvision SDK，完全消除打开选项时 GUI 冻结的情况。</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation translatorcomment="AI-translated">海康威视SDK方法访问的线程安全同步。</translation>
+        <translation>海康威视SDK方法访问的线程安全同步。</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation translatorcomment="AI-translated">通过删除记录器 IP 地址来清理下载的文件和屏幕截图名称。</translation>
+        <translation>通过删除记录器 IP 地址来清理下载的文件和屏幕截图名称。</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation translatorcomment="AI-translated">绿松石色的时尚下载进度条 (#00f5d4)，带有居中的轮廓文本。</translation>
+        <translation>绿松石色的时尚下载进度条 (#00f5d4)，带有居中的轮廓文本。</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation translatorcomment="AI-translated">计算多部分录制的全局下载进度 (overallProgress)。</translation>
+        <translation>计算多部分录制的全局下载进度 (overallProgress)。</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation translatorcomment="AI-translated">将临时下载文件扩展名从“.ps”更改为“.pspart”。</translation>
+        <translation>将临时下载文件扩展名从“.ps”更改为“.pspart”。</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation translatorcomment="AI-translated">用户界面设置中的“仅在悬停时显示信息字段”选项和按钮。</translation>
+        <translation>用户界面设置中的“仅在悬停时显示信息字段”选项和按钮。</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation translatorcomment="AI-translated">配置面板中相机发现的视觉指示器（旋转图标、表单阻止和“发现...”文本）。</translation>
+        <translation>配置面板中相机发现的视觉指示器（旋转图标、表单阻止和“发现...”文本）。</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation translatorcomment="AI-translated">完全本地化（添加了官方波兰语和英语翻译支持）。</translation>
+        <translation>完全本地化（添加了官方波兰语和英语翻译支持）。</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation translatorcomment="AI-translated">辅助窗口启动优化 - 将加载时间从 3 秒减少到 300 毫秒以下。</translation>
+        <translation>辅助窗口启动优化 - 将加载时间从 3 秒减少到 300 毫秒以下。</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation translatorcomment="AI-translated">辅助窗口中带有绿松石边框的美观占位符（“未选择视图”）。</translation>
+        <translation>辅助窗口中带有绿松石边框的美观占位符（“未选择视图”）。</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation translatorcomment="AI-translated">用于实时查看和回放模式的海康威视 SDK 集成。</translation>
+        <translation>用于实时查看和回放模式的海康威视 SDK 集成。</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation translatorcomment="AI-translated">具有自动时间线定位和居中功能的多机位播放播放器。</translation>
+        <translation>具有自动时间线定位和居中功能的多机位播放播放器。</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation translatorcomment="AI-translated">多线程系统监视器（CPU、RAM、GPU、VRAM 和网络带宽统计）。</translation>
+        <translation>多线程系统监视器（CPU、RAM、GPU、VRAM 和网络带宽统计）。</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation translatorcomment="AI-translated">实时网络带宽消耗跟踪。</translation>
+        <translation>实时网络带宽消耗跟踪。</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation translatorcomment="AI-translated">高分辨率的应用程序图标和精致的深色主题界面。</translation>
+        <translation>高分辨率的应用程序图标和精致的深色主题界面。</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation translatorcomment="AI-translated">Arch Linux 的自动 Pacman 包构建脚本。</translation>
+        <translation>Arch Linux 的自动 Pacman 包构建脚本。</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">凯维视</translation>
+        <translation>凯维视</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation translatorcomment="AI-translated">版本%1</translation>
+        <translation>版本%1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation translatorcomment="AI-translated">原作者：叶夫根尼·S·马克西莫夫</translation>
+        <translation>原作者：叶夫根尼·S·马克西莫夫</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation translatorcomment="AI-translated">修改：arkanista（有AI辅助）</translation>
+        <translation>修改：arkanista（有AI辅助）</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation translatorcomment="AI-translated">视口%1</translation>
+        <translation>视口%1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation translatorcomment="AI-translated">#%1</translation>
+        <translation>#%1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation translatorcomment="AI-translated">工具</translation>
+        <translation>工具</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation translatorcomment="AI-translated">录音机</translation>
+        <translation>录音机</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation translatorcomment="AI-translated">预设</translation>
+        <translation>预设</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation translatorcomment="AI-translated">设置</translation>
+        <translation>设置</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation translatorcomment="AI-translated">变更日志</translation>
+        <translation>变更日志</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation translatorcomment="AI-translated">可用版本：%1</translation>
+        <translation>可用版本：%1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation translatorcomment="AI-translated">视口详细信息</translation>
+        <translation>视口详细信息</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation translatorcomment="AI-translated">请在主网格中选择一个视口以自定义其设置。</translation>
+        <translation>请在主网格中选择一个视口以自定义其设置。</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation translatorcomment="AI-translated">解锁配置面板</translation>
+        <translation>解锁配置面板</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">活动流连接</translation>
+        <translation>活动流连接</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">主码流网址</translation>
+        <translation>主码流网址</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">辅助备份 URL</translation>
+        <translation>辅助备份 URL</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation translatorcomment="AI-translated">音频和渲染选项</translation>
+        <translation>音频和渲染选项</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation translatorcomment="AI-translated">音频静音/取消静音</translation>
+        <translation>音频静音/取消静音</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation translatorcomment="AI-translated">FFmpeg 选项覆盖</translation>
+        <translation>FFmpeg 选项覆盖</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">布局和网格工具</translation>
+        <translation>布局和网格工具</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">解锁工具窗格</translation>
+        <translation>解锁工具窗格</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">窗部</translation>
+        <translation>窗部</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">读取配置错误！</translation>
+        <translation>读取配置错误！</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">按住可编辑分度值</translation>
+        <translation>按住可编辑分度值</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">几何比例</translation>
+        <translation>几何比例</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">切换全屏</translation>
+        <translation>切换全屏</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">网格运营</translation>
+        <translation>网格运营</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">合并突出显示的单元格</translation>
+        <translation>合并突出显示的单元格</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation translatorcomment="AI-translated">NVR/海康录像机管理器</translation>
+        <translation>NVR/海康录像机管理器</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation translatorcomment="AI-translated">预设和快速布局视图</translation>
+        <translation>预设和快速布局视图</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation translatorcomment="AI-translated">ONVIF 和 RTSP 布局设置</translation>
+        <translation>ONVIF 和 RTSP 布局设置</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation translatorcomment="AI-translated">布局%1</translation>
+        <translation>布局%1</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation translatorcomment="AI-translated">可见的</translation>
+        <translation>可见的</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation translatorcomment="AI-translated">激活此预览布局</translation>
+        <translation>激活此预览布局</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation translatorcomment="AI-translated">删除此预览布局</translation>
+        <translation>删除此预览布局</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation translatorcomment="AI-translated">添加预设布局</translation>
+        <translation>添加预设布局</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation translatorcomment="AI-translated">NVR 视图布局</translation>
+        <translation>NVR 视图布局</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation translatorcomment="AI-translated">NVR查看</translation>
+        <translation>NVR查看</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation translatorcomment="AI-translated">激活此 NVR 摄像机视图</translation>
+        <translation>激活此 NVR 摄像机视图</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation translatorcomment="AI-translated">删除此 NVR 摄像机视图</translation>
+        <translation>删除此 NVR 摄像机视图</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation translatorcomment="AI-translated">NVR 预设（网格视图）</translation>
+        <translation>NVR 预设（网格视图）</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation translatorcomment="AI-translated">NVR 预设 #%1</translation>
+        <translation>NVR 预设 #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation translatorcomment="AI-translated">激活此 NVR 摄像机预设</translation>
+        <translation>激活此 NVR 摄像机预设</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation translatorcomment="AI-translated">删除此 NVR 摄像机预设</translation>
+        <translation>删除此 NVR 摄像机预设</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation translatorcomment="AI-translated">添加NVR预设</translation>
+        <translation>添加NVR预设</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation translatorcomment="AI-translated">系统设置</translation>
+        <translation>系统设置</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation translatorcomment="AI-translated">常规设置</translation>
+        <translation>常规设置</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation translatorcomment="AI-translated">允许运行多个应用程序实例</translation>
+        <translation>允许运行多个应用程序实例</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation translatorcomment="AI-translated">禁用此选项是为了防止设置文件写入冲突。要启用它（危险且不推荐！），请在 kvision.conf 配置文件中设置“singleApplication=false”。</translation>
+        <translation>禁用此选项是为了防止设置文件写入冲突。要启用它（危险且不推荐！），请在 kvision.conf 配置文件中设置“singleApplication=false”。</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation translatorcomment="AI-translated">检查海康威视 NVR 错误状态</translation>
+        <translation>检查海康威视 NVR 错误状态</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation translatorcomment="AI-translated">声音的</translation>
+        <translation>声音的</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation translatorcomment="AI-translated">完全禁用音频</translation>
+        <translation>完全禁用音频</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation translatorcomment="AI-translated">将相机最大化至全屏并不会取消静音</translation>
+        <translation>将相机最大化至全屏并不会取消静音</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation translatorcomment="AI-translated">上下文菜单设置</translation>
+        <translation>上下文菜单设置</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation translatorcomment="AI-translated">启用右键单击上下文菜单</translation>
+        <translation>启用右键单击上下文菜单</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation translatorcomment="AI-translated">允许交换视口位置</translation>
+        <translation>允许交换视口位置</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation translatorcomment="AI-translated">启用“删除相机”选项</translation>
+        <translation>启用“删除相机”选项</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation translatorcomment="AI-translated">允许更改视口设置</translation>
+        <translation>允许更改视口设置</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation translatorcomment="AI-translated">启用“流选择”选项</translation>
+        <translation>启用“流选择”选项</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation translatorcomment="AI-translated">用户界面设置</translation>
+        <translation>用户界面设置</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation translatorcomment="AI-translated">在视口左上角显示通道状态</translation>
+        <translation>在视口左上角显示通道状态</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation translatorcomment="AI-translated">在视口左下角显示相机信息</translation>
+        <translation>在视口左下角显示相机信息</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation translatorcomment="AI-translated">仅当悬停时在视口右下角显示控件图标</translation>
+        <translation>仅当悬停时在视口右下角显示控件图标</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation translatorcomment="AI-translated">仅在悬停时显示信息字段</translation>
+        <translation>仅在悬停时显示信息字段</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation translatorcomment="AI-translated">打开窗口时默认显示顶栏</translation>
+        <translation>打开窗口时默认显示顶栏</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation translatorcomment="AI-translated">在全屏模式下隐藏鼠标光标</translation>
+        <translation>在全屏模式下隐藏鼠标光标</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation translatorcomment="AI-translated">禁用视口缩放动画</translation>
+        <translation>禁用视口缩放动画</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation translatorcomment="AI-translated">语言：</translation>
+        <translation>语言：</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation translatorcomment="AI-translated">系统默认</translation>
+        <translation>系统默认</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation translatorcomment="AI-translated">将辅助窗口限制为：</translation>
+        <translation>将辅助窗口限制为：</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation translatorcomment="AI-translated">NVR状态监控</translation>
+        <translation>NVR状态监控</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation translatorcomment="AI-translated">监控离线状态和登录错误</translation>
+        <translation>监控离线状态和登录错误</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation translatorcomment="AI-translated">监控 CPU 过载 (&gt;85%)</translation>
+        <translation>监控 CPU 过载 (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation translatorcomment="AI-translated">监控录像机硬件错误</translation>
+        <translation>监控录像机硬件错误</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation translatorcomment="AI-translated">监控硬盘故障/异常</translation>
+        <translation>监控硬盘故障/异常</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation translatorcomment="AI-translated">监控未格式化的硬盘</translation>
+        <translation>监控未格式化的硬盘</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation translatorcomment="AI-translated">监控完整硬盘（禁用循环覆盖）</translation>
+        <translation>监控完整硬盘（禁用循环覆盖）</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation translatorcomment="AI-translated">回放</translation>
+        <translation>回放</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation translatorcomment="AI-translated">默认向后播放开始偏移量，秒：</translation>
+        <translation>默认向后播放开始偏移量，秒：</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation translatorcomment="AI-translated">默认播放时间线范围，小时：</translation>
+        <translation>默认播放时间线范围，小时：</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation translatorcomment="AI-translated">保存</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation translatorcomment="AI-translated">激活此部分中的更改</translation>
+        <translation>激活此部分中的更改</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation translatorcomment="AI-translated">默认快照路径：</translation>
+        <translation>默认快照路径：</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation translatorcomment="AI-translated">选择快照文件夹</translation>
+        <translation>选择快照文件夹</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation translatorcomment="AI-translated">默认录音路径：</translation>
+        <translation>默认录音路径：</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation translatorcomment="AI-translated">选择录音文件夹</translation>
+        <translation>选择录音文件夹</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation translatorcomment="AI-translated">打开图像文件夹</translation>
+        <translation>打开图像文件夹</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation translatorcomment="AI-translated">打开视频文件夹</translation>
+        <translation>打开视频文件夹</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation translatorcomment="AI-translated">系统媒体配置</translation>
+        <translation>系统媒体配置</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation translatorcomment="AI-translated">默认 FFmpeg 命令行选项</translation>
+        <translation>默认 FFmpeg 命令行选项</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation translatorcomment="AI-translated">更新所有相机</translation>
+        <translation>更新所有相机</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation translatorcomment="AI-translated">变更日志</translation>
+        <translation>变更日志</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation translatorcomment="AI-translated">KVision 的改进、错误修复和新功能的历史记录。</translation>
+        <translation>KVision 的改进、错误修复和新功能的历史记录。</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation translatorcomment="AI-translated">确认删除</translation>
+        <translation>确认删除</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation translatorcomment="AI-translated">您确定要删除预设“%1”吗？此操作是完全不可逆转的。</translation>
+        <translation>您确定要删除预设“%1”吗？此操作是完全不可逆转的。</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation translatorcomment="AI-translated">您确定要删除预设 #%1 吗？此操作是完全不可逆转的。</translation>
+        <translation>您确定要删除预设 #%1 吗？此操作是完全不可逆转的。</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation translatorcomment="AI-translated">您确定要删除 NVR 视图“%1”吗？此操作是完全不可逆转的。</translation>
+        <translation>您确定要删除 NVR 视图“%1”吗？此操作是完全不可逆转的。</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation translatorcomment="AI-translated">您确定要删除此 NVR 视图布局吗？此操作是完全不可逆转的。</translation>
+        <translation>您确定要删除此 NVR 视图布局吗？此操作是完全不可逆转的。</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation translatorcomment="AI-translated">您确定要删除 NVR 预设“%1”吗？此操作是完全不可逆转的。</translation>
+        <translation>您确定要删除 NVR 预设“%1”吗？此操作是完全不可逆转的。</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation translatorcomment="AI-translated">您确定要删除此 NVR 预设吗？此操作是完全不可逆转的。</translation>
+        <translation>您确定要删除此 NVR 预设吗？此操作是完全不可逆转的。</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">不包括全局 FFmpeg 设置更改</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">FFmpeg 选项</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">频道选项</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">视口设置</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">您确定要从此视口中删除相机吗？</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">确认相机移除</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">泰尔科SUB</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">泰尔科主要</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">自动化</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">回放</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>本地化扩展：KVision 现已完全本地化为 20 种新的人工智能翻译语言，使支持的语言总数达到 22 种（英语、波兰语和 20 种新语言）。整个应用程序界面 (UI) 和完整的用户手册均已翻译。</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>Viewport 快速播放文档：在所有 22 个用户手册中添加了解释圆形箭头覆盖按钮（迷你播放器）及其详细功能的综合文档。</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>平移缩放：添加了通过按住鼠标中键（滚轮）并拖动光标来自由平移放大视频（实时、迷你播放器、存档）的功能。</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>按比例缩放选择：引入了 Shift 快捷键。绘制缩放矩形时按住 Shift 键会强制将选区锁定为 16:9 的宽高比，严格限制在视口边界内。</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>强制窗口定位：由于 Qt 中无法解决的多显示器投影问题，完全取代了旧的窗口几何保存机制。该应用程序（主窗口和辅助窗口）现在严格强制以主显示器为中心以其 90% 的分辨率启动，确保所有设置的稳定性和可预测性。</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>本地化重构：替换了源代码中嵌入的所有硬编码的波兰语和英语字符串（qsTr、tr）。超过 500 个唯一字符串已被重构为 LNG_XXXXX 标识符，并通过改进的 .ts/.qm 文件系统安全地映射。</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>纯英文 CLI：命令行界面选项和 --help 参数现在永久为英文，以防止本地化引擎初始化延迟出现问题。</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>存档纵横比：修复了存档播放器视口中视频纵横比扭曲的问题。 HikvisionArchivePlayer 组件现在可以正确渲染原始帧，保留其自然的宽高比（黑框），而不是拉伸视频以适应 UI 边界。</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>解复用器内存泄漏：改进了 QmlAVPlayer::stop() 例程中的对象清理逻辑，防止“僵尸”解复用器实例在后台累积。</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>writeSetting 修复：在 Context 类中添加了 writeSetting 方法的缺失实现，消除了设置迁移期间的 TypeErrors 和 QML 执行中断。</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4374,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">读取配置错误！</translation>
+        <translation>读取配置错误！</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4393,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">凯维视</translation>
+        <translation>凯维视</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation translatorcomment="AI-translated">该程序已在运行，无法启动第二个</translation>
+        <translation>该程序已在运行，无法启动第二个</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">关闭</translation>
+        <translation>关闭</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4424,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation translatorcomment="AI-translated">已保存快照</translation>
+        <translation>已保存快照</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation translatorcomment="AI-translated">快照已保存 -</translation>
+        <translation>快照已保存 -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation translatorcomment="AI-translated">浏览</translation>
+        <translation>浏览</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation translatorcomment="AI-translated">出口</translation>
+        <translation>出口</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4491,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">布局和网格工具</translation>
+        <translation>布局和网格工具</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">解锁工具窗格</translation>
+        <translation>解锁工具窗格</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">窗部</translation>
+        <translation>窗部</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">读取配置错误！</translation>
+        <translation>读取配置错误！</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">按住可编辑分度值</translation>
+        <translation>按住可编辑分度值</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">几何比例</translation>
+        <translation>几何比例</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation translatorcomment="AI-translated">16:9 纵横比</translation>
+        <translation>16:9 纵横比</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation translatorcomment="AI-translated">4:3 纵横比</translation>
+        <translation>4:3 纵横比</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">切换全屏</translation>
+        <translation>切换全屏</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">网格运营</translation>
+        <translation>网格运营</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">合并突出显示的单元格</translation>
+        <translation>合并突出显示的单元格</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4578,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation translatorcomment="AI-translated">视口设置</translation>
+        <translation>视口设置</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">活动流连接</translation>
+        <translation>活动流连接</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">主码流网址</translation>
+        <translation>主码流网址</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">辅助备份 URL</translation>
+        <translation>辅助备份 URL</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation translatorcomment="AI-translated">频道选项</translation>
+        <translation>频道选项</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation translatorcomment="AI-translated">FFmpeg 选项</translation>
+        <translation>FFmpeg 选项</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation translatorcomment="AI-translated">不包括全局 FFmpeg 设置更改</translation>
+        <translation>不包括全局 FFmpeg 设置更改</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">节省</translation>
+        <translation>节省</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4670,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation translatorcomment="AI-translated">交换视口</translation>
+        <translation>交换视口</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation translatorcomment="AI-translated">码流选择</translation>
+        <translation>码流选择</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation translatorcomment="AI-translated">移除相机</translation>
+        <translation>移除相机</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation translatorcomment="AI-translated">更改设置</translation>
+        <translation>更改设置</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation translatorcomment="AI-translated">重新加载</translation>
+        <translation>重新加载</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation translatorcomment="AI-translated">快照</translation>
+        <translation>快照</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation translatorcomment="AI-translated">回放</translation>
+        <translation>回放</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation translatorcomment="AI-translated">自动化</translation>
+        <translation>自动化</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation translatorcomment="AI-translated">泰尔科主要</translation>
+        <translation>泰尔科主要</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation translatorcomment="AI-translated">泰尔科SUB</translation>
+        <translation>泰尔科SUB</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation translatorcomment="AI-translated">确认相机移除</translation>
+        <translation>确认相机移除</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation translatorcomment="AI-translated">您确定要从此视口中删除相机吗？</translation>
+        <translation>您确定要从此视口中删除相机吗？</translation>
     </message>
 </context>
 </TS>

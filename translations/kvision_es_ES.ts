@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVisión</translation>
+        <translation>KVisión</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation translatorcomment="AI-translated">No puedes abrir más ventanas auxiliares</translation>
+        <translation>No puedes abrir más ventanas auxiliares</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">CERRAR</translation>
+        <translation>CERRAR</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Ventana auxiliar</translation>
+        <translation>KVision - Ventana auxiliar</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Ninguna vista seleccionada, seleccione una vista</translation>
+        <translation>Ninguna vista seleccionada, seleccione una vista</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Seleccione una vista en el menú superior para comenzar a mostrar las cámaras.</translation>
+        <translation>Seleccione una vista en el menú superior para comenzar a mostrar las cámaras.</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Opciones y configuraciones del panel de la barra lateral.</translation>
+        <translation>Opciones y configuraciones del panel de la barra lateral.</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Abrir nueva ventana auxiliar</translation>
+        <translation>Abrir nueva ventana auxiliar</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">manual de usuario del programa</translation>
+        <translation>manual de usuario del programa</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation translatorcomment="AI-translated">Vista de cuadrícula:</translation>
+        <translation>Vista de cuadrícula:</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Alternar pantalla completa</translation>
+        <translation>Alternar pantalla completa</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation translatorcomment="AI-translated">🔒 Cambio de diseño de bloqueo</translation>
+        <translation>🔒 Cambio de diseño de bloqueo</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Más opciones</translation>
+        <translation>Más opciones</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation translatorcomment="AI-translated">Ver selección:</translation>
+        <translation>Ver selección:</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Cerrar programa</translation>
+        <translation>Cerrar programa</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">¿Estás seguro de que quieres cerrar el programa?</translation>
+        <translation>¿Estás seguro de que quieres cerrar el programa?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">SI</translation>
+        <translation>SI</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NO</translation>
+        <translation>NO</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation translatorcomment="AI-translated">si</translation>
+        <translation>si</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation translatorcomment="AI-translated">No</translation>
+        <translation>No</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation translatorcomment="AI-translated">Ruta al archivo de configuración.</translation>
+        <translation type="vanished">Ruta al archivo de configuración.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation translatorcomment="AI-translated">Índice del preset actual.</translation>
+        <translation type="vanished">Índice del preset actual.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation translatorcomment="AI-translated">Forzar el modo de pantalla completa.</translation>
+        <translation type="vanished">Forzar el modo de pantalla completa.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation translatorcomment="AI-translated">Funcionalidad del modo quiosco.</translation>
+        <translation type="vanished">Funcionalidad del modo quiosco.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation translatorcomment="AI-translated">Nivel de registro [%1...%2].</translation>
+        <translation type="vanished">Nivel de registro [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation translatorcomment="AI-translated">Comience como una ventana auxiliar.</translation>
+        <translation type="vanished">Comience como una ventana auxiliar.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation translatorcomment="AI-translated">ID de la ventana auxiliar.</translation>
+        <translation type="vanished">ID de la ventana auxiliar.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation translatorcomment="AI-translated">Mostrar registros detallados en la consola (registro detallado).</translation>
+        <translation type="vanished">Mostrar registros detallados en la consola (registro detallado).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation translatorcomment="AI-translated">Habilite el seguimiento de objetos en los registros para depurar pérdidas de memoria.</translation>
+        <translation type="vanished">Habilite el seguimiento de objetos en los registros para depurar pérdidas de memoria.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation translatorcomment="AI-translated">Fuerce el comportamiento de primera ejecución y muestre instrucciones.</translation>
+        <translation type="vanished">Fuerce el comportamiento de primera ejecución y muestre instrucciones.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation translatorcomment="AI-translated">Simule errores de NVR en todas las grabadoras.</translation>
+        <translation type="vanished">Simule errores de NVR en todas las grabadoras.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation translatorcomment="AI-translated">Simule la disponibilidad de una nueva versión en GitHub con fines de prueba</translation>
+        <translation type="vanished">Simule la disponibilidad de una nueva versión en GitHub con fines de prueba</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation translatorcomment="AI-translated">KVision: visor y montador de secuencias de vídeo.</translation>
+        <translation>KVision: visor y montador de secuencias de vídeo.</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation translatorcomment="AI-translated">¡La fecha y hora de finalización deben ser posteriores a la fecha y hora de inicio!</translation>
+        <translation>¡La fecha y hora de finalización deben ser posteriores a la fecha y hora de inicio!</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation translatorcomment="AI-translated">enero</translation>
+        <translation>enero</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation translatorcomment="AI-translated">febrero</translation>
+        <translation>febrero</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation translatorcomment="AI-translated">marzo</translation>
+        <translation>marzo</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation translatorcomment="AI-translated">abril</translation>
+        <translation>abril</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation translatorcomment="AI-translated">mayo</translation>
+        <translation>mayo</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation translatorcomment="AI-translated">Junio</translation>
+        <translation>Junio</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation translatorcomment="AI-translated">julio</translation>
+        <translation>julio</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation translatorcomment="AI-translated">agosto</translation>
+        <translation>agosto</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation translatorcomment="AI-translated">septiembre</translation>
+        <translation>septiembre</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation translatorcomment="AI-translated">octubre</translation>
+        <translation>octubre</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation translatorcomment="AI-translated">noviembre</translation>
+        <translation>noviembre</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation translatorcomment="AI-translated">diciembre</translation>
+        <translation>diciembre</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Mes anterior</translation>
+        <translation>Mes anterior</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">El próximo mes</translation>
+        <translation>El próximo mes</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation translatorcomment="AI-translated">Seleccionar hora</translation>
+        <translation>Seleccionar hora</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation translatorcomment="AI-translated">hora</translation>
+        <translation>hora</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation translatorcomment="AI-translated">mín.</translation>
+        <translation>mín.</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation translatorcomment="AI-translated">segundo</translation>
+        <translation>segundo</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation translatorcomment="AI-translated">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation translatorcomment="AI-translated">Confirmar</translation>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation translatorcomment="AI-translated">Descargar grabaciones</translation>
+        <translation>Descargar grabaciones</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation translatorcomment="AI-translated">De:</translation>
+        <translation>De:</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation translatorcomment="AI-translated">¡Formato de fecha incorrecto! Formato requerido: DD.MM.AAAA (por ejemplo, 26.06.2026)</translation>
+        <translation>¡Formato de fecha incorrecto! Formato requerido: DD.MM.AAAA (por ejemplo, 26.06.2026)</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation translatorcomment="AI-translated">¡Formato de hora incorrecto! Formato requerido: HH:MM:SS o HH.MM.SS (por ejemplo, 12:30:00 o 12.30.00)</translation>
+        <translation>¡Formato de hora incorrecto! Formato requerido: HH:MM:SS o HH.MM.SS (por ejemplo, 12:30:00 o 12.30.00)</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation translatorcomment="AI-translated">Para:</translation>
+        <translation>Para:</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation translatorcomment="AI-translated">Totales:</translation>
+        <translation>Totales:</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation translatorcomment="AI-translated">Descargando...</translation>
+        <translation>Descargando...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation translatorcomment="AI-translated">Error:</translation>
+        <translation>Error:</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation translatorcomment="AI-translated">Inicializando...</translation>
+        <translation>Inicializando...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Detenido</translation>
+        <translation>Detenido</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation translatorcomment="AI-translated">abrir carpeta para guardar</translation>
+        <translation>abrir carpeta para guardar</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation translatorcomment="AI-translated">Detener</translation>
+        <translation>Detener</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Descargar</translation>
+        <translation>Descargar</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation translatorcomment="AI-translated">La descarga ya está en progreso.</translation>
+        <translation>La descarga ya está en progreso.</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation translatorcomment="AI-translated">Inicializando la búsqueda de archivos...</translation>
+        <translation>Inicializando la búsqueda de archivos...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation translatorcomment="AI-translated">Error al iniciar sesión en el dispositivo: %1</translation>
+        <translation>Error al iniciar sesión en el dispositivo: %1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation translatorcomment="AI-translated">No hay grabaciones en el rango de tiempo seleccionado para esta cámara.</translation>
+        <translation>No hay grabaciones en el rango de tiempo seleccionado para esta cámara.</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation translatorcomment="AI-translated">Descargué y convertí %1 de %2 archivos.</translation>
+        <translation>Descargué y convertí %1 de %2 archivos.</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation translatorcomment="AI-translated">La ruta de guardado especificada no es válida o se deniega el acceso de escritura:
+        <translation>La ruta de guardado especificada no es válida o se deniega el acceso de escritura:
 %1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation translatorcomment="AI-translated">Sin permiso de escritura en el directorio:
+        <translation>Sin permiso de escritura en el directorio:
 %1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation translatorcomment="AI-translated">Error al inicializar la descarga de la parte %1: %2</translation>
+        <translation>Error al inicializar la descarga de la parte %1: %2</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation translatorcomment="AI-translated">Error al iniciar la descarga de la parte %1: %2</translation>
+        <translation>Error al iniciar la descarga de la parte %1: %2</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation translatorcomment="AI-translated">Descargando parte %1 de %2...</translation>
+        <translation>Descargando parte %1 de %2...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Detenido</translation>
+        <translation>Detenido</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation translatorcomment="AI-translated">Descarga interrumpida por el usuario.</translation>
+        <translation>Descarga interrumpida por el usuario.</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation translatorcomment="AI-translated">Convirtiendo la parte %1 de %2...</translation>
+        <translation>Convirtiendo la parte %1 de %2...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation translatorcomment="AI-translated">Error al descargar la parte %1.</translation>
+        <translation>Error al descargar la parte %1.</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation translatorcomment="AI-translated">Descargado y convertido %1 de %2 partes...</translation>
+        <translation>Descargado y convertido %1 de %2 partes...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation translatorcomment="AI-translated">Error interno de FFmpeg</translation>
+        <translation>Error interno de FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation translatorcomment="AI-translated">Error en la conversión de la parte %1 a MP4: %2</translation>
+        <translation>Error en la conversión de la parte %1 a MP4: %2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Error al iniciar sesión o no se descubrieron cámaras.</translation>
+        <translation>Error al iniciar sesión o no se descubrieron cámaras.</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation translatorcomment="AI-translated">KVision - Manual de usuario / Instrucciones</translation>
+        <translation>KVision - Manual de usuario / Instrucciones</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS_es.md</translation>
+        <translation>qrc:/INSTRUCTIONS_es.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation translatorcomment="AI-translated">Error al cargar instrucciones.</translation>
+        <translation>Error al cargar instrucciones.</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation translatorcomment="AI-translated">Cámaras en %1</translation>
+        <translation>Cámaras en %1</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation translatorcomment="AI-translated">Cámaras</translation>
+        <translation>Cámaras</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation translatorcomment="AI-translated">IP: %1 | Puerto: %2 | %3 canales</translation>
+        <translation>IP: %1 | Puerto: %2 | %3 canales</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation translatorcomment="AI-translated">Generar miniaturas para todas las cámaras.</translation>
+        <translation>Generar miniaturas para todas las cámaras.</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation translatorcomment="AI-translated">Cámara %1</translation>
+        <translation>Cámara %1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation translatorcomment="AI-translated">Cámara asignada %1 Ch. %2 a la ventana gráfica %3</translation>
+        <translation>Cámara asignada %1 Ch. %2 a la ventana gráfica %3</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation translatorcomment="AI-translated">Asignar a la ventana gráfica activa</translation>
+        <translation>Asignar a la ventana gráfica activa</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation translatorcomment="AI-translated">Cambiar nombre de cámara</translation>
+        <translation>Cambiar nombre de cámara</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation translatorcomment="AI-translated">Actualizar miniatura de la cámara</translation>
+        <translation>Actualizar miniatura de la cámara</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation translatorcomment="AI-translated">Cambiar nombre de cámara</translation>
+        <translation>Cambiar nombre de cámara</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation translatorcomment="AI-translated">Canal: %1</translation>
+        <translation>Canal: %1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation translatorcomment="AI-translated">Nombre original: %1</translation>
+        <translation>Nombre original: %1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation translatorcomment="AI-translated">Ninguno</translation>
+        <translation>Ninguno</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation translatorcomment="AI-translated">Ingrese el nuevo nombre de la cámara...</translation>
+        <translation>Ingrese el nuevo nombre de la cámara...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation translatorcomment="AI-translated">Reiniciar</translation>
+        <translation>Reiniciar</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Guardar</translation>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Error al iniciar sesión o no se descubrieron cámaras.</translation>
+        <translation>Error al iniciar sesión o no se descubrieron cámaras.</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation translatorcomment="AI-translated">Agregar grabadora Hikvision</translation>
+        <translation>Agregar grabadora Hikvision</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation translatorcomment="AI-translated">Nombre de la grabadora (opcional)</translation>
+        <translation>Nombre de la grabadora (opcional)</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation translatorcomment="AI-translated">Dirección IP</translation>
+        <translation>Dirección IP</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation translatorcomment="AI-translated">Puerto (8000)</translation>
+        <translation>Puerto (8000)</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation translatorcomment="AI-translated">Nombre de usuario</translation>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation translatorcomment="AI-translated">Contraseña</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation translatorcomment="AI-translated">Descubriendo...</translation>
+        <translation>Descubriendo...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation translatorcomment="AI-translated">Conéctate y descubre</translation>
+        <translation>Conéctate y descubre</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation translatorcomment="AI-translated">Guardar y actualizar</translation>
+        <translation>Guardar y actualizar</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation translatorcomment="AI-translated">Error: Se requieren IP y contraseña.</translation>
+        <translation>Error: Se requieren IP y contraseña.</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation translatorcomment="AI-translated">Conexión a NVR y descubrimiento de canales...</translation>
+        <translation>Conexión a NVR y descubrimiento de canales...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation translatorcomment="AI-translated">Grabadores conectados</translation>
+        <translation>Grabadores conectados</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation translatorcomment="AI-translated">%1 cámaras conectadas</translation>
+        <translation>%1 cámaras conectadas</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation translatorcomment="AI-translated">INICIADO SESIÓN</translation>
+        <translation>INICIADO SESIÓN</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation translatorcomment="AI-translated">NO INICIA SESIÓN</translation>
+        <translation>NO INICIA SESIÓN</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation translatorcomment="AI-translated">Verde: Sesión SDK activa (PTZ/Archivo). Rojo: No hay sesión activa (la transmisión RTSP funciona de forma independiente).</translation>
+        <translation>Verde: Sesión SDK activa (PTZ/Archivo). Rojo: No hay sesión activa (la transmisión RTSP funciona de forma independiente).</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation translatorcomment="AI-translated">Abra la página de inicio de sesión de NVR en el navegador</translation>
+        <translation>Abra la página de inicio de sesión de NVR en el navegador</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation translatorcomment="AI-translated">Mostrar lista de cámaras NVR</translation>
+        <translation>Mostrar lista de cámaras NVR</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation translatorcomment="AI-translated">Editar detalles de conexión de la grabadora</translation>
+        <translation>Editar detalles de conexión de la grabadora</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation translatorcomment="AI-translated">Eliminar grabadora de la lista</translation>
+        <translation>Eliminar grabadora de la lista</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation translatorcomment="AI-translated">Confirmar la eliminación del NVR</translation>
+        <translation>Confirmar la eliminación del NVR</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation translatorcomment="AI-translated">¿Está seguro de que desea eliminar este NVR?</translation>
+        <translation>¿Está seguro de que desea eliminar este NVR?</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation translatorcomment="AI-translated">¡Advertencia!</translation>
+        <translation>¡Advertencia!</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation translatorcomment="AI-translated">¿Estás absolutamente seguro y consciente de lo que estás haciendo?</translation>
+        <translation>¿Estás absolutamente seguro y consciente de lo que estás haciendo?</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation translatorcomment="AI-translated">Estado del NVR</translation>
+        <translation>Estado del NVR</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation translatorcomment="AI-translated">Comprobando el estado del NVR...</translation>
+        <translation>Comprobando el estado del NVR...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation translatorcomment="AI-translated">Último control:</translation>
+        <translation>Último control:</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation translatorcomment="AI-translated">nunca</translation>
+        <translation>nunca</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Silenciar</translation>
+        <translation>Silenciar</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation translatorcomment="AI-translated">ERROR</translation>
+        <translation>ERROR</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation translatorcomment="AI-translated">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation translatorcomment="AI-translated">Sin datos de estado</translation>
+        <translation>Sin datos de estado</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation translatorcomment="AI-translated">Presione el botón a continuación para verificar el estado del NVR.</translation>
+        <translation>Presione el botón a continuación para verificar el estado del NVR.</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation translatorcomment="AI-translated">Compruébalo ahora</translation>
+        <translation>Compruébalo ahora</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation translatorcomment="AI-translated">Cerrar</translation>
+        <translation>Cerrar</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation translatorcomment="AI-translated">NVR simulado</translation>
+        <translation>NVR simulado</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation translatorcomment="AI-translated">Disco 1</translation>
+        <translation>Disco 1</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation translatorcomment="AI-translated">Error/fallo crítico del disco (Simulación)</translation>
+        <translation>Error/fallo crítico del disco (Simulación)</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation translatorcomment="AI-translated">No hay conexión o error de inicio de sesión (Simulación)</translation>
+        <translation>No hay conexión o error de inicio de sesión (Simulación)</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation translatorcomment="AI-translated">No hay conexión o error de inicio de sesión</translation>
+        <translation>No hay conexión o error de inicio de sesión</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation translatorcomment="AI-translated">Error al leer el estado del NVR (SDK)</translation>
+        <translation>Error al leer el estado del NVR (SDK)</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation translatorcomment="AI-translated">Alta carga de CPU (&gt;85%)</translation>
+        <translation>Alta carga de CPU (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation translatorcomment="AI-translated">Error de hardware del dispositivo</translation>
+        <translation>Error de hardware del dispositivo</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation translatorcomment="AI-translated">Disco %1</translation>
+        <translation>Disco %1</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation translatorcomment="AI-translated">Error/fallo crítico del disco</translation>
+        <translation>Error/fallo crítico del disco</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation translatorcomment="AI-translated">Disco sin formato</translation>
+        <translation>Disco sin formato</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation translatorcomment="AI-translated">Disco lleno (sobrescritura deshabilitada)</translation>
+        <translation>Disco lleno (sobrescritura deshabilitada)</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation translatorcomment="AI-translated">Archivo -</translation>
+        <translation>Archivo -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation translatorcomment="AI-translated">enero</translation>
+        <translation>enero</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation translatorcomment="AI-translated">febrero</translation>
+        <translation>febrero</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation translatorcomment="AI-translated">marzo</translation>
+        <translation>marzo</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation translatorcomment="AI-translated">abril</translation>
+        <translation>abril</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation translatorcomment="AI-translated">Puede</translation>
+        <translation>Puede</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation translatorcomment="AI-translated">junio</translation>
+        <translation>junio</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation translatorcomment="AI-translated">julio</translation>
+        <translation>julio</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation translatorcomment="AI-translated">agosto</translation>
+        <translation>agosto</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation translatorcomment="AI-translated">septiembre</translation>
+        <translation>septiembre</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation translatorcomment="AI-translated">octubre</translation>
+        <translation>octubre</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation translatorcomment="AI-translated">noviembre</translation>
+        <translation>noviembre</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation translatorcomment="AI-translated">diciembre</translation>
+        <translation>diciembre</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Mes anterior</translation>
+        <translation>Mes anterior</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation translatorcomment="AI-translated">Seleccionar fecha de archivo</translation>
+        <translation>Seleccionar fecha de archivo</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">El próximo mes</translation>
+        <translation>El próximo mes</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation translatorcomment="AI-translated">Mo</translation>
+        <translation>Mo</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation translatorcomment="AI-translated">tu</translation>
+        <translation>tu</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation translatorcomment="AI-translated">nosotros</translation>
+        <translation>nosotros</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation translatorcomment="AI-translated">Th</translation>
+        <translation>Th</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation translatorcomment="AI-translated">fr.</translation>
+        <translation>fr.</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation translatorcomment="AI-translated">sa</translation>
+        <translation>sa</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation translatorcomment="AI-translated">Su</translation>
+        <translation>Su</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation translatorcomment="AI-translated">Obteniendo disponibilidad...</translation>
+        <translation>Obteniendo disponibilidad...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation translatorcomment="AI-translated">Cámaras</translation>
+        <translation>Cámaras</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation translatorcomment="AI-translated">Buscar cámara...</translation>
+        <translation>Buscar cámara...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation translatorcomment="AI-translated">Borrar búsqueda</translation>
+        <translation>Borrar búsqueda</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation translatorcomment="AI-translated">Determinando el final real de la grabación...</translation>
+        <translation>Determinando el final real de la grabación...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation translatorcomment="AI-translated">Obteniendo información de grabación...</translation>
+        <translation>Obteniendo información de grabación...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation translatorcomment="AI-translated">Cargando archivo de Hikvision...</translation>
+        <translation>Cargando archivo de Hikvision...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation translatorcomment="AI-translated">No hay grabación en el momento seleccionado</translation>
+        <translation>No hay grabación en el momento seleccionado</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Silenciar</translation>
+        <translation>Silenciar</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Volumen máximo</translation>
+        <translation>Volumen máximo</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Tome una instantánea en resolución completa</translation>
+        <translation>Tome una instantánea en resolución completa</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Desactivar el modo 1:1</translation>
+        <translation>Desactivar el modo 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">Habilitar el modo 1:1 (píxel a píxel)</translation>
+        <translation>Habilitar el modo 1:1 (píxel a píxel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Restablecer zoom</translation>
+        <translation>Restablecer zoom</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation translatorcomment="AI-translated">Seleccione el área para ampliar</translation>
+        <translation>Seleccione el área para ampliar</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation translatorcomment="AI-translated">Seleccione el área para ampliar</translation>
+        <translation>Seleccione el área para ampliar</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation translatorcomment="AI-translated">Restaurar vista de cuadrícula</translation>
+        <translation>Restaurar vista de cuadrícula</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation translatorcomment="AI-translated">Mostrar en pantalla completa</translation>
+        <translation>Mostrar en pantalla completa</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation translatorcomment="AI-translated">Quitar la cámara de la vista</translation>
+        <translation>Quitar la cámara de la vista</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation translatorcomment="AI-translated">Ventana gráfica vacía</translation>
+        <translation>Ventana gráfica vacía</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation translatorcomment="AI-translated">Seleccione esta ventana, elija una cámara de la lista y haga clic en + para agregarla</translation>
+        <translation>Seleccione esta ventana, elija una cámara de la lista y haga clic en + para agregarla</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation translatorcomment="AI-translated">dia anterior</translation>
+        <translation>dia anterior</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation translatorcomment="AI-translated">Seleccionar fecha del calendario</translation>
+        <translation>Seleccionar fecha del calendario</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation translatorcomment="AI-translated">dia siguiente</translation>
+        <translation>dia siguiente</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation translatorcomment="AI-translated">hoy</translation>
+        <translation>hoy</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation translatorcomment="AI-translated">ir a hoy</translation>
+        <translation>ir a hoy</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation translatorcomment="AI-translated">Actualizar grabaciones</translation>
+        <translation>Actualizar grabaciones</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation translatorcomment="AI-translated">Zoom para durar 1 hora</translation>
+        <translation>Zoom para durar 1 hora</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation translatorcomment="AI-translated">Zoom para durar 8 horas</translation>
+        <translation>Zoom para durar 8 horas</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation translatorcomment="AI-translated">Mostrar el día completo en la línea de tiempo</translation>
+        <translation>Mostrar el día completo en la línea de tiempo</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation translatorcomment="AI-translated">Centrar la línea de tiempo en el tiempo de reproducción actual</translation>
+        <translation>Centrar la línea de tiempo en el tiempo de reproducción actual</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation translatorcomment="AI-translated">Velocidad:</translation>
+        <translation>Velocidad:</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation translatorcomment="AI-translated">Establecer la velocidad de reproducción en %1x</translation>
+        <translation>Establecer la velocidad de reproducción en %1x</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Descargar</translation>
+        <translation>Descargar</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation translatorcomment="AI-translated">Descargar videoclips del rango de tiempo seleccionado</translation>
+        <translation>Descargar videoclips del rango de tiempo seleccionado</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation translatorcomment="AI-translated">Rebobinar 60 segundos</translation>
+        <translation>Rebobinar 60 segundos</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation translatorcomment="AI-translated">Rebobinar 45 segundos</translation>
+        <translation>Rebobinar 45 segundos</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation translatorcomment="AI-translated">Rebobinar 15 segundos</translation>
+        <translation>Rebobinar 15 segundos</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Pausar la reproducción</translation>
+        <translation>Pausar la reproducción</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Iniciar reproducción</translation>
+        <translation>Iniciar reproducción</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation translatorcomment="AI-translated">Adelante 15 segundos</translation>
+        <translation>Adelante 15 segundos</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation translatorcomment="AI-translated">Adelante 45 segundos</translation>
+        <translation>Adelante 45 segundos</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation translatorcomment="AI-translated">Adelante 60 segundos</translation>
+        <translation>Adelante 60 segundos</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation translatorcomment="AI-translated">Desanclar la barra inferior</translation>
+        <translation>Desanclar la barra inferior</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation translatorcomment="AI-translated">Pin barra inferior</translation>
+        <translation>Pin barra inferior</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation translatorcomment="AI-translated">Cargando información de disponibilidad de grabación...</translation>
+        <translation>Cargando información de disponibilidad de grabación...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Cerrar ventana</translation>
+        <translation>Cerrar ventana</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Desanclar la barra superior</translation>
+        <translation>Desanclar la barra superior</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Fijar barra superior</translation>
+        <translation>Fijar barra superior</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation translatorcomment="AI-translated">Salir de pantalla completa</translation>
+        <translation>Salir de pantalla completa</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation translatorcomment="AI-translated">Ventana a pantalla completa</translation>
+        <translation>Ventana a pantalla completa</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation translatorcomment="AI-translated">Ocultar barra lateral</translation>
+        <translation>Ocultar barra lateral</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation translatorcomment="AI-translated">Mostrar barra lateral</translation>
+        <translation>Mostrar barra lateral</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation translatorcomment="AI-translated">Mostrar línea de tiempo</translation>
+        <translation>Mostrar línea de tiempo</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation translatorcomment="AI-translated">Ocultar línea de tiempo</translation>
+        <translation>Ocultar línea de tiempo</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation translatorcomment="AI-translated">Abrir carpeta de grabaciones</translation>
+        <translation>Abrir carpeta de grabaciones</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation translatorcomment="AI-translated">Abrir carpeta de instantáneas</translation>
+        <translation>Abrir carpeta de instantáneas</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation translatorcomment="AI-translated">Sin medios</translation>
+        <translation>Sin medios</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation translatorcomment="AI-translated">Cargando...</translation>
+        <translation>Cargando...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation translatorcomment="AI-translated">cargado</translation>
+        <translation>cargado</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation translatorcomment="AI-translated">estancado</translation>
+        <translation>estancado</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation translatorcomment="AI-translated">Almacenamiento en búfer %1\%</translation>
+        <translation>Almacenamiento en búfer %1\%</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation translatorcomment="AI-translated">No hay datos para mostrar</translation>
+        <translation>No hay datos para mostrar</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation translatorcomment="AI-translated">Restaurando la vista en vivo...</translation>
+        <translation>Restaurando la vista en vivo...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Silenciar</translation>
+        <translation>Silenciar</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Volumen máximo</translation>
+        <translation>Volumen máximo</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Tome una instantánea en resolución completa</translation>
+        <translation>Tome una instantánea en resolución completa</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation translatorcomment="AI-translated">Archivo de reproducción</translation>
+        <translation>Archivo de reproducción</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation translatorcomment="AI-translated">Deshabilitar la reproducción rápida</translation>
+        <translation>Deshabilitar la reproducción rápida</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation translatorcomment="AI-translated">Reproducción rápida (hasta 30 min)</translation>
+        <translation>Reproducción rápida (hasta 30 min)</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Desactivar el modo 1:1</translation>
+        <translation>Desactivar el modo 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">Habilitar el modo 1:1 (píxel a píxel)</translation>
+        <translation>Habilitar el modo 1:1 (píxel a píxel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Restablecer zoom</translation>
+        <translation>Restablecer zoom</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation translatorcomment="AI-translated">Haga clic y arrastre en la transmisión de la cámara para hacer zoom</translation>
+        <translation>Haga clic y arrastre en la transmisión de la cámara para hacer zoom</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation translatorcomment="AI-translated">Seleccione la región para ampliar</translation>
+        <translation>Seleccione la región para ampliar</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Iniciar reproducción</translation>
+        <translation>Iniciar reproducción</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Pausar la reproducción</translation>
+        <translation>Pausar la reproducción</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation translatorcomment="AI-translated">Velocidad de reproducción</translation>
+        <translation>Velocidad de reproducción</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation translatorcomment="AI-translated">Cerrar vista de rebobinado</translation>
+        <translation>Cerrar vista de rebobinado</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Ventana auxiliar</translation>
+        <translation>KVision - Ventana auxiliar</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVisión</translation>
+        <translation>KVisión</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">¡Error al leer la configuración!</translation>
+        <translation>¡Error al leer la configuración!</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Desanclar la barra superior</translation>
+        <translation>Desanclar la barra superior</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Fijar barra superior</translation>
+        <translation>Fijar barra superior</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Alternar pantalla completa</translation>
+        <translation>Alternar pantalla completa</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation translatorcomment="AI-translated">Minimizar ventana</translation>
+        <translation>Minimizar ventana</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Opciones y configuraciones del panel de la barra lateral.</translation>
+        <translation>Opciones y configuraciones del panel de la barra lateral.</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Abrir nueva ventana auxiliar</translation>
+        <translation>Abrir nueva ventana auxiliar</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation translatorcomment="AI-translated">Archivo de grabación y reproductor.</translation>
+        <translation>Archivo de grabación y reproductor.</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">manual de usuario del programa</translation>
+        <translation>manual de usuario del programa</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation translatorcomment="AI-translated">Deshabilitar las estadísticas de uso de recursos</translation>
+        <translation>Deshabilitar las estadísticas de uso de recursos</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation translatorcomment="AI-translated">Habilitar estadísticas de uso de recursos</translation>
+        <translation>Habilitar estadísticas de uso de recursos</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation translatorcomment="AI-translated">¡Se detectaron errores de NVR!</translation>
+        <translation>¡Se detectaron errores de NVR!</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation translatorcomment="AI-translated">Estado del NVR: OK</translation>
+        <translation>Estado del NVR: OK</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation translatorcomment="AI-translated">Bloquear cambios de tamaño de cuadrícula</translation>
+        <translation>Bloquear cambios de tamaño de cuadrícula</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Más opciones</translation>
+        <translation>Más opciones</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation translatorcomment="AI-translated">¡Se detectaron errores de NVR! Haga clic para ver los detalles.</translation>
+        <translation>¡Se detectaron errores de NVR! Haga clic para ver los detalles.</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Ninguna vista seleccionada, seleccione una vista</translation>
+        <translation>Ninguna vista seleccionada, seleccione una vista</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Seleccione una vista en el menú superior para comenzar a mostrar las cámaras.</translation>
+        <translation>Seleccione una vista en el menú superior para comenzar a mostrar las cámaras.</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation translatorcomment="AI-translated">KVision-Panel</translation>
+        <translation>KVision-Panel</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Cerrar ventana</translation>
+        <translation>Cerrar ventana</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Cerrar programa</translation>
+        <translation>Cerrar programa</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation translatorcomment="AI-translated">¿Está seguro de que desea cerrar esta ventana?</translation>
+        <translation>¿Está seguro de que desea cerrar esta ventana?</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">¿Estás seguro de que quieres cerrar el programa?</translation>
+        <translation>¿Estás seguro de que quieres cerrar el programa?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">SI</translation>
+        <translation>SI</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NO</translation>
+        <translation>NO</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation translatorcomment="AI-translated">📊 ESTADÍSTICAS DEL SISTEMA</translation>
+        <translation>📊 ESTADÍSTICAS DEL SISTEMA</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation translatorcomment="AI-translated">Panel de estadísticas de arrastre</translation>
+        <translation>Panel de estadísticas de arrastre</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation translatorcomment="AI-translated">RAM:</translation>
+        <translation>RAM:</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation translatorcomment="AI-translated">VRAM:</translation>
+        <translation>VRAM:</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation translatorcomment="AI-translated">CPU:</translation>
+        <translation>CPU:</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation translatorcomment="AI-translated">GPU:</translation>
+        <translation>GPU:</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation translatorcomment="AI-translated">NETO:</translation>
+        <translation>NETO:</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation translatorcomment="AI-translated">Cargando nueva ventana...</translation>
+        <translation>Cargando nueva ventana...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,1027 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation translatorcomment="AI-translated">Se corrigió un error crítico por el cual la pérdida de la red y los tiempos de espera de la transmisión RTSP causaban que el jugador se convirtiera en un zombi, lo que impedía reconexiones exitosas. El botón Recargar y la reanudación automática ahora funcionan de manera completamente confiable.</translation>
+        <translation>Se corrigió un error crítico por el cual la pérdida de la red y los tiempos de espera de la transmisión RTSP causaban que el jugador se convirtiera en un zombi, lo que impedía reconexiones exitosas. El botón Recargar y la reanudación automática ahora funcionan de manera completamente confiable.</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation translatorcomment="AI-translated">Se actualizó la apariencia de los mensajes de estado del Reproductor y del Archivo. Las notificaciones de carga y restauración ahora presentan un agradable tema cian con íconos apropiados para distinguirlas mejor de los errores críticos (sin medios/red).</translation>
+        <translation>Se actualizó la apariencia de los mensajes de estado del Reproductor y del Archivo. Las notificaciones de carga y restauración ahora presentan un agradable tema cian con íconos apropiados para distinguirlas mejor de los errores críticos (sin medios/red).</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation translatorcomment="AI-translated">Comando de hardware MakeKeyFrame integrado con Hikvision SDK. La aplicación ahora obliga agresivamente a la cámara a emitir un I-Frame al cambiar de transmisión secundaria/principal y de Live a Archive, eliminando la espera de 10 segundos de fotograma clave.</translation>
+        <translation>Comando de hardware MakeKeyFrame integrado con Hikvision SDK. La aplicación ahora obliga agresivamente a la cámara a emitir un I-Frame al cambiar de transmisión secundaria/principal y de Live a Archive, eliminando la espera de 10 segundos de fotograma clave.</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation translatorcomment="AI-translated">Se eliminó la anulación sobre la marcha del parámetro de duración analizado. La aplicación aplica estrictamente los valores FFmpeg definidos por el usuario (se recomienda configurarlo en 100000 para que las cámaras sin audio eviten el límite de bloqueo de 5 segundos).</translation>
+        <translation>Se eliminó la anulación sobre la marcha del parámetro de duración analizado. La aplicación aplica estrictamente los valores FFmpeg definidos por el usuario (se recomienda configurarlo en 100000 para que las cámaras sin audio eviten el límite de bloqueo de 5 segundos).</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation translatorcomment="AI-translated">Se agregaron insignias "HikSDK" en las ventanas gráficas de la grabadora para una mejor diferenciación de protocolos.</translation>
+        <translation>Se agregaron insignias "HikSDK" en las ventanas gráficas de la grabadora para una mejor diferenciación de protocolos.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation translatorcomment="AI-translated">Registro de diagnóstico optimizado (QDebug), que permite imprimir advertencias y errores críticos en la consola fuera del modo detallado, lo que facilita la depuración de fallas del NVR.</translation>
+        <translation>Registro de diagnóstico optimizado (QDebug), que permite imprimir advertencias y errores críticos en la consola fuera del modo detallado, lo que facilita la depuración de fallas del NVR.</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation translatorcomment="AI-translated">Se filtraron errores falsos positivos del SDK de PlayM4 (n.º 17 y 2) que envían spam a la consola durante la limpieza rápida de la línea de tiempo en el reproductor.</translation>
+        <translation>Se filtraron errores falsos positivos del SDK de PlayM4 (n.º 17 y 2) que envían spam a la consola durante la limpieza rápida de la línea de tiempo en el reproductor.</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation translatorcomment="AI-translated">Se corrigió el truncamiento del escalado no lineal (por ejemplo, 145 %) por parte del marco Qt5 en los sistemas KDE Plasma, lo que exige una interpretación adecuada de la política de alto DPI.</translation>
+        <translation>Se corrigió el truncamiento del escalado no lineal (por ejemplo, 145 %) por parte del marco Qt5 en los sistemas KDE Plasma, lo que exige una interpretación adecuada de la política de alto DPI.</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation translatorcomment="AI-translated">Se resolvieron congelamientos temporales de otras cámaras en la cuadrícula en vivo al buscar o arrastrar la línea de tiempo.</translation>
+        <translation>Se resolvieron congelamientos temporales de otras cámaras en la cuadrícula en vivo al buscar o arrastrar la línea de tiempo.</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation translatorcomment="AI-translated">Se movieron todas las llamadas de red de bloqueo de Hikvision SDK (iniciar sesión, detener, iniciar, control de velocidad) a un subproceso de trabajo asincrónico.</translation>
+        <translation>Se movieron todas las llamadas de red de bloqueo de Hikvision SDK (iniciar sesión, detener, iniciar, control de velocidad) a un subproceso de trabajo asincrónico.</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation translatorcomment="AI-translated">Se eliminó por completo el problema de la pantalla negra al cambiar la calidad (SUB/PRINCIPAL) para las cámaras RTSP.</translation>
+        <translation>Se eliminó por completo el problema de la pantalla negra al cambiar la calidad (SUB/PRINCIPAL) para las cámaras RTSP.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation translatorcomment="AI-translated">Optimicé el temporizador de cambio de transmisión sin interrupciones a 100 ms para obtener la máxima velocidad.</translation>
+        <translation>Optimicé el temporizador de cambio de transmisión sin interrupciones a 100 ms para obtener la máxima velocidad.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation translatorcomment="AI-translated">Se agregaron opciones de FFmpeg de bajo nivel (nobuffer, low_delay) para eliminar el retraso (deriva) de la transmisión en vivo durante largos períodos operativos.</translation>
+        <translation>Se agregaron opciones de FFmpeg de bajo nivel (nobuffer, low_delay) para eliminar el retraso (deriva) de la transmisión en vivo durante largos períodos operativos.</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation translatorcomment="AI-translated">Se introdujo un botón para actualizar de forma masiva los parámetros de FFmpeg para todas las cámaras existentes en todos los diseños.</translation>
+        <translation>Se introdujo un botón para actualizar de forma masiva los parámetros de FFmpeg para todas las cámaras existentes en todos los diseños.</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation translatorcomment="AI-translated">Se agregó una opción para excluir cámaras específicas de las actualizaciones globales de parámetros de FFmpeg (nueva casilla de verificación en la configuración de la ventana gráfica).</translation>
+        <translation>Se agregó una opción para excluir cámaras específicas de las actualizaciones globales de parámetros de FFmpeg (nueva casilla de verificación en la configuración de la ventana gráfica).</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation translatorcomment="AI-translated">Se aseguró el proceso de migración de la configuración predeterminada, lo que permite al usuario eliminar o modificar permanentemente nuevos indicadores sin que se fuercen en cada inicio.</translation>
+        <translation>Se aseguró el proceso de migración de la configuración predeterminada, lo que permite al usuario eliminar o modificar permanentemente nuevos indicadores sin que se fuercen en cada inicio.</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation translatorcomment="AI-translated">Se agregó la funcionalidad de reproducción rápida (hasta 30 minutos de rebobinado) directamente dentro de la ventana de visualización de la cámara.</translation>
+        <translation>Se agregó la funcionalidad de reproducción rápida (hasta 30 minutos de rebobinado) directamente dentro de la ventana de visualización de la cámara.</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation translatorcomment="AI-translated">Se implementó una sincronización bidireccional completa en tiempo real entre todas las ventanas y procesos de programas auxiliares para la configuración: silenciar audio, deshabilitar la animación de zoom y todas las opciones de monitoreo de estado del NVR de Hikvision.</translation>
+        <translation>Se implementó una sincronización bidireccional completa en tiempo real entre todas las ventanas y procesos de programas auxiliares para la configuración: silenciar audio, deshabilitar la animación de zoom y todas las opciones de monitoreo de estado del NVR de Hikvision.</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation translatorcomment="AI-translated">Se agregó visualización dinámica de etiquetas de minutos (por ejemplo, :15, :30, :45) en los minutos en la línea de tiempo del reproductor de archivos con ajuste inteligente de densidad de etiquetas (zoomHours).</translation>
+        <translation>Se agregó visualización dinámica de etiquetas de minutos (por ejemplo, :15, :30, :45) en los minutos en la línea de tiempo del reproductor de archivos con ajuste inteligente de densidad de etiquetas (zoomHours).</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation translatorcomment="AI-translated">Se agregó una nueva opción en la configuración de la interfaz de usuario: "Deshabilitar la animación de zoom de la ventana gráfica" con aplicación inmediata en la vista de cuadrícula de la cámara.</translation>
+        <translation>Se agregó una nueva opción en la configuración de la interfaz de usuario: "Deshabilitar la animación de zoom de la ventana gráfica" con aplicación inmediata en la vista de cuadrícula de la cámara.</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation translatorcomment="AI-translated">Reconstruyó el proceso de inicialización del reproductor de archivos: suspendió la conexión y la carga de video hasta que se determinen los límites exactos de grabación (a través de una búsqueda asincrónica ultrarrápida de 24 horas), eliminando la reproducción prematura y los saltos de imágenes.</translation>
+        <translation>Reconstruyó el proceso de inicialización del reproductor de archivos: suspendió la conexión y la carga de video hasta que se determinen los límites exactos de grabación (a través de una búsqueda asincrónica ultrarrápida de 24 horas), eliminando la reproducción prematura y los saltos de imágenes.</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation translatorcomment="AI-translated">Mensajes de carga de archivos mejorados de Hikvision: el estado de carga se muestra solo durante el almacenamiento en búfer de transmisión activo y se muestra una advertencia específica si el cabezal de reproducción se mueve más allá de los límites de grabación disponibles.</translation>
+        <translation>Mensajes de carga de archivos mejorados de Hikvision: el estado de carga se muestra solo durante el almacenamiento en búfer de transmisión activo y se muestra una advertencia específica si el cabezal de reproducción se mueve más allá de los límites de grabación disponibles.</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation translatorcomment="AI-translated">Se introdujeron nuevos campos de configuración en el panel de configuración: desplazamiento de inicio de reproducción de archivo predeterminado (en segundos, 60 segundos predeterminado) y intervalo de zoom de la línea de tiempo predeterminado (horas de zoom, 2 h predeterminado).</translation>
+        <translation>Se introdujeron nuevos campos de configuración en el panel de configuración: desplazamiento de inicio de reproducción de archivo predeterminado (en segundos, 60 segundos predeterminado) y intervalo de zoom de la línea de tiempo predeterminado (horas de zoom, 2 h predeterminado).</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation translatorcomment="AI-translated">Se agregó un ícono de inicio de sesión web directo al panel web de la grabadora dentro de la ventana emergente de estado del NVR.</translation>
+        <translation>Se agregó un ícono de inicio de sesión web directo al panel web de la grabadora dentro de la ventana emergente de estado del NVR.</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation translatorcomment="AI-translated">Se agregó la funcionalidad de supresión de informes de errores para grabadoras individuales.</translation>
+        <translation>Se agregó la funcionalidad de supresión de informes de errores para grabadoras individuales.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation translatorcomment="AI-translated">Se corrigió la traducción incorrecta al polaco "Grabadora simulada" en la ventana de estado e implementó la distinción de palabras adecuada ("Suprimir" para errores frente a "Silenciar" para audio).</translation>
+        <translation>Se corrigió la traducción incorrecta al polaco "Grabadora simulada" en la ventana de estado e implementó la distinción de palabras adecuada ("Suprimir" para errores frente a "Silenciar" para audio).</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation translatorcomment="AI-translated">Se implementó un monitoreo del estado de error periódico (cada 5 minutos) y manual de Hikvision NVR/DVR utilizando diagnósticos SDK/ISAPI.</translation>
+        <translation>Se implementó un monitoreo del estado de error periódico (cada 5 minutos) y manual de Hikvision NVR/DVR utilizando diagnósticos SDK/ISAPI.</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation translatorcomment="AI-translated">Se agregaron opciones de configuración en Configuración general para habilitar/deshabilitar la verificación del estado del NVR de Hikvision y personalizar los tipos de errores críticos monitoreados.</translation>
+        <translation>Se agregaron opciones de configuración en Configuración general para habilitar/deshabilitar la verificación del estado del NVR de Hikvision y personalizar los tipos de errores críticos monitoreados.</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation translatorcomment="AI-translated">Diseñó un ícono de estado de alta fidelidad de color verde cálido/rojo en la barra superior con ondas externas pulsantes profundas y animaciones de ondas de latidos internos para señalar errores críticos activos.</translation>
+        <translation>Diseñó un ícono de estado de alta fidelidad de color verde cálido/rojo en la barra superior con ondas externas pulsantes profundas y animaciones de ondas de latidos internos para señalar errores críticos activos.</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation translatorcomment="AI-translated">Se introdujo un círculo indicador rojo que sobresale en el borde superior y que parpadea en la parte superior de la pantalla cuando la barra de herramientas principal está colapsada, lo que garantiza que nunca se pasen por alto las advertencias críticas.</translation>
+        <translation>Se introdujo un círculo indicador rojo que sobresale en el borde superior y que parpadea en la parte superior de la pantalla cuando la barra de herramientas principal está colapsada, lo que garantiza que nunca se pasen por alto las advertencias críticas.</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation translatorcomment="AI-translated">Se creó una elegante ventana emergente desplazable "Estado de la grabadora" limitada al 85% de la altura de la pantalla que presenta códigos de error detallados.</translation>
+        <translation>Se creó una elegante ventana emergente desplazable "Estado de la grabadora" limitada al 85% de la altura de la pantalla que presenta códigos de error detallados.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation translatorcomment="AI-translated">Se agregó el indicador de ejecución "--simulate-error" para simular instantáneamente fallas de disco y errores de conexión en todas las grabadoras con fines de demostración.</translation>
+        <translation>Se agregó el indicador de ejecución "--simulate-error" para simular instantáneamente fallas de disco y errores de conexión en todas las grabadoras con fines de demostración.</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation translatorcomment="AI-translated">Se implementaron insignias de marcos de lista y alineaciones de indicadores de estado en las vistas de grabadoras configuradas.</translation>
+        <translation>Se implementaron insignias de marcos de lista y alineaciones de indicadores de estado en las vistas de grabadoras configuradas.</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation translatorcomment="AI-translated">Se logró una cobertura completa de traducción bilingüe (polaco/inglés) para todos los diagnósticos de NVR, configuración de casillas de verificación, información sobre herramientas, advertencias y opciones del analizador de línea de comandos.</translation>
+        <translation>Se logró una cobertura completa de traducción bilingüe (polaco/inglés) para todos los diagnósticos de NVR, configuración de casillas de verificación, información sobre herramientas, advertencias y opciones del analizador de línea de comandos.</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation translatorcomment="AI-translated">Se agregó la capacidad de recargar el diseño activo haciendo clic en su botón en la barra de herramientas superior.</translation>
+        <translation>Se agregó la capacidad de recargar el diseño activo haciendo clic en su botón en la barra de herramientas superior.</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation translatorcomment="AI-translated">Muestras promedio de utilización de NVML a lo largo del tiempo para suavizar el gráfico de uso de GPU y eliminar lecturas irregulares.</translation>
+        <translation>Muestras promedio de utilización de NVML a lo largo del tiempo para suavizar el gráfico de uso de GPU y eliminar lecturas irregulares.</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation translatorcomment="AI-translated">Se eliminaron los parpadeos momentáneos de video (cuadros negros) y los espacios de desincronización de audio y video al cambiar la calidad de las transmisiones SUB a PRINCIPALES durante la maximización de la ventana gráfica al retrasar el intercambio de reproductor activo hasta que se pinte el primer cuadro en la pantalla.</translation>
+        <translation>Se eliminaron los parpadeos momentáneos de video (cuadros negros) y los espacios de desincronización de audio y video al cambiar la calidad de las transmisiones SUB a PRINCIPALES durante la maximización de la ventana gráfica al retrasar el intercambio de reproductor activo hasta que se pinte el primer cuadro en la pantalla.</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation translatorcomment="AI-translated">Se agregaron barras de desplazamiento interactivas, claras y 2 veces más anchas a las columnas de selección de horas, minutos y segundos en la ventana emergente del selector de tiempo de descarga de archivos.</translation>
+        <translation>Se agregaron barras de desplazamiento interactivas, claras y 2 veces más anchas a las columnas de selección de horas, minutos y segundos en la ventana emergente del selector de tiempo de descarga de archivos.</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation translatorcomment="AI-translated">Se agregaron nuevas opciones intuitivas al menú contextual de las ventanas gráficas: 'Instantánea' (guardar el fotograma actual) y 'Reproducción' (transición inmediata a la reproducción del archivo de la cámara determinada).</translation>
+        <translation>Se agregaron nuevas opciones intuitivas al menú contextual de las ventanas gráficas: 'Instantánea' (guardar el fotograma actual) y 'Reproducción' (transición inmediata a la reproducción del archivo de la cámara determinada).</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation translatorcomment="AI-translated">Manejo de audio PCM revolucionado y reparado: reenvío directo de canalización a QAudioOutput, eliminación de congelaciones de interfaz (ALSA/PulseAudio/Pipewire) mediante la estabilización de la frecuencia de muestreo (antirrebote después de 5 fotogramas estables), tiempo de reutilización de 2 s en la recreación de salida, filtrado de parámetros dañados y un buffer de 64 KB que reduce la fluctuación de la red.</translation>
+        <translation>Manejo de audio PCM revolucionado y reparado: reenvío directo de canalización a QAudioOutput, eliminación de congelaciones de interfaz (ALSA/PulseAudio/Pipewire) mediante la estabilización de la frecuencia de muestreo (antirrebote después de 5 fotogramas estables), tiempo de reutilización de 2 s en la recreación de salida, filtrado de parámetros dañados y un buffer de 64 KB que reduce la fluctuación de la red.</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation translatorcomment="AI-translated">Se implementó un control deslizante de volumen de HUD interactivo directamente en los mosaicos de la ventana gráfica, junto con una opción de silencio rápido y maximización de volumen con un solo clic.</translation>
+        <translation>Se implementó un control deslizante de volumen de HUD interactivo directamente en los mosaicos de la ventana gráfica, junto con una opción de silencio rápido y maximización de volumen con un solo clic.</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation translatorcomment="AI-translated">Se implementó el silenciamiento automático e inmediato de transmisiones EN VIVO en la parrilla principal al abrir la ventana de reproducción del Archivo, evitando la superposición de sonidos (cacofonía).</translation>
+        <translation>Se implementó el silenciamiento automático e inmediato de transmisiones EN VIVO en la parrilla principal al abrir la ventana de reproducción del Archivo, evitando la superposición de sonidos (cacofonía).</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation translatorcomment="AI-translated">Se introdujo un sistema de notificación central SnapshotSavedDialog para instantáneas guardadas (carcasa gris oscuro, bordes verde azulado, cierre automático después de 10 segundos) con un enlace rápido "Examinar" para abrir la carpeta directamente en el administrador de archivos del sistema.</translation>
+        <translation>Se introdujo un sistema de notificación central SnapshotSavedDialog para instantáneas guardadas (carcasa gris oscuro, bordes verde azulado, cierre automático después de 10 segundos) con un enlace rápido "Examinar" para abrir la carpeta directamente en el administrador de archivos del sistema.</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation translatorcomment="AI-translated">Se ha enriquecido la ventana de ayuda integrada con un capítulo detallado de "Descripción de las funciones de los botones" utilizando iconos vectoriales SVG nativos y nítidos. La ventana de ayuda ahora se abre de forma totalmente automática y centrada sobre la ventana principal al iniciar el programa por primera vez.</translation>
+        <translation>Se ha enriquecido la ventana de ayuda integrada con un capítulo detallado de "Descripción de las funciones de los botones" utilizando iconos vectoriales SVG nativos y nítidos. La ventana de ayuda ahora se abre de forma totalmente automática y centrada sobre la ventana principal al iniciar el programa por primera vez.</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation translatorcomment="AI-translated">Se introdujo la visualización predeterminada de la barra superior al iniciar el programa/ventana y se agregó la opción 'Mostrar la barra superior de forma predeterminada después de abrir una ventana' en la configuración, lo que permite personalizar este comportamiento según las preferencias personales.</translation>
+        <translation>Se introdujo la visualización predeterminada de la barra superior al iniciar el programa/ventana y se agregó la opción 'Mostrar la barra superior de forma predeterminada después de abrir una ventana' en la configuración, lo que permite personalizar este comportamiento según las preferencias personales.</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation translatorcomment="AI-translated">Se implementaron rutas de biblioteca dinámicas RPATH en CMakeLists.txt usando GNUInstallDirs, lo que permite la ejecución inmediata de la aplicación compilada en Ubuntu y Debian sin la necesidad de configuración manual de /etc/ld.so.conf.d/ y ldconfig.</translation>
+        <translation>Se implementaron rutas de biblioteca dinámicas RPATH en CMakeLists.txt usando GNUInstallDirs, lo que permite la ejecución inmediata de la aplicación compilada en Ubuntu y Debian sin la necesidad de configuración manual de /etc/ld.so.conf.d/ y ldconfig.</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation translatorcomment="AI-translated">Se cambió el nombre del programa a KVision, se introdujo la migración automática de la configuración del usuario, nuevos íconos de varios tamaños (128 px, 256 px, 512 px) y se muestra la versión completa en la barra de título de la ventana.</translation>
+        <translation>Se cambió el nombre del programa a KVision, se introdujo la migración automática de la configuración del usuario, nuevos íconos de varios tamaños (128 px, 256 px, 512 px) y se muestra la versión completa en la barra de título de la ventana.</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation translatorcomment="AI-translated">Se corrigió la ventana de advertencia por exceder el límite de ventanas auxiliares (faltaban recursos QML y lectura de QSettings).</translation>
+        <translation>Se corrigió la ventana de advertencia por exceder el límite de ventanas auxiliares (faltaban recursos QML y lectura de QSettings).</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation translatorcomment="AI-translated">Se corrigió el ícono del programa que faltaba en Wayland (instalación del tema hicolor y setDesktopFileName).</translation>
+        <translation>Se corrigió el ícono del programa que faltaba en Wayland (instalación del tema hicolor y setDesktopFileName).</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation translatorcomment="AI-translated">Se eliminó la opción de contraer automáticamente la barra superior de Configuración: de ahora en adelante, la barra superior en las ventanas LIVE (principal y auxiliar) se contrae de forma predeterminada al inicio, y el botón de fijación la fija local y temporalmente (en memoria) sin guardar su estado.</translation>
+        <translation>Se eliminó la opción de contraer automáticamente la barra superior de Configuración: de ahora en adelante, la barra superior en las ventanas LIVE (principal y auxiliar) se contrae de forma predeterminada al inicio, y el botón de fijación la fija local y temporalmente (en memoria) sin guardar su estado.</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation translatorcomment="AI-translated">Se introdujo un límite en el número de ventanas auxiliares (configurables de 0 a 3) con una elegante ventana de advertencia al intentar excederlo.</translation>
+        <translation>Se introdujo un límite en el número de ventanas auxiliares (configurables de 0 a 3) con una elegante ventana de advertencia al intentar excederlo.</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation translatorcomment="AI-translated">Se agregaron bordes sutiles de color gris oscuro de 1 px alrededor de las ventanas gráficas no utilizadas en la cuadrícula de diseño LIVE para una mejor delineación de los campos.</translation>
+        <translation>Se agregaron bordes sutiles de color gris oscuro de 1 px alrededor de las ventanas gráficas no utilizadas en la cuadrícula de diseño LIVE para una mejor delineación de los campos.</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation translatorcomment="AI-translated">Edición segura de rutas de guardado y opciones de configuración de medios del sistema detrás de una casilla de verificación transitoria 'Activar cambios en esta sección', evitando modificaciones accidentales (el estado de edición se restablece al cerrar).</translation>
+        <translation>Edición segura de rutas de guardado y opciones de configuración de medios del sistema detrás de una casilla de verificación transitoria 'Activar cambios en esta sección', evitando modificaciones accidentales (el estado de edición se restablece al cerrar).</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation translatorcomment="AI-translated">Se introdujeron atajos directos para 'abrir carpeta guardada' (resaltados en celadon al completar la descarga en la ventana Archivo) y botones de apertura rápida siempre activos para carpetas de instantáneas y videos en Configuración (con creación automática de directorio en el disco si falta).</translation>
+        <translation>Se introdujeron atajos directos para 'abrir carpeta guardada' (resaltados en celadon al completar la descarga en la ventana Archivo) y botones de apertura rápida siempre activos para carpetas de instantáneas y videos en Configuración (con creación automática de directorio en el disco si falta).</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation translatorcomment="AI-translated">Se introdujo la validación interactiva al hacer clic en el botón 'Pobierz' (Descargar) en la ventana de descarga: verificaciones automáticas de formato y fecha cronológica, mostrando una información sobre herramientas de advertencia roja y enfocando el primer campo no válido.</translation>
+        <translation>Se introdujo la validación interactiva al hacer clic en el botón 'Pobierz' (Descargar) en la ventana de descarga: verificaciones automáticas de formato y fecha cronológica, mostrando una información sobre herramientas de advertencia roja y enfocando el primer campo no válido.</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation translatorcomment="AI-translated">Se implementó la navegación completa con el teclado (teclas de flecha arriba/abajo para cambiar valores, izquierda/derecha para cambiar de columna) dentro de la ventana emergente del selector de reloj.</translation>
+        <translation>Se implementó la navegación completa con el teclado (teclas de flecha arriba/abajo para cambiar valores, izquierda/derecha para cambiar de columna) dentro de la ventana emergente del selector de reloj.</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation translatorcomment="AI-translated">Se aseguró un inicio completamente limpio para las ventanas auxiliares (sin abrir automáticamente la barra lateral de opciones) y se excluyó el guardado de configuraciones de geometría desde las ventanas auxiliares, eliminando la contaminación de la configuración compartida.</translation>
+        <translation>Se aseguró un inicio completamente limpio para las ventanas auxiliares (sin abrir automáticamente la barra lateral de opciones) y se excluyó el guardado de configuraciones de geometría desde las ventanas auxiliares, eliminando la contaminación de la configuración compartida.</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation translatorcomment="AI-translated">Se agregó soporte completo en inglés para todos los mensajes de error de validación cronológica y de formato nuevos en la ventana de descarga.</translation>
+        <translation>Se agregó soporte completo en inglés para todos los mensajes de error de validación cronológica y de formato nuevos en la ventana de descarga.</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation translatorcomment="AI-translated">Se eliminaron las pérdidas de memoria RAM al cambiar los diseños de la cámara al detener automática y correctamente la superficie del video antes de actualizar los formatos y hacer coincidir las dimensiones del renderizador.</translation>
+        <translation>Se eliminaron las pérdidas de memoria RAM al cambiar los diseños de la cámara al detener automática y correctamente la superficie del video antes de actualizar los formatos y hacer coincidir las dimensiones del renderizador.</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation translatorcomment="AI-translated">Se implementó la liberación y destrucción incondicional de objetos de salida de audio al detener el reproductor, y se introdujo el reciclaje automático de estos objetos para eliminar pérdidas de memoria y subprocesos en Linux.</translation>
+        <translation>Se implementó la liberación y destrucción incondicional de objetos de salida de audio al detener el reproductor, y se introdujo el reciclaje automático de estos objetos para eliminar pérdidas de memoria y subprocesos en Linux.</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation translatorcomment="AI-translated">Se resolvieron problemas de congelación de video (pantalla de color sólido después del zoom de la ventana gráfica) al forzar la señalización correcta de disponibilidad de video al presentar el primer fotograma de una nueva transmisión.</translation>
+        <translation>Se resolvieron problemas de congelación de video (pantalla de color sólido después del zoom de la ventana gráfica) al forzar la señalización correcta de disponibilidad de video al presentar el primer fotograma de una nueva transmisión.</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation translatorcomment="AI-translated">Se agregó una configuración global 'Deshabilitar completamente el soporte de audio', lo que permite omitir totalmente el procesamiento de audio para eliminar posibles sobrecargas y pérdidas de memoria.</translation>
+        <translation>Se agregó una configuración global 'Deshabilitar completamente el soporte de audio', lo que permite omitir totalmente el procesamiento de audio para eliminar posibles sobrecargas y pérdidas de memoria.</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation translatorcomment="AI-translated">Optimicé el módulo de estadísticas del sistema para eliminar la sobrecarga del uso continuo de la memoria al almacenar en caché los ID de los procesos y eliminar las asignaciones dinámicas de expresiones regulares.</translation>
+        <translation>Optimicé el módulo de estadísticas del sistema para eliminar la sobrecarga del uso continuo de la memoria al almacenar en caché los ID de los procesos y eliminar las asignaciones dinámicas de expresiones regulares.</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation translatorcomment="AI-translated">Se aplicó una agresiva recolección de basura (GC) en los cambios de diseño de la cámara y se anularon los contextos de escala de imágenes (SwsContext) en los buffers de video.</translation>
+        <translation>Se aplicó una agresiva recolección de basura (GC) en los cambios de diseño de la cámara y se anularon los contextos de escala de imágenes (SwsContext) en los buffers de video.</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation translatorcomment="AI-translated">Se garantizó la limpieza adecuada de recursos del detector de cambios del archivo de configuración estática (QFileSystemWatcher) al salir de la aplicación.</translation>
+        <translation>Se garantizó la limpieza adecuada de recursos del detector de cambios del archivo de configuración estática (QFileSystemWatcher) al salir de la aplicación.</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation translatorcomment="AI-translated">Se corrigieron problemas de sincronización y congelación del proceso de ventana auxiliar en máquinas más lentas durante la eliminación secuencial de la cámara y la fusión o movimiento de la ventana gráfica.</translation>
+        <translation>Se corrigieron problemas de sincronización y congelación del proceso de ventana auxiliar en máquinas más lentas durante la eliminación secuencial de la cámara y la fusión o movimiento de la ventana gráfica.</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation translatorcomment="AI-translated">Se corrigió la agregación de utilización de GPU, uso de VRAM y estadísticas de ancho de banda de red de todos los procesos de aplicaciones que utilizan memoria compartida (/dev/shm) en segundo plano.</translation>
+        <translation>Se corrigió la agregación de utilización de GPU, uso de VRAM y estadísticas de ancho de banda de red de todos los procesos de aplicaciones que utilizan memoria compartida (/dev/shm) en segundo plano.</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation translatorcomment="AI-translated">Destructor del reproductor de archivos protegido contra carreras de datos al limpiar tareas RGB pendientes.</translation>
+        <translation>Destructor del reproductor de archivos protegido contra carreras de datos al limpiar tareas RGB pendientes.</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation translatorcomment="AI-translated">Se implementó la agrupación de reproductores de video para eliminar los picos de uso de RAM y el parpadeo al cambiar de diseño.</translation>
+        <translation>Se implementó la agrupación de reproductores de video para eliminar los picos de uso de RAM y el parpadeo al cambiar de diseño.</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation translatorcomment="AI-translated">Monitoreo optimizado de GPU/VRAM para un modelo específico de proceso (sin generación de nvidia-smi) con soporte nativo para GPU NVIDIA, AMD e Intel (las estadísticas de AMD/Intel no están probadas).</translation>
+        <translation>Monitoreo optimizado de GPU/VRAM para un modelo específico de proceso (sin generación de nvidia-smi) con soporte nativo para GPU NVIDIA, AMD e Intel (las estadísticas de AMD/Intel no están probadas).</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation translatorcomment="AI-translated">Se permitió cambiar el tamaño del panel de estadísticas del sistema arrastrando sus bordes y esquinas con gráficos de escala automática.</translation>
+        <translation>Se permitió cambiar el tamaño del panel de estadísticas del sistema arrastrando sus bordes y esquinas con gráficos de escala automática.</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation translatorcomment="AI-translated">Se implementó el ocultamiento instantáneo de las ventanas principal y auxiliar al confirmar la salida, lo que hace que el apagado parezca inmediato para el usuario mientras la limpieza de subprocesos y memoria se ejecuta de forma segura en segundo plano.</translation>
+        <translation>Se implementó el ocultamiento instantáneo de las ventanas principal y auxiliar al confirmar la salida, lo que hace que el apagado parezca inmediato para el usuario mientras la limpieza de subprocesos y memoria se ejecuta de forma segura en segundo plano.</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation translatorcomment="AI-translated">Se convirtieron las barras de herramientas superiores en las ventanas LIVE y ARCHIVE en muelles flotantes centrados (el muelle LIVE tiene ancho dinámico).</translation>
+        <translation>Se convirtieron las barras de herramientas superiores en las ventanas LIVE y ARCHIVE en muelles flotantes centrados (el muelle LIVE tiene ancho dinámico).</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation translatorcomment="AI-translated">Se agregó un separador vertical en la barra superior que se acopla entre las opciones de cuadrícula y los diseños.</translation>
+        <translation>Se agregó un separador vertical en la barra superior que se acopla entre las opciones de cuadrícula y los diseños.</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation translatorcomment="AI-translated">Mayor transparencia de las barras superior e inferior del archivo (60% en modo ventana, 26% en pantalla completa) y establecer el fondo de la línea de tiempo en transparente.</translation>
+        <translation>Mayor transparencia de las barras superior e inferior del archivo (60% en modo ventana, 26% en pantalla completa) y establecer el fondo de la línea de tiempo en transparente.</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation translatorcomment="AI-translated">Se simplificaron los íconos de velocidad de reproducción en el archivo para borrar el texto (1x, 2x, 4x) y se eliminó la opción de velocidad inestable de 8x.</translation>
+        <translation>Se simplificaron los íconos de velocidad de reproducción en el archivo para borrar el texto (1x, 2x, 4x) y se eliminó la opción de velocidad inestable de 8x.</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation translatorcomment="AI-translated">Se reemplazaron los botones de texto de navegación mensual en los calendarios de archivo y descarga con flechas gráficas (chevrones).</translation>
+        <translation>Se reemplazaron los botones de texto de navegación mensual en los calendarios de archivo y descarga con flechas gráficas (chevrones).</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation translatorcomment="AI-translated">Se reubicó el botón de cierre de la ventana gráfica de la cámara desde la esquina superior derecha al área de controles inferior derecha para evitar clics accidentales.</translation>
+        <translation>Se reubicó el botón de cierre de la ventana gráfica de la cámara desde la esquina superior derecha al área de controles inferior derecha para evitar clics accidentales.</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation translatorcomment="AI-translated">Contraste optimizado del texto del diseño de cuadrícula seleccionado en la ventana de archivo (texto oscuro sobre un fondo celadón).</translation>
+        <translation>Contraste optimizado del texto del diseño de cuadrícula seleccionado en la ventana de archivo (texto oscuro sobre un fondo celadón).</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation translatorcomment="AI-translated">Se convirtió el panel de estadísticas del sistema en un panel flotante que se puede arrastrar (con clic) usando un nuevo asa dedicada.</translation>
+        <translation>Se convirtió el panel de estadísticas del sistema en un panel flotante que se puede arrastrar (con clic) usando un nuevo asa dedicada.</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation translatorcomment="AI-translated">Se resolvió el bucle de sincronización de configuraciones críticas y la congelación de la interfaz de usuario al eliminar diseños de ventana gráfica.</translation>
+        <translation>Se resolvió el bucle de sincronización de configuraciones críticas y la congelación de la interfaz de usuario al eliminar diseños de ventana gráfica.</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation translatorcomment="AI-translated">Iconos de control de velocidad, zoom y VCR ampliados en el archivo para mejorar la visibilidad y mayor tamaño del texto dentro de los iconos SVG.</translation>
+        <translation>Iconos de control de velocidad, zoom y VCR ampliados en el archivo para mejorar la visibilidad y mayor tamaño del texto dentro de los iconos SVG.</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation translatorcomment="AI-translated">Se eliminaron botones de texto duplicados para accesos directos de zoom en el archivo, reemplazándolos por completo con íconos circulares.</translation>
+        <translation>Se eliminaron botones de texto duplicados para accesos directos de zoom en el archivo, reemplazándolos por completo con íconos circulares.</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation translatorcomment="AI-translated">Se agregaron traducciones completas en inglés y polaco para toda la información sobre herramientas en la ventana de archivo.</translation>
+        <translation>Se agregaron traducciones completas en inglés y polaco para toda la información sobre herramientas en la ventana de archivo.</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation translatorcomment="AI-translated">Se introdujo la sincronización de configuración bidireccional en tiempo real entre la ventana principal y las ventanas auxiliares con soporte para ID de ventana auxiliar automáticas y únicas.</translation>
+        <translation>Se introdujo la sincronización de configuración bidireccional en tiempo real entre la ventana principal y las ventanas auxiliares con soporte para ID de ventana auxiliar automáticas y únicas.</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation translatorcomment="AI-translated">Se agregó recuperación automática de sesión (reconexión automática) en el reproductor de archivos de Hikvision después de que se completen las descargas o la grabadora interrumpa las conexiones.</translation>
+        <translation>Se agregó recuperación automática de sesión (reconexión automática) en el reproductor de archivos de Hikvision después de que se completen las descargas o la grabadora interrumpa las conexiones.</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation translatorcomment="AI-translated">Se eliminaron posibles fugas de subprocesos y el decodificador de video FFmpeg se bloquea durante el cambio de diseño mediante la adopción de referencias std::weak_ptr seguras para los contextos de medios del decodificador.</translation>
+        <translation>Se eliminaron posibles fugas de subprocesos y el decodificador de video FFmpeg se bloquea durante el cambio de diseño mediante la adopción de referencias std::weak_ptr seguras para los contextos de medios del decodificador.</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation translatorcomment="AI-translated">Se corrigió una pérdida de memoria en los modelos ViewportsLayouts al eliminar de forma segura objetos de diseño usando deleteLater().</translation>
+        <translation>Se corrigió una pérdida de memoria en los modelos ViewportsLayouts al eliminar de forma segura objetos de diseño usando deleteLater().</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation translatorcomment="AI-translated">Se mitigaron los errores de inicio de la superficie de renderizado de video (OpenGL) durante los cambios rápidos de pestañas de NVR: los registros se degradaron al nivel de depuración y el sistema reintenta silenciosamente el renderizado en segundo plano después de que se liberan los buffers de GPU.</translation>
+        <translation>Se mitigaron los errores de inicio de la superficie de renderizado de video (OpenGL) durante los cambios rápidos de pestañas de NVR: los registros se degradaron al nivel de depuración y el sistema reintenta silenciosamente el renderizado en segundo plano después de que se liberan los buffers de GPU.</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation translatorcomment="AI-translated">Se resolvió el uso de RAM residual (20-30 MB) después de cerrar la ventana Archivo mediante una limpieza del montón de varios pasos y optimizaciones de la caché del motor QML.</translation>
+        <translation>Se resolvió el uso de RAM residual (20-30 MB) después de cerrar la ventana Archivo mediante una limpieza del montón de varios pasos y optimizaciones de la caché del motor QML.</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation translatorcomment="AI-translated">Uso optimizado de RAM durante el escalado de la cámara y el cambio de tamaño/zoom de la ventana gráfica, lo que evita la acumulación excesiva de memoria durante los cambios continuos en el diseño de la transmisión de video.</translation>
+        <translation>Uso optimizado de RAM durante el escalado de la cámara y el cambio de tamaño/zoom de la ventana gráfica, lo que evita la acumulación excesiva de memoria durante los cambios continuos en el diseño de la transmisión de video.</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation translatorcomment="AI-translated">Se agregó un indicador preciso de cuadros por segundo (FPS) en tiempo real en la esquina superior izquierda de cada ventana gráfica para transmisiones de reproducción en vivo y de archivo.</translation>
+        <translation>Se agregó un indicador preciso de cuadros por segundo (FPS) en tiempo real en la esquina superior izquierda de cada ventana gráfica para transmisiones de reproducción en vivo y de archivo.</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation translatorcomment="AI-translated">Se implementó la terminación segura y la liberación de subprocesos de descarga en el descargador de Hikvision, lo que garantiza un cierre estable e inmediato de la aplicación sin bloquear los recursos del sistema.</translation>
+        <translation>Se implementó la terminación segura y la liberación de subprocesos de descarga en el descargador de Hikvision, lo que garantiza un cierre estable e inmediato de la aplicación sin bloquear los recursos del sistema.</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation translatorcomment="AI-translated">Se agregó un campo de búsqueda de cámara dinámica en la ventana de archivo con un botón de reinicio y grabadoras coincidentes que se expanden automáticamente.</translation>
+        <translation>Se agregó un campo de búsqueda de cámara dinámica en la ventana de archivo con un botón de reinicio y grabadoras coincidentes que se expanden automáticamente.</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation translatorcomment="AI-translated">Se habilitó el ajuste de nombres largos de cámaras en mosaicos de lista en el archivo.</translation>
+        <translation>Se habilitó el ajuste de nombres largos de cámaras en mosaicos de lista en el archivo.</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation translatorcomment="AI-translated">Colores ampliados e invertidos del botón más (+) en los mosaicos de la cámara (fondo menta) para una mejor visibilidad, con estados claros de desplazamiento/presionado.</translation>
+        <translation>Colores ampliados e invertidos del botón más (+) en los mosaicos de la cámara (fondo menta) para una mejor visibilidad, con estados claros de desplazamiento/presionado.</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation translatorcomment="AI-translated">Se corrigió el cambio de 2 a 3 horas de la barra de la línea de tiempo de disponibilidad de grabación en la ventana del reproductor de archivos, sincronizando la línea de tiempo con la zona horaria local del cliente (con compatibilidad correcta con el horario de verano y DST).</translation>
+        <translation>Se corrigió el cambio de 2 a 3 horas de la barra de la línea de tiempo de disponibilidad de grabación en la ventana del reproductor de archivos, sincronizando la línea de tiempo con la zona horaria local del cliente (con compatibilidad correcta con el horario de verano y DST).</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation translatorcomment="AI-translated">Se reemplazó el emoji negro de bajo contraste 📺 en vistas vacías con un elegante monitor vectorial Seledyn de alto DPI SVG.</translation>
+        <translation>Se reemplazó el emoji negro de bajo contraste 📺 en vistas vacías con un elegante monitor vectorial Seledyn de alto DPI SVG.</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation translatorcomment="AI-translated">Legibilidad mejorada de las barras de la grabadora en la ventana de archivo (la altura aumentó de 22 px a 28 px, el tamaño de fuente de 9 px a 11 px, flecha de expansión más grande).</translation>
+        <translation>Legibilidad mejorada de las barras de la grabadora en la ventana de archivo (la altura aumentó de 22 px a 28 px, el tamaño de fuente de 9 px a 11 px, flecha de expansión más grande).</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation translatorcomment="AI-translated">Se agregaron efectos de desplazamiento dinámicos y completos para las barras de la grabadora con distintos cambios en el fondo, el texto y los colores de los íconos a seledyn/blanco.</translation>
+        <translation>Se agregaron efectos de desplazamiento dinámicos y completos para las barras de la grabadora con distintos cambios en el fondo, el texto y los colores de los íconos a seledyn/blanco.</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation translatorcomment="AI-translated">Se reemplazaron los botones de acción de texto en la barra superior (Opciones, Nueva ventana, Archivo, Instrucciones) con íconos SVG de colores dedicados con información sobre herramientas útiles.</translation>
+        <translation>Se reemplazaron los botones de acción de texto en la barra superior (Opciones, Nueva ventana, Archivo, Instrucciones) con íconos SVG de colores dedicados con información sobre herramientas útiles.</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation translatorcomment="AI-translated">Se reemplazó el interruptor de estadísticas del sistema con un ícono SVG interactivo que refleja el estado de actividad del monitor del sistema.</translation>
+        <translation>Se reemplazó el interruptor de estadísticas del sistema con un ícono SVG interactivo que refleja el estado de actividad del monitor del sistema.</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation translatorcomment="AI-translated">Botones de selección de cuadrícula unificada (1x1-9x9) en botones circulares consistentes de 30x30px.</translation>
+        <translation>Botones de selección de cuadrícula unificada (1x1-9x9) en botones circulares consistentes de 30x30px.</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation translatorcomment="AI-translated">Se agregó una línea separadora vertical entre la sección de opciones y la sección de selección de cuadrícula.</translation>
+        <translation>Se agregó una línea separadora vertical entre la sección de opciones y la sección de selección de cuadrícula.</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation translatorcomment="AI-translated">Botones de vista rediseñados con una elegante forma de pastilla redondeada con 30 píxeles de altura, preservando los márgenes laterales.</translation>
+        <translation>Botones de vista rediseñados con una elegante forma de pastilla redondeada con 30 píxeles de altura, preservando los márgenes laterales.</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation translatorcomment="AI-translated">Visualización automática de mayúsculas en los nombres de las vistas.</translation>
+        <translation>Visualización automática de mayúsculas en los nombres de las vistas.</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation translatorcomment="AI-translated">Legibilidad y contraste mejorados del botón de vista activa: texto oscuro (#121214) sobre un fondo seledyn brillante.</translation>
+        <translation>Legibilidad y contraste mejorados del botón de vista activa: texto oscuro (#121214) sobre un fondo seledyn brillante.</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation translatorcomment="AI-translated">Íconos de eliminación unificados y mejorados en la lista de grabadoras y vistas y el botón de activación preestablecido en íconos SVG con información sobre herramientas.</translation>
+        <translation>Íconos de eliminación unificados y mejorados en la lista de grabadoras y vistas y el botón de activación preestablecido en íconos SVG con información sobre herramientas.</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation translatorcomment="AI-translated">Disminución del espacio entre los botones de la barra superior para optimizar el espacio de la interfaz.</translation>
+        <translation>Disminución del espacio entre los botones de la barra superior para optimizar el espacio de la interfaz.</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation translatorcomment="AI-translated">Se restauró el icono de minimizar que faltaba en la ventana auxiliar.</translation>
+        <translation>Se restauró el icono de minimizar que faltaba en la ventana auxiliar.</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation translatorcomment="AI-translated">Se corrigieron problemas de inicio de sesión y reproducción en ventanas auxiliares.</translation>
+        <translation>Se corrigieron problemas de inicio de sesión y reproducción en ventanas auxiliares.</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation translatorcomment="AI-translated">Se corrigieron los estados de los botones de diseño (1x1 frente a 2x2) al abrir la reproducción directamente desde la cámara.</translation>
+        <translation>Se corrigieron los estados de los botones de diseño (1x1 frente a 2x2) al abrir la reproducción directamente desde la cámara.</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation translatorcomment="AI-translated">Se agregó el espacio de nombres XML adecuado en las consultas ISAPI de Hikvision (corrige el error 'Contenido XML no válido' en el firmware de grabadora más reciente).</translation>
+        <translation>Se agregó el espacio de nombres XML adecuado en las consultas ISAPI de Hikvision (corrige el error 'Contenido XML no válido' en el firmware de grabadora más reciente).</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation translatorcomment="AI-translated">Se corrigió el manejo de la paginación de resultados de búsqueda (etiqueta searchResultPostion).</translation>
+        <translation>Se corrigió el manejo de la paginación de resultados de búsqueda (etiqueta searchResultPostion).</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation translatorcomment="AI-translated">Botón 'Actualizar' en la ventana de reproducción para borrar manualmente el caché y volver a recuperar los datos de disponibilidad de grabación.</translation>
+        <translation>Botón 'Actualizar' en la ventana de reproducción para borrar manualmente el caché y volver a recuperar los datos de disponibilidad de grabación.</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation translatorcomment="AI-translated">Optimización de la cola de búsqueda previa de la red: búsqueda en segundo plano restringida a 12 meses, lo que elimina cientos de consultas innecesarias y acelera el inicio de la reproducción.</translation>
+        <translation>Optimización de la cola de búsqueda previa de la red: búsqueda en segundo plano restringida a 12 meses, lo que elimina cientos de consultas innecesarias y acelera el inicio de la reproducción.</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation translatorcomment="AI-translated">Inicialización asincrónica del SDK de Hikvision en un hilo en segundo plano, eliminando por completo las congelaciones de la GUI al abrir opciones.</translation>
+        <translation>Inicialización asincrónica del SDK de Hikvision en un hilo en segundo plano, eliminando por completo las congelaciones de la GUI al abrir opciones.</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation translatorcomment="AI-translated">Sincronización segura para subprocesos de acceso a los métodos del SDK de Hikvision.</translation>
+        <translation>Sincronización segura para subprocesos de acceso a los métodos del SDK de Hikvision.</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation translatorcomment="AI-translated">Desinfección de archivos descargados y nombres de capturas de pantalla eliminando las direcciones IP de las grabadoras.</translation>
+        <translation>Desinfección de archivos descargados y nombres de capturas de pantalla eliminando las direcciones IP de las grabadoras.</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation translatorcomment="AI-translated">Elegante barra de progreso de descarga en turquesa (#00f5d4) con texto delineado centrado.</translation>
+        <translation>Elegante barra de progreso de descarga en turquesa (#00f5d4) con texto delineado centrado.</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation translatorcomment="AI-translated">Cálculo del progreso de descarga global (progreso general) para grabaciones de varias partes.</translation>
+        <translation>Cálculo del progreso de descarga global (progreso general) para grabaciones de varias partes.</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation translatorcomment="AI-translated">Se cambió la extensión del archivo de descarga temporal de '.ps' a '.pspart'.</translation>
+        <translation>Se cambió la extensión del archivo de descarga temporal de '.ps' a '.pspart'.</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation translatorcomment="AI-translated">Opción y botón 'Mostrar campos de información solo al pasar el cursor' en la configuración de la interfaz de usuario.</translation>
+        <translation>Opción y botón 'Mostrar campos de información solo al pasar el cursor' en la configuración de la interfaz de usuario.</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation translatorcomment="AI-translated">Indicador visual de descubrimiento de cámaras en el panel de configuración (icono giratorio, bloqueo de formulario y texto 'Descubriendo...').</translation>
+        <translation>Indicador visual de descubrimiento de cámaras en el panel de configuración (icono giratorio, bloqueo de formulario y texto 'Descubriendo...').</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation translatorcomment="AI-translated">Localización completa (se agregó soporte de traducción oficial al polaco e inglés).</translation>
+        <translation>Localización completa (se agregó soporte de traducción oficial al polaco e inglés).</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation translatorcomment="AI-translated">Optimización del inicio de la ventana auxiliar: tiempo de carga reducido de 3 segundos a menos de 300 ms.</translation>
+        <translation>Optimización del inicio de la ventana auxiliar: tiempo de carga reducido de 3 segundos a menos de 300 ms.</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation translatorcomment="AI-translated">Marcador de posición estético en la ventana auxiliar ("No hay vista seleccionada") con un borde turquesa.</translation>
+        <translation>Marcador de posición estético en la ventana auxiliar ("No hay vista seleccionada") con un borde turquesa.</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation translatorcomment="AI-translated">Integración del SDK de Hikvision para visualización en vivo y modo de reproducción.</translation>
+        <translation>Integración del SDK de Hikvision para visualización en vivo y modo de reproducción.</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation translatorcomment="AI-translated">Reproductor de reproducción multicámara con posicionamiento y centrado automático de la línea de tiempo.</translation>
+        <translation>Reproductor de reproducción multicámara con posicionamiento y centrado automático de la línea de tiempo.</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation translatorcomment="AI-translated">Monitor de sistema multiproceso (CPU, RAM, GPU, VRAM y estadísticas de ancho de banda de red).</translation>
+        <translation>Monitor de sistema multiproceso (CPU, RAM, GPU, VRAM y estadísticas de ancho de banda de red).</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation translatorcomment="AI-translated">Seguimiento del consumo de ancho de banda de la red en tiempo real.</translation>
+        <translation>Seguimiento del consumo de ancho de banda de la red en tiempo real.</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation translatorcomment="AI-translated">Ícono de aplicación de alta resolución e interfaz refinada de tema oscuro.</translation>
+        <translation>Ícono de aplicación de alta resolución e interfaz refinada de tema oscuro.</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation translatorcomment="AI-translated">Script de creación automática de paquetes Pacman para Arch Linux.</translation>
+        <translation>Script de creación automática de paquetes Pacman para Arch Linux.</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVisión</translation>
+        <translation>KVisión</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation translatorcomment="AI-translated">Versión %1</translation>
+        <translation>Versión %1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation translatorcomment="AI-translated">Autor original: Evgeny S. Maksimov</translation>
+        <translation>Autor original: Evgeny S. Maksimov</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation translatorcomment="AI-translated">Modificación: arkanista (con asistencia de IA)</translation>
+        <translation>Modificación: arkanista (con asistencia de IA)</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation translatorcomment="AI-translated">Ventana gráfica%1</translation>
+        <translation>Ventana gráfica%1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation translatorcomment="AI-translated">#%1</translation>
+        <translation>#%1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation translatorcomment="AI-translated">Herramientas</translation>
+        <translation>Herramientas</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation translatorcomment="AI-translated">Grabadoras</translation>
+        <translation>Grabadoras</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation translatorcomment="AI-translated">Preajustes</translation>
+        <translation>Preajustes</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation translatorcomment="AI-translated">Configuración</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation translatorcomment="AI-translated">Registro de cambios</translation>
+        <translation>Registro de cambios</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation translatorcomment="AI-translated">Versión disponible: %1</translation>
+        <translation>Versión disponible: %1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation translatorcomment="AI-translated">Detalles de la ventana gráfica</translation>
+        <translation>Detalles de la ventana gráfica</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation translatorcomment="AI-translated">Seleccione una ventana gráfica en la cuadrícula principal para personalizar su configuración.</translation>
+        <translation>Seleccione una ventana gráfica en la cuadrícula principal para personalizar su configuración.</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation translatorcomment="AI-translated">Desbloquear panel de configuración</translation>
+        <translation>Desbloquear panel de configuración</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Conexión de transmisión activa</translation>
+        <translation>Conexión de transmisión activa</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">URL de transmisión principal</translation>
+        <translation>URL de transmisión principal</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">URL de copia de seguridad secundaria</translation>
+        <translation>URL de copia de seguridad secundaria</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation translatorcomment="AI-translated">Opciones de audio y renderizado</translation>
+        <translation>Opciones de audio y renderizado</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation translatorcomment="AI-translated">Silenciar/Activar audio</translation>
+        <translation>Silenciar/Activar audio</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation translatorcomment="AI-translated">Anulación de opciones de FFmpeg</translation>
+        <translation>Anulación de opciones de FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Herramientas de diseño y cuadrícula</translation>
+        <translation>Herramientas de diseño y cuadrícula</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Panel de herramientas de desbloqueo</translation>
+        <translation>Panel de herramientas de desbloqueo</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">División de ventana</translation>
+        <translation>División de ventana</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">¡Error al leer la configuración!</translation>
+        <translation>¡Error al leer la configuración!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Mantenga presionado para editar el valor de división</translation>
+        <translation>Mantenga presionado para editar el valor de división</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Relación de geometría</translation>
+        <translation>Relación de geometría</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Alternar pantalla completa</translation>
+        <translation>Alternar pantalla completa</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Operaciones de red</translation>
+        <translation>Operaciones de red</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Fusionar celdas resaltadas</translation>
+        <translation>Fusionar celdas resaltadas</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation translatorcomment="AI-translated">Administrador de grabadoras NVR / Hikvision</translation>
+        <translation>Administrador de grabadoras NVR / Hikvision</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation translatorcomment="AI-translated">Ajustes preestablecidos y vistas de diseño rápido</translation>
+        <translation>Ajustes preestablecidos y vistas de diseño rápido</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation translatorcomment="AI-translated">Configuración de diseño ONVIF y RTSP</translation>
+        <translation>Configuración de diseño ONVIF y RTSP</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation translatorcomment="AI-translated">Diseño %1</translation>
+        <translation>Diseño %1</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation translatorcomment="AI-translated">Visibles</translation>
+        <translation>Visibles</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation translatorcomment="AI-translated">Activar este diseño de vista previa</translation>
+        <translation>Activar este diseño de vista previa</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation translatorcomment="AI-translated">Eliminar este diseño de vista previa</translation>
+        <translation>Eliminar este diseño de vista previa</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation translatorcomment="AI-translated">Agregar diseño preestablecido</translation>
+        <translation>Agregar diseño preestablecido</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation translatorcomment="AI-translated">Diseños de visualización de NVR</translation>
+        <translation>Diseños de visualización de NVR</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation translatorcomment="AI-translated">Vista NVR</translation>
+        <translation>Vista NVR</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation translatorcomment="AI-translated">Activar esta vista de cámaras NVR</translation>
+        <translation>Activar esta vista de cámaras NVR</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation translatorcomment="AI-translated">Eliminar esta vista de cámaras NVR</translation>
+        <translation>Eliminar esta vista de cámaras NVR</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation translatorcomment="AI-translated">Preajustes de NVR (vistas de cuadrícula)</translation>
+        <translation>Preajustes de NVR (vistas de cuadrícula)</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation translatorcomment="AI-translated">NVR preestablecido #%1</translation>
+        <translation>NVR preestablecido #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation translatorcomment="AI-translated">Active este preajuste de cámaras NVR</translation>
+        <translation>Active este preajuste de cámaras NVR</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation translatorcomment="AI-translated">Eliminar este ajuste preestablecido de cámaras NVR</translation>
+        <translation>Eliminar este ajuste preestablecido de cámaras NVR</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation translatorcomment="AI-translated">Agregar NVR preestablecido</translation>
+        <translation>Agregar NVR preestablecido</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation translatorcomment="AI-translated">Configuración del sistema</translation>
+        <translation>Configuración del sistema</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation translatorcomment="AI-translated">Configuraciones generales</translation>
+        <translation>Configuraciones generales</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation translatorcomment="AI-translated">Permitir ejecutar múltiples instancias de aplicaciones</translation>
+        <translation>Permitir ejecutar múltiples instancias de aplicaciones</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation translatorcomment="AI-translated">Esta opción está deshabilitada para evitar conflictos de escritura en archivos de configuración. Para habilitarlo (¡peligroso y no recomendado!), establezca 'singleApplication=false' en el archivo de configuración kvision.conf.</translation>
+        <translation>Esta opción está deshabilitada para evitar conflictos de escritura en archivos de configuración. Para habilitarlo (¡peligroso y no recomendado!), establezca 'singleApplication=false' en el archivo de configuración kvision.conf.</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation translatorcomment="AI-translated">Verifique el estado de error de Hikvision NVR</translation>
+        <translation>Verifique el estado de error de Hikvision NVR</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation translatorcomment="AI-translated">Audio</translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation translatorcomment="AI-translated">Desactivar el audio por completo</translation>
+        <translation>Desactivar el audio por completo</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation translatorcomment="AI-translated">Maximizar la cámara a pantalla completa no activa el silencio</translation>
+        <translation>Maximizar la cámara a pantalla completa no activa el silencio</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation translatorcomment="AI-translated">Configuración del menú contextual</translation>
+        <translation>Configuración del menú contextual</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation translatorcomment="AI-translated">Habilitar el menú contextual del botón derecho</translation>
+        <translation>Habilitar el menú contextual del botón derecho</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation translatorcomment="AI-translated">Permitir intercambiar lugares de ventana gráfica</translation>
+        <translation>Permitir intercambiar lugares de ventana gráfica</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation translatorcomment="AI-translated">Habilite la opción 'Eliminar cámara'</translation>
+        <translation>Habilite la opción 'Eliminar cámara'</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation translatorcomment="AI-translated">Permitir cambiar la configuración de la ventana gráfica</translation>
+        <translation>Permitir cambiar la configuración de la ventana gráfica</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation translatorcomment="AI-translated">Habilite la opción 'Selección de transmisión'</translation>
+        <translation>Habilite la opción 'Selección de transmisión'</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation translatorcomment="AI-translated">Configuración de la interfaz de usuario</translation>
+        <translation>Configuración de la interfaz de usuario</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation translatorcomment="AI-translated">Mostrar el estado del canal en la esquina superior izquierda de la ventana gráfica</translation>
+        <translation>Mostrar el estado del canal en la esquina superior izquierda de la ventana gráfica</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation translatorcomment="AI-translated">Mostrar información de la cámara en la esquina inferior izquierda de la ventana gráfica</translation>
+        <translation>Mostrar información de la cámara en la esquina inferior izquierda de la ventana gráfica</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation translatorcomment="AI-translated">Mostrar íconos de control en la esquina inferior derecha de la ventana gráfica solo al pasar el cursor</translation>
+        <translation>Mostrar íconos de control en la esquina inferior derecha de la ventana gráfica solo al pasar el cursor</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation translatorcomment="AI-translated">Mostrar campos de información solo al pasar el cursor</translation>
+        <translation>Mostrar campos de información solo al pasar el cursor</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation translatorcomment="AI-translated">Mostrar la barra superior de forma predeterminada al abrir la ventana</translation>
+        <translation>Mostrar la barra superior de forma predeterminada al abrir la ventana</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation translatorcomment="AI-translated">Ocultar el cursor del mouse en modo de pantalla completa</translation>
+        <translation>Ocultar el cursor del mouse en modo de pantalla completa</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation translatorcomment="AI-translated">Deshabilitar la animación de zoom de la ventana gráfica</translation>
+        <translation>Deshabilitar la animación de zoom de la ventana gráfica</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation translatorcomment="AI-translated">Idioma:</translation>
+        <translation>Idioma:</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation translatorcomment="AI-translated">Valor predeterminado del sistema</translation>
+        <translation>Valor predeterminado del sistema</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation translatorcomment="AI-translated">Limite las ventanas auxiliares a:</translation>
+        <translation>Limite las ventanas auxiliares a:</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation translatorcomment="AI-translated">Monitoreo del estado del NVR</translation>
+        <translation>Monitoreo del estado del NVR</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation translatorcomment="AI-translated">Supervisar el estado fuera de línea y los errores de inicio de sesión</translation>
+        <translation>Supervisar el estado fuera de línea y los errores de inicio de sesión</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation translatorcomment="AI-translated">Monitorear la sobrecarga de la CPU (&gt;85%)</translation>
+        <translation>Monitorear la sobrecarga de la CPU (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation translatorcomment="AI-translated">Supervisar errores de hardware de la grabadora</translation>
+        <translation>Supervisar errores de hardware de la grabadora</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation translatorcomment="AI-translated">Monitorear fallas/anomalías del disco duro</translation>
+        <translation>Monitorear fallas/anomalías del disco duro</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation translatorcomment="AI-translated">Monitorear discos duros sin formato</translation>
+        <translation>Monitorear discos duros sin formato</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation translatorcomment="AI-translated">Monitorear discos duros llenos (cobertura de bucle deshabilitada)</translation>
+        <translation>Monitorear discos duros llenos (cobertura de bucle deshabilitada)</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation translatorcomment="AI-translated">Reproducción</translation>
+        <translation>Reproducción</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation translatorcomment="AI-translated">Desplazamiento de inicio de reproducción hacia atrás predeterminado, segundos:</translation>
+        <translation>Desplazamiento de inicio de reproducción hacia atrás predeterminado, segundos:</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation translatorcomment="AI-translated">Intervalo de tiempo de reproducción predeterminado, horas:</translation>
+        <translation>Intervalo de tiempo de reproducción predeterminado, horas:</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation translatorcomment="AI-translated">Ahorro</translation>
+        <translation>Ahorro</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation translatorcomment="AI-translated">Activar cambios en esta sección</translation>
+        <translation>Activar cambios en esta sección</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation translatorcomment="AI-translated">Ruta de instantánea predeterminada:</translation>
+        <translation>Ruta de instantánea predeterminada:</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation translatorcomment="AI-translated">Elija la carpeta para las instantáneas</translation>
+        <translation>Elija la carpeta para las instantáneas</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation translatorcomment="AI-translated">Ruta de grabaciones predeterminada:</translation>
+        <translation>Ruta de grabaciones predeterminada:</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation translatorcomment="AI-translated">Elija carpeta para grabaciones</translation>
+        <translation>Elija carpeta para grabaciones</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation translatorcomment="AI-translated">abrir carpeta de imágenes</translation>
+        <translation>abrir carpeta de imágenes</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation translatorcomment="AI-translated">abrir carpeta de videos</translation>
+        <translation>abrir carpeta de videos</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation translatorcomment="AI-translated">Configuración de medios del sistema</translation>
+        <translation>Configuración de medios del sistema</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation translatorcomment="AI-translated">Opciones predeterminadas de la línea de comandos de FFmpeg</translation>
+        <translation>Opciones predeterminadas de la línea de comandos de FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation translatorcomment="AI-translated">Actualizar todas las cámaras</translation>
+        <translation>Actualizar todas las cámaras</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation translatorcomment="AI-translated">Registro de cambios</translation>
+        <translation>Registro de cambios</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation translatorcomment="AI-translated">Historial de mejoras, correcciones de errores y nuevas funciones en KVision.</translation>
+        <translation>Historial de mejoras, correcciones de errores y nuevas funciones en KVision.</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation translatorcomment="AI-translated">Confirmar eliminación</translation>
+        <translation>Confirmar eliminación</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation translatorcomment="AI-translated">¿Está seguro de que desea eliminar el valor preestablecido \"%1\"? Esta acción es completamente irreversible.</translation>
+        <translation>¿Está seguro de que desea eliminar el valor preestablecido \"%1\"? Esta acción es completamente irreversible.</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation translatorcomment="AI-translated">¿Estás seguro de que deseas eliminar el preset #%1? Esta acción es completamente irreversible.</translation>
+        <translation>¿Estás seguro de que deseas eliminar el preset #%1? Esta acción es completamente irreversible.</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation translatorcomment="AI-translated">¿Está seguro de que desea eliminar la vista NVR \"%1\"? Esta acción es completamente irreversible.</translation>
+        <translation>¿Está seguro de que desea eliminar la vista NVR \"%1\"? Esta acción es completamente irreversible.</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation translatorcomment="AI-translated">¿Está seguro de que desea eliminar este diseño de vista de NVR? Esta acción es completamente irreversible.</translation>
+        <translation>¿Está seguro de que desea eliminar este diseño de vista de NVR? Esta acción es completamente irreversible.</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation translatorcomment="AI-translated">¿Está seguro de que desea eliminar el valor preestablecido de NVR \"%1\"? Esta acción es completamente irreversible.</translation>
+        <translation>¿Está seguro de que desea eliminar el valor preestablecido de NVR \"%1\"? Esta acción es completamente irreversible.</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation translatorcomment="AI-translated">¿Está seguro de que desea eliminar este ajuste preestablecido de NVR? Esta acción es completamente irreversible.</translation>
+        <translation>¿Está seguro de que desea eliminar este ajuste preestablecido de NVR? Esta acción es completamente irreversible.</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">No incluya cambios globales en la configuración de FFmpeg</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">Opciones de FFmpeg</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">Opciones de canal</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">Configuración de la ventana gráfica</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">¿Está seguro de que desea eliminar la cámara de esta ventana gráfica?</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">Confirmar la eliminación de la cámara</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">Tylko SUB</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">PRINCIPAL</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">Automatismo</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">Reproducción</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>Expansión de localización: KVision ahora está completamente localizado en 20 nuevos idiomas traducidos por IA, lo que eleva el número total de idiomas admitidos a 22 (inglés, polaco y 20 idiomas nuevos). Se han traducido toda la interfaz de la aplicación (UI) y los manuales de usuario completos.</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>Documentación de reproducción rápida de Viewport: se agregó documentación completa que explica el botón de superposición de flecha circular (minirreproductor) y sus funciones detalladas en los 22 manuales de usuario.</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>Pan Zoom: se agregó la capacidad de desplazarse libremente por el video ampliado (en vivo, minirreproductor, archivo) manteniendo presionado el botón central del mouse (rueda de desplazamiento) y arrastrando el cursor.</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>Selección de zoom proporcional: se introdujo el atajo de Mayús. Si mantiene presionada la tecla Mayús mientras dibuja un rectángulo de zoom, la selección se bloqueará en una relación de aspecto de 16:9, estrictamente restringida a los límites de la ventana gráfica.</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>Posicionamiento de ventana forzado: reemplazó completamente los mecanismos de guardado de geometría de ventana heredados debido a problemas irresolubles de proyección de múltiples monitores en Qt. La aplicación (tanto la ventana principal como las ventanas auxiliares) ahora exige estrictamente el inicio centrado en el monitor principal al 90% de su resolución, lo que garantiza estabilidad y previsibilidad en todas las configuraciones.</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>Refactorización de localización: se reemplazaron todas las cadenas codificadas en polaco e inglés incrustadas en el código fuente (qsTr, tr). Se han refactorizado más de 500 cadenas únicas en identificadores LNG_XXXXX, mapeados de forma segura a través de un sistema de archivos .ts/.qm mejorado.</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>CLI solo en inglés: las opciones de la interfaz de línea de comandos y los parámetros --help ahora están permanentemente en inglés para evitar problemas con la inicialización retrasada del motor de localización.</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>Relación de aspecto de archivo: se solucionó un problema por el cual la relación de aspecto del video se distorsionaba en la ventana gráfica del reproductor de archivo. El componente HikvisionArchivePlayer ahora renderiza correctamente el fotograma original conservando su relación de aspecto natural (buzón), en lugar de estirar el vídeo para que se ajuste a los límites de la interfaz de usuario.</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>Pérdidas de memoria del demuxer: se mejoró la lógica de limpieza de objetos en la rutina QmlAVPlayer::stop(), evitando que las instancias de demuxer 'zombies' se acumulen en segundo plano.</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>Solución writeSetting: se agregó la implementación faltante del método writeSetting en la clase Context, eliminando TypeErrors e interrupciones en la ejecución de QML durante las migraciones de configuraciones.</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4374,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">¡Error al leer la configuración!</translation>
+        <translation>¡Error al leer la configuración!</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4393,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVisión</translation>
+        <translation>KVisión</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation translatorcomment="AI-translated">El programa ya se está ejecutando, no puedes iniciar uno segundo.</translation>
+        <translation>El programa ya se está ejecutando, no puedes iniciar uno segundo.</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">CERRAR</translation>
+        <translation>CERRAR</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4424,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation translatorcomment="AI-translated">Instantánea guardada</translation>
+        <translation>Instantánea guardada</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation translatorcomment="AI-translated">Instantánea guardada -</translation>
+        <translation>Instantánea guardada -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation translatorcomment="AI-translated">Navegar</translation>
+        <translation>Navegar</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation translatorcomment="AI-translated">Salir</translation>
+        <translation>Salir</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4491,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Herramientas de diseño y cuadrícula</translation>
+        <translation>Herramientas de diseño y cuadrícula</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Panel de herramientas de desbloqueo</translation>
+        <translation>Panel de herramientas de desbloqueo</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">División de ventana</translation>
+        <translation>División de ventana</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">¡Error al leer la configuración!</translation>
+        <translation>¡Error al leer la configuración!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Mantenga presionado para editar el valor de división</translation>
+        <translation>Mantenga presionado para editar el valor de división</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Relación de geometría</translation>
+        <translation>Relación de geometría</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation translatorcomment="AI-translated">Relación de aspecto 16:9</translation>
+        <translation>Relación de aspecto 16:9</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation translatorcomment="AI-translated">Relación de aspecto 4:3</translation>
+        <translation>Relación de aspecto 4:3</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Alternar pantalla completa</translation>
+        <translation>Alternar pantalla completa</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Operaciones de red</translation>
+        <translation>Operaciones de red</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Fusionar celdas resaltadas</translation>
+        <translation>Fusionar celdas resaltadas</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4578,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation translatorcomment="AI-translated">Configuración de la ventana gráfica</translation>
+        <translation>Configuración de la ventana gráfica</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Conexión de transmisión activa</translation>
+        <translation>Conexión de transmisión activa</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">URL de transmisión principal</translation>
+        <translation>URL de transmisión principal</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">URL de copia de seguridad secundaria</translation>
+        <translation>URL de copia de seguridad secundaria</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation translatorcomment="AI-translated">Opciones de canal</translation>
+        <translation>Opciones de canal</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation translatorcomment="AI-translated">Opciones de FFmpeg</translation>
+        <translation>Opciones de FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation translatorcomment="AI-translated">No incluya cambios globales en la configuración de FFmpeg</translation>
+        <translation>No incluya cambios globales en la configuración de FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Guardar</translation>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4670,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation translatorcomment="AI-translated">Intercambiar ventanas gráficas</translation>
+        <translation>Intercambiar ventanas gráficas</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation translatorcomment="AI-translated">Selección de transmisión</translation>
+        <translation>Selección de transmisión</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation translatorcomment="AI-translated">Quitar cámara</translation>
+        <translation>Quitar cámara</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation translatorcomment="AI-translated">Cambiar configuración</translation>
+        <translation>Cambiar configuración</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation translatorcomment="AI-translated">recargar</translation>
+        <translation>recargar</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation translatorcomment="AI-translated">Instantánea</translation>
+        <translation>Instantánea</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation translatorcomment="AI-translated">Reproducción</translation>
+        <translation>Reproducción</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation translatorcomment="AI-translated">Automatismo</translation>
+        <translation>Automatismo</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation translatorcomment="AI-translated">PRINCIPAL</translation>
+        <translation>PRINCIPAL</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation translatorcomment="AI-translated">Tylko SUB</translation>
+        <translation>Tylko SUB</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation translatorcomment="AI-translated">Confirmar la eliminación de la cámara</translation>
+        <translation>Confirmar la eliminación de la cámara</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation translatorcomment="AI-translated">¿Está seguro de que desea eliminar la cámara de esta ventana gráfica?</translation>
+        <translation>¿Está seguro de que desea eliminar la cámara de esta ventana gráfica?</translation>
     </message>
 </context>
 </TS>

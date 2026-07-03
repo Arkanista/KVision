@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">ك فيجن</translation>
+        <translation>ك فيجن</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation translatorcomment="AI-translated">لا يمكنك فتح المزيد من النوافذ المساعدة</translation>
+        <translation>لا يمكنك فتح المزيد من النوافذ المساعدة</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">يغلق</translation>
+        <translation>يغلق</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - نافذة مساعدة</translation>
+        <translation>KVision - نافذة مساعدة</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">لم يتم تحديد طريقة عرض، حدد طريقة عرض</translation>
+        <translation>لم يتم تحديد طريقة عرض، حدد طريقة عرض</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">حدد طريقة عرض من القائمة العلوية لبدء عرض الكاميرات.</translation>
+        <translation>حدد طريقة عرض من القائمة العلوية لبدء عرض الكاميرات.</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">خيارات وإعدادات لوحة الشريط الجانبي</translation>
+        <translation>خيارات وإعدادات لوحة الشريط الجانبي</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">فتح نافذة مساعدة جديدة</translation>
+        <translation>فتح نافذة مساعدة جديدة</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">دليل مستخدم البرنامج</translation>
+        <translation>دليل مستخدم البرنامج</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation translatorcomment="AI-translated">عرض الشبكة:</translation>
+        <translation>عرض الشبكة:</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">تبديل الشاشة الكاملة</translation>
+        <translation>تبديل الشاشة الكاملة</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation translatorcomment="AI-translated">🔒 تغيير تخطيط القفل</translation>
+        <translation>🔒 تغيير تخطيط القفل</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">المزيد من الخيارات</translation>
+        <translation>المزيد من الخيارات</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation translatorcomment="AI-translated">عرض التحديد:</translation>
+        <translation>عرض التحديد:</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">إغلاق البرنامج</translation>
+        <translation>إغلاق البرنامج</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد أنك تريد إغلاق البرنامج؟</translation>
+        <translation>هل أنت متأكد أنك تريد إغلاق البرنامج؟</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">نعم</translation>
+        <translation>نعم</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">لا</translation>
+        <translation>لا</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation translatorcomment="AI-translated">نعم</translation>
+        <translation>نعم</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation translatorcomment="AI-translated">لا</translation>
+        <translation>لا</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation translatorcomment="AI-translated">المسار إلى ملف التكوين.</translation>
+        <translation type="vanished">المسار إلى ملف التكوين.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation translatorcomment="AI-translated">مؤشر الإعداد المسبق الحالي.</translation>
+        <translation type="vanished">مؤشر الإعداد المسبق الحالي.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation translatorcomment="AI-translated">فرض وضع ملء الشاشة.</translation>
+        <translation type="vanished">فرض وضع ملء الشاشة.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation translatorcomment="AI-translated">وظيفة وضع الكشك.</translation>
+        <translation type="vanished">وظيفة وضع الكشك.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation translatorcomment="AI-translated">مستوى السجل [%1...%2].</translation>
+        <translation type="vanished">مستوى السجل [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation translatorcomment="AI-translated">ابدأ كنافذة مساعدة.</translation>
+        <translation type="vanished">ابدأ كنافذة مساعدة.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation translatorcomment="AI-translated">معرف النافذة المساعدة.</translation>
+        <translation type="vanished">معرف النافذة المساعدة.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation translatorcomment="AI-translated">عرض السجلات المطولة في وحدة التحكم (التسجيل المطول).</translation>
+        <translation type="vanished">عرض السجلات المطولة في وحدة التحكم (التسجيل المطول).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation translatorcomment="AI-translated">تمكين تعقب الكائنات في السجلات لتصحيح تسرب الذاكرة.</translation>
+        <translation type="vanished">تمكين تعقب الكائنات في السجلات لتصحيح تسرب الذاكرة.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation translatorcomment="AI-translated">فرض سلوك التشغيل الأول وإظهار التعليمات.</translation>
+        <translation type="vanished">فرض سلوك التشغيل الأول وإظهار التعليمات.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation translatorcomment="AI-translated">محاكاة أخطاء NVR على جميع المسجلات.</translation>
+        <translation type="vanished">محاكاة أخطاء NVR على جميع المسجلات.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation translatorcomment="AI-translated">محاكاة لتوفر الإصدار الجديد على GitHub لأغراض الاختبار</translation>
+        <translation type="vanished">محاكاة لتوفر الإصدار الجديد على GitHub لأغراض الاختبار</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation translatorcomment="AI-translated">KVision - عارض ومثبت دفق الفيديو.</translation>
+        <translation>KVision - عارض ومثبت دفق الفيديو.</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation translatorcomment="AI-translated">يجب أن يكون تاريخ ووقت الانتهاء بعد تاريخ ووقت البدء!</translation>
+        <translation>يجب أن يكون تاريخ ووقت الانتهاء بعد تاريخ ووقت البدء!</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation translatorcomment="AI-translated">يناير</translation>
+        <translation>يناير</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation translatorcomment="AI-translated">فبراير</translation>
+        <translation>فبراير</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation translatorcomment="AI-translated">يمشي</translation>
+        <translation>يمشي</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation translatorcomment="AI-translated">أبريل</translation>
+        <translation>أبريل</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation translatorcomment="AI-translated">يمكن</translation>
+        <translation>يمكن</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation translatorcomment="AI-translated">يونيو</translation>
+        <translation>يونيو</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation translatorcomment="AI-translated">يوليو</translation>
+        <translation>يوليو</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation translatorcomment="AI-translated">أغسطس</translation>
+        <translation>أغسطس</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation translatorcomment="AI-translated">سبتمبر</translation>
+        <translation>سبتمبر</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation translatorcomment="AI-translated">أكتوبر</translation>
+        <translation>أكتوبر</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation translatorcomment="AI-translated">نوفمبر</translation>
+        <translation>نوفمبر</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation translatorcomment="AI-translated">ديسمبر</translation>
+        <translation>ديسمبر</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">الشهر السابق</translation>
+        <translation>الشهر السابق</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">الشهر المقبل</translation>
+        <translation>الشهر المقبل</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation translatorcomment="AI-translated">حدد الوقت</translation>
+        <translation>حدد الوقت</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation translatorcomment="AI-translated">ساعة</translation>
+        <translation>ساعة</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation translatorcomment="AI-translated">دقيقة</translation>
+        <translation>دقيقة</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation translatorcomment="AI-translated">ثانية</translation>
+        <translation>ثانية</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation translatorcomment="AI-translated">يلغي</translation>
+        <translation>يلغي</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation translatorcomment="AI-translated">يتأكد</translation>
+        <translation>يتأكد</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation translatorcomment="AI-translated">تحميل التسجيلات</translation>
+        <translation>تحميل التسجيلات</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation translatorcomment="AI-translated">من:</translation>
+        <translation>من:</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation translatorcomment="AI-translated">تنسيق التاريخ غير صحيح! التنسيق المطلوب: DD.MM.YYYY (على سبيل المثال، 26.06.2026)</translation>
+        <translation>تنسيق التاريخ غير صحيح! التنسيق المطلوب: DD.MM.YYYY (على سبيل المثال، 26.06.2026)</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation translatorcomment="AI-translated">تنسيق الوقت غير صحيح! التنسيق المطلوب: HH:MM:SS أو HH.MM.SS (على سبيل المثال 12:30:00 أو 12.30.00)</translation>
+        <translation>تنسيق الوقت غير صحيح! التنسيق المطلوب: HH:MM:SS أو HH.MM.SS (على سبيل المثال 12:30:00 أو 12.30.00)</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation translatorcomment="AI-translated">ل:</translation>
+        <translation>ل:</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation translatorcomment="AI-translated">المجموع:</translation>
+        <translation>المجموع:</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation translatorcomment="AI-translated">جارٍ التنزيل...</translation>
+        <translation>جارٍ التنزيل...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation translatorcomment="AI-translated">خطأ:</translation>
+        <translation>خطأ:</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation translatorcomment="AI-translated">جارٍ التهيئة...</translation>
+        <translation>جارٍ التهيئة...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">توقف</translation>
+        <translation>توقف</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation translatorcomment="AI-translated">افتح مجلد الحفظ</translation>
+        <translation>افتح مجلد الحفظ</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation translatorcomment="AI-translated">قف</translation>
+        <translation>قف</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">تحميل</translation>
+        <translation>تحميل</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation translatorcomment="AI-translated">التنزيل قيد التقدم بالفعل.</translation>
+        <translation>التنزيل قيد التقدم بالفعل.</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation translatorcomment="AI-translated">جارٍ تهيئة البحث عن الملفات...</translation>
+        <translation>جارٍ تهيئة البحث عن الملفات...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation translatorcomment="AI-translated">خطأ في تسجيل الدخول إلى الجهاز: %1</translation>
+        <translation>خطأ في تسجيل الدخول إلى الجهاز: %1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation translatorcomment="AI-translated">لا توجد تسجيلات في النطاق الزمني المحدد لهذه الكاميرا.</translation>
+        <translation>لا توجد تسجيلات في النطاق الزمني المحدد لهذه الكاميرا.</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation translatorcomment="AI-translated">تم تنزيل وتحويل %1 من %2 ملف.</translation>
+        <translation>تم تنزيل وتحويل %1 من %2 ملف.</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation translatorcomment="AI-translated">مسار الحفظ المحدد غير صالح أو تم رفض الوصول للكتابة:
+        <translation>مسار الحفظ المحدد غير صالح أو تم رفض الوصول للكتابة:
 %1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation translatorcomment="AI-translated">لا يوجد إذن الكتابة في الدليل:
+        <translation>لا يوجد إذن الكتابة في الدليل:
 %1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation translatorcomment="AI-translated">حدث خطأ أثناء تهيئة تنزيل الجزء %1: %2</translation>
+        <translation>حدث خطأ أثناء تهيئة تنزيل الجزء %1: %2</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation translatorcomment="AI-translated">حدث خطأ أثناء بدء تنزيل الجزء %1: %2</translation>
+        <translation>حدث خطأ أثناء بدء تنزيل الجزء %1: %2</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation translatorcomment="AI-translated">يتم الآن تنزيل الجزء %1 من %2...</translation>
+        <translation>يتم الآن تنزيل الجزء %1 من %2...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">توقف</translation>
+        <translation>توقف</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation translatorcomment="AI-translated">تمت مقاطعة التنزيل بواسطة المستخدم.</translation>
+        <translation>تمت مقاطعة التنزيل بواسطة المستخدم.</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation translatorcomment="AI-translated">تحويل الجزء %1 من %2...</translation>
+        <translation>تحويل الجزء %1 من %2...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation translatorcomment="AI-translated">حدث خطأ أثناء تنزيل الجزء %1.</translation>
+        <translation>حدث خطأ أثناء تنزيل الجزء %1.</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation translatorcomment="AI-translated">تم تنزيل وتحويل %1 من %2 أجزاء...</translation>
+        <translation>تم تنزيل وتحويل %1 من %2 أجزاء...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation translatorcomment="AI-translated">خطأ داخلي في FFmpeg</translation>
+        <translation>خطأ داخلي في FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation translatorcomment="AI-translated">فشل تحويل الجزء %1 إلى MP4: %2</translation>
+        <translation>فشل تحويل الجزء %1 إلى MP4: %2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">فشل تسجيل الدخول أو لم يتم اكتشاف أي كاميرات.</translation>
+        <translation>فشل تسجيل الدخول أو لم يتم اكتشاف أي كاميرات.</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation translatorcomment="AI-translated">KVision - دليل المستخدم / التعليمات</translation>
+        <translation>KVision - دليل المستخدم / التعليمات</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS_ar.md</translation>
+        <translation>qrc:/INSTRUCTIONS_ar.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation translatorcomment="AI-translated">خطأ في تحميل التعليمات.</translation>
+        <translation>خطأ في تحميل التعليمات.</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation translatorcomment="AI-translated">الكاميرات على %1</translation>
+        <translation>الكاميرات على %1</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation translatorcomment="AI-translated">الكاميرات</translation>
+        <translation>الكاميرات</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation translatorcomment="AI-translated">IP: %1 | المنفذ: %2 | %3 قنوات</translation>
+        <translation>IP: %1 | المنفذ: %2 | %3 قنوات</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation translatorcomment="AI-translated">إنشاء صور مصغرة لجميع الكاميرات</translation>
+        <translation>إنشاء صور مصغرة لجميع الكاميرات</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation translatorcomment="AI-translated">الكاميرا %1</translation>
+        <translation>الكاميرا %1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation translatorcomment="AI-translated">الكاميرا المخصصة %1 Ch. %2 إلى منفذ العرض %3</translation>
+        <translation>الكاميرا المخصصة %1 Ch. %2 إلى منفذ العرض %3</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation translatorcomment="AI-translated">تعيين إلى إطار العرض النشط</translation>
+        <translation>تعيين إلى إطار العرض النشط</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation translatorcomment="AI-translated">إعادة تسمية الكاميرا</translation>
+        <translation>إعادة تسمية الكاميرا</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation translatorcomment="AI-translated">تحديث الصورة المصغرة للكاميرا</translation>
+        <translation>تحديث الصورة المصغرة للكاميرا</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation translatorcomment="AI-translated">تغيير اسم الكاميرا</translation>
+        <translation>تغيير اسم الكاميرا</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation translatorcomment="AI-translated">القناة: %1</translation>
+        <translation>القناة: %1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation translatorcomment="AI-translated">الاسم الأصلي: %1</translation>
+        <translation>الاسم الأصلي: %1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation translatorcomment="AI-translated">لا أحد</translation>
+        <translation>لا أحد</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation translatorcomment="AI-translated">أدخل اسم الكاميرا الجديد...</translation>
+        <translation>أدخل اسم الكاميرا الجديد...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation translatorcomment="AI-translated">إعادة ضبط</translation>
+        <translation>إعادة ضبط</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">يلغي</translation>
+        <translation>يلغي</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">يحفظ</translation>
+        <translation>يحفظ</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">فشل تسجيل الدخول أو لم يتم اكتشاف أي كاميرات.</translation>
+        <translation>فشل تسجيل الدخول أو لم يتم اكتشاف أي كاميرات.</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation translatorcomment="AI-translated">إضافة مسجل هيكفيجن</translation>
+        <translation>إضافة مسجل هيكفيجن</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation translatorcomment="AI-translated">اسم المسجل (اختياري)</translation>
+        <translation>اسم المسجل (اختياري)</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation translatorcomment="AI-translated">عنوان IP</translation>
+        <translation>عنوان IP</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation translatorcomment="AI-translated">المنفذ (8000)</translation>
+        <translation>المنفذ (8000)</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation translatorcomment="AI-translated">اسم المستخدم</translation>
+        <translation>اسم المستخدم</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation translatorcomment="AI-translated">كلمة المرور</translation>
+        <translation>كلمة المرور</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation translatorcomment="AI-translated">اكتشاف...</translation>
+        <translation>اكتشاف...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation translatorcomment="AI-translated">تواصل واكتشف</translation>
+        <translation>تواصل واكتشف</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation translatorcomment="AI-translated">حفظ وتحديث</translation>
+        <translation>حفظ وتحديث</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation translatorcomment="AI-translated">خطأ: IP وكلمة المرور مطلوبان.</translation>
+        <translation>خطأ: IP وكلمة المرور مطلوبان.</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation translatorcomment="AI-translated">الاتصال بـ NVR واكتشاف القنوات...</translation>
+        <translation>الاتصال بـ NVR واكتشاف القنوات...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">يلغي</translation>
+        <translation>يلغي</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation translatorcomment="AI-translated">مسجلات متصلة</translation>
+        <translation>مسجلات متصلة</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation translatorcomment="AI-translated">تم توصيل %1 كاميرا</translation>
+        <translation>تم توصيل %1 كاميرا</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation translatorcomment="AI-translated">تم تسجيل الدخول</translation>
+        <translation>تم تسجيل الدخول</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation translatorcomment="AI-translated">لم يتم تسجيل الدخول</translation>
+        <translation>لم يتم تسجيل الدخول</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation translatorcomment="AI-translated">الأخضر: جلسة SDK النشطة (PTZ/الأرشيف). الأحمر: لا توجد جلسة نشطة (يعمل دفق RTSP بشكل مستقل).</translation>
+        <translation>الأخضر: جلسة SDK النشطة (PTZ/الأرشيف). الأحمر: لا توجد جلسة نشطة (يعمل دفق RTSP بشكل مستقل).</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation translatorcomment="AI-translated">افتح صفحة تسجيل الدخول إلى NVR في المتصفح</translation>
+        <translation>افتح صفحة تسجيل الدخول إلى NVR في المتصفح</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation translatorcomment="AI-translated">عرض قائمة كاميرات NVR</translation>
+        <translation>عرض قائمة كاميرات NVR</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation translatorcomment="AI-translated">تحرير تفاصيل اتصال المسجل</translation>
+        <translation>تحرير تفاصيل اتصال المسجل</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation translatorcomment="AI-translated">حذف المسجل من القائمة</translation>
+        <translation>حذف المسجل من القائمة</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation translatorcomment="AI-translated">تأكيد حذف NVR</translation>
+        <translation>تأكيد حذف NVR</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد أنك تريد حذف NVR هذا؟</translation>
+        <translation>هل أنت متأكد أنك تريد حذف NVR هذا؟</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation translatorcomment="AI-translated">تحذير!</translation>
+        <translation>تحذير!</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد تمامًا وواعي بما تفعله؟</translation>
+        <translation>هل أنت متأكد تمامًا وواعي بما تفعله؟</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation translatorcomment="AI-translated">حالة NVR</translation>
+        <translation>حالة NVR</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation translatorcomment="AI-translated">جارٍ التحقق من حالة NVR...</translation>
+        <translation>جارٍ التحقق من حالة NVR...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation translatorcomment="AI-translated">الفحص الأخير:</translation>
+        <translation>الفحص الأخير:</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation translatorcomment="AI-translated">أبداً</translation>
+        <translation>أبداً</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">صامت</translation>
+        <translation>صامت</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation translatorcomment="AI-translated">خطأ</translation>
+        <translation>خطأ</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation translatorcomment="AI-translated">نعم</translation>
+        <translation>نعم</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation translatorcomment="AI-translated">لا توجد بيانات الحالة</translation>
+        <translation>لا توجد بيانات الحالة</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation translatorcomment="AI-translated">اضغط على الزر أدناه للتحقق من حالة NVR.</translation>
+        <translation>اضغط على الزر أدناه للتحقق من حالة NVR.</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation translatorcomment="AI-translated">تحقق الآن</translation>
+        <translation>تحقق الآن</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation translatorcomment="AI-translated">يغلق</translation>
+        <translation>يغلق</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation translatorcomment="AI-translated">مقلد NVR</translation>
+        <translation>مقلد NVR</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation translatorcomment="AI-translated">القرص 1</translation>
+        <translation>القرص 1</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation translatorcomment="AI-translated">خطأ/فشل فادح في القرص (المحاكاة)</translation>
+        <translation>خطأ/فشل فادح في القرص (المحاكاة)</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation translatorcomment="AI-translated">لا يوجد خطأ في الاتصال أو تسجيل الدخول (المحاكاة)</translation>
+        <translation>لا يوجد خطأ في الاتصال أو تسجيل الدخول (المحاكاة)</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation translatorcomment="AI-translated">لا يوجد اتصال أو خطأ في تسجيل الدخول</translation>
+        <translation>لا يوجد اتصال أو خطأ في تسجيل الدخول</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation translatorcomment="AI-translated">خطأ في قراءة حالة NVR (SDK)</translation>
+        <translation>خطأ في قراءة حالة NVR (SDK)</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation translatorcomment="AI-translated">حمل عالي لوحدة المعالجة المركزية (&gt; 85%)</translation>
+        <translation>حمل عالي لوحدة المعالجة المركزية (&gt; 85%)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation translatorcomment="AI-translated">خطأ في أجهزة الجهاز</translation>
+        <translation>خطأ في أجهزة الجهاز</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation translatorcomment="AI-translated">القرص %1</translation>
+        <translation>القرص %1</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation translatorcomment="AI-translated">خطأ/فشل فادح في القرص</translation>
+        <translation>خطأ/فشل فادح في القرص</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation translatorcomment="AI-translated">القرص غير منسق</translation>
+        <translation>القرص غير منسق</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation translatorcomment="AI-translated">القرص ممتلئ (تم تعطيل الكتابة الفوقية)</translation>
+        <translation>القرص ممتلئ (تم تعطيل الكتابة الفوقية)</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation translatorcomment="AI-translated">أرشيف -</translation>
+        <translation>أرشيف -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation translatorcomment="AI-translated">يناير</translation>
+        <translation>يناير</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation translatorcomment="AI-translated">فبراير</translation>
+        <translation>فبراير</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation translatorcomment="AI-translated">يمشي</translation>
+        <translation>يمشي</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation translatorcomment="AI-translated">أبريل</translation>
+        <translation>أبريل</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation translatorcomment="AI-translated">يمكن</translation>
+        <translation>يمكن</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation translatorcomment="AI-translated">يونيو</translation>
+        <translation>يونيو</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation translatorcomment="AI-translated">يوليو</translation>
+        <translation>يوليو</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation translatorcomment="AI-translated">أغسطس</translation>
+        <translation>أغسطس</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation translatorcomment="AI-translated">سبتمبر</translation>
+        <translation>سبتمبر</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation translatorcomment="AI-translated">أكتوبر</translation>
+        <translation>أكتوبر</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation translatorcomment="AI-translated">نوفمبر</translation>
+        <translation>نوفمبر</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation translatorcomment="AI-translated">ديسمبر</translation>
+        <translation>ديسمبر</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">الشهر السابق</translation>
+        <translation>الشهر السابق</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation translatorcomment="AI-translated">حدد تاريخ الأرشفة</translation>
+        <translation>حدد تاريخ الأرشفة</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">الشهر المقبل</translation>
+        <translation>الشهر المقبل</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation translatorcomment="AI-translated">شهر</translation>
+        <translation>شهر</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation translatorcomment="AI-translated">تو</translation>
+        <translation>تو</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation translatorcomment="AI-translated">نحن</translation>
+        <translation>نحن</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation translatorcomment="AI-translated">ذ</translation>
+        <translation>ذ</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation translatorcomment="AI-translated">الأب</translation>
+        <translation>الأب</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation translatorcomment="AI-translated">سا</translation>
+        <translation>سا</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation translatorcomment="AI-translated">سو</translation>
+        <translation>سو</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation translatorcomment="AI-translated">جارٍ جلب التوفر...</translation>
+        <translation>جارٍ جلب التوفر...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation translatorcomment="AI-translated">الكاميرات</translation>
+        <translation>الكاميرات</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation translatorcomment="AI-translated">بحث عن الكاميرا...</translation>
+        <translation>بحث عن الكاميرا...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation translatorcomment="AI-translated">مسح البحث</translation>
+        <translation>مسح البحث</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation translatorcomment="AI-translated">تحديد النهاية الفعلية للتسجيل...</translation>
+        <translation>تحديد النهاية الفعلية للتسجيل...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation translatorcomment="AI-translated">جارٍ جلب معلومات التسجيل...</translation>
+        <translation>جارٍ جلب معلومات التسجيل...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation translatorcomment="AI-translated">جارٍ تحميل أرشيف هيكفيجن...</translation>
+        <translation>جارٍ تحميل أرشيف هيكفيجن...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation translatorcomment="AI-translated">لا يوجد تسجيل في اللحظة المحددة</translation>
+        <translation>لا يوجد تسجيل في اللحظة المحددة</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">صامت</translation>
+        <translation>صامت</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">الحد الأقصى للحجم</translation>
+        <translation>الحد الأقصى للحجم</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">التقط لقطة بدقة كاملة</translation>
+        <translation>التقط لقطة بدقة كاملة</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">تعطيل وضع 1:1</translation>
+        <translation>تعطيل وضع 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">تمكين الوضع 1:1 (بكسل إلى بكسل)</translation>
+        <translation>تمكين الوضع 1:1 (بكسل إلى بكسل)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">إعادة ضبط التكبير</translation>
+        <translation>إعادة ضبط التكبير</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation translatorcomment="AI-translated">حدد المنطقة للتكبير</translation>
+        <translation>حدد المنطقة للتكبير</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation translatorcomment="AI-translated">حدد المنطقة للتكبير</translation>
+        <translation>حدد المنطقة للتكبير</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation translatorcomment="AI-translated">استعادة عرض الشبكة</translation>
+        <translation>استعادة عرض الشبكة</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation translatorcomment="AI-translated">تظهر في كامل الشاشة</translation>
+        <translation>تظهر في كامل الشاشة</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation translatorcomment="AI-translated">إزالة الكاميرا من العرض</translation>
+        <translation>إزالة الكاميرا من العرض</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation translatorcomment="AI-translated">إطار عرض فارغ</translation>
+        <translation>إطار عرض فارغ</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation translatorcomment="AI-translated">حدد هذه النافذة، واختر كاميرا من القائمة وانقر فوق + لإضافتها</translation>
+        <translation>حدد هذه النافذة، واختر كاميرا من القائمة وانقر فوق + لإضافتها</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation translatorcomment="AI-translated">اليوم السابق</translation>
+        <translation>اليوم السابق</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation translatorcomment="AI-translated">اختر التاريخ من التقويم</translation>
+        <translation>اختر التاريخ من التقويم</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation translatorcomment="AI-translated">في اليوم التالي</translation>
+        <translation>في اليوم التالي</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation translatorcomment="AI-translated">اليوم</translation>
+        <translation>اليوم</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation translatorcomment="AI-translated">اذهب الى اليوم</translation>
+        <translation>اذهب الى اليوم</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation translatorcomment="AI-translated">تحديث التسجيلات</translation>
+        <translation>تحديث التسجيلات</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation translatorcomment="AI-translated">التكبير لمدة 1 ساعة الماضية</translation>
+        <translation>التكبير لمدة 1 ساعة الماضية</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation translatorcomment="AI-translated">التكبير لمدة 8 ساعات الماضية</translation>
+        <translation>التكبير لمدة 8 ساعات الماضية</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation translatorcomment="AI-translated">عرض يوم كامل على الجدول الزمني</translation>
+        <translation>عرض يوم كامل على الجدول الزمني</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation translatorcomment="AI-translated">توسيط الجدول الزمني في وقت التشغيل الحالي</translation>
+        <translation>توسيط الجدول الزمني في وقت التشغيل الحالي</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation translatorcomment="AI-translated">سرعة:</translation>
+        <translation>سرعة:</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation translatorcomment="AI-translated">اضبط سرعة التشغيل على %1x</translation>
+        <translation>اضبط سرعة التشغيل على %1x</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">تحميل</translation>
+        <translation>تحميل</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation translatorcomment="AI-translated">قم بتنزيل مقاطع الفيديو من النطاق الزمني المحدد</translation>
+        <translation>قم بتنزيل مقاطع الفيديو من النطاق الزمني المحدد</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation translatorcomment="AI-translated">ترجيع 60 ثانية</translation>
+        <translation>ترجيع 60 ثانية</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation translatorcomment="AI-translated">الترجيع 45 ثانية</translation>
+        <translation>الترجيع 45 ثانية</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation translatorcomment="AI-translated">الترجيع 15 ثانية</translation>
+        <translation>الترجيع 15 ثانية</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">إيقاف التشغيل مؤقتًا</translation>
+        <translation>إيقاف التشغيل مؤقتًا</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">ابدأ التشغيل</translation>
+        <translation>ابدأ التشغيل</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation translatorcomment="AI-translated">للأمام 15 ثانية</translation>
+        <translation>للأمام 15 ثانية</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation translatorcomment="AI-translated">للأمام 45 ثانية</translation>
+        <translation>للأمام 45 ثانية</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation translatorcomment="AI-translated">للأمام 60 ثانية</translation>
+        <translation>للأمام 60 ثانية</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation translatorcomment="AI-translated">قم بإلغاء تثبيت الشريط السفلي</translation>
+        <translation>قم بإلغاء تثبيت الشريط السفلي</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation translatorcomment="AI-translated">دبوس الشريط السفلي</translation>
+        <translation>دبوس الشريط السفلي</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation translatorcomment="AI-translated">جارٍ تحميل معلومات توفر التسجيل...</translation>
+        <translation>جارٍ تحميل معلومات توفر التسجيل...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">أغلق النافذة</translation>
+        <translation>أغلق النافذة</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">قم بإلغاء تثبيت الشريط العلوي</translation>
+        <translation>قم بإلغاء تثبيت الشريط العلوي</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">دبوس الشريط العلوي</translation>
+        <translation>دبوس الشريط العلوي</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation translatorcomment="AI-translated">الخروج من وضع ملء الشاشة</translation>
+        <translation>الخروج من وضع ملء الشاشة</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation translatorcomment="AI-translated">نافذة كاملة الشاشة</translation>
+        <translation>نافذة كاملة الشاشة</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation translatorcomment="AI-translated">إخفاء الشريط الجانبي</translation>
+        <translation>إخفاء الشريط الجانبي</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation translatorcomment="AI-translated">إظهار الشريط الجانبي</translation>
+        <translation>إظهار الشريط الجانبي</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation translatorcomment="AI-translated">عرض الجدول الزمني</translation>
+        <translation>عرض الجدول الزمني</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation translatorcomment="AI-translated">إخفاء الجدول الزمني</translation>
+        <translation>إخفاء الجدول الزمني</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation translatorcomment="AI-translated">افتح مجلد التسجيلات</translation>
+        <translation>افتح مجلد التسجيلات</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation translatorcomment="AI-translated">افتح مجلد اللقطات</translation>
+        <translation>افتح مجلد اللقطات</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation translatorcomment="AI-translated">لا وسائل الإعلام</translation>
+        <translation>لا وسائل الإعلام</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation translatorcomment="AI-translated">تحميل...</translation>
+        <translation>تحميل...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation translatorcomment="AI-translated">محملة</translation>
+        <translation>محملة</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation translatorcomment="AI-translated">متوقفة</translation>
+        <translation>متوقفة</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation translatorcomment="AI-translated">التخزين المؤقت %1\%</translation>
+        <translation>التخزين المؤقت %1\%</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation translatorcomment="AI-translated">لا توجد بيانات لعرضها</translation>
+        <translation>لا توجد بيانات لعرضها</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation translatorcomment="AI-translated">استعادة العرض المباشر...</translation>
+        <translation>استعادة العرض المباشر...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">صامت</translation>
+        <translation>صامت</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">الحد الأقصى للحجم</translation>
+        <translation>الحد الأقصى للحجم</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">التقط لقطة بدقة كاملة</translation>
+        <translation>التقط لقطة بدقة كاملة</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation translatorcomment="AI-translated">أرشيف التشغيل</translation>
+        <translation>أرشيف التشغيل</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation translatorcomment="AI-translated">تعطيل التشغيل السريع</translation>
+        <translation>تعطيل التشغيل السريع</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation translatorcomment="AI-translated">تشغيل سريع (حتى 30 دقيقة)</translation>
+        <translation>تشغيل سريع (حتى 30 دقيقة)</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">تعطيل وضع 1:1</translation>
+        <translation>تعطيل وضع 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">تمكين الوضع 1:1 (بكسل إلى بكسل)</translation>
+        <translation>تمكين الوضع 1:1 (بكسل إلى بكسل)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">إعادة ضبط التكبير</translation>
+        <translation>إعادة ضبط التكبير</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation translatorcomment="AI-translated">انقر واسحب على تغذية الكاميرا للتكبير</translation>
+        <translation>انقر واسحب على تغذية الكاميرا للتكبير</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation translatorcomment="AI-translated">حدد المنطقة للتكبير</translation>
+        <translation>حدد المنطقة للتكبير</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">ابدأ التشغيل</translation>
+        <translation>ابدأ التشغيل</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">إيقاف التشغيل مؤقتًا</translation>
+        <translation>إيقاف التشغيل مؤقتًا</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation translatorcomment="AI-translated">سرعة التشغيل</translation>
+        <translation>سرعة التشغيل</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation translatorcomment="AI-translated">إغلاق عرض الترجيع</translation>
+        <translation>إغلاق عرض الترجيع</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - نافذة مساعدة</translation>
+        <translation>KVision - نافذة مساعدة</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">ك فيجن</translation>
+        <translation>ك فيجن</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">خطأ في قراءة التكوين!</translation>
+        <translation>خطأ في قراءة التكوين!</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">قم بإلغاء تثبيت الشريط العلوي</translation>
+        <translation>قم بإلغاء تثبيت الشريط العلوي</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">دبوس الشريط العلوي</translation>
+        <translation>دبوس الشريط العلوي</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">تبديل الشاشة الكاملة</translation>
+        <translation>تبديل الشاشة الكاملة</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation translatorcomment="AI-translated">تصغير النافذة</translation>
+        <translation>تصغير النافذة</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">خيارات وإعدادات لوحة الشريط الجانبي</translation>
+        <translation>خيارات وإعدادات لوحة الشريط الجانبي</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">فتح نافذة مساعدة جديدة</translation>
+        <translation>فتح نافذة مساعدة جديدة</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation translatorcomment="AI-translated">تسجيل الأرشيف واللاعب</translation>
+        <translation>تسجيل الأرشيف واللاعب</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">دليل مستخدم البرنامج</translation>
+        <translation>دليل مستخدم البرنامج</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation translatorcomment="AI-translated">تعطيل إحصائيات استخدام الموارد</translation>
+        <translation>تعطيل إحصائيات استخدام الموارد</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation translatorcomment="AI-translated">تمكين إحصائيات استخدام الموارد</translation>
+        <translation>تمكين إحصائيات استخدام الموارد</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation translatorcomment="AI-translated">تم اكتشاف أخطاء NVR!</translation>
+        <translation>تم اكتشاف أخطاء NVR!</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation translatorcomment="AI-translated">حالة NVR: موافق</translation>
+        <translation>حالة NVR: موافق</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation translatorcomment="AI-translated">قفل التغييرات في حجم الشبكة</translation>
+        <translation>قفل التغييرات في حجم الشبكة</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">المزيد من الخيارات</translation>
+        <translation>المزيد من الخيارات</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation translatorcomment="AI-translated">تم اكتشاف أخطاء NVR! انقر لعرض التفاصيل.</translation>
+        <translation>تم اكتشاف أخطاء NVR! انقر لعرض التفاصيل.</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">لم يتم تحديد طريقة عرض، حدد طريقة عرض</translation>
+        <translation>لم يتم تحديد طريقة عرض، حدد طريقة عرض</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">حدد طريقة عرض من القائمة العلوية لبدء عرض الكاميرات.</translation>
+        <translation>حدد طريقة عرض من القائمة العلوية لبدء عرض الكاميرات.</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation translatorcomment="AI-translated">كي فيجن - لوحة</translation>
+        <translation>كي فيجن - لوحة</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">أغلق النافذة</translation>
+        <translation>أغلق النافذة</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">إغلاق البرنامج</translation>
+        <translation>إغلاق البرنامج</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد أنك تريد إغلاق هذه النافذة؟</translation>
+        <translation>هل أنت متأكد أنك تريد إغلاق هذه النافذة؟</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد أنك تريد إغلاق البرنامج؟</translation>
+        <translation>هل أنت متأكد أنك تريد إغلاق البرنامج؟</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">نعم</translation>
+        <translation>نعم</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">لا</translation>
+        <translation>لا</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation translatorcomment="AI-translated">📊 إحصائيات النظام</translation>
+        <translation>📊 إحصائيات النظام</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation translatorcomment="AI-translated">اسحب لوحة الإحصائيات</translation>
+        <translation>اسحب لوحة الإحصائيات</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation translatorcomment="AI-translated">كبش:</translation>
+        <translation>كبش:</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation translatorcomment="AI-translated">ذاكرة الفيديو:</translation>
+        <translation>ذاكرة الفيديو:</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation translatorcomment="AI-translated">وحدة المعالجة المركزية:</translation>
+        <translation>وحدة المعالجة المركزية:</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation translatorcomment="AI-translated">وحدة معالجة الرسومات:</translation>
+        <translation>وحدة معالجة الرسومات:</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation translatorcomment="AI-translated">شبكة:</translation>
+        <translation>شبكة:</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation translatorcomment="AI-translated">جارٍ تحميل نافذة جديدة...</translation>
+        <translation>جارٍ تحميل نافذة جديدة...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,1027 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation translatorcomment="AI-translated">تم إصلاح خطأ فادح حيث تسبب فقدان الشبكة وانتهاء مهلة بث RTSP في تحول اللاعب إلى زومبي، مما منع عمليات إعادة الاتصال الناجحة. يعمل الآن زر إعادة التحميل والاستئناف التلقائي بشكل موثوق تمامًا.</translation>
+        <translation>تم إصلاح خطأ فادح حيث تسبب فقدان الشبكة وانتهاء مهلة بث RTSP في تحول اللاعب إلى زومبي، مما منع عمليات إعادة الاتصال الناجحة. يعمل الآن زر إعادة التحميل والاستئناف التلقائي بشكل موثوق تمامًا.</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation translatorcomment="AI-translated">تم تحديث مظهر رسائل حالة المشغل والأرشيف. يتميز تحميل الإشعارات واستعادتها الآن بمظهر سماوي رائع مع أيقونات مناسبة لتمييزها بشكل أفضل عن الأخطاء الجسيمة (لا توجد وسائط/شبكة).</translation>
+        <translation>تم تحديث مظهر رسائل حالة المشغل والأرشيف. يتميز تحميل الإشعارات واستعادتها الآن بمظهر سماوي رائع مع أيقونات مناسبة لتمييزها بشكل أفضل عن الأخطاء الجسيمة (لا توجد وسائط/شبكة).</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation translatorcomment="AI-translated">أمر أجهزة MakeKeyFrame المتكامل مع Hikvision SDK. يجبر التطبيق الآن الكاميرا بقوة على إصدار إطار I-Frame عند تبديل التدفقات الفرعية/الرئيسية ومن البث المباشر إلى الأرشيف، مما يلغي انتظار الإطار الرئيسي لمدة 10 ثوانٍ.</translation>
+        <translation>أمر أجهزة MakeKeyFrame المتكامل مع Hikvision SDK. يجبر التطبيق الآن الكاميرا بقوة على إصدار إطار I-Frame عند تبديل التدفقات الفرعية/الرئيسية ومن البث المباشر إلى الأرشيف، مما يلغي انتظار الإطار الرئيسي لمدة 10 ثوانٍ.</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation translatorcomment="AI-translated">تمت إزالة التجاوز الفوري لمعلمة التحليل. يفرض التطبيق بشكل صارم قيم FFmpeg المحددة من قبل المستخدم (يوصى بشدة بضبطها على 100000 للكاميرات التي لا تحتوي على صوت لتجاوز حد التوقف البالغ 5 ثوانٍ).</translation>
+        <translation>تمت إزالة التجاوز الفوري لمعلمة التحليل. يفرض التطبيق بشكل صارم قيم FFmpeg المحددة من قبل المستخدم (يوصى بشدة بضبطها على 100000 للكاميرات التي لا تحتوي على صوت لتجاوز حد التوقف البالغ 5 ثوانٍ).</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation translatorcomment="AI-translated">تمت إضافة شارات "HikSDK" على منافذ عرض المُسجل لتحسين تمييز البروتوكول.</translation>
+        <translation>تمت إضافة شارات "HikSDK" على منافذ عرض المُسجل لتحسين تمييز البروتوكول.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation translatorcomment="AI-translated">التسجيل التشخيصي المبسط (QDebug)، مما يسمح بطباعة التحذيرات والأخطاء الجسيمة على وحدة التحكم خارج الوضع المطول، مما يسهل تصحيح أخطاء NVR.</translation>
+        <translation>التسجيل التشخيصي المبسط (QDebug)، مما يسمح بطباعة التحذيرات والأخطاء الجسيمة على وحدة التحكم خارج الوضع المطول، مما يسهل تصحيح أخطاء NVR.</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation translatorcomment="AI-translated">تمت تصفية أخطاء PlayM4 SDK الإيجابية الخاطئة (رقم 17 و2) التي ترسل بريدًا عشوائيًا إلى وحدة التحكم أثناء التنقيح السريع للمخطط الزمني في المشغل.</translation>
+        <translation>تمت تصفية أخطاء PlayM4 SDK الإيجابية الخاطئة (رقم 17 و2) التي ترسل بريدًا عشوائيًا إلى وحدة التحكم أثناء التنقيح السريع للمخطط الزمني في المشغل.</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation translatorcomment="AI-translated">اقتطاع ثابت للقياس غير الخطي (على سبيل المثال 145%) بواسطة إطار Qt5 على أنظمة KDE Plasma، مما يفرض التفسير المناسب لسياسة DPI العالية.</translation>
+        <translation>اقتطاع ثابت للقياس غير الخطي (على سبيل المثال 145%) بواسطة إطار Qt5 على أنظمة KDE Plasma، مما يفرض التفسير المناسب لسياسة DPI العالية.</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation translatorcomment="AI-translated">تم حل حالات التجميد المؤقت للكاميرات الأخرى على الشبكة المباشرة عند البحث عن المخطط الزمني أو سحبه.</translation>
+        <translation>تم حل حالات التجميد المؤقت للكاميرات الأخرى على الشبكة المباشرة عند البحث عن المخطط الزمني أو سحبه.</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation translatorcomment="AI-translated">تم نقل جميع مكالمات شبكة Hikvision SDK المحظورة (تسجيل الدخول، والإيقاف، والبدء، والتحكم في السرعة) إلى سلسلة عمليات عاملة غير متزامنة.</translation>
+        <translation>تم نقل جميع مكالمات شبكة Hikvision SDK المحظورة (تسجيل الدخول، والإيقاف، والبدء، والتحكم في السرعة) إلى سلسلة عمليات عاملة غير متزامنة.</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation translatorcomment="AI-translated">تم التخلص تمامًا من مشكلة الشاشة السوداء عند تبديل الجودة (SUB/MAIN) لكاميرات RTSP.</translation>
+        <translation>تم التخلص تمامًا من مشكلة الشاشة السوداء عند تبديل الجودة (SUB/MAIN) لكاميرات RTSP.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation translatorcomment="AI-translated">تم تحسين مؤقت تبديل الدفق السلس إلى 100 مللي ثانية للحصول على أقصى سرعة.</translation>
+        <translation>تم تحسين مؤقت تبديل الدفق السلس إلى 100 مللي ثانية للحصول على أقصى سرعة.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation translatorcomment="AI-translated">تمت إضافة خيارات FFmpeg ذات المستوى المنخفض (nobuffer، low_delay) للتخلص من تأخير البث المباشر (الانجراف) خلال فترات التشغيل الطويلة.</translation>
+        <translation>تمت إضافة خيارات FFmpeg ذات المستوى المنخفض (nobuffer، low_delay) للتخلص من تأخير البث المباشر (الانجراف) خلال فترات التشغيل الطويلة.</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation translatorcomment="AI-translated">تم تقديم زر للتحديث المجمع لمعلمات FFmpeg لجميع الكاميرات الموجودة عبر جميع التخطيطات.</translation>
+        <translation>تم تقديم زر للتحديث المجمع لمعلمات FFmpeg لجميع الكاميرات الموجودة عبر جميع التخطيطات.</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation translatorcomment="AI-translated">تمت إضافة خيار لاستبعاد كاميرات معينة من تحديثات معلمات FFmpeg العالمية (مربع اختيار جديد في إعدادات إطار العرض).</translation>
+        <translation>تمت إضافة خيار لاستبعاد كاميرات معينة من تحديثات معلمات FFmpeg العالمية (مربع اختيار جديد في إعدادات إطار العرض).</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation translatorcomment="AI-translated">تم تأمين عملية ترحيل الإعدادات الافتراضية، مما يسمح للمستخدم بإزالة العلامات الجديدة أو تعديلها بشكل دائم دون فرضها عند كل بدء تشغيل.</translation>
+        <translation>تم تأمين عملية ترحيل الإعدادات الافتراضية، مما يسمح للمستخدم بإزالة العلامات الجديدة أو تعديلها بشكل دائم دون فرضها عند كل بدء تشغيل.</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation translatorcomment="AI-translated">تمت إضافة وظيفة التشغيل السريع (لمدة تصل إلى 30 دقيقة للترجيع) مباشرة داخل منفذ عرض الكاميرا.</translation>
+        <translation>تمت إضافة وظيفة التشغيل السريع (لمدة تصل إلى 30 دقيقة للترجيع) مباشرة داخل منفذ عرض الكاميرا.</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation translatorcomment="AI-translated">تم تنفيذ مزامنة كاملة وثنائية الاتجاه في الوقت الفعلي بين جميع النوافذ وعمليات البرنامج المساعدة للإعدادات: كتم الصوت، وتعطيل الرسوم المتحركة للتكبير/التصغير، وجميع خيارات مراقبة حالة Hikvision NVR.</translation>
+        <translation>تم تنفيذ مزامنة كاملة وثنائية الاتجاه في الوقت الفعلي بين جميع النوافذ وعمليات البرنامج المساعدة للإعدادات: كتم الصوت، وتعطيل الرسوم المتحركة للتكبير/التصغير، وجميع خيارات مراقبة حالة Hikvision NVR.</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation translatorcomment="AI-translated">تمت إضافة عرض ديناميكي لملصقات الدقائق (على سبيل المثال،:15،:30،:45) عند علامات الدقائق على المخطط الزمني لمشغل الأرشيف مع ضبط ذكي لكثافة التسمية (zoomHours).</translation>
+        <translation>تمت إضافة عرض ديناميكي لملصقات الدقائق (على سبيل المثال،:15،:30،:45) عند علامات الدقائق على المخطط الزمني لمشغل الأرشيف مع ضبط ذكي لكثافة التسمية (zoomHours).</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation translatorcomment="AI-translated">تمت إضافة خيار جديد في إعدادات واجهة المستخدم: "تعطيل الرسوم المتحركة للتكبير/التصغير في إطار العرض" مع التطبيق الفوري في عرض شبكة الكاميرا.</translation>
+        <translation>تمت إضافة خيار جديد في إعدادات واجهة المستخدم: "تعطيل الرسوم المتحركة للتكبير/التصغير في إطار العرض" مع التطبيق الفوري في عرض شبكة الكاميرا.</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation translatorcomment="AI-translated">إعادة بناء عملية تهيئة مشغل الأرشيف: تعليق الاتصال وتحميل الفيديو حتى يتم تحديد حدود التسجيل الدقيقة (من خلال بحث غير متزامن فائق السرعة لمدة 24 ساعة)، مما يؤدي إلى القضاء على التشغيل المبكر وقفز الصور.</translation>
+        <translation>إعادة بناء عملية تهيئة مشغل الأرشيف: تعليق الاتصال وتحميل الفيديو حتى يتم تحديد حدود التسجيل الدقيقة (من خلال بحث غير متزامن فائق السرعة لمدة 24 ساعة)، مما يؤدي إلى القضاء على التشغيل المبكر وقفز الصور.</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation translatorcomment="AI-translated">رسائل تحميل أرشيف Hikvision المحسّنة - تظهر حالة التحميل فقط أثناء التخزين المؤقت للبث النشط، ويتم عرض تحذير مخصص إذا تم نقل رأس التشغيل خارج حدود التسجيل المتاحة.</translation>
+        <translation>رسائل تحميل أرشيف Hikvision المحسّنة - تظهر حالة التحميل فقط أثناء التخزين المؤقت للبث النشط، ويتم عرض تحذير مخصص إذا تم نقل رأس التشغيل خارج حدود التسجيل المتاحة.</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation translatorcomment="AI-translated">تم تقديم حقول تكوين جديدة في لوحة الإعدادات: إزاحة بدء تشغيل الأرشيف الافتراضي (بالثواني، الافتراضي 60 ثانية) ومدى تكبير المخطط الزمني الافتراضي (ساعات التكبير، الافتراضي 2 ساعة).</translation>
+        <translation>تم تقديم حقول تكوين جديدة في لوحة الإعدادات: إزاحة بدء تشغيل الأرشيف الافتراضي (بالثواني، الافتراضي 60 ثانية) ومدى تكبير المخطط الزمني الافتراضي (ساعات التكبير، الافتراضي 2 ساعة).</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation translatorcomment="AI-translated">تمت إضافة رمز تسجيل الدخول المباشر عبر الويب إلى لوحة الويب الخاصة بالمسجل داخل النافذة المنبثقة لحالة NVR.</translation>
+        <translation>تمت إضافة رمز تسجيل الدخول المباشر عبر الويب إلى لوحة الويب الخاصة بالمسجل داخل النافذة المنبثقة لحالة NVR.</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation translatorcomment="AI-translated">تمت إضافة وظيفة منع الإبلاغ عن الأخطاء للمسجلات الفردية.</translation>
+        <translation>تمت إضافة وظيفة منع الإبلاغ عن الأخطاء للمسجلات الفردية.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation translatorcomment="AI-translated">تم إصلاح الترجمة البولندية غير الصحيحة "Simulated Recorder" في نافذة الحالة وتنفيذ التمييز المناسب للكلمات ("Suppress" للأخطاء مقابل "Mute" للصوت).</translation>
+        <translation>تم إصلاح الترجمة البولندية غير الصحيحة "Simulated Recorder" في نافذة الحالة وتنفيذ التمييز المناسب للكلمات ("Suppress" للأخطاء مقابل "Mute" للصوت).</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation translatorcomment="AI-translated">تم تنفيذه بشكل دوري (كل 5 دقائق) ومراقبة حالة خطأ Hikvision NVR/DVR يدويًا باستخدام تشخيصات SDK/ISAPI.</translation>
+        <translation>تم تنفيذه بشكل دوري (كل 5 دقائق) ومراقبة حالة خطأ Hikvision NVR/DVR يدويًا باستخدام تشخيصات SDK/ISAPI.</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation translatorcomment="AI-translated">تمت إضافة خيارات التكوين في الإعدادات العامة لتمكين/تعطيل التحقق من حالة Hikvision NVR وتخصيص أنواع الأخطاء الحرجة التي يتم مراقبتها.</translation>
+        <translation>تمت إضافة خيارات التكوين في الإعدادات العامة لتمكين/تعطيل التحقق من حالة Hikvision NVR وتخصيص أنواع الأخطاء الحرجة التي يتم مراقبتها.</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation translatorcomment="AI-translated">تم تصميم رمز حالة الشريط العلوي عالي الدقة باللون الأخضر الدافئ/الأحمر مع موجات خارجية نابضة عميقة ورسوم متحركة متموجة لنبضات القلب الداخلية للإشارة إلى الأخطاء الحرجة النشطة.</translation>
+        <translation>تم تصميم رمز حالة الشريط العلوي عالي الدقة باللون الأخضر الدافئ/الأحمر مع موجات خارجية نابضة عميقة ورسوم متحركة متموجة لنبضات القلب الداخلية للإشارة إلى الأخطاء الحرجة النشطة.</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation translatorcomment="AI-translated">تم تقديم دائرة مؤشر حمراء بارزة في أعلى الشاشة تنبض في الجزء العلوي من الشاشة عند طي شريط الأدوات الرئيسي، مما يضمن عدم تفويت التحذيرات المهمة مطلقًا.</translation>
+        <translation>تم تقديم دائرة مؤشر حمراء بارزة في أعلى الشاشة تنبض في الجزء العلوي من الشاشة عند طي شريط الأدوات الرئيسي، مما يضمن عدم تفويت التحذيرات المهمة مطلقًا.</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation translatorcomment="AI-translated">تم إنشاء نافذة منبثقة أنيقة وقابلة للتمرير "حالة المسجل" تقتصر على 85% من ارتفاع الشاشة وتقدم رموز خطأ مفصلة.</translation>
+        <translation>تم إنشاء نافذة منبثقة أنيقة وقابلة للتمرير "حالة المسجل" تقتصر على 85% من ارتفاع الشاشة وتقدم رموز خطأ مفصلة.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation translatorcomment="AI-translated">تمت إضافة علامة التشغيل "--simulate-error" لمحاكاة فشل القرص وأخطاء الاتصال على الفور عبر جميع المسجلات لأغراض العرض التوضيحي.</translation>
+        <translation>تمت إضافة علامة التشغيل "--simulate-error" لمحاكاة فشل القرص وأخطاء الاتصال على الفور عبر جميع المسجلات لأغراض العرض التوضيحي.</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation translatorcomment="AI-translated">تم تنفيذ شارات إطار القائمة ومحاذاة مؤشر الحالة عبر طرق عرض المسجل التي تم تكوينها.</translation>
+        <translation>تم تنفيذ شارات إطار القائمة ومحاذاة مؤشر الحالة عبر طرق عرض المسجل التي تم تكوينها.</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation translatorcomment="AI-translated">تم تحقيق تغطية كاملة للترجمة ثنائية اللغة (البولندية/الإنجليزية) لجميع تشخيصات NVR، وتعيين خانات الاختيار، وتلميحات الأدوات، والتحذيرات، وخيارات محلل سطر الأوامر.</translation>
+        <translation>تم تحقيق تغطية كاملة للترجمة ثنائية اللغة (البولندية/الإنجليزية) لجميع تشخيصات NVR، وتعيين خانات الاختيار، وتلميحات الأدوات، والتحذيرات، وخيارات محلل سطر الأوامر.</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation translatorcomment="AI-translated">تمت إضافة القدرة على إعادة تحميل التخطيط النشط من خلال النقر على الزر الموجود على شريط الأدوات العلوي.</translation>
+        <translation>تمت إضافة القدرة على إعادة تحميل التخطيط النشط من خلال النقر على الزر الموجود على شريط الأدوات العلوي.</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation translatorcomment="AI-translated">متوسط ​​عينات استخدام NVML بمرور الوقت لتسهيل الرسم البياني لاستخدام وحدة معالجة الرسومات والتخلص من القراءات المتعرجة.</translation>
+        <translation>متوسط ​​عينات استخدام NVML بمرور الوقت لتسهيل الرسم البياني لاستخدام وحدة معالجة الرسومات والتخلص من القراءات المتعرجة.</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation translatorcomment="AI-translated">تم التخلص من وميض الفيديو اللحظي (الإطارات السوداء) والفجوات غير المتزامنة في الصوت والفيديو عند تحويل الجودة من التدفقات SUB إلى التدفقات الرئيسية أثناء تعظيم منفذ العرض عن طريق تأخير تبديل المشغل النشط حتى يتم رسم الإطار الأول على الشاشة.</translation>
+        <translation>تم التخلص من وميض الفيديو اللحظي (الإطارات السوداء) والفجوات غير المتزامنة في الصوت والفيديو عند تحويل الجودة من التدفقات SUB إلى التدفقات الرئيسية أثناء تعظيم منفذ العرض عن طريق تأخير تبديل المشغل النشط حتى يتم رسم الإطار الأول على الشاشة.</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation translatorcomment="AI-translated">تمت إضافة أشرطة تمرير تفاعلية وواضحة وأوسع بمقدار 2x إلى أعمدة تحديد الساعة والدقيقة والثانية في النافذة المنبثقة لمنتقي وقت تنزيل الأرشيف.</translation>
+        <translation>تمت إضافة أشرطة تمرير تفاعلية وواضحة وأوسع بمقدار 2x إلى أعمدة تحديد الساعة والدقيقة والثانية في النافذة المنبثقة لمنتقي وقت تنزيل الأرشيف.</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation translatorcomment="AI-translated">تمت إضافة خيارات بديهية جديدة إلى قائمة سياق إطارات العرض: "لقطة" (حفظ الإطار الحالي) و"تشغيل" (انتقال فوري إلى تشغيل الأرشيف للكاميرا المحددة).</translation>
+        <translation>تمت إضافة خيارات بديهية جديدة إلى قائمة سياق إطارات العرض: "لقطة" (حفظ الإطار الحالي) و"تشغيل" (انتقال فوري إلى تشغيل الأرشيف للكاميرا المحددة).</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation translatorcomment="AI-translated">معالجة صوت PCM ثورية وثابتة: إعادة التوجيه المباشر إلى QAudioOutput، والتخلص من تجميد الواجهة (ALSA/PulseAudio/Pipewire) عن طريق تثبيت معدل العينة (الارتداد بعد 5 إطارات ثابتة)، وتهدئة لمدة ثانيتين عند إعادة إنشاء الإخراج، وتصفية المعلمات التالفة ومخزن مؤقت سعة 64 كيلو بايت لتقليل اهتزاز الشبكة.</translation>
+        <translation>معالجة صوت PCM ثورية وثابتة: إعادة التوجيه المباشر إلى QAudioOutput، والتخلص من تجميد الواجهة (ALSA/PulseAudio/Pipewire) عن طريق تثبيت معدل العينة (الارتداد بعد 5 إطارات ثابتة)، وتهدئة لمدة ثانيتين عند إعادة إنشاء الإخراج، وتصفية المعلمات التالفة ومخزن مؤقت سعة 64 كيلو بايت لتقليل اهتزاز الشبكة.</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation translatorcomment="AI-translated">تم تنفيذ شريط تمرير مستوى صوت HUD تفاعلي مباشرةً على مربعات إطار العرض، بالإضافة إلى خيار كتم الصوت السريع وتعظيم مستوى الصوت بنقرة واحدة.</translation>
+        <translation>تم تنفيذ شريط تمرير مستوى صوت HUD تفاعلي مباشرةً على مربعات إطار العرض، بالإضافة إلى خيار كتم الصوت السريع وتعظيم مستوى الصوت بنقرة واحدة.</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation translatorcomment="AI-translated">تم تنفيذ كتم تلقائي وفوري للبث المباشر في الشبكة الرئيسية عند فتح نافذة تشغيل الأرشيف، مما يمنع الأصوات المتداخلة (نشاز).</translation>
+        <translation>تم تنفيذ كتم تلقائي وفوري للبث المباشر في الشبكة الرئيسية عند فتح نافذة تشغيل الأرشيف، مما يمنع الأصوات المتداخلة (نشاز).</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation translatorcomment="AI-translated">تقديم نظام إعلام مركزي SnapshotSavedDialog للقطات المحفوظة (غلاف رمادي داكن، حدود باللون الأزرق المخضر، إغلاق تلقائي بعد 10 ثوانٍ) مع رابط "استعراض" سريع لفتح المجلد مباشرة في مدير ملفات النظام.</translation>
+        <translation>تقديم نظام إعلام مركزي SnapshotSavedDialog للقطات المحفوظة (غلاف رمادي داكن، حدود باللون الأزرق المخضر، إغلاق تلقائي بعد 10 ثوانٍ) مع رابط "استعراض" سريع لفتح المجلد مباشرة في مدير ملفات النظام.</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation translatorcomment="AI-translated">تم إثراء نافذة المساعدة المضمنة بفصل مفصل عن "وصف وظائف الأزرار" باستخدام أيقونات متجهة أصلية وواضحة بتنسيق SVG. يتم الآن فتح نافذة المساعدة تلقائيًا بالكامل ويتم وضعها في المنتصف فوق النافذة الرئيسية عند تشغيل البرنامج لأول مرة.</translation>
+        <translation>تم إثراء نافذة المساعدة المضمنة بفصل مفصل عن "وصف وظائف الأزرار" باستخدام أيقونات متجهة أصلية وواضحة بتنسيق SVG. يتم الآن فتح نافذة المساعدة تلقائيًا بالكامل ويتم وضعها في المنتصف فوق النافذة الرئيسية عند تشغيل البرنامج لأول مرة.</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation translatorcomment="AI-translated">تم تقديم العرض الافتراضي للشريط العلوي عند بدء تشغيل البرنامج/النافذة وإضافة خيار "إظهار الشريط العلوي افتراضيًا بعد فتح النافذة" في الإعدادات، مما يسمح بتخصيص هذا السلوك حسب التفضيلات الشخصية.</translation>
+        <translation>تم تقديم العرض الافتراضي للشريط العلوي عند بدء تشغيل البرنامج/النافذة وإضافة خيار "إظهار الشريط العلوي افتراضيًا بعد فتح النافذة" في الإعدادات، مما يسمح بتخصيص هذا السلوك حسب التفضيلات الشخصية.</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation translatorcomment="AI-translated">تم تنفيذ مسارات مكتبة RPATH الديناميكية في CMakeLists.txt باستخدام GNUInstallDirs، مما يتيح التنفيذ الفوري للتطبيق المترجم على Ubuntu وDebian دون الحاجة إلى التكوين اليدوي لـ /etc/ld.so.conf.d/ وldconfig.</translation>
+        <translation>تم تنفيذ مسارات مكتبة RPATH الديناميكية في CMakeLists.txt باستخدام GNUInstallDirs، مما يتيح التنفيذ الفوري للتطبيق المترجم على Ubuntu وDebian دون الحاجة إلى التكوين اليدوي لـ /etc/ld.so.conf.d/ وldconfig.</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation translatorcomment="AI-translated">تمت إعادة تسمية البرنامج إلى KVision، وتقديم الترحيل التلقائي لتكوين المستخدم، وأيقونات جديدة متعددة الحجم (128 بكسل، 256 بكسل، 512 بكسل)، وعرض الإصدار الكامل في شريط عنوان النافذة.</translation>
+        <translation>تمت إعادة تسمية البرنامج إلى KVision، وتقديم الترحيل التلقائي لتكوين المستخدم، وأيقونات جديدة متعددة الحجم (128 بكسل، 256 بكسل، 512 بكسل)، وعرض الإصدار الكامل في شريط عنوان النافذة.</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation translatorcomment="AI-translated">تم إصلاح نافذة التحذير الخاصة بتجاوز حد النوافذ المساعدة (فقدان مورد QML وقراءة QSettings).</translation>
+        <translation>تم إصلاح نافذة التحذير الخاصة بتجاوز حد النوافذ المساعدة (فقدان مورد QML وقراءة QSettings).</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation translatorcomment="AI-translated">تم إصلاح أيقونة البرنامج المفقودة ضمن Wayland (تثبيت سمة hicolor وsetDesktopFileName).</translation>
+        <translation>تم إصلاح أيقونة البرنامج المفقودة ضمن Wayland (تثبيت سمة hicolor وsetDesktopFileName).</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation translatorcomment="AI-translated">تمت إزالة خيار طي الشريط العلوي تلقائيًا من الإعدادات - من الآن فصاعدًا، ينهار الشريط العلوي في النوافذ المباشرة (الرئيسية والمساعدة) افتراضيًا عند بدء التشغيل، ويقوم زر الدبوس بتثبيته محليًا ومؤقتًا (في الذاكرة) دون حفظ حالته.</translation>
+        <translation>تمت إزالة خيار طي الشريط العلوي تلقائيًا من الإعدادات - من الآن فصاعدًا، ينهار الشريط العلوي في النوافذ المباشرة (الرئيسية والمساعدة) افتراضيًا عند بدء التشغيل، ويقوم زر الدبوس بتثبيته محليًا ومؤقتًا (في الذاكرة) دون حفظ حالته.</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation translatorcomment="AI-translated">تم تقديم حد لعدد النوافذ المساعدة (قابل للتكوين من 0 إلى 3) مع نافذة تحذير أنيقة عند محاولة تجاوزه.</translation>
+        <translation>تم تقديم حد لعدد النوافذ المساعدة (قابل للتكوين من 0 إلى 3) مع نافذة تحذير أنيقة عند محاولة تجاوزه.</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation translatorcomment="AI-translated">تمت إضافة حدود رمادية داكنة بدقة 1 بكسل حول منافذ العرض غير المستخدمة في شبكة التخطيط المباشر لتحسين تحديد الحقول.</translation>
+        <translation>تمت إضافة حدود رمادية داكنة بدقة 1 بكسل حول منافذ العرض غير المستخدمة في شبكة التخطيط المباشر لتحسين تحديد الحقول.</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation translatorcomment="AI-translated">التحرير الآمن لمسارات الحفظ وخيارات تكوين وسائط النظام خلف مربع الاختيار المؤقت "تنشيط التغييرات في هذا القسم"، مما يمنع التعديلات غير المقصودة (إعادة ضبط حالة التحرير عند الإغلاق).</translation>
+        <translation>التحرير الآمن لمسارات الحفظ وخيارات تكوين وسائط النظام خلف مربع الاختيار المؤقت "تنشيط التغييرات في هذا القسم"، مما يمنع التعديلات غير المقصودة (إعادة ضبط حالة التحرير عند الإغلاق).</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation translatorcomment="AI-translated">تم تقديم اختصارات مباشرة لـ "فتح مجلد الحفظ" (تم تمييزه باللون السيلادون عند اكتمال التنزيل في نافذة الأرشيف) وأزرار الفتح السريع النشطة دائمًا لمجلدات اللقطات والفيديو في الإعدادات (مع إنشاء الدليل تلقائيًا على القرص إذا كان مفقودًا).</translation>
+        <translation>تم تقديم اختصارات مباشرة لـ "فتح مجلد الحفظ" (تم تمييزه باللون السيلادون عند اكتمال التنزيل في نافذة الأرشيف) وأزرار الفتح السريع النشطة دائمًا لمجلدات اللقطات والفيديو في الإعدادات (مع إنشاء الدليل تلقائيًا على القرص إذا كان مفقودًا).</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation translatorcomment="AI-translated">تم تقديم التحقق التفاعلي عند النقر فوق الزر "Pobierz" (تنزيل) في نافذة التنزيل: التنسيق التلقائي والتحقق من التاريخ الزمني، وعرض تلميح أداة تحذير أحمر وتركيز الحقل الأول غير الصالح.</translation>
+        <translation>تم تقديم التحقق التفاعلي عند النقر فوق الزر "Pobierz" (تنزيل) في نافذة التنزيل: التنسيق التلقائي والتحقق من التاريخ الزمني، وعرض تلميح أداة تحذير أحمر وتركيز الحقل الأول غير الصالح.</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation translatorcomment="AI-translated">تم تنفيذ التنقل الكامل بلوحة المفاتيح (مفاتيح الأسهم لأعلى/لأسفل لتغيير القيم، ولليسار/لليمين لتبديل الأعمدة) داخل النافذة المنبثقة لمنتقي الساعة.</translation>
+        <translation>تم تنفيذ التنقل الكامل بلوحة المفاتيح (مفاتيح الأسهم لأعلى/لأسفل لتغيير القيم، ولليسار/لليمين لتبديل الأعمدة) داخل النافذة المنبثقة لمنتقي الساعة.</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation translatorcomment="AI-translated">ضمان التشغيل النظيف تمامًا للنوافذ المساعدة (دون فتح الشريط الجانبي للخيارات تلقائيًا) وحفظ الإعدادات الهندسية المستثناة من النوافذ المساعدة، مما يؤدي إلى القضاء على تلوث التكوين المشترك.</translation>
+        <translation>ضمان التشغيل النظيف تمامًا للنوافذ المساعدة (دون فتح الشريط الجانبي للخيارات تلقائيًا) وحفظ الإعدادات الهندسية المستثناة من النوافذ المساعدة، مما يؤدي إلى القضاء على تلوث التكوين المشترك.</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation translatorcomment="AI-translated">تمت إضافة دعم كامل للغة الإنجليزية لجميع التنسيقات الجديدة ورسائل خطأ التحقق من الصحة في نافذة التنزيل.</translation>
+        <translation>تمت إضافة دعم كامل للغة الإنجليزية لجميع التنسيقات الجديدة ورسائل خطأ التحقق من الصحة في نافذة التنزيل.</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation translatorcomment="AI-translated">تم القضاء على تسرب ذاكرة الوصول العشوائي (RAM) عند تبديل تخطيطات الكاميرا عن طريق إيقاف سطح الفيديو تلقائيًا وبشكل صحيح قبل تحديث التنسيقات ومطابقة أبعاد العارض.</translation>
+        <translation>تم القضاء على تسرب ذاكرة الوصول العشوائي (RAM) عند تبديل تخطيطات الكاميرا عن طريق إيقاف سطح الفيديو تلقائيًا وبشكل صحيح قبل تحديث التنسيقات ومطابقة أبعاد العارض.</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation translatorcomment="AI-translated">تم تنفيذ التحرير غير المشروط وتدمير كائنات إخراج الصوت عند توقف المشغل، وتقديم إعادة التدوير التلقائي لهذه الكائنات للقضاء على تسرب الذاكرة والخيوط على Linux.</translation>
+        <translation>تم تنفيذ التحرير غير المشروط وتدمير كائنات إخراج الصوت عند توقف المشغل، وتقديم إعادة التدوير التلقائي لهذه الكائنات للقضاء على تسرب الذاكرة والخيوط على Linux.</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation translatorcomment="AI-translated">تم حل مشكلات تجميد الفيديو (شاشة ملونة ثابتة بعد تكبير إطار العرض) عن طريق فرض إشارة توفر الفيديو الصحيحة عند تقديم الإطار الأول لدفق جديد.</translation>
+        <translation>تم حل مشكلات تجميد الفيديو (شاشة ملونة ثابتة بعد تكبير إطار العرض) عن طريق فرض إشارة توفر الفيديو الصحيحة عند تقديم الإطار الأول لدفق جديد.</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation translatorcomment="AI-translated">تمت إضافة الإعداد العام "تعطيل دعم الصوت تمامًا"، مما يسمح بالتجاوز الكامل لمعالجة الصوت للتخلص من الحمل المحتمل وتسرب الذاكرة.</translation>
+        <translation>تمت إضافة الإعداد العام "تعطيل دعم الصوت تمامًا"، مما يسمح بالتجاوز الكامل لمعالجة الصوت للتخلص من الحمل المحتمل وتسرب الذاكرة.</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation translatorcomment="AI-translated">تم تحسين وحدة إحصائيات النظام للتخلص من الحمل المستمر لاستخدام الذاكرة عن طريق تخزين معرفات العملية مؤقتًا وإزالة تخصيصات التعبير العادي الديناميكي.</translation>
+        <translation>تم تحسين وحدة إحصائيات النظام للتخلص من الحمل المستمر لاستخدام الذاكرة عن طريق تخزين معرفات العملية مؤقتًا وإزالة تخصيصات التعبير العادي الديناميكي.</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation translatorcomment="AI-translated">فرض مجموعة البيانات المهملة (GC) العدوانية على مفاتيح تخطيط الكاميرا وسياقات قياس الصورة الملغاة (SwsContext) في المخازن المؤقتة للفيديو.</translation>
+        <translation>فرض مجموعة البيانات المهملة (GC) العدوانية على مفاتيح تخطيط الكاميرا وسياقات قياس الصورة الملغاة (SwsContext) في المخازن المؤقتة للفيديو.</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation translatorcomment="AI-translated">ضمان التنظيف المناسب للموارد لكاشف تغيير ملف التكوين الثابت (QFileSystemWatcher) عند الخروج من التطبيق.</translation>
+        <translation>ضمان التنظيف المناسب للموارد لكاشف تغيير ملف التكوين الثابت (QFileSystemWatcher) عند الخروج من التطبيق.</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation translatorcomment="AI-translated">تم إصلاح مشكلات المزامنة والتجميد لعملية النافذة المساعدة على الأجهزة الأبطأ أثناء الحذف التسلسلي للكاميرا ودمج منفذ العرض أو نقله.</translation>
+        <translation>تم إصلاح مشكلات المزامنة والتجميد لعملية النافذة المساعدة على الأجهزة الأبطأ أثناء الحذف التسلسلي للكاميرا ودمج منفذ العرض أو نقله.</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation translatorcomment="AI-translated">تجميع ثابت لاستخدام وحدة معالجة الرسومات واستخدام VRAM وإحصائيات النطاق الترددي للشبكة من جميع عمليات التطبيق باستخدام الذاكرة المشتركة (/dev/shm) في الخلفية.</translation>
+        <translation>تجميع ثابت لاستخدام وحدة معالجة الرسومات واستخدام VRAM وإحصائيات النطاق الترددي للشبكة من جميع عمليات التطبيق باستخدام الذاكرة المشتركة (/dev/shm) في الخلفية.</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation translatorcomment="AI-translated">أداة تدمير مشغل الأرشيف المحمي من سباقات البيانات عند تنظيف مهام RGB المعلقة.</translation>
+        <translation>أداة تدمير مشغل الأرشيف المحمي من سباقات البيانات عند تنظيف مهام RGB المعلقة.</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation translatorcomment="AI-translated">تم تنفيذ تجميع مشغل الفيديو للتخلص من الزيادات في استخدام ذاكرة الوصول العشوائي (RAM) والوميض عند تبديل التخطيطات.</translation>
+        <translation>تم تنفيذ تجميع مشغل الفيديو للتخلص من الزيادات في استخدام ذاكرة الوصول العشوائي (RAM) والوميض عند تبديل التخطيطات.</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation translatorcomment="AI-translated">مراقبة مُحسَّنة لوحدة معالجة الرسومات/VRAM لنموذج خاص بالعملية (بدون إنتاج nvidia-smi) مع دعم أصلي لوحدات معالجة الرسومات NVIDIA وAMD وIntel (لم يتم اختبار إحصائيات AMD/Intel).</translation>
+        <translation>مراقبة مُحسَّنة لوحدة معالجة الرسومات/VRAM لنموذج خاص بالعملية (بدون إنتاج nvidia-smi) مع دعم أصلي لوحدات معالجة الرسومات NVIDIA وAMD وIntel (لم يتم اختبار إحصائيات AMD/Intel).</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation translatorcomment="AI-translated">يُسمح بتغيير حجم لوحة إحصائيات النظام عن طريق سحب حوافها وزواياها باستخدام الرسوم البيانية ذات القياس التلقائي.</translation>
+        <translation>يُسمح بتغيير حجم لوحة إحصائيات النظام عن طريق سحب حوافها وزواياها باستخدام الرسوم البيانية ذات القياس التلقائي.</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation translatorcomment="AI-translated">تم تنفيذ الإخفاء الفوري للنوافذ الرئيسية والمساعدة عند تأكيد الخروج، مما يجعل إيقاف التشغيل يظهر فورًا للمستخدم بينما يتم تشغيل تنظيف الخيط والذاكرة بأمان في الخلفية.</translation>
+        <translation>تم تنفيذ الإخفاء الفوري للنوافذ الرئيسية والمساعدة عند تأكيد الخروج، مما يجعل إيقاف التشغيل يظهر فورًا للمستخدم بينما يتم تشغيل تنظيف الخيط والذاكرة بأمان في الخلفية.</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation translatorcomment="AI-translated">تم تحويل أشرطة الأدوات العلوية في كل من نوافذ LIVE وARCHIVE إلى أرصفة عائمة مركزية (يحتوي الرصيف LIVE على عرض ديناميكي).</translation>
+        <translation>تم تحويل أشرطة الأدوات العلوية في كل من نوافذ LIVE وARCHIVE إلى أرصفة عائمة مركزية (يحتوي الرصيف LIVE على عرض ديناميكي).</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation translatorcomment="AI-translated">تمت إضافة فاصل رأسي في الشريط العلوي يرسو بين خيارات الشبكة والتخطيطات.</translation>
+        <translation>تمت إضافة فاصل رأسي في الشريط العلوي يرسو بين خيارات الشبكة والتخطيطات.</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation translatorcomment="AI-translated">زيادة شفافية أشرطة الأرشيف العلوية والسفلية (60% في وضع الإطارات، و26% في وضع ملء الشاشة) وتعيين خلفية المخطط الزمني إلى شفافة.</translation>
+        <translation>زيادة شفافية أشرطة الأرشيف العلوية والسفلية (60% في وضع الإطارات، و26% في وضع ملء الشاشة) وتعيين خلفية المخطط الزمني إلى شفافة.</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation translatorcomment="AI-translated">أيقونات سرعة التشغيل المبسطة في الأرشيف لمسح النص (1x، 2x، 4x) وإزالة خيار السرعة 8x غير المستقرة.</translation>
+        <translation>أيقونات سرعة التشغيل المبسطة في الأرشيف لمسح النص (1x، 2x، 4x) وإزالة خيار السرعة 8x غير المستقرة.</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation translatorcomment="AI-translated">تم استبدال أزرار نص التنقل الشهرية في تقاويم الأرشيف والتنزيل بأسهم رسومية (شيفرون).</translation>
+        <translation>تم استبدال أزرار نص التنقل الشهرية في تقاويم الأرشيف والتنزيل بأسهم رسومية (شيفرون).</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation translatorcomment="AI-translated">تم نقل زر إغلاق منفذ عرض الكاميرا من الزاوية العلوية اليمنى إلى منطقة التحكم السفلية اليمنى لمنع النقرات غير المقصودة.</translation>
+        <translation>تم نقل زر إغلاق منفذ عرض الكاميرا من الزاوية العلوية اليمنى إلى منطقة التحكم السفلية اليمنى لمنع النقرات غير المقصودة.</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation translatorcomment="AI-translated">تحسين تباين نص تخطيط الشبكة المحدد في نافذة الأرشيف (نص داكن على خلفية سيلادون).</translation>
+        <translation>تحسين تباين نص تخطيط الشبكة المحدد في نافذة الأرشيف (نص داكن على خلفية سيلادون).</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation translatorcomment="AI-translated">تم تحويل لوحة إحصائيات النظام إلى لوحة عائمة قابلة للسحب (مع النقر) باستخدام مقبض حمل مخصص جديد.</translation>
+        <translation>تم تحويل لوحة إحصائيات النظام إلى لوحة عائمة قابلة للسحب (مع النقر) باستخدام مقبض حمل مخصص جديد.</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation translatorcomment="AI-translated">تم حل حلقة مزامنة الإعدادات المهمة وتجميد واجهة المستخدم عند حذف تخطيطات إطار العرض.</translation>
+        <translation>تم حل حلقة مزامنة الإعدادات المهمة وتجميد واجهة المستخدم عند حذف تخطيطات إطار العرض.</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation translatorcomment="AI-translated">تكبير السرعة والتكبير وأيقونات التحكم في VCR في الأرشيف لتحسين الرؤية وزيادة حجم النص داخل أيقونات SVG.</translation>
+        <translation>تكبير السرعة والتكبير وأيقونات التحكم في VCR في الأرشيف لتحسين الرؤية وزيادة حجم النص داخل أيقونات SVG.</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation translatorcomment="AI-translated">تمت إزالة أزرار النص المكررة لاختصارات التكبير/التصغير في الأرشيف، واستبدالها بالكامل بأيقونات دائرية.</translation>
+        <translation>تمت إزالة أزرار النص المكررة لاختصارات التكبير/التصغير في الأرشيف، واستبدالها بالكامل بأيقونات دائرية.</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation translatorcomment="AI-translated">تمت إضافة ترجمات كاملة باللغة الإنجليزية والبولندية لجميع تلميحات الأدوات في نافذة الأرشيف.</translation>
+        <translation>تمت إضافة ترجمات كاملة باللغة الإنجليزية والبولندية لجميع تلميحات الأدوات في نافذة الأرشيف.</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation translatorcomment="AI-translated">تم تقديم مزامنة التكوين ثنائي الاتجاه في الوقت الفعلي بين النافذة الرئيسية والنوافذ المساعدة مع دعم معرفات النوافذ المساعدة التلقائية والفريدة من نوعها.</translation>
+        <translation>تم تقديم مزامنة التكوين ثنائي الاتجاه في الوقت الفعلي بين النافذة الرئيسية والنوافذ المساعدة مع دعم معرفات النوافذ المساعدة التلقائية والفريدة من نوعها.</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation translatorcomment="AI-translated">تمت إضافة الاسترداد التلقائي للجلسة (إعادة الاتصال التلقائي) في مشغل أرشيف Hikvision بعد اكتمال التنزيلات أو إسقاط الاتصالات بواسطة المسجل.</translation>
+        <translation>تمت إضافة الاسترداد التلقائي للجلسة (إعادة الاتصال التلقائي) في مشغل أرشيف Hikvision بعد اكتمال التنزيلات أو إسقاط الاتصالات بواسطة المسجل.</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation translatorcomment="AI-translated">تم التخلص من التسريبات المحتملة لمؤشر الترابط وتوقف وحدة فك ترميز الفيديو FFmpeg أثناء تبديل التخطيط من خلال اعتماد مراجع آمنة std::weak_ptr لسياقات وسائط وحدة فك الترميز.</translation>
+        <translation>تم التخلص من التسريبات المحتملة لمؤشر الترابط وتوقف وحدة فك ترميز الفيديو FFmpeg أثناء تبديل التخطيط من خلال اعتماد مراجع آمنة std::weak_ptr لسياقات وسائط وحدة فك الترميز.</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation translatorcomment="AI-translated">تم إصلاح تسرب الذاكرة في نماذج ViewportsLayouts عن طريق حذف كائنات التخطيط بأمان باستخدامdeleter().</translation>
+        <translation>تم إصلاح تسرب الذاكرة في نماذج ViewportsLayouts عن طريق حذف كائنات التخطيط بأمان باستخدامdeleter().</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation translatorcomment="AI-translated">أخطاء بدء تشغيل سطح عرض الفيديو المخففة (OpenGL) أثناء التغييرات السريعة في علامة تبويب NVR - تم تخفيض رتبة السجلات إلى مستوى تصحيح الأخطاء، ويعيد النظام بصمت محاولة العرض في الخلفية بعد تحرير المخازن المؤقتة لوحدة معالجة الرسومات.</translation>
+        <translation>أخطاء بدء تشغيل سطح عرض الفيديو المخففة (OpenGL) أثناء التغييرات السريعة في علامة تبويب NVR - تم تخفيض رتبة السجلات إلى مستوى تصحيح الأخطاء، ويعيد النظام بصمت محاولة العرض في الخلفية بعد تحرير المخازن المؤقتة لوحدة معالجة الرسومات.</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation translatorcomment="AI-translated">تم حل مشكلة استخدام ذاكرة الوصول العشوائي المتبقية (20-30 ميجابايت) بعد إغلاق نافذة الأرشيف من خلال تنظيف الكومة متعددة الخطوات وتحسينات ذاكرة التخزين المؤقت لمحرك QML.</translation>
+        <translation>تم حل مشكلة استخدام ذاكرة الوصول العشوائي المتبقية (20-30 ميجابايت) بعد إغلاق نافذة الأرشيف من خلال تنظيف الكومة متعددة الخطوات وتحسينات ذاكرة التخزين المؤقت لمحرك QML.</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation translatorcomment="AI-translated">الاستخدام الأمثل لذاكرة الوصول العشوائي (RAM) أثناء تغيير حجم الكاميرا وتغيير حجم/تكبير/تصغير منفذ العرض، مما يمنع تراكم الذاكرة المفرط أثناء التغييرات المستمرة في تخطيط دفق الفيديو.</translation>
+        <translation>الاستخدام الأمثل لذاكرة الوصول العشوائي (RAM) أثناء تغيير حجم الكاميرا وتغيير حجم/تكبير/تصغير منفذ العرض، مما يمنع تراكم الذاكرة المفرط أثناء التغييرات المستمرة في تخطيط دفق الفيديو.</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation translatorcomment="AI-translated">تمت إضافة مؤشر دقيق للإطارات في الوقت الفعلي في الثانية (FPS) في الزاوية العلوية اليسرى من كل منفذ عرض لكل من عمليات البث المباشر والأرشيف.</translation>
+        <translation>تمت إضافة مؤشر دقيق للإطارات في الوقت الفعلي في الثانية (FPS) في الزاوية العلوية اليسرى من كل منفذ عرض لكل من عمليات البث المباشر والأرشيف.</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation translatorcomment="AI-translated">تم تنفيذ الإنهاء الآمن وإصدار سلاسل التنزيل في برنامج تنزيل Hikvision، مما يضمن إيقاف تشغيل التطبيق بشكل مستقر وفوري دون حظر موارد النظام.</translation>
+        <translation>تم تنفيذ الإنهاء الآمن وإصدار سلاسل التنزيل في برنامج تنزيل Hikvision، مما يضمن إيقاف تشغيل التطبيق بشكل مستقر وفوري دون حظر موارد النظام.</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation translatorcomment="AI-translated">تمت إضافة حقل بحث ديناميكي للكاميرا في نافذة الأرشيف مع زر إعادة الضبط والمسجلات المطابقة التي يتم توسيعها تلقائيًا.</translation>
+        <translation>تمت إضافة حقل بحث ديناميكي للكاميرا في نافذة الأرشيف مع زر إعادة الضبط والمسجلات المطابقة التي يتم توسيعها تلقائيًا.</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation translatorcomment="AI-translated">تمكين التفاف أسماء الكاميرات الطويلة على مربعات القائمة في الأرشيف.</translation>
+        <translation>تمكين التفاف أسماء الكاميرات الطويلة على مربعات القائمة في الأرشيف.</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation translatorcomment="AI-translated">ألوان مكبرة ومقلوبة لزر علامة الزائد (+) الموجود على مربعات الكاميرا (خلفية بلون النعناع) للحصول على رؤية أفضل، مع حالات تمرير/ضغط واضحة.</translation>
+        <translation>ألوان مكبرة ومقلوبة لزر علامة الزائد (+) الموجود على مربعات الكاميرا (خلفية بلون النعناع) للحصول على رؤية أفضل، مع حالات تمرير/ضغط واضحة.</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation translatorcomment="AI-translated">تم إصلاح التحول لمدة 2-3 ساعات في شريط المخطط الزمني لتوفر التسجيل في نافذة مشغل الأرشيف، ومزامنة المخطط الزمني مع المنطقة الزمنية المحلية للعميل (مع دعم التوقيت الصيفي الصحيح للتوقيت الصيفي).</translation>
+        <translation>تم إصلاح التحول لمدة 2-3 ساعات في شريط المخطط الزمني لتوفر التسجيل في نافذة مشغل الأرشيف، ومزامنة المخطط الزمني مع المنطقة الزمنية المحلية للعميل (مع دعم التوقيت الصيفي الصحيح للتوقيت الصيفي).</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation translatorcomment="AI-translated">تم استبدال الرموز التعبيرية السوداء منخفضة التباين 📺 في طرق العرض الفارغة بشاشة SVG أنيقة ذات دقة عالية DPI.</translation>
+        <translation>تم استبدال الرموز التعبيرية السوداء منخفضة التباين 📺 في طرق العرض الفارغة بشاشة SVG أنيقة ذات دقة عالية DPI.</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation translatorcomment="AI-translated">تحسين إمكانية قراءة أشرطة المسجل في نافذة الأرشيف (زيادة الارتفاع من 22 بكسل إلى 28 بكسل، وحجم الخط من 9 بكسل إلى 11 بكسل، وسهم توسيع أكبر).</translation>
+        <translation>تحسين إمكانية قراءة أشرطة المسجل في نافذة الأرشيف (زيادة الارتفاع من 22 بكسل إلى 28 بكسل، وحجم الخط من 9 بكسل إلى 11 بكسل، وسهم توسيع أكبر).</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation translatorcomment="AI-translated">تمت إضافة تأثيرات التمرير الديناميكية الكاملة لأشرطة المسجل مع تغييرات مميزة في الخلفية والنص وألوان الأيقونات إلى seledyn/white.</translation>
+        <translation>تمت إضافة تأثيرات التمرير الديناميكية الكاملة لأشرطة المسجل مع تغييرات مميزة في الخلفية والنص وألوان الأيقونات إلى seledyn/white.</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation translatorcomment="AI-translated">تم استبدال أزرار الإجراءات النصية الموجودة على الشريط العلوي (الخيارات، نافذة جديدة، الأرشيف، التعليمات) بأيقونات SVG ملونة مخصصة مع تلميحات أدوات مفيدة.</translation>
+        <translation>تم استبدال أزرار الإجراءات النصية الموجودة على الشريط العلوي (الخيارات، نافذة جديدة، الأرشيف، التعليمات) بأيقونات SVG ملونة مخصصة مع تلميحات أدوات مفيدة.</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation translatorcomment="AI-translated">تم استبدال تبديل إحصائيات النظام بأيقونة SVG تفاعلية تعكس حالة نشاط مراقبة النظام.</translation>
+        <translation>تم استبدال تبديل إحصائيات النظام بأيقونة SVG تفاعلية تعكس حالة نشاط مراقبة النظام.</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation translatorcomment="AI-translated">أزرار تحديد الشبكة الموحدة (1x1-9x9) في أزرار دائرية متناسقة مقاس 30x30 بكسل.</translation>
+        <translation>أزرار تحديد الشبكة الموحدة (1x1-9x9) في أزرار دائرية متناسقة مقاس 30x30 بكسل.</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation translatorcomment="AI-translated">تمت إضافة خط فاصل عمودي بين قسم الخيارات وقسم تحديد الشبكة.</translation>
+        <translation>تمت إضافة خط فاصل عمودي بين قسم الخيارات وقسم تحديد الشبكة.</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation translatorcomment="AI-translated">تمت إعادة تصميم أزرار العرض لتصبح على شكل حبة مستديرة أنيقة بارتفاع 30 بكسل، مع الحفاظ على الهوامش الجانبية.</translation>
+        <translation>تمت إعادة تصميم أزرار العرض لتصبح على شكل حبة مستديرة أنيقة بارتفاع 30 بكسل، مع الحفاظ على الهوامش الجانبية.</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation translatorcomment="AI-translated">فرض العرض التلقائي بأحرف كبيرة لأسماء العرض.</translation>
+        <translation>فرض العرض التلقائي بأحرف كبيرة لأسماء العرض.</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation translatorcomment="AI-translated">تحسين إمكانية القراءة والتباين لزر العرض النشط - نص داكن (#121214) على خلفية سيليدين مشرقة.</translation>
+        <translation>تحسين إمكانية القراءة والتباين لزر العرض النشط - نص داكن (#121214) على خلفية سيليدين مشرقة.</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation translatorcomment="AI-translated">أيقونات حذف موحدة ومحسنة في قائمة المسجلات وطرق العرض وزر التنشيط المعين مسبقًا في أيقونات SVG مع تلميحات الأدوات.</translation>
+        <translation>أيقونات حذف موحدة ومحسنة في قائمة المسجلات وطرق العرض وزر التنشيط المعين مسبقًا في أيقونات SVG مع تلميحات الأدوات.</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation translatorcomment="AI-translated">تقليل التباعد بين أزرار الشريط العلوي لتحسين مساحة الواجهة.</translation>
+        <translation>تقليل التباعد بين أزرار الشريط العلوي لتحسين مساحة الواجهة.</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation translatorcomment="AI-translated">تمت استعادة أيقونة التصغير المفقودة في النافذة المساعدة.</translation>
+        <translation>تمت استعادة أيقونة التصغير المفقودة في النافذة المساعدة.</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation translatorcomment="AI-translated">تم إصلاح مشكلات تسجيل الدخول والتشغيل في النوافذ المساعدة.</translation>
+        <translation>تم إصلاح مشكلات تسجيل الدخول والتشغيل في النوافذ المساعدة.</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation translatorcomment="AI-translated">تم إصلاح حالات زر التخطيط (1x1 مقابل 2x2) عند فتح التشغيل مباشرة من الكاميرا.</translation>
+        <translation>تم إصلاح حالات زر التخطيط (1x1 مقابل 2x2) عند فتح التشغيل مباشرة من الكاميرا.</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation translatorcomment="AI-translated">تمت إضافة مساحة اسم XML مناسبة في استعلامات Hikvision ISAPI (يعمل على إصلاح الخطأ "محتوى XML غير صالح" في البرامج الثابتة الأحدث للمسجل).</translation>
+        <translation>تمت إضافة مساحة اسم XML مناسبة في استعلامات Hikvision ISAPI (يعمل على إصلاح الخطأ "محتوى XML غير صالح" في البرامج الثابتة الأحدث للمسجل).</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation translatorcomment="AI-translated">تم إصلاح التعامل مع صفحات نتائج البحث (علامة searchResultPostion).</translation>
+        <translation>تم إصلاح التعامل مع صفحات نتائج البحث (علامة searchResultPostion).</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation translatorcomment="AI-translated">زر "تحديث" في نافذة التشغيل لمسح ذاكرة التخزين المؤقت يدويًا وإعادة جلب بيانات توفر التسجيل.</translation>
+        <translation>زر "تحديث" في نافذة التشغيل لمسح ذاكرة التخزين المؤقت يدويًا وإعادة جلب بيانات توفر التسجيل.</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation translatorcomment="AI-translated">تحسين قائمة انتظار الجلب المسبق للشبكة – تقييد جلب الخلفية لمدة 12 شهرًا، مما يؤدي إلى التخلص من مئات الاستعلامات غير الضرورية وتسريع بدء التشغيل.</translation>
+        <translation>تحسين قائمة انتظار الجلب المسبق للشبكة – تقييد جلب الخلفية لمدة 12 شهرًا، مما يؤدي إلى التخلص من مئات الاستعلامات غير الضرورية وتسريع بدء التشغيل.</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation translatorcomment="AI-translated">تهيئة Hikvision SDK غير المتزامنة في سلسلة محادثات في الخلفية، مما يؤدي تمامًا إلى القضاء على تجميد واجهة المستخدم الرسومية عند فتح الخيارات.</translation>
+        <translation>تهيئة Hikvision SDK غير المتزامنة في سلسلة محادثات في الخلفية، مما يؤدي تمامًا إلى القضاء على تجميد واجهة المستخدم الرسومية عند فتح الخيارات.</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation translatorcomment="AI-translated">مزامنة آمنة للخيط للوصول إلى طرق Hikvision SDK.</translation>
+        <translation>مزامنة آمنة للخيط للوصول إلى طرق Hikvision SDK.</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation translatorcomment="AI-translated">تطهير أسماء الملفات ولقطات الشاشة التي تم تنزيلها عن طريق إزالة عناوين IP الخاصة بالمسجل.</translation>
+        <translation>تطهير أسماء الملفات ولقطات الشاشة التي تم تنزيلها عن طريق إزالة عناوين IP الخاصة بالمسجل.</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation translatorcomment="AI-translated">شريط تقدم التنزيل الأنيق باللون الفيروزي (#00f5d4) مع نص محدد في المنتصف.</translation>
+        <translation>شريط تقدم التنزيل الأنيق باللون الفيروزي (#00f5d4) مع نص محدد في المنتصف.</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation translatorcomment="AI-translated">حساب تقدم التنزيل العالمي (التقدم الإجمالي) للتسجيلات متعددة الأجزاء.</translation>
+        <translation>حساب تقدم التنزيل العالمي (التقدم الإجمالي) للتسجيلات متعددة الأجزاء.</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation translatorcomment="AI-translated">تم تغيير امتداد ملف التنزيل المؤقت من ".ps" إلى ".pspart".</translation>
+        <translation>تم تغيير امتداد ملف التنزيل المؤقت من ".ps" إلى ".pspart".</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation translatorcomment="AI-translated">خيار وزر "إظهار حقول المعلومات فقط عند التمرير" في إعدادات واجهة المستخدم.</translation>
+        <translation>خيار وزر "إظهار حقول المعلومات فقط عند التمرير" في إعدادات واجهة المستخدم.</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation translatorcomment="AI-translated">مؤشر مرئي لاكتشاف الكاميرا في لوحة التكوين (رمز دوار، وحظر النموذج، ونص "اكتشاف...").</translation>
+        <translation>مؤشر مرئي لاكتشاف الكاميرا في لوحة التكوين (رمز دوار، وحظر النموذج، ونص "اكتشاف...").</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation translatorcomment="AI-translated">الترجمة الكاملة (إضافة دعم الترجمة البولندية والإنجليزية الرسمية).</translation>
+        <translation>الترجمة الكاملة (إضافة دعم الترجمة البولندية والإنجليزية الرسمية).</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation translatorcomment="AI-translated">تحسين بدء تشغيل النافذة المساعدة - تقليل وقت التحميل من 3 ثوانٍ إلى أقل من 300 مللي ثانية.</translation>
+        <translation>تحسين بدء تشغيل النافذة المساعدة - تقليل وقت التحميل من 3 ثوانٍ إلى أقل من 300 مللي ثانية.</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation translatorcomment="AI-translated">عنصر نائب جمالي في النافذة المساعدة ("لم يتم تحديد عرض") بحدود باللون الفيروزي.</translation>
+        <translation>عنصر نائب جمالي في النافذة المساعدة ("لم يتم تحديد عرض") بحدود باللون الفيروزي.</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation translatorcomment="AI-translated">تكامل Hikvision SDK للعرض المباشر ووضع التشغيل.</translation>
+        <translation>تكامل Hikvision SDK للعرض المباشر ووضع التشغيل.</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation translatorcomment="AI-translated">مشغل تشغيل متعدد الكاميرات مع تحديد موضع الخط الزمني وتوسيطه تلقائيًا.</translation>
+        <translation>مشغل تشغيل متعدد الكاميرات مع تحديد موضع الخط الزمني وتوسيطه تلقائيًا.</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation translatorcomment="AI-translated">مراقب نظام متعدد الخيوط (وحدة المعالجة المركزية، وذاكرة الوصول العشوائي، ووحدة معالجة الرسومات، وVRAM، وإحصائيات النطاق الترددي للشبكة).</translation>
+        <translation>مراقب نظام متعدد الخيوط (وحدة المعالجة المركزية، وذاكرة الوصول العشوائي، ووحدة معالجة الرسومات، وVRAM، وإحصائيات النطاق الترددي للشبكة).</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation translatorcomment="AI-translated">تتبع استهلاك النطاق الترددي للشبكة في الوقت الحقيقي.</translation>
+        <translation>تتبع استهلاك النطاق الترددي للشبكة في الوقت الحقيقي.</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation translatorcomment="AI-translated">أيقونة تطبيق عالية الدقة وواجهة ذات سمة داكنة محسنة.</translation>
+        <translation>أيقونة تطبيق عالية الدقة وواجهة ذات سمة داكنة محسنة.</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation translatorcomment="AI-translated">برنامج نصي لبناء حزمة Pacman التلقائي لنظام Arch Linux.</translation>
+        <translation>برنامج نصي لبناء حزمة Pacman التلقائي لنظام Arch Linux.</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">ك فيجن</translation>
+        <translation>ك فيجن</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation translatorcomment="AI-translated">الإصدار %1</translation>
+        <translation>الإصدار %1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation translatorcomment="AI-translated">المؤلف الأصلي: يفغيني س. ماكسيموف</translation>
+        <translation>المؤلف الأصلي: يفغيني س. ماكسيموف</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation translatorcomment="AI-translated">التعديل: أركانيستا (بمساعدة الذكاء الاصطناعي)</translation>
+        <translation>التعديل: أركانيستا (بمساعدة الذكاء الاصطناعي)</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation translatorcomment="AI-translated">منفذ العرض%1</translation>
+        <translation>منفذ العرض%1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation translatorcomment="AI-translated">#%1</translation>
+        <translation>#%1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation translatorcomment="AI-translated">أدوات</translation>
+        <translation>أدوات</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation translatorcomment="AI-translated">مسجلات</translation>
+        <translation>مسجلات</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation translatorcomment="AI-translated">الإعدادات المسبقة</translation>
+        <translation>الإعدادات المسبقة</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation translatorcomment="AI-translated">إعدادات</translation>
+        <translation>إعدادات</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation translatorcomment="AI-translated">سجل التغيير</translation>
+        <translation>سجل التغيير</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation translatorcomment="AI-translated">الإصدار المتوفر: %1</translation>
+        <translation>الإصدار المتوفر: %1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation translatorcomment="AI-translated">تفاصيل منفذ العرض</translation>
+        <translation>تفاصيل منفذ العرض</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation translatorcomment="AI-translated">الرجاء تحديد إطار العرض في الشبكة الرئيسية لتخصيص إعداداته.</translation>
+        <translation>الرجاء تحديد إطار العرض في الشبكة الرئيسية لتخصيص إعداداته.</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation translatorcomment="AI-translated">فتح جزء التكوين</translation>
+        <translation>فتح جزء التكوين</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">اتصال الدفق النشط</translation>
+        <translation>اتصال الدفق النشط</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">عنوان URL للدفق الأساسي</translation>
+        <translation>عنوان URL للدفق الأساسي</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">عنوان URL للنسخ الاحتياطي الثانوي</translation>
+        <translation>عنوان URL للنسخ الاحتياطي الثانوي</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation translatorcomment="AI-translated">خيارات الصوت والعرض</translation>
+        <translation>خيارات الصوت والعرض</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation translatorcomment="AI-translated">كتم / إلغاء كتم الصوت</translation>
+        <translation>كتم / إلغاء كتم الصوت</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation translatorcomment="AI-translated">تجاوز خيارات FFmpeg</translation>
+        <translation>تجاوز خيارات FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">أدوات التخطيط والشبكة</translation>
+        <translation>أدوات التخطيط والشبكة</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">فتح جزء الأدوات</translation>
+        <translation>فتح جزء الأدوات</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">قسم النوافذ</translation>
+        <translation>قسم النوافذ</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">خطأ في قراءة التكوين!</translation>
+        <translation>خطأ في قراءة التكوين!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">اضغط مع الاستمرار لتعديل قيمة القسمة</translation>
+        <translation>اضغط مع الاستمرار لتعديل قيمة القسمة</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">س</translation>
+        <translation>س</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">نسبة الهندسة</translation>
+        <translation>نسبة الهندسة</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">تبديل الشاشة الكاملة</translation>
+        <translation>تبديل الشاشة الكاملة</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">عمليات الشبكة</translation>
+        <translation>عمليات الشبكة</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">دمج الخلايا المميزة</translation>
+        <translation>دمج الخلايا المميزة</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation translatorcomment="AI-translated">مدير مسجلات NVR/Hikvision</translation>
+        <translation>مدير مسجلات NVR/Hikvision</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation translatorcomment="AI-translated">الإعدادات المسبقة وطرق عرض التخطيط السريع</translation>
+        <translation>الإعدادات المسبقة وطرق عرض التخطيط السريع</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation translatorcomment="AI-translated">إعدادات تخطيط ONVIF وRTSP</translation>
+        <translation>إعدادات تخطيط ONVIF وRTSP</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation translatorcomment="AI-translated">التخطيط %1</translation>
+        <translation>التخطيط %1</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation translatorcomment="AI-translated">مرئي</translation>
+        <translation>مرئي</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation translatorcomment="AI-translated">قم بتنشيط تخطيط المعاينة هذا</translation>
+        <translation>قم بتنشيط تخطيط المعاينة هذا</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation translatorcomment="AI-translated">حذف تخطيط المعاينة هذا</translation>
+        <translation>حذف تخطيط المعاينة هذا</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation translatorcomment="AI-translated">إضافة تخطيط مسبق</translation>
+        <translation>إضافة تخطيط مسبق</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation translatorcomment="AI-translated">تخطيطات عرض NVR</translation>
+        <translation>تخطيطات عرض NVR</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation translatorcomment="AI-translated">عرض NVR</translation>
+        <translation>عرض NVR</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation translatorcomment="AI-translated">قم بتنشيط طريقة عرض كاميرات NVR هذه</translation>
+        <translation>قم بتنشيط طريقة عرض كاميرات NVR هذه</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation translatorcomment="AI-translated">قم بحذف عرض كاميرات NVR هذا</translation>
+        <translation>قم بحذف عرض كاميرات NVR هذا</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation translatorcomment="AI-translated">إعدادات NVR المسبقة (عروض الشبكة)</translation>
+        <translation>إعدادات NVR المسبقة (عروض الشبكة)</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation translatorcomment="AI-translated">الإعداد المسبق لـ NVR #%1</translation>
+        <translation>الإعداد المسبق لـ NVR #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation translatorcomment="AI-translated">قم بتنشيط الإعداد المسبق لكاميرات NVR</translation>
+        <translation>قم بتنشيط الإعداد المسبق لكاميرات NVR</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation translatorcomment="AI-translated">قم بحذف هذا الإعداد المسبق لكاميرات NVR</translation>
+        <translation>قم بحذف هذا الإعداد المسبق لكاميرات NVR</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation translatorcomment="AI-translated">إضافة NVR مسبقا</translation>
+        <translation>إضافة NVR مسبقا</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation translatorcomment="AI-translated">إعدادات النظام</translation>
+        <translation>إعدادات النظام</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation translatorcomment="AI-translated">الإعدادات العامة</translation>
+        <translation>الإعدادات العامة</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation translatorcomment="AI-translated">السماح بتشغيل مثيلات تطبيق متعددة</translation>
+        <translation>السماح بتشغيل مثيلات تطبيق متعددة</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation translatorcomment="AI-translated">تم تعطيل هذا الخيار لمنع تعارض كتابة ملف الإعدادات. لتمكينه (خطير وغير مستحسن!)، قم بتعيين 'singleApplication=false' في ملف التكوين kvision.conf.</translation>
+        <translation>تم تعطيل هذا الخيار لمنع تعارض كتابة ملف الإعدادات. لتمكينه (خطير وغير مستحسن!)، قم بتعيين 'singleApplication=false' في ملف التكوين kvision.conf.</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation translatorcomment="AI-translated">تحقق من حالة خطأ Hikvision NVR</translation>
+        <translation>تحقق من حالة خطأ Hikvision NVR</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation translatorcomment="AI-translated">صوتي</translation>
+        <translation>صوتي</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation translatorcomment="AI-translated">تعطيل الصوت بالكامل</translation>
+        <translation>تعطيل الصوت بالكامل</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation translatorcomment="AI-translated">لا يؤدي تكبير الكاميرا إلى وضع ملء الشاشة إلى إلغاء كتم الصوت</translation>
+        <translation>لا يؤدي تكبير الكاميرا إلى وضع ملء الشاشة إلى إلغاء كتم الصوت</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation translatorcomment="AI-translated">إعدادات قائمة السياق</translation>
+        <translation>إعدادات قائمة السياق</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation translatorcomment="AI-translated">تمكين قائمة سياق النقر بزر الماوس الأيمن</translation>
+        <translation>تمكين قائمة سياق النقر بزر الماوس الأيمن</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation translatorcomment="AI-translated">السماح بتبديل أماكن إطار العرض</translation>
+        <translation>السماح بتبديل أماكن إطار العرض</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation translatorcomment="AI-translated">تمكين خيار "إزالة الكاميرا".</translation>
+        <translation>تمكين خيار "إزالة الكاميرا".</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation translatorcomment="AI-translated">السماح بتغيير إعدادات إطار العرض</translation>
+        <translation>السماح بتغيير إعدادات إطار العرض</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation translatorcomment="AI-translated">تمكين خيار "تحديد الدفق".</translation>
+        <translation>تمكين خيار "تحديد الدفق".</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation translatorcomment="AI-translated">إعدادات واجهة المستخدم</translation>
+        <translation>إعدادات واجهة المستخدم</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation translatorcomment="AI-translated">إظهار حالة القناة في الزاوية العلوية اليسرى من إطار العرض</translation>
+        <translation>إظهار حالة القناة في الزاوية العلوية اليسرى من إطار العرض</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation translatorcomment="AI-translated">اعرض معلومات الكاميرا في الركن الأيسر السفلي من إطار العرض</translation>
+        <translation>اعرض معلومات الكاميرا في الركن الأيسر السفلي من إطار العرض</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation translatorcomment="AI-translated">إظهار أيقونات التحكم في الركن الأيمن السفلي من إطار العرض فقط عند التمرير</translation>
+        <translation>إظهار أيقونات التحكم في الركن الأيمن السفلي من إطار العرض فقط عند التمرير</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation translatorcomment="AI-translated">إظهار حقول المعلومات فقط عند التمرير</translation>
+        <translation>إظهار حقول المعلومات فقط عند التمرير</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation translatorcomment="AI-translated">إظهار الشريط العلوي بشكل افتراضي عند فتح النافذة</translation>
+        <translation>إظهار الشريط العلوي بشكل افتراضي عند فتح النافذة</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation translatorcomment="AI-translated">إخفاء مؤشر الماوس في وضع ملء الشاشة</translation>
+        <translation>إخفاء مؤشر الماوس في وضع ملء الشاشة</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation translatorcomment="AI-translated">تعطيل الرسوم المتحركة للتكبير/التصغير في إطار العرض</translation>
+        <translation>تعطيل الرسوم المتحركة للتكبير/التصغير في إطار العرض</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation translatorcomment="AI-translated">لغة:</translation>
+        <translation>لغة:</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation translatorcomment="AI-translated">الافتراضي للنظام</translation>
+        <translation>الافتراضي للنظام</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation translatorcomment="AI-translated">قصر النوافذ المساعدة على:</translation>
+        <translation>قصر النوافذ المساعدة على:</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation translatorcomment="AI-translated">مراقبة حالة NVR</translation>
+        <translation>مراقبة حالة NVR</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation translatorcomment="AI-translated">مراقبة حالة عدم الاتصال بالإنترنت وأخطاء تسجيل الدخول</translation>
+        <translation>مراقبة حالة عدم الاتصال بالإنترنت وأخطاء تسجيل الدخول</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation translatorcomment="AI-translated">مراقبة التحميل الزائد لوحدة المعالجة المركزية (&gt; 85%)</translation>
+        <translation>مراقبة التحميل الزائد لوحدة المعالجة المركزية (&gt; 85%)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation translatorcomment="AI-translated">مراقبة أخطاء أجهزة المسجل</translation>
+        <translation>مراقبة أخطاء أجهزة المسجل</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation translatorcomment="AI-translated">مراقبة أخطاء / تشوهات القرص الصلب</translation>
+        <translation>مراقبة أخطاء / تشوهات القرص الصلب</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation translatorcomment="AI-translated">مراقبة الأقراص الصلبة غير المنسقة</translation>
+        <translation>مراقبة الأقراص الصلبة غير المنسقة</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation translatorcomment="AI-translated">مراقبة الأقراص الصلبة الكاملة (تم تعطيل تغطية الحلقة)</translation>
+        <translation>مراقبة الأقراص الصلبة الكاملة (تم تعطيل تغطية الحلقة)</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation translatorcomment="AI-translated">التشغيل</translation>
+        <translation>التشغيل</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation translatorcomment="AI-translated">إزاحة بدء التشغيل للخلف الافتراضي، بالثواني:</translation>
+        <translation>إزاحة بدء التشغيل للخلف الافتراضي، بالثواني:</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation translatorcomment="AI-translated">نطاق المخطط الزمني للتشغيل الافتراضي، ساعات:</translation>
+        <translation>نطاق المخطط الزمني للتشغيل الافتراضي، ساعات:</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation translatorcomment="AI-translated">توفير</translation>
+        <translation>توفير</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation translatorcomment="AI-translated">تفعيل التغييرات في هذا القسم</translation>
+        <translation>تفعيل التغييرات في هذا القسم</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation translatorcomment="AI-translated">مسار اللقطة الافتراضي:</translation>
+        <translation>مسار اللقطة الافتراضي:</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation translatorcomment="AI-translated">اختر مجلدًا للقطات</translation>
+        <translation>اختر مجلدًا للقطات</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation translatorcomment="AI-translated">مسار التسجيلات الافتراضي:</translation>
+        <translation>مسار التسجيلات الافتراضي:</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation translatorcomment="AI-translated">اختر مجلدًا للتسجيلات</translation>
+        <translation>اختر مجلدًا للتسجيلات</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation translatorcomment="AI-translated">فتح مجلد الصور</translation>
+        <translation>فتح مجلد الصور</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation translatorcomment="AI-translated">افتح مجلد الفيديو</translation>
+        <translation>افتح مجلد الفيديو</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation translatorcomment="AI-translated">تكوين وسائط النظام</translation>
+        <translation>تكوين وسائط النظام</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation translatorcomment="AI-translated">خيارات سطر الأوامر الافتراضية FFmpeg</translation>
+        <translation>خيارات سطر الأوامر الافتراضية FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation translatorcomment="AI-translated">تحديث جميع الكاميرات</translation>
+        <translation>تحديث جميع الكاميرات</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation translatorcomment="AI-translated">سجل التغيير</translation>
+        <translation>سجل التغيير</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation translatorcomment="AI-translated">تاريخ التحسينات وإصلاحات الأخطاء والميزات الجديدة في KVision.</translation>
+        <translation>تاريخ التحسينات وإصلاحات الأخطاء والميزات الجديدة في KVision.</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation translatorcomment="AI-translated">تأكيد الحذف</translation>
+        <translation>تأكيد الحذف</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد أنك تريد حذف \"%1\" المعين مسبقًا؟ هذا الإجراء لا رجعة فيه تماما.</translation>
+        <translation>هل أنت متأكد أنك تريد حذف \"%1\" المعين مسبقًا؟ هذا الإجراء لا رجعة فيه تماما.</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد أنك تريد حذف الإعداد المسبق #%1؟ هذا الإجراء لا رجعة فيه تماما.</translation>
+        <translation>هل أنت متأكد أنك تريد حذف الإعداد المسبق #%1؟ هذا الإجراء لا رجعة فيه تماما.</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد أنك تريد حذف عرض NVR \"%1\"؟ هذا الإجراء لا رجعة فيه تماما.</translation>
+        <translation>هل أنت متأكد أنك تريد حذف عرض NVR \"%1\"؟ هذا الإجراء لا رجعة فيه تماما.</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد أنك تريد حذف تخطيط عرض NVR هذا؟ هذا الإجراء لا رجعة فيه تماما.</translation>
+        <translation>هل أنت متأكد أنك تريد حذف تخطيط عرض NVR هذا؟ هذا الإجراء لا رجعة فيه تماما.</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد أنك تريد حذف NVR Preset \"%1\"؟ هذا الإجراء لا رجعة فيه تماما.</translation>
+        <translation>هل أنت متأكد أنك تريد حذف NVR Preset \"%1\"؟ هذا الإجراء لا رجعة فيه تماما.</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد أنك تريد حذف هذا الإعداد المسبق لـ NVR؟ هذا الإجراء لا رجعة فيه تماما.</translation>
+        <translation>هل أنت متأكد أنك تريد حذف هذا الإعداد المسبق لـ NVR؟ هذا الإجراء لا رجعة فيه تماما.</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">لا تقم بتضمين تغييرات إعدادات FFmpeg العامة</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">خيارات إف إف إم بي إي جي</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">خيارات القناة</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">إعدادات منفذ العرض</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">هل أنت متأكد أنك تريد إزالة الكاميرا من منفذ العرض هذا؟</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">تأكيد إزالة الكاميرا</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">تيلكو الفرعية</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">تيلكو الرئيسية</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">تلقائي</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">التشغيل</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>توسيع الترجمة: تمت الآن ترجمة KVision بالكامل إلى 20 لغة جديدة مترجمة بواسطة الذكاء الاصطناعي، ليصل إجمالي عدد اللغات المدعومة إلى 22 (الإنجليزية والبولندية و20 لغة جديدة). تمت ترجمة كل من واجهة التطبيق بالكامل (UI) وأدلة المستخدم الكاملة.</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>وثائق العرض السريع لـ Viewport: تمت إضافة وثائق شاملة تشرح زر تراكب السهم الدائري (Miniplayer) وميزاته التفصيلية في جميع أدلة المستخدم البالغ عددها 22 دليلًا.</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>Pan Zoom: تمت إضافة القدرة على تحريك الفيديو الذي تم تكبيره بحرية (Live، Mini-player، Archive) عن طريق الضغط باستمرار على زر الماوس الأوسط (عجلة التمرير) وسحب المؤشر.</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>تحديد التكبير/التصغير النسبي: تقديم اختصار Shift. يؤدي الضغط باستمرار على مفتاح Shift أثناء رسم مستطيل تكبير/تصغير إلى إجبار التحديد على التثبيت بنسبة عرض إلى ارتفاع تبلغ 16:9، مع تقييد صارم بحدود إطار العرض.</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>تحديد موضع النافذة القسري: تم استبدال آليات حفظ هندسة النافذة القديمة بالكامل بسبب مشكلات العرض متعددة الشاشات غير القابلة للحل في Qt. يفرض التطبيق (كل من النافذة الرئيسية والنوافذ المساعدة) الآن بشكل صارم الإطلاق المتمركز على الشاشة الرئيسية بنسبة 90% من الدقة، مما يضمن الاستقرار والقدرة على التنبؤ عبر جميع الإعدادات.</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>إعادة هيكلة الترجمة: تم استبدال جميع السلاسل البولندية والإنجليزية المضمنة في كود المصدر (qsTr، tr). تمت إعادة هيكلة أكثر من 500 سلسلة فريدة في معرفات LNG_XXXXX، وتم تعيينها بشكل آمن عبر نظام ملفات .ts/.qm محسّن.</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>واجهة سطر الأوامر باللغة الإنجليزية فقط: تتوفر الآن خيارات واجهة سطر الأوامر ومعلمات المساعدة باللغة الإنجليزية بشكل دائم لمنع حدوث مشكلات تتعلق بتأخر تهيئة محرك الترجمة.</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>نسبة العرض إلى الارتفاع للأرشيف: تم إصلاح مشكلة تشويه نسبة العرض إلى الارتفاع للفيديو في إطار عرض مشغل الأرشيف. يقوم الآن مكون HikvisionArchivePlayer بعرض الإطار الأصلي بشكل صحيح مع الحفاظ على نسبة العرض إلى الارتفاع الطبيعية (letterboxing)، بدلاً من تمديد الفيديو ليناسب حدود واجهة المستخدم.</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>تسربات ذاكرة Demuxer: تم تحسين منطق تنظيف الكائن في روتين QmlAVPlayer::stop()، مما يمنع تراكم مثيلات demuxer 'zombie' في الخلفية.</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>إصلاح writeSetting: تمت إضافة التنفيذ المفقود لأسلوب writeSetting في فئة السياق، مما أدى إلى إزالة انقطاعات تنفيذ TypeErrors وQML أثناء عمليات ترحيل الإعدادات.</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4374,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">خطأ في قراءة التكوين!</translation>
+        <translation>خطأ في قراءة التكوين!</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4393,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">ك فيجن</translation>
+        <translation>ك فيجن</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation translatorcomment="AI-translated">البرنامج قيد التشغيل بالفعل، ولا يمكنك تشغيل برنامج آخر</translation>
+        <translation>البرنامج قيد التشغيل بالفعل، ولا يمكنك تشغيل برنامج آخر</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">يغلق</translation>
+        <translation>يغلق</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4424,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation translatorcomment="AI-translated">تم حفظ اللقطة</translation>
+        <translation>تم حفظ اللقطة</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation translatorcomment="AI-translated">تم حفظ اللقطة -</translation>
+        <translation>تم حفظ اللقطة -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation translatorcomment="AI-translated">تصفح</translation>
+        <translation>تصفح</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation translatorcomment="AI-translated">مخرج</translation>
+        <translation>مخرج</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4491,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">أدوات التخطيط والشبكة</translation>
+        <translation>أدوات التخطيط والشبكة</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">فتح جزء الأدوات</translation>
+        <translation>فتح جزء الأدوات</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">قسم النوافذ</translation>
+        <translation>قسم النوافذ</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">خطأ في قراءة التكوين!</translation>
+        <translation>خطأ في قراءة التكوين!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">اضغط مع الاستمرار لتعديل قيمة القسمة</translation>
+        <translation>اضغط مع الاستمرار لتعديل قيمة القسمة</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">س</translation>
+        <translation>س</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">نسبة الهندسة</translation>
+        <translation>نسبة الهندسة</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation translatorcomment="AI-translated">نسبة العرض إلى الارتفاع 16:9</translation>
+        <translation>نسبة العرض إلى الارتفاع 16:9</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation translatorcomment="AI-translated">4:3 نسبة الارتفاع</translation>
+        <translation>4:3 نسبة الارتفاع</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">تبديل الشاشة الكاملة</translation>
+        <translation>تبديل الشاشة الكاملة</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">عمليات الشبكة</translation>
+        <translation>عمليات الشبكة</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">دمج الخلايا المميزة</translation>
+        <translation>دمج الخلايا المميزة</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4578,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation translatorcomment="AI-translated">إعدادات منفذ العرض</translation>
+        <translation>إعدادات منفذ العرض</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">اتصال الدفق النشط</translation>
+        <translation>اتصال الدفق النشط</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">عنوان URL للدفق الأساسي</translation>
+        <translation>عنوان URL للدفق الأساسي</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">عنوان URL للنسخ الاحتياطي الثانوي</translation>
+        <translation>عنوان URL للنسخ الاحتياطي الثانوي</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation translatorcomment="AI-translated">خيارات القناة</translation>
+        <translation>خيارات القناة</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation translatorcomment="AI-translated">خيارات إف إف إم بي إي جي</translation>
+        <translation>خيارات إف إف إم بي إي جي</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation translatorcomment="AI-translated">لا تقم بتضمين تغييرات إعدادات FFmpeg العامة</translation>
+        <translation>لا تقم بتضمين تغييرات إعدادات FFmpeg العامة</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">يلغي</translation>
+        <translation>يلغي</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">يحفظ</translation>
+        <translation>يحفظ</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4670,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation translatorcomment="AI-translated">مبادلة منافذ العرض</translation>
+        <translation>مبادلة منافذ العرض</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation translatorcomment="AI-translated">اختيار الدفق</translation>
+        <translation>اختيار الدفق</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation translatorcomment="AI-translated">إزالة الكاميرا</translation>
+        <translation>إزالة الكاميرا</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation translatorcomment="AI-translated">تغيير الإعدادات</translation>
+        <translation>تغيير الإعدادات</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation translatorcomment="AI-translated">إعادة تحميل</translation>
+        <translation>إعادة تحميل</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation translatorcomment="AI-translated">لقطة</translation>
+        <translation>لقطة</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation translatorcomment="AI-translated">التشغيل</translation>
+        <translation>التشغيل</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation translatorcomment="AI-translated">تلقائي</translation>
+        <translation>تلقائي</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation translatorcomment="AI-translated">تيلكو الرئيسية</translation>
+        <translation>تيلكو الرئيسية</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation translatorcomment="AI-translated">تيلكو الفرعية</translation>
+        <translation>تيلكو الفرعية</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation translatorcomment="AI-translated">تأكيد إزالة الكاميرا</translation>
+        <translation>تأكيد إزالة الكاميرا</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation translatorcomment="AI-translated">هل أنت متأكد أنك تريد إزالة الكاميرا من منفذ العرض هذا؟</translation>
+        <translation>هل أنت متأكد أنك تريد إزالة الكاميرا من منفذ العرض هذا؟</translation>
     </message>
 </context>
 </TS>

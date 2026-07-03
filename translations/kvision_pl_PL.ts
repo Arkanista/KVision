@@ -233,51 +233,51 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation>Ścieżka do pliku konfiguracyjnego.</translation>
+        <translation type="vanished">Ścieżka do pliku konfiguracyjnego.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation>Indeks bieżącego układu.</translation>
+        <translation type="vanished">Indeks bieżącego układu.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation>Wymuś tryb pełnoekranowy.</translation>
+        <translation type="vanished">Wymuś tryb pełnoekranowy.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation>Funkcjonalność trybu kiosku.</translation>
+        <translation type="vanished">Funkcjonalność trybu kiosku.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation>Poziom logowania [%1...%2].</translation>
+        <translation type="vanished">Poziom logowania [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation>Uruchom jako okno pomocnicze.</translation>
+        <translation type="vanished">Uruchom jako okno pomocnicze.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation>ID okna pomocniczego.</translation>
+        <translation type="vanished">ID okna pomocniczego.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation>Pokaż szczegółowe logi w konsoli (verbose logging).</translation>
+        <translation type="vanished">Pokaż szczegółowe logi w konsoli (verbose logging).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation>Włącz śledzenie obiektów w logach dla debugowania wycieków pamięci.</translation>
+        <translation type="vanished">Włącz śledzenie obiektów w logach dla debugowania wycieków pamięci.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation>Wymuś zachowanie pierwszego uruchomienia i pokaż instrukcję (Force first run behavior).</translation>
+        <translation type="vanished">Wymuś zachowanie pierwszego uruchomienia i pokaż instrukcję (Force first run behavior).</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation>Zasymuluj błędy na każdym rejestratorze (Simulate NVR errors).</translation>
+        <translation type="vanished">Zasymuluj błędy na każdym rejestratorze (Simulate NVR errors).</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation>Zasymuluj dostępność nowej wersji na GitHubie w celach testowych (Mock new version availability on GitHub).</translation>
+        <translation type="vanished">Zasymuluj dostępność nowej wersji na GitHubie w celach testowych (Mock new version availability on GitHub).</translation>
     </message>
     <message>
         <source>LNG_00476</source>
@@ -4469,6 +4469,86 @@
     <message>
         <source>LNG_00220</source>
         <translation>Czy na pewno chcesz usunąć ten układ NVR? Ta operacja jest całkowicie nieodwracalna.</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">Nie uwzględniaj zmian w globalnych ustawieniach FFMpeg</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">Opcje FFmpeg</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">Opcje kanału</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">Ustawienia viewportu</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">Czy na pewno chcesz usunąć kamerę z tego viewportu?</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">Potwierdź usunięcie kamery</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">Tylko SUB</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">Tylko MAIN</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">Automatycznie</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">Odtwarzaj</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>Rozszerzenie Lokalizacji: KVision został w pełni przetłumaczony na 20 nowych języków wspomaganych przez AI, co daje łącznie 22 obsługiwane języki (angielski, polski oraz 20 nowych). Przetłumaczono zarówno cały interfejs aplikacji (UI), jak i pełne pliki instrukcji użytkownika.</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>Dokumentacja szybkiego podglądu: Dodano szczegółowy opis nowej ikony szybkiego podglądu wstecz (Mini-odtwarzacza) oraz jej działania we wszystkich 22 plikach instrukcji użytkownika.</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>Przesuwanie powiększenia (Pan Zoom): Dodano możliwość swobodnego przesuwania przybliżonego obrazu (Live, Mini-odtwarzacz, Archiwum) poprzez przytrzymanie wciśniętego środkowego przycisku myszy (kółka) i przesuwanie kursorem.</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>Proporcjonalne zaznaczanie powiększenia: Wprowadzono skrót klawiszowy Shift. Trzymając wciśnięty klawisz Shift podczas rysowania prostokąta powiększenia (Lupka), zaznaczenie wymusza zablokowanie proporcji ekranu do 16:9, ograniczając ramkę do granic viewportu.</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>Wymuszone pozycjonowanie okien: Zrezygnowano całkowicie z zapisywania geometrii okien po napotkaniu nieodwracalnych problemów Qt z poprawnym rzutowaniem na ekrany wielomonitorowe. Zamiast tego, aplikacja (zarówno okno główne, jak i okna pomocnicze) wymusza teraz otwieranie wyśrodkowane na głównym monitorze, w proporcjach 90% jego rozdzielczości, zapewniając stabilność i przewidywalność działania na każdym stanowisku.</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>Refaktoryzacja systemu tłumaczeń (Lokalizacja): Zlikwidowano wszystkie sztywne polskie i angielskie teksty osadzone w kodzie źródłowym (qsTr, tr). Ponad 500 unikalnych ciągów zastąpiono jednolitymi identyfikatorami w formacie LNG_XXXXX, które są bezpiecznie mapowane przez ulepszony system plików .ts/.qm.</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>Wymuszony angielski w wierszu poleceń (CLI): Opcje i parametry --help zostały zangielszczone na stałe, by uniknąć problemów z opóźnioną inicjalizacją mechanizmów lokalizacyjnych.</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>Zachowanie proporcji obrazu w Archiwum: Naprawiono błąd zniekształcania proporcji obrazu w viewporcie odtwarzacza Archiwum. Komponent HikvisionArchivePlayer renderuje teraz oryginalną klatkę zachowując jej naturalny aspekt (dodając czarne paski), zamiast rozciągać wideo do wielkości okienka w interfejsie.</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>Wycieki pamięci Demuxerów: Poprawiono logikę oczyszczania obiektów (cleanup) w procesie QmlAVPlayer::stop(), co zapobiega tworzeniu się 'zombie' instancji demuxerów w tle.</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>Naprawa błędu writeSetting: Dodano brakującą implementację metody writeSetting w klasie Context, co eliminuje błędy TypeErrors i przerywanie wykonywania kodu w QML przy migracjach ustawień.</translation>
     </message>
 </context>
 <context>

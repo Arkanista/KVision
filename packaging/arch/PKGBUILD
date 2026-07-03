@@ -1,8 +1,8 @@
 # Maintainer: arkanista <arkanista@cctv-viewer2.org>
 
 pkgname=kvision
-pkgver=2.5.0
-pkgrel=2
+pkgver=2.6.0
+pkgrel=1
 pkgdesc="A cross-platform NVR and IP camera viewing application"
 arch=('x86_64')
 url="https://github.com/arkanista/kvision"

@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation translatorcomment="AI-translated">Nu puteți deschide mai multe ferestre auxiliare</translation>
+        <translation>Nu puteți deschide mai multe ferestre auxiliare</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">ÎNCHIS</translation>
+        <translation>ÎNCHIS</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Fereastră auxiliară</translation>
+        <translation>KVision - Fereastră auxiliară</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Nicio vizualizare selectată, selectați o vizualizare</translation>
+        <translation>Nicio vizualizare selectată, selectați o vizualizare</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Selectați o vizualizare din meniul de sus pentru a începe afișarea camerelor.</translation>
+        <translation>Selectați o vizualizare din meniul de sus pentru a începe afișarea camerelor.</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Opțiuni și setări ale panoului barei laterale</translation>
+        <translation>Opțiuni și setări ale panoului barei laterale</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Deschideți o nouă fereastră auxiliară</translation>
+        <translation>Deschideți o nouă fereastră auxiliară</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Manual de utilizare a programului</translation>
+        <translation>Manual de utilizare a programului</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation translatorcomment="AI-translated">Vizualizare grilă:</translation>
+        <translation>Vizualizare grilă:</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Comutați Ecranul complet</translation>
+        <translation>Comutați Ecranul complet</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation translatorcomment="AI-translated">🔒 Schimbarea aspectului blocării</translation>
+        <translation>🔒 Schimbarea aspectului blocării</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Mai multe opțiuni</translation>
+        <translation>Mai multe opțiuni</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation translatorcomment="AI-translated">Vedeți selecția:</translation>
+        <translation>Vedeți selecția:</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Închide programul</translation>
+        <translation>Închide programul</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Sigur doriți să închideți programul?</translation>
+        <translation>Sigur doriți să închideți programul?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">DA</translation>
+        <translation>DA</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NU</translation>
+        <translation>NU</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation translatorcomment="AI-translated">Da</translation>
+        <translation>Da</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation translatorcomment="AI-translated">Nu</translation>
+        <translation>Nu</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation translatorcomment="AI-translated">Calea către fișierul de configurare.</translation>
+        <translation type="vanished">Calea către fișierul de configurare.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation translatorcomment="AI-translated">Indexul presetarii curente.</translation>
+        <translation type="vanished">Indexul presetarii curente.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation translatorcomment="AI-translated">Forțați modul ecran complet.</translation>
+        <translation type="vanished">Forțați modul ecran complet.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation translatorcomment="AI-translated">Funcționalitatea modului chioșc.</translation>
+        <translation type="vanished">Funcționalitatea modului chioșc.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation translatorcomment="AI-translated">Nivel de jurnal [%1...%2].</translation>
+        <translation type="vanished">Nivel de jurnal [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation translatorcomment="AI-translated">Începe ca o fereastră auxiliară.</translation>
+        <translation type="vanished">Începe ca o fereastră auxiliară.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation translatorcomment="AI-translated">ID-ul ferestrei auxiliare.</translation>
+        <translation type="vanished">ID-ul ferestrei auxiliare.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation translatorcomment="AI-translated">Afișați jurnalele detaliate în consolă (înregistrare verbală).</translation>
+        <translation type="vanished">Afișați jurnalele detaliate în consolă (înregistrare verbală).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation translatorcomment="AI-translated">Activați urmărirea obiectelor în jurnale pentru depanarea scurgerilor de memorie.</translation>
+        <translation type="vanished">Activați urmărirea obiectelor în jurnale pentru depanarea scurgerilor de memorie.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation translatorcomment="AI-translated">Forțați comportamentul la prima rulare și afișați instrucțiunile.</translation>
+        <translation type="vanished">Forțați comportamentul la prima rulare și afișați instrucțiunile.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation translatorcomment="AI-translated">Simulați erorile NVR pe toate înregistratoarele.</translation>
+        <translation type="vanished">Simulați erorile NVR pe toate înregistratoarele.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation translatorcomment="AI-translated">Simulați disponibilitatea versiunii noi pe GitHub în scopuri de testare</translation>
+        <translation type="vanished">Simulați disponibilitatea versiunii noi pe GitHub în scopuri de testare</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation translatorcomment="AI-translated">KVision - vizualizare și montare fluxuri video.</translation>
+        <translation>KVision - vizualizare și montare fluxuri video.</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation translatorcomment="AI-translated">Data și ora de încheiere trebuie să fie mai târziu decât data și ora de începere!</translation>
+        <translation>Data și ora de încheiere trebuie să fie mai târziu decât data și ora de începere!</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation translatorcomment="AI-translated">ianuarie</translation>
+        <translation>ianuarie</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation translatorcomment="AI-translated">februarie</translation>
+        <translation>februarie</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation translatorcomment="AI-translated">martie</translation>
+        <translation>martie</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation translatorcomment="AI-translated">aprilie</translation>
+        <translation>aprilie</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation translatorcomment="AI-translated">mai</translation>
+        <translation>mai</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation translatorcomment="AI-translated">iunie</translation>
+        <translation>iunie</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation translatorcomment="AI-translated">iulie</translation>
+        <translation>iulie</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation translatorcomment="AI-translated">august</translation>
+        <translation>august</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation translatorcomment="AI-translated">septembrie</translation>
+        <translation>septembrie</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation translatorcomment="AI-translated">octombrie</translation>
+        <translation>octombrie</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation translatorcomment="AI-translated">noiembrie</translation>
+        <translation>noiembrie</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation translatorcomment="AI-translated">decembrie</translation>
+        <translation>decembrie</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Luna anterioară</translation>
+        <translation>Luna anterioară</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Luna viitoare</translation>
+        <translation>Luna viitoare</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation translatorcomment="AI-translated">Selectați ora</translation>
+        <translation>Selectați ora</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation translatorcomment="AI-translated">Hr</translation>
+        <translation>Hr</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation translatorcomment="AI-translated">Min</translation>
+        <translation>Min</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation translatorcomment="AI-translated">Sec</translation>
+        <translation>Sec</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation translatorcomment="AI-translated">Anulează</translation>
+        <translation>Anulează</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation translatorcomment="AI-translated">Confirmați</translation>
+        <translation>Confirmați</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation translatorcomment="AI-translated">Descărcați înregistrări</translation>
+        <translation>Descărcați înregistrări</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation translatorcomment="AI-translated">De la:</translation>
+        <translation>De la:</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation translatorcomment="AI-translated">Format de dată incorect! Format necesar: ZZ.LL.AAAA (de exemplu, 26.06.2026)</translation>
+        <translation>Format de dată incorect! Format necesar: ZZ.LL.AAAA (de exemplu, 26.06.2026)</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation translatorcomment="AI-translated">Format de timp incorect! Format necesar: HH:MM:SS sau HH.MM.SS (de exemplu, 12:30:00 sau 12.30.00)</translation>
+        <translation>Format de timp incorect! Format necesar: HH:MM:SS sau HH.MM.SS (de exemplu, 12:30:00 sau 12.30.00)</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation translatorcomment="AI-translated">Pentru:</translation>
+        <translation>Pentru:</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation translatorcomment="AI-translated">Total:</translation>
+        <translation>Total:</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation translatorcomment="AI-translated">Se descarcă...</translation>
+        <translation>Se descarcă...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation translatorcomment="AI-translated">Eroare:</translation>
+        <translation>Eroare:</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation translatorcomment="AI-translated">Se inițializează...</translation>
+        <translation>Se inițializează...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">oprit</translation>
+        <translation>oprit</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation translatorcomment="AI-translated">deschide folderul de salvare</translation>
+        <translation>deschide folderul de salvare</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation translatorcomment="AI-translated">Opreste-te</translation>
+        <translation>Opreste-te</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Descărcați</translation>
+        <translation>Descărcați</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation translatorcomment="AI-translated">Descărcarea este deja în curs.</translation>
+        <translation>Descărcarea este deja în curs.</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation translatorcomment="AI-translated">Se inițializează căutarea fișierelor...</translation>
+        <translation>Se inițializează căutarea fișierelor...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation translatorcomment="AI-translated">Eroare la conectarea la dispozitiv: %1</translation>
+        <translation>Eroare la conectarea la dispozitiv: %1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation translatorcomment="AI-translated">Nu există înregistrări în intervalul de timp selectat pentru această cameră.</translation>
+        <translation>Nu există înregistrări în intervalul de timp selectat pentru această cameră.</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation translatorcomment="AI-translated">Au fost descărcate și convertite %1 din %2 fișiere.</translation>
+        <translation>Au fost descărcate și convertite %1 din %2 fișiere.</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation translatorcomment="AI-translated">Calea de salvare specificată este nevalidă sau accesul de scriere este refuzat:
+        <translation>Calea de salvare specificată este nevalidă sau accesul de scriere este refuzat:
 %1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation translatorcomment="AI-translated">Fără permisiunea de scriere în director:
+        <translation>Fără permisiunea de scriere în director:
 %1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation translatorcomment="AI-translated">Eroare la inițializarea descărcării părții %1: %2</translation>
+        <translation>Eroare la inițializarea descărcării părții %1: %2</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation translatorcomment="AI-translated">Eroare la începerea descărcării părții %1: %2</translation>
+        <translation>Eroare la începerea descărcării părții %1: %2</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation translatorcomment="AI-translated">Se descarcă partea %1 din %2...</translation>
+        <translation>Se descarcă partea %1 din %2...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">oprit</translation>
+        <translation>oprit</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation translatorcomment="AI-translated">Descărcarea întreruptă de utilizator.</translation>
+        <translation>Descărcarea întreruptă de utilizator.</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation translatorcomment="AI-translated">Se convertește partea %1 din %2...</translation>
+        <translation>Se convertește partea %1 din %2...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation translatorcomment="AI-translated">Eroare la descărcarea părții %1.</translation>
+        <translation>Eroare la descărcarea părții %1.</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation translatorcomment="AI-translated">Au fost descărcate și convertite %1 din %2 părți...</translation>
+        <translation>Au fost descărcate și convertite %1 din %2 părți...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation translatorcomment="AI-translated">Eroare internă FFmpeg</translation>
+        <translation>Eroare internă FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation translatorcomment="AI-translated">Conversia părții %1 în MP4 a eșuat: %2</translation>
+        <translation>Conversia părții %1 în MP4 a eșuat: %2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Conectarea a eșuat sau nicio cameră nu a fost descoperită.</translation>
+        <translation>Conectarea a eșuat sau nicio cameră nu a fost descoperită.</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation translatorcomment="AI-translated">KVision - Manual de utilizare / Instrucțiuni</translation>
+        <translation>KVision - Manual de utilizare / Instrucțiuni</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS_ro.md</translation>
+        <translation>qrc:/INSTRUCTIONS_ro.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation translatorcomment="AI-translated">Eroare la încărcarea instrucțiunilor.</translation>
+        <translation>Eroare la încărcarea instrucțiunilor.</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation translatorcomment="AI-translated">Camere pe %1</translation>
+        <translation>Camere pe %1</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation translatorcomment="AI-translated">Camere de luat vederi</translation>
+        <translation>Camere de luat vederi</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation translatorcomment="AI-translated">IP: %1 | Port: %2 | %3 canale</translation>
+        <translation>IP: %1 | Port: %2 | %3 canale</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation translatorcomment="AI-translated">Generați miniaturi pentru toate camerele</translation>
+        <translation>Generați miniaturi pentru toate camerele</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation translatorcomment="AI-translated">Camera %1</translation>
+        <translation>Camera %1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation translatorcomment="AI-translated">Camera alocată %1 Ch. %2 în fereastra de vizualizare %3</translation>
+        <translation>Camera alocată %1 Ch. %2 în fereastra de vizualizare %3</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation translatorcomment="AI-translated">Atribuiți fereastra activă</translation>
+        <translation>Atribuiți fereastra activă</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation translatorcomment="AI-translated">Redenumiți camera</translation>
+        <translation>Redenumiți camera</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation translatorcomment="AI-translated">Actualizează miniatura camerei</translation>
+        <translation>Actualizează miniatura camerei</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation translatorcomment="AI-translated">Schimbați numele camerei</translation>
+        <translation>Schimbați numele camerei</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation translatorcomment="AI-translated">Canal: %1</translation>
+        <translation>Canal: %1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation translatorcomment="AI-translated">Numele original: %1</translation>
+        <translation>Numele original: %1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation translatorcomment="AI-translated">Niciuna</translation>
+        <translation>Niciuna</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation translatorcomment="AI-translated">Introduceți un nou nume pentru cameră...</translation>
+        <translation>Introduceți un nou nume pentru cameră...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation translatorcomment="AI-translated">Resetați</translation>
+        <translation>Resetați</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Anulează</translation>
+        <translation>Anulează</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Salvați</translation>
+        <translation>Salvați</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Conectarea a eșuat sau nicio cameră nu a fost descoperită.</translation>
+        <translation>Conectarea a eșuat sau nicio cameră nu a fost descoperită.</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation translatorcomment="AI-translated">Adăugați Hikvision Recorder</translation>
+        <translation>Adăugați Hikvision Recorder</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation translatorcomment="AI-translated">Nume recorder (opțional)</translation>
+        <translation>Nume recorder (opțional)</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation translatorcomment="AI-translated">Adresa IP</translation>
+        <translation>Adresa IP</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation translatorcomment="AI-translated">Port (8000)</translation>
+        <translation>Port (8000)</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation translatorcomment="AI-translated">Nume de utilizator</translation>
+        <translation>Nume de utilizator</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation translatorcomment="AI-translated">Parolă</translation>
+        <translation>Parolă</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation translatorcomment="AI-translated">Descoperirea...</translation>
+        <translation>Descoperirea...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation translatorcomment="AI-translated">Conectați-vă și descoperiți</translation>
+        <translation>Conectați-vă și descoperiți</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation translatorcomment="AI-translated">Salvați și actualizați</translation>
+        <translation>Salvați și actualizați</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation translatorcomment="AI-translated">Eroare: IP-ul și parola sunt necesare.</translation>
+        <translation>Eroare: IP-ul și parola sunt necesare.</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation translatorcomment="AI-translated">Se conectează la NVR și se descoperă canale...</translation>
+        <translation>Se conectează la NVR și se descoperă canale...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Anulează</translation>
+        <translation>Anulează</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation translatorcomment="AI-translated">Recordere conectate</translation>
+        <translation>Recordere conectate</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation translatorcomment="AI-translated">%1 camere conectate</translation>
+        <translation>%1 camere conectate</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation translatorcomment="AI-translated">LOGAT</translation>
+        <translation>LOGAT</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation translatorcomment="AI-translated">NU S-A LOGAT</translation>
+        <translation>NU S-A LOGAT</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation translatorcomment="AI-translated">Verde: Sesiune SDK activă (PTZ/Arhivă). Roșu: Nicio sesiune activă (fluxul RTSP funcționează independent).</translation>
+        <translation>Verde: Sesiune SDK activă (PTZ/Arhivă). Roșu: Nicio sesiune activă (fluxul RTSP funcționează independent).</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation translatorcomment="AI-translated">Deschideți pagina de conectare a NVR în browser</translation>
+        <translation>Deschideți pagina de conectare a NVR în browser</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation translatorcomment="AI-translated">Afișați lista camerelor NVR</translation>
+        <translation>Afișați lista camerelor NVR</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation translatorcomment="AI-translated">Editați detaliile conexiunii recorderului</translation>
+        <translation>Editați detaliile conexiunii recorderului</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation translatorcomment="AI-translated">Ștergeți reportofonul din listă</translation>
+        <translation>Ștergeți reportofonul din listă</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation translatorcomment="AI-translated">Confirmați ștergerea NVR</translation>
+        <translation>Confirmați ștergerea NVR</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation translatorcomment="AI-translated">Sigur doriți să ștergeți acest NVR?</translation>
+        <translation>Sigur doriți să ștergeți acest NVR?</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation translatorcomment="AI-translated">Atenție!</translation>
+        <translation>Atenție!</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation translatorcomment="AI-translated">Ești absolut sigur și conștient de ceea ce faci?</translation>
+        <translation>Ești absolut sigur și conștient de ceea ce faci?</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation translatorcomment="AI-translated">Stare NVR</translation>
+        <translation>Stare NVR</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation translatorcomment="AI-translated">Se verifică starea NVR...</translation>
+        <translation>Se verifică starea NVR...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation translatorcomment="AI-translated">Ultima verificare:</translation>
+        <translation>Ultima verificare:</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation translatorcomment="AI-translated">niciodată</translation>
+        <translation>niciodată</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Mut</translation>
+        <translation>Mut</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation translatorcomment="AI-translated">EROARE</translation>
+        <translation>EROARE</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation translatorcomment="AI-translated">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation translatorcomment="AI-translated">Nu există date de stare</translation>
+        <translation>Nu există date de stare</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation translatorcomment="AI-translated">Apăsați butonul de mai jos pentru a verifica starea NVR.</translation>
+        <translation>Apăsați butonul de mai jos pentru a verifica starea NVR.</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation translatorcomment="AI-translated">Verificați acum</translation>
+        <translation>Verificați acum</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation translatorcomment="AI-translated">Închide</translation>
+        <translation>Închide</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation translatorcomment="AI-translated">NVR simulat</translation>
+        <translation>NVR simulat</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation translatorcomment="AI-translated">Disc 1</translation>
+        <translation>Disc 1</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation translatorcomment="AI-translated">Eroare critică/eroare de disc (Simulare)</translation>
+        <translation>Eroare critică/eroare de disc (Simulare)</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation translatorcomment="AI-translated">Nicio eroare de conectare sau de conectare (Simulare)</translation>
+        <translation>Nicio eroare de conectare sau de conectare (Simulare)</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation translatorcomment="AI-translated">Nicio eroare de conectare sau de conectare</translation>
+        <translation>Nicio eroare de conectare sau de conectare</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation translatorcomment="AI-translated">Eroare la citirea stării NVR (SDK)</translation>
+        <translation>Eroare la citirea stării NVR (SDK)</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation translatorcomment="AI-translated">Încărcare mare a procesorului (&gt;85%)</translation>
+        <translation>Încărcare mare a procesorului (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation translatorcomment="AI-translated">Eroare hardware a dispozitivului</translation>
+        <translation>Eroare hardware a dispozitivului</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation translatorcomment="AI-translated">Discul %1</translation>
+        <translation>Discul %1</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation translatorcomment="AI-translated">Eroare/eroare critică de disc</translation>
+        <translation>Eroare/eroare critică de disc</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation translatorcomment="AI-translated">Disc neformatat</translation>
+        <translation>Disc neformatat</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation translatorcomment="AI-translated">Disc plin (suprascrie dezactivată)</translation>
+        <translation>Disc plin (suprascrie dezactivată)</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation translatorcomment="AI-translated">Arhiva -</translation>
+        <translation>Arhiva -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation translatorcomment="AI-translated">ianuarie</translation>
+        <translation>ianuarie</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation translatorcomment="AI-translated">februarie</translation>
+        <translation>februarie</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation translatorcomment="AI-translated">martie</translation>
+        <translation>martie</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation translatorcomment="AI-translated">aprilie</translation>
+        <translation>aprilie</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation translatorcomment="AI-translated">mai</translation>
+        <translation>mai</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation translatorcomment="AI-translated">iunie</translation>
+        <translation>iunie</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation translatorcomment="AI-translated">iulie</translation>
+        <translation>iulie</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation translatorcomment="AI-translated">august</translation>
+        <translation>august</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation translatorcomment="AI-translated">septembrie</translation>
+        <translation>septembrie</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation translatorcomment="AI-translated">octombrie</translation>
+        <translation>octombrie</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation translatorcomment="AI-translated">noiembrie</translation>
+        <translation>noiembrie</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation translatorcomment="AI-translated">decembrie</translation>
+        <translation>decembrie</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Luna anterioară</translation>
+        <translation>Luna anterioară</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation translatorcomment="AI-translated">Selectați data arhivei</translation>
+        <translation>Selectați data arhivei</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Luna viitoare</translation>
+        <translation>Luna viitoare</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation translatorcomment="AI-translated">lu</translation>
+        <translation>lu</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation translatorcomment="AI-translated">Tu</translation>
+        <translation>Tu</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation translatorcomment="AI-translated">Noi</translation>
+        <translation>Noi</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation translatorcomment="AI-translated">Th</translation>
+        <translation>Th</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation translatorcomment="AI-translated">pr</translation>
+        <translation>pr</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation translatorcomment="AI-translated">Sa</translation>
+        <translation>Sa</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation translatorcomment="AI-translated">Su</translation>
+        <translation>Su</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation translatorcomment="AI-translated">Se preia disponibilitatea...</translation>
+        <translation>Se preia disponibilitatea...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation translatorcomment="AI-translated">Camere de luat vederi</translation>
+        <translation>Camere de luat vederi</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation translatorcomment="AI-translated">Caută camera...</translation>
+        <translation>Caută camera...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation translatorcomment="AI-translated">Ștergeți căutarea</translation>
+        <translation>Ștergeți căutarea</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation translatorcomment="AI-translated">Se determină sfârșitul real al înregistrării...</translation>
+        <translation>Se determină sfârșitul real al înregistrării...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation translatorcomment="AI-translated">Se preiau informații despre înregistrare...</translation>
+        <translation>Se preiau informații despre înregistrare...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation translatorcomment="AI-translated">Se încarcă arhiva Hikvision...</translation>
+        <translation>Se încarcă arhiva Hikvision...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation translatorcomment="AI-translated">Nicio înregistrare în momentul selectat</translation>
+        <translation>Nicio înregistrare în momentul selectat</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Mut</translation>
+        <translation>Mut</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Volumul maxim</translation>
+        <translation>Volumul maxim</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Faceți un instantaneu la rezoluție maximă</translation>
+        <translation>Faceți un instantaneu la rezoluție maximă</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Dezactivați modul 1:1</translation>
+        <translation>Dezactivați modul 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">Activați modul 1:1 (de la pixel la pixel)</translation>
+        <translation>Activați modul 1:1 (de la pixel la pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Resetați zoomul</translation>
+        <translation>Resetați zoomul</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation translatorcomment="AI-translated">Selectați zona pentru a mări</translation>
+        <translation>Selectați zona pentru a mări</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation translatorcomment="AI-translated">Selectați zona pentru a mări</translation>
+        <translation>Selectați zona pentru a mări</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation translatorcomment="AI-translated">Restabiliți vizualizarea grilă</translation>
+        <translation>Restabiliți vizualizarea grilă</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation translatorcomment="AI-translated">Afișați pe tot ecranul</translation>
+        <translation>Afișați pe tot ecranul</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation translatorcomment="AI-translated">Scoateți camera din vedere</translation>
+        <translation>Scoateți camera din vedere</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation translatorcomment="AI-translated">Vizualizare goală</translation>
+        <translation>Vizualizare goală</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation translatorcomment="AI-translated">Selectați această fereastră, alegeți o cameră din listă și faceți clic pe + pentru a o adăuga</translation>
+        <translation>Selectați această fereastră, alegeți o cameră din listă și faceți clic pe + pentru a o adăuga</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation translatorcomment="AI-translated">Ziua anterioară</translation>
+        <translation>Ziua anterioară</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation translatorcomment="AI-translated">Selectați data din calendar</translation>
+        <translation>Selectați data din calendar</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation translatorcomment="AI-translated">A doua zi</translation>
+        <translation>A doua zi</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation translatorcomment="AI-translated">Astăzi</translation>
+        <translation>Astăzi</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation translatorcomment="AI-translated">Du-te la azi</translation>
+        <translation>Du-te la azi</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation translatorcomment="AI-translated">Reîmprospătați înregistrările</translation>
+        <translation>Reîmprospătați înregistrările</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation translatorcomment="AI-translated">Măriți pentru a dura 1 oră</translation>
+        <translation>Măriți pentru a dura 1 oră</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation translatorcomment="AI-translated">Măriți pentru a dura 8 ore</translation>
+        <translation>Măriți pentru a dura 8 ore</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation translatorcomment="AI-translated">Afișați ziua întreagă pe cronologie</translation>
+        <translation>Afișați ziua întreagă pe cronologie</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation translatorcomment="AI-translated">Centrați cronologia pe timpul curent de redare</translation>
+        <translation>Centrați cronologia pe timpul curent de redare</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation translatorcomment="AI-translated">Viteza:</translation>
+        <translation>Viteza:</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation translatorcomment="AI-translated">Setați viteza de redare la %1x</translation>
+        <translation>Setați viteza de redare la %1x</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Descărcați</translation>
+        <translation>Descărcați</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation translatorcomment="AI-translated">Descărcați clipuri video din intervalul de timp selectat</translation>
+        <translation>Descărcați clipuri video din intervalul de timp selectat</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation translatorcomment="AI-translated">Derulați înapoi 60 de secunde</translation>
+        <translation>Derulați înapoi 60 de secunde</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation translatorcomment="AI-translated">Derulați înapoi 45 de secunde</translation>
+        <translation>Derulați înapoi 45 de secunde</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation translatorcomment="AI-translated">Derulați înapoi 15 secunde</translation>
+        <translation>Derulați înapoi 15 secunde</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Întrerupeți redarea</translation>
+        <translation>Întrerupeți redarea</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Începeți redarea</translation>
+        <translation>Începeți redarea</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation translatorcomment="AI-translated">Înainte 15 secunde</translation>
+        <translation>Înainte 15 secunde</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation translatorcomment="AI-translated">Înainte 45 de secunde</translation>
+        <translation>Înainte 45 de secunde</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation translatorcomment="AI-translated">Înainte 60 de secunde</translation>
+        <translation>Înainte 60 de secunde</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation translatorcomment="AI-translated">Desprindeți bara de jos</translation>
+        <translation>Desprindeți bara de jos</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation translatorcomment="AI-translated">Fixați bara de jos</translation>
+        <translation>Fixați bara de jos</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation translatorcomment="AI-translated">Se încarcă informațiile despre disponibilitatea înregistrării...</translation>
+        <translation>Se încarcă informațiile despre disponibilitatea înregistrării...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Închide fereastra</translation>
+        <translation>Închide fereastra</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Anulați fixarea barei de sus</translation>
+        <translation>Anulați fixarea barei de sus</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Fixați bara de sus</translation>
+        <translation>Fixați bara de sus</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation translatorcomment="AI-translated">Ieșiți din ecranul complet</translation>
+        <translation>Ieșiți din ecranul complet</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation translatorcomment="AI-translated">Ecran complet fereastră</translation>
+        <translation>Ecran complet fereastră</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation translatorcomment="AI-translated">Ascunde bara laterală</translation>
+        <translation>Ascunde bara laterală</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation translatorcomment="AI-translated">Afișează bara laterală</translation>
+        <translation>Afișează bara laterală</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation translatorcomment="AI-translated">Arată cronologia</translation>
+        <translation>Arată cronologia</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation translatorcomment="AI-translated">Ascunde cronologia</translation>
+        <translation>Ascunde cronologia</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation translatorcomment="AI-translated">Deschideți folderul de înregistrări</translation>
+        <translation>Deschideți folderul de înregistrări</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation translatorcomment="AI-translated">Deschideți dosarul de instantanee</translation>
+        <translation>Deschideți dosarul de instantanee</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation translatorcomment="AI-translated">Fără media</translation>
+        <translation>Fără media</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation translatorcomment="AI-translated">Se încarcă...</translation>
+        <translation>Se încarcă...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation translatorcomment="AI-translated">Încărcat</translation>
+        <translation>Încărcat</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation translatorcomment="AI-translated">Blocat</translation>
+        <translation>Blocat</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation translatorcomment="AI-translated">Se pune în tampon %1\%</translation>
+        <translation>Se pune în tampon %1\%</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation translatorcomment="AI-translated">Nu există date de afișat</translation>
+        <translation>Nu există date de afișat</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation translatorcomment="AI-translated">Se restabilește vizualizarea live...</translation>
+        <translation>Se restabilește vizualizarea live...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Mut</translation>
+        <translation>Mut</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Volumul maxim</translation>
+        <translation>Volumul maxim</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Faceți un instantaneu la rezoluție maximă</translation>
+        <translation>Faceți un instantaneu la rezoluție maximă</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation translatorcomment="AI-translated">Arhiva de redare</translation>
+        <translation>Arhiva de redare</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation translatorcomment="AI-translated">Dezactivați redarea rapidă</translation>
+        <translation>Dezactivați redarea rapidă</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation translatorcomment="AI-translated">Redare rapidă (până la 30 de minute)</translation>
+        <translation>Redare rapidă (până la 30 de minute)</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Dezactivați modul 1:1</translation>
+        <translation>Dezactivați modul 1:1</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">Activați modul 1:1 (de la pixel la pixel)</translation>
+        <translation>Activați modul 1:1 (de la pixel la pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Resetați zoomul</translation>
+        <translation>Resetați zoomul</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation translatorcomment="AI-translated">Faceți clic și trageți pe feedul camerei pentru a mări</translation>
+        <translation>Faceți clic și trageți pe feedul camerei pentru a mări</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation translatorcomment="AI-translated">Selectați regiunea pentru a mări</translation>
+        <translation>Selectați regiunea pentru a mări</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Începeți redarea</translation>
+        <translation>Începeți redarea</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Întrerupeți redarea</translation>
+        <translation>Întrerupeți redarea</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation translatorcomment="AI-translated">Viteza de redare</translation>
+        <translation>Viteza de redare</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation translatorcomment="AI-translated">Închideți vizualizarea înapoi</translation>
+        <translation>Închideți vizualizarea înapoi</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Fereastră auxiliară</translation>
+        <translation>KVision - Fereastră auxiliară</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Eroare la citirea configurației!</translation>
+        <translation>Eroare la citirea configurației!</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Anulați fixarea barei de sus</translation>
+        <translation>Anulați fixarea barei de sus</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Fixați bara de sus</translation>
+        <translation>Fixați bara de sus</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Comutați Ecranul complet</translation>
+        <translation>Comutați Ecranul complet</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation translatorcomment="AI-translated">Minimizați fereastra</translation>
+        <translation>Minimizați fereastra</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Opțiuni și setări ale panoului barei laterale</translation>
+        <translation>Opțiuni și setări ale panoului barei laterale</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Deschideți o nouă fereastră auxiliară</translation>
+        <translation>Deschideți o nouă fereastră auxiliară</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation translatorcomment="AI-translated">Arhiva de inregistrari si player</translation>
+        <translation>Arhiva de inregistrari si player</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Manual de utilizare a programului</translation>
+        <translation>Manual de utilizare a programului</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation translatorcomment="AI-translated">Dezactivați statisticile de utilizare a resurselor</translation>
+        <translation>Dezactivați statisticile de utilizare a resurselor</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation translatorcomment="AI-translated">Activați statisticile de utilizare a resurselor</translation>
+        <translation>Activați statisticile de utilizare a resurselor</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation translatorcomment="AI-translated">S-au detectat erori NVR!</translation>
+        <translation>S-au detectat erori NVR!</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation translatorcomment="AI-translated">Stare NVR: OK</translation>
+        <translation>Stare NVR: OK</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation translatorcomment="AI-translated">Blocarea dimensiunii grilei se modifică</translation>
+        <translation>Blocarea dimensiunii grilei se modifică</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Mai multe opțiuni</translation>
+        <translation>Mai multe opțiuni</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation translatorcomment="AI-translated">S-au detectat erori NVR! Faceți clic pentru a vedea detalii.</translation>
+        <translation>S-au detectat erori NVR! Faceți clic pentru a vedea detalii.</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Nicio vizualizare selectată, selectați o vizualizare</translation>
+        <translation>Nicio vizualizare selectată, selectați o vizualizare</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Selectați o vizualizare din meniul de sus pentru a începe afișarea camerelor.</translation>
+        <translation>Selectați o vizualizare din meniul de sus pentru a începe afișarea camerelor.</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation translatorcomment="AI-translated">KVision - Panou</translation>
+        <translation>KVision - Panou</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Închide fereastra</translation>
+        <translation>Închide fereastra</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Închide programul</translation>
+        <translation>Închide programul</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation translatorcomment="AI-translated">Sigur doriți să închideți această fereastră?</translation>
+        <translation>Sigur doriți să închideți această fereastră?</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Sigur doriți să închideți programul?</translation>
+        <translation>Sigur doriți să închideți programul?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">DA</translation>
+        <translation>DA</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NU</translation>
+        <translation>NU</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation translatorcomment="AI-translated">📊 STATISTICI DE SISTEM</translation>
+        <translation>📊 STATISTICI DE SISTEM</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation translatorcomment="AI-translated">Trageți panoul de statistici</translation>
+        <translation>Trageți panoul de statistici</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation translatorcomment="AI-translated">RAM:</translation>
+        <translation>RAM:</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation translatorcomment="AI-translated">VRAM:</translation>
+        <translation>VRAM:</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation translatorcomment="AI-translated">CPU:</translation>
+        <translation>CPU:</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation translatorcomment="AI-translated">GPU:</translation>
+        <translation>GPU:</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation translatorcomment="AI-translated">NET:</translation>
+        <translation>NET:</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation translatorcomment="AI-translated">Se încarcă o fereastră nouă...</translation>
+        <translation>Se încarcă o fereastră nouă...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,1027 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation translatorcomment="AI-translated">S-a remediat o eroare critică în care pierderea rețelei și timpul de expirare a fluxului RTSP făceau ca jucătorul să devină un zombi, împiedicând reconectarile reușite. Butonul Reîncărcare și reluarea automată funcționează acum complet fiabil.</translation>
+        <translation>S-a remediat o eroare critică în care pierderea rețelei și timpul de expirare a fluxului RTSP făceau ca jucătorul să devină un zombi, împiedicând reconectarile reușite. Butonul Reîncărcare și reluarea automată funcționează acum complet fiabil.</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation translatorcomment="AI-translated">S-a reîmprospătat aspectul mesajelor de stare Player și Arhivă. Încărcarea și restaurarea notificărilor prezintă acum o temă cyan plăcută cu pictograme adecvate pentru a le distinge mai bine de erorile critice (Fără media/rețea).</translation>
+        <translation>S-a reîmprospătat aspectul mesajelor de stare Player și Arhivă. Încărcarea și restaurarea notificărilor prezintă acum o temă cyan plăcută cu pictograme adecvate pentru a le distinge mai bine de erorile critice (Fără media/rețea).</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation translatorcomment="AI-translated">Comanda hardware MakeKeyFrame integrată cu Hikvision SDK. Aplicația forțează acum în mod agresiv camera să emită un I-Frame atunci când comută fluxurile secundare/principale și de la Live la Arhivă, eliminând așteptarea de 10 secunde a cadrelor cheie.</translation>
+        <translation>Comanda hardware MakeKeyFrame integrată cu Hikvision SDK. Aplicația forțează acum în mod agresiv camera să emită un I-Frame atunci când comută fluxurile secundare/principale și de la Live la Arhivă, eliminând așteptarea de 10 secunde a cadrelor cheie.</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation translatorcomment="AI-translated">S-a eliminat depășirea din mers a parametrului de durată a analizei. Aplicația impune cu strictețe valorile FFmpeg definite de utilizator (este foarte recomandat să o setați la 100000 pentru camerele fără audio pentru a ocoli limita de 5 secunde).</translation>
+        <translation>S-a eliminat depășirea din mers a parametrului de durată a analizei. Aplicația impune cu strictețe valorile FFmpeg definite de utilizator (este foarte recomandat să o setați la 100000 pentru camerele fără audio pentru a ocoli limita de 5 secunde).</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation translatorcomment="AI-translated">S-au adăugat insigne „HikSDK” pe fereastra de vizualizare a recorderului pentru o mai bună diferențiere a protocolului.</translation>
+        <translation>S-au adăugat insigne „HikSDK” pe fereastra de vizualizare a recorderului pentru o mai bună diferențiere a protocolului.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation translatorcomment="AI-translated">Înregistrare de diagnosticare simplificată (QDebug), permițând avertismentelor și erorilor critice să fie tipărite pe consolă în afara modului verbos, facilitând depanarea mai ușoară a erorilor NVR.</translation>
+        <translation>Înregistrare de diagnosticare simplificată (QDebug), permițând avertismentelor și erorilor critice să fie tipărite pe consolă în afara modului verbos, facilitând depanarea mai ușoară a erorilor NVR.</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation translatorcomment="AI-translated">S-au filtrat erorile fals pozitive PlayM4 SDK (nr. 17 și 2) care spam consola în timpul curățării rapide a cronologiei din player.</translation>
+        <translation>S-au filtrat erorile fals pozitive PlayM4 SDK (nr. 17 și 2) care spam consola în timpul curățării rapide a cronologiei din player.</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation translatorcomment="AI-translated">S-a rezolvat trunchierea scalei neliniare (de exemplu, 145%) de către cadrul Qt5 pe sistemele KDE Plasma, impunând interpretarea corectă a politicii High DPI.</translation>
+        <translation>S-a rezolvat trunchierea scalei neliniare (de exemplu, 145%) de către cadrul Qt5 pe sistemele KDE Plasma, impunând interpretarea corectă a politicii High DPI.</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation translatorcomment="AI-translated">S-au rezolvat înghețarile temporare ale altor camere de pe grila live atunci când căutați sau trageți cronologia.</translation>
+        <translation>S-au rezolvat înghețarile temporare ale altor camere de pe grila live atunci când căutați sau trageți cronologia.</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation translatorcomment="AI-translated">S-au mutat toate apelurile de rețea Hikvision SDK care blocau (autentificare, oprire, pornire, control al vitezei) într-un fir de lucru asincron.</translation>
+        <translation>S-au mutat toate apelurile de rețea Hikvision SDK care blocau (autentificare, oprire, pornire, control al vitezei) într-un fir de lucru asincron.</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation translatorcomment="AI-translated">S-a eliminat complet problema ecranului negru la schimbarea calității (SUB/MAIN) pentru camerele RTSP.</translation>
+        <translation>S-a eliminat complet problema ecranului negru la schimbarea calității (SUB/MAIN) pentru camerele RTSP.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation translatorcomment="AI-translated">A optimizat cronometrul de comutare a fluxului fără întreruperi la 100 ms pentru viteza maximă.</translation>
+        <translation>A optimizat cronometrul de comutare a fluxului fără întreruperi la 100 ms pentru viteza maximă.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation translatorcomment="AI-translated">S-au adăugat opțiuni FFmpeg de nivel scăzut (nobuffer, low_delay) pentru a elimina întârzierea fluxului live (deriva) pe perioade lungi de funcționare.</translation>
+        <translation>S-au adăugat opțiuni FFmpeg de nivel scăzut (nobuffer, low_delay) pentru a elimina întârzierea fluxului live (deriva) pe perioade lungi de funcționare.</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation translatorcomment="AI-translated">S-a introdus un buton pentru a actualiza în bloc parametrii FFmpeg pentru toate camerele existente în toate aspectele.</translation>
+        <translation>S-a introdus un buton pentru a actualiza în bloc parametrii FFmpeg pentru toate camerele existente în toate aspectele.</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation translatorcomment="AI-translated">S-a adăugat o opțiune pentru a exclude anumite camere din actualizările globale ale parametrilor FFmpeg (casetă de selectare nouă în setările ferestrei).</translation>
+        <translation>S-a adăugat o opțiune pentru a exclude anumite camere din actualizările globale ale parametrilor FFmpeg (casetă de selectare nouă în setările ferestrei).</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation translatorcomment="AI-translated">A securizat procesul de migrare a setărilor implicite, permițând utilizatorului să elimine sau să modifice permanent semnalizatoarele noi, fără ca acestea să fie forțate la fiecare pornire.</translation>
+        <translation>A securizat procesul de migrare a setărilor implicite, permițând utilizatorului să elimine sau să modifice permanent semnalizatoarele noi, fără ca acestea să fie forțate la fiecare pornire.</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation translatorcomment="AI-translated">S-a adăugat funcționalitate de redare rapidă (până la 30 de minute înapoi) direct în fereastra de vizualizare a camerei.</translation>
+        <translation>S-a adăugat funcționalitate de redare rapidă (până la 30 de minute înapoi) direct în fereastra de vizualizare a camerei.</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation translatorcomment="AI-translated">S-a implementat sincronizare completă, bidirecțională în timp real între toate ferestrele și procesele programelor auxiliare pentru setări: dezactivarea sunetului, dezactivarea animației zoom și toate opțiunile de monitorizare a stării Hikvision NVR.</translation>
+        <translation>S-a implementat sincronizare completă, bidirecțională în timp real între toate ferestrele și procesele programelor auxiliare pentru setări: dezactivarea sunetului, dezactivarea animației zoom și toate opțiunile de monitorizare a stării Hikvision NVR.</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation translatorcomment="AI-translated">S-a adăugat afișarea dinamică a etichetelor minutelor (de exemplu, :15, :30, :45) la bifături de minute pe cronologia playerului de arhivă cu ajustare inteligentă a densității etichetelor (zoomHours).</translation>
+        <translation>S-a adăugat afișarea dinamică a etichetelor minutelor (de exemplu, :15, :30, :45) la bifături de minute pe cronologia playerului de arhivă cu ajustare inteligentă a densității etichetelor (zoomHours).</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation translatorcomment="AI-translated">A fost adăugată o nouă opțiune în setările interfeței de utilizare: „Dezactivați animația zoom portul de vizualizare” cu aplicare imediată în vizualizarea grilă a camerei.</translation>
+        <translation>A fost adăugată o nouă opțiune în setările interfeței de utilizare: „Dezactivați animația zoom portul de vizualizare” cu aplicare imediată în vizualizarea grilă a camerei.</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation translatorcomment="AI-translated">Reconstruit procesul de inițializare a playerului de arhivă: conexiune suspendată și încărcare video până la determinarea limitelor exacte de înregistrare (printr-o căutare asincronă ultra-rapidă de 24 de ore), eliminând redarea prematură și saltul de imagine.</translation>
+        <translation>Reconstruit procesul de inițializare a playerului de arhivă: conexiune suspendată și încărcare video până la determinarea limitelor exacte de înregistrare (printr-o căutare asincronă ultra-rapidă de 24 de ore), eliminând redarea prematură și saltul de imagine.</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation translatorcomment="AI-translated">Mesaje rafinate de încărcare a arhivei Hikvision – starea de încărcare este afișată numai în timpul tamponării fluxului activ și este afișat un avertisment dedicat dacă capul de redare este mutat dincolo de limitele de înregistrare disponibile.</translation>
+        <translation>Mesaje rafinate de încărcare a arhivei Hikvision – starea de încărcare este afișată numai în timpul tamponării fluxului activ și este afișat un avertisment dedicat dacă capul de redare este mutat dincolo de limitele de înregistrare disponibile.</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation translatorcomment="AI-translated">S-au introdus noi câmpuri de configurare în panoul de setări: offset de pornire a redării arhivei implicite (în secunde, 60 de secunde implicit) și intervalul de zoom implicit al cronologiei (orele de zoom, implicit 2h).</translation>
+        <translation>S-au introdus noi câmpuri de configurare în panoul de setări: offset de pornire a redării arhivei implicite (în secunde, 60 de secunde implicit) și intervalul de zoom implicit al cronologiei (orele de zoom, implicit 2h).</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation translatorcomment="AI-translated">S-a adăugat o pictogramă de conectare directă web pe panoul web al reportofonului în interiorul pop-upului de stare NVR.</translation>
+        <translation>S-a adăugat o pictogramă de conectare directă web pe panoul web al reportofonului în interiorul pop-upului de stare NVR.</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation translatorcomment="AI-translated">A fost adăugată funcționalitatea de suprimare a raportării erorilor pentru înregistratoarele individuale.</translation>
+        <translation>A fost adăugată funcționalitatea de suprimare a raportării erorilor pentru înregistratoarele individuale.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation translatorcomment="AI-translated">S-a remediat traducerea incorectă în poloneză „Inregistrator simulat” în fereastra de stare și s-a implementat distincția corectă a cuvintelor („Suprimare” pentru erori vs „Mute” pentru audio).</translation>
+        <translation>S-a remediat traducerea incorectă în poloneză „Inregistrator simulat” în fereastra de stare și s-a implementat distincția corectă a cuvintelor („Suprimare” pentru erori vs „Mute” pentru audio).</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation translatorcomment="AI-translated">Monitorizarea stării erorilor Hikvision NVR/DVR periodică (la fiecare 5 minute) și manuală a fost implementată folosind diagnosticarea SDK/ISAPI.</translation>
+        <translation>Monitorizarea stării erorilor Hikvision NVR/DVR periodică (la fiecare 5 minute) și manuală a fost implementată folosind diagnosticarea SDK/ISAPI.</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation translatorcomment="AI-translated">S-au adăugat opțiuni de configurare în Setări generale pentru a activa/dezactiva verificarea stării Hikvision NVR și pentru a personaliza tipurile de erori critice monitorizate.</translation>
+        <translation>S-au adăugat opțiuni de configurare în Setări generale pentru a activa/dezactiva verificarea stării Hikvision NVR și pentru a personaliza tipurile de erori critice monitorizate.</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation translatorcomment="AI-translated">A proiectat o pictogramă de stare de înaltă fidelitate, verde cald/roșu, în bara de sus, cu valuri exterioare puternic pulsate și animații interioare de ondulare a bătăilor inimii pentru a semnala erorile critice active.</translation>
+        <translation>A proiectat o pictogramă de stare de înaltă fidelitate, verde cald/roșu, în bara de sus, cu valuri exterioare puternic pulsate și animații interioare de ondulare a bătăilor inimii pentru a semnala erorile critice active.</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation translatorcomment="AI-translated">S-a introdus un cerc indicator roșu proeminent pe marginea superioară, care pulsează în partea de sus a ecranului atunci când bara de instrumente principală este restrânsă, asigurându-se că avertismentele critice nu sunt niciodată ratate.</translation>
+        <translation>S-a introdus un cerc indicator roșu proeminent pe marginea superioară, care pulsează în partea de sus a ecranului atunci când bara de instrumente principală este restrânsă, asigurându-se că avertismentele critice nu sunt niciodată ratate.</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation translatorcomment="AI-translated">A creat o fereastră pop-up elegantă, care poate fi derulată, „Starea înregistratorului”, limitată la 85% din înălțimea ecranului, prezentând coduri de eroare detaliate.</translation>
+        <translation>A creat o fereastră pop-up elegantă, care poate fi derulată, „Starea înregistratorului”, limitată la 85% din înălțimea ecranului, prezentând coduri de eroare detaliate.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation translatorcomment="AI-translated">S-a adăugat semnalul de rulare „--simulate-error” pentru a simula instantaneu erorile de disc și erorile de conexiune la toate înregistratoarele în scopuri demonstrative.</translation>
+        <translation>S-a adăugat semnalul de rulare „--simulate-error” pentru a simula instantaneu erorile de disc și erorile de conexiune la toate înregistratoarele în scopuri demonstrative.</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation translatorcomment="AI-translated">S-au implementat insigne de cadru de listă și alinieri ale indicatoarelor de stare în vizualizările înregistratoarelor configurate.</translation>
+        <translation>S-au implementat insigne de cadru de listă și alinieri ale indicatoarelor de stare în vizualizările înregistratoarelor configurate.</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation translatorcomment="AI-translated">S-a realizat o acoperire completă a traducerii bilingve (poloneză/engleză) pentru toate diagnosticele NVR, setarea casetelor de selectare, sfaturi cu instrumente, avertismente și opțiuni de analizare a liniei de comandă.</translation>
+        <translation>S-a realizat o acoperire completă a traducerii bilingve (poloneză/engleză) pentru toate diagnosticele NVR, setarea casetelor de selectare, sfaturi cu instrumente, avertismente și opțiuni de analizare a liniei de comandă.</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation translatorcomment="AI-translated">S-a adăugat posibilitatea de a reîncărca aspectul activ făcând clic pe butonul acestuia din bara de instrumente de sus.</translation>
+        <translation>S-a adăugat posibilitatea de a reîncărca aspectul activ făcând clic pe butonul acestuia din bara de instrumente de sus.</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation translatorcomment="AI-translated">Eșantioane de utilizare medie a NVML de-a lungul timpului pentru a netezi graficul de utilizare a GPU-ului și pentru a elimina citirile neregulate.</translation>
+        <translation>Eșantioane de utilizare medie a NVML de-a lungul timpului pentru a netezi graficul de utilizare a GPU-ului și pentru a elimina citirile neregulate.</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation translatorcomment="AI-translated">S-au eliminat clipirea video momentană (cadre negre) și decalajele audio-video nesincronizate la trecerea calității de la fluxurile SUB la PRINCIPALE în timpul maximizării ferestrei de vizualizare prin întârzierea schimbului de player activ până când primul cadru este pictat pe ecran.</translation>
+        <translation>S-au eliminat clipirea video momentană (cadre negre) și decalajele audio-video nesincronizate la trecerea calității de la fluxurile SUB la PRINCIPALE în timpul maximizării ferestrei de vizualizare prin întârzierea schimbului de player activ până când primul cadru este pictat pe ecran.</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation translatorcomment="AI-translated">S-au adăugat bare de defilare interactive, clare și de două ori mai largi la coloanele de selecție pentru oră, minut și secundă în fereastra pop-up pentru selectorul de timp de descărcare a arhivei.</translation>
+        <translation>S-au adăugat bare de defilare interactive, clare și de două ori mai largi la coloanele de selecție pentru oră, minut și secundă în fereastra pop-up pentru selectorul de timp de descărcare a arhivei.</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation translatorcomment="AI-translated">S-au adăugat noi opțiuni intuitive la meniul contextual ferestrelor de vizualizare: „Instantaneu” (salvarea cadrului curent) și „Redare” (tranziție imediată la redarea arhivă a camerei date).</translation>
+        <translation>S-au adăugat noi opțiuni intuitive la meniul contextual ferestrelor de vizualizare: „Instantaneu” (salvarea cadrului curent) și „Redare” (tranziție imediată la redarea arhivă a camerei date).</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation translatorcomment="AI-translated">Manipulare audio PCM revoluționată și fixată: redirecționare directă a conductei către QAudioOutput, eliminarea înghețurilor interfeței (ALSA/PulseAudio/Pipewire) prin stabilizarea ratei de eșantionare (debounce după 5 cadre stabile), răcire de 2 secunde la recrearea ieșirii, filtrarea parametrilor deteriorați și un buffer de 64KB care reduce jitterul rețelei.</translation>
+        <translation>Manipulare audio PCM revoluționată și fixată: redirecționare directă a conductei către QAudioOutput, eliminarea înghețurilor interfeței (ALSA/PulseAudio/Pipewire) prin stabilizarea ratei de eșantionare (debounce după 5 cadre stabile), răcire de 2 secunde la recrearea ieșirii, filtrarea parametrilor deteriorați și un buffer de 64KB care reduce jitterul rețelei.</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation translatorcomment="AI-translated">S-a implementat un glisor de volum HUD interactiv direct pe plăcile feței de vizualizare, împreună cu o opțiune de dezactivare rapidă a sunetului și maximizarea volumului cu un singur clic.</translation>
+        <translation>S-a implementat un glisor de volum HUD interactiv direct pe plăcile feței de vizualizare, împreună cu o opțiune de dezactivare rapidă a sunetului și maximizarea volumului cu un singur clic.</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation translatorcomment="AI-translated">S-a implementat dezactivarea automată și imediată a fluxurilor LIVE în grila principală la deschiderea ferestrei de redare Arhivă, prevenind suprapunerea sunetelor (cacofonie).</translation>
+        <translation>S-a implementat dezactivarea automată și imediată a fluxurilor LIVE în grila principală la deschiderea ferestrei de redare Arhivă, prevenind suprapunerea sunetelor (cacofonie).</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation translatorcomment="AI-translated">S-a introdus un sistem central de notificare SnapshotSavedDialog pentru instantaneele salvate (incintă gri închis, chenaruri galbene, închidere automată după 10 secunde) cu un link rapid „Răsfoiește” pentru a deschide folderul direct în managerul de fișiere de sistem.</translation>
+        <translation>S-a introdus un sistem central de notificare SnapshotSavedDialog pentru instantaneele salvate (incintă gri închis, chenaruri galbene, închidere automată după 10 secunde) cu un link rapid „Răsfoiește” pentru a deschide folderul direct în managerul de fișiere de sistem.</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation translatorcomment="AI-translated">S-a îmbogățit fereastra de ajutor încorporată cu un capitol detaliat „Descrierea funcțiilor butoanelor” folosind pictograme vectoriale SVG native, clare. Fereastra de ajutor se deschide acum complet automat și este centrată peste fereastra principală la prima lansare a programului.</translation>
+        <translation>S-a îmbogățit fereastra de ajutor încorporată cu un capitol detaliat „Descrierea funcțiilor butoanelor” folosind pictograme vectoriale SVG native, clare. Fereastra de ajutor se deschide acum complet automat și este centrată peste fereastra principală la prima lansare a programului.</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation translatorcomment="AI-translated">A introdus afișarea implicită a barei de sus la pornirea programului/ferestrei și a adăugat opțiunea „Afișează bara de sus în mod implicit după deschiderea unei ferestre” în setări, permițând personalizarea acestui comportament la preferințele personale.</translation>
+        <translation>A introdus afișarea implicită a barei de sus la pornirea programului/ferestrei și a adăugat opțiunea „Afișează bara de sus în mod implicit după deschiderea unei ferestre” în setări, permițând personalizarea acestui comportament la preferințele personale.</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation translatorcomment="AI-translated">Implementarea căilor de bibliotecă RPATH dinamice în CMakeLists.txt utilizând GNUInstallDirs, permițând executarea imediată a aplicației compilate pe Ubuntu și Debian fără a fi nevoie de configurarea manuală a /etc/ld.so.conf.d/ și ldconfig.</translation>
+        <translation>Implementarea căilor de bibliotecă RPATH dinamice în CMakeLists.txt utilizând GNUInstallDirs, permițând executarea imediată a aplicației compilate pe Ubuntu și Debian fără a fi nevoie de configurarea manuală a /etc/ld.so.conf.d/ și ldconfig.</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation translatorcomment="AI-translated">Programul a fost redenumit KVision, introducând migrarea automată a configurației utilizatorului, noi pictograme cu dimensiuni multiple (128px, 256px, 512px) și afișarea versiunii complete în bara de titlu a ferestrei.</translation>
+        <translation>Programul a fost redenumit KVision, introducând migrarea automată a configurației utilizatorului, noi pictograme cu dimensiuni multiple (128px, 256px, 512px) și afișarea versiunii complete în bara de titlu a ferestrei.</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation translatorcomment="AI-translated">S-a remediat fereastra de avertizare pentru depășirea limitei ferestrelor auxiliare (lipsă resursa QML și QSettings citit).</translation>
+        <translation>S-a remediat fereastra de avertizare pentru depășirea limitei ferestrelor auxiliare (lipsă resursa QML și QSettings citit).</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation translatorcomment="AI-translated">S-a remediat pictograma programului lipsă din Wayland (instalarea temei hicolor și setDesktopFileName).</translation>
+        <translation>S-a remediat pictograma programului lipsă din Wayland (instalarea temei hicolor și setDesktopFileName).</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation translatorcomment="AI-translated">A fost eliminată opțiunea de restrângere automată a barei de sus din Setări - de acum înainte, bara de sus din ferestrele LIVE (principale și auxiliare) se prăbușește implicit la pornire, iar butonul PIN o fixează local și temporar (în memorie) fără a-și salva starea.</translation>
+        <translation>A fost eliminată opțiunea de restrângere automată a barei de sus din Setări - de acum înainte, bara de sus din ferestrele LIVE (principale și auxiliare) se prăbușește implicit la pornire, iar butonul PIN o fixează local și temporar (în memorie) fără a-și salva starea.</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation translatorcomment="AI-translated">S-a introdus o limită a numărului de ferestre auxiliare (configurabile de la 0 la 3) cu o fereastră elegantă de avertizare atunci când se încearcă depășirea acesteia.</translation>
+        <translation>S-a introdus o limită a numărului de ferestre auxiliare (configurabile de la 0 la 3) cu o fereastră elegantă de avertizare atunci când se încearcă depășirea acesteia.</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation translatorcomment="AI-translated">S-au adăugat margini subtile de 1px gri închis în jurul ferestrelor de vizualizare neutilizate în grila de aspect LIVE pentru o mai bună delimitare a câmpurilor.</translation>
+        <translation>S-au adăugat margini subtile de 1px gri închis în jurul ferestrelor de vizualizare neutilizate în grila de aspect LIVE pentru o mai bună delimitare a câmpurilor.</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation translatorcomment="AI-translated">Editarea securizată a căilor de salvare și a opțiunilor de configurare a suporturilor de sistem în spatele casetei de selectare „Activați modificările în această secțiune”, prevenind modificările accidentale (resetările stării de editare la închidere).</translation>
+        <translation>Editarea securizată a căilor de salvare și a opțiunilor de configurare a suporturilor de sistem în spatele casetei de selectare „Activați modificările în această secțiune”, prevenind modificările accidentale (resetările stării de editare la închidere).</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation translatorcomment="AI-translated">S-au introdus comenzi rapide directe pentru „deschideți folderul de salvare” (evidențiate în celadon la finalizarea descărcării în fereastra Arhivă) și butoane de deschidere rapidă mereu active pentru folderele instantanee și video în Setări (cu crearea automată a directorului pe disc dacă lipsește).</translation>
+        <translation>S-au introdus comenzi rapide directe pentru „deschideți folderul de salvare” (evidențiate în celadon la finalizarea descărcării în fereastra Arhivă) și butoane de deschidere rapidă mereu active pentru folderele instantanee și video în Setări (cu crearea automată a directorului pe disc dacă lipsește).</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation translatorcomment="AI-translated">Validarea interactivă a fost introdusă atunci când faceți clic pe butonul „Pobierz” (Descărcare) în fereastra de descărcare: verificări automate ale formatului și datei cronologice, afișarea unui sfat instrument de avertisment roșu și focalizarea primului câmp nevalid.</translation>
+        <translation>Validarea interactivă a fost introdusă atunci când faceți clic pe butonul „Pobierz” (Descărcare) în fereastra de descărcare: verificări automate ale formatului și datei cronologice, afișarea unui sfat instrument de avertisment roșu și focalizarea primului câmp nevalid.</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation translatorcomment="AI-translated">S-a implementat navigarea completă de la tastatură (tastele săgeți sus/jos pentru a schimba valori, stânga/dreapta pentru a comuta coloanele) în interiorul pop-up-ului selector de ceas.</translation>
+        <translation>S-a implementat navigarea completă de la tastatură (tastele săgeți sus/jos pentru a schimba valori, stânga/dreapta pentru a comuta coloanele) în interiorul pop-up-ului selector de ceas.</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation translatorcomment="AI-translated">A asigurat o lansare complet curată pentru ferestrele auxiliare (fără deschiderea automată a barei laterale de opțiuni) și a exclus salvarea setărilor de geometrie din ferestrele auxiliare, eliminând contaminarea configurației partajate.</translation>
+        <translation>A asigurat o lansare complet curată pentru ferestrele auxiliare (fără deschiderea automată a barei laterale de opțiuni) și a exclus salvarea setărilor de geometrie din ferestrele auxiliare, eliminând contaminarea configurației partajate.</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation translatorcomment="AI-translated">S-a adăugat suport complet pentru limba engleză pentru toate mesajele de eroare noi de formatare și validare cronologică din fereastra de descărcare.</translation>
+        <translation>S-a adăugat suport complet pentru limba engleză pentru toate mesajele de eroare noi de formatare și validare cronologică din fereastra de descărcare.</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation translatorcomment="AI-translated">S-au eliminat scurgerile de memorie RAM la schimbarea aspectului camerei prin oprirea automată și corectă a suprafeței video înainte de a actualiza formatele și de a potrivi dimensiunile randamentului.</translation>
+        <translation>S-au eliminat scurgerile de memorie RAM la schimbarea aspectului camerei prin oprirea automată și corectă a suprafeței video înainte de a actualiza formatele și de a potrivi dimensiunile randamentului.</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation translatorcomment="AI-translated">S-a implementat eliberarea necondiționată și distrugerea obiectelor de ieșire audio la oprirea playerului și a introdus reciclarea automată a acestor obiecte pentru a elimina scurgerile de memorie și fire pe Linux.</translation>
+        <translation>S-a implementat eliberarea necondiționată și distrugerea obiectelor de ieșire audio la oprirea playerului și a introdus reciclarea automată a acestor obiecte pentru a elimina scurgerile de memorie și fire pe Linux.</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation translatorcomment="AI-translated">S-au rezolvat problemele de înghețare a videoclipurilor (ecran color solid după zoomul ferestrei de vizualizare) forțând semnalizarea corectă a disponibilității video la prezentarea primului cadru al unui nou flux.</translation>
+        <translation>S-au rezolvat problemele de înghețare a videoclipurilor (ecran color solid după zoomul ferestrei de vizualizare) forțând semnalizarea corectă a disponibilității video la prezentarea primului cadru al unui nou flux.</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation translatorcomment="AI-translated">S-a adăugat o setare globală „Dezactivare completă a suportului audio”, permițând ocolirea totală a procesării audio pentru a elimina potențialele supraîncărcări și scurgerile de memorie.</translation>
+        <translation>S-a adăugat o setare globală „Dezactivare completă a suportului audio”, permițând ocolirea totală a procesării audio pentru a elimina potențialele supraîncărcări și scurgerile de memorie.</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation translatorcomment="AI-translated">Optimizat modulul de statistici de sistem pentru a elimina suprasarcina de utilizare continuă a memoriei prin memorarea în cache a ID-urilor de proces și eliminarea alocărilor dinamice ale expresiilor regulate.</translation>
+        <translation>Optimizat modulul de statistici de sistem pentru a elimina suprasarcina de utilizare continuă a memoriei prin memorarea în cache a ID-urilor de proces și eliminarea alocărilor dinamice ale expresiilor regulate.</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation translatorcomment="AI-translated">Colectarea de gunoi (GC) agresivă impusă la comutatoarele de aspect al camerei și contextele de scalare a imaginii anulate (SwsContext) în bufferele video.</translation>
+        <translation>Colectarea de gunoi (GC) agresivă impusă la comutatoarele de aspect al camerei și contextele de scalare a imaginii anulate (SwsContext) în bufferele video.</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation translatorcomment="AI-translated">S-a asigurat curățarea corectă a resurselor a detectorului de modificare a fișierului de configurare statică (QFileSystemWatcher) la ieșirea din aplicație.</translation>
+        <translation>S-a asigurat curățarea corectă a resurselor a detectorului de modificare a fișierului de configurare statică (QFileSystemWatcher) la ieșirea din aplicație.</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation translatorcomment="AI-translated">S-au rezolvat problemele de sincronizare și înghețare ale procesului ferestrei auxiliare pe mașinile mai lente în timpul ștergerii secvențiale ale camerei și îmbinării sau mutarii ferestrelor de vizualizare.</translation>
+        <translation>S-au rezolvat problemele de sincronizare și înghețare ale procesului ferestrei auxiliare pe mașinile mai lente în timpul ștergerii secvențiale ale camerei și îmbinării sau mutarii ferestrelor de vizualizare.</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation translatorcomment="AI-translated">S-a remediat agregarea statisticilor privind utilizarea GPU-ului, utilizarea VRAM-ului și lățimea de bandă a rețelei din toate procesele de aplicație folosind memoria partajată (/dev/shm) în fundal.</translation>
+        <translation>S-a remediat agregarea statisticilor privind utilizarea GPU-ului, utilizarea VRAM-ului și lățimea de bandă a rețelei din toate procesele de aplicație folosind memoria partajată (/dev/shm) în fundal.</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation translatorcomment="AI-translated">Destructor de jucători de arhivă protejat de cursele de date atunci când curățați sarcinile RGB în așteptare.</translation>
+        <translation>Destructor de jucători de arhivă protejat de cursele de date atunci când curățați sarcinile RGB în așteptare.</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation translatorcomment="AI-translated">S-a implementat gruparea playerului video pentru a elimina vârfurile de utilizare a memoriei RAM și pâlpâirea la schimbarea aspectului.</translation>
+        <translation>S-a implementat gruparea playerului video pentru a elimina vârfurile de utilizare a memoriei RAM și pâlpâirea la schimbarea aspectului.</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation translatorcomment="AI-translated">Monitorizare GPU/VRAM optimizată la un model specific procesului (fără generare nvidia-smi) cu suport nativ pentru GPU-uri NVIDIA, AMD și Intel (statisticile AMD/Intel nu sunt testate).</translation>
+        <translation>Monitorizare GPU/VRAM optimizată la un model specific procesului (fără generare nvidia-smi) cu suport nativ pentru GPU-uri NVIDIA, AMD și Intel (statisticile AMD/Intel nu sunt testate).</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation translatorcomment="AI-translated">Permisă redimensionarea panoului cu statistici de sistem trăgând marginile și colțurile acestuia cu grafice cu scalare automată.</translation>
+        <translation>Permisă redimensionarea panoului cu statistici de sistem trăgând marginile și colțurile acestuia cu grafice cu scalare automată.</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation translatorcomment="AI-translated">S-a implementat ascunderea instantanee a ferestrelor principale și auxiliare la confirmarea părăsirii, făcând ca oprirea să apară imediată pentru utilizator, în timp ce curățarea firelor și a memoriei rulează în siguranță în fundal.</translation>
+        <translation>S-a implementat ascunderea instantanee a ferestrelor principale și auxiliare la confirmarea părăsirii, făcând ca oprirea să apară imediată pentru utilizator, în timp ce curățarea firelor și a memoriei rulează în siguranță în fundal.</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation translatorcomment="AI-translated">S-au convertit barele de instrumente superioare din ferestrele LIVE și ARHIVE în andocuri flotante centrate (dock-ul LIVE are lățime dinamică).</translation>
+        <translation>S-au convertit barele de instrumente superioare din ferestrele LIVE și ARHIVE în andocuri flotante centrate (dock-ul LIVE are lățime dinamică).</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation translatorcomment="AI-translated">S-a adăugat un separator vertical în bara de andocare de sus între opțiunile de grilă și aspecte.</translation>
+        <translation>S-a adăugat un separator vertical în bara de andocare de sus între opțiunile de grilă și aspecte.</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation translatorcomment="AI-translated">Transparență sporită a barelor de sus și de jos a arhivei (60% în modul fereastră, 26% în ecran complet) și setați fundalul cronologiei la transparent.</translation>
+        <translation>Transparență sporită a barelor de sus și de jos a arhivei (60% în modul fereastră, 26% în ecran complet) și setați fundalul cronologiei la transparent.</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation translatorcomment="AI-translated">Simplificarea pictogramelor de viteză de redare din arhivă pentru a șterge textul (1x, 2x, 4x) și a eliminat opțiunea de viteză instabilă de 8x.</translation>
+        <translation>Simplificarea pictogramelor de viteză de redare din arhivă pentru a șterge textul (1x, 2x, 4x) și a eliminat opțiunea de viteză instabilă de 8x.</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation translatorcomment="AI-translated">Butoanele de text de navigare lunare au fost înlocuite în calendarele de arhivă și descărcare cu săgeți grafice (chevrons).</translation>
+        <translation>Butoanele de text de navigare lunare au fost înlocuite în calendarele de arhivă și descărcare cu săgeți grafice (chevrons).</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation translatorcomment="AI-translated">Butonul de închidere a feței de vizualizare a camerei a fost mutat din colțul din dreapta sus în zona de control din dreapta jos pentru a preveni clicurile accidentale.</translation>
+        <translation>Butonul de închidere a feței de vizualizare a camerei a fost mutat din colțul din dreapta sus în zona de control din dreapta jos pentru a preveni clicurile accidentale.</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation translatorcomment="AI-translated">Contrastul textului de aspect al grilei selectat optimizat în fereastra de arhivă (text întunecat pe fundal celadon).</translation>
+        <translation>Contrastul textului de aspect al grilei selectat optimizat în fereastra de arhivă (text întunecat pe fundal celadon).</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation translatorcomment="AI-translated">S-a convertit panoul de statistici de sistem într-un panou plutitor care poate fi glisat (cu clic) folosind un nou mâner de prindere dedicat.</translation>
+        <translation>S-a convertit panoul de statistici de sistem într-un panou plutitor care poate fi glisat (cu clic) folosind un nou mâner de prindere dedicat.</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation translatorcomment="AI-translated">S-a rezolvat bucla de sincronizare a setărilor critice și înghețarea interfeței de utilizare la ștergerea aspectelor ferestrelor de vizualizare.</translation>
+        <translation>S-a rezolvat bucla de sincronizare a setărilor critice și înghețarea interfeței de utilizare la ștergerea aspectelor ferestrelor de vizualizare.</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation translatorcomment="AI-translated">Pictograme mărite de viteză, zoom și control VCR în arhivă pentru a îmbunătăți vizibilitatea și dimensiunea textului crescută în interiorul pictogramelor SVG.</translation>
+        <translation>Pictograme mărite de viteză, zoom și control VCR în arhivă pentru a îmbunătăți vizibilitatea și dimensiunea textului crescută în interiorul pictogramelor SVG.</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation translatorcomment="AI-translated">S-au eliminat butoanele de text duplicat pentru comenzile rapide de zoom din arhivă, înlocuindu-le complet cu pictograme circulare.</translation>
+        <translation>S-au eliminat butoanele de text duplicat pentru comenzile rapide de zoom din arhivă, înlocuindu-le complet cu pictograme circulare.</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation translatorcomment="AI-translated">S-au adăugat traduceri complete în engleză și poloneză pentru toate sfaturile instrumente din fereastra de arhivă.</translation>
+        <translation>S-au adăugat traduceri complete în engleză și poloneză pentru toate sfaturile instrumente din fereastra de arhivă.</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation translatorcomment="AI-translated">A introdus sincronizarea configurației bidirecționale în timp real între fereastra principală și ferestrele auxiliare cu suport pentru ID-uri unice, automate ale ferestrelor auxiliare.</translation>
+        <translation>A introdus sincronizarea configurației bidirecționale în timp real între fereastra principală și ferestrele auxiliare cu suport pentru ID-uri unice, automate ale ferestrelor auxiliare.</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation translatorcomment="AI-translated">A fost adăugată recuperarea automată a sesiunii (reconectare automată) în playerul de arhivă Hikvision după finalizarea descărcărilor sau a conexiunilor întrerupte de recorder.</translation>
+        <translation>A fost adăugată recuperarea automată a sesiunii (reconectare automată) în playerul de arhivă Hikvision după finalizarea descărcărilor sau a conexiunilor întrerupte de recorder.</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation translatorcomment="AI-translated">S-au eliminat potențialele scurgeri de fire și decodorul video FFmpeg se blochează în timpul comutării aspectului prin adoptarea de referințe sigure std::weak_ptr pentru contextele media decodorului.</translation>
+        <translation>S-au eliminat potențialele scurgeri de fire și decodorul video FFmpeg se blochează în timpul comutării aspectului prin adoptarea de referințe sigure std::weak_ptr pentru contextele media decodorului.</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation translatorcomment="AI-translated">S-a remediat o scurgere de memorie în modelele ViewportsLayouts prin ștergerea în siguranță a obiectelor de aspect folosind deleteLater().</translation>
+        <translation>S-a remediat o scurgere de memorie în modelele ViewportsLayouts prin ștergerea în siguranță a obiectelor de aspect folosind deleteLater().</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation translatorcomment="AI-translated">Erorile de pornire a suprafeței de redare video (OpenGL) atenuate în timpul modificărilor rapide ale filei NVR - jurnalele au fost retrogradate la nivel de depanare, iar sistemul reîncearcă în tăcere redarea în fundal după eliberarea bufferelor GPU.</translation>
+        <translation>Erorile de pornire a suprafeței de redare video (OpenGL) atenuate în timpul modificărilor rapide ale filei NVR - jurnalele au fost retrogradate la nivel de depanare, iar sistemul reîncearcă în tăcere redarea în fundal după eliberarea bufferelor GPU.</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation translatorcomment="AI-translated">S-a rezolvat utilizarea RAM reziduală (20-30 MB) după închiderea ferestrei Arhivă prin curățarea heap în mai mulți pași și optimizările cache-ului motorului QML.</translation>
+        <translation>S-a rezolvat utilizarea RAM reziduală (20-30 MB) după închiderea ferestrei Arhivă prin curățarea heap în mai mulți pași și optimizările cache-ului motorului QML.</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation translatorcomment="AI-translated">Utilizarea RAM optimizată în timpul scalării camerei și al redimensionării/zoomării ferestrei de vizualizare, prevenind acumularea excesivă de memorie în timpul modificărilor continue de aspect al fluxului video.</translation>
+        <translation>Utilizarea RAM optimizată în timpul scalării camerei și al redimensionării/zoomării ferestrei de vizualizare, prevenind acumularea excesivă de memorie în timpul modificărilor continue de aspect al fluxului video.</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation translatorcomment="AI-translated">S-a adăugat un indicator precis, în timp real de cadre pe secundă (FPS) în colțul din stânga sus al fiecărei ferestre de vizualizare atât pentru fluxurile de redare în direct, cât și pentru arhivare.</translation>
+        <translation>S-a adăugat un indicator precis, în timp real de cadre pe secundă (FPS) în colțul din stânga sus al fiecărei ferestre de vizualizare atât pentru fluxurile de redare în direct, cât și pentru arhivare.</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation translatorcomment="AI-translated">S-a implementat terminarea și eliberarea în siguranță a firelor de descărcare în programul de descărcare Hikvision, asigurând închiderea stabilă și imediată a aplicației fără a bloca resursele sistemului.</translation>
+        <translation>S-a implementat terminarea și eliberarea în siguranță a firelor de descărcare în programul de descărcare Hikvision, asigurând închiderea stabilă și imediată a aplicației fără a bloca resursele sistemului.</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation translatorcomment="AI-translated">S-a adăugat un câmp de căutare dinamică a camerei în fereastra de arhivă cu un buton de resetare și reportofoare care se pot extinde automat.</translation>
+        <translation>S-a adăugat un câmp de căutare dinamică a camerei în fereastra de arhivă cu un buton de resetare și reportofoare care se pot extinde automat.</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation translatorcomment="AI-translated">S-a activat împachetarea numelor lungi ale camerelor pe plăcile liste din arhivă.</translation>
+        <translation>S-a activat împachetarea numelor lungi ale camerelor pe plăcile liste din arhivă.</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation translatorcomment="AI-translated">Culori mărite și inversate ale butonului plus (+) de pe plăcile camerei (fundal mentă) pentru o vizibilitate mai bună, cu stări clare de trecere cu mouse-ul/apăsat.</translation>
+        <translation>Culori mărite și inversate ale butonului plus (+) de pe plăcile camerei (fundal mentă) pentru o vizibilitate mai bună, cu stări clare de trecere cu mouse-ul/apăsat.</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation translatorcomment="AI-translated">S-a remediat schimbarea de 2-3 ore a barei de cronologie a disponibilității înregistrării în fereastra playerului de arhivă, sincronizând cronologia cu fusul orar local al clientului (cu suport corect pentru ora de vară DST).</translation>
+        <translation>S-a remediat schimbarea de 2-3 ore a barei de cronologie a disponibilității înregistrării în fereastra playerului de arhivă, sincronizând cronologia cu fusul orar local al clientului (cu suport corect pentru ora de vară DST).</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation translatorcomment="AI-translated">Am înlocuit emoji-ul negru cu contrast redus 📺 în vizualizări goale cu un monitor SVG elegant seledyn High-DPI vectorial.</translation>
+        <translation>Am înlocuit emoji-ul negru cu contrast redus 📺 în vizualizări goale cu un monitor SVG elegant seledyn High-DPI vectorial.</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation translatorcomment="AI-translated">Lizibilitatea îmbunătățită a barelor de înregistrare în fereastra de arhivă (înălțimea crescută de la 22px la 28px, dimensiunea fontului de la 9px la 11px, săgeata de extindere mai mare).</translation>
+        <translation>Lizibilitatea îmbunătățită a barelor de înregistrare în fereastra de arhivă (înălțimea crescută de la 22px la 28px, dimensiunea fontului de la 9px la 11px, săgeata de extindere mai mare).</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation translatorcomment="AI-translated">S-au adăugat efecte de trecere dinamice complete pentru barele de înregistrare cu modificări distincte ale culorilor de fundal, text și pictograme la seledyn/alb.</translation>
+        <translation>S-au adăugat efecte de trecere dinamice complete pentru barele de înregistrare cu modificări distincte ale culorilor de fundal, text și pictograme la seledyn/alb.</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation translatorcomment="AI-translated">Butoanele de acțiune text înlocuite din bara de sus (Opțiuni, Fereastră nouă, Arhivă, Instrucțiuni) cu pictograme SVG colorate dedicate, cu sfaturi utile.</translation>
+        <translation>Butoanele de acțiune text înlocuite din bara de sus (Opțiuni, Fereastră nouă, Arhivă, Instrucțiuni) cu pictograme SVG colorate dedicate, cu sfaturi utile.</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation translatorcomment="AI-translated">S-a înlocuit comutatorul de statistici de sistem cu o pictogramă SVG interactivă care reflectă starea activității monitorului sistemului.</translation>
+        <translation>S-a înlocuit comutatorul de statistici de sistem cu o pictogramă SVG interactivă care reflectă starea activității monitorului sistemului.</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation translatorcomment="AI-translated">Butoane de selecție a grilei unificate (1x1-9x9) în butoane circulare consistente de 30x30px.</translation>
+        <translation>Butoane de selecție a grilei unificate (1x1-9x9) în butoane circulare consistente de 30x30px.</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation translatorcomment="AI-translated">S-a adăugat o linie verticală de separare între secțiunea de opțiuni și secțiunea de selecție a grilei.</translation>
+        <translation>S-a adăugat o linie verticală de separare între secțiunea de opțiuni și secțiunea de selecție a grilei.</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation translatorcomment="AI-translated">Butoanele de vizualizare reproiectate la o formă elegantă, rotunjită, cu o înălțime de 30 px, păstrând marginile laterale.</translation>
+        <translation>Butoanele de vizualizare reproiectate la o formă elegantă, rotunjită, cu o înălțime de 30 px, păstrând marginile laterale.</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation translatorcomment="AI-translated">Afișare automată cu majuscule impusă pentru numele vizualizărilor.</translation>
+        <translation>Afișare automată cu majuscule impusă pentru numele vizualizărilor.</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation translatorcomment="AI-translated">Lizibilitate și contrast îmbunătățite ale butonului de vizualizare activă – text întunecat (#121214) pe un fundal seledyn luminos.</translation>
+        <translation>Lizibilitate și contrast îmbunătățite ale butonului de vizualizare activă – text întunecat (#121214) pe un fundal seledyn luminos.</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation translatorcomment="AI-translated">Pictograme de ștergere unificate și îmbunătățite din lista de înregistratoare și vizualizări și butonul de activare presetat în pictograme SVG cu sfaturi pentru instrumente.</translation>
+        <translation>Pictograme de ștergere unificate și îmbunătățite din lista de înregistratoare și vizualizări și butonul de activare presetat în pictograme SVG cu sfaturi pentru instrumente.</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation translatorcomment="AI-translated">Scăderea distanței dintre butoanele barei de sus pentru a optimiza spațiul de interfață.</translation>
+        <translation>Scăderea distanței dintre butoanele barei de sus pentru a optimiza spațiul de interfață.</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation translatorcomment="AI-translated">A fost restaurată pictograma de minimizare lipsă din fereastra auxiliară.</translation>
+        <translation>A fost restaurată pictograma de minimizare lipsă din fereastra auxiliară.</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation translatorcomment="AI-translated">S-au rezolvat problemele de conectare și redare în ferestrele auxiliare.</translation>
+        <translation>S-au rezolvat problemele de conectare și redare în ferestrele auxiliare.</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation translatorcomment="AI-translated">S-au remediat stările butonului de aspect (1x1 vs 2x2) la deschiderea redării direct de pe cameră.</translation>
+        <translation>S-au remediat stările butonului de aspect (1x1 vs 2x2) la deschiderea redării direct de pe cameră.</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation translatorcomment="AI-translated">S-a adăugat un spațiu de nume XML adecvat în interogările ISAPI Hikvision (remediază eroarea „Conținut XML invalid” pe firmware-ul înregistrator mai nou).</translation>
+        <translation>S-a adăugat un spațiu de nume XML adecvat în interogările ISAPI Hikvision (remediază eroarea „Conținut XML invalid” pe firmware-ul înregistrator mai nou).</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation translatorcomment="AI-translated">S-a rezolvat gestionarea paginației rezultatelor căutării (eticheta searchResultPostion).</translation>
+        <translation>S-a rezolvat gestionarea paginației rezultatelor căutării (eticheta searchResultPostion).</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation translatorcomment="AI-translated">Butonul „Actualizați” din fereastra de redare pentru a șterge manual memoria cache și a prelua din nou datele despre disponibilitatea înregistrării.</translation>
+        <translation>Butonul „Actualizați” din fereastra de redare pentru a șterge manual memoria cache și a prelua din nou datele despre disponibilitatea înregistrării.</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation translatorcomment="AI-translated">Optimizarea cozii de preluare prealabilă a rețelei – a restricționat preluarea în fundal la 12 luni, eliminând sute de interogări inutile și accelerând începerea redării.</translation>
+        <translation>Optimizarea cozii de preluare prealabilă a rețelei – a restricționat preluarea în fundal la 12 luni, eliminând sute de interogări inutile și accelerând începerea redării.</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation translatorcomment="AI-translated">Inițializarea asincronă a SDK-ului Hikvision într-un thread de fundal, eliminând complet blocările GUI la deschiderea opțiunilor.</translation>
+        <translation>Inițializarea asincronă a SDK-ului Hikvision într-un thread de fundal, eliminând complet blocările GUI la deschiderea opțiunilor.</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation translatorcomment="AI-translated">Sincronizare thread-safe a accesului la metodele Hikvision SDK.</translation>
+        <translation>Sincronizare thread-safe a accesului la metodele Hikvision SDK.</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation translatorcomment="AI-translated">Dezinfectarea fișierelor descărcate și a numelor capturilor de ecran prin eliminarea adreselor IP ale recorderului.</translation>
+        <translation>Dezinfectarea fișierelor descărcate și a numelor capturilor de ecran prin eliminarea adreselor IP ale recorderului.</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation translatorcomment="AI-translated">Bară elegantă de progres a descărcării în turcoaz (#00f5d4) cu text conturat centrat.</translation>
+        <translation>Bară elegantă de progres a descărcării în turcoaz (#00f5d4) cu text conturat centrat.</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation translatorcomment="AI-translated">Calculul progresului global de descărcare (overallProgress) pentru înregistrările cu mai multe părți.</translation>
+        <translation>Calculul progresului global de descărcare (overallProgress) pentru înregistrările cu mai multe părți.</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation translatorcomment="AI-translated">S-a schimbat extensia de fișier de descărcare temporară din „.ps” în „.pspart”.</translation>
+        <translation>S-a schimbat extensia de fișier de descărcare temporară din „.ps” în „.pspart”.</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation translatorcomment="AI-translated">Opțiunea și butonul „Afișați câmpurile de informații numai când treceți cu mouse-ul” din setările interfeței cu utilizatorul.</translation>
+        <translation>Opțiunea și butonul „Afișați câmpurile de informații numai când treceți cu mouse-ul” din setările interfeței cu utilizatorul.</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation translatorcomment="AI-translated">Indicator vizual pentru descoperirea camerei în panoul de configurare (pictogramă rotativă, blocarea formularelor și textul „Descoperire...”).</translation>
+        <translation>Indicator vizual pentru descoperirea camerei în panoul de configurare (pictogramă rotativă, blocarea formularelor și textul „Descoperire...”).</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation translatorcomment="AI-translated">Localizare completă (a fost adăugat suport oficial pentru traducere în poloneză și engleză).</translation>
+        <translation>Localizare completă (a fost adăugat suport oficial pentru traducere în poloneză și engleză).</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation translatorcomment="AI-translated">Optimizare de pornire a ferestrei auxiliare – timpul de încărcare redus de la 3 secunde la sub 300 ms.</translation>
+        <translation>Optimizare de pornire a ferestrei auxiliare – timpul de încărcare redus de la 3 secunde la sub 300 ms.</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation translatorcomment="AI-translated">Substituent estetic în fereastra auxiliară („Nici o vizualizare selectată”) cu un chenar turcoaz.</translation>
+        <translation>Substituent estetic în fereastra auxiliară („Nici o vizualizare selectată”) cu un chenar turcoaz.</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation translatorcomment="AI-translated">Integrare Hikvision SDK pentru vizualizare live și modul Redare.</translation>
+        <translation>Integrare Hikvision SDK pentru vizualizare live și modul Redare.</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation translatorcomment="AI-translated">Player de redare cu mai multe camere cu poziționare și centrare automată a cronologiei.</translation>
+        <translation>Player de redare cu mai multe camere cu poziționare și centrare automată a cronologiei.</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation translatorcomment="AI-translated">Monitor de sistem cu mai multe fire (CPU, RAM, GPU, VRAM și statistici de lățime de bandă a rețelei).</translation>
+        <translation>Monitor de sistem cu mai multe fire (CPU, RAM, GPU, VRAM și statistici de lățime de bandă a rețelei).</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation translatorcomment="AI-translated">Urmărirea în timp real a consumului de lățime de bandă a rețelei.</translation>
+        <translation>Urmărirea în timp real a consumului de lățime de bandă a rețelei.</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation translatorcomment="AI-translated">Pictograma aplicației de înaltă rezoluție și interfață rafinată cu tema întunecată.</translation>
+        <translation>Pictograma aplicației de înaltă rezoluție și interfață rafinată cu tema întunecată.</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation translatorcomment="AI-translated">Script automat de construire a pachetului Pacman pentru Arch Linux.</translation>
+        <translation>Script automat de construire a pachetului Pacman pentru Arch Linux.</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation translatorcomment="AI-translated">Versiunea %1</translation>
+        <translation>Versiunea %1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation translatorcomment="AI-translated">Autor original: Evgeny S. Maksimov</translation>
+        <translation>Autor original: Evgeny S. Maksimov</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation translatorcomment="AI-translated">Modificare: arkanista (cu asistență AI)</translation>
+        <translation>Modificare: arkanista (cu asistență AI)</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation translatorcomment="AI-translated">Viewport%1</translation>
+        <translation>Viewport%1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation translatorcomment="AI-translated">#%1</translation>
+        <translation>#%1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation translatorcomment="AI-translated">Instrumente</translation>
+        <translation>Instrumente</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation translatorcomment="AI-translated">Recordere</translation>
+        <translation>Recordere</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation translatorcomment="AI-translated">Presetări</translation>
+        <translation>Presetări</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation translatorcomment="AI-translated">Setări</translation>
+        <translation>Setări</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation translatorcomment="AI-translated">Jurnalul modificărilor</translation>
+        <translation>Jurnalul modificărilor</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation translatorcomment="AI-translated">Versiunea disponibilă: %1</translation>
+        <translation>Versiunea disponibilă: %1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation translatorcomment="AI-translated">Detalii vizualizare</translation>
+        <translation>Detalii vizualizare</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation translatorcomment="AI-translated">Vă rugăm să selectați o fereastră de vizualizare din grila principală pentru a-i personaliza setările.</translation>
+        <translation>Vă rugăm să selectați o fereastră de vizualizare din grila principală pentru a-i personaliza setările.</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation translatorcomment="AI-translated">Deblocați panoul de configurare</translation>
+        <translation>Deblocați panoul de configurare</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Conexiune Active Stream</translation>
+        <translation>Conexiune Active Stream</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Adresa URL a fluxului principal</translation>
+        <translation>Adresa URL a fluxului principal</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Adresa URL secundară de backup</translation>
+        <translation>Adresa URL secundară de backup</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation translatorcomment="AI-translated">Opțiuni audio și de randare</translation>
+        <translation>Opțiuni audio și de randare</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation translatorcomment="AI-translated">Dezactivați / Dezactivați sunetul</translation>
+        <translation>Dezactivați / Dezactivați sunetul</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation translatorcomment="AI-translated">Suprascrierea opțiunilor FFmpeg</translation>
+        <translation>Suprascrierea opțiunilor FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Instrumente de aspect și grilă</translation>
+        <translation>Instrumente de aspect și grilă</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Deblocați panoul de instrumente</translation>
+        <translation>Deblocați panoul de instrumente</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Divizia ferestre</translation>
+        <translation>Divizia ferestre</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Eroare la citirea configurației!</translation>
+        <translation>Eroare la citirea configurației!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Țineți apăsat pentru a edita valoarea diviziunii</translation>
+        <translation>Țineți apăsat pentru a edita valoarea diviziunii</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Raportul de geometrie</translation>
+        <translation>Raportul de geometrie</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Comutați Ecranul complet</translation>
+        <translation>Comutați Ecranul complet</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Operațiuni cu rețea</translation>
+        <translation>Operațiuni cu rețea</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Îmbinați celulele evidențiate</translation>
+        <translation>Îmbinați celulele evidențiate</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation translatorcomment="AI-translated">Manager NVR / Hikvision Recorders</translation>
+        <translation>Manager NVR / Hikvision Recorders</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation translatorcomment="AI-translated">Presetări și vizualizări rapide de aspect</translation>
+        <translation>Presetări și vizualizări rapide de aspect</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation translatorcomment="AI-translated">Setări ONVIF și RTSP Layout</translation>
+        <translation>Setări ONVIF și RTSP Layout</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation translatorcomment="AI-translated">Aspect %1</translation>
+        <translation>Aspect %1</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation translatorcomment="AI-translated">Vizibil</translation>
+        <translation>Vizibil</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation translatorcomment="AI-translated">Activați acest aspect de previzualizare</translation>
+        <translation>Activați acest aspect de previzualizare</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation translatorcomment="AI-translated">Ștergeți acest aspect de previzualizare</translation>
+        <translation>Ștergeți acest aspect de previzualizare</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation translatorcomment="AI-translated">Adăugați un aspect prestabilit</translation>
+        <translation>Adăugați un aspect prestabilit</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation translatorcomment="AI-translated">Aspecte de vizualizare NVR</translation>
+        <translation>Aspecte de vizualizare NVR</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation translatorcomment="AI-translated">Vizualizare NVR</translation>
+        <translation>Vizualizare NVR</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation translatorcomment="AI-translated">Activați această vizualizare a camerelor NVR</translation>
+        <translation>Activați această vizualizare a camerelor NVR</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation translatorcomment="AI-translated">Ștergeți această vizualizare a camerelor NVR</translation>
+        <translation>Ștergeți această vizualizare a camerelor NVR</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation translatorcomment="AI-translated">Presetări NVR (vizualizări grilă)</translation>
+        <translation>Presetări NVR (vizualizări grilă)</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation translatorcomment="AI-translated">Presetarea NVR #%1</translation>
+        <translation>Presetarea NVR #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation translatorcomment="AI-translated">Activați această presetare a camerelor NVR</translation>
+        <translation>Activați această presetare a camerelor NVR</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation translatorcomment="AI-translated">Ștergeți această presetare a camerelor NVR</translation>
+        <translation>Ștergeți această presetare a camerelor NVR</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation translatorcomment="AI-translated">Adăugați presetarea NVR</translation>
+        <translation>Adăugați presetarea NVR</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation translatorcomment="AI-translated">Setări de sistem</translation>
+        <translation>Setări de sistem</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation translatorcomment="AI-translated">Setări generale</translation>
+        <translation>Setări generale</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation translatorcomment="AI-translated">Permite rularea mai multor instanțe de aplicație</translation>
+        <translation>Permite rularea mai multor instanțe de aplicație</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation translatorcomment="AI-translated">Această opțiune este dezactivată pentru a preveni conflictele de scriere a fișierelor de setări. Pentru a-l activa (periculos și nu este recomandat!), setați „singleApplication=false” în fișierul de configurare kvision.conf.</translation>
+        <translation>Această opțiune este dezactivată pentru a preveni conflictele de scriere a fișierelor de setări. Pentru a-l activa (periculos și nu este recomandat!), setați „singleApplication=false” în fișierul de configurare kvision.conf.</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation translatorcomment="AI-translated">Verificați starea erorii Hikvision NVR</translation>
+        <translation>Verificați starea erorii Hikvision NVR</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation translatorcomment="AI-translated">Audio</translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation translatorcomment="AI-translated">Dezactivați complet audio</translation>
+        <translation>Dezactivați complet audio</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation translatorcomment="AI-translated">Maximizarea camerei la ecran complet nu activează sunetul</translation>
+        <translation>Maximizarea camerei la ecran complet nu activează sunetul</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation translatorcomment="AI-translated">Setări meniului contextual</translation>
+        <translation>Setări meniului contextual</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation translatorcomment="AI-translated">Activați meniul contextual pentru clic dreapta</translation>
+        <translation>Activați meniul contextual pentru clic dreapta</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation translatorcomment="AI-translated">Permite schimbarea locurilor de vizualizare</translation>
+        <translation>Permite schimbarea locurilor de vizualizare</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation translatorcomment="AI-translated">Activați opțiunea „Eliminați camera”.</translation>
+        <translation>Activați opțiunea „Eliminați camera”.</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation translatorcomment="AI-translated">Permite modificarea setărilor ferestrei de vizualizare</translation>
+        <translation>Permite modificarea setărilor ferestrei de vizualizare</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation translatorcomment="AI-translated">Activați opțiunea „Selectare flux”.</translation>
+        <translation>Activați opțiunea „Selectare flux”.</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation translatorcomment="AI-translated">Setări interfețe cu utilizatorul</translation>
+        <translation>Setări interfețe cu utilizatorul</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation translatorcomment="AI-translated">Afișează starea canalului în colțul din stânga sus al ferestrei de vizualizare</translation>
+        <translation>Afișează starea canalului în colțul din stânga sus al ferestrei de vizualizare</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation translatorcomment="AI-translated">Afișați informațiile despre cameră în colțul din stânga jos al ferestrei de vizualizare</translation>
+        <translation>Afișați informațiile despre cameră în colțul din stânga jos al ferestrei de vizualizare</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation translatorcomment="AI-translated">Afișați pictogramele de control în colțul din dreapta jos al ferestrei de vizualizare numai când treceți cu mouse-ul</translation>
+        <translation>Afișați pictogramele de control în colțul din dreapta jos al ferestrei de vizualizare numai când treceți cu mouse-ul</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation translatorcomment="AI-translated">Afișați câmpurile de informații numai când treceți cu mouse-ul</translation>
+        <translation>Afișați câmpurile de informații numai când treceți cu mouse-ul</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation translatorcomment="AI-translated">Afișați bara de sus în mod implicit la deschiderea ferestrei</translation>
+        <translation>Afișați bara de sus în mod implicit la deschiderea ferestrei</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation translatorcomment="AI-translated">Ascundeți cursorul mouse-ului în modul Ecran complet</translation>
+        <translation>Ascundeți cursorul mouse-ului în modul Ecran complet</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation translatorcomment="AI-translated">Dezactivați animația de mărire a ferestrei de vizualizare</translation>
+        <translation>Dezactivați animația de mărire a ferestrei de vizualizare</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation translatorcomment="AI-translated">Limba:</translation>
+        <translation>Limba:</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation translatorcomment="AI-translated">Implicit de sistem</translation>
+        <translation>Implicit de sistem</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation translatorcomment="AI-translated">Limitați ferestrele auxiliare la:</translation>
+        <translation>Limitați ferestrele auxiliare la:</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation translatorcomment="AI-translated">Monitorizarea stării NVR</translation>
+        <translation>Monitorizarea stării NVR</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation translatorcomment="AI-translated">Monitorizați starea offline și erorile de conectare</translation>
+        <translation>Monitorizați starea offline și erorile de conectare</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation translatorcomment="AI-translated">Monitorizați supraîncărcarea procesorului (&gt;85%)</translation>
+        <translation>Monitorizați supraîncărcarea procesorului (&gt;85%)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation translatorcomment="AI-translated">Monitorizați erorile hardware ale recorderului</translation>
+        <translation>Monitorizați erorile hardware ale recorderului</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation translatorcomment="AI-translated">Monitorizați defecțiunile/anomaliile hard diskului</translation>
+        <translation>Monitorizați defecțiunile/anomaliile hard diskului</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation translatorcomment="AI-translated">Monitorizați hard disk-urile neformatate</translation>
+        <translation>Monitorizați hard disk-urile neformatate</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation translatorcomment="AI-translated">Monitorizați hard disk-urile complete (acoperirea buclei este dezactivată)</translation>
+        <translation>Monitorizați hard disk-urile complete (acoperirea buclei este dezactivată)</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation translatorcomment="AI-translated">Redare</translation>
+        <translation>Redare</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation translatorcomment="AI-translated">Decalaj implicit de pornire a redării înapoi, secunde:</translation>
+        <translation>Decalaj implicit de pornire a redării înapoi, secunde:</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation translatorcomment="AI-translated">Interval de cronologie de redare implicit, ore:</translation>
+        <translation>Interval de cronologie de redare implicit, ore:</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation translatorcomment="AI-translated">Salvare</translation>
+        <translation>Salvare</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation translatorcomment="AI-translated">Activați modificările în această secțiune</translation>
+        <translation>Activați modificările în această secțiune</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation translatorcomment="AI-translated">Calea instantanee implicită:</translation>
+        <translation>Calea instantanee implicită:</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation translatorcomment="AI-translated">Alegeți folderul pentru instantanee</translation>
+        <translation>Alegeți folderul pentru instantanee</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation translatorcomment="AI-translated">Calea implicită a înregistrărilor:</translation>
+        <translation>Calea implicită a înregistrărilor:</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation translatorcomment="AI-translated">Alegeți folderul pentru înregistrări</translation>
+        <translation>Alegeți folderul pentru înregistrări</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation translatorcomment="AI-translated">deschide folderul de imagini</translation>
+        <translation>deschide folderul de imagini</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation translatorcomment="AI-translated">deschide folderul video</translation>
+        <translation>deschide folderul video</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation translatorcomment="AI-translated">Configurarea suportului de sistem</translation>
+        <translation>Configurarea suportului de sistem</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation translatorcomment="AI-translated">Opțiunile implicite ale liniei de comandă FFmpeg</translation>
+        <translation>Opțiunile implicite ale liniei de comandă FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation translatorcomment="AI-translated">Actualizați toate camerele</translation>
+        <translation>Actualizați toate camerele</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation translatorcomment="AI-translated">Jurnalul modificărilor</translation>
+        <translation>Jurnalul modificărilor</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation translatorcomment="AI-translated">Istoricul îmbunătățirilor, remedierii erorilor și funcțiilor noi în KVision.</translation>
+        <translation>Istoricul îmbunătățirilor, remedierii erorilor și funcțiilor noi în KVision.</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation translatorcomment="AI-translated">Confirmați ștergerea</translation>
+        <translation>Confirmați ștergerea</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation translatorcomment="AI-translated">Sigur doriți să ștergeți presetarea \"%1\"? Această acțiune este complet ireversibilă.</translation>
+        <translation>Sigur doriți să ștergeți presetarea \"%1\"? Această acțiune este complet ireversibilă.</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation translatorcomment="AI-translated">Sigur doriți să ștergeți presetarea #%1? Această acțiune este complet ireversibilă.</translation>
+        <translation>Sigur doriți să ștergeți presetarea #%1? Această acțiune este complet ireversibilă.</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation translatorcomment="AI-translated">Sigur doriți să ștergeți vizualizarea NVR \"%1\"? Această acțiune este complet ireversibilă.</translation>
+        <translation>Sigur doriți să ștergeți vizualizarea NVR \"%1\"? Această acțiune este complet ireversibilă.</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation translatorcomment="AI-translated">Sigur doriți să ștergeți acest aspect de vizualizare NVR? Această acțiune este complet ireversibilă.</translation>
+        <translation>Sigur doriți să ștergeți acest aspect de vizualizare NVR? Această acțiune este complet ireversibilă.</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation translatorcomment="AI-translated">Sigur doriți să ștergeți presetarea NVR „%1”? Această acțiune este complet ireversibilă.</translation>
+        <translation>Sigur doriți să ștergeți presetarea NVR „%1”? Această acțiune este complet ireversibilă.</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation translatorcomment="AI-translated">Sigur doriți să ștergeți această presetare a NVR? Această acțiune este complet ireversibilă.</translation>
+        <translation>Sigur doriți să ștergeți această presetare a NVR? Această acțiune este complet ireversibilă.</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">Nu includeți modificări globale ale setărilor FFmpeg</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">Opțiuni FFmpeg</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">Opțiuni de canal</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">Setări fereastra</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">Sigur doriți să eliminați camera din această fereastră de vizualizare?</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">Confirmați eliminarea camerei</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">Tylko SUB</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">Tylko PRINCIPALA</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">Automatycznie</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">Redare</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>Extindere a localizării: KVision este acum complet localizat în 20 de limbi noi traduse prin inteligență artificială, ceea ce duce la 22 numărul total de limbi acceptate (engleză, poloneză și 20 de limbi noi). Au fost traduse atât întreaga interfață a aplicației (UI), cât și manualele de utilizare complete.</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>Documentație de redare rapidă Viewport: S-a adăugat documentație cuprinzătoare care explică butonul de suprapunere cu săgeată circulară (Miniplayer) și caracteristicile sale detaliate în toate cele 22 de manuale de utilizare.</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>Pan Zoom: S-a adăugat posibilitatea de a deplasa în mod liber videoclipul mărit (Live, Mini-player, Arhivă) ținând apăsat butonul din mijloc al mouse-ului (rotița de defilare) și trăgând cursorul.</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>Selecție de zoom proporțional: a fost introdusă comanda rapidă Shift. Ținerea apăsată tasta Shift în timp ce desenați un dreptunghi de zoom forțează selecția să se blocheze într-un raport de aspect de 16:9, strict limitat la limitele ferestrei de vizualizare.</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>Poziționarea forțată a ferestrei: S-au înlocuit complet mecanismele vechi de salvare a geometriei ferestrei din cauza problemelor nerezolvate de proiecție cu mai multe monitoare în Qt. Aplicația (atât fereastra principală, cât și ferestrele auxiliare) impune acum strict lansarea centrată pe monitorul principal la 90% din rezoluția sa, asigurând stabilitate și predictibilitate în toate setările.</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>Localizare Refactoring: au înlocuit toate șirurile de caractere poloneză și engleză codificate încorporate în codul sursă (qsTr, tr). Peste 500 de șiruri unice au fost refactorizate în identificatori LNG_XXXXX, mapați în siguranță printr-un sistem de fișiere .ts/.qm îmbunătățit.</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>CLI numai în limba engleză: opțiunile de interfață din linia de comandă și parametrii --help sunt acum permanent în limba engleză pentru a preveni problemele legate de inițializarea întârziată a motorului de localizare.</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>Raportul de aspect al arhivei: s-a rezolvat o problemă în care raportul de aspect al videoclipului era distorsionat în fereastra de vizualizare a playerului Arhivă. Componenta HikvisionArchivePlayer redă acum corect cadrul original, păstrându-și raportul natural de aspect (letterboxing), în loc să extindă videoclipul pentru a se potrivi cu limitele interfeței de utilizare.</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>Scurgeri de memorie de demuxer: s-a îmbunătățit logica de curățare a obiectelor în rutina QmlAVPlayer::stop(), prevenind acumularea instanțelor de demuxer „zombie” în fundal.</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>writeSetting Fix: S-a adăugat implementarea lipsă a metodei writeSetting în clasa Context, eliminând TypeErrors și întreruperile execuției QML în timpul migrărilor setărilor.</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4374,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Eroare la citirea configurației!</translation>
+        <translation>Eroare la citirea configurației!</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4393,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation translatorcomment="AI-translated">Programul rulează deja, nu puteți începe al doilea</translation>
+        <translation>Programul rulează deja, nu puteți începe al doilea</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">ÎNCHIS</translation>
+        <translation>ÎNCHIS</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4424,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation translatorcomment="AI-translated">Instantaneu salvat</translation>
+        <translation>Instantaneu salvat</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation translatorcomment="AI-translated">Instantaneu salvat -</translation>
+        <translation>Instantaneu salvat -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation translatorcomment="AI-translated">Răsfoiește</translation>
+        <translation>Răsfoiește</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation translatorcomment="AI-translated">Ieșire</translation>
+        <translation>Ieșire</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4491,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Instrumente de aspect și grilă</translation>
+        <translation>Instrumente de aspect și grilă</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Deblocați panoul de instrumente</translation>
+        <translation>Deblocați panoul de instrumente</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Divizia ferestre</translation>
+        <translation>Divizia ferestre</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Eroare la citirea configurației!</translation>
+        <translation>Eroare la citirea configurației!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Țineți apăsat pentru a edita valoarea diviziunii</translation>
+        <translation>Țineți apăsat pentru a edita valoarea diviziunii</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Raportul de geometrie</translation>
+        <translation>Raportul de geometrie</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation translatorcomment="AI-translated">Raport de aspect 16:9</translation>
+        <translation>Raport de aspect 16:9</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation translatorcomment="AI-translated">Raport de aspect 4:3</translation>
+        <translation>Raport de aspect 4:3</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Comutați Ecranul complet</translation>
+        <translation>Comutați Ecranul complet</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Operațiuni cu rețea</translation>
+        <translation>Operațiuni cu rețea</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Îmbinați celulele evidențiate</translation>
+        <translation>Îmbinați celulele evidențiate</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4578,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation translatorcomment="AI-translated">Setări fereastra</translation>
+        <translation>Setări fereastra</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Conexiune Active Stream</translation>
+        <translation>Conexiune Active Stream</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Adresa URL a fluxului principal</translation>
+        <translation>Adresa URL a fluxului principal</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Adresa URL secundară de backup</translation>
+        <translation>Adresa URL secundară de backup</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation translatorcomment="AI-translated">Opțiuni de canal</translation>
+        <translation>Opțiuni de canal</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation translatorcomment="AI-translated">Opțiuni FFmpeg</translation>
+        <translation>Opțiuni FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation translatorcomment="AI-translated">Nu includeți modificări globale ale setărilor FFmpeg</translation>
+        <translation>Nu includeți modificări globale ale setărilor FFmpeg</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Anulează</translation>
+        <translation>Anulează</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Salvați</translation>
+        <translation>Salvați</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4670,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation translatorcomment="AI-translated">Schimbați ferestrele de vizualizare</translation>
+        <translation>Schimbați ferestrele de vizualizare</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation translatorcomment="AI-translated">Selectarea fluxului</translation>
+        <translation>Selectarea fluxului</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation translatorcomment="AI-translated">Scoateți camera</translation>
+        <translation>Scoateți camera</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation translatorcomment="AI-translated">Modificați setările</translation>
+        <translation>Modificați setările</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation translatorcomment="AI-translated">Reîncărcați</translation>
+        <translation>Reîncărcați</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation translatorcomment="AI-translated">Instantaneu</translation>
+        <translation>Instantaneu</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation translatorcomment="AI-translated">Redare</translation>
+        <translation>Redare</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation translatorcomment="AI-translated">Automatycznie</translation>
+        <translation>Automatycznie</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation translatorcomment="AI-translated">Tylko PRINCIPALA</translation>
+        <translation>Tylko PRINCIPALA</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation translatorcomment="AI-translated">Tylko SUB</translation>
+        <translation>Tylko SUB</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation translatorcomment="AI-translated">Confirmați eliminarea camerei</translation>
+        <translation>Confirmați eliminarea camerei</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation translatorcomment="AI-translated">Sigur doriți să eliminați camera din această fereastră de vizualizare?</translation>
+        <translation>Sigur doriți să eliminați camera din această fereastră de vizualizare?</translation>
     </message>
 </context>
 </TS>

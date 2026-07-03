@@ -16,15 +16,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00002</source>
-        <translation translatorcomment="AI-translated">Du kan ikke åbne flere hjælpevinduer</translation>
+        <translation>Du kan ikke åbne flere hjælpevinduer</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">LUK</translation>
+        <translation>LUK</translation>
     </message>
 </context>
 <context>
@@ -91,63 +91,63 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Hjælpevindue</translation>
+        <translation>KVision - Hjælpevindue</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Der er ikke valgt nogen visning. Vælg en visning</translation>
+        <translation>Der er ikke valgt nogen visning. Vælg en visning</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Vælg en visning fra topmenuen for at begynde at vise kameraer.</translation>
+        <translation>Vælg en visning fra topmenuen for at begynde at vise kameraer.</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Indstillinger og indstillinger for sidepanelet</translation>
+        <translation>Indstillinger og indstillinger for sidepanelet</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Åbn nyt hjælpevindue</translation>
+        <translation>Åbn nyt hjælpevindue</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Program brugermanual</translation>
+        <translation>Program brugermanual</translation>
     </message>
     <message>
         <source>LNG_00012</source>
-        <translation translatorcomment="AI-translated">Gittervisning:</translation>
+        <translation>Gittervisning:</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Skift fuld skærm</translation>
+        <translation>Skift fuld skærm</translation>
     </message>
     <message>
         <source>LNG_00010</source>
-        <translation translatorcomment="AI-translated">🔒 Lås layoutændring</translation>
+        <translation>🔒 Lås layoutændring</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Flere muligheder</translation>
+        <translation>Flere muligheder</translation>
     </message>
     <message>
         <source>LNG_00008</source>
-        <translation translatorcomment="AI-translated">Se udvalg:</translation>
+        <translation>Se udvalg:</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Luk program</translation>
+        <translation>Luk program</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Er du sikker på, at du vil lukke programmet?</translation>
+        <translation>Er du sikker på, at du vil lukke programmet?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">JA</translation>
+        <translation>JA</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NEJ</translation>
+        <translation>NEJ</translation>
     </message>
 </context>
 <context>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>LNG_00020</source>
-        <translation translatorcomment="AI-translated">Ja</translation>
+        <translation>Ja</translation>
     </message>
     <message>
         <source>LNG_00019</source>
-        <translation translatorcomment="AI-translated">Nej</translation>
+        <translation>Nej</translation>
     </message>
 </context>
 <context>
@@ -221,55 +221,55 @@
     </message>
     <message>
         <source>LNG_00488</source>
-        <translation translatorcomment="AI-translated">Sti til konfigurationsfilen.</translation>
+        <translation type="vanished">Sti til konfigurationsfilen.</translation>
     </message>
     <message>
         <source>LNG_00487</source>
-        <translation translatorcomment="AI-translated">Indeks for den aktuelle forudindstilling.</translation>
+        <translation type="vanished">Indeks for den aktuelle forudindstilling.</translation>
     </message>
     <message>
         <source>LNG_00486</source>
-        <translation translatorcomment="AI-translated">Tving fuldskærmstilstand.</translation>
+        <translation type="vanished">Tving fuldskærmstilstand.</translation>
     </message>
     <message>
         <source>LNG_00485</source>
-        <translation translatorcomment="AI-translated">Kiosk mode funktionalitet.</translation>
+        <translation type="vanished">Kiosk mode funktionalitet.</translation>
     </message>
     <message>
         <source>LNG_00484</source>
-        <translation translatorcomment="AI-translated">Logniveau [%1...%2].</translation>
+        <translation type="vanished">Logniveau [%1...%2].</translation>
     </message>
     <message>
         <source>LNG_00483</source>
-        <translation translatorcomment="AI-translated">Start som et hjælpevindue.</translation>
+        <translation type="vanished">Start som et hjælpevindue.</translation>
     </message>
     <message>
         <source>LNG_00482</source>
-        <translation translatorcomment="AI-translated">ID for hjælpevinduet.</translation>
+        <translation type="vanished">ID for hjælpevinduet.</translation>
     </message>
     <message>
         <source>LNG_00481</source>
-        <translation translatorcomment="AI-translated">Vis detaljerede logfiler i konsollen (udførlig logning).</translation>
+        <translation type="vanished">Vis detaljerede logfiler i konsollen (udførlig logning).</translation>
     </message>
     <message>
         <source>LNG_00480</source>
-        <translation translatorcomment="AI-translated">Aktiver objektsporing i logfiler til fejlfinding af hukommelseslækager.</translation>
+        <translation type="vanished">Aktiver objektsporing i logfiler til fejlfinding af hukommelseslækager.</translation>
     </message>
     <message>
         <source>LNG_00479</source>
-        <translation translatorcomment="AI-translated">Tving førsteløbsadfærd og vis instruktioner.</translation>
+        <translation type="vanished">Tving førsteløbsadfærd og vis instruktioner.</translation>
     </message>
     <message>
         <source>LNG_00478</source>
-        <translation translatorcomment="AI-translated">Simuler NVR-fejl på alle optagere.</translation>
+        <translation type="vanished">Simuler NVR-fejl på alle optagere.</translation>
     </message>
     <message>
         <source>LNG_00477</source>
-        <translation translatorcomment="AI-translated">Håne ny version tilgængelighed på GitHub til testformål</translation>
+        <translation type="vanished">Håne ny version tilgængelighed på GitHub til testformål</translation>
     </message>
     <message>
         <source>LNG_00476</source>
-        <translation translatorcomment="AI-translated">KVision - seer og mounter videostreams.</translation>
+        <translation>KVision - seer og mounter videostreams.</translation>
     </message>
 </context>
 <context>
@@ -412,139 +412,139 @@
     </message>
     <message>
         <source>LNG_00054</source>
-        <translation translatorcomment="AI-translated">Slutdato og -tidspunkt skal være senere end startdato og -tidspunkt!</translation>
+        <translation>Slutdato og -tidspunkt skal være senere end startdato og -tidspunkt!</translation>
     </message>
     <message>
         <source>LNG_00053</source>
-        <translation translatorcomment="AI-translated">januar</translation>
+        <translation>januar</translation>
     </message>
     <message>
         <source>LNG_00052</source>
-        <translation translatorcomment="AI-translated">februar</translation>
+        <translation>februar</translation>
     </message>
     <message>
         <source>LNG_00051</source>
-        <translation translatorcomment="AI-translated">marts</translation>
+        <translation>marts</translation>
     </message>
     <message>
         <source>LNG_00050</source>
-        <translation translatorcomment="AI-translated">april</translation>
+        <translation>april</translation>
     </message>
     <message>
         <source>LNG_00049</source>
-        <translation translatorcomment="AI-translated">maj</translation>
+        <translation>maj</translation>
     </message>
     <message>
         <source>LNG_00048</source>
-        <translation translatorcomment="AI-translated">juni</translation>
+        <translation>juni</translation>
     </message>
     <message>
         <source>LNG_00047</source>
-        <translation translatorcomment="AI-translated">juli</translation>
+        <translation>juli</translation>
     </message>
     <message>
         <source>LNG_00046</source>
-        <translation translatorcomment="AI-translated">august</translation>
+        <translation>august</translation>
     </message>
     <message>
         <source>LNG_00045</source>
-        <translation translatorcomment="AI-translated">september</translation>
+        <translation>september</translation>
     </message>
     <message>
         <source>LNG_00044</source>
-        <translation translatorcomment="AI-translated">oktober</translation>
+        <translation>oktober</translation>
     </message>
     <message>
         <source>LNG_00043</source>
-        <translation translatorcomment="AI-translated">november</translation>
+        <translation>november</translation>
     </message>
     <message>
         <source>LNG_00042</source>
-        <translation translatorcomment="AI-translated">december</translation>
+        <translation>december</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Forrige måned</translation>
+        <translation>Forrige måned</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Næste måned</translation>
+        <translation>Næste måned</translation>
     </message>
     <message>
         <source>LNG_00039</source>
-        <translation translatorcomment="AI-translated">Vælg tid</translation>
+        <translation>Vælg tid</translation>
     </message>
     <message>
         <source>LNG_00038</source>
-        <translation translatorcomment="AI-translated">Hr</translation>
+        <translation>Hr</translation>
     </message>
     <message>
         <source>LNG_00037</source>
-        <translation translatorcomment="AI-translated">Min</translation>
+        <translation>Min</translation>
     </message>
     <message>
         <source>LNG_00036</source>
-        <translation translatorcomment="AI-translated">Sec</translation>
+        <translation>Sec</translation>
     </message>
     <message>
         <source>LNG_00023</source>
-        <translation translatorcomment="AI-translated">Annuller</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <source>LNG_00035</source>
-        <translation translatorcomment="AI-translated">Bekræft</translation>
+        <translation>Bekræft</translation>
     </message>
     <message>
         <source>LNG_00034</source>
-        <translation translatorcomment="AI-translated">Download optagelser</translation>
+        <translation>Download optagelser</translation>
     </message>
     <message>
         <source>LNG_00033</source>
-        <translation translatorcomment="AI-translated">Fra:</translation>
+        <translation>Fra:</translation>
     </message>
     <message>
         <source>LNG_00031</source>
-        <translation translatorcomment="AI-translated">Forkert datoformat! Påkrævet format: DD.MM.ÅÅÅÅ (f.eks. 26.06.2026)</translation>
+        <translation>Forkert datoformat! Påkrævet format: DD.MM.ÅÅÅÅ (f.eks. 26.06.2026)</translation>
     </message>
     <message>
         <source>LNG_00030</source>
-        <translation translatorcomment="AI-translated">Forkert tidsformat! Påkrævet format: TT:MM:SS eller TT.MM.SS (f.eks. 12:30:00 eller 12.30.00)</translation>
+        <translation>Forkert tidsformat! Påkrævet format: TT:MM:SS eller TT.MM.SS (f.eks. 12:30:00 eller 12.30.00)</translation>
     </message>
     <message>
         <source>LNG_00032</source>
-        <translation translatorcomment="AI-translated">Til:</translation>
+        <translation>Til:</translation>
     </message>
     <message>
         <source>LNG_00029</source>
-        <translation translatorcomment="AI-translated">I alt:</translation>
+        <translation>I alt:</translation>
     </message>
     <message>
         <source>LNG_00028</source>
-        <translation translatorcomment="AI-translated">Downloader...</translation>
+        <translation>Downloader...</translation>
     </message>
     <message>
         <source>LNG_00027</source>
-        <translation translatorcomment="AI-translated">Fejl:</translation>
+        <translation>Fejl:</translation>
     </message>
     <message>
         <source>LNG_00026</source>
-        <translation translatorcomment="AI-translated">Initialiserer...</translation>
+        <translation>Initialiserer...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Stoppet</translation>
+        <translation>Stoppet</translation>
     </message>
     <message>
         <source>LNG_00024</source>
-        <translation translatorcomment="AI-translated">åbn gem mappe</translation>
+        <translation>åbn gem mappe</translation>
     </message>
     <message>
         <source>LNG_00022</source>
-        <translation translatorcomment="AI-translated">Stop</translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Download</translation>
+        <translation>Download</translation>
     </message>
 </context>
 <context>
@@ -623,73 +623,73 @@
     </message>
     <message>
         <source>LNG_00504</source>
-        <translation translatorcomment="AI-translated">Download er allerede i gang.</translation>
+        <translation>Download er allerede i gang.</translation>
     </message>
     <message>
         <source>LNG_00503</source>
-        <translation translatorcomment="AI-translated">Initialiserer filsøgning...</translation>
+        <translation>Initialiserer filsøgning...</translation>
     </message>
     <message>
         <source>LNG_00502</source>
-        <translation translatorcomment="AI-translated">Fejl ved login på enhed: %1</translation>
+        <translation>Fejl ved login på enhed: %1</translation>
     </message>
     <message>
         <source>LNG_00501</source>
-        <translation translatorcomment="AI-translated">Ingen optagelser i det valgte tidsinterval for dette kamera.</translation>
+        <translation>Ingen optagelser i det valgte tidsinterval for dette kamera.</translation>
     </message>
     <message>
         <source>LNG_00500</source>
-        <translation translatorcomment="AI-translated">Downloadede og konverterede %1 af %2 filer.</translation>
+        <translation>Downloadede og konverterede %1 af %2 filer.</translation>
     </message>
     <message>
         <source>LNG_00499</source>
-        <translation translatorcomment="AI-translated">Den angivne lagringssti er ugyldig, eller skriveadgang er nægtet:
+        <translation>Den angivne lagringssti er ugyldig, eller skriveadgang er nægtet:
 %1</translation>
     </message>
     <message>
         <source>LNG_00498</source>
-        <translation translatorcomment="AI-translated">Ingen skrivetilladelse i mappen:
+        <translation>Ingen skrivetilladelse i mappen:
 %1</translation>
     </message>
     <message>
         <source>LNG_00497</source>
-        <translation translatorcomment="AI-translated">Fejl ved initialisering af download af del %1: %2</translation>
+        <translation>Fejl ved initialisering af download af del %1: %2</translation>
     </message>
     <message>
         <source>LNG_00496</source>
-        <translation translatorcomment="AI-translated">Fejl ved start af download af del %1: %2</translation>
+        <translation>Fejl ved start af download af del %1: %2</translation>
     </message>
     <message>
         <source>LNG_00495</source>
-        <translation translatorcomment="AI-translated">Downloader del %1 af %2...</translation>
+        <translation>Downloader del %1 af %2...</translation>
     </message>
     <message>
         <source>LNG_00025</source>
-        <translation translatorcomment="AI-translated">Stoppet</translation>
+        <translation>Stoppet</translation>
     </message>
     <message>
         <source>LNG_00494</source>
-        <translation translatorcomment="AI-translated">Download afbrudt af bruger.</translation>
+        <translation>Download afbrudt af bruger.</translation>
     </message>
     <message>
         <source>LNG_00493</source>
-        <translation translatorcomment="AI-translated">Konverterer del %1 af %2...</translation>
+        <translation>Konverterer del %1 af %2...</translation>
     </message>
     <message>
         <source>LNG_00492</source>
-        <translation translatorcomment="AI-translated">Fejl under download af del %1.</translation>
+        <translation>Fejl under download af del %1.</translation>
     </message>
     <message>
         <source>LNG_00491</source>
-        <translation translatorcomment="AI-translated">Downloadede og konverterede %1 af %2 dele...</translation>
+        <translation>Downloadede og konverterede %1 af %2 dele...</translation>
     </message>
     <message>
         <source>LNG_00490</source>
-        <translation translatorcomment="AI-translated">Intern FFmpeg fejl</translation>
+        <translation>Intern FFmpeg fejl</translation>
     </message>
     <message>
         <source>LNG_00489</source>
-        <translation translatorcomment="AI-translated">Konvertering af del %1 til MP4 mislykkedes: %2</translation>
+        <translation>Konvertering af del %1 til MP4 mislykkedes: %2</translation>
     </message>
 </context>
 <context>
@@ -700,7 +700,7 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Login mislykkedes, eller der blev ikke fundet kameraer.</translation>
+        <translation>Login mislykkedes, eller der blev ikke fundet kameraer.</translation>
     </message>
 </context>
 <context>
@@ -719,15 +719,15 @@
     </message>
     <message>
         <source>LNG_00057</source>
-        <translation translatorcomment="AI-translated">KVision - Brugermanual / Instruktioner</translation>
+        <translation>KVision - Brugermanual / Instruktioner</translation>
     </message>
     <message>
         <source>LNG_00056</source>
-        <translation translatorcomment="AI-translated">qrc:/INSTRUCTIONS_da.md</translation>
+        <translation>qrc:/INSTRUCTIONS_da.md</translation>
     </message>
     <message>
         <source>LNG_00055</source>
-        <translation translatorcomment="AI-translated">Fejl ved indlæsning af instruktioner.</translation>
+        <translation>Fejl ved indlæsning af instruktioner.</translation>
     </message>
 </context>
 <context>
@@ -802,71 +802,71 @@
     </message>
     <message>
         <source>LNG_00074</source>
-        <translation translatorcomment="AI-translated">Kameraer på %1</translation>
+        <translation>Kameraer på %1</translation>
     </message>
     <message>
         <source>LNG_00073</source>
-        <translation translatorcomment="AI-translated">Kameraer</translation>
+        <translation>Kameraer</translation>
     </message>
     <message>
         <source>LNG_00072</source>
-        <translation translatorcomment="AI-translated">IP: %1 | Port: %2 | %3 kanaler</translation>
+        <translation>IP: %1 | Port: %2 | %3 kanaler</translation>
     </message>
     <message>
         <source>LNG_00071</source>
-        <translation translatorcomment="AI-translated">Generer thumbnails for alle kameraer</translation>
+        <translation>Generer thumbnails for alle kameraer</translation>
     </message>
     <message>
         <source>LNG_00070</source>
-        <translation translatorcomment="AI-translated">Kamera %1</translation>
+        <translation>Kamera %1</translation>
     </message>
     <message>
         <source>LNG_00069</source>
-        <translation translatorcomment="AI-translated">Tildelt kamera %1 Ch. %2 til visningsporten %3</translation>
+        <translation>Tildelt kamera %1 Ch. %2 til visningsporten %3</translation>
     </message>
     <message>
         <source>LNG_00068</source>
-        <translation translatorcomment="AI-translated">Tildel til aktiv visningsport</translation>
+        <translation>Tildel til aktiv visningsport</translation>
     </message>
     <message>
         <source>LNG_00067</source>
-        <translation translatorcomment="AI-translated">Omdøb kameraet</translation>
+        <translation>Omdøb kameraet</translation>
     </message>
     <message>
         <source>LNG_00066</source>
-        <translation translatorcomment="AI-translated">Opdater kameraminiaturebillede</translation>
+        <translation>Opdater kameraminiaturebillede</translation>
     </message>
     <message>
         <source>LNG_00065</source>
-        <translation translatorcomment="AI-translated">Skift kameranavn</translation>
+        <translation>Skift kameranavn</translation>
     </message>
     <message>
         <source>LNG_00064</source>
-        <translation translatorcomment="AI-translated">Kanal: %1</translation>
+        <translation>Kanal: %1</translation>
     </message>
     <message>
         <source>LNG_00063</source>
-        <translation translatorcomment="AI-translated">Originalt navn: %1</translation>
+        <translation>Originalt navn: %1</translation>
     </message>
     <message>
         <source>LNG_00062</source>
-        <translation translatorcomment="AI-translated">Ingen</translation>
+        <translation>Ingen</translation>
     </message>
     <message>
         <source>LNG_00061</source>
-        <translation translatorcomment="AI-translated">Indtast nyt kameranavn...</translation>
+        <translation>Indtast nyt kameranavn...</translation>
     </message>
     <message>
         <source>LNG_00060</source>
-        <translation translatorcomment="AI-translated">Nulstil</translation>
+        <translation>Nulstil</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Annuller</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Gem</translation>
+        <translation>Gem</translation>
     </message>
 </context>
 <context>
@@ -977,107 +977,107 @@
     </message>
     <message>
         <source>LNG_00099</source>
-        <translation translatorcomment="AI-translated">Login mislykkedes, eller der blev ikke fundet kameraer.</translation>
+        <translation>Login mislykkedes, eller der blev ikke fundet kameraer.</translation>
     </message>
     <message>
         <source>LNG_00098</source>
-        <translation translatorcomment="AI-translated">Tilføj Hikvision Recorder</translation>
+        <translation>Tilføj Hikvision Recorder</translation>
     </message>
     <message>
         <source>LNG_00097</source>
-        <translation translatorcomment="AI-translated">Optagernavn (valgfrit)</translation>
+        <translation>Optagernavn (valgfrit)</translation>
     </message>
     <message>
         <source>LNG_00096</source>
-        <translation translatorcomment="AI-translated">IP-adresse</translation>
+        <translation>IP-adresse</translation>
     </message>
     <message>
         <source>LNG_00095</source>
-        <translation translatorcomment="AI-translated">Port (8000)</translation>
+        <translation>Port (8000)</translation>
     </message>
     <message>
         <source>LNG_00094</source>
-        <translation translatorcomment="AI-translated">Brugernavn</translation>
+        <translation>Brugernavn</translation>
     </message>
     <message>
         <source>LNG_00093</source>
-        <translation translatorcomment="AI-translated">Adgangskode</translation>
+        <translation>Adgangskode</translation>
     </message>
     <message>
         <source>LNG_00092</source>
-        <translation translatorcomment="AI-translated">Opdager...</translation>
+        <translation>Opdager...</translation>
     </message>
     <message>
         <source>LNG_00091</source>
-        <translation translatorcomment="AI-translated">Forbind og opdag</translation>
+        <translation>Forbind og opdag</translation>
     </message>
     <message>
         <source>LNG_00090</source>
-        <translation translatorcomment="AI-translated">Gem og opdater</translation>
+        <translation>Gem og opdater</translation>
     </message>
     <message>
         <source>LNG_00089</source>
-        <translation translatorcomment="AI-translated">Fejl: IP og adgangskode er påkrævet.</translation>
+        <translation>Fejl: IP og adgangskode er påkrævet.</translation>
     </message>
     <message>
         <source>LNG_00088</source>
-        <translation translatorcomment="AI-translated">Opretter forbindelse til NVR og opdager kanaler...</translation>
+        <translation>Opretter forbindelse til NVR og opdager kanaler...</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Annuller</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <source>LNG_00087</source>
-        <translation translatorcomment="AI-translated">Tilsluttede optagere</translation>
+        <translation>Tilsluttede optagere</translation>
     </message>
     <message>
         <source>LNG_00086</source>
-        <translation translatorcomment="AI-translated">%1 kameraer tilsluttet</translation>
+        <translation>%1 kameraer tilsluttet</translation>
     </message>
     <message>
         <source>LNG_00085</source>
-        <translation translatorcomment="AI-translated">LOGGET IND</translation>
+        <translation>LOGGET IND</translation>
     </message>
     <message>
         <source>LNG_00084</source>
-        <translation translatorcomment="AI-translated">IKKE LOGGET IND</translation>
+        <translation>IKKE LOGGET IND</translation>
     </message>
     <message>
         <source>LNG_00083</source>
-        <translation translatorcomment="AI-translated">Grøn: Aktiv SDK-session (PTZ/arkiv). Rød: Ingen aktiv session (RTSP-stream fungerer uafhængigt).</translation>
+        <translation>Grøn: Aktiv SDK-session (PTZ/arkiv). Rød: Ingen aktiv session (RTSP-stream fungerer uafhængigt).</translation>
     </message>
     <message>
         <source>LNG_00082</source>
-        <translation translatorcomment="AI-translated">Åbn NVR-loginsiden i browseren</translation>
+        <translation>Åbn NVR-loginsiden i browseren</translation>
     </message>
     <message>
         <source>LNG_00081</source>
-        <translation translatorcomment="AI-translated">Vis liste over NVR-kameraer</translation>
+        <translation>Vis liste over NVR-kameraer</translation>
     </message>
     <message>
         <source>LNG_00080</source>
-        <translation translatorcomment="AI-translated">Rediger optagerforbindelsesdetaljer</translation>
+        <translation>Rediger optagerforbindelsesdetaljer</translation>
     </message>
     <message>
         <source>LNG_00079</source>
-        <translation translatorcomment="AI-translated">Slet optager fra listen</translation>
+        <translation>Slet optager fra listen</translation>
     </message>
     <message>
         <source>LNG_00078</source>
-        <translation translatorcomment="AI-translated">Bekræft NVR-sletning</translation>
+        <translation>Bekræft NVR-sletning</translation>
     </message>
     <message>
         <source>LNG_00077</source>
-        <translation translatorcomment="AI-translated">Er du sikker på, at du vil slette denne NVR?</translation>
+        <translation>Er du sikker på, at du vil slette denne NVR?</translation>
     </message>
     <message>
         <source>LNG_00076</source>
-        <translation translatorcomment="AI-translated">Advarsel!</translation>
+        <translation>Advarsel!</translation>
     </message>
     <message>
         <source>LNG_00075</source>
-        <translation translatorcomment="AI-translated">Er du helt sikker og klar over, hvad du laver?</translation>
+        <translation>Er du helt sikker og klar over, hvad du laver?</translation>
     </message>
 </context>
 <context>
@@ -1128,47 +1128,47 @@
     </message>
     <message>
         <source>LNG_00110</source>
-        <translation translatorcomment="AI-translated">NVR-status</translation>
+        <translation>NVR-status</translation>
     </message>
     <message>
         <source>LNG_00109</source>
-        <translation translatorcomment="AI-translated">Tjekker NVR-status...</translation>
+        <translation>Tjekker NVR-status...</translation>
     </message>
     <message>
         <source>LNG_00108</source>
-        <translation translatorcomment="AI-translated">Sidste kontrol:</translation>
+        <translation>Sidste kontrol:</translation>
     </message>
     <message>
         <source>LNG_00107</source>
-        <translation translatorcomment="AI-translated">aldrig</translation>
+        <translation>aldrig</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Lydløs</translation>
+        <translation>Lydløs</translation>
     </message>
     <message>
         <source>LNG_00105</source>
-        <translation translatorcomment="AI-translated">FEJL</translation>
+        <translation>FEJL</translation>
     </message>
     <message>
         <source>LNG_00104</source>
-        <translation translatorcomment="AI-translated">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>LNG_00103</source>
-        <translation translatorcomment="AI-translated">Ingen statusdata</translation>
+        <translation>Ingen statusdata</translation>
     </message>
     <message>
         <source>LNG_00102</source>
-        <translation translatorcomment="AI-translated">Tryk på knappen nedenfor for at kontrollere NVR-status.</translation>
+        <translation>Tryk på knappen nedenfor for at kontrollere NVR-status.</translation>
     </message>
     <message>
         <source>LNG_00101</source>
-        <translation translatorcomment="AI-translated">Tjek nu</translation>
+        <translation>Tjek nu</translation>
     </message>
     <message>
         <source>LNG_00100</source>
-        <translation translatorcomment="AI-translated">Luk</translation>
+        <translation>Luk</translation>
     </message>
 </context>
 <context>
@@ -1223,51 +1223,51 @@
     </message>
     <message>
         <source>LNG_00516</source>
-        <translation translatorcomment="AI-translated">Simuleret NVR</translation>
+        <translation>Simuleret NVR</translation>
     </message>
     <message>
         <source>LNG_00515</source>
-        <translation translatorcomment="AI-translated">Disk 1</translation>
+        <translation>Disk 1</translation>
     </message>
     <message>
         <source>LNG_00514</source>
-        <translation translatorcomment="AI-translated">Kritisk diskfejl/fejl (simulering)</translation>
+        <translation>Kritisk diskfejl/fejl (simulering)</translation>
     </message>
     <message>
         <source>LNG_00513</source>
-        <translation translatorcomment="AI-translated">Ingen forbindelse eller login fejl (simulering)</translation>
+        <translation>Ingen forbindelse eller login fejl (simulering)</translation>
     </message>
     <message>
         <source>LNG_00512</source>
-        <translation translatorcomment="AI-translated">Ingen forbindelse eller login fejl</translation>
+        <translation>Ingen forbindelse eller login fejl</translation>
     </message>
     <message>
         <source>LNG_00511</source>
-        <translation translatorcomment="AI-translated">Fejl ved læsning af NVR-status (SDK)</translation>
+        <translation>Fejl ved læsning af NVR-status (SDK)</translation>
     </message>
     <message>
         <source>LNG_00510</source>
-        <translation translatorcomment="AI-translated">Høj CPU-belastning (&gt;85 %)</translation>
+        <translation>Høj CPU-belastning (&gt;85 %)</translation>
     </message>
     <message>
         <source>LNG_00509</source>
-        <translation translatorcomment="AI-translated">Enhedens hardwarefejl</translation>
+        <translation>Enhedens hardwarefejl</translation>
     </message>
     <message>
         <source>LNG_00508</source>
-        <translation translatorcomment="AI-translated">Disk %1</translation>
+        <translation>Disk %1</translation>
     </message>
     <message>
         <source>LNG_00507</source>
-        <translation translatorcomment="AI-translated">Kritisk diskfejl/fejl</translation>
+        <translation>Kritisk diskfejl/fejl</translation>
     </message>
     <message>
         <source>LNG_00506</source>
-        <translation translatorcomment="AI-translated">Disken er uformateret</translation>
+        <translation>Disken er uformateret</translation>
     </message>
     <message>
         <source>LNG_00505</source>
-        <translation translatorcomment="AI-translated">Disk fuld (overskrivning deaktiveret)</translation>
+        <translation>Disk fuld (overskrivning deaktiveret)</translation>
     </message>
 </context>
 <context>
@@ -1594,323 +1594,323 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation translatorcomment="AI-translated">Arkiv -</translation>
+        <translation>Arkiv -</translation>
     </message>
     <message>
         <source>LNG_00185</source>
-        <translation translatorcomment="AI-translated">januar</translation>
+        <translation>januar</translation>
     </message>
     <message>
         <source>LNG_00184</source>
-        <translation translatorcomment="AI-translated">februar</translation>
+        <translation>februar</translation>
     </message>
     <message>
         <source>LNG_00183</source>
-        <translation translatorcomment="AI-translated">marts</translation>
+        <translation>marts</translation>
     </message>
     <message>
         <source>LNG_00182</source>
-        <translation translatorcomment="AI-translated">april</translation>
+        <translation>april</translation>
     </message>
     <message>
         <source>LNG_00181</source>
-        <translation translatorcomment="AI-translated">maj</translation>
+        <translation>maj</translation>
     </message>
     <message>
         <source>LNG_00180</source>
-        <translation translatorcomment="AI-translated">juni</translation>
+        <translation>juni</translation>
     </message>
     <message>
         <source>LNG_00179</source>
-        <translation translatorcomment="AI-translated">juli</translation>
+        <translation>juli</translation>
     </message>
     <message>
         <source>LNG_00178</source>
-        <translation translatorcomment="AI-translated">august</translation>
+        <translation>august</translation>
     </message>
     <message>
         <source>LNG_00177</source>
-        <translation translatorcomment="AI-translated">september</translation>
+        <translation>september</translation>
     </message>
     <message>
         <source>LNG_00176</source>
-        <translation translatorcomment="AI-translated">oktober</translation>
+        <translation>oktober</translation>
     </message>
     <message>
         <source>LNG_00175</source>
-        <translation translatorcomment="AI-translated">november</translation>
+        <translation>november</translation>
     </message>
     <message>
         <source>LNG_00174</source>
-        <translation translatorcomment="AI-translated">december</translation>
+        <translation>december</translation>
     </message>
     <message>
         <source>LNG_00041</source>
-        <translation translatorcomment="AI-translated">Forrige måned</translation>
+        <translation>Forrige måned</translation>
     </message>
     <message>
         <source>LNG_00173</source>
-        <translation translatorcomment="AI-translated">Vælg arkivdato</translation>
+        <translation>Vælg arkivdato</translation>
     </message>
     <message>
         <source>LNG_00040</source>
-        <translation translatorcomment="AI-translated">Næste måned</translation>
+        <translation>Næste måned</translation>
     </message>
     <message>
         <source>LNG_00172</source>
-        <translation translatorcomment="AI-translated">Mo</translation>
+        <translation>Mo</translation>
     </message>
     <message>
         <source>LNG_00171</source>
-        <translation translatorcomment="AI-translated">Tu</translation>
+        <translation>Tu</translation>
     </message>
     <message>
         <source>LNG_00170</source>
-        <translation translatorcomment="AI-translated">Vi</translation>
+        <translation>Vi</translation>
     </message>
     <message>
         <source>LNG_00169</source>
-        <translation translatorcomment="AI-translated">Th</translation>
+        <translation>Th</translation>
     </message>
     <message>
         <source>LNG_00168</source>
-        <translation translatorcomment="AI-translated">Fr</translation>
+        <translation>Fr</translation>
     </message>
     <message>
         <source>LNG_00167</source>
-        <translation translatorcomment="AI-translated">Sa</translation>
+        <translation>Sa</translation>
     </message>
     <message>
         <source>LNG_00166</source>
-        <translation translatorcomment="AI-translated">Su</translation>
+        <translation>Su</translation>
     </message>
     <message>
         <source>LNG_00165</source>
-        <translation translatorcomment="AI-translated">Henter tilgængelighed...</translation>
+        <translation>Henter tilgængelighed...</translation>
     </message>
     <message>
         <source>LNG_00164</source>
-        <translation translatorcomment="AI-translated">Kameraer</translation>
+        <translation>Kameraer</translation>
     </message>
     <message>
         <source>LNG_00163</source>
-        <translation translatorcomment="AI-translated">Søg efter kamera...</translation>
+        <translation>Søg efter kamera...</translation>
     </message>
     <message>
         <source>LNG_00162</source>
-        <translation translatorcomment="AI-translated">Ryd søgning</translation>
+        <translation>Ryd søgning</translation>
     </message>
     <message>
         <source>LNG_00161</source>
-        <translation translatorcomment="AI-translated">Bestemmer faktisk afslutning på optagelse...</translation>
+        <translation>Bestemmer faktisk afslutning på optagelse...</translation>
     </message>
     <message>
         <source>LNG_00160</source>
-        <translation translatorcomment="AI-translated">Henter optagelsesoplysninger...</translation>
+        <translation>Henter optagelsesoplysninger...</translation>
     </message>
     <message>
         <source>LNG_00159</source>
-        <translation translatorcomment="AI-translated">Indlæser Hikvision-arkiv...</translation>
+        <translation>Indlæser Hikvision-arkiv...</translation>
     </message>
     <message>
         <source>LNG_00158</source>
-        <translation translatorcomment="AI-translated">Ingen optagelse på det valgte tidspunkt</translation>
+        <translation>Ingen optagelse på det valgte tidspunkt</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Lydløs</translation>
+        <translation>Lydløs</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Maksimal volumen</translation>
+        <translation>Maksimal volumen</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Tag et snapshot i fuld opløsning</translation>
+        <translation>Tag et snapshot i fuld opløsning</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Deaktiver 1:1-tilstand</translation>
+        <translation>Deaktiver 1:1-tilstand</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">Aktiver 1:1-tilstand (pixel-til-pixel)</translation>
+        <translation>Aktiver 1:1-tilstand (pixel-til-pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Nulstil zoom</translation>
+        <translation>Nulstil zoom</translation>
     </message>
     <message>
         <source>LNG_00152</source>
-        <translation translatorcomment="AI-translated">Vælg område for at zoome</translation>
+        <translation>Vælg område for at zoome</translation>
     </message>
     <message>
         <source>LNG_00151</source>
-        <translation translatorcomment="AI-translated">Vælg område for at zoome</translation>
+        <translation>Vælg område for at zoome</translation>
     </message>
     <message>
         <source>LNG_00150</source>
-        <translation translatorcomment="AI-translated">Gendan gittervisning</translation>
+        <translation>Gendan gittervisning</translation>
     </message>
     <message>
         <source>LNG_00149</source>
-        <translation translatorcomment="AI-translated">Vis i fuld skærm</translation>
+        <translation>Vis i fuld skærm</translation>
     </message>
     <message>
         <source>LNG_00148</source>
-        <translation translatorcomment="AI-translated">Fjern kameraet fra visningen</translation>
+        <translation>Fjern kameraet fra visningen</translation>
     </message>
     <message>
         <source>LNG_00147</source>
-        <translation translatorcomment="AI-translated">Tom visningsport</translation>
+        <translation>Tom visningsport</translation>
     </message>
     <message>
         <source>LNG_00146</source>
-        <translation translatorcomment="AI-translated">Vælg dette vindue, vælg et kamera fra listen, og klik på + for at tilføje det</translation>
+        <translation>Vælg dette vindue, vælg et kamera fra listen, og klik på + for at tilføje det</translation>
     </message>
     <message>
         <source>LNG_00145</source>
-        <translation translatorcomment="AI-translated">Forrige dag</translation>
+        <translation>Forrige dag</translation>
     </message>
     <message>
         <source>LNG_00144</source>
-        <translation translatorcomment="AI-translated">Vælg dato fra kalenderen</translation>
+        <translation>Vælg dato fra kalenderen</translation>
     </message>
     <message>
         <source>LNG_00143</source>
-        <translation translatorcomment="AI-translated">Næste dag</translation>
+        <translation>Næste dag</translation>
     </message>
     <message>
         <source>LNG_00142</source>
-        <translation translatorcomment="AI-translated">I dag</translation>
+        <translation>I dag</translation>
     </message>
     <message>
         <source>LNG_00141</source>
-        <translation translatorcomment="AI-translated">Gå til i dag</translation>
+        <translation>Gå til i dag</translation>
     </message>
     <message>
         <source>LNG_00140</source>
-        <translation translatorcomment="AI-translated">Opdater optagelser</translation>
+        <translation>Opdater optagelser</translation>
     </message>
     <message>
         <source>LNG_00139</source>
-        <translation translatorcomment="AI-translated">Zoom for at vare 1 time</translation>
+        <translation>Zoom for at vare 1 time</translation>
     </message>
     <message>
         <source>LNG_00138</source>
-        <translation translatorcomment="AI-translated">Zoom for at vare 8 timer</translation>
+        <translation>Zoom for at vare 8 timer</translation>
     </message>
     <message>
         <source>LNG_00137</source>
-        <translation translatorcomment="AI-translated">Vis hele dagen på tidslinjen</translation>
+        <translation>Vis hele dagen på tidslinjen</translation>
     </message>
     <message>
         <source>LNG_00136</source>
-        <translation translatorcomment="AI-translated">Midter tidslinje på den aktuelle afspilningstid</translation>
+        <translation>Midter tidslinje på den aktuelle afspilningstid</translation>
     </message>
     <message>
         <source>LNG_00135</source>
-        <translation translatorcomment="AI-translated">Hastighed:</translation>
+        <translation>Hastighed:</translation>
     </message>
     <message>
         <source>LNG_00134</source>
-        <translation translatorcomment="AI-translated">Indstil afspilningshastigheden til %1x</translation>
+        <translation>Indstil afspilningshastigheden til %1x</translation>
     </message>
     <message>
         <source>LNG_00021</source>
-        <translation translatorcomment="AI-translated">Download</translation>
+        <translation>Download</translation>
     </message>
     <message>
         <source>LNG_00133</source>
-        <translation translatorcomment="AI-translated">Download videoklip fra det valgte tidsinterval</translation>
+        <translation>Download videoklip fra det valgte tidsinterval</translation>
     </message>
     <message>
         <source>LNG_00132</source>
-        <translation translatorcomment="AI-translated">Spol 60 sekunder tilbage</translation>
+        <translation>Spol 60 sekunder tilbage</translation>
     </message>
     <message>
         <source>LNG_00131</source>
-        <translation translatorcomment="AI-translated">Spol 45 sekunder tilbage</translation>
+        <translation>Spol 45 sekunder tilbage</translation>
     </message>
     <message>
         <source>LNG_00130</source>
-        <translation translatorcomment="AI-translated">Spol 15 sekunder tilbage</translation>
+        <translation>Spol 15 sekunder tilbage</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Sæt afspilning på pause</translation>
+        <translation>Sæt afspilning på pause</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Start afspilning</translation>
+        <translation>Start afspilning</translation>
     </message>
     <message>
         <source>LNG_00127</source>
-        <translation translatorcomment="AI-translated">Frem 15 sekunder</translation>
+        <translation>Frem 15 sekunder</translation>
     </message>
     <message>
         <source>LNG_00126</source>
-        <translation translatorcomment="AI-translated">45 sekunder frem</translation>
+        <translation>45 sekunder frem</translation>
     </message>
     <message>
         <source>LNG_00125</source>
-        <translation translatorcomment="AI-translated">Fremad 60 sekunder</translation>
+        <translation>Fremad 60 sekunder</translation>
     </message>
     <message>
         <source>LNG_00124</source>
-        <translation translatorcomment="AI-translated">Løsn bundbjælken</translation>
+        <translation>Løsn bundbjælken</translation>
     </message>
     <message>
         <source>LNG_00123</source>
-        <translation translatorcomment="AI-translated">Pin bundbjælke</translation>
+        <translation>Pin bundbjælke</translation>
     </message>
     <message>
         <source>LNG_00122</source>
-        <translation translatorcomment="AI-translated">Indlæser oplysninger om tilgængelighed for optagelse...</translation>
+        <translation>Indlæser oplysninger om tilgængelighed for optagelse...</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Luk vinduet</translation>
+        <translation>Luk vinduet</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Løsn den øverste stang</translation>
+        <translation>Løsn den øverste stang</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Pin top bar</translation>
+        <translation>Pin top bar</translation>
     </message>
     <message>
         <source>LNG_00118</source>
-        <translation translatorcomment="AI-translated">Afslut fuld skærm</translation>
+        <translation>Afslut fuld skærm</translation>
     </message>
     <message>
         <source>LNG_00117</source>
-        <translation translatorcomment="AI-translated">Vindue i fuld skærm</translation>
+        <translation>Vindue i fuld skærm</translation>
     </message>
     <message>
         <source>LNG_00116</source>
-        <translation translatorcomment="AI-translated">Skjul sidebjælke</translation>
+        <translation>Skjul sidebjælke</translation>
     </message>
     <message>
         <source>LNG_00115</source>
-        <translation translatorcomment="AI-translated">Vis sidebjælke</translation>
+        <translation>Vis sidebjælke</translation>
     </message>
     <message>
         <source>LNG_00114</source>
-        <translation translatorcomment="AI-translated">Vis tidslinje</translation>
+        <translation>Vis tidslinje</translation>
     </message>
     <message>
         <source>LNG_00113</source>
-        <translation translatorcomment="AI-translated">Skjul tidslinje</translation>
+        <translation>Skjul tidslinje</translation>
     </message>
     <message>
         <source>LNG_00112</source>
-        <translation translatorcomment="AI-translated">Åbn mappen med optagelser</translation>
+        <translation>Åbn mappen med optagelser</translation>
     </message>
     <message>
         <source>LNG_00111</source>
-        <translation translatorcomment="AI-translated">Åbn mappen snapshots</translation>
+        <translation>Åbn mappen snapshots</translation>
     </message>
 </context>
 <context>
@@ -2013,91 +2013,91 @@
     </message>
     <message>
         <source>LNG_00200</source>
-        <translation translatorcomment="AI-translated">Ingen medier</translation>
+        <translation>Ingen medier</translation>
     </message>
     <message>
         <source>LNG_00199</source>
-        <translation translatorcomment="AI-translated">Indlæser...</translation>
+        <translation>Indlæser...</translation>
     </message>
     <message>
         <source>LNG_00198</source>
-        <translation translatorcomment="AI-translated">Indlæst</translation>
+        <translation>Indlæst</translation>
     </message>
     <message>
         <source>LNG_00197</source>
-        <translation translatorcomment="AI-translated">Gået i stå</translation>
+        <translation>Gået i stå</translation>
     </message>
     <message>
         <source>LNG_00196</source>
-        <translation translatorcomment="AI-translated">Buffer %1\%</translation>
+        <translation>Buffer %1\%</translation>
     </message>
     <message>
         <source>LNG_00195</source>
-        <translation translatorcomment="AI-translated">Ingen data at vise</translation>
+        <translation>Ingen data at vise</translation>
     </message>
     <message>
         <source>LNG_00194</source>
-        <translation translatorcomment="AI-translated">Gendanner livevisning...</translation>
+        <translation>Gendanner livevisning...</translation>
     </message>
     <message>
         <source>LNG_00106</source>
-        <translation translatorcomment="AI-translated">Lydløs</translation>
+        <translation>Lydløs</translation>
     </message>
     <message>
         <source>LNG_00157</source>
-        <translation translatorcomment="AI-translated">Maksimal volumen</translation>
+        <translation>Maksimal volumen</translation>
     </message>
     <message>
         <source>LNG_00156</source>
-        <translation translatorcomment="AI-translated">Tag et snapshot i fuld opløsning</translation>
+        <translation>Tag et snapshot i fuld opløsning</translation>
     </message>
     <message>
         <source>LNG_00193</source>
-        <translation translatorcomment="AI-translated">Afspilningsarkiv</translation>
+        <translation>Afspilningsarkiv</translation>
     </message>
     <message>
         <source>LNG_00192</source>
-        <translation translatorcomment="AI-translated">Deaktiver hurtig afspilning</translation>
+        <translation>Deaktiver hurtig afspilning</translation>
     </message>
     <message>
         <source>LNG_00191</source>
-        <translation translatorcomment="AI-translated">Hurtig afspilning (op til 30 min)</translation>
+        <translation>Hurtig afspilning (op til 30 min)</translation>
     </message>
     <message>
         <source>LNG_00155</source>
-        <translation translatorcomment="AI-translated">Deaktiver 1:1-tilstand</translation>
+        <translation>Deaktiver 1:1-tilstand</translation>
     </message>
     <message>
         <source>LNG_00154</source>
-        <translation translatorcomment="AI-translated">Aktiver 1:1-tilstand (pixel-til-pixel)</translation>
+        <translation>Aktiver 1:1-tilstand (pixel-til-pixel)</translation>
     </message>
     <message>
         <source>LNG_00153</source>
-        <translation translatorcomment="AI-translated">Nulstil zoom</translation>
+        <translation>Nulstil zoom</translation>
     </message>
     <message>
         <source>LNG_00190</source>
-        <translation translatorcomment="AI-translated">Klik og træk på kamerafeedet for at zoome</translation>
+        <translation>Klik og træk på kamerafeedet for at zoome</translation>
     </message>
     <message>
         <source>LNG_00189</source>
-        <translation translatorcomment="AI-translated">Vælg område for at zoome</translation>
+        <translation>Vælg område for at zoome</translation>
     </message>
     <message>
         <source>LNG_00128</source>
-        <translation translatorcomment="AI-translated">Start afspilning</translation>
+        <translation>Start afspilning</translation>
     </message>
     <message>
         <source>LNG_00129</source>
-        <translation translatorcomment="AI-translated">Sæt afspilning på pause</translation>
+        <translation>Sæt afspilning på pause</translation>
     </message>
     <message>
         <source>LNG_00188</source>
-        <translation translatorcomment="AI-translated">Afspilningshastighed</translation>
+        <translation>Afspilningshastighed</translation>
     </message>
     <message>
         <source>LNG_00187</source>
-        <translation translatorcomment="AI-translated">Luk tilbagespolingsvisning</translation>
+        <translation>Luk tilbagespolingsvisning</translation>
     </message>
 </context>
 <context>
@@ -2244,143 +2244,143 @@
     </message>
     <message>
         <source>LNG_00018</source>
-        <translation translatorcomment="AI-translated">KVision - Hjælpevindue</translation>
+        <translation>KVision - Hjælpevindue</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Fejl ved læsning af konfiguration!</translation>
+        <translation>Fejl ved læsning af konfiguration!</translation>
     </message>
     <message>
         <source>LNG_00120</source>
-        <translation translatorcomment="AI-translated">Løsn den øverste stang</translation>
+        <translation>Løsn den øverste stang</translation>
     </message>
     <message>
         <source>LNG_00119</source>
-        <translation translatorcomment="AI-translated">Pin top bar</translation>
+        <translation>Pin top bar</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Skift fuld skærm</translation>
+        <translation>Skift fuld skærm</translation>
     </message>
     <message>
         <source>LNG_00218</source>
-        <translation translatorcomment="AI-translated">Minimer vinduet</translation>
+        <translation>Minimer vinduet</translation>
     </message>
     <message>
         <source>LNG_00015</source>
-        <translation translatorcomment="AI-translated">Indstillinger og indstillinger for sidepanelet</translation>
+        <translation>Indstillinger og indstillinger for sidepanelet</translation>
     </message>
     <message>
         <source>LNG_00014</source>
-        <translation translatorcomment="AI-translated">Åbn nyt hjælpevindue</translation>
+        <translation>Åbn nyt hjælpevindue</translation>
     </message>
     <message>
         <source>LNG_00217</source>
-        <translation translatorcomment="AI-translated">Optagelsesarkiv og afspiller</translation>
+        <translation>Optagelsesarkiv og afspiller</translation>
     </message>
     <message>
         <source>LNG_00013</source>
-        <translation translatorcomment="AI-translated">Program brugermanual</translation>
+        <translation>Program brugermanual</translation>
     </message>
     <message>
         <source>LNG_00216</source>
-        <translation translatorcomment="AI-translated">Deaktiver statistik over ressourceforbrug</translation>
+        <translation>Deaktiver statistik over ressourceforbrug</translation>
     </message>
     <message>
         <source>LNG_00215</source>
-        <translation translatorcomment="AI-translated">Aktiver statistik over ressourceforbrug</translation>
+        <translation>Aktiver statistik over ressourceforbrug</translation>
     </message>
     <message>
         <source>LNG_00214</source>
-        <translation translatorcomment="AI-translated">NVR-fejl opdaget!</translation>
+        <translation>NVR-fejl opdaget!</translation>
     </message>
     <message>
         <source>LNG_00213</source>
-        <translation translatorcomment="AI-translated">NVR-status: OK</translation>
+        <translation>NVR-status: OK</translation>
     </message>
     <message>
         <source>LNG_00212</source>
-        <translation translatorcomment="AI-translated">Lås gitterstørrelsen ændres</translation>
+        <translation>Lås gitterstørrelsen ændres</translation>
     </message>
     <message>
         <source>LNG_00009</source>
-        <translation translatorcomment="AI-translated">Flere muligheder</translation>
+        <translation>Flere muligheder</translation>
     </message>
     <message>
         <source>LNG_00211</source>
-        <translation translatorcomment="AI-translated">NVR-fejl opdaget! Klik for at se detaljer.</translation>
+        <translation>NVR-fejl opdaget! Klik for at se detaljer.</translation>
     </message>
     <message>
         <source>LNG_00017</source>
-        <translation translatorcomment="AI-translated">Der er ikke valgt nogen visning. Vælg en visning</translation>
+        <translation>Der er ikke valgt nogen visning. Vælg en visning</translation>
     </message>
     <message>
         <source>LNG_00016</source>
-        <translation translatorcomment="AI-translated">Vælg en visning fra topmenuen for at begynde at vise kameraer.</translation>
+        <translation>Vælg en visning fra topmenuen for at begynde at vise kameraer.</translation>
     </message>
     <message>
         <source>LNG_00210</source>
-        <translation translatorcomment="AI-translated">KVision - Panel</translation>
+        <translation>KVision - Panel</translation>
     </message>
     <message>
         <source>LNG_00121</source>
-        <translation translatorcomment="AI-translated">Luk vinduet</translation>
+        <translation>Luk vinduet</translation>
     </message>
     <message>
         <source>LNG_00007</source>
-        <translation translatorcomment="AI-translated">Luk program</translation>
+        <translation>Luk program</translation>
     </message>
     <message>
         <source>LNG_00209</source>
-        <translation translatorcomment="AI-translated">Er du sikker på, at du vil lukke dette vindue?</translation>
+        <translation>Er du sikker på, at du vil lukke dette vindue?</translation>
     </message>
     <message>
         <source>LNG_00006</source>
-        <translation translatorcomment="AI-translated">Er du sikker på, at du vil lukke programmet?</translation>
+        <translation>Er du sikker på, at du vil lukke programmet?</translation>
     </message>
     <message>
         <source>LNG_00005</source>
-        <translation translatorcomment="AI-translated">JA</translation>
+        <translation>JA</translation>
     </message>
     <message>
         <source>LNG_00004</source>
-        <translation translatorcomment="AI-translated">NEJ</translation>
+        <translation>NEJ</translation>
     </message>
     <message>
         <source>LNG_00208</source>
-        <translation translatorcomment="AI-translated">📊 SYSTEM STATISTIK</translation>
+        <translation>📊 SYSTEM STATISTIK</translation>
     </message>
     <message>
         <source>LNG_00207</source>
-        <translation translatorcomment="AI-translated">Træk statistikpanelet</translation>
+        <translation>Træk statistikpanelet</translation>
     </message>
     <message>
         <source>LNG_00206</source>
-        <translation translatorcomment="AI-translated">RAM:</translation>
+        <translation>RAM:</translation>
     </message>
     <message>
         <source>LNG_00205</source>
-        <translation translatorcomment="AI-translated">VRAM:</translation>
+        <translation>VRAM:</translation>
     </message>
     <message>
         <source>LNG_00204</source>
-        <translation translatorcomment="AI-translated">CPU:</translation>
+        <translation>CPU:</translation>
     </message>
     <message>
         <source>LNG_00203</source>
-        <translation translatorcomment="AI-translated">GPU:</translation>
+        <translation>GPU:</translation>
     </message>
     <message>
         <source>LNG_00202</source>
-        <translation translatorcomment="AI-translated">NETTO:</translation>
+        <translation>NETTO:</translation>
     </message>
     <message>
         <source>LNG_00201</source>
-        <translation translatorcomment="AI-translated">Indlæser nyt vindue...</translation>
+        <translation>Indlæser nyt vindue...</translation>
     </message>
 </context>
 <context>
@@ -3343,947 +3343,1027 @@
     </message>
     <message>
         <source>LNG_00452</source>
-        <translation translatorcomment="AI-translated">Rettede en kritisk fejl, hvor netværkstab og RTSP-stream-timeouts fik afspilleren til at blive en zombie, hvilket forhindrede vellykkede genforbindelser. Genindlæs-knappen og auto-genoptag fungerer nu fuldstændig pålideligt.</translation>
+        <translation>Rettede en kritisk fejl, hvor netværkstab og RTSP-stream-timeouts fik afspilleren til at blive en zombie, hvilket forhindrede vellykkede genforbindelser. Genindlæs-knappen og auto-genoptag fungerer nu fuldstændig pålideligt.</translation>
     </message>
     <message>
         <source>LNG_00451</source>
-        <translation translatorcomment="AI-translated">Opdaterede udseendet af statusmeddelelser for afspiller og arkiv. Indlæsning og gendannelse af meddelelser har nu et behageligt cyan-tema med passende ikoner for bedre at kunne skelne dem fra kritiske fejl (ingen medier/netværk).</translation>
+        <translation>Opdaterede udseendet af statusmeddelelser for afspiller og arkiv. Indlæsning og gendannelse af meddelelser har nu et behageligt cyan-tema med passende ikoner for bedre at kunne skelne dem fra kritiske fejl (ingen medier/netværk).</translation>
     </message>
     <message>
         <source>LNG_00450</source>
-        <translation translatorcomment="AI-translated">Integreret MakeKeyFrame-hardwarekommando med Hikvision SDK. Appen tvinger nu aggressivt kameraet til at udsende en I-Frame, når der skiftes Sub/Main-streams og fra Live til Arkiv, hvilket eliminerer 10-sekunders keyframe-venten.</translation>
+        <translation>Integreret MakeKeyFrame-hardwarekommando med Hikvision SDK. Appen tvinger nu aggressivt kameraet til at udsende en I-Frame, når der skiftes Sub/Main-streams og fra Live til Arkiv, hvilket eliminerer 10-sekunders keyframe-venten.</translation>
     </message>
     <message>
         <source>LNG_00449</source>
-        <translation translatorcomment="AI-translated">Fjernet on-the-fly tilsidesættelse af analysevarighedsparameteren. Appen håndhæver strengt brugerdefinerede FFmpeg-værdier (det anbefales stærkt at indstille det til 100.000 for lydløse kameraer for at omgå 5-sekunders stall-grænsen).</translation>
+        <translation>Fjernet on-the-fly tilsidesættelse af analysevarighedsparameteren. Appen håndhæver strengt brugerdefinerede FFmpeg-værdier (det anbefales stærkt at indstille det til 100.000 for lydløse kameraer for at omgå 5-sekunders stall-grænsen).</translation>
     </message>
     <message>
         <source>LNG_00448</source>
-        <translation translatorcomment="AI-translated">Tilføjet "HikSDK"-badges på optagerens visningsporte for bedre protokoldifferentiering.</translation>
+        <translation>Tilføjet "HikSDK"-badges på optagerens visningsporte for bedre protokoldifferentiering.</translation>
     </message>
     <message>
         <source>LNG_00447</source>
-        <translation translatorcomment="AI-translated">Strømlinet diagnostisk logning (QDebug), der gør det muligt at udskrive advarsler og kritiske fejl til konsollen uden for verbose mode, hvilket letter lettere NVR-fejlfinding.</translation>
+        <translation>Strømlinet diagnostisk logning (QDebug), der gør det muligt at udskrive advarsler og kritiske fejl til konsollen uden for verbose mode, hvilket letter lettere NVR-fejlfinding.</translation>
     </message>
     <message>
         <source>LNG_00446</source>
-        <translation translatorcomment="AI-translated">Filtrerede falsk positive PlayM4 SDK-fejl (nr. 17 og 2), der spammer konsollen under hurtig tidslinje-scrubbing i afspilleren.</translation>
+        <translation>Filtrerede falsk positive PlayM4 SDK-fejl (nr. 17 og 2), der spammer konsollen under hurtig tidslinje-scrubbing i afspilleren.</translation>
     </message>
     <message>
         <source>LNG_00445</source>
-        <translation translatorcomment="AI-translated">Fixed trunkering af ikke-lineær skalering (f.eks. 145 %) af Qt5-rammerne på KDE Plasma-systemer, hvilket håndhæver korrekt fortolkning af High DPI-politikken.</translation>
+        <translation>Fixed trunkering af ikke-lineær skalering (f.eks. 145 %) af Qt5-rammerne på KDE Plasma-systemer, hvilket håndhæver korrekt fortolkning af High DPI-politikken.</translation>
     </message>
     <message>
         <source>LNG_00444</source>
-        <translation translatorcomment="AI-translated">Løst midlertidige fastfrysninger af andre kameraer på live-gitteret, når du søger eller trækker tidslinjen.</translation>
+        <translation>Løst midlertidige fastfrysninger af andre kameraer på live-gitteret, når du søger eller trækker tidslinjen.</translation>
     </message>
     <message>
         <source>LNG_00443</source>
-        <translation translatorcomment="AI-translated">Flyttede alle blokerende Hikvision SDK-netværksopkald (login, stop, start, hastighedskontrol) til en asynkron arbejdstråd.</translation>
+        <translation>Flyttede alle blokerende Hikvision SDK-netværksopkald (login, stop, start, hastighedskontrol) til en asynkron arbejdstråd.</translation>
     </message>
     <message>
         <source>LNG_00442</source>
-        <translation translatorcomment="AI-translated">Fuldstændig elimineret problemet med sort skærm ved skift af kvalitet (SUB/MAIN) for RTSP-kameraer.</translation>
+        <translation>Fuldstændig elimineret problemet med sort skærm ved skift af kvalitet (SUB/MAIN) for RTSP-kameraer.</translation>
     </message>
     <message>
         <source>LNG_00441</source>
-        <translation translatorcomment="AI-translated">Optimeret den sømløse stream switching timer til 100ms for maksimal hastighed.</translation>
+        <translation>Optimeret den sømløse stream switching timer til 100ms for maksimal hastighed.</translation>
     </message>
     <message>
         <source>LNG_00440</source>
-        <translation translatorcomment="AI-translated">Tilføjet FFmpeg-indstillinger på lavt niveau (nobuffer, low_delay) for at eliminere livestream-forsinkelse (drift) over lange driftsperioder.</translation>
+        <translation>Tilføjet FFmpeg-indstillinger på lavt niveau (nobuffer, low_delay) for at eliminere livestream-forsinkelse (drift) over lange driftsperioder.</translation>
     </message>
     <message>
         <source>LNG_00439</source>
-        <translation translatorcomment="AI-translated">Introducerede en knap til masseopdatering af FFmpeg-parametre for alle eksisterende kameraer på tværs af alle layouts.</translation>
+        <translation>Introducerede en knap til masseopdatering af FFmpeg-parametre for alle eksisterende kameraer på tværs af alle layouts.</translation>
     </message>
     <message>
         <source>LNG_00438</source>
-        <translation translatorcomment="AI-translated">Tilføjet mulighed for at udelukke specifikke kameraer fra globale FFmpeg-parameteropdateringer (nyt afkrydsningsfelt i viewport-indstillinger).</translation>
+        <translation>Tilføjet mulighed for at udelukke specifikke kameraer fra globale FFmpeg-parameteropdateringer (nyt afkrydsningsfelt i viewport-indstillinger).</translation>
     </message>
     <message>
         <source>LNG_00437</source>
-        <translation translatorcomment="AI-translated">Sikret standardindstillingsmigreringsprocessen, hvilket giver brugeren mulighed for permanent at fjerne eller ændre nye flag, uden at de bliver tvunget ved hver opstart.</translation>
+        <translation>Sikret standardindstillingsmigreringsprocessen, hvilket giver brugeren mulighed for permanent at fjerne eller ændre nye flag, uden at de bliver tvunget ved hver opstart.</translation>
     </message>
     <message>
         <source>LNG_00436</source>
-        <translation translatorcomment="AI-translated">Tilføjet hurtig afspilningsfunktionalitet (op til 30 minutter tilbage) direkte inde i kameraets visningsport.</translation>
+        <translation>Tilføjet hurtig afspilningsfunktionalitet (op til 30 minutter tilbage) direkte inde i kameraets visningsport.</translation>
     </message>
     <message>
         <source>LNG_00435</source>
-        <translation translatorcomment="AI-translated">Implementeret fuld, tovejs synkronisering i realtid mellem alle vinduer og hjælpeprogramprocesser for indstillinger: lyddæmpning, deaktivering af zoom-animation og alle Hikvision NVR-statusovervågningsmuligheder.</translation>
+        <translation>Implementeret fuld, tovejs synkronisering i realtid mellem alle vinduer og hjælpeprogramprocesser for indstillinger: lyddæmpning, deaktivering af zoom-animation og alle Hikvision NVR-statusovervågningsmuligheder.</translation>
     </message>
     <message>
         <source>LNG_00434</source>
-        <translation translatorcomment="AI-translated">Tilføjet dynamisk visning af minutetiketter (f.eks. :15, :30, :45) ved minuttikker på arkivafspillerens tidslinje med intelligent etiketdensitetsjustering (zoomHours).</translation>
+        <translation>Tilføjet dynamisk visning af minutetiketter (f.eks. :15, :30, :45) ved minuttikker på arkivafspillerens tidslinje med intelligent etiketdensitetsjustering (zoomHours).</translation>
     </message>
     <message>
         <source>LNG_00433</source>
-        <translation translatorcomment="AI-translated">Tilføjet en ny mulighed i UI-indstillinger: "Deaktiver viewport zoom-animation" med øjeblikkelig anvendelse i kameragittervisning.</translation>
+        <translation>Tilføjet en ny mulighed i UI-indstillinger: "Deaktiver viewport zoom-animation" med øjeblikkelig anvendelse i kameragittervisning.</translation>
     </message>
     <message>
         <source>LNG_00432</source>
-        <translation translatorcomment="AI-translated">Genopbygget arkivafspillerens initialiseringsprocessen: suspenderet forbindelse og videoindlæsning, indtil de nøjagtige optagelsesgrænser er fastlagt (via en ultrahurtig 24-timers asynkron søgning), hvilket eliminerer for tidlig afspilning og billedspring.</translation>
+        <translation>Genopbygget arkivafspillerens initialiseringsprocessen: suspenderet forbindelse og videoindlæsning, indtil de nøjagtige optagelsesgrænser er fastlagt (via en ultrahurtig 24-timers asynkron søgning), hvilket eliminerer for tidlig afspilning og billedspring.</translation>
     </message>
     <message>
         <source>LNG_00431</source>
-        <translation translatorcomment="AI-translated">Forfinet Hikvision-arkivindlæsningsmeddelelser – indlæsningsstatus vises kun under aktiv stream-buffering, og en dedikeret advarsel vises, hvis afspilningshovedet flyttes ud over tilgængelige optagelsesgrænser.</translation>
+        <translation>Forfinet Hikvision-arkivindlæsningsmeddelelser – indlæsningsstatus vises kun under aktiv stream-buffering, og en dedikeret advarsel vises, hvis afspilningshovedet flyttes ud over tilgængelige optagelsesgrænser.</translation>
     </message>
     <message>
         <source>LNG_00430</source>
-        <translation translatorcomment="AI-translated">Introducerede nye konfigurationsfelter i indstillingspanelet: standard arkivafspilning start offset (i sekunder, standard 60s) og standard tidslinje zoom span (zoom timer, standard 2 timer).</translation>
+        <translation>Introducerede nye konfigurationsfelter i indstillingspanelet: standard arkivafspilning start offset (i sekunder, standard 60s) og standard tidslinje zoom span (zoom timer, standard 2 timer).</translation>
     </message>
     <message>
         <source>LNG_00429</source>
-        <translation translatorcomment="AI-translated">Tilføjet et direkte web-login-ikon til optagerens webpanel inde i NVR-status popup.</translation>
+        <translation>Tilføjet et direkte web-login-ikon til optagerens webpanel inde i NVR-status popup.</translation>
     </message>
     <message>
         <source>LNG_00428</source>
-        <translation translatorcomment="AI-translated">Tilføjet fejlrapporteringsundertrykkelsesfunktion for individuelle optagere.</translation>
+        <translation>Tilføjet fejlrapporteringsundertrykkelsesfunktion for individuelle optagere.</translation>
     </message>
     <message>
         <source>LNG_00427</source>
-        <translation translatorcomment="AI-translated">Rettede forkert polsk oversættelse "Simuleret optager" i statusvinduet og implementeret korrekt ordskelning ("Undertrykkelse" for fejl vs "Mute" for lyd).</translation>
+        <translation>Rettede forkert polsk oversættelse "Simuleret optager" i statusvinduet og implementeret korrekt ordskelning ("Undertrykkelse" for fejl vs "Mute" for lyd).</translation>
     </message>
     <message>
         <source>LNG_00426</source>
-        <translation translatorcomment="AI-translated">Implementeret periodisk (hvert 5. minut) og manuel Hikvision NVR/DVR fejlstatusovervågning ved hjælp af SDK/ISAPI diagnostik.</translation>
+        <translation>Implementeret periodisk (hvert 5. minut) og manuel Hikvision NVR/DVR fejlstatusovervågning ved hjælp af SDK/ISAPI diagnostik.</translation>
     </message>
     <message>
         <source>LNG_00425</source>
-        <translation translatorcomment="AI-translated">Tilføjede konfigurationsmuligheder i generelle indstillinger for at aktivere/deaktivere Hikvision NVR-statuskontrol og tilpasse overvågede kritiske fejltyper.</translation>
+        <translation>Tilføjede konfigurationsmuligheder i generelle indstillinger for at aktivere/deaktivere Hikvision NVR-statuskontrol og tilpasse overvågede kritiske fejltyper.</translation>
     </message>
     <message>
         <source>LNG_00424</source>
-        <translation translatorcomment="AI-translated">Designet et high-fidelity varm-grønt/rødt statusikon på øverste bjælke med dybe pulserende ydre bølger og indre hjerteslags pulserende animationer for at signalere aktive kritiske fejl.</translation>
+        <translation>Designet et high-fidelity varm-grønt/rødt statusikon på øverste bjælke med dybe pulserende ydre bølger og indre hjerteslags pulserende animationer for at signalere aktive kritiske fejl.</translation>
     </message>
     <message>
         <source>LNG_00423</source>
-        <translation translatorcomment="AI-translated">Introduceret en øverste fremspringende rød indikatorcirkel, der pulserer øverst på skærmen, når hovedværktøjslinjen er klappet sammen, hvilket sikrer, at kritiske advarsler aldrig går glip af.</translation>
+        <translation>Introduceret en øverste fremspringende rød indikatorcirkel, der pulserer øverst på skærmen, når hovedværktøjslinjen er klappet sammen, hvilket sikrer, at kritiske advarsler aldrig går glip af.</translation>
     </message>
     <message>
         <source>LNG_00422</source>
-        <translation translatorcomment="AI-translated">Oprettet et elegant, rullebart popup-vindue "Optagerstatus" begrænset til 85 % af skærmhøjden med detaljerede fejlkoder.</translation>
+        <translation>Oprettet et elegant, rullebart popup-vindue "Optagerstatus" begrænset til 85 % af skærmhøjden med detaljerede fejlkoder.</translation>
     </message>
     <message>
         <source>LNG_00421</source>
-        <translation translatorcomment="AI-translated">Tilføjet kørselsflag "--simulate-error" for øjeblikkeligt at simulere diskfejl og forbindelsesfejl på tværs af alle optagere til demonstrationsformål.</translation>
+        <translation>Tilføjet kørselsflag "--simulate-error" for øjeblikkeligt at simulere diskfejl og forbindelsesfejl på tværs af alle optagere til demonstrationsformål.</translation>
     </message>
     <message>
         <source>LNG_00420</source>
-        <translation translatorcomment="AI-translated">Implementeret listeramme-badges og statusindikatorjusteringer på tværs af konfigurerede optagervisninger.</translation>
+        <translation>Implementeret listeramme-badges og statusindikatorjusteringer på tværs af konfigurerede optagervisninger.</translation>
     </message>
     <message>
         <source>LNG_00419</source>
-        <translation translatorcomment="AI-translated">Opnået komplet tosproget oversættelsesdækning (polsk/engelsk) for al NVR-diagnostik, indstilling af afkrydsningsfelter, værktøjstip, advarsler og kommandolinjeparsermuligheder.</translation>
+        <translation>Opnået komplet tosproget oversættelsesdækning (polsk/engelsk) for al NVR-diagnostik, indstilling af afkrydsningsfelter, værktøjstip, advarsler og kommandolinjeparsermuligheder.</translation>
     </message>
     <message>
         <source>LNG_00418</source>
-        <translation translatorcomment="AI-translated">Tilføjet muligheden for at genindlæse det aktive layout ved at klikke på dets knap på den øverste værktøjslinje.</translation>
+        <translation>Tilføjet muligheden for at genindlæse det aktive layout ved at klikke på dets knap på den øverste værktøjslinje.</translation>
     </message>
     <message>
         <source>LNG_00417</source>
-        <translation translatorcomment="AI-translated">Gennemsnitlige NVML-udnyttelsesprøver over tid for at udjævne grafen for GPU-brug og eliminere ujævne aflæsninger.</translation>
+        <translation>Gennemsnitlige NVML-udnyttelsesprøver over tid for at udjævne grafen for GPU-brug og eliminere ujævne aflæsninger.</translation>
     </message>
     <message>
         <source>LNG_00416</source>
-        <translation translatorcomment="AI-translated">Elimineret kortvarigt videoblink (sorte rammer) og audio-video ude af synkroniseringsgab, når der skiftes kvalitet fra SUB- til MAIN-streams under viewportmaksimering ved at forsinke det aktive spillerskift, indtil det første billede er malet på skærmen.</translation>
+        <translation>Elimineret kortvarigt videoblink (sorte rammer) og audio-video ude af synkroniseringsgab, når der skiftes kvalitet fra SUB- til MAIN-streams under viewportmaksimering ved at forsinke det aktive spillerskift, indtil det første billede er malet på skærmen.</translation>
     </message>
     <message>
         <source>LNG_00415</source>
-        <translation translatorcomment="AI-translated">Tilføjet interaktive, klare og 2x bredere rullebjælker til time-, minut- og andenvalgskolonnerne i popup-vinduet til valg af arkivoverførselstid.</translation>
+        <translation>Tilføjet interaktive, klare og 2x bredere rullebjælker til time-, minut- og andenvalgskolonnerne i popup-vinduet til valg af arkivoverførselstid.</translation>
     </message>
     <message>
         <source>LNG_00414</source>
-        <translation translatorcomment="AI-translated">Tilføjet nye intuitive muligheder til visningsportens kontekstmenu: 'Snapshot' (gemmer det aktuelle billede) og 'Afspilning' (umiddelbar overgang til arkivafspilning af det givne kamera).</translation>
+        <translation>Tilføjet nye intuitive muligheder til visningsportens kontekstmenu: 'Snapshot' (gemmer det aktuelle billede) og 'Afspilning' (umiddelbar overgang til arkivafspilning af det givne kamera).</translation>
     </message>
     <message>
         <source>LNG_00413</source>
-        <translation translatorcomment="AI-translated">Revolutioneret og fast PCM-lydhåndtering: direkte pipeline-videresendelse til QAudioOutput, eliminering af grænsefladefrysninger (ALSA/PulseAudio/Pipewire) ved at stabilisere sample rate (debounce efter 5 stabile frames), 2s nedkøling på outputgenskabelse, filtrering af beskadigede parametre og en 64KB buffer, der reducerer netværksjitter.</translation>
+        <translation>Revolutioneret og fast PCM-lydhåndtering: direkte pipeline-videresendelse til QAudioOutput, eliminering af grænsefladefrysninger (ALSA/PulseAudio/Pipewire) ved at stabilisere sample rate (debounce efter 5 stabile frames), 2s nedkøling på outputgenskabelse, filtrering af beskadigede parametre og en 64KB buffer, der reducerer netværksjitter.</translation>
     </message>
     <message>
         <source>LNG_00412</source>
-        <translation translatorcomment="AI-translated">Implementeret en interaktiv HUD-volumenskyder direkte på viewport-fliserne sammen med en hurtig mute-indstilling og et-kliks volumenmaksimering.</translation>
+        <translation>Implementeret en interaktiv HUD-volumenskyder direkte på viewport-fliserne sammen med en hurtig mute-indstilling og et-kliks volumenmaksimering.</translation>
     </message>
     <message>
         <source>LNG_00411</source>
-        <translation translatorcomment="AI-translated">Implementeret automatisk og øjeblikkelig muting af LIVE-streams i hovednettet ved åbning af Arkivafspilningsvinduet, hvilket forhindrer overlappende lyde (kakofoni).</translation>
+        <translation>Implementeret automatisk og øjeblikkelig muting af LIVE-streams i hovednettet ved åbning af Arkivafspilningsvinduet, hvilket forhindrer overlappende lyde (kakofoni).</translation>
     </message>
     <message>
         <source>LNG_00410</source>
-        <translation translatorcomment="AI-translated">Introducerede et centralt SnapshotSavedDialog-meddelelsessystem for gemte snapshots (mørkegrå indkapsling, blågrønne kanter, auto-luk efter 10 sekunder) med et hurtigt 'Gennemse'-link for at åbne mappen direkte i systemfilhåndteringen.</translation>
+        <translation>Introducerede et centralt SnapshotSavedDialog-meddelelsessystem for gemte snapshots (mørkegrå indkapsling, blågrønne kanter, auto-luk efter 10 sekunder) med et hurtigt 'Gennemse'-link for at åbne mappen direkte i systemfilhåndteringen.</translation>
     </message>
     <message>
         <source>LNG_00409</source>
-        <translation translatorcomment="AI-translated">Berigede det indbyggede hjælpevindue med et detaljeret 'Knapfunktionsbeskrivelse'-kapitel ved hjælp af indbyggede, skarpe SVG-vektorikoner. Hjælpevinduet åbner nu fuldautomatisk og centreret over hovedvinduet ved programmets første lancering.</translation>
+        <translation>Berigede det indbyggede hjælpevindue med et detaljeret 'Knapfunktionsbeskrivelse'-kapitel ved hjælp af indbyggede, skarpe SVG-vektorikoner. Hjælpevinduet åbner nu fuldautomatisk og centreret over hovedvinduet ved programmets første lancering.</translation>
     </message>
     <message>
         <source>LNG_00408</source>
-        <translation translatorcomment="AI-translated">Indført standardvisning af den øverste bjælke ved program-/vinduestart og tilføjet en 'Vis øverste bjælke som standard efter åbning af et vindue'-indstilling i indstillingerne, hvilket tillader tilpasning af denne adfærd til personlige præferencer.</translation>
+        <translation>Indført standardvisning af den øverste bjælke ved program-/vinduestart og tilføjet en 'Vis øverste bjælke som standard efter åbning af et vindue'-indstilling i indstillingerne, hvilket tillader tilpasning af denne adfærd til personlige præferencer.</translation>
     </message>
     <message>
         <source>LNG_00407</source>
-        <translation translatorcomment="AI-translated">Implementerede dynamiske RPATH-biblioteksstier i CMakeLists.txt ved hjælp af GNUInstallDirs, hvilket muliggør øjeblikkelig eksekvering af det kompilerede program på Ubuntu og Debian uden behov for manuel konfiguration af /etc/ld.so.conf.d/ og ldconfig.</translation>
+        <translation>Implementerede dynamiske RPATH-biblioteksstier i CMakeLists.txt ved hjælp af GNUInstallDirs, hvilket muliggør øjeblikkelig eksekvering af det kompilerede program på Ubuntu og Debian uden behov for manuel konfiguration af /etc/ld.so.conf.d/ og ldconfig.</translation>
     </message>
     <message>
         <source>LNG_00406</source>
-        <translation translatorcomment="AI-translated">Omdøbte programmet til KVision og introducerede automatisk brugerkonfigurationsmigrering, nye ikoner i flere størrelser (128px, 256px, 512px) og fuld versionsvisning i vinduets titellinje.</translation>
+        <translation>Omdøbte programmet til KVision og introducerede automatisk brugerkonfigurationsmigrering, nye ikoner i flere størrelser (128px, 256px, 512px) og fuld versionsvisning i vinduets titellinje.</translation>
     </message>
     <message>
         <source>LNG_00405</source>
-        <translation translatorcomment="AI-translated">Rettede advarselsvinduet for overskridelse af grænsen for hjælpevinduer (manglende QML-ressource og QSettings læst).</translation>
+        <translation>Rettede advarselsvinduet for overskridelse af grænsen for hjælpevinduer (manglende QML-ressource og QSettings læst).</translation>
     </message>
     <message>
         <source>LNG_00404</source>
-        <translation translatorcomment="AI-translated">Rettede det manglende programikon under Wayland (hicolor-temainstallation og setDesktopFileName).</translation>
+        <translation>Rettede det manglende programikon under Wayland (hicolor-temainstallation og setDesktopFileName).</translation>
     </message>
     <message>
         <source>LNG_00403</source>
-        <translation translatorcomment="AI-translated">Fjernede muligheden for automatisk at skjule den øverste bjælke fra Indstillinger - fra nu af kollapser den øverste bjælke i LIVE-vinduer (hoved- og hjælpevinduer) som standard ved opstart, og pin-knappen fastgør den lokalt og midlertidigt (i hukommelsen) uden at gemme dens tilstand.</translation>
+        <translation>Fjernede muligheden for automatisk at skjule den øverste bjælke fra Indstillinger - fra nu af kollapser den øverste bjælke i LIVE-vinduer (hoved- og hjælpevinduer) som standard ved opstart, og pin-knappen fastgør den lokalt og midlertidigt (i hukommelsen) uden at gemme dens tilstand.</translation>
     </message>
     <message>
         <source>LNG_00402</source>
-        <translation translatorcomment="AI-translated">Indført en grænse for antallet af ekstra vinduer (kan konfigureres fra 0 til 3) med et elegant advarselsvindue, når man forsøger at overskride det.</translation>
+        <translation>Indført en grænse for antallet af ekstra vinduer (kan konfigureres fra 0 til 3) med et elegant advarselsvindue, når man forsøger at overskride det.</translation>
     </message>
     <message>
         <source>LNG_00401</source>
-        <translation translatorcomment="AI-translated">Tilføjet subtile 1px mørkegrå kanter omkring ubrugte visningsporte i LIVE-layoutgitteret for bedre afgrænsning af felter.</translation>
+        <translation>Tilføjet subtile 1px mørkegrå kanter omkring ubrugte visningsporte i LIVE-layoutgitteret for bedre afgrænsning af felter.</translation>
     </message>
     <message>
         <source>LNG_00400</source>
-        <translation translatorcomment="AI-translated">Sikker redigering af gemmestier og systemmediekonfigurationsmuligheder bag et forbigående "Aktiver ændringer i denne sektion" afkrydsningsfelt, hvilket forhindrer utilsigtede ændringer (redigeringstilstand nulstilles ved lukning).</translation>
+        <translation>Sikker redigering af gemmestier og systemmediekonfigurationsmuligheder bag et forbigående "Aktiver ændringer i denne sektion" afkrydsningsfelt, hvilket forhindrer utilsigtede ændringer (redigeringstilstand nulstilles ved lukning).</translation>
     </message>
     <message>
         <source>LNG_00399</source>
-        <translation translatorcomment="AI-translated">Introducerede direkte genveje til 'åbn gem mappe' (fremhævet i celadon ved gennemført download i arkivvinduet) og altid aktive hurtigåbne knapper til snapshot- og videomapper i Indstillinger (med automatisk oprettelse af mappe på disk, hvis den mangler).</translation>
+        <translation>Introducerede direkte genveje til 'åbn gem mappe' (fremhævet i celadon ved gennemført download i arkivvinduet) og altid aktive hurtigåbne knapper til snapshot- og videomapper i Indstillinger (med automatisk oprettelse af mappe på disk, hvis den mangler).</translation>
     </message>
     <message>
         <source>LNG_00398</source>
-        <translation translatorcomment="AI-translated">Indført interaktiv validering ved klik på knappen 'Pobierz' (Download) i downloadvinduet: automatisk format- og kronologisk datotjek, visning af et rødt værktøjstip og fokus på det første ugyldige felt.</translation>
+        <translation>Indført interaktiv validering ved klik på knappen 'Pobierz' (Download) i downloadvinduet: automatisk format- og kronologisk datotjek, visning af et rødt værktøjstip og fokus på det første ugyldige felt.</translation>
     </message>
     <message>
         <source>LNG_00397</source>
-        <translation translatorcomment="AI-translated">Implementeret fuld tastaturnavigation (pil op/ned for at ændre værdier, venstre/højre for at skifte kolonne) inde i urvælger-popup'en.</translation>
+        <translation>Implementeret fuld tastaturnavigation (pil op/ned for at ændre værdier, venstre/højre for at skifte kolonne) inde i urvælger-popup'en.</translation>
     </message>
     <message>
         <source>LNG_00396</source>
-        <translation translatorcomment="AI-translated">Sikrede en fuldstændig ren lancering af hjælpevinduer (uden automatisk at åbne sidebjælken med muligheder) og udelukkede geometriindstillinger, der gemte fra hjælpevinduer, hvilket eliminerede delt konfigurationskontamination.</translation>
+        <translation>Sikrede en fuldstændig ren lancering af hjælpevinduer (uden automatisk at åbne sidebjælken med muligheder) og udelukkede geometriindstillinger, der gemte fra hjælpevinduer, hvilket eliminerede delt konfigurationskontamination.</translation>
     </message>
     <message>
         <source>LNG_00395</source>
-        <translation translatorcomment="AI-translated">Tilføjet fuld engelsk sprogunderstøttelse for alle nye formaterings- og kronologiske valideringsfejlmeddelelser i downloadvinduet.</translation>
+        <translation>Tilføjet fuld engelsk sprogunderstøttelse for alle nye formaterings- og kronologiske valideringsfejlmeddelelser i downloadvinduet.</translation>
     </message>
     <message>
         <source>LNG_00394</source>
-        <translation translatorcomment="AI-translated">Elimineret RAM-hukommelseslækager ved skift af kameralayout ved automatisk og korrekt at stoppe videooverfladen før opdatering af formater og matchende renderer-dimensioner.</translation>
+        <translation>Elimineret RAM-hukommelseslækager ved skift af kameralayout ved automatisk og korrekt at stoppe videooverfladen før opdatering af formater og matchende renderer-dimensioner.</translation>
     </message>
     <message>
         <source>LNG_00393</source>
-        <translation translatorcomment="AI-translated">Implementerede ubetinget frigivelse og ødelæggelse af lydoutputobjekter ved afspillerstop og introducerede automatisk genbrug af disse objekter for at eliminere hukommelses- og trådlækager på Linux.</translation>
+        <translation>Implementerede ubetinget frigivelse og ødelæggelse af lydoutputobjekter ved afspillerstop og introducerede automatisk genbrug af disse objekter for at eliminere hukommelses- og trådlækager på Linux.</translation>
     </message>
     <message>
         <source>LNG_00392</source>
-        <translation translatorcomment="AI-translated">Løste problemer med videofrysning (ensfarvet skærm efter viewport-zoom) ved at fremtvinge korrekt videotilgængelighedssignalering, når den første frame af en ny stream blev præsenteret.</translation>
+        <translation>Løste problemer med videofrysning (ensfarvet skærm efter viewport-zoom) ved at fremtvinge korrekt videotilgængelighedssignalering, når den første frame af en ny stream blev præsenteret.</translation>
     </message>
     <message>
         <source>LNG_00391</source>
-        <translation translatorcomment="AI-translated">Tilføjet en global indstilling 'Deaktiver lydunderstøttelse helt', hvilket tillader total bypass af lydbehandling for at eliminere potentielle overhead- og hukommelseslækager.</translation>
+        <translation>Tilføjet en global indstilling 'Deaktiver lydunderstøttelse helt', hvilket tillader total bypass af lydbehandling for at eliminere potentielle overhead- og hukommelseslækager.</translation>
     </message>
     <message>
         <source>LNG_00390</source>
-        <translation translatorcomment="AI-translated">Optimerede systemstatistikmodulet for at eliminere kontinuerligt hukommelsesforbrug ved at cache proces-id'er og fjerne dynamiske regulære udtryksallokeringer.</translation>
+        <translation>Optimerede systemstatistikmodulet for at eliminere kontinuerligt hukommelsesforbrug ved at cache proces-id'er og fjerne dynamiske regulære udtryksallokeringer.</translation>
     </message>
     <message>
         <source>LNG_00389</source>
-        <translation translatorcomment="AI-translated">Påtvunget aggressiv Garbage Collection (GC) på kameralayoutskift og annullerede billedskaleringskontekster (SwsContext) i videobuffere.</translation>
+        <translation>Påtvunget aggressiv Garbage Collection (GC) på kameralayoutskift og annullerede billedskaleringskontekster (SwsContext) i videobuffere.</translation>
     </message>
     <message>
         <source>LNG_00388</source>
-        <translation translatorcomment="AI-translated">Sikret korrekt ressourceoprydning af den statiske konfigurationsfilændringsdetektor (QFileSystemWatcher) ved applikationsafslutning.</translation>
+        <translation>Sikret korrekt ressourceoprydning af den statiske konfigurationsfilændringsdetektor (QFileSystemWatcher) ved applikationsafslutning.</translation>
     </message>
     <message>
         <source>LNG_00387</source>
-        <translation translatorcomment="AI-translated">Rettede problemer med synkronisering og frysning af hjælpevindue-processen på langsommere maskiner under sekventiel kamerasletning og viewport-sammenlægning eller flytning.</translation>
+        <translation>Rettede problemer med synkronisering og frysning af hjælpevindue-processen på langsommere maskiner under sekventiel kamerasletning og viewport-sammenlægning eller flytning.</translation>
     </message>
     <message>
         <source>LNG_00386</source>
-        <translation translatorcomment="AI-translated">Fast aggregering af GPU-udnyttelse, VRAM-brug og netværksbåndbreddestatistikker fra alle applikationsprocesser ved hjælp af delt hukommelse (/dev/shm) i baggrunden.</translation>
+        <translation>Fast aggregering af GPU-udnyttelse, VRAM-brug og netværksbåndbreddestatistikker fra alle applikationsprocesser ved hjælp af delt hukommelse (/dev/shm) i baggrunden.</translation>
     </message>
     <message>
         <source>LNG_00385</source>
-        <translation translatorcomment="AI-translated">Beskyttet arkivspiller-destruktor fra dataløb ved oprydning af ventende RGB-opgaver.</translation>
+        <translation>Beskyttet arkivspiller-destruktor fra dataløb ved oprydning af ventende RGB-opgaver.</translation>
     </message>
     <message>
         <source>LNG_00384</source>
-        <translation translatorcomment="AI-translated">Implementeret videoafspillerpooling for at eliminere RAM-forbrugsspidser og flimren ved skift af layout.</translation>
+        <translation>Implementeret videoafspillerpooling for at eliminere RAM-forbrugsspidser og flimren ved skift af layout.</translation>
     </message>
     <message>
         <source>LNG_00383</source>
-        <translation translatorcomment="AI-translated">Optimeret GPU/VRAM-overvågning til en processpecifik model (ingen nvidia-smi spawning) med indbygget understøttelse af NVIDIA, AMD og Intel GPU'er (AMD/Intel statistik er utestet).</translation>
+        <translation>Optimeret GPU/VRAM-overvågning til en processpecifik model (ingen nvidia-smi spawning) med indbygget understøttelse af NVIDIA, AMD og Intel GPU'er (AMD/Intel statistik er utestet).</translation>
     </message>
     <message>
         <source>LNG_00382</source>
-        <translation translatorcomment="AI-translated">Tilladt at ændre størrelsen på systemstatistikpanelet ved at trække dets kanter og hjørner med automatisk skalering af grafer.</translation>
+        <translation>Tilladt at ændre størrelsen på systemstatistikpanelet ved at trække dets kanter og hjørner med automatisk skalering af grafer.</translation>
     </message>
     <message>
         <source>LNG_00381</source>
-        <translation translatorcomment="AI-translated">Implementeret øjeblikkelig skjulning af hoved- og hjælpevinduer ved afslutningsbekræftelse, hvilket gør, at nedlukning vises øjeblikkeligt for brugeren, mens tråd- og hukommelsesoprydning kører sikkert i baggrunden.</translation>
+        <translation>Implementeret øjeblikkelig skjulning af hoved- og hjælpevinduer ved afslutningsbekræftelse, hvilket gør, at nedlukning vises øjeblikkeligt for brugeren, mens tråd- og hukommelsesoprydning kører sikkert i baggrunden.</translation>
     </message>
     <message>
         <source>LNG_00380</source>
-        <translation translatorcomment="AI-translated">Konverterede topværktøjslinjer i både LIVE- og ARCHIVE-vinduer til centrerede flydende dokker (LIVE-dok har dynamisk bredde).</translation>
+        <translation>Konverterede topværktøjslinjer i både LIVE- og ARCHIVE-vinduer til centrerede flydende dokker (LIVE-dok har dynamisk bredde).</translation>
     </message>
     <message>
         <source>LNG_00379</source>
-        <translation translatorcomment="AI-translated">Tilføjet en lodret separator i den øverste bjælke forankres mellem gitterindstillinger og layout.</translation>
+        <translation>Tilføjet en lodret separator i den øverste bjælke forankres mellem gitterindstillinger og layout.</translation>
     </message>
     <message>
         <source>LNG_00378</source>
-        <translation translatorcomment="AI-translated">Øget gennemsigtighed af arkivets øverste og nederste bjælker (60 % i vinduestilstand, 26 % i fuld skærm) og indstil tidslinjebaggrunden til gennemsigtig.</translation>
+        <translation>Øget gennemsigtighed af arkivets øverste og nederste bjælker (60 % i vinduestilstand, 26 % i fuld skærm) og indstil tidslinjebaggrunden til gennemsigtig.</translation>
     </message>
     <message>
         <source>LNG_00377</source>
-        <translation translatorcomment="AI-translated">Forenklede afspilningshastighedsikoner i arkivet for at rydde tekst (1x, 2x, 4x) og fjernede den ustabile 8x-hastighedsindstilling.</translation>
+        <translation>Forenklede afspilningshastighedsikoner i arkivet for at rydde tekst (1x, 2x, 4x) og fjernede den ustabile 8x-hastighedsindstilling.</translation>
     </message>
     <message>
         <source>LNG_00376</source>
-        <translation translatorcomment="AI-translated">Udskiftede månedlige navigationstekstknapper i arkiv- og downloadkalendere med grafiske pile (chevrons).</translation>
+        <translation>Udskiftede månedlige navigationstekstknapper i arkiv- og downloadkalendere med grafiske pile (chevrons).</translation>
     </message>
     <message>
         <source>LNG_00375</source>
-        <translation translatorcomment="AI-translated">Flyttet lukkeknap for kameravisningsport fra øverste højre hjørne til det nederste højre kontrolområde for at forhindre utilsigtede klik.</translation>
+        <translation>Flyttet lukkeknap for kameravisningsport fra øverste højre hjørne til det nederste højre kontrolområde for at forhindre utilsigtede klik.</translation>
     </message>
     <message>
         <source>LNG_00374</source>
-        <translation translatorcomment="AI-translated">Optimeret tekstkontrast for valgt gitterlayout i arkivvinduet (mørk tekst på en celadon-baggrund).</translation>
+        <translation>Optimeret tekstkontrast for valgt gitterlayout i arkivvinduet (mørk tekst på en celadon-baggrund).</translation>
     </message>
     <message>
         <source>LNG_00373</source>
-        <translation translatorcomment="AI-translated">Konverterede systemstatistikpanelet til et flydende panel, der kan trækkes (med klik) ved hjælp af et nyt dedikeret gribehåndtag.</translation>
+        <translation>Konverterede systemstatistikpanelet til et flydende panel, der kan trækkes (med klik) ved hjælp af et nyt dedikeret gribehåndtag.</translation>
     </message>
     <message>
         <source>LNG_00372</source>
-        <translation translatorcomment="AI-translated">Løste kritiske indstillinger synkroniseringsløkke og UI-frysning ved sletning af viewport-layouts.</translation>
+        <translation>Løste kritiske indstillinger synkroniseringsløkke og UI-frysning ved sletning af viewport-layouts.</translation>
     </message>
     <message>
         <source>LNG_00371</source>
-        <translation translatorcomment="AI-translated">Forstørrede hastigheds-, zoom- og videokontrolikoner i arkivet for at forbedre synlighed og øget tekststørrelse inde i SVG-ikonerne.</translation>
+        <translation>Forstørrede hastigheds-, zoom- og videokontrolikoner i arkivet for at forbedre synlighed og øget tekststørrelse inde i SVG-ikonerne.</translation>
     </message>
     <message>
         <source>LNG_00370</source>
-        <translation translatorcomment="AI-translated">Fjernede duplikerede tekstknapper til zoom-genveje i arkivet, og erstattede dem fuldstændigt med cirkulære ikoner.</translation>
+        <translation>Fjernede duplikerede tekstknapper til zoom-genveje i arkivet, og erstattede dem fuldstændigt med cirkulære ikoner.</translation>
     </message>
     <message>
         <source>LNG_00369</source>
-        <translation translatorcomment="AI-translated">Tilføjet komplette engelske og polske oversættelser til alle værktøjstip i arkivvinduet.</translation>
+        <translation>Tilføjet komplette engelske og polske oversættelser til alle værktøjstip i arkivvinduet.</translation>
     </message>
     <message>
         <source>LNG_00368</source>
-        <translation translatorcomment="AI-translated">Introduceret tovejs konfigurationssynkronisering i realtid mellem hovedvinduet og hjælpevinduer med understøttelse af unikke, automatiske hjælpevindue-id'er.</translation>
+        <translation>Introduceret tovejs konfigurationssynkronisering i realtid mellem hovedvinduet og hjælpevinduer med understøttelse af unikke, automatiske hjælpevindue-id'er.</translation>
     </message>
     <message>
         <source>LNG_00367</source>
-        <translation translatorcomment="AI-translated">Tilføjet automatisk sessionsgendannelse (auto-genopret forbindelse) i Hikvision-arkivafspilleren efter fuldførte downloads, eller forbindelser er droppet af optageren.</translation>
+        <translation>Tilføjet automatisk sessionsgendannelse (auto-genopret forbindelse) i Hikvision-arkivafspilleren efter fuldførte downloads, eller forbindelser er droppet af optageren.</translation>
     </message>
     <message>
         <source>LNG_00366</source>
-        <translation translatorcomment="AI-translated">Elimineret potentielle trådlækager og FFmpeg-videodekoder hænger under layoutskift ved at anvende sikre std::weak_ptr-referencer til dekodermediekontekster.</translation>
+        <translation>Elimineret potentielle trådlækager og FFmpeg-videodekoder hænger under layoutskift ved at anvende sikre std::weak_ptr-referencer til dekodermediekontekster.</translation>
     </message>
     <message>
         <source>LNG_00365</source>
-        <translation translatorcomment="AI-translated">Rettede en hukommelseslækage i ViewportsLayouts-modeller ved sikkert at slette layoutobjekter ved hjælp af deleteLater().</translation>
+        <translation>Rettede en hukommelseslækage i ViewportsLayouts-modeller ved sikkert at slette layoutobjekter ved hjælp af deleteLater().</translation>
     </message>
     <message>
         <source>LNG_00364</source>
-        <translation translatorcomment="AI-translated">Afværgede videogengivelsesoverfladestartfejl (OpenGL) under hurtige NVR-faneændringer - logfiler blev degraderet til fejlretningsniveau, og systemet forsøger stille og roligt at gengive i baggrunden, efter at GPU-buffere er frigivet.</translation>
+        <translation>Afværgede videogengivelsesoverfladestartfejl (OpenGL) under hurtige NVR-faneændringer - logfiler blev degraderet til fejlretningsniveau, og systemet forsøger stille og roligt at gengive i baggrunden, efter at GPU-buffere er frigivet.</translation>
     </message>
     <message>
         <source>LNG_00363</source>
-        <translation translatorcomment="AI-translated">Løste det resterende RAM-forbrug (20-30 MB) efter lukning af arkivvinduet gennem multi-trins heap-oprydning og QML engine cache-optimeringer.</translation>
+        <translation>Løste det resterende RAM-forbrug (20-30 MB) efter lukning af arkivvinduet gennem multi-trins heap-oprydning og QML engine cache-optimeringer.</translation>
     </message>
     <message>
         <source>LNG_00362</source>
-        <translation translatorcomment="AI-translated">Optimeret RAM-brug under kameraskalering og ændring af størrelse/zooming af viewport, hvilket forhindrer overdreven hukommelsesophobning under kontinuerlige ændringer af videostreamlayout.</translation>
+        <translation>Optimeret RAM-brug under kameraskalering og ændring af størrelse/zooming af viewport, hvilket forhindrer overdreven hukommelsesophobning under kontinuerlige ændringer af videostreamlayout.</translation>
     </message>
     <message>
         <source>LNG_00361</source>
-        <translation translatorcomment="AI-translated">Tilføjet en præcis, real-time frames per second (FPS) indikator i øverste venstre hjørne af hver viewport til både live og arkiv afspilningsstreams.</translation>
+        <translation>Tilføjet en præcis, real-time frames per second (FPS) indikator i øverste venstre hjørne af hver viewport til både live og arkiv afspilningsstreams.</translation>
     </message>
     <message>
         <source>LNG_00360</source>
-        <translation translatorcomment="AI-translated">Implementeret sikker afslutning og frigivelse af download-tråde i Hikvision-downloaderen, hvilket sikrer stabil og øjeblikkelig nedlukning af applikationer uden at blokere systemressourcer.</translation>
+        <translation>Implementeret sikker afslutning og frigivelse af download-tråde i Hikvision-downloaderen, hvilket sikrer stabil og øjeblikkelig nedlukning af applikationer uden at blokere systemressourcer.</translation>
     </message>
     <message>
         <source>LNG_00359</source>
-        <translation translatorcomment="AI-translated">Tilføjet et dynamisk kamerasøgefelt i arkivvinduet med en nulstillingsknap og automatisk udvidende matchende optagere.</translation>
+        <translation>Tilføjet et dynamisk kamerasøgefelt i arkivvinduet med en nulstillingsknap og automatisk udvidende matchende optagere.</translation>
     </message>
     <message>
         <source>LNG_00358</source>
-        <translation translatorcomment="AI-translated">Aktiveret ombrydning af lange kameranavne på listefliser i arkivet.</translation>
+        <translation>Aktiveret ombrydning af lange kameranavne på listefliser i arkivet.</translation>
     </message>
     <message>
         <source>LNG_00357</source>
-        <translation translatorcomment="AI-translated">Forstørrede og omvendte farver på plusknappen (+) på kamerafliser (mintebaggrund) for bedre synlighed med tydelige svæve-/trykte tilstande.</translation>
+        <translation>Forstørrede og omvendte farver på plusknappen (+) på kamerafliser (mintebaggrund) for bedre synlighed med tydelige svæve-/trykte tilstande.</translation>
     </message>
     <message>
         <source>LNG_00356</source>
-        <translation translatorcomment="AI-translated">Rettede 2-3 timers skift af tidslinjelinjen for optagelsestilgængelighed i arkivafspillervinduet, synkroniserede tidslinjen med klientens lokale tidszone (med korrekt sommertid DST-understøttelse).</translation>
+        <translation>Rettede 2-3 timers skift af tidslinjelinjen for optagelsestilgængelighed i arkivafspillervinduet, synkroniserede tidslinjen med klientens lokale tidszone (med korrekt sommertid DST-understøttelse).</translation>
     </message>
     <message>
         <source>LNG_00355</source>
-        <translation translatorcomment="AI-translated">Erstattet den sorte emoji med lav kontrast 📺 i tomme visninger med en elegant seledyn High-DPI vektormonitor SVG.</translation>
+        <translation>Erstattet den sorte emoji med lav kontrast 📺 i tomme visninger med en elegant seledyn High-DPI vektormonitor SVG.</translation>
     </message>
     <message>
         <source>LNG_00354</source>
-        <translation translatorcomment="AI-translated">Forbedret læsbarhed af optagerbjælker i arkivvinduet (højde øget fra 22px til 28px, skriftstørrelse fra 9px til 11px, større udvidelsespil).</translation>
+        <translation>Forbedret læsbarhed af optagerbjælker i arkivvinduet (højde øget fra 22px til 28px, skriftstørrelse fra 9px til 11px, større udvidelsespil).</translation>
     </message>
     <message>
         <source>LNG_00353</source>
-        <translation translatorcomment="AI-translated">Tilføjet fulde, dynamiske svæveeffekter til optagerbjælker med tydelige ændringer i baggrunds-, tekst- og ikonfarver til seledyn/hvid.</translation>
+        <translation>Tilføjet fulde, dynamiske svæveeffekter til optagerbjælker med tydelige ændringer i baggrunds-, tekst- og ikonfarver til seledyn/hvid.</translation>
     </message>
     <message>
         <source>LNG_00352</source>
-        <translation translatorcomment="AI-translated">Erstattet teksthandlingsknapper på den øverste bjælke (Valgmuligheder, Nyt vindue, Arkiv, Instruktioner) med dedikerede, farvede SVG-ikoner med nyttige værktøjstip.</translation>
+        <translation>Erstattet teksthandlingsknapper på den øverste bjælke (Valgmuligheder, Nyt vindue, Arkiv, Instruktioner) med dedikerede, farvede SVG-ikoner med nyttige værktøjstip.</translation>
     </message>
     <message>
         <source>LNG_00351</source>
-        <translation translatorcomment="AI-translated">Udskiftede systemstatistikskifte med et interaktivt SVG-ikon, der afspejler systemmonitorens aktivitetstilstand.</translation>
+        <translation>Udskiftede systemstatistikskifte med et interaktivt SVG-ikon, der afspejler systemmonitorens aktivitetstilstand.</translation>
     </message>
     <message>
         <source>LNG_00350</source>
-        <translation translatorcomment="AI-translated">Samlede knapper til valg af gitter (1x1-9x9) til konsekvente 30x30px cirkulære knapper.</translation>
+        <translation>Samlede knapper til valg af gitter (1x1-9x9) til konsekvente 30x30px cirkulære knapper.</translation>
     </message>
     <message>
         <source>LNG_00349</source>
-        <translation translatorcomment="AI-translated">Tilføjet en lodret skillelinje mellem indstillingssektionen og gittervalgssektionen.</translation>
+        <translation>Tilføjet en lodret skillelinje mellem indstillingssektionen og gittervalgssektionen.</translation>
     </message>
     <message>
         <source>LNG_00348</source>
-        <translation translatorcomment="AI-translated">Redesignede visningsknapper til en elegant, afrundet pilleform med 30px højde, der bevarer sidemargener.</translation>
+        <translation>Redesignede visningsknapper til en elegant, afrundet pilleform med 30px højde, der bevarer sidemargener.</translation>
     </message>
     <message>
         <source>LNG_00347</source>
-        <translation translatorcomment="AI-translated">Tvungen automatisk visning af store bogstaver for visningsnavne.</translation>
+        <translation>Tvungen automatisk visning af store bogstaver for visningsnavne.</translation>
     </message>
     <message>
         <source>LNG_00346</source>
-        <translation translatorcomment="AI-translated">Forbedret læsbarhed og kontrast af den aktive visningsknap – mørk tekst (#121214) på en lys seledyn baggrund.</translation>
+        <translation>Forbedret læsbarhed og kontrast af den aktive visningsknap – mørk tekst (#121214) på en lys seledyn baggrund.</translation>
     </message>
     <message>
         <source>LNG_00345</source>
-        <translation translatorcomment="AI-translated">Forenede og forbedrede sletteikoner på optagere og visningslisten og den forudindstillede aktiveringsknap til SVG-ikoner med værktøjstip.</translation>
+        <translation>Forenede og forbedrede sletteikoner på optagere og visningslisten og den forudindstillede aktiveringsknap til SVG-ikoner med værktøjstip.</translation>
     </message>
     <message>
         <source>LNG_00344</source>
-        <translation translatorcomment="AI-translated">Reduceret afstand mellem knapperne på øverste bjælke for at optimere grænsefladepladsen.</translation>
+        <translation>Reduceret afstand mellem knapperne på øverste bjælke for at optimere grænsefladepladsen.</translation>
     </message>
     <message>
         <source>LNG_00343</source>
-        <translation translatorcomment="AI-translated">Gendannet det manglende minimeringsikon i hjælpevinduet.</translation>
+        <translation>Gendannet det manglende minimeringsikon i hjælpevinduet.</translation>
     </message>
     <message>
         <source>LNG_00342</source>
-        <translation translatorcomment="AI-translated">Rettede login- og afspilningsproblemer i hjælpevinduer.</translation>
+        <translation>Rettede login- og afspilningsproblemer i hjælpevinduer.</translation>
     </message>
     <message>
         <source>LNG_00341</source>
-        <translation translatorcomment="AI-translated">Faste layoutknaptilstande (1x1 vs 2x2), når afspilning åbnes direkte fra kameraet.</translation>
+        <translation>Faste layoutknaptilstande (1x1 vs 2x2), når afspilning åbnes direkte fra kameraet.</translation>
     </message>
     <message>
         <source>LNG_00340</source>
-        <translation translatorcomment="AI-translated">Tilføjet korrekt XML-navneområde i Hikvision ISAPI-forespørgsler (retter fejlen 'Ugyldigt XML-indhold' på nyere optagerfirmware).</translation>
+        <translation>Tilføjet korrekt XML-navneområde i Hikvision ISAPI-forespørgsler (retter fejlen 'Ugyldigt XML-indhold' på nyere optagerfirmware).</translation>
     </message>
     <message>
         <source>LNG_00339</source>
-        <translation translatorcomment="AI-translated">Rettet søgeresultater pagineringshåndtering (searchResultPostion tag).</translation>
+        <translation>Rettet søgeresultater pagineringshåndtering (searchResultPostion tag).</translation>
     </message>
     <message>
         <source>LNG_00338</source>
-        <translation translatorcomment="AI-translated">'Opdater'-knap i afspilningsvinduet for manuelt at rydde cache og genhente optagelsestilgængelighedsdata.</translation>
+        <translation>'Opdater'-knap i afspilningsvinduet for manuelt at rydde cache og genhente optagelsestilgængelighedsdata.</translation>
     </message>
     <message>
         <source>LNG_00337</source>
-        <translation translatorcomment="AI-translated">Netværksprefetching-køoptimering – begrænset baggrundshentning til 12 måneder, hvilket eliminerer hundredvis af unødvendige forespørgsler og fremskynder start af afspilning.</translation>
+        <translation>Netværksprefetching-køoptimering – begrænset baggrundshentning til 12 måneder, hvilket eliminerer hundredvis af unødvendige forespørgsler og fremskynder start af afspilning.</translation>
     </message>
     <message>
         <source>LNG_00336</source>
-        <translation translatorcomment="AI-translated">Asynkron Hikvision SDK-initialisering i en baggrundstråd, hvilket fuldstændigt eliminerer GUI-frysninger ved åbning af muligheder.</translation>
+        <translation>Asynkron Hikvision SDK-initialisering i en baggrundstråd, hvilket fuldstændigt eliminerer GUI-frysninger ved åbning af muligheder.</translation>
     </message>
     <message>
         <source>LNG_00335</source>
-        <translation translatorcomment="AI-translated">Trådsikker synkronisering af adgang til Hikvision SDK-metoder.</translation>
+        <translation>Trådsikker synkronisering af adgang til Hikvision SDK-metoder.</translation>
     </message>
     <message>
         <source>LNG_00334</source>
-        <translation translatorcomment="AI-translated">Rengøring af downloadede fil- og skærmbilledenavne ved at fjerne optagerens IP-adresser.</translation>
+        <translation>Rengøring af downloadede fil- og skærmbilledenavne ved at fjerne optagerens IP-adresser.</translation>
     </message>
     <message>
         <source>LNG_00333</source>
-        <translation translatorcomment="AI-translated">Elegant download-statuslinje i turkis (#00f5d4) med centreret konturtekst.</translation>
+        <translation>Elegant download-statuslinje i turkis (#00f5d4) med centreret konturtekst.</translation>
     </message>
     <message>
         <source>LNG_00332</source>
-        <translation translatorcomment="AI-translated">Beregning af global download fremskridt (overallProgress) for multi-part optagelser.</translation>
+        <translation>Beregning af global download fremskridt (overallProgress) for multi-part optagelser.</translation>
     </message>
     <message>
         <source>LNG_00331</source>
-        <translation translatorcomment="AI-translated">Ændret midlertidig download filtypenavn fra '.ps' til '.pspart'.</translation>
+        <translation>Ændret midlertidig download filtypenavn fra '.ps' til '.pspart'.</translation>
     </message>
     <message>
         <source>LNG_00330</source>
-        <translation translatorcomment="AI-translated">'Vis kun infofelter, når du svæver' indstilling og knap i brugergrænsefladeindstillinger.</translation>
+        <translation>'Vis kun infofelter, når du svæver' indstilling og knap i brugergrænsefladeindstillinger.</translation>
     </message>
     <message>
         <source>LNG_00329</source>
-        <translation translatorcomment="AI-translated">Visuel indikator for kameraopdagelse i konfigurationspanelet (roterende ikon, formularblokering og 'Opdager...'-tekst).</translation>
+        <translation>Visuel indikator for kameraopdagelse i konfigurationspanelet (roterende ikon, formularblokering og 'Opdager...'-tekst).</translation>
     </message>
     <message>
         <source>LNG_00328</source>
-        <translation translatorcomment="AI-translated">Fuld lokalisering (tilsat officiel polsk og engelsk oversættelsesstøtte).</translation>
+        <translation>Fuld lokalisering (tilsat officiel polsk og engelsk oversættelsesstøtte).</translation>
     </message>
     <message>
         <source>LNG_00327</source>
-        <translation translatorcomment="AI-translated">Optimering af opstart af hjælpevindue – reduceret belastningstid fra 3 sekunder til under 300 ms.</translation>
+        <translation>Optimering af opstart af hjælpevindue – reduceret belastningstid fra 3 sekunder til under 300 ms.</translation>
     </message>
     <message>
         <source>LNG_00326</source>
-        <translation translatorcomment="AI-translated">Æstetisk pladsholder i det ekstra vindue ('Ingen visning valgt') med en turkis kant.</translation>
+        <translation>Æstetisk pladsholder i det ekstra vindue ('Ingen visning valgt') med en turkis kant.</translation>
     </message>
     <message>
         <source>LNG_00325</source>
-        <translation translatorcomment="AI-translated">Hikvision SDK-integration til livevisning og afspilningstilstand.</translation>
+        <translation>Hikvision SDK-integration til livevisning og afspilningstilstand.</translation>
     </message>
     <message>
         <source>LNG_00324</source>
-        <translation translatorcomment="AI-translated">Multi-kamera afspilningsafspiller med automatisk tidslinjepositionering og centrering.</translation>
+        <translation>Multi-kamera afspilningsafspiller med automatisk tidslinjepositionering og centrering.</translation>
     </message>
     <message>
         <source>LNG_00323</source>
-        <translation translatorcomment="AI-translated">Multi-threaded System Monitor (CPU, RAM, GPU, VRAM og netværksbåndbreddestatistik).</translation>
+        <translation>Multi-threaded System Monitor (CPU, RAM, GPU, VRAM og netværksbåndbreddestatistik).</translation>
     </message>
     <message>
         <source>LNG_00322</source>
-        <translation translatorcomment="AI-translated">Sporing af netværksbåndbreddeforbrug i realtid.</translation>
+        <translation>Sporing af netværksbåndbreddeforbrug i realtid.</translation>
     </message>
     <message>
         <source>LNG_00321</source>
-        <translation translatorcomment="AI-translated">App-ikon med høj opløsning og raffineret mørkt tema-grænseflade.</translation>
+        <translation>App-ikon med høj opløsning og raffineret mørkt tema-grænseflade.</translation>
     </message>
     <message>
         <source>LNG_00320</source>
-        <translation translatorcomment="AI-translated">Automatisk Pacman-pakkebygningsscript til Arch Linux.</translation>
+        <translation>Automatisk Pacman-pakkebygningsscript til Arch Linux.</translation>
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00319</source>
-        <translation translatorcomment="AI-translated">Version %1</translation>
+        <translation>Version %1</translation>
     </message>
     <message>
         <source>LNG_00318</source>
-        <translation translatorcomment="AI-translated">Original forfatter: Evgeny S. Maksimov</translation>
+        <translation>Original forfatter: Evgeny S. Maksimov</translation>
     </message>
     <message>
         <source>LNG_00317</source>
-        <translation translatorcomment="AI-translated">Ændring: arkanista (med AI-assistance)</translation>
+        <translation>Ændring: arkanista (med AI-assistance)</translation>
     </message>
     <message>
         <source>LNG_00316</source>
-        <translation translatorcomment="AI-translated">Visningsport%1</translation>
+        <translation>Visningsport%1</translation>
     </message>
     <message>
         <source>LNG_00315</source>
-        <translation translatorcomment="AI-translated">#%1</translation>
+        <translation>#%1</translation>
     </message>
     <message>
         <source>LNG_00314</source>
-        <translation translatorcomment="AI-translated">Værktøjer</translation>
+        <translation>Værktøjer</translation>
     </message>
     <message>
         <source>LNG_00313</source>
-        <translation translatorcomment="AI-translated">Optagere</translation>
+        <translation>Optagere</translation>
     </message>
     <message>
         <source>LNG_00312</source>
-        <translation translatorcomment="AI-translated">Forudindstillinger</translation>
+        <translation>Forudindstillinger</translation>
     </message>
     <message>
         <source>LNG_00311</source>
-        <translation translatorcomment="AI-translated">Indstillinger</translation>
+        <translation>Indstillinger</translation>
     </message>
     <message>
         <source>LNG_00310</source>
-        <translation translatorcomment="AI-translated">Ændringslog</translation>
+        <translation>Ændringslog</translation>
     </message>
     <message>
         <source>LNG_00309</source>
-        <translation translatorcomment="AI-translated">Tilgængelig version: %1</translation>
+        <translation>Tilgængelig version: %1</translation>
     </message>
     <message>
         <source>LNG_00308</source>
-        <translation translatorcomment="AI-translated">Viewport detaljer</translation>
+        <translation>Viewport detaljer</translation>
     </message>
     <message>
         <source>LNG_00307</source>
-        <translation translatorcomment="AI-translated">Vælg venligst en visningsport i hovedgitteret for at tilpasse dens indstillinger.</translation>
+        <translation>Vælg venligst en visningsport i hovedgitteret for at tilpasse dens indstillinger.</translation>
     </message>
     <message>
         <source>LNG_00306</source>
-        <translation translatorcomment="AI-translated">Lås op til konfigurationsruden</translation>
+        <translation>Lås op til konfigurationsruden</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Active Stream Connection</translation>
+        <translation>Active Stream Connection</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Primær stream-URL</translation>
+        <translation>Primær stream-URL</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Sekundær backup-URL</translation>
+        <translation>Sekundær backup-URL</translation>
     </message>
     <message>
         <source>LNG_00302</source>
-        <translation translatorcomment="AI-translated">Indstillinger for lyd og gengivelse</translation>
+        <translation>Indstillinger for lyd og gengivelse</translation>
     </message>
     <message>
         <source>LNG_00301</source>
-        <translation translatorcomment="AI-translated">Slå lyd fra / til</translation>
+        <translation>Slå lyd fra / til</translation>
     </message>
     <message>
         <source>LNG_00300</source>
-        <translation translatorcomment="AI-translated">Tilsidesættelse af FFmpeg-indstillinger</translation>
+        <translation>Tilsidesættelse af FFmpeg-indstillinger</translation>
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Layout &amp; gitterværktøjer</translation>
+        <translation>Layout &amp; gitterværktøjer</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Lås værktøjsruden op</translation>
+        <translation>Lås værktøjsruden op</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Vinduesafdeling</translation>
+        <translation>Vinduesafdeling</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Fejl ved læsning af konfiguration!</translation>
+        <translation>Fejl ved læsning af konfiguration!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Hold nede for at redigere divisionsværdien</translation>
+        <translation>Hold nede for at redigere divisionsværdien</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Geometri forhold</translation>
+        <translation>Geometri forhold</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Skift fuld skærm</translation>
+        <translation>Skift fuld skærm</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Netdrift</translation>
+        <translation>Netdrift</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Flet fremhævede celler</translation>
+        <translation>Flet fremhævede celler</translation>
     </message>
     <message>
         <source>LNG_00291</source>
-        <translation translatorcomment="AI-translated">NVR / Hikvision Recorders Manager</translation>
+        <translation>NVR / Hikvision Recorders Manager</translation>
     </message>
     <message>
         <source>LNG_00290</source>
-        <translation translatorcomment="AI-translated">Forudindstillinger og Quick Layout Views</translation>
+        <translation>Forudindstillinger og Quick Layout Views</translation>
     </message>
     <message>
         <source>LNG_00289</source>
-        <translation translatorcomment="AI-translated">ONVIF- og RTSP-layoutindstillinger</translation>
+        <translation>ONVIF- og RTSP-layoutindstillinger</translation>
     </message>
     <message>
         <source>LNG_00288</source>
-        <translation translatorcomment="AI-translated">Layout %1</translation>
+        <translation>Layout %1</translation>
     </message>
     <message>
         <source>LNG_00278</source>
-        <translation translatorcomment="AI-translated">Synlig</translation>
+        <translation>Synlig</translation>
     </message>
     <message>
         <source>LNG_00287</source>
-        <translation translatorcomment="AI-translated">Aktiver dette forhåndsvisningslayout</translation>
+        <translation>Aktiver dette forhåndsvisningslayout</translation>
     </message>
     <message>
         <source>LNG_00286</source>
-        <translation translatorcomment="AI-translated">Slet dette forhåndsvisningslayout</translation>
+        <translation>Slet dette forhåndsvisningslayout</translation>
     </message>
     <message>
         <source>LNG_00285</source>
-        <translation translatorcomment="AI-translated">Tilføj forudindstillet layout</translation>
+        <translation>Tilføj forudindstillet layout</translation>
     </message>
     <message>
         <source>LNG_00284</source>
-        <translation translatorcomment="AI-translated">NVR View Layouts</translation>
+        <translation>NVR View Layouts</translation>
     </message>
     <message>
         <source>LNG_00283</source>
-        <translation translatorcomment="AI-translated">NVR-visning</translation>
+        <translation>NVR-visning</translation>
     </message>
     <message>
         <source>LNG_00282</source>
-        <translation translatorcomment="AI-translated">Aktiver denne NVR-kameravisning</translation>
+        <translation>Aktiver denne NVR-kameravisning</translation>
     </message>
     <message>
         <source>LNG_00281</source>
-        <translation translatorcomment="AI-translated">Slet denne NVR-kameravisning</translation>
+        <translation>Slet denne NVR-kameravisning</translation>
     </message>
     <message>
         <source>LNG_00280</source>
-        <translation translatorcomment="AI-translated">NVR-forudindstillinger (gittervisninger)</translation>
+        <translation>NVR-forudindstillinger (gittervisninger)</translation>
     </message>
     <message>
         <source>LNG_00279</source>
-        <translation translatorcomment="AI-translated">NVR-forudindstilling #%1</translation>
+        <translation>NVR-forudindstilling #%1</translation>
     </message>
     <message>
         <source>LNG_00277</source>
-        <translation translatorcomment="AI-translated">Aktiver denne forudindstilling af NVR-kameraer</translation>
+        <translation>Aktiver denne forudindstilling af NVR-kameraer</translation>
     </message>
     <message>
         <source>LNG_00276</source>
-        <translation translatorcomment="AI-translated">Slet denne forudindstilling af NVR-kameraer</translation>
+        <translation>Slet denne forudindstilling af NVR-kameraer</translation>
     </message>
     <message>
         <source>LNG_00275</source>
-        <translation translatorcomment="AI-translated">Tilføj NVR-forudindstilling</translation>
+        <translation>Tilføj NVR-forudindstilling</translation>
     </message>
     <message>
         <source>LNG_00274</source>
-        <translation translatorcomment="AI-translated">Systemindstillinger</translation>
+        <translation>Systemindstillinger</translation>
     </message>
     <message>
         <source>LNG_00273</source>
-        <translation translatorcomment="AI-translated">Generelle indstillinger</translation>
+        <translation>Generelle indstillinger</translation>
     </message>
     <message>
         <source>LNG_00272</source>
-        <translation translatorcomment="AI-translated">Tillad at køre flere applikationsforekomster</translation>
+        <translation>Tillad at køre flere applikationsforekomster</translation>
     </message>
     <message>
         <source>LNG_00271</source>
-        <translation translatorcomment="AI-translated">Denne indstilling er deaktiveret for at forhindre skrivekonflikter i indstillingsfilen. For at aktivere det (farligt og ikke anbefalet!), sæt 'singleApplication=false' i kvision.conf-konfigurationsfilen.</translation>
+        <translation>Denne indstilling er deaktiveret for at forhindre skrivekonflikter i indstillingsfilen. For at aktivere det (farligt og ikke anbefalet!), sæt 'singleApplication=false' i kvision.conf-konfigurationsfilen.</translation>
     </message>
     <message>
         <source>LNG_00270</source>
-        <translation translatorcomment="AI-translated">Tjek Hikvision NVR fejlstatus</translation>
+        <translation>Tjek Hikvision NVR fejlstatus</translation>
     </message>
     <message>
         <source>LNG_00269</source>
-        <translation translatorcomment="AI-translated">Lyd</translation>
+        <translation>Lyd</translation>
     </message>
     <message>
         <source>LNG_00268</source>
-        <translation translatorcomment="AI-translated">Deaktiver lyd helt</translation>
+        <translation>Deaktiver lyd helt</translation>
     </message>
     <message>
         <source>LNG_00267</source>
-        <translation translatorcomment="AI-translated">Maksimering af kameraet til fuld skærm slår ikke lyden til</translation>
+        <translation>Maksimering af kameraet til fuld skærm slår ikke lyden til</translation>
     </message>
     <message>
         <source>LNG_00266</source>
-        <translation translatorcomment="AI-translated">Indstillinger for kontekstmenu</translation>
+        <translation>Indstillinger for kontekstmenu</translation>
     </message>
     <message>
         <source>LNG_00265</source>
-        <translation translatorcomment="AI-translated">Aktiver højreklik kontekstmenu</translation>
+        <translation>Aktiver højreklik kontekstmenu</translation>
     </message>
     <message>
         <source>LNG_00264</source>
-        <translation translatorcomment="AI-translated">Tillad udskiftning af udsigtspladser</translation>
+        <translation>Tillad udskiftning af udsigtspladser</translation>
     </message>
     <message>
         <source>LNG_00263</source>
-        <translation translatorcomment="AI-translated">Aktiver muligheden 'Fjern kamera'</translation>
+        <translation>Aktiver muligheden 'Fjern kamera'</translation>
     </message>
     <message>
         <source>LNG_00262</source>
-        <translation translatorcomment="AI-translated">Tillad ændring af viewport-indstillinger</translation>
+        <translation>Tillad ændring af viewport-indstillinger</translation>
     </message>
     <message>
         <source>LNG_00261</source>
-        <translation translatorcomment="AI-translated">Aktiver muligheden 'Strømvalg'</translation>
+        <translation>Aktiver muligheden 'Strømvalg'</translation>
     </message>
     <message>
         <source>LNG_00260</source>
-        <translation translatorcomment="AI-translated">Brugergrænsefladeindstillinger</translation>
+        <translation>Brugergrænsefladeindstillinger</translation>
     </message>
     <message>
         <source>LNG_00259</source>
-        <translation translatorcomment="AI-translated">Vis kanalstatus i øverste venstre hjørne af visningsporten</translation>
+        <translation>Vis kanalstatus i øverste venstre hjørne af visningsporten</translation>
     </message>
     <message>
         <source>LNG_00258</source>
-        <translation translatorcomment="AI-translated">Vis kameraoplysninger i nederste venstre hjørne af visningsporten</translation>
+        <translation>Vis kameraoplysninger i nederste venstre hjørne af visningsporten</translation>
     </message>
     <message>
         <source>LNG_00257</source>
-        <translation translatorcomment="AI-translated">Vis kun kontrolikoner i nederste højre hjørne af visningsporten, når du svæver</translation>
+        <translation>Vis kun kontrolikoner i nederste højre hjørne af visningsporten, når du svæver</translation>
     </message>
     <message>
         <source>LNG_00256</source>
-        <translation translatorcomment="AI-translated">Vis kun infofelter, når du holder musen over</translation>
+        <translation>Vis kun infofelter, når du holder musen over</translation>
     </message>
     <message>
         <source>LNG_00255</source>
-        <translation translatorcomment="AI-translated">Vis øverste bjælke som standard, når vinduet åbnes</translation>
+        <translation>Vis øverste bjælke som standard, når vinduet åbnes</translation>
     </message>
     <message>
         <source>LNG_00254</source>
-        <translation translatorcomment="AI-translated">Skjul musemarkøren i fuldskærmstilstand</translation>
+        <translation>Skjul musemarkøren i fuldskærmstilstand</translation>
     </message>
     <message>
         <source>LNG_00253</source>
-        <translation translatorcomment="AI-translated">Deaktiver viewport zoom-animation</translation>
+        <translation>Deaktiver viewport zoom-animation</translation>
     </message>
     <message>
         <source>LNG_00252</source>
-        <translation translatorcomment="AI-translated">Sprog:</translation>
+        <translation>Sprog:</translation>
     </message>
     <message>
         <source>LNG_00251</source>
-        <translation translatorcomment="AI-translated">System standard</translation>
+        <translation>System standard</translation>
     </message>
     <message>
         <source>LNG_00250</source>
-        <translation translatorcomment="AI-translated">Begræns hjælpevinduer til:</translation>
+        <translation>Begræns hjælpevinduer til:</translation>
     </message>
     <message>
         <source>LNG_00249</source>
-        <translation translatorcomment="AI-translated">NVR-statusovervågning</translation>
+        <translation>NVR-statusovervågning</translation>
     </message>
     <message>
         <source>LNG_00248</source>
-        <translation translatorcomment="AI-translated">Overvåg offline status og login fejl</translation>
+        <translation>Overvåg offline status og login fejl</translation>
     </message>
     <message>
         <source>LNG_00247</source>
-        <translation translatorcomment="AI-translated">Overvåg CPU-overbelastning (&gt;85 %)</translation>
+        <translation>Overvåg CPU-overbelastning (&gt;85 %)</translation>
     </message>
     <message>
         <source>LNG_00246</source>
-        <translation translatorcomment="AI-translated">Overvåg optagerens hardwarefejl</translation>
+        <translation>Overvåg optagerens hardwarefejl</translation>
     </message>
     <message>
         <source>LNG_00245</source>
-        <translation translatorcomment="AI-translated">Overvåg harddiskfejl/unormaliteter</translation>
+        <translation>Overvåg harddiskfejl/unormaliteter</translation>
     </message>
     <message>
         <source>LNG_00244</source>
-        <translation translatorcomment="AI-translated">Overvåg uformaterede harddiske</translation>
+        <translation>Overvåg uformaterede harddiske</translation>
     </message>
     <message>
         <source>LNG_00243</source>
-        <translation translatorcomment="AI-translated">Overvåg hele harddiske (sløjfedækning deaktiveret)</translation>
+        <translation>Overvåg hele harddiske (sløjfedækning deaktiveret)</translation>
     </message>
     <message>
         <source>LNG_00242</source>
-        <translation translatorcomment="AI-translated">Afspilning</translation>
+        <translation>Afspilning</translation>
     </message>
     <message>
         <source>LNG_00241</source>
-        <translation translatorcomment="AI-translated">Standard forskudt start for baglæns afspilning, sekunder:</translation>
+        <translation>Standard forskudt start for baglæns afspilning, sekunder:</translation>
     </message>
     <message>
         <source>LNG_00240</source>
-        <translation translatorcomment="AI-translated">Standardtidslinje for afspilning, timer:</translation>
+        <translation>Standardtidslinje for afspilning, timer:</translation>
     </message>
     <message>
         <source>LNG_00239</source>
-        <translation translatorcomment="AI-translated">Gemmer</translation>
+        <translation>Gemmer</translation>
     </message>
     <message>
         <source>LNG_00231</source>
-        <translation translatorcomment="AI-translated">Aktiver ændringer i dette afsnit</translation>
+        <translation>Aktiver ændringer i dette afsnit</translation>
     </message>
     <message>
         <source>LNG_00238</source>
-        <translation translatorcomment="AI-translated">Standard snapshot-sti:</translation>
+        <translation>Standard snapshot-sti:</translation>
     </message>
     <message>
         <source>LNG_00237</source>
-        <translation translatorcomment="AI-translated">Vælg mappe til snapshots</translation>
+        <translation>Vælg mappe til snapshots</translation>
     </message>
     <message>
         <source>LNG_00236</source>
-        <translation translatorcomment="AI-translated">Standard optagelsessti:</translation>
+        <translation>Standard optagelsessti:</translation>
     </message>
     <message>
         <source>LNG_00235</source>
-        <translation translatorcomment="AI-translated">Vælg mappe til optagelser</translation>
+        <translation>Vælg mappe til optagelser</translation>
     </message>
     <message>
         <source>LNG_00234</source>
-        <translation translatorcomment="AI-translated">åbne billedmappe</translation>
+        <translation>åbne billedmappe</translation>
     </message>
     <message>
         <source>LNG_00233</source>
-        <translation translatorcomment="AI-translated">åbne videomappen</translation>
+        <translation>åbne videomappen</translation>
     </message>
     <message>
         <source>LNG_00232</source>
-        <translation translatorcomment="AI-translated">System mediekonfiguration</translation>
+        <translation>System mediekonfiguration</translation>
     </message>
     <message>
         <source>LNG_00230</source>
-        <translation translatorcomment="AI-translated">Standard FFmpeg kommandolinjeindstillinger</translation>
+        <translation>Standard FFmpeg kommandolinjeindstillinger</translation>
     </message>
     <message>
         <source>LNG_00229</source>
-        <translation translatorcomment="AI-translated">Opdater alle kameraer</translation>
+        <translation>Opdater alle kameraer</translation>
     </message>
     <message>
         <source>LNG_00228</source>
-        <translation translatorcomment="AI-translated">Ændringslog</translation>
+        <translation>Ændringslog</translation>
     </message>
     <message>
         <source>LNG_00227</source>
-        <translation translatorcomment="AI-translated">Historik om forbedringer, fejlrettelser og nye funktioner i KVision.</translation>
+        <translation>Historik om forbedringer, fejlrettelser og nye funktioner i KVision.</translation>
     </message>
     <message>
         <source>LNG_00222</source>
-        <translation translatorcomment="AI-translated">Bekræft sletning</translation>
+        <translation>Bekræft sletning</translation>
     </message>
     <message>
         <source>LNG_00226</source>
-        <translation translatorcomment="AI-translated">Er du sikker på, at du vil slette forudindstillingen \"%1\"? Denne handling er fuldstændig irreversibel.</translation>
+        <translation>Er du sikker på, at du vil slette forudindstillingen \"%1\"? Denne handling er fuldstændig irreversibel.</translation>
     </message>
     <message>
         <source>LNG_00225</source>
-        <translation translatorcomment="AI-translated">Er du sikker på, at du vil slette forudindstilling #%1? Denne handling er fuldstændig irreversibel.</translation>
+        <translation>Er du sikker på, at du vil slette forudindstilling #%1? Denne handling er fuldstændig irreversibel.</translation>
     </message>
     <message>
         <source>LNG_00224</source>
-        <translation translatorcomment="AI-translated">Er du sikker på, at du vil slette NVR-visningen \"%1\"? Denne handling er fuldstændig irreversibel.</translation>
+        <translation>Er du sikker på, at du vil slette NVR-visningen \"%1\"? Denne handling er fuldstændig irreversibel.</translation>
     </message>
     <message>
         <source>LNG_00223</source>
-        <translation translatorcomment="AI-translated">Er du sikker på, at du vil slette dette NVR-visningslayout? Denne handling er fuldstændig irreversibel.</translation>
+        <translation>Er du sikker på, at du vil slette dette NVR-visningslayout? Denne handling er fuldstændig irreversibel.</translation>
     </message>
     <message>
         <source>LNG_00221</source>
-        <translation translatorcomment="AI-translated">Er du sikker på, at du vil slette NVR-forudindstillingen \"%1\"? Denne handling er fuldstændig irreversibel.</translation>
+        <translation>Er du sikker på, at du vil slette NVR-forudindstillingen \"%1\"? Denne handling er fuldstændig irreversibel.</translation>
     </message>
     <message>
         <source>LNG_00220</source>
-        <translation translatorcomment="AI-translated">Er du sikker på, at du vil slette denne NVR-forudindstilling? Denne handling er fuldstændig irreversibel.</translation>
+        <translation>Er du sikker på, at du vil slette denne NVR-forudindstilling? Denne handling er fuldstændig irreversibel.</translation>
+    </message>
+    <message>
+        <source>LNG_00460</source>
+        <translation type="obsolete">Medtag ikke globale ændringer af FFmpeg-indstillinger</translation>
+    </message>
+    <message>
+        <source>LNG_00461</source>
+        <translation type="obsolete">FFmpeg muligheder</translation>
+    </message>
+    <message>
+        <source>LNG_00462</source>
+        <translation type="obsolete">Kanalindstillinger</translation>
+    </message>
+    <message>
+        <source>LNG_00463</source>
+        <translation type="obsolete">Viewport-indstillinger</translation>
+    </message>
+    <message>
+        <source>LNG_00464</source>
+        <translation type="obsolete">Er du sikker på, at du vil fjerne kameraet fra denne visningsport?</translation>
+    </message>
+    <message>
+        <source>LNG_00465</source>
+        <translation type="obsolete">Bekræft fjernelse af kamera</translation>
+    </message>
+    <message>
+        <source>LNG_00466</source>
+        <translation type="obsolete">Tylko SUB</translation>
+    </message>
+    <message>
+        <source>LNG_00467</source>
+        <translation type="obsolete">Tylko MAIN</translation>
+    </message>
+    <message>
+        <source>LNG_00468</source>
+        <translation type="obsolete">Automatycznie</translation>
+    </message>
+    <message>
+        <source>LNG_00469</source>
+        <translation type="obsolete">Afspilning</translation>
+    </message>
+    <message>
+        <source>LNG_00517</source>
+        <translation>Lokaliseringsudvidelse: KVision er nu fuldt lokaliseret til 20 nye AI-oversatte sprog, hvilket bringer det samlede antal understøttede sprog til 22 (engelsk, polsk og 20 nye sprog). Både hele applikationsgrænsefladen (UI) og de komplette brugermanualer er blevet oversat.</translation>
+    </message>
+    <message>
+        <source>LNG_00518</source>
+        <translation>Viewport Quick Playback-dokumentation: Tilføjet omfattende dokumentation, der forklarer den cirkulære pil-overlay-knap (Miniplayer) og dens detaljerede funktioner i alle 22 brugervejledninger.</translation>
+    </message>
+    <message>
+        <source>LNG_00519</source>
+        <translation>Pan Zoom: Tilføjet muligheden for frit at panorere den zoomede video (Live, Mini-player, Archive) ved at holde den midterste museknap nede (rullehjulet) og trække markøren.</translation>
+    </message>
+    <message>
+        <source>LNG_00520</source>
+        <translation>Proportional zoom-valg: Introducerede Shift-genvejen. Holder du Shift-tasten nede, mens du tegner et zoomrektangel, tvinger du markeringen til at låse i et 16:9 billedformat, strengt begrænset til visningsportens grænser.</translation>
+    </message>
+    <message>
+        <source>LNG_00521</source>
+        <translation>Tvungen vinduespositionering: Fuldstændig erstattet de ældre vinduesgeometribesparende mekanismer på grund af uløselige projektionsproblemer med flere skærme i Qt. Applikationen (både hovedvinduet og hjælpevinduer) håndhæver nu lancering centreret om den primære skærm ved 90 % af dens opløsning, hvilket sikrer stabilitet og forudsigelighed på tværs af alle opsætninger.</translation>
+    </message>
+    <message>
+        <source>LNG_00522</source>
+        <translation>Localization Refactoring: Erstattede alle hårdkodede polske og engelske strenge indlejret i kildekoden (qsTr, tr). Over 500 unikke strenge er blevet omdannet til LNG_XXXXX identifikatorer, sikkert kortlagt via et forbedret .ts/.qm-filsystem.</translation>
+    </message>
+    <message>
+        <source>LNG_00523</source>
+        <translation>CLI kun på engelsk: Kommandolinjegrænsefladeindstillinger og --help-parametre er nu permanent på engelsk for at forhindre problemer med forsinket initialisering af lokaliseringsmotoren.</translation>
+    </message>
+    <message>
+        <source>LNG_00524</source>
+        <translation>Archive Aspect Ratio: Rettede et problem, hvor videoens billedformat blev forvrænget i arkivafspillerens visningsport. HikvisionArchivePlayer-komponenten gengiver nu den originale ramme korrekt og bevarer dens naturlige billedformat (letterboxing) i stedet for at strække videoen, så den passer til grænserne for brugergrænsefladen.</translation>
+    </message>
+    <message>
+        <source>LNG_00525</source>
+        <translation>Demuxer-hukommelseslækager: Forbedrede objektoprydningslogikken i QmlAVPlayer::stop()-rutinen, hvilket forhindrede 'zombie'-demuxer-forekomster i at akkumulere i baggrunden.</translation>
+    </message>
+    <message>
+        <source>LNG_00526</source>
+        <translation>WriteSetting Fix: Tilføjede den manglende implementering af writeSetting-metoden i Context-klassen, hvilket eliminerede TypeErrors og QML-udførelsesafbrydelser under indstillingsmigreringer.</translation>
     </message>
 </context>
 <context>
@@ -4294,7 +4374,7 @@
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Fejl ved læsning af konfiguration!</translation>
+        <translation>Fejl ved læsning af konfiguration!</translation>
     </message>
 </context>
 <context>
@@ -4313,15 +4393,15 @@
     </message>
     <message>
         <source>LNG_00003</source>
-        <translation translatorcomment="AI-translated">KVision</translation>
+        <translation>KVision</translation>
     </message>
     <message>
         <source>LNG_00453</source>
-        <translation translatorcomment="AI-translated">Programmet kører allerede, du kan ikke starte et andet</translation>
+        <translation>Programmet kører allerede, du kan ikke starte et andet</translation>
     </message>
     <message>
         <source>LNG_00001</source>
-        <translation translatorcomment="AI-translated">LUK</translation>
+        <translation>LUK</translation>
     </message>
 </context>
 <context>
@@ -4344,19 +4424,19 @@
     </message>
     <message>
         <source>LNG_00457</source>
-        <translation translatorcomment="AI-translated">Snapshot gemt</translation>
+        <translation>Snapshot gemt</translation>
     </message>
     <message>
         <source>LNG_00456</source>
-        <translation translatorcomment="AI-translated">Snapshot gemt -</translation>
+        <translation>Snapshot gemt -</translation>
     </message>
     <message>
         <source>LNG_00455</source>
-        <translation translatorcomment="AI-translated">Gennemse</translation>
+        <translation>Gennemse</translation>
     </message>
     <message>
         <source>LNG_00454</source>
-        <translation translatorcomment="AI-translated">Afslut</translation>
+        <translation>Afslut</translation>
     </message>
 </context>
 <context>
@@ -4411,51 +4491,51 @@
     </message>
     <message>
         <source>LNG_00299</source>
-        <translation translatorcomment="AI-translated">Layout &amp; gitterværktøjer</translation>
+        <translation>Layout &amp; gitterværktøjer</translation>
     </message>
     <message>
         <source>LNG_00298</source>
-        <translation translatorcomment="AI-translated">Lås værktøjsruden op</translation>
+        <translation>Lås værktøjsruden op</translation>
     </message>
     <message>
         <source>LNG_00297</source>
-        <translation translatorcomment="AI-translated">Vinduesafdeling</translation>
+        <translation>Vinduesafdeling</translation>
     </message>
     <message>
         <source>LNG_00219</source>
-        <translation translatorcomment="AI-translated">Fejl ved læsning af konfiguration!</translation>
+        <translation>Fejl ved læsning af konfiguration!</translation>
     </message>
     <message>
         <source>LNG_00296</source>
-        <translation translatorcomment="AI-translated">Hold nede for at redigere divisionsværdien</translation>
+        <translation>Hold nede for at redigere divisionsværdien</translation>
     </message>
     <message>
         <source>LNG_00295</source>
-        <translation translatorcomment="AI-translated">x</translation>
+        <translation>x</translation>
     </message>
     <message>
         <source>LNG_00294</source>
-        <translation translatorcomment="AI-translated">Geometri forhold</translation>
+        <translation>Geometri forhold</translation>
     </message>
     <message>
         <source>LNG_00459</source>
-        <translation translatorcomment="AI-translated">16:9 billedformat</translation>
+        <translation>16:9 billedformat</translation>
     </message>
     <message>
         <source>LNG_00458</source>
-        <translation translatorcomment="AI-translated">4:3 billedformat</translation>
+        <translation>4:3 billedformat</translation>
     </message>
     <message>
         <source>LNG_00011</source>
-        <translation translatorcomment="AI-translated">Skift fuld skærm</translation>
+        <translation>Skift fuld skærm</translation>
     </message>
     <message>
         <source>LNG_00293</source>
-        <translation translatorcomment="AI-translated">Netdrift</translation>
+        <translation>Netdrift</translation>
     </message>
     <message>
         <source>LNG_00292</source>
-        <translation translatorcomment="AI-translated">Flet fremhævede celler</translation>
+        <translation>Flet fremhævede celler</translation>
     </message>
 </context>
 <context>
@@ -4498,39 +4578,39 @@
     </message>
     <message>
         <source>LNG_00463</source>
-        <translation translatorcomment="AI-translated">Viewport-indstillinger</translation>
+        <translation>Viewport-indstillinger</translation>
     </message>
     <message>
         <source>LNG_00305</source>
-        <translation translatorcomment="AI-translated">Active Stream Connection</translation>
+        <translation>Active Stream Connection</translation>
     </message>
     <message>
         <source>LNG_00304</source>
-        <translation translatorcomment="AI-translated">Primær stream-URL</translation>
+        <translation>Primær stream-URL</translation>
     </message>
     <message>
         <source>LNG_00303</source>
-        <translation translatorcomment="AI-translated">Sekundær backup-URL</translation>
+        <translation>Sekundær backup-URL</translation>
     </message>
     <message>
         <source>LNG_00462</source>
-        <translation translatorcomment="AI-translated">Kanalindstillinger</translation>
+        <translation>Kanalindstillinger</translation>
     </message>
     <message>
         <source>LNG_00461</source>
-        <translation translatorcomment="AI-translated">FFmpeg muligheder</translation>
+        <translation>FFmpeg muligheder</translation>
     </message>
     <message>
         <source>LNG_00460</source>
-        <translation translatorcomment="AI-translated">Medtag ikke globale ændringer af FFmpeg-indstillinger</translation>
+        <translation>Medtag ikke globale ændringer af FFmpeg-indstillinger</translation>
     </message>
     <message>
         <source>LNG_00059</source>
-        <translation translatorcomment="AI-translated">Annuller</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <source>LNG_00058</source>
-        <translation translatorcomment="AI-translated">Gem</translation>
+        <translation>Gem</translation>
     </message>
 </context>
 <context>
@@ -4590,51 +4670,51 @@
     </message>
     <message>
         <source>LNG_00475</source>
-        <translation translatorcomment="AI-translated">Skift visningsporte</translation>
+        <translation>Skift visningsporte</translation>
     </message>
     <message>
         <source>LNG_00474</source>
-        <translation translatorcomment="AI-translated">Valg af stream</translation>
+        <translation>Valg af stream</translation>
     </message>
     <message>
         <source>LNG_00473</source>
-        <translation translatorcomment="AI-translated">Fjern kameraet</translation>
+        <translation>Fjern kameraet</translation>
     </message>
     <message>
         <source>LNG_00472</source>
-        <translation translatorcomment="AI-translated">Skift indstillinger</translation>
+        <translation>Skift indstillinger</translation>
     </message>
     <message>
         <source>LNG_00471</source>
-        <translation translatorcomment="AI-translated">Genindlæs</translation>
+        <translation>Genindlæs</translation>
     </message>
     <message>
         <source>LNG_00470</source>
-        <translation translatorcomment="AI-translated">Snapshot</translation>
+        <translation>Snapshot</translation>
     </message>
     <message>
         <source>LNG_00469</source>
-        <translation translatorcomment="AI-translated">Afspilning</translation>
+        <translation>Afspilning</translation>
     </message>
     <message>
         <source>LNG_00468</source>
-        <translation translatorcomment="AI-translated">Automatycznie</translation>
+        <translation>Automatycznie</translation>
     </message>
     <message>
         <source>LNG_00467</source>
-        <translation translatorcomment="AI-translated">Tylko MAIN</translation>
+        <translation>Tylko MAIN</translation>
     </message>
     <message>
         <source>LNG_00466</source>
-        <translation translatorcomment="AI-translated">Tylko SUB</translation>
+        <translation>Tylko SUB</translation>
     </message>
     <message>
         <source>LNG_00465</source>
-        <translation translatorcomment="AI-translated">Bekræft fjernelse af kamera</translation>
+        <translation>Bekræft fjernelse af kamera</translation>
     </message>
     <message>
         <source>LNG_00464</source>
-        <translation translatorcomment="AI-translated">Er du sikker på, at du vil fjerne kameraet fra denne visningsport?</translation>
+        <translation>Er du sikker på, at du vil fjerne kameraet fra denne visningsport?</translation>
     </message>
 </context>
 </TS>

@@ -177,11 +177,11 @@ git clone --recurse-submodules https://github.com/arkanista/kvision.git
 
 If you are running Arch Linux or CachyOS, you can skip compilation and install the pre-compiled Pacman package directly from the latest release:
 
-* **[Download kvision-2.5.0-2-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.5.0/kvision-2.5.0-2-x86_64.pkg.tar.zst)**
+* **[Download kvision-2.6.0-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.6.0/kvision-2.6.0-1-x86_64.pkg.tar.zst)**
 
 To install the downloaded package:
 ```bash
-sudo pacman -U kvision-2.5.0-2-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.6.0-1-x86_64.pkg.tar.zst
 ```
 
 ### Building from Source (Arch Linux / CachyOS)
@@ -311,7 +311,7 @@ For Hikvision and general low-latency camera streaming over RTSP, we recommend c
 -analyzeduration 100000 -probesize 500000 -fflags nobuffer -flags low_delay -rtsp_transport tcp
 ```
 
-> **[RECOMMENDATION]** If you are migrating from an older version (prior to v2.5.0), it is highly recommended to change `-analyzeduration 0` to `-analyzeduration 100000`. Setting `0` on streams without an audio track causes delays in switching because FFmpeg will block for a hardcoded 5-second timeout waiting for audio packets. Setting a very low value (e.g., 100000 microseconds = 0.1s) completely resolves this issue while maintaining instant switching.
+> **[RECOMMENDATION]** If you are migrating from an older version (prior to v2.6.0), it is highly recommended to change `-analyzeduration 0` to `-analyzeduration 100000`. Setting `0` on streams without an audio track causes delays in switching because FFmpeg will block for a hardcoded 5-second timeout waiting for audio packets. Setting a very low value (e.g., 100000 microseconds = 0.1s) completely resolves this issue while maintaining instant switching.
 
 These parameters provide the lowest latency, fastest stream connection, and maximum stability over RTSP, preventing the camera streams from falling behind (drift) over long operational periods. The `-rtsp_transport tcp` option forces TCP transport instead of UDP for maximum stream stability on standard networks.
 
