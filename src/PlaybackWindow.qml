@@ -1973,8 +1973,46 @@ Window {
 
                                         onPositionChanged: {
                                             if (isDragging) {
-                                                currentX = Math.max(0, Math.min(mouse.x, parent.width));
-                                                currentY = Math.max(0, Math.min(mouse.y, parent.height));
+                                                var mx = Math.max(0, Math.min(mouse.x, parent.width));
+                                                var my = Math.max(0, Math.min(mouse.y, parent.height));
+
+                                                if (mouse.modifiers & Qt.ShiftModifier && parent.height > 0) {
+                                                    var dx = mx - startX;
+                                                    var dy = my - startY;
+                                                    var w = Math.abs(dx);
+                                                    var h = Math.abs(dy);
+                                                    var ratio = parent.width / parent.height;
+
+                                                    if (h > 0) {
+                                                        if (w / ratio > h) {
+                                                            h = w / ratio;
+                                                        } else {
+                                                            w = h * ratio;
+                                                        }
+
+                                                        var targetX = startX + (dx >= 0 ? w : -w);
+                                                        var targetY = startY + (dy >= 0 ? h : -h);
+
+                                                        if (targetX < 0 || targetX > parent.width || targetY < 0 || targetY > parent.height) {
+                                                            var maxW = dx >= 0 ? parent.width - startX : startX;
+                                                            var maxH = dy >= 0 ? parent.height - startY : startY;
+
+                                                            var scaleX = w > 0 ? maxW / w : 1.0;
+                                                            var scaleY = h > 0 ? maxH / h : 1.0;
+                                                            var scale = Math.min(scaleX, scaleY);
+
+                                                            w *= scale;
+                                                            h *= scale;
+                                                            targetX = startX + (dx >= 0 ? w : -w);
+                                                            targetY = startY + (dy >= 0 ? h : -h);
+                                                        }
+
+                                                        mx = targetX;
+                                                        my = targetY;
+                                                    }
+                                                }
+                                                currentX = mx;
+                                                currentY = my;
                                             }
                                         }
 
@@ -2011,12 +2049,12 @@ Window {
                                         border.width: 1
                                     }
 
-                                    // Middle-drag MouseArea for panning in 1:1 mode
+                                    // Middle-drag MouseArea for panning in 1:1 mode and zoom mode
                                     MouseArea {
                                         id: middleDragMouseArea
                                         anchors.fill: parent
                                         acceptedButtons: Qt.MiddleButton
-                                        enabled: tileContainer.isOneToOne
+                                        enabled: tileContainer.isOneToOne || tileContainer.isZoomed
                                         cursorShape: containsPress ? Qt.ClosedHandCursor : Qt.OpenHandCursor
 
                                         property real lastX: 0
@@ -2032,11 +2070,19 @@ Window {
                                                 var dx = mouse.x - lastX;
                                                 var dy = mouse.y - lastY;
 
-                                                var videoW = playerItem.videoWidth > 0 ? playerItem.videoWidth : videoWrapper.width;
-                                                var videoH = playerItem.videoHeight > 0 ? playerItem.videoHeight : videoWrapper.height;
+                                                if (tileContainer.isOneToOne) {
+                                                    var videoW = playerItem.videoWidth > 0 ? playerItem.videoWidth : videoWrapper.width;
+                                                    var videoH = playerItem.videoHeight > 0 ? playerItem.videoHeight : videoWrapper.height;
 
-                                                tileContainer.oneToOneX = Math.min(0, Math.max(videoWrapper.width - videoW, tileContainer.oneToOneX + dx));
-                                                tileContainer.oneToOneY = Math.min(0, Math.max(videoWrapper.height - videoH, tileContainer.oneToOneY + dy));
+                                                    tileContainer.oneToOneX = Math.min(0, Math.max(videoWrapper.width - videoW, tileContainer.oneToOneX + dx));
+                                                    tileContainer.oneToOneY = Math.min(0, Math.max(videoWrapper.height - videoH, tileContainer.oneToOneY + dy));
+                                                } else if (tileContainer.isZoomed && parent.width > 0 && parent.height > 0) {
+                                                    var dZoomX = (dx / parent.width) * tileContainer.zoomWidth;
+                                                    var dZoomY = (dy / parent.height) * tileContainer.zoomHeight;
+
+                                                    tileContainer.zoomX = Math.max(0, Math.min(1.0 - tileContainer.zoomWidth, tileContainer.zoomX - dZoomX));
+                                                    tileContainer.zoomY = Math.max(0, Math.min(1.0 - tileContainer.zoomHeight, tileContainer.zoomY - dZoomY));
+                                                }
 
                                                 lastX = mouse.x;
                                                 lastY = mouse.y;
