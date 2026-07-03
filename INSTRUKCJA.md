@@ -38,7 +38,7 @@ W tej sekcji opisano znaczenie wszystkich ikon i przycisków używanych w aplika
 * {ICON:snapshot} **Stopklatka**: Wykonuje bezstratny zrzut obrazu w pełnej rozdzielczości do pliku JPEG.
 * {ICON:play} **Archiwum Kamery**: Przechodzi do odtwarzania archiwum tej kamery (offset -15 minut wstecz).
 * {ICON:grid_1x1} **Tryb 1:1**: Wyświetla wideo w jego oryginalnej, natywnej rozdzielczości (bez rozciągania).
-* {ICON:zoom_in} **Powiększenie**: Włącza interaktywne zbliżenie wybranego prostokątem fragmentu wideo.
+* {ICON:zoom_in} **Powiększenie**: Włącza interaktywne zbliżenie wybranego prostokątem fragmentu wideo. Przytrzymanie klawisza `Shift` w trakcie zaznaczania wymusza proporcje 16:9. Przytrzymanie i przeciągnięcie wciśniętego kółka myszy pozwala na swobodne przesuwanie powiększonego obrazu (Pan Zoom).
 * {ICON:zoom_out} **Reset Zoomu**: Wyłącza zbliżenie cyfrowe i przywraca oryginalny kadr kamery.
 * {ICON:speaker_unmute} **Wyciszenie Audio**: Wskazuje odciszony dźwięk; kliknięcie wycisza strumień audio kamery.
 * {ICON:speaker_mute} **Odciszenie Audio**: Wskazuje wyciszony dźwięk; kliknięcie włącza strumień audio kamery.
@@ -84,7 +84,7 @@ W tej sekcji opisano znaczenie wszystkich ikon i przycisków używanych w aplika
 ### Instalacja pakietu Arch Linux (Pacman)
 Aby zainstalować program z przygotowanej paczki binarnej, przejdź do katalogu `packaging/arch/` i wykonaj:
 ```bash
-sudo pacman -U kvision-2.4.6-2-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.5.0-2-x86_64.pkg.tar.zst
 ```
 Pakiet automatycznie zainstaluje program, plik aktywacyjny `.desktop` oraz wymagane biblioteki Hikvision SDK w systemowej ścieżce `/usr/lib/kvision`.
 

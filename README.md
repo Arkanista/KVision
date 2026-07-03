@@ -37,8 +37,9 @@ It is designed for Linux users who need a robust, lightweight, and smooth altern
 
 ### 🔍 Advanced Image Controls & Zooming
 * **Interactive Viewport Zooming (Region Selection)**: Enter zoom mode by clicking the magnifying glass icon on any viewport. Click and drag a rectangular marquee over the video stream to crop and zoom into that specific region. Click the icon again to reset the zoom.
+* **Proportional Zoom Selection**: Hold the `Shift` key while drawing the zoom rectangle to lock the selection to a 16:9 aspect ratio, preventing distorted crops.
+* **Pan Zoom**: Click and hold the middle mouse button (scroll wheel) and drag to freely pan the zoomed-in video stream around the viewport.
 * **1:1 Pixel Mapping Mode**: View camera streams in their native pixel-to-pixel resolution without any scaling distortion.
-* **Middle-Click Panning**: While in 1:1 mode, click and hold the middle mouse button (scroll wheel) to pan around the enlarged stream.
 * **Mouse Wheel Zoom (Fullscreen)**: Scale the stream dynamically in fullscreen mode by holding the `Ctrl` key and scrolling the mouse wheel.
 
 ### 🔌 Hikvision NVR/DVR Deep Integration
@@ -176,11 +177,11 @@ git clone --recurse-submodules https://github.com/arkanista/kvision.git
 
 If you are running Arch Linux or CachyOS, you can skip compilation and install the pre-compiled Pacman package directly from the latest release:
 
-* **[Download kvision-2.4.6-2-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.4.5/kvision-2.4.6-2-x86_64.pkg.tar.zst)**
+* **[Download kvision-2.5.0-2-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.5.0/kvision-2.5.0-2-x86_64.pkg.tar.zst)**
 
 To install the downloaded package:
 ```bash
-sudo pacman -U kvision-2.4.6-2-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.5.0-2-x86_64.pkg.tar.zst
 ```
 
 ### Building from Source (Arch Linux / CachyOS)
@@ -310,7 +311,7 @@ For Hikvision and general low-latency camera streaming over RTSP, we recommend c
 -analyzeduration 100000 -probesize 500000 -fflags nobuffer -flags low_delay -rtsp_transport tcp
 ```
 
-> **[RECOMMENDATION]** If you are migrating from an older version (prior to v2.4.5), it is highly recommended to change `-analyzeduration 0` to `-analyzeduration 100000`. Setting `0` on streams without an audio track causes delays in switching because FFmpeg will block for a hardcoded 5-second timeout waiting for audio packets. Setting a very low value (e.g., 100000 microseconds = 0.1s) completely resolves this issue while maintaining instant switching.
+> **[RECOMMENDATION]** If you are migrating from an older version (prior to v2.5.0), it is highly recommended to change `-analyzeduration 0` to `-analyzeduration 100000`. Setting `0` on streams without an audio track causes delays in switching because FFmpeg will block for a hardcoded 5-second timeout waiting for audio packets. Setting a very low value (e.g., 100000 microseconds = 0.1s) completely resolves this issue while maintaining instant switching.
 
 These parameters provide the lowest latency, fastest stream connection, and maximum stability over RTSP, preventing the camera streams from falling behind (drift) over long operational periods. The `-rtsp_transport tcp` option forces TCP transport instead of UDP for maximum stream stability on standard networks.
 
