@@ -1,3 +1,15 @@
+2.6.1-1
+  * PL: Naprawiono krytyczny wyciek pamięci na poziomie sterownika graficznego (NVIDIA/GLX) oraz ograniczono liczbę wątków dekodowania FFmpeg do 1 dla każdego strumienia, zapobiegając eksplozji wątków i drastycznie zmniejszając zużycie pamięci RAM.
+    EN: Fixed a critical GPU driver-level memory leak (NVIDIA/GLX) and restricted FFmpeg decoding threads to 1 per stream, preventing thread explosion and drastically reducing RAM usage.
+
+2.6.0-1
+  * PL: Rozszerzono lokalizację o 20 nowych języków AI, dodano instrukcję obsługi dla 22 języków oraz zintegrowano wbudowany podgląd listy zmian w aplikacji.
+    EN: Expanded application localization with 20 new AI-translated languages, added user instruction manuals for 22 languages, and integrated an in-app changelog viewer.
+
+2.5.0-1
+  * PL: Dodano funkcję Pan Zoom (przesuwanie przybliżenia kołem myszy), proporcjonalne przybliżenie z klawiszem Shift (16:9), scentrowane pozycjonowanie okien oraz usunięto błąd proporcji ekranu w archiwum i wyciek demuxera.
+    EN: Added Pan Zoom feature (middle-click drag), proportional zoom rectangle with Shift (16:9 lock), centered window launch enforcement, fixed archive player aspect ratio and demuxer cleanup leak.
+
 2.4.4-1
   * PL: Naprawiono błąd zaokrąglania frakcyjnego skalowania (np. 145%) przez framework Qt5, wymuszając politykę HighDpiScaleFactorRoundingPolicy::PassThrough. Teraz system natywnie skaluje interfejs przy dowolnych ustawieniach.
     EN: Fixed fractional scaling rounding issue (e.g. 145%) in Qt5 by enforcing HighDpiScaleFactorRoundingPolicy::PassThrough policy. The UI now natively scales correctly on all settings.
