@@ -55,6 +55,8 @@ bool QmlAVDecoder::open(const AVStream *avStream, const QmlAVOptions &avOptions)
             return false;
         }
 
+        m_avCodecCtx->thread_count = 1; // Prevent thread explosion on high-core-count machines
+
         if (!initVideoDecoder(avOptions)) {
             return false;
         }

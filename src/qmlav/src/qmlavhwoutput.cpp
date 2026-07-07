@@ -87,6 +87,9 @@ QVariant QmlAVHWOutput_VAAPI_GLX::handle(const AVFramePtr &avFrame)
         m_glxDisplay = glxDisplay;
 
         XFree(fbConfigs);
+    } else {
+        glBindTexture(GL_TEXTURE_2D, m_glTexture);
+        m_glXReleaseTexImageEXT(m_glxDisplay, m_glXPixmap, GLX_FRONT_EXT);
     }
 
     vaSyncSurface(vaDisplay, vaSurface);
