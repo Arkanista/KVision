@@ -50,7 +50,7 @@ void customMessageHandler(QtMsgType type, const QMessageLogContext &context, con
         if (type == QtWarningMsg) {
             if (msg.contains("qrc:/") || msg.contains(".qml") || msg.contains("TypeError") ||
                 msg.contains("QmlAVDecoder") || msg.contains("Unable send packet to decoder") ||
-                msg.contains("Unable to read decoded frame")) {
+                msg.contains("Unable to read decoded frame") || msg.contains("Unable to open input file")) {
                 return;
             }
         }
