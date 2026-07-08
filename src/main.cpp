@@ -38,12 +38,21 @@ void custom_ffmpeg_log_callback(void* ptr, int level, const char* fmt, va_list v
     Q_UNUSED(vl);
 }
 
+extern bool g_qmlav_enable_logs;
+
 void customMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     Q_UNUSED(context);
     if (!Context::enableLogs()) {
         if (type == QtDebugMsg || type == QtInfoMsg) {
             return;
+        }
+        if (type == QtWarningMsg) {
+            if (msg.contains("qrc:/") || msg.contains(".qml") || msg.contains("TypeError") ||
+                msg.contains("QmlAVDecoder") || msg.contains("Unable send packet to decoder") ||
+                msg.contains("Unable to read decoded frame")) {
+                return;
+            }
         }
     }
 
@@ -212,6 +221,7 @@ int main(int argc, char *argv[])
     SingleApplication singleApp;
     if (singleApp.isRunning()) {
         Context::init();
+        g_qmlav_enable_logs = Context::enableLogs();
         qInfo() << "KVision version:" << APP_VERSION;
         Context::initLanguage();
         QQmlApplicationEngine engine;
@@ -229,6 +239,7 @@ int main(int argc, char *argv[])
     }
 
     Context::init();
+    g_qmlav_enable_logs = Context::enableLogs();
     qInfo() << "KVision version:" << APP_VERSION;
     Context::initLanguage();
 

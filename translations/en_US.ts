@@ -1407,168 +1407,168 @@
         <translation>KVision</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="475" />
-        <location filename="../src/RootWindow.qml" line="632" />
+        <location filename="../src/RootWindow.qml" line="489" />
+        <location filename="../src/RootWindow.qml" line="646" />
         <source>LNG_00219</source>
         <translation>Error reading configuration!</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="785" />
+        <location filename="../src/RootWindow.qml" line="799" />
         <source>LNG_00120</source>
         <translation>Unpin top bar</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="785" />
+        <location filename="../src/RootWindow.qml" line="799" />
         <source>LNG_00119</source>
         <translation>Pin top bar</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="824" />
+        <location filename="../src/RootWindow.qml" line="838" />
         <source>LNG_00011</source>
         <translation>Toggle Full Screen</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="857" />
+        <location filename="../src/RootWindow.qml" line="871" />
         <source>LNG_00218</source>
         <translation>Minimize window</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="897" />
+        <location filename="../src/RootWindow.qml" line="911" />
         <source>LNG_00015</source>
         <translation>Options and settings of the sidebar panel</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="933" />
+        <location filename="../src/RootWindow.qml" line="947" />
         <source>LNG_00014</source>
         <translation>Open new auxiliary window</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="969" />
+        <location filename="../src/RootWindow.qml" line="983" />
         <source>LNG_00217</source>
         <translation>Recording archive and player</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1007" />
+        <location filename="../src/RootWindow.qml" line="1021" />
         <source>LNG_00013</source>
         <translation>Program user manual</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1038" />
+        <location filename="../src/RootWindow.qml" line="1052" />
         <source>LNG_00216</source>
         <translation>Disable resource usage statistics</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1038" />
+        <location filename="../src/RootWindow.qml" line="1052" />
         <source>LNG_00215</source>
         <translation>Enable resource usage statistics</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1137" />
+        <location filename="../src/RootWindow.qml" line="1151" />
         <source>LNG_00214</source>
         <translation>NVR errors detected!</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1137" />
+        <location filename="../src/RootWindow.qml" line="1151" />
         <source>LNG_00213</source>
         <translation>NVR status: OK</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1189" />
+        <location filename="../src/RootWindow.qml" line="1203" />
         <source>LNG_00212</source>
         <translation>Lock grid size changes</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1287" />
+        <location filename="../src/RootWindow.qml" line="1301" />
         <source>LNG_00009</source>
         <translation>More options</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1474" />
+        <location filename="../src/RootWindow.qml" line="1488" />
         <source>LNG_00211</source>
         <translation>NVR errors detected! Click to view details.</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1512" />
+        <location filename="../src/RootWindow.qml" line="1526" />
         <source>LNG_00017</source>
         <translation>No view selected, select a view</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1520" />
+        <location filename="../src/RootWindow.qml" line="1534" />
         <source>LNG_00016</source>
         <translation>Select a view from the top menu to start displaying cameras.</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1555" />
+        <location filename="../src/RootWindow.qml" line="1569" />
         <source>LNG_00210</source>
         <translation>KVision - Panel</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1689" />
+        <location filename="../src/RootWindow.qml" line="1703" />
         <source>LNG_00121</source>
         <translation>Close window</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1689" />
+        <location filename="../src/RootWindow.qml" line="1703" />
         <source>LNG_00007</source>
         <translation>Close program</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1690" />
+        <location filename="../src/RootWindow.qml" line="1704" />
         <source>LNG_00209</source>
         <translation>Are you sure you want to close this window?</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1690" />
+        <location filename="../src/RootWindow.qml" line="1704" />
         <source>LNG_00006</source>
         <translation>Are you sure you want to close the program?</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1691" />
+        <location filename="../src/RootWindow.qml" line="1705" />
         <source>LNG_00005</source>
         <translation>YES</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1692" />
+        <location filename="../src/RootWindow.qml" line="1706" />
         <source>LNG_00004</source>
         <translation>NO</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1801" />
+        <location filename="../src/RootWindow.qml" line="1815" />
         <source>LNG_00208</source>
         <translation>📊 SYSTEM STATS</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1842" />
+        <location filename="../src/RootWindow.qml" line="1856" />
         <source>LNG_00207</source>
         <translation>Drag statistics panel</translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1851" />
+        <location filename="../src/RootWindow.qml" line="1865" />
         <source>LNG_00206</source>
         <translation>RAM: </translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1858" />
+        <location filename="../src/RootWindow.qml" line="1872" />
         <source>LNG_00205</source>
         <translation>VRAM: </translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1866" />
+        <location filename="../src/RootWindow.qml" line="1880" />
         <source>LNG_00204</source>
         <translation>CPU: </translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="1948" />
+        <location filename="../src/RootWindow.qml" line="1962" />
         <source>LNG_00203</source>
         <translation>GPU: </translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="2030" />
+        <location filename="../src/RootWindow.qml" line="2044" />
         <source>LNG_00202</source>
         <translation>NET: </translation>
     </message>
     <message>
-        <location filename="../src/RootWindow.qml" line="2436" />
+        <location filename="../src/RootWindow.qml" line="2450" />
         <source>LNG_00201</source>
         <translation>Loading new window...</translation>
     </message>
@@ -1737,1236 +1737,1261 @@
     </message>
     <message>
         <location filename="../src/SideBar.qml" line="139" />
+        <source>LNG_00527</source>
+        <translation>Reduced log spam: Suppressed repetitive QML/JS warnings, TypeErrors, and video packet decoding errors from default output.</translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="140" />
+        <source>LNG_00528</source>
+        <translation>Translation Polish: Corrected the Polish translation of the archive player window title from 'Archive' to 'Archiwum'.</translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="141" />
+        <source>LNG_00531</source>
+        <translation>Periodic Memory Reclaiming: Added a background timer that runs once every hour to perform garbage collection and malloc_trim(0) to release unused heap memory to the OS.</translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="148" />
+        <source>LNG_00529</source>
+        <translation>Fixed GPU Driver Memory Leak: Resolved critical NVIDIA/GLX driver memory leak.</translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="149" />
+        <source>LNG_00530</source>
+        <translation>Thread Count Optimization: Restricted FFmpeg decoding to a single thread per stream, drastically reducing RAM usage.</translation>
+    </message>
+    <message>
+        <location filename="../src/SideBar.qml" line="156" />
         <source>LNG_00517</source>
         <translation>Localization Expansion: KVision is now fully localized into 20 new AI-translated languages, bringing the total number of supported languages to 22 (English, Polish, and 20 new languages). Both the entire application interface (UI) and the complete user manuals have been translated.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="140" />
+        <location filename="../src/SideBar.qml" line="157" />
         <source>LNG_00518</source>
         <translation>Viewport Quick Playback documentation: Added comprehensive documentation explaining the circular arrow overlay button (Miniplayer) and its detailed features in all 22 user manuals.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="147" />
+        <location filename="../src/SideBar.qml" line="164" />
         <source>LNG_00519</source>
         <translation>Pan Zoom: Added the ability to freely pan the zoomed-in video (Live, Mini-player, Archive) by holding down the middle mouse button (scroll wheel) and dragging the cursor.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="148" />
+        <location filename="../src/SideBar.qml" line="165" />
         <source>LNG_00520</source>
         <translation>Proportional Zoom Selection: Introduced the Shift shortcut. Holding down the Shift key while drawing a zoom rectangle forces the selection to lock into a 16:9 aspect ratio, strictly constrained to the viewport boundaries.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="149" />
+        <location filename="../src/SideBar.qml" line="166" />
         <source>LNG_00521</source>
         <translation>Enforced Window Positioning: Completely replaced the legacy window geometry saving mechanisms due to unresolvable multi-monitor projection issues in Qt. The application (both the main window and auxiliary windows) now strictly enforces launching centered on the primary monitor at 90% of its resolution, ensuring stability and predictability across all setups.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="150" />
+        <location filename="../src/SideBar.qml" line="167" />
         <source>LNG_00522</source>
         <translation>Localization Refactoring: Replaced all hardcoded Polish and English strings embedded in the source code (qsTr, tr). Over 500 unique strings have been refactored into LNG_XXXXX identifiers, securely mapped via an improved .ts/.qm file system.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="151" />
+        <location filename="../src/SideBar.qml" line="168" />
         <source>LNG_00523</source>
         <translation>English-only CLI: Command-line interface options and --help parameters are now permanently in English to prevent issues with delayed localization engine initialization.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="152" />
+        <location filename="../src/SideBar.qml" line="169" />
         <source>LNG_00524</source>
         <translation>Archive Aspect Ratio: Fixed an issue where the aspect ratio of the video was distorted in the Archive player viewport. The HikvisionArchivePlayer component now correctly renders the original frame preserving its natural aspect ratio (letterboxing), instead of stretching the video to fit the UI boundaries.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="153" />
+        <location filename="../src/SideBar.qml" line="170" />
         <source>LNG_00525</source>
         <translation>Demuxer Memory Leaks: Improved the object cleanup logic in the QmlAVPlayer::stop() routine, preventing 'zombie' demuxer instances from accumulating in the background.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="154" />
+        <location filename="../src/SideBar.qml" line="171" />
         <source>LNG_00526</source>
         <translation>writeSetting Fix: Added the missing implementation of the writeSetting method in the Context class, eliminating TypeErrors and QML execution interruptions during settings migrations.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="161" />
+        <location filename="../src/SideBar.qml" line="178" />
         <source>LNG_00452</source>
         <translation>Fixed a critical bug where network loss and RTSP stream timeouts caused the player to become a Zombie, preventing successful reconnections. The Reload button and auto-resume now work completely reliably.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="162" />
+        <location filename="../src/SideBar.qml" line="179" />
         <source>LNG_00451</source>
         <translation>Refreshed the appearance of Player and Archive status messages. Loading and restoring notifications now feature a pleasant cyan theme with appropriate icons to better distinguish them from critical errors (No media/network).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="169" />
+        <location filename="../src/SideBar.qml" line="186" />
         <source>LNG_00450</source>
         <translation>Integrated MakeKeyFrame hardware command with Hikvision SDK. The app now aggressively forces the camera to emit an I-Frame when switching Sub/Main streams and from Live to Archive, eliminating the 10-second keyframe wait.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="170" />
+        <location filename="../src/SideBar.qml" line="187" />
         <source>LNG_00449</source>
         <translation>Removed on-the-fly overriding of the analyzeduration parameter. The app strictly enforces user-defined FFmpeg values (it is highly recommended to set it to 100000 for audio-less cameras to bypass the 5-second stall limit).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="171" />
+        <location filename="../src/SideBar.qml" line="188" />
         <source>LNG_00448</source>
         <translation>Added "HikSDK" badges on recorder viewports for better protocol differentiation.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="172" />
+        <location filename="../src/SideBar.qml" line="189" />
         <source>LNG_00447</source>
         <translation>Streamlined diagnostic logging (QDebug), allowing warnings and critical errors to be printed to the console outside of verbose mode, facilitating easier NVR fault debugging.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="173" />
+        <location filename="../src/SideBar.qml" line="190" />
         <source>LNG_00446</source>
         <translation>Filtered out false positive PlayM4 SDK errors (no. 17 and 2) that spam the console during rapid timeline scrubbing in the player.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="180" />
+        <location filename="../src/SideBar.qml" line="197" />
         <source>LNG_00445</source>
         <translation>Fixed truncation of non-linear scaling (e.g. 145%) by the Qt5 framework on KDE Plasma systems, enforcing proper interpretation of High DPI policy.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="187" />
+        <location filename="../src/SideBar.qml" line="204" />
         <source>LNG_00444</source>
         <translation>Resolved temporary freezes of other cameras on the live grid when seeking or dragging the timeline.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="188" />
+        <location filename="../src/SideBar.qml" line="205" />
         <source>LNG_00443</source>
         <translation>Moved all blocking Hikvision SDK network calls (login, stop, start, speed control) to an asynchronous worker thread.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="195" />
+        <location filename="../src/SideBar.qml" line="212" />
         <source>LNG_00442</source>
         <translation>Completely eliminated the black screen issue when switching quality (SUB/MAIN) for RTSP cameras.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="196" />
+        <location filename="../src/SideBar.qml" line="213" />
         <source>LNG_00441</source>
         <translation>Optimized the seamless stream switching timer to 100ms for maximum speed.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="203" />
+        <location filename="../src/SideBar.qml" line="220" />
         <source>LNG_00440</source>
         <translation>Added low-level FFmpeg options (nobuffer, low_delay) to eliminate live stream delay (drift) over long operational periods.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="204" />
+        <location filename="../src/SideBar.qml" line="221" />
         <source>LNG_00439</source>
         <translation>Introduced a button to bulk-update FFmpeg parameters for all existing cameras across all layouts.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="205" />
+        <location filename="../src/SideBar.qml" line="222" />
         <source>LNG_00438</source>
         <translation>Added option to exclude specific cameras from global FFmpeg parameter updates (new checkbox in viewport settings).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="206" />
+        <location filename="../src/SideBar.qml" line="223" />
         <source>LNG_00437</source>
         <translation>Secured the default settings migration process, allowing the user to permanently remove or modify new flags without them being forced on every startup.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="213" />
+        <location filename="../src/SideBar.qml" line="230" />
         <source>LNG_00436</source>
         <translation>Added quick playback functionality (up to 30 minutes rewind) directly inside the camera viewport.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="220" />
+        <location filename="../src/SideBar.qml" line="237" />
         <source>LNG_00435</source>
         <translation>Implemented full, bidirectional real-time synchronization between all windows and auxiliary program processes for settings: audio muting, disabling zoom animation, and all Hikvision NVR status monitoring options.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="221" />
+        <location filename="../src/SideBar.qml" line="238" />
         <source>LNG_00434</source>
         <translation>Added dynamic display of minute labels (e.g., :15, :30, :45) at minute ticks on the archive player timeline with intelligent label density adjustment (zoomHours).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="222" />
+        <location filename="../src/SideBar.qml" line="239" />
         <source>LNG_00433</source>
         <translation>Added a new option in UI settings: "Disable viewport zoom animation" with immediate application in camera grid view.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="223" />
+        <location filename="../src/SideBar.qml" line="240" />
         <source>LNG_00432</source>
         <translation>Rebuilt the archive player initialization process: suspended connection and video loading until the exact recording limits are determined (via an ultra-fast 24h asynchronous search), eliminating premature playback and image jumping.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="224" />
+        <location filename="../src/SideBar.qml" line="241" />
         <source>LNG_00431</source>
         <translation>Refined Hikvision archive loading messages – loading status is shown only during active stream buffering, and a dedicated warning is displayed if the playhead is moved beyond available recording boundaries.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="225" />
+        <location filename="../src/SideBar.qml" line="242" />
         <source>LNG_00430</source>
         <translation>Introduced new configuration fields in the settings panel: default archive playback start offset (in seconds, default 60s) and default timeline zoom span (zoom hours, default 2h).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="226" />
+        <location filename="../src/SideBar.qml" line="243" />
         <source>LNG_00429</source>
         <translation>Added a direct web login icon to the recorder's web panel inside the NVR status popup.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="233" />
+        <location filename="../src/SideBar.qml" line="250" />
         <source>LNG_00428</source>
         <translation>Added error reporting suppression functionality for individual recorders.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="234" />
+        <location filename="../src/SideBar.qml" line="251" />
         <source>LNG_00427</source>
         <translation>Fixed incorrect Polish translation "Simulated Recorder" in status window and implemented proper word distinction ("Suppress" for errors vs "Mute" for audio).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="241" />
+        <location filename="../src/SideBar.qml" line="258" />
         <source>LNG_00426</source>
         <translation>Implemented periodic (every 5 minutes) and manual Hikvision NVR/DVR error status monitoring using SDK/ISAPI diagnostics.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="242" />
+        <location filename="../src/SideBar.qml" line="259" />
         <source>LNG_00425</source>
         <translation>Added configuration options in General Settings to enable/disable Hikvision NVR status checking and customize monitored critical error types.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="243" />
+        <location filename="../src/SideBar.qml" line="260" />
         <source>LNG_00424</source>
         <translation>Designed a high-fidelity warm-green/red top-bar status icon with deep pulsing outer waves and inner heartbeat ripple animations to signal active critical errors.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="244" />
+        <location filename="../src/SideBar.qml" line="261" />
         <source>LNG_00423</source>
         <translation>Introduced a top-edge protruding red indicator circle that pulses at the top of the screen when the main toolbar is collapsed, ensuring critical warnings are never missed.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="245" />
+        <location filename="../src/SideBar.qml" line="262" />
         <source>LNG_00422</source>
         <translation>Created an elegant, scrollable popup window "Recorder status" limited to 85% of screen height presenting detailed error codes.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="246" />
+        <location filename="../src/SideBar.qml" line="263" />
         <source>LNG_00421</source>
         <translation>Added run flag "--simulate-error" to instantly simulate disk failures and connection errors across all recorders for demonstration purposes.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="247" />
+        <location filename="../src/SideBar.qml" line="264" />
         <source>LNG_00420</source>
         <translation>Implemented list frame badges and status indicator alignments across configured recorder views.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="248" />
+        <location filename="../src/SideBar.qml" line="265" />
         <source>LNG_00419</source>
         <translation>Achieved complete bilingual translation coverage (Polish/English) for all NVR diagnostics, setting check-boxes, tooltips, warnings, and command-line parser options.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="255" />
+        <location filename="../src/SideBar.qml" line="272" />
         <source>LNG_00418</source>
         <translation>Added the ability to reload the active layout by clicking its button on the top toolbar.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="262" />
+        <location filename="../src/SideBar.qml" line="279" />
         <source>LNG_00417</source>
         <translation>Average NVML utilization samples over time to smooth the GPU usage graph and eliminate jagged readings.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="269" />
+        <location filename="../src/SideBar.qml" line="286" />
         <source>LNG_00416</source>
         <translation>Eliminated momentary video blinking (black frames) and audio-video out-of-sync gaps when switching quality from SUB to MAIN streams during viewport maximization by delaying the active player swap until the first frame is painted on screen.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="270" />
+        <location filename="../src/SideBar.qml" line="287" />
         <source>LNG_00415</source>
         <translation>Added interactive, clear, and 2x wider scrollbars to the hour, minute, and second selection columns in the archive download time picker popup.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="271" />
+        <location filename="../src/SideBar.qml" line="288" />
         <source>LNG_00414</source>
         <translation>Added new intuitive options to the viewports context menu: 'Snapshot' (saving the current frame) and 'Playback' (immediate transition to the archive playback of the given camera).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="272" />
+        <location filename="../src/SideBar.qml" line="289" />
         <source>LNG_00413</source>
         <translation>Revolutionized and fixed PCM audio handling: direct pipeline forwarding to QAudioOutput, elimination of interface freezes (ALSA/PulseAudio/Pipewire) by stabilizing sample rate (debounce after 5 stable frames), 2s cooldown on output recreation, filtering damaged parameters and a 64KB buffer reducing network jitter.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="273" />
+        <location filename="../src/SideBar.qml" line="290" />
         <source>LNG_00412</source>
         <translation>Implemented an interactive HUD volume slider directly on the viewport tiles, along with a quick mute option and one-click volume maximization.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="274" />
+        <location filename="../src/SideBar.qml" line="291" />
         <source>LNG_00411</source>
         <translation>Implemented automatic and immediate muting of LIVE streams in the main grid upon opening the Archive playback window, preventing overlapping sounds (cacophony).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="275" />
+        <location filename="../src/SideBar.qml" line="292" />
         <source>LNG_00410</source>
         <translation>Introduced a central SnapshotSavedDialog notification system for saved snapshots (dark gray enclosure, teal borders, auto-close after 10 seconds) with a quick 'Browse' link to open the folder directly in the system file manager.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="276" />
+        <location filename="../src/SideBar.qml" line="293" />
         <source>LNG_00409</source>
         <translation>Enriched the built-in help window with a detailed 'Button functions description' chapter using native, crisp SVG vector icons. The help window now opens fully automatically and centered over the main window upon the program's first launch.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="277" />
+        <location filename="../src/SideBar.qml" line="294" />
         <source>LNG_00408</source>
         <translation>Introduced default display of the top bar upon program/window startup and added a 'Show top bar by default after opening a window' option in the settings, allowing customization of this behavior to personal preferences.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="278" />
+        <location filename="../src/SideBar.qml" line="295" />
         <source>LNG_00407</source>
         <translation>Implemented dynamic RPATH library paths in CMakeLists.txt using GNUInstallDirs, enabling immediate execution of the compiled application on Ubuntu and Debian without the need for manual configuration of /etc/ld.so.conf.d/ and ldconfig.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="285" />
+        <location filename="../src/SideBar.qml" line="302" />
         <source>LNG_00406</source>
         <translation>Renamed the program to KVision, introducing automatic user configuration migration, new multi-size icons (128px, 256px, 512px), and full version display in the window title bar.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="286" />
+        <location filename="../src/SideBar.qml" line="303" />
         <source>LNG_00405</source>
         <translation>Fixed the warning window for exceeding the auxiliary windows limit (missing QML resource and QSettings read).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="287" />
+        <location filename="../src/SideBar.qml" line="304" />
         <source>LNG_00404</source>
         <translation>Fixed the missing program icon under Wayland (hicolor theme installation and setDesktopFileName).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="288" />
+        <location filename="../src/SideBar.qml" line="305" />
         <source>LNG_00403</source>
         <translation>Removed the automatically collapse top bar option from Settings - from now on, the top bar in LIVE windows (main and auxiliary) collapses by default on startup, and the pin button pins it locally and temporarily (in-memory) without saving its state.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="289" />
+        <location filename="../src/SideBar.qml" line="306" />
         <source>LNG_00402</source>
         <translation>Introduced a limit on the number of auxiliary windows (configurable from 0 to 3) with an elegant warning window when attempting to exceed it.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="290" />
+        <location filename="../src/SideBar.qml" line="307" />
         <source>LNG_00401</source>
         <translation>Added subtle 1px dark-gray borders around unused viewports in the LIVE layout grid for better delineation of fields.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="291" />
+        <location filename="../src/SideBar.qml" line="308" />
         <source>LNG_00400</source>
         <translation>Secured editing of save paths and system media configuration options behind a transient 'Activate changes in this section' checkbox, preventing accidental modifications (editing state resets on close).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="292" />
+        <location filename="../src/SideBar.qml" line="309" />
         <source>LNG_00399</source>
         <translation>Introduced direct shortcuts for 'open save folder' (highlighted in celadon upon completed download in the Archive window) and always-active quick-open buttons for snapshot and video folders in Settings (with automatic directory creation on disk if missing).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="293" />
+        <location filename="../src/SideBar.qml" line="310" />
         <source>LNG_00398</source>
         <translation>Introduced interactive validation when clicking the 'Pobierz' (Download) button in the download window: automatic format and chronological date checks, displaying a red warning tooltip and focusing the first invalid field.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="294" />
+        <location filename="../src/SideBar.qml" line="311" />
         <source>LNG_00397</source>
         <translation>Implemented full keyboard navigation (up/down arrow keys to change values, left/right to switch columns) inside the clock picker popup.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="295" />
+        <location filename="../src/SideBar.qml" line="312" />
         <source>LNG_00396</source>
         <translation>Ensured a completely clean launch for auxiliary windows (without automatically opening the options sidebar) and excluded geometry settings saving from auxiliary windows, eliminating shared configuration contamination.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="296" />
+        <location filename="../src/SideBar.qml" line="313" />
         <source>LNG_00395</source>
         <translation>Added full English language support for all new formatting and chronological validation error messages in the download window.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="303" />
+        <location filename="../src/SideBar.qml" line="320" />
         <source>LNG_00394</source>
         <translation>Eliminated RAM memory leaks when switching camera layouts by automatically and correctly stopping the video surface before updating formats and matching renderer dimensions.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="304" />
+        <location filename="../src/SideBar.qml" line="321" />
         <source>LNG_00393</source>
         <translation>Implemented unconditional releasing and destruction of audio output objects on player stop, and introduced automatic recycling of these objects to eliminate memory and thread leaks on Linux.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="305" />
+        <location filename="../src/SideBar.qml" line="322" />
         <source>LNG_00392</source>
         <translation>Resolved video freezing issues (solid color screen after viewport zoom) by forcing correct video availability signaling when presenting the first frame of a new stream.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="306" />
+        <location filename="../src/SideBar.qml" line="323" />
         <source>LNG_00391</source>
         <translation>Added a global setting 'Disable audio support completely', allowing total bypass of audio processing to eliminate potential overhead and memory leaks.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="307" />
+        <location filename="../src/SideBar.qml" line="324" />
         <source>LNG_00390</source>
         <translation>Optimized the system statistics module to eliminate continuous memory usage overhead by caching process IDs and removing dynamic regular expression allocations.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="308" />
+        <location filename="../src/SideBar.qml" line="325" />
         <source>LNG_00389</source>
         <translation>Enforced aggressive Garbage Collection (GC) upon camera layout switches and nullified image scaling contexts (SwsContext) in video buffers.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="309" />
+        <location filename="../src/SideBar.qml" line="326" />
         <source>LNG_00388</source>
         <translation>Ensured proper resource cleanup of the static configuration file change detector (QFileSystemWatcher) upon application exit.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="310" />
+        <location filename="../src/SideBar.qml" line="327" />
         <source>LNG_00387</source>
         <translation>Fixed synchronization and freezing issues of the auxiliary window process on slower machines during sequential camera deletion and viewport merging or moving.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="311" />
+        <location filename="../src/SideBar.qml" line="328" />
         <source>LNG_00386</source>
         <translation>Fixed aggregation of GPU utilization, VRAM usage, and network bandwidth statistics from all application processes using shared memory (/dev/shm) in the background.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="318" />
+        <location filename="../src/SideBar.qml" line="335" />
         <source>LNG_00385</source>
         <translation>Protected archive player destructor from data races when cleaning up pending RGB tasks.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="319" />
+        <location filename="../src/SideBar.qml" line="336" />
         <source>LNG_00384</source>
         <translation>Implemented video player pooling to eliminate RAM usage spikes and flickering when switching layouts.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="320" />
+        <location filename="../src/SideBar.qml" line="337" />
         <source>LNG_00383</source>
         <translation>Optimized GPU/VRAM monitoring to a process-specific model (no nvidia-smi spawning) with native support for NVIDIA, AMD, and Intel GPUs (AMD/Intel statistics are untested).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="321" />
+        <location filename="../src/SideBar.qml" line="338" />
         <source>LNG_00382</source>
         <translation>Allowed resizing the system stats panel by dragging its edges and corners with auto-scaling graphs.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="322" />
+        <location filename="../src/SideBar.qml" line="339" />
         <source>LNG_00381</source>
         <translation>Implemented instant hiding of the main and auxiliary windows on quit confirmation, making shutdown appear immediate to the user while thread and memory cleanup runs safely in the background.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="329" />
+        <location filename="../src/SideBar.qml" line="346" />
         <source>LNG_00380</source>
         <translation>Converted top toolbars in both LIVE and ARCHIVE windows into centered floating docks (LIVE dock has dynamic width).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="330" />
+        <location filename="../src/SideBar.qml" line="347" />
         <source>LNG_00379</source>
         <translation>Added a vertical separator in the top bar docks between grid options and layouts.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="331" />
+        <location filename="../src/SideBar.qml" line="348" />
         <source>LNG_00378</source>
         <translation>Increased transparency of archive top and bottom bars (60% in windowed mode, 26% in full screen) and set timeline background to transparent.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="332" />
+        <location filename="../src/SideBar.qml" line="349" />
         <source>LNG_00377</source>
         <translation>Simplified playback speed icons in the archive to clear text (1x, 2x, 4x) and removed the unstable 8x speed option.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="333" />
+        <location filename="../src/SideBar.qml" line="350" />
         <source>LNG_00376</source>
         <translation>Replaced monthly navigation text buttons in archive and downloader calendars with graphical arrows (chevrons).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="334" />
+        <location filename="../src/SideBar.qml" line="351" />
         <source>LNG_00375</source>
         <translation>Relocated camera viewport close button from the top-right corner to the bottom-right controls area to prevent accidental clicks.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="335" />
+        <location filename="../src/SideBar.qml" line="352" />
         <source>LNG_00374</source>
         <translation>Optimized selected grid layout text contrast in the archive window (dark text on a celadon background).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="336" />
+        <location filename="../src/SideBar.qml" line="353" />
         <source>LNG_00373</source>
         <translation>Converted the system statistics panel into a draggable floating panel (with click-through) using a new dedicated grab handle.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="337" />
+        <location filename="../src/SideBar.qml" line="354" />
         <source>LNG_00372</source>
         <translation>Resolved critical settings synchronization loop and UI freeze when deleting viewport layouts.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="344" />
+        <location filename="../src/SideBar.qml" line="361" />
         <source>LNG_00371</source>
         <translation>Enlarged speed, zoom, and VCR control icons in the archive to improve visibility, and increased text size inside the SVG icons.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="345" />
+        <location filename="../src/SideBar.qml" line="362" />
         <source>LNG_00370</source>
         <translation>Removed duplicate text buttons for zoom shortcuts in the archive, fully replacing them with circular icons.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="346" />
+        <location filename="../src/SideBar.qml" line="363" />
         <source>LNG_00369</source>
         <translation>Added complete English and Polish translations for all tooltips in the archive window.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="353" />
+        <location filename="../src/SideBar.qml" line="370" />
         <source>LNG_00368</source>
         <translation>Introduced real-time bidirectional configuration synchronization between the main window and auxiliary windows with support for unique, automatic auxiliary window IDs.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="360" />
+        <location filename="../src/SideBar.qml" line="377" />
         <source>LNG_00367</source>
         <translation>Added automatic session recovery (auto-reconnect) in the Hikvision archive player after downloads complete or connections are dropped by the recorder.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="367" />
+        <location filename="../src/SideBar.qml" line="384" />
         <source>LNG_00366</source>
         <translation>Eliminated potential thread leaks and FFmpeg video decoder hangs during layout switching by adopting safe std::weak_ptr references for decoder media contexts.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="368" />
+        <location filename="../src/SideBar.qml" line="385" />
         <source>LNG_00365</source>
         <translation>Fixed a memory leak in ViewportsLayouts models by safely deleting layout objects using deleteLater().</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="369" />
+        <location filename="../src/SideBar.qml" line="386" />
         <source>LNG_00364</source>
         <translation>Mitigated video rendering surface start errors (OpenGL) during rapid NVR tab changes - logs were demoted to Debug level, and the system silently retries rendering in the background after GPU buffers are released.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="376" />
+        <location filename="../src/SideBar.qml" line="393" />
         <source>LNG_00363</source>
         <translation>Resolved the residual RAM usage (20-30 MB) after closing the Archive window through multi-step heap cleanup and QML engine cache optimizations.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="377" />
+        <location filename="../src/SideBar.qml" line="394" />
         <source>LNG_00362</source>
         <translation>Optimized RAM usage during camera scaling and viewport resizing/zooming, preventing excessive memory accumulation during continuous video stream layout changes.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="378" />
+        <location filename="../src/SideBar.qml" line="395" />
         <source>LNG_00361</source>
         <translation>Added a precise, real-time frames per second (FPS) indicator in the upper-left corner of each viewport for both live and archive playback streams.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="379" />
+        <location filename="../src/SideBar.qml" line="396" />
         <source>LNG_00360</source>
         <translation>Implemented safe termination and release of download threads in the Hikvision downloader, ensuring stable and immediate application shutdown without blocking system resources.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="386" />
+        <location filename="../src/SideBar.qml" line="403" />
         <source>LNG_00359</source>
         <translation>Added a dynamic camera search field in the archive window with a reset button and auto-expanding matching recorders.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="387" />
+        <location filename="../src/SideBar.qml" line="404" />
         <source>LNG_00358</source>
         <translation>Enabled wrapping of long camera names on list tiles in the archive.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="388" />
+        <location filename="../src/SideBar.qml" line="405" />
         <source>LNG_00357</source>
         <translation>Enlarged and inverted colors of the plus button (+) on camera tiles (mint background) for better visibility, with clear hover/pressed states.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="395" />
+        <location filename="../src/SideBar.qml" line="412" />
         <source>LNG_00356</source>
         <translation>Fixed the 2-3 hour shift of the recording availability timeline bar in the archive player window, synchronizing the timeline with the client's local timezone (with correct daylight saving time DST support).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="402" />
+        <location filename="../src/SideBar.qml" line="419" />
         <source>LNG_00355</source>
         <translation>Replaced the low-contrast black emoji 📺 in empty views with an elegant seledyn High-DPI vector monitor SVG.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="403" />
+        <location filename="../src/SideBar.qml" line="420" />
         <source>LNG_00354</source>
         <translation>Improved readability of recorder bars in the archive window (height increased from 22px to 28px, font size from 9px to 11px, larger expand arrow).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="404" />
+        <location filename="../src/SideBar.qml" line="421" />
         <source>LNG_00353</source>
         <translation>Added full, dynamic hover effects for recorder bars with distinct changes in background, text, and icon colors to seledyn/white.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="411" />
+        <location filename="../src/SideBar.qml" line="428" />
         <source>LNG_00352</source>
         <translation>Replaced text action buttons on the top bar (Options, New window, Archive, Instructions) with dedicated, colored SVG icons with helpful tooltips.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="412" />
+        <location filename="../src/SideBar.qml" line="429" />
         <source>LNG_00351</source>
         <translation>Replaced the system stats toggle with an interactive SVG icon reflecting the system monitor activity state.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="413" />
+        <location filename="../src/SideBar.qml" line="430" />
         <source>LNG_00350</source>
         <translation>Unified grid selection buttons (1x1-9x9) into consistent 30x30px circular buttons.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="414" />
+        <location filename="../src/SideBar.qml" line="431" />
         <source>LNG_00349</source>
         <translation>Added a vertical separator line between the options section and the grid selection section.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="415" />
+        <location filename="../src/SideBar.qml" line="432" />
         <source>LNG_00348</source>
         <translation>Redesigned view buttons to an elegant, rounded pill shape with 30px height, preserving side margins.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="416" />
+        <location filename="../src/SideBar.qml" line="433" />
         <source>LNG_00347</source>
         <translation>Enforced automatic uppercase display for view names.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="417" />
+        <location filename="../src/SideBar.qml" line="434" />
         <source>LNG_00346</source>
         <translation>Improved readability and contrast of the active view button – dark text (#121214) on a bright seledyn background.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="418" />
+        <location filename="../src/SideBar.qml" line="435" />
         <source>LNG_00345</source>
         <translation>Unified and improved delete icons on the recorders and views list and the preset activation button into SVG icons with tooltips.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="419" />
+        <location filename="../src/SideBar.qml" line="436" />
         <source>LNG_00344</source>
         <translation>Decreased spacing between top bar buttons to optimize interface space.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="420" />
+        <location filename="../src/SideBar.qml" line="437" />
         <source>LNG_00343</source>
         <translation>Restored the missing minimize icon in the auxiliary window.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="427" />
+        <location filename="../src/SideBar.qml" line="444" />
         <source>LNG_00342</source>
         <translation>Fixed login and playback issues in auxiliary windows.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="428" />
+        <location filename="../src/SideBar.qml" line="445" />
         <source>LNG_00341</source>
         <translation>Fixed layout button states (1x1 vs 2x2) when opening playback directly from camera.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="435" />
+        <location filename="../src/SideBar.qml" line="452" />
         <source>LNG_00340</source>
         <translation>Added proper XML namespace in Hikvision ISAPI queries (fixes 'Invalid XML Content' error on newer recorder firmware).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="436" />
+        <location filename="../src/SideBar.qml" line="453" />
         <source>LNG_00339</source>
         <translation>Fixed search results pagination handling (searchResultPostion tag).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="437" />
+        <location filename="../src/SideBar.qml" line="454" />
         <source>LNG_00338</source>
         <translation>'Refresh' button in the playback window to manually clear cache and re-fetch recording availability data.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="438" />
+        <location filename="../src/SideBar.qml" line="455" />
         <source>LNG_00337</source>
         <translation>Network prefetching queue optimization – restricted background fetching to 12 months, eliminating hundreds of unnecessary queries and speeding up playback start.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="445" />
+        <location filename="../src/SideBar.qml" line="462" />
         <source>LNG_00336</source>
         <translation>Asynchronous Hikvision SDK initialization in a background thread, completely eliminating GUI freezes when opening options.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="446" />
+        <location filename="../src/SideBar.qml" line="463" />
         <source>LNG_00335</source>
         <translation>Thread-safe synchronization of access to Hikvision SDK methods.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="453" />
+        <location filename="../src/SideBar.qml" line="470" />
         <source>LNG_00334</source>
         <translation>Sanitizing downloaded file and screenshot names by removing recorder IP addresses.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="454" />
+        <location filename="../src/SideBar.qml" line="471" />
         <source>LNG_00333</source>
         <translation>Sleek download progress bar in turquoise (#00f5d4) with centered outlined text.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="455" />
+        <location filename="../src/SideBar.qml" line="472" />
         <source>LNG_00332</source>
         <translation>Calculation of global download progress (overallProgress) for multi-part recordings.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="456" />
+        <location filename="../src/SideBar.qml" line="473" />
         <source>LNG_00331</source>
         <translation>Changed temporary download file extension from '.ps' to '.pspart'.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="457" />
+        <location filename="../src/SideBar.qml" line="474" />
         <source>LNG_00330</source>
         <translation>'Show info fields only when hovering' option and button in user interface settings.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="458" />
+        <location filename="../src/SideBar.qml" line="475" />
         <source>LNG_00329</source>
         <translation>Visual indicator for camera discovery in the configuration panel (rotating icon, form blocking, and 'Discovering...' text).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="459" />
+        <location filename="../src/SideBar.qml" line="476" />
         <source>LNG_00328</source>
         <translation>Full localization (added official Polish and English translation support).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="460" />
+        <location filename="../src/SideBar.qml" line="477" />
         <source>LNG_00327</source>
         <translation>Auxiliary window startup optimization – reduced load time from 3 seconds to under 300 ms.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="461" />
+        <location filename="../src/SideBar.qml" line="478" />
         <source>LNG_00326</source>
         <translation>Aesthetic placeholder in the auxiliary window ('No view selected') with a turquoise border.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="468" />
+        <location filename="../src/SideBar.qml" line="485" />
         <source>LNG_00325</source>
         <translation>Hikvision SDK integration for Live view and Playback mode.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="469" />
+        <location filename="../src/SideBar.qml" line="486" />
         <source>LNG_00324</source>
         <translation>Multi-camera playback player with automatic timeline positioning and centering.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="470" />
+        <location filename="../src/SideBar.qml" line="487" />
         <source>LNG_00323</source>
         <translation>Multi-threaded System Monitor (CPU, RAM, GPU, VRAM, and network bandwidth statistics).</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="471" />
+        <location filename="../src/SideBar.qml" line="488" />
         <source>LNG_00322</source>
         <translation>Real-time network bandwidth consumption tracking.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="472" />
+        <location filename="../src/SideBar.qml" line="489" />
         <source>LNG_00321</source>
         <translation>High-resolution app icon and refined dark theme interface.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="473" />
+        <location filename="../src/SideBar.qml" line="490" />
         <source>LNG_00320</source>
         <translation>Automatic Pacman package building script for Arch Linux.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="541" />
+        <location filename="../src/SideBar.qml" line="558" />
         <source>LNG_00003</source>
         <translation>KVision</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="552" />
+        <location filename="../src/SideBar.qml" line="569" />
         <source>LNG_00319</source>
         <translation>Version %1</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="563" />
+        <location filename="../src/SideBar.qml" line="580" />
         <source>LNG_00318</source>
         <translation>Original author: Evgeny S. Maksimov</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="571" />
+        <location filename="../src/SideBar.qml" line="588" />
         <source>LNG_00317</source>
         <translation>Modification: arkanista (with AI assistance)</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="650" />
+        <location filename="../src/SideBar.qml" line="667" />
         <source>LNG_00316</source>
         <translation>Viewport%1</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="650" />
+        <location filename="../src/SideBar.qml" line="667" />
         <source>LNG_00315</source>
         <translation> #%1</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="710" />
+        <location filename="../src/SideBar.qml" line="727" />
         <source>LNG_00314</source>
         <translation>Tools</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="769" />
+        <location filename="../src/SideBar.qml" line="786" />
         <source>LNG_00313</source>
         <translation>Recorders</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="828" />
+        <location filename="../src/SideBar.qml" line="845" />
         <source>LNG_00312</source>
         <translation>Presets</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="887" />
+        <location filename="../src/SideBar.qml" line="904" />
         <source>LNG_00311</source>
         <translation>Settings</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="946" />
+        <location filename="../src/SideBar.qml" line="963" />
         <source>LNG_00310</source>
         <translation>Changelog</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1031" />
+        <location filename="../src/SideBar.qml" line="1048" />
         <source>LNG_00309</source>
         <translation>Available version: %1</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1078" />
+        <location filename="../src/SideBar.qml" line="1095" />
         <source>LNG_00308</source>
         <translation>Viewport Details</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1088" />
+        <location filename="../src/SideBar.qml" line="1105" />
         <source>LNG_00307</source>
         <translation>Please select a viewport in the main grid to customize its settings.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1105" />
+        <location filename="../src/SideBar.qml" line="1122" />
         <source>LNG_00306</source>
         <translation>Unlock config pane</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1112" />
+        <location filename="../src/SideBar.qml" line="1129" />
         <source>LNG_00305</source>
         <translation>Active Stream Connection</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1134" />
+        <location filename="../src/SideBar.qml" line="1151" />
         <source>LNG_00304</source>
         <translation>Primary Stream URL</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1148" />
+        <location filename="../src/SideBar.qml" line="1165" />
         <source>LNG_00303</source>
         <translation>Secondary Backup URL</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1162" />
+        <location filename="../src/SideBar.qml" line="1179" />
         <source>LNG_00302</source>
         <translation>Audio &amp; Rendering Options</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1183" />
+        <location filename="../src/SideBar.qml" line="1200" />
         <source>LNG_00301</source>
         <translation>Mute / Unmute Audio</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1203" />
+        <location filename="../src/SideBar.qml" line="1220" />
         <source>LNG_00300</source>
         <translation>FFmpeg Options Override</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1258" />
+        <location filename="../src/SideBar.qml" line="1275" />
         <source>LNG_00299</source>
         <translation>Layout &amp; Grid Tools</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1268" />
+        <location filename="../src/SideBar.qml" line="1285" />
         <source>LNG_00298</source>
         <translation>Unlock tools pane</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1275" />
+        <location filename="../src/SideBar.qml" line="1292" />
         <source>LNG_00297</source>
         <translation>Window Division</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1325" />
+        <location filename="../src/SideBar.qml" line="1342" />
         <source>LNG_00219</source>
         <translation>Error reading configuration!</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1377" />
+        <location filename="../src/SideBar.qml" line="1394" />
         <source>LNG_00296</source>
         <translation>Hold to edit division value</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1405" />
+        <location filename="../src/SideBar.qml" line="1422" />
         <source>LNG_00295</source>
         <translation>x</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1419" />
+        <location filename="../src/SideBar.qml" line="1436" />
         <source>LNG_00294</source>
         <translation>Geometry Ratio</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1469" />
+        <location filename="../src/SideBar.qml" line="1486" />
         <source>LNG_00011</source>
         <translation>Toggle Full Screen</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1478" />
+        <location filename="../src/SideBar.qml" line="1495" />
         <source>LNG_00293</source>
         <translation>Grid Operations</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1500" />
+        <location filename="../src/SideBar.qml" line="1517" />
         <source>LNG_00292</source>
         <translation>Merge Highlighted Cells</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1524" />
+        <location filename="../src/SideBar.qml" line="1541" />
         <source>LNG_00291</source>
         <translation>NVR / Hikvision Recorders Manager</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1552" />
+        <location filename="../src/SideBar.qml" line="1569" />
         <source>LNG_00290</source>
         <translation>Presets &amp; Quick Layout Views</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1562" />
+        <location filename="../src/SideBar.qml" line="1579" />
         <source>LNG_00289</source>
         <translation>ONVIF and RTSP Layout settings</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1604" />
+        <location filename="../src/SideBar.qml" line="1621" />
         <source>LNG_00288</source>
         <translation>Layout %1</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1622" />
-        <location filename="../src/SideBar.qml" line="1783" />
-        <location filename="../src/SideBar.qml" line="1915" />
+        <location filename="../src/SideBar.qml" line="1639" />
+        <location filename="../src/SideBar.qml" line="1800" />
+        <location filename="../src/SideBar.qml" line="1932" />
         <source>LNG_00278</source>
         <translation>Visible</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1659" />
+        <location filename="../src/SideBar.qml" line="1676" />
         <source>LNG_00287</source>
         <translation>Activate this preview layout</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1691" />
+        <location filename="../src/SideBar.qml" line="1708" />
         <source>LNG_00286</source>
         <translation>Delete this preview layout</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1698" />
+        <location filename="../src/SideBar.qml" line="1715" />
         <source>LNG_00285</source>
         <translation>Add Preset Layout</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1725" />
+        <location filename="../src/SideBar.qml" line="1742" />
         <source>LNG_00284</source>
         <translation>NVR View Layouts</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1766" />
+        <location filename="../src/SideBar.qml" line="1783" />
         <source>LNG_00283</source>
         <translation>NVR View</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1819" />
+        <location filename="../src/SideBar.qml" line="1836" />
         <source>LNG_00282</source>
         <translation>Activate this NVR cameras view</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1849" />
+        <location filename="../src/SideBar.qml" line="1866" />
         <source>LNG_00281</source>
         <translation>Delete this NVR cameras view</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1858" />
+        <location filename="../src/SideBar.qml" line="1875" />
         <source>LNG_00280</source>
         <translation>NVR Presets (Grid views)</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1898" />
+        <location filename="../src/SideBar.qml" line="1915" />
         <source>LNG_00279</source>
         <translation>NVR Preset #%1</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1951" />
+        <location filename="../src/SideBar.qml" line="1968" />
         <source>LNG_00277</source>
         <translation>Activate this NVR cameras preset</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1981" />
+        <location filename="../src/SideBar.qml" line="1998" />
         <source>LNG_00276</source>
         <translation>Delete this NVR cameras preset</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="1988" />
+        <location filename="../src/SideBar.qml" line="2005" />
         <source>LNG_00275</source>
         <translation>Add NVR Preset</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2031" />
+        <location filename="../src/SideBar.qml" line="2048" />
         <source>LNG_00274</source>
         <translation>System Settings</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2040" />
+        <location filename="../src/SideBar.qml" line="2057" />
         <source>LNG_00273</source>
         <translation>General Settings</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2061" />
+        <location filename="../src/SideBar.qml" line="2078" />
         <source>LNG_00272</source>
         <translation>Allow running multiple application instances</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2069" />
+        <location filename="../src/SideBar.qml" line="2086" />
         <source>LNG_00271</source>
         <translation>This option is disabled to prevent settings file write conflicts. To enable it (dangerous and not recommended!), set 'singleApplication=false' in the kvision.conf configuration file.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2083" />
+        <location filename="../src/SideBar.qml" line="2100" />
         <source>LNG_00270</source>
         <translation>Check Hikvision NVR error status</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2092" />
+        <location filename="../src/SideBar.qml" line="2109" />
         <source>LNG_00269</source>
         <translation>Audio</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2113" />
+        <location filename="../src/SideBar.qml" line="2130" />
         <source>LNG_00268</source>
         <translation>Disable audio entirely</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2120" />
+        <location filename="../src/SideBar.qml" line="2137" />
         <source>LNG_00267</source>
         <translation>Maximizing camera to full screen does not unmute</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2129" />
+        <location filename="../src/SideBar.qml" line="2146" />
         <source>LNG_00266</source>
         <translation>Context Menu Settings</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2150" />
+        <location filename="../src/SideBar.qml" line="2167" />
         <source>LNG_00265</source>
         <translation>Enable right-click context menu</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2157" />
+        <location filename="../src/SideBar.qml" line="2174" />
         <source>LNG_00264</source>
         <translation>Allow swapping viewport places</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2165" />
+        <location filename="../src/SideBar.qml" line="2182" />
         <source>LNG_00263</source>
         <translation>Enable 'Remove camera' option</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2173" />
+        <location filename="../src/SideBar.qml" line="2190" />
         <source>LNG_00262</source>
         <translation>Allow changing viewport settings</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2181" />
+        <location filename="../src/SideBar.qml" line="2198" />
         <source>LNG_00261</source>
         <translation>Enable 'Stream selection' option</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2191" />
+        <location filename="../src/SideBar.qml" line="2208" />
         <source>LNG_00260</source>
         <translation>User Interface Settings</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2212" />
+        <location filename="../src/SideBar.qml" line="2229" />
         <source>LNG_00259</source>
         <translation>Show channel status in the top left corner of the viewport</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2219" />
+        <location filename="../src/SideBar.qml" line="2236" />
         <source>LNG_00258</source>
         <translation>Show camera info in the bottom left corner of the viewport</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2226" />
+        <location filename="../src/SideBar.qml" line="2243" />
         <source>LNG_00257</source>
         <translation>Show control icons in the bottom right corner of the viewport only when hovering</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2233" />
+        <location filename="../src/SideBar.qml" line="2250" />
         <source>LNG_00256</source>
         <translation>Show info fields only when hovering</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2240" />
+        <location filename="../src/SideBar.qml" line="2257" />
         <source>LNG_00255</source>
         <translation>Show top bar by default when opening window</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2247" />
+        <location filename="../src/SideBar.qml" line="2264" />
         <source>LNG_00254</source>
         <translation>Hide mouse cursor in Full Screen mode</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2254" />
+        <location filename="../src/SideBar.qml" line="2271" />
         <source>LNG_00253</source>
         <translation>Disable viewport zoom animation</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2265" />
+        <location filename="../src/SideBar.qml" line="2282" />
         <source>LNG_00252</source>
         <translation>Language:</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2274" />
+        <location filename="../src/SideBar.qml" line="2291" />
         <source>LNG_00251</source>
         <translation>System default</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2398" />
+        <location filename="../src/SideBar.qml" line="2415" />
         <source>LNG_00250</source>
         <translation>Limit auxiliary windows to:</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2443" />
+        <location filename="../src/SideBar.qml" line="2460" />
         <source>LNG_00249</source>
         <translation>NVR Status Monitoring</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2464" />
+        <location filename="../src/SideBar.qml" line="2481" />
         <source>LNG_00248</source>
         <translation>Monitor offline status and login errors</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2471" />
+        <location filename="../src/SideBar.qml" line="2488" />
         <source>LNG_00247</source>
         <translation>Monitor CPU overload (&gt;85%)</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2478" />
+        <location filename="../src/SideBar.qml" line="2495" />
         <source>LNG_00246</source>
         <translation>Monitor recorder hardware errors</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2485" />
+        <location filename="../src/SideBar.qml" line="2502" />
         <source>LNG_00245</source>
         <translation>Monitor hard disk faults/abnormalities</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2492" />
+        <location filename="../src/SideBar.qml" line="2509" />
         <source>LNG_00244</source>
         <translation>Monitor unformatted hard disks</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2499" />
+        <location filename="../src/SideBar.qml" line="2516" />
         <source>LNG_00243</source>
         <translation>Monitor full hard disks (loop coverage disabled)</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2508" />
+        <location filename="../src/SideBar.qml" line="2525" />
         <source>LNG_00242</source>
         <translation>Playback</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2533" />
+        <location filename="../src/SideBar.qml" line="2550" />
         <source>LNG_00241</source>
         <translation>Default backward playback start offset, seconds:</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2580" />
+        <location filename="../src/SideBar.qml" line="2597" />
         <source>LNG_00240</source>
         <translation>Default playback timeline range, hours:</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2625" />
+        <location filename="../src/SideBar.qml" line="2642" />
         <source>LNG_00239</source>
         <translation>Saving</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2647" />
-        <location filename="../src/SideBar.qml" line="2839" />
+        <location filename="../src/SideBar.qml" line="2664" />
+        <location filename="../src/SideBar.qml" line="2856" />
         <source>LNG_00231</source>
         <translation>Activate changes in this section</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2663" />
+        <location filename="../src/SideBar.qml" line="2680" />
         <source>LNG_00238</source>
         <translation>Default snapshot path:</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2712" />
+        <location filename="../src/SideBar.qml" line="2729" />
         <source>LNG_00237</source>
         <translation>Choose folder for snapshots</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2727" />
+        <location filename="../src/SideBar.qml" line="2744" />
         <source>LNG_00236</source>
         <translation>Default recordings path:</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2776" />
+        <location filename="../src/SideBar.qml" line="2793" />
         <source>LNG_00235</source>
         <translation>Choose folder for recordings</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2792" />
+        <location filename="../src/SideBar.qml" line="2809" />
         <source>LNG_00234</source>
         <translation>open image folder</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2803" />
+        <location filename="../src/SideBar.qml" line="2820" />
         <source>LNG_00233</source>
         <translation>open video folder</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2817" />
+        <location filename="../src/SideBar.qml" line="2834" />
         <source>LNG_00232</source>
         <translation>System Media Configuration</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2855" />
+        <location filename="../src/SideBar.qml" line="2872" />
         <source>LNG_00230</source>
         <translation>Default FFmpeg command-line options</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2889" />
+        <location filename="../src/SideBar.qml" line="2906" />
         <source>LNG_00229</source>
         <translation>Update all cameras</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2924" />
+        <location filename="../src/SideBar.qml" line="2941" />
         <source>LNG_00228</source>
         <translation>Changelog</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="2933" />
+        <location filename="../src/SideBar.qml" line="2950" />
         <source>LNG_00227</source>
         <translation>History of improvements, bug fixes, and new features in KVision.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="3009" />
         <location filename="../src/SideBar.qml" line="3026" />
         <location filename="../src/SideBar.qml" line="3043" />
+        <location filename="../src/SideBar.qml" line="3060" />
         <source>LNG_00222</source>
         <translation>Confirm Deletion</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="3015" />
+        <location filename="../src/SideBar.qml" line="3032" />
         <source>LNG_00226</source>
         <translation>Are you sure you want to delete preset \"%1\"? This action is completely irreversible.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="3018" />
+        <location filename="../src/SideBar.qml" line="3035" />
         <source>LNG_00225</source>
         <translation>Are you sure you want to delete preset #%1? This action is completely irreversible.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="3032" />
+        <location filename="../src/SideBar.qml" line="3049" />
         <source>LNG_00224</source>
         <translation>Are you sure you want to delete NVR view \"%1\"? This action is completely irreversible.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="3035" />
+        <location filename="../src/SideBar.qml" line="3052" />
         <source>LNG_00223</source>
         <translation>Are you sure you want to delete this NVR view layout? This action is completely irreversible.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="3049" />
+        <location filename="../src/SideBar.qml" line="3066" />
         <source>LNG_00221</source>
         <translation>Are you sure you want to delete NVR Preset \"%1\"? This action is completely irreversible.</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.qml" line="3052" />
+        <location filename="../src/SideBar.qml" line="3069" />
         <source>LNG_00220</source>
         <translation>Are you sure you want to delete this NVR Preset? This action is completely irreversible.</translation>
     </message>

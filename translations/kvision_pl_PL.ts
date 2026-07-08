@@ -1608,7 +1608,7 @@
     </message>
     <message>
         <source>LNG_00186</source>
-        <translation>Archive - </translation>
+        <translation>Archiwum - </translation>
     </message>
     <message>
         <source>LNG_00185</source>
@@ -4549,6 +4549,26 @@
     <message>
         <source>LNG_00526</source>
         <translation>Naprawa błędu writeSetting: Dodano brakującą implementację metody writeSetting w klasie Context, co eliminuje błędy TypeErrors i przerywanie wykonywania kodu w QML przy migracjach ustawień.</translation>
+    </message>
+    <message>
+        <source>LNG_00527</source>
+        <translation>Ograniczenie hałasu w logach: Wyciszono uciążliwe i powtarzające się błędy silnika QML (np. TypeError) oraz błędy dekodowania pakietów wideo ze standardowego wyjścia.</translation>
+    </message>
+    <message>
+        <source>LNG_00528</source>
+        <translation>Tłumaczenie okna Archiwum: Poprawiono polskie tłumaczenie okna odtwarzacza archiwum z 'Archive' na 'Archiwum'.</translation>
+    </message>
+    <message>
+        <source>LNG_00529</source>
+        <translation>Eliminacja wycieku pamięci: Naprawiono krytyczny wyciek pamięci w dekoderze wideo na poziomie sterownika NVIDIA/GLX.</translation>
+    </message>
+    <message>
+        <source>LNG_00530</source>
+        <translation>Ograniczenie liczby wątków: Ustawiono domyślną liczbę wątków dekodera FFmpeg na 1 dla każdego strumienia, drastycznie zmniejszając zużycie pamięci RAM.</translation>
+    </message>
+    <message>
+        <source>LNG_00531</source>
+        <translation>Okresowe zwalnianie pamięci: Dodano zegar działający w tle co godzinę, który wymusza odśmiecanie pamięci oraz wywołuje malloc_trim(0) w celu zwrócenia wolnej sterty do systemu.</translation>
     </message>
 </context>
 <context>

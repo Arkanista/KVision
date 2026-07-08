@@ -92,7 +92,7 @@
 ### 在 Arch Linux (Pacman) 上安装
 要从准备好的二进制包安装程序，请转到 `packaging/arch/` 目录并运行：
 ```bash
-sudo pacman -U kvision-2.6.0-1-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.6.2-1-x86_64.pkg.tar.zst
 ```
 该软件包会自动将程序、`.desktop`激活文件以及所需的海康威视SDK库安装到系统路径`/usr/lib/kvision`。
 

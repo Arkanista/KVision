@@ -1,3 +1,7 @@
+2.6.2-1
+  * PL: Ograniczono hałas w logach systemowych poprzez wyciszenie uciążliwych i powtarzających się ostrzeżeń silnika QML (np. TypeError) oraz błędów dekodowania pakietów wideo ze standardowego wyjścia (dostępne pod --verbose). Poprawiono polskie tłumaczenie okna odtwarzacza archiwum. Dodano okresowe zwalnianie wolnej pamięci sterty procesu z powrotem do jądra systemu Linux (malloc_trim) co godzinę.
+    EN: Reduced log spam by suppressing repetitive QML warnings, TypeErrors, and video packet decoding warnings from default output (available under --verbose). Corrected Polish translation of the archive player window title. Added periodic memory trim (malloc_trim) running every hour to reclaim unused heap memory back to the Linux kernel.
+
 2.6.1-1
   * PL: Naprawiono krytyczny wyciek pamięci na poziomie sterownika graficznego (NVIDIA/GLX) oraz ograniczono liczbę wątków dekodowania FFmpeg do 1 dla każdego strumienia, zapobiegając eksplozji wątków i drastycznie zmniejszając zużycie pamięci RAM.
     EN: Fixed a critical GPU driver-level memory leak (NVIDIA/GLX) and restricted FFmpeg decoding threads to 1 per stream, preventing thread explosion and drastically reducing RAM usage.

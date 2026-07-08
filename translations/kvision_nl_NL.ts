@@ -4365,6 +4365,26 @@
         <source>LNG_00526</source>
         <translation>writeSetting-oplossing: De ontbrekende implementatie van de writeSetting-methode in de Context-klasse toegevoegd, waardoor TypeErrors en QML-uitvoeringsonderbrekingen tijdens instellingenmigraties worden geëlimineerd.</translation>
     </message>
+    <message>
+        <source>LNG_00527</source>
+        <translation>Reduced log spam: Suppressed repetitive QML/JS warnings, TypeErrors, and video packet decoding errors from default output.</translation>
+    </message>
+    <message>
+        <source>LNG_00528</source>
+        <translation>Translation Polish: Corrected the Polish translation of the archive player window title from 'Archive' to 'Archiwum'.</translation>
+    </message>
+    <message>
+        <source>LNG_00529</source>
+        <translation>Fixed GPU Driver Memory Leak: Resolved critical NVIDIA/GLX driver memory leak.</translation>
+    </message>
+    <message>
+        <source>LNG_00530</source>
+        <translation>Thread Count Optimization: Restricted FFmpeg decoding to a single thread per stream, drastically reducing RAM usage.</translation>
+    </message>
+    <message>
+        <source>LNG_00531</source>
+        <translation>Periodic Memory Reclaiming: Added a background timer that runs once every hour to perform garbage collection and malloc_trim(0) to release unused heap memory to the OS.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>

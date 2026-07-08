@@ -163,6 +163,20 @@ ApplicationWindow {
         gcTimer.restartGC();
     }
 
+    // Periodic Memory Housekeeping: runs once an hour to collect QML garbage and release free heap memory to the OS
+    Timer {
+        id: periodicTrimTimer
+        interval: 3600000 // 1 hour in milliseconds
+        running: true
+        repeat: true
+        triggeredOnStart: false
+        onTriggered: {
+            console.log("[Root] Performing scheduled periodic memory trim...");
+            gc();
+            Context.trimMemory();
+        }
+    }
+
     onActiveChanged: {
         if (active) {
             rootWindow.activeLayoutWindow = rootWindow;

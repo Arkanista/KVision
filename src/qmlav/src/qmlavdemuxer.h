@@ -19,6 +19,8 @@ extern std::atomic<qint64> g_networkBytesAccumulator;
 #include "qmlavthread.h"
 #include "qmlavdecoder.h"
 
+extern bool g_qmlav_enable_logs;
+
 class QmlAVInterruptCallback : public AVIOInterruptCB
 {
 public:
@@ -33,8 +35,10 @@ public:
             static std::atomic<int64_t> last_print{0};
             if (now - last_print.load() > 1000000) {
                 last_print.store(now);
-                printf("[QmlAVInterruptCallback] now: %ld, expire: %ld, req: %d, timeout: %d\n", now, cb->m_expireTime, req, timeout);
-                fflush(stdout);
+                if (g_qmlav_enable_logs) {
+                    printf("[QmlAVInterruptCallback] now: %ld, expire: %ld, req: %d, timeout: %d\n", now, cb->m_expireTime, req, timeout);
+                    fflush(stdout);
+                }
             }
             return req || timeout;
         };
