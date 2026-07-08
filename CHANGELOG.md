@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.6.3] - 2026-07-08
+
+### EN: Bug Fixes
+* **Console Memory Reporting:** Enhanced the periodic memory reclaiming timer to log the exact amount of RAM (in MB) successfully returned to the operating system kernel via `malloc_trim(0)`. This message is always visible in standard console output without requiring `--verbose` mode.
+
+### PL: Poprawki Błędów
+* **Logowanie odzysku pamięci:** Ulepszono mechanizm okresowego zwalniania pamięci, dodając precyzyjną informację o dokładnej ilości pamięci RAM (w MB) pomyślnie zwróconej do jądra systemu za pomocą `malloc_trim(0)`. Komunikat ten jest zawsze widoczny na konsoli, również w trybie normalnym bez konieczności uruchamiania z flagą `--verbose`.
+
 ## [2.6.2] - 2026-07-08
 
 ### EN: Bug Fixes

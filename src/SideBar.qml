@@ -133,6 +133,13 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.6.3",
+            date: "08.07.2026",
+            changes: [
+                qsTr("Console Memory Reporting: Logs the exact amount of RAM returned to the system kernel after each periodic memory reclaim.")
+            ]
+        },
+        {
             version: "v2.6.2",
             date: "08.07.2026",
             changes: [

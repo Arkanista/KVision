@@ -397,18 +397,58 @@ QString Context::readLocalFile(const QString &filePath) const
 
 #ifdef __linux__
 #include <malloc.h>
+
+static qint64 getCurrentRSS()
+{
+    QFile file(QStringLiteral("/proc/self/status"));
+    if (file.open(QIODevice::ReadOnly)) {
+        QByteArray content = file.readAll();
+        file.close();
+        int idx = content.indexOf("VmRSS:");
+        if (idx != -1) {
+            int endIdx = content.indexOf('\n', idx);
+            if (endIdx != -1) {
+                QByteArray line = content.mid(idx, endIdx - idx);
+                int colonIdx = line.indexOf(':');
+                if (colonIdx != -1) {
+                    QByteArray valStr = line.mid(colonIdx + 1).trimmed();
+                    int spaceIdx = valStr.indexOf(' ');
+                    if (spaceIdx != -1) {
+                        valStr = valStr.left(spaceIdx);
+                    }
+                    return valStr.toLongLong() * 1024; // convert kB to bytes
+                }
+            }
+        }
+    }
+    return 0;
+}
 #endif
 
 void Context::trimMemory()
 {
+    qint64 rssBefore = 0;
+#ifdef __linux__
+    rssBefore = getCurrentRSS();
+#endif
+
     if (m_engine) {
         qDebug() << "[Context] Aggressively trimming QML component cache, singletons, and collecting JS garbage...";
         m_engine->collectGarbage();
         m_engine->trimComponentCache();
     }
 #ifdef __linux__
-    qDebug() << "[Context] Manual memory trim triggered. Releasing free heap arenas to OS...";
     malloc_trim(0);
+    qint64 rssAfter = getCurrentRSS();
+    qint64 freedBytes = rssBefore - rssAfter;
+    if (freedBytes > 0) {
+        fprintf(stderr, "[Memory] GC & Manual memory trim released %.2f MB to the operating system kernel.\n",
+                static_cast<double>(freedBytes) / (1024.0 * 1024.0));
+        fflush(stderr);
+    } else {
+        fprintf(stderr, "[Memory] GC & Manual memory trim executed. Memory usage did not change significantly.\n");
+        fflush(stderr);
+    }
 #endif
 }
 

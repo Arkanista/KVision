@@ -4570,6 +4570,10 @@
         <source>LNG_00531</source>
         <translation>Okresowe zwalnianie pamięci: Dodano zegar działający w tle co godzinę, który wymusza odśmiecanie pamięci oraz wywołuje malloc_trim(0) w celu zwrócenia wolnej sterty do systemu.</translation>
     </message>
+    <message>
+        <source>Console Memory Reporting: Logs the exact amount of RAM returned to the system kernel after each periodic memory reclaim.</source>
+        <translation>Logowanie odzysku pamięci: Dodano logowanie dokładnej ilości pamięci RAM zwróconej do jądra systemu po każdym okresowym czyszczeniu.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>

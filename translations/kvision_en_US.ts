@@ -4385,6 +4385,10 @@
         <source>LNG_00531</source>
         <translation>Periodic Memory Reclaiming: Added a background timer that runs once every hour to perform garbage collection and malloc_trim(0) to release unused heap memory to the OS.</translation>
     </message>
+    <message>
+        <source>Console Memory Reporting: Logs the exact amount of RAM returned to the system kernel after each periodic memory reclaim.</source>
+        <translation>Console Memory Reporting: Logs the exact amount of RAM returned to the system kernel after each periodic memory reclaim.</translation>
+    </message>
 </context>
 <context>
     <name>SideBarItem</name>
