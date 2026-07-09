@@ -92,7 +92,7 @@ Bu bölümde uygulamada kullanılan tüm grafik simgelerin ve düğmelerin anlam
 ### Arch Linux'a (Pacman) Kurulum
 Programı hazırlanan ikili paketten kurmak için `packaging/arch/` dizinine gidin ve şunu çalıştırın:
 ```bash
-sudo pacman -U kvision-2.6.2-1-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.6.3-1-x86_64.pkg.tar.zst
 ```
 Paket, programı, `.desktop` etkinleştirme dosyasını ve gerekli Hikvision SDK kitaplıklarını `/usr/lib/kvision` sistem yoluna otomatik olarak yükleyecektir.
 

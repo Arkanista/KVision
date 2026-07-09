@@ -177,11 +177,11 @@ git clone --recurse-submodules https://github.com/arkanista/kvision.git
 
 If you are running Arch Linux or CachyOS, you can skip compilation and install the pre-compiled Pacman package directly from the latest release:
 
-* **[Download kvision-2.6.2-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.6.2/kvision-2.6.2-1-x86_64.pkg.tar.zst)**
+* **[Download kvision-2.6.3-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.6.3/kvision-2.6.3-1-x86_64.pkg.tar.zst)**
 
 To install the downloaded package:
 ```bash
-sudo pacman -U kvision-2.6.2-1-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.6.3-1-x86_64.pkg.tar.zst
 ```
 
 ### Building from Source (Arch Linux / CachyOS)
