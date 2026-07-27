@@ -74,10 +74,17 @@ ColumnLayout {
                 return;
             }
 
+            var sdkP = parseInt(portField.text) || 8000;
+            var httpP = parseInt(httpPortField.text) || 80;
+            var rtspP = parseInt(rtspPortField.text) || 554;
+
             var newRecorder = {
                 name: nameField.text.trim(),
                 ip: ip,
-                port: parseInt(portField.text) || 8000,
+                port: sdkP,
+                sdkPort: sdkP,
+                httpPort: httpP,
+                rtspPort: rtspP,
                 username: userField.text.trim(),
                 password: passField.text,
                 cameras: cameras
@@ -155,6 +162,8 @@ ColumnLayout {
             nameField.text = "";
             ipField.text = "";
             portField.text = "8000";
+            httpPortField.text = "80";
+            rtspPortField.text = "554";
             userField.text = "admin";
             passField.text = "";
             rootPanel.statusMessage = "";
@@ -217,82 +226,206 @@ ColumnLayout {
             spacing: 8
             enabled: !rootPanel.isDiscovering
 
-            TextField {
-                id: nameField
-                placeholderText: qsTr("LNG_00097")
-                selectByMouse: true
+            ColumnLayout {
+                spacing: 2
                 Layout.fillWidth: true
-                color: "white"
-                background: Rectangle {
-                    color: "#0f151b"
-                    radius: 4
-                    border.color: nameField.activeFocus ? "#ff7a00" : "#2a3540"
+
+                Text {
+                    text: qsTr("LNG_00097")
+                    color: "#8898a6"
+                    font.pixelSize: 10
                 }
-                onTextChanged: rootPanel.statusMessage = ""
+
+                TextField {
+                    id: nameField
+                    placeholderText: qsTr("LNG_00097")
+                    selectByMouse: true
+                    Layout.fillWidth: true
+                    color: "white"
+                    background: Rectangle {
+                        color: "#0f151b"
+                        radius: 4
+                        border.color: nameField.activeFocus ? "#ff7a00" : "#2a3540"
+                    }
+                    onTextChanged: rootPanel.statusMessage = ""
+                }
             }
 
-            TextField {
-                id: ipField
-                placeholderText: qsTr("LNG_00096")
-                selectByMouse: true
+            ColumnLayout {
+                spacing: 2
                 Layout.fillWidth: true
-                color: "white"
-                background: Rectangle {
-                    color: "#0f151b"
-                    radius: 4
-                    border.color: ipField.activeFocus ? "#ff7a00" : "#2a3540"
+
+                Text {
+                    text: qsTr("LNG_00096")
+                    color: "#8898a6"
+                    font.pixelSize: 10
                 }
-                onTextChanged: rootPanel.statusMessage = ""
+
+                TextField {
+                    id: ipField
+                    placeholderText: "192.168.1.100"
+                    selectByMouse: true
+                    Layout.fillWidth: true
+                    color: "white"
+                    background: Rectangle {
+                        color: "#0f151b"
+                        radius: 4
+                        border.color: ipField.activeFocus ? "#ff7a00" : "#2a3540"
+                    }
+                    onTextChanged: rootPanel.statusMessage = ""
+                }
+            }
+
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: 6
+
+                ColumnLayout {
+                    spacing: 2
+                    Layout.fillWidth: true
+
+                    Text {
+                        text: qsTr("LNG_00532")
+                        color: "#8898a6"
+                        font.pixelSize: 10
+                    }
+
+                    TextField {
+                        id: portField
+                        placeholderText: "8000"
+                        text: "8000"
+                        selectByMouse: true
+                        Layout.fillWidth: true
+                        color: "white"
+                        background: Rectangle {
+                            color: "#0f151b"
+                            radius: 4
+                            border.color: portField.activeFocus ? "#ff7a00" : "#2a3540"
+                        }
+                        onTextChanged: rootPanel.statusMessage = ""
+                        ToolTip.delay: Compact.toolTipDelay
+                        ToolTip.timeout: Compact.toolTipTimeout
+                        ToolTip.visible: portField.hovered
+                        ToolTip.text: "SDK / Server Port (default 8000)"
+                    }
+                }
+
+                ColumnLayout {
+                    spacing: 2
+                    Layout.fillWidth: true
+
+                    Text {
+                        text: qsTr("LNG_00533")
+                        color: "#8898a6"
+                        font.pixelSize: 10
+                    }
+
+                    TextField {
+                        id: httpPortField
+                        placeholderText: "80"
+                        text: "80"
+                        selectByMouse: true
+                        Layout.fillWidth: true
+                        color: "white"
+                        background: Rectangle {
+                            color: "#0f151b"
+                            radius: 4
+                            border.color: httpPortField.activeFocus ? "#ff7a00" : "#2a3540"
+                        }
+                        onTextChanged: rootPanel.statusMessage = ""
+                        ToolTip.delay: Compact.toolTipDelay
+                        ToolTip.timeout: Compact.toolTipTimeout
+                        ToolTip.visible: httpPortField.hovered
+                        ToolTip.text: "HTTP / ISAPI Port (default 80)"
+                    }
+                }
+
+                ColumnLayout {
+                    spacing: 2
+                    Layout.fillWidth: true
+
+                    Text {
+                        text: qsTr("LNG_00534")
+                        color: "#8898a6"
+                        font.pixelSize: 10
+                    }
+
+                    TextField {
+                        id: rtspPortField
+                        placeholderText: "554"
+                        text: "554"
+                        selectByMouse: true
+                        Layout.fillWidth: true
+                        color: "white"
+                        background: Rectangle {
+                            color: "#0f151b"
+                            radius: 4
+                            border.color: rtspPortField.activeFocus ? "#ff7a00" : "#2a3540"
+                        }
+                        onTextChanged: rootPanel.statusMessage = ""
+                        ToolTip.delay: Compact.toolTipDelay
+                        ToolTip.timeout: Compact.toolTipTimeout
+                        ToolTip.visible: rtspPortField.hovered
+                        ToolTip.text: "RTSP Port (default 554)"
+                    }
+                }
             }
 
             RowLayout {
                 Layout.fillWidth: true
                 spacing: 8
 
-                TextField {
-                    id: portField
-                    placeholderText: qsTr("LNG_00095")
-                    text: "8000"
-                    selectByMouse: true
+                ColumnLayout {
+                    spacing: 2
                     Layout.fillWidth: true
-                    color: "white"
-                    background: Rectangle {
-                        color: "#0f151b"
-                        radius: 4
-                        border.color: portField.activeFocus ? "#ff7a00" : "#2a3540"
+
+                    Text {
+                        text: qsTr("LNG_00094")
+                        color: "#8898a6"
+                        font.pixelSize: 10
                     }
-                    onTextChanged: rootPanel.statusMessage = ""
+
+                    TextField {
+                        id: userField
+                        placeholderText: "admin"
+                        text: "admin"
+                        selectByMouse: true
+                        Layout.fillWidth: true
+                        color: "white"
+                        background: Rectangle {
+                            color: "#0f151b"
+                            radius: 4
+                            border.color: userField.activeFocus ? "#ff7a00" : "#2a3540"
+                        }
+                        onTextChanged: rootPanel.statusMessage = ""
+                    }
                 }
 
-                TextField {
-                    id: userField
-                    placeholderText: qsTr("LNG_00094")
-                    text: "admin"
-                    selectByMouse: true
+                ColumnLayout {
+                    spacing: 2
                     Layout.fillWidth: true
-                    color: "white"
-                    background: Rectangle {
-                        color: "#0f151b"
-                        radius: 4
-                        border.color: userField.activeFocus ? "#ff7a00" : "#2a3540"
-                    }
-                    onTextChanged: rootPanel.statusMessage = ""
-                }
-            }
 
-            TextField {
-                id: passField
-                placeholderText: qsTr("LNG_00093")
-                echoMode: TextInput.Password
-                selectByMouse: true
-                Layout.fillWidth: true
-                color: "white"
-                background: Rectangle {
-                    color: "#0f151b"
-                    radius: 4
-                    border.color: passField.activeFocus ? "#ff7a00" : "#2a3540"
+                    Text {
+                        text: qsTr("LNG_00093")
+                        color: "#8898a6"
+                        font.pixelSize: 10
+                    }
+
+                    TextField {
+                        id: passField
+                        placeholderText: "••••••••"
+                        echoMode: TextInput.Password
+                        selectByMouse: true
+                        Layout.fillWidth: true
+                        color: "white"
+                        background: Rectangle {
+                            color: "#0f151b"
+                            radius: 4
+                            border.color: passField.activeFocus ? "#ff7a00" : "#2a3540"
+                        }
+                        onTextChanged: rootPanel.statusMessage = ""
+                    }
                 }
-                onTextChanged: rootPanel.statusMessage = ""
             }
 
             // Live status message feedback
@@ -395,6 +528,8 @@ ColumnLayout {
                         nameField.text = "";
                         ipField.text = "";
                         portField.text = "8000";
+                        httpPortField.text = "80";
+                        rtspPortField.text = "554";
                         userField.text = "admin";
                         passField.text = "";
                         rootPanel.statusMessage = "";
@@ -513,7 +648,8 @@ ColumnLayout {
                         }
 
                         onClicked: {
-                            var url = "http://" + modelData.ip;
+                            var hPort = modelData.httpPort || (modelData.port == 8000 ? 80 : modelData.port) || 80;
+                            var url = "http://" + modelData.ip + (hPort == 80 ? "" : ":" + hPort);
                             Qt.openUrlExternally(url);
                         }
 
@@ -583,7 +719,9 @@ ColumnLayout {
                             // Populate input fields for editing
                             nameField.text = modelData.name || "";
                             ipField.text = modelData.ip;
-                            portField.text = modelData.port;
+                            portField.text = modelData.sdkPort || modelData.port || "8000";
+                            httpPortField.text = modelData.httpPort || (modelData.port == 8000 ? "80" : modelData.port) || "80";
+                            rtspPortField.text = modelData.rtspPort || "554";
                             userField.text = modelData.username;
                             passField.text = modelData.password;
                             rootPanel.editingIndex = index;

@@ -1,0 +1,301 @@
+Warning: QFont::fromString: Invalid description 'Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Normalny,0,0'
+Warning: QFont::fromString: Invalid description 'Hack,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Normalny,0,0'
+Warning: QFont::fromString: Invalid description 'Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Normalny,0,0'
+Warning: QFont::fromString: Invalid description 'Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Normalny,0,0'
+Warning: QString::arg: Argument missing: "LNG_00484" , 0
+Warning: QString::arg: Argument missing: "LNG_00484" , 2
+KVision version: 2.4.6 GIT.dc9e503 (x86_64)
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93da9f300) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93da97e70) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93da9e030) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93da95a30) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93ddbf7c0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93dbb2210) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93dbb8cd0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93dbb1380) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93de977f0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93de8fa50) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93de96840) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93de8ea90) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93df67780) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93df5fee0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93df667d0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93df5ef20) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93e6b9130) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e6b1590) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93e6b8180) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e6b05d0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93e783820) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e77bad0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93e782870) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e77ab10) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93e84e980) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e846c30) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93e84d9d0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e845c70) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93e919e50) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e912100) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93e918ea0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e911140) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93e9e4b50) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e9dcd80) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93e9e3ba0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e9dbdc0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93eaaf8d0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93eaa7b80) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93eaae920) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93eaa6bc0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93eb7a650) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93eb72900) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93eb796a0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93eb71940) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93ec376c0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93ec2f970) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93ec36710) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93ec2e9b0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93ed02850) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93ecfaa00) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93ed018a0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93ecf9a40) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93edcdd50) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93edc6000) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93edccda0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93edc5040) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93ee98f70) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93ee91220) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93ee97fc0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93ee90260) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93ef64e80) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93ef5d340) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93ef63ed0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93ef5c380) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f030320) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f0285d0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f02f370) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f027610) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f0fb3b0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f0f3660) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f0fa400) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f0f26a0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f1c6440) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f1be6f0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f1c5490) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f1bd730) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f242150) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f06ec00) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f2417f0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e882eb0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f303e00) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f2fc0b0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f302e50) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f2fb0f0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f3ce5d0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f3c6880) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f3cd620) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f3c58c0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f499250) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f491500) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f4982a0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f490540) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f563ed0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f55c180) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f562f20) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f55b1c0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f62ebf0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f626da0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f62dc40) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f625de0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93e321580) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e32d750) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93e322680) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93e32edd0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f80d7e0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f805ad0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f80c830) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f804b10) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f8f1ba0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f8e9e50) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f8f0bf0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f8e8e90) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f9bc610) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f9b48c0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f9bb660) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93f9b3900) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93fa87060) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fa7f310) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93fa860b0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fa7e350) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93fb51b70) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fb49e20) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93fb50bc0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fb48e60) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93fc1c610) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fc148c0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93fc1b660) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fc13900) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93fce70b0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fcdf360) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93fce6100) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fcde3a0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93fdb1b00) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fda9db0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93fdb0b50) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fda8df0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93fe7c550) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fe74800) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93fe7b5a0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fe73840) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93ff46fa0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93ff3f250) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93ff45ff0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93ff3e290) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d9400039d0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fffbc80) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d940002a20) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fffacc0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d9400cec00) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d9400c6eb0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d9400cdc50) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d9400c5ef0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d940199720) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d9401919d0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d940198770) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d940190a10) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93fd48270) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fa29850) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93fc7d8e0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d93fa1bd90) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d9402da690) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d9402d2940) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d9402d96e0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d9402d1980) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d9403a4c70) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d94039cf20) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d9403a3cc0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d94039bf60) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d94046f250) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d940467500) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d94046e2a0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d940466540) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d940539ca0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d940531f50) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d940538cf0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d940530f90) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d9406046f0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d9405fc9a0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d940603740) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d9405fb9e0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d9406cf930) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d9406c7be0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d9406ce980) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d9406c6c20) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d94079a490) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d940792740) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d9407994e0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d940791780) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d940864ee0) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d94085d190) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d940863f30) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d94085c1d0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d94092f930) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d940927be0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d94092e980) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d940926c20) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d9409ec120) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d9409e43d0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d9409eb170) setVideoSurface old: QObject(0x0) new: QSGVideoItemSurface(0x55d9409e3410) playbackState: QMediaPlayer::StoppedState
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+Warning: qrc:/src/ViewportsLayout.qml:1089: TypeError: Cannot read property 'isQuickPlayback' of undefined
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.210:554/Streaming/Channels/802
+[QmlAVInterruptCallback] now: 91717339477, expire: 91727339266, req: 0, timeout: 0
+[Player] Different camera: switching immediately to URL: rtsp://admin:copernicus00000@172.16.1.253:554/Streaming/Channels/402
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.212:554/Streaming/Channels/1002
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.210:554/Streaming/Channels/2502
+[Player] Different camera: switching immediately to URL: rtsp://admin:copernicus00000@172.16.1.253:554/Streaming/Channels/902
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.211:554/Streaming/Channels/1702
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.213:554/Streaming/Channels/2402
+[Player] Different camera: switching immediately to URL: rtsp://admin:copernicus00000@172.16.1.253:554/Streaming/Channels/1802
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.211:554/Streaming/Channels/2202
+[Player] Different camera: switching immediately to URL: rtsp://admin:copernicus00000@172.16.1.215:554/Streaming/Channels/2702
+[Player] Different camera: switching immediately to URL: rtsp://admin:copernicus00000@172.16.1.216:554/Streaming/Channels/3002
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.210:554/Streaming/Channels/1802
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.211:554/Streaming/Channels/2602
+[Player] Different camera: switching immediately to URL: rtsp://admin:copernicus00000@172.16.1.253:554/Streaming/Channels/1302
+[Player] Different camera: switching immediately to URL: rtsp://admin:copernicus00000@172.16.1.253:554/Streaming/Channels/1002
+[Player] Different camera: switching immediately to URL: rtsp://admin:copernicus00000@172.16.1.253:554/Streaming/Channels/1702
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.211:554/Streaming/Channels/2402
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.211:554/Streaming/Channels/2502
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.212:554/Streaming/Channels/1502
+[Player] Different camera: switching immediately to URL: rtsp://admin:copernicus00000@172.16.1.216:554/Streaming/Channels/402
+[Player] Different camera: switching immediately to URL: rtsp://admin:copernicus00000@172.16.1.216:554/Streaming/Channels/602
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.211:554/Streaming/Channels/2302
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.211:554/Streaming/Channels/2002
+[Player] Different camera: switching immediately to URL: rtsp://admin:abcd1234@172.16.1.212:554/Streaming/Channels/1602
+[Player] Different camera: switching immediately to URL: rtsp://admin:copernicus00000@172.16.1.253:554/Streaming/Channels/502
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f62dc40) setVideoSurface old: QSGVideoItemSurface(0x55d93f625de0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f62ebf0) setVideoSurface old: QSGVideoItemSurface(0x55d93f626da0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f562f20) setVideoSurface old: QSGVideoItemSurface(0x55d93f55b1c0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f563ed0) setVideoSurface old: QSGVideoItemSurface(0x55d93f55c180) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f4982a0) setVideoSurface old: QSGVideoItemSurface(0x55d93f490540) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f499250) setVideoSurface old: QSGVideoItemSurface(0x55d93f491500) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f3cd620) setVideoSurface old: QSGVideoItemSurface(0x55d93f3c58c0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f3ce5d0) setVideoSurface old: QSGVideoItemSurface(0x55d93f3c6880) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f302e50) setVideoSurface old: QSGVideoItemSurface(0x55d93f2fb0f0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f303e00) setVideoSurface old: QSGVideoItemSurface(0x55d93f2fc0b0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f2417f0) setVideoSurface old: QSGVideoItemSurface(0x55d93e882eb0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f242150) setVideoSurface old: QSGVideoItemSurface(0x55d93f06ec00) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f1c5490) setVideoSurface old: QSGVideoItemSurface(0x55d93f1bd730) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f1c6440) setVideoSurface old: QSGVideoItemSurface(0x55d93f1be6f0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f0fa400) setVideoSurface old: QSGVideoItemSurface(0x55d93f0f26a0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f0fb3b0) setVideoSurface old: QSGVideoItemSurface(0x55d93f0f3660) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93f02f370) setVideoSurface old: QSGVideoItemSurface(0x55d93f027610) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93f030320) setVideoSurface old: QSGVideoItemSurface(0x55d93f0285d0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93ef63ed0) setVideoSurface old: QSGVideoItemSurface(0x55d93ef5c380) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93ef64e80) setVideoSurface old: QSGVideoItemSurface(0x55d93ef5d340) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93ee97fc0) setVideoSurface old: QSGVideoItemSurface(0x55d93ee90260) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93ee98f70) setVideoSurface old: QSGVideoItemSurface(0x55d93ee91220) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93edccda0) setVideoSurface old: QSGVideoItemSurface(0x55d93edc5040) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93edcdd50) setVideoSurface old: QSGVideoItemSurface(0x55d93edc6000) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93ed018a0) setVideoSurface old: QSGVideoItemSurface(0x55d93ecf9a40) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93ed02850) setVideoSurface old: QSGVideoItemSurface(0x55d93ecfaa00) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93ec36710) setVideoSurface old: QSGVideoItemSurface(0x55d93ec2e9b0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93ec376c0) setVideoSurface old: QSGVideoItemSurface(0x55d93ec2f970) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93eb796a0) setVideoSurface old: QSGVideoItemSurface(0x55d93eb71940) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93eb7a650) setVideoSurface old: QSGVideoItemSurface(0x55d93eb72900) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93eaae920) setVideoSurface old: QSGVideoItemSurface(0x55d93eaa6bc0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93eaaf8d0) setVideoSurface old: QSGVideoItemSurface(0x55d93eaa7b80) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93e9e3ba0) setVideoSurface old: QSGVideoItemSurface(0x55d93e9dbdc0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93e9e4b50) setVideoSurface old: QSGVideoItemSurface(0x55d93e9dcd80) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93e918ea0) setVideoSurface old: QSGVideoItemSurface(0x55d93e911140) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93e919e50) setVideoSurface old: QSGVideoItemSurface(0x55d93e912100) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93e84d9d0) setVideoSurface old: QSGVideoItemSurface(0x55d93e845c70) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93e84e980) setVideoSurface old: QSGVideoItemSurface(0x55d93e846c30) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93e782870) setVideoSurface old: QSGVideoItemSurface(0x55d93e77ab10) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93e783820) setVideoSurface old: QSGVideoItemSurface(0x55d93e77bad0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93e6b8180) setVideoSurface old: QSGVideoItemSurface(0x55d93e6b05d0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93e6b9130) setVideoSurface old: QSGVideoItemSurface(0x55d93e6b1590) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93df667d0) setVideoSurface old: QSGVideoItemSurface(0x55d93df5ef20) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93df67780) setVideoSurface old: QSGVideoItemSurface(0x55d93df5fee0) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93de96840) setVideoSurface old: QSGVideoItemSurface(0x55d93de8ea90) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93de977f0) setVideoSurface old: QSGVideoItemSurface(0x55d93de8fa50) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93dbb8cd0) setVideoSurface old: QSGVideoItemSurface(0x55d93dbb1380) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93ddbf7c0) setVideoSurface old: QSGVideoItemSurface(0x55d93dbb2210) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_106(0x55d93da9e030) setVideoSurface old: QSGVideoItemSurface(0x55d93da95a30) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+[QmlAVPlayer] QmlAVPlayer_QML_107(0x55d93da9f300) setVideoSurface old: QSGVideoItemSurface(0x55d93da97e70) new: QObject(0x0) playbackState: QMediaPlayer::StoppedState
+Warning: [QmlAVDecoder @ 0x55d93df08e70] Unable send packet to decoder: "Invalid data found when processing input" (-1094995529)
+Warning: [QmlAVDecoder @ 0x55d93df08e70] Unable send packet to decoder: "Invalid data found when processing input" (-1094995529)
+Warning: [QmlAVDecoder @ 0x55d93df08e70] Unable send packet to decoder: "Invalid data found when processing input" (-1094995529)
+Warning: [QmlAVDecoder @ 0x55d93df08e70] Unable send packet to decoder: "Invalid data found when processing input" (-1094995529)
+[Root] Multi-stage deferred GC and memory trim (tick 1/5)...
+[Context] Aggressively trimming QML component cache, singletons, and collecting JS garbage...
+[Context] Manual memory trim triggered. Releasing free heap arenas to OS...
+Warning: [QmlAVDecoder @ 0x55d93df08e70] Unable send packet to decoder: "Invalid data found when processing input" (-1094995529)
+[QmlAVInterruptCallback] now: 91718339827, expire: 91728299960, req: 0, timeout: 0
+QmlAVPlayer::bytesRead: 12176
+QmlAVPlayer::bytesRead: 4969
+QmlAVPlayer::bytesRead: 10305
+QmlAVPlayer::bytesRead: 38723
+QmlAVPlayer::bytesRead: 10820
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 72044
+QmlAVPlayer::bytesRead: 58264
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 8604
+QmlAVPlayer::bytesRead: 54199
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 9633
+QmlAVPlayer::bytesRead: 6684
+QmlAVPlayer::bytesRead: 1231
+QmlAVPlayer::bytesRead: 80388
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 12275
+QmlAVPlayer::bytesRead: 78788
+Warning: [QmlAVDecoder @ 0x55d93df08e70] Unable send packet to decoder: "Invalid data found when processing input" (-1094995529)
+Warning: [QmlAVDecoder @ 0x55d93df08e70] Unable send packet to decoder: "Invalid data found when processing input" (-1094995529)
+[Root] Multi-stage deferred GC and memory trim (tick 2/5)...
+[Context] Aggressively trimming QML component cache, singletons, and collecting JS garbage...
+[Context] Manual memory trim triggered. Releasing free heap arenas to OS...
+QmlAVPlayer::bytesRead: 58628
+QmlAVPlayer::bytesRead: 10507
+QmlAVPlayer::bytesRead: 66777
+QmlAVPlayer::bytesRead: 71679
+QmlAVPlayer::bytesRead: 19375
+QmlAVPlayer::bytesRead: 1972
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 923
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 162671
+QmlAVPlayer::bytesRead: 70305
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 539
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 19154
+QmlAVPlayer::bytesRead: 114122
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 62938
+QmlAVPlayer::bytesRead: 61904
+QmlAVPlayer::bytesRead: 2295
+QmlAVPlayer::bytesRead: 160889
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 1175
+QmlAVPlayer::bytesRead: 62779
+QmlAVPlayer::bytesRead: 174178
+[QmlAVInterruptCallback] now: 91719343171, expire: 91729237363, req: 0, timeout: 0
+[Root] Multi-stage deferred GC and memory trim (tick 3/5)...
+[Context] Aggressively trimming QML component cache, singletons, and collecting JS garbage...
+[Context] Manual memory trim triggered. Releasing free heap arenas to OS...
+QmlAVPlayer::bytesRead: 102942
+QmlAVPlayer::bytesRead: 16138
+QmlAVPlayer::bytesRead: 114863
+QmlAVPlayer::bytesRead: 109906
+QmlAVPlayer::bytesRead: 29123
+QmlAVPlayer::bytesRead: 3321
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 4328
+QmlAVPlayer::bytesRead: 2355
+QmlAVPlayer::bytesRead: 231501
+QmlAVPlayer::bytesRead: 129217
+QmlAVPlayer::bytesRead: 5000
+QmlAVPlayer::bytesRead: 1807
+QmlAVPlayer::bytesRead: 1172
+QmlAVPlayer::bytesRead: 28786
+QmlAVPlayer::bytesRead: 265731
+QmlAVPlayer::bytesRead: 33648
+QmlAVPlayer::bytesRead: 126767
+QmlAVPlayer::bytesRead: 106191
+QmlAVPlayer::bytesRead: 3265
+QmlAVPlayer::bytesRead: 232141
+QmlAVPlayer::bytesRead: 0
+QmlAVPlayer::bytesRead: 3743
+QmlAVPlayer::bytesRead: 81927
+QmlAVPlayer::bytesRead: 257446

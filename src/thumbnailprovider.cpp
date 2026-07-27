@@ -352,12 +352,15 @@ void ThumbnailProvider::generateSingleThumbnail(const QVariantMap &recorderInfo,
     QString ip = recorderInfo["ip"].toString();
     QString username = recorderInfo["username"].toString();
     QString password = recorderInfo["password"].toString();
+    int rtspPort = recorderInfo.contains("rtspPort") ? recorderInfo["rtspPort"].toInt() : 554;
+    if (rtspPort <= 0) rtspPort = 554;
 
     // Use main stream (01) instead of substream (02) for better quality before downscaling
-    QString rtspUrl = QString("rtsp://%1:%2@%3:554/Streaming/Channels/%4%5")
+    QString rtspUrl = QString("rtsp://%1:%2@%3:%4/Streaming/Channels/%5%6")
                         .arg(username)
                         .arg(password)
                         .arg(ip)
+                        .arg(rtspPort)
                         .arg(channelId)
                         .arg("01");
     
@@ -407,10 +410,15 @@ void ThumbnailProvider::generateThumbnails(const QVariantMap &recorderInfo)
     QString ip = recorderInfo["ip"].toString();
     QString username = recorderInfo["username"].toString();
     QString password = recorderInfo["password"].toString();
+    int rtspPort = recorderInfo.contains("rtspPort") ? recorderInfo["rtspPort"].toInt() : 554;
+    if (rtspPort <= 0) rtspPort = 554;
     QVariantList cameras = recorderInfo["cameras"].toList();
 
     QString outDir = thumbnailsDir();
-    QDir().mkpath(outDir);
+    if (outDir.isEmpty()) {
+        qWarning() << "[ThumbnailProvider] Cannot save thumbnails: cache dir unavailable";
+        return;
+    }
 
     // Clear old thumbnails for this specific recorder before generating new ones
     QDir dir(outDir);
@@ -426,10 +434,11 @@ void ThumbnailProvider::generateThumbnails(const QVariantMap &recorderInfo)
         QVariantMap cam = camVar.toMap();
         int channelId = cam["channelId"].toInt();
         
-        QString rtspUrl = QString("rtsp://%1:%2@%3:554/Streaming/Channels/%4%5")
+        QString rtspUrl = QString("rtsp://%1:%2@%3:%4/Streaming/Channels/%5%6")
                             .arg(username)
                             .arg(password)
                             .arg(ip)
+                            .arg(rtspPort)
                             .arg(channelId)
                             .arg("01");
         

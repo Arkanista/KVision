@@ -309,7 +309,10 @@ Window {
         
         list[selectedPlayerIndex] = {
             "ip": rec.ip,
-            "port": rec.port || 8000,
+            "port": rec.sdkPort || rec.port || 8000,
+            "sdkPort": rec.sdkPort || rec.port || 8000,
+            "httpPort": rec.httpPort || (rec.port == 8000 ? 80 : rec.port) || 80,
+            "rtspPort": rec.rtspPort || 554,
             "username": rec.username,
             "password": rec.password,
             "channelId": cam.channelId,
@@ -324,7 +327,10 @@ Window {
 
         startFastSeekSearch({
             "ip": rec.ip,
-            "port": rec.port || 8000,
+            "port": rec.sdkPort || rec.port || 8000,
+            "sdkPort": rec.sdkPort || rec.port || 8000,
+            "httpPort": rec.httpPort || (rec.port == 8000 ? 80 : rec.port) || 80,
+            "rtspPort": rec.rtspPort || 554,
             "username": rec.username,
             "password": rec.password,
             "channelId": cam.channelId
@@ -380,7 +386,10 @@ Window {
             if (data) {
                 playbackWindow.recorderInfo = {
                     "ip": data.ip,
-                    "port": data.port || 8000,
+                    "port": data.sdkPort || data.port || 8000,
+                    "sdkPort": data.sdkPort || data.port || 8000,
+                    "httpPort": data.httpPort || (data.port == 8000 ? 80 : data.port) || 80,
+                    "rtspPort": data.rtspPort || 554,
                     "username": data.username,
                     "password": data.password,
                     "name": data.recorderName
@@ -597,7 +606,10 @@ Window {
 
             var camItem = {
                 "ip": recorderInfo.ip,
-                "port": recorderInfo.port || 8000,
+                "port": recorderInfo.sdkPort || recorderInfo.port || 8000,
+                "sdkPort": recorderInfo.sdkPort || recorderInfo.port || 8000,
+                "httpPort": recorderInfo.httpPort || (recorderInfo.port == 8000 ? 80 : recorderInfo.port) || 80,
+                "rtspPort": recorderInfo.rtspPort || 554,
                 "username": recorderInfo.username,
                 "password": recorderInfo.password,
                 "channelId": playbackWindow.channelId,
@@ -722,7 +734,10 @@ Window {
         
         var recorderInfoForCam = {
             "ip": ip,
-            "port": recInfo.port || 8000,
+            "port": recInfo.sdkPort || recInfo.port || 8000,
+            "sdkPort": recInfo.sdkPort || recInfo.port || 8000,
+            "httpPort": recInfo.httpPort || (recInfo.port == 8000 ? 80 : recInfo.port) || 80,
+            "rtspPort": recInfo.rtspPort || 554,
             "username": recInfo.username,
             "password": recInfo.password
         };
@@ -809,7 +824,10 @@ Window {
         
         var recorderInfoForCam = {
             "ip": cam.ip,
-            "port": cam.port || 8000,
+            "port": cam.sdkPort || cam.port || 8000,
+            "sdkPort": cam.sdkPort || cam.port || 8000,
+            "httpPort": cam.httpPort || (cam.port == 8000 ? 80 : cam.port) || 80,
+            "rtspPort": cam.rtspPort || 554,
             "username": cam.username,
             "password": cam.password
         };
@@ -913,7 +931,10 @@ Window {
         
         var recorderInfoForCam = {
             "ip": cam.ip,
-            "port": cam.port || 8000,
+            "port": cam.sdkPort || cam.port || 8000,
+            "sdkPort": cam.sdkPort || cam.port || 8000,
+            "httpPort": cam.httpPort || (cam.port == 8000 ? 80 : cam.port) || 80,
+            "rtspPort": cam.rtspPort || 554,
             "username": cam.username,
             "password": cam.password
         };
@@ -1003,7 +1024,10 @@ Window {
                 
                 var recorderInfoForCam = {
                     "ip": cam.ip,
-                    "port": cam.port || 8000,
+                    "port": cam.sdkPort || cam.port || 8000,
+                    "sdkPort": cam.sdkPort || cam.port || 8000,
+                    "httpPort": cam.httpPort || (cam.port == 8000 ? 80 : cam.port) || 80,
+                    "rtspPort": cam.rtspPort || 554,
                     "username": cam.username,
                     "password": cam.password
                 };

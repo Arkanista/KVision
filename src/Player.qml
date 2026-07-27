@@ -77,6 +77,9 @@ FocusScope {
     readonly property bool isHikvision: String(source).indexOf("hikvision://") !== -1
     property string recorderIp: ""
     property int recorderPort: 8000
+    property int sdkPort: 8000
+    property int httpPort: 80
+    property int rtspPort: 554
     property string username: ""
     property string password: ""
     property int channelId: 1
@@ -198,7 +201,10 @@ FocusScope {
             
             var recorderInfoForCam = {
                 "ip": recorderIp,
-                "port": recorderPort || 8000,
+                "port": sdkPort || recorderPort || 8000,
+                "sdkPort": sdkPort || recorderPort || 8000,
+                "httpPort": httpPort || 80,
+                "rtspPort": rtspPort || 554,
                 "username": username,
                 "password": password
             };
@@ -365,7 +371,8 @@ FocusScope {
         } else {
             if (hikPlayerSettings.useRealStreams) {
                 var streamSuffix = isSubStream ? "02" : "01";
-                newUrl = "rtsp://" + username + ":" + password + "@" + recorderIp + ":554/Streaming/Channels/" + channelId + streamSuffix;
+                var rPort = rtspPort || 554;
+                newUrl = "rtsp://" + username + ":" + password + "@" + recorderIp + ":" + rPort + "/Streaming/Channels/" + channelId + streamSuffix;
                 newCameraId = recorderIp + "_" + channelId;
             }
         }
@@ -642,7 +649,10 @@ FocusScope {
     function openPlayback() {
         var recInfo = {
             "ip": root.recorderIp,
-            "port": root.recorderPort,
+            "port": root.sdkPort || root.recorderPort || 8000,
+            "sdkPort": root.sdkPort || root.recorderPort || 8000,
+            "httpPort": root.httpPort || 80,
+            "rtspPort": root.rtspPort || 554,
             "username": root.username,
             "password": root.password
         };
@@ -1569,7 +1579,10 @@ FocusScope {
                         onClicked: {
                             var recInfo = {
                                 "ip": root.recorderIp,
-                                "port": root.recorderPort,
+                                "port": root.sdkPort || root.recorderPort || 8000,
+                                "sdkPort": root.sdkPort || root.recorderPort || 8000,
+                                "httpPort": root.httpPort || 80,
+                                "rtspPort": root.rtspPort || 554,
                                 "username": root.username,
                                 "password": root.password
                             };
@@ -2090,8 +2103,11 @@ FocusScope {
         var ipPort = addrPort.split(":");
         recorderIp = ipPort[0] || "";
 
-        // Resolve SDK port by searching in configured recorders
-        recorderPort = 8000; // Default
+        // Resolve SDK, HTTP, RTSP ports by searching in configured recorders
+        sdkPort = 8000;
+        recorderPort = 8000;
+        httpPort = 80;
+        rtspPort = 554;
         try {
             var jsonStr = rootWindow.hikvisionRecordersJson;
             if (jsonStr) {
@@ -2099,7 +2115,10 @@ FocusScope {
                 for (var i = 0; i < recordersList.length; ++i) {
                     var rec = recordersList[i];
                     if (rec.ip === recorderIp) {
-                        recorderPort = parseInt(rec.port) || 8000;
+                        sdkPort = parseInt(rec.sdkPort || rec.port) || 8000;
+                        recorderPort = sdkPort;
+                        httpPort = parseInt(rec.httpPort || (rec.port == 8000 ? 80 : rec.port)) || 80;
+                        rtspPort = parseInt(rec.rtspPort) || 554;
                         if (!username && rec.username) username = rec.username;
                         if (!password && rec.password) password = rec.password;
                         break;
@@ -2107,7 +2126,7 @@ FocusScope {
                 }
             }
         } catch (e) {
-            console.log("[Player QML Error] Failed to resolve recorder port from JSON:", e);
+            console.log("[Player QML Error] Failed to resolve recorder ports from JSON:", e);
         }
     }
 
@@ -2143,10 +2162,31 @@ FocusScope {
         // Split at ":" for ip and port
         var ipPort = addrPort.split(":");
         recorderIp = ipPort[0] || "";
-        if (ipPort.length > 1) {
-            recorderPort = parseInt(ipPort[1]) || 8000;
-        } else {
-            recorderPort = 8000;
+
+        // Resolve all ports from JSON
+        sdkPort = 8000;
+        recorderPort = 8000;
+        httpPort = 80;
+        rtspPort = 554;
+        try {
+            var jsonStr2 = rootWindow.hikvisionRecordersJson;
+            if (jsonStr2) {
+                var recordersList2 = JSON.parse(jsonStr2);
+                for (var j = 0; j < recordersList2.length; ++j) {
+                    var rec2 = recordersList2[j];
+                    if (rec2.ip === recorderIp) {
+                        sdkPort = parseInt(rec2.sdkPort || rec2.port) || 8000;
+                        recorderPort = sdkPort;
+                        httpPort = parseInt(rec2.httpPort || (rec2.port == 8000 ? 80 : rec2.port)) || 80;
+                        rtspPort = parseInt(rec2.rtspPort) || 554;
+                        if (!username && rec2.username) username = rec2.username;
+                        if (!password && rec2.password) password = rec2.password;
+                        break;
+                    }
+                }
+            }
+        } catch (e2) {
+            console.log("[Player QML Error] Failed to resolve recorder ports from JSON:", e2);
         }
     }
 

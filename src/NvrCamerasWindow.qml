@@ -28,7 +28,7 @@ Window {
 
     // Helper to build the RTSP sub-stream URL for thumbnails
     function subStreamUrl(rec, cam) {
-        return "rtsp://" + rec.username + ":" + rec.password + "@" + rec.ip + ":554/Streaming/Channels/" + cam.channelId + "02";
+        return "rtsp://" + rec.username + ":" + rec.password + "@" + rec.ip + ":" + (rec.rtspPort || 554) + "/Streaming/Channels/" + cam.channelId + "02";
     }
 
     // Helper to build the cache key for a camera
@@ -39,7 +39,10 @@ Window {
     function generateThumbnails() {
         var recMap = {
             "ip": recorder.ip,
-            "port": recorder.port,
+            "port": recorder.sdkPort || recorder.port || 8000,
+            "sdkPort": recorder.sdkPort || recorder.port || 8000,
+            "httpPort": recorder.httpPort || (recorder.port == 8000 ? 80 : recorder.port) || 80,
+            "rtspPort": recorder.rtspPort || 554,
             "username": recorder.username,
             "password": recorder.password,
             "cameras": recorder.cameras || []
@@ -493,7 +496,10 @@ Window {
                                             ThumbnailProvider.generateSingleThumbnail(
                                                 {
                                                     "ip": recorder.ip,
-                                                    "port": recorder.port,
+                                                    "port": recorder.sdkPort || recorder.port || 8000,
+                                                    "sdkPort": recorder.sdkPort || recorder.port || 8000,
+                                                    "httpPort": recorder.httpPort || (recorder.port == 8000 ? 80 : recorder.port) || 80,
+                                                    "rtspPort": recorder.rtspPort || 554,
                                                     "username": recorder.username,
                                                     "password": recorder.password
                                                 },

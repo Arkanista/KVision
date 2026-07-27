@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.0] - 2026-07-27
+
+### EN: Features & Improvements
+* **Hikvision Multi-Port Support:** Implemented independent port configuration for SDK, HTTP, and RTSP ports per NVR recorder, enabling seamless connection to recorders using non-standard or custom forwarded ports.
+* **Settings UI/UX Enhancements:** Replaced implicit placeholder labels with permanent text headers above all port input fields in the NVR settings panel, ensuring context remains clear when fields are populated.
+* **Multi-Language Support & Localization:** Updated all 22 supported languages with accurate localization strings for new port options.
+
+### PL: Funkcje i Udoskonalenia
+* **Obsługa wielu portów Hikvision:** Wdrożono niezależną konfigurację portów SDK, HTTP oraz RTSP dla każdego rejestratora NVR, co umożliwia prawidłowe połączenie z urządzeniami używającymi niestandardowych portów.
+* **Udoskonalenia interfejsu ustawień NVR:** Zastąpiono znikające etykiety stałymi nagłówkami tekstowymi nad polami wprowadzania portów, co gwarantuje pełną czytelność po wpisaniu wartości.
+* **Lokalizacja i wsparcie wielojęzyczne:** Zaktualizowano wszystkie 22 wspierane języki o przetłumaczone frazy dla opcji portów.
+
 ## [2.6.3] - 2026-07-08
 
 ### EN: Bug Fixes

@@ -1,3 +1,7 @@
+2.7.0-1
+  * PL: Wdrożono niezależną konfigurację portów SDK, HTTP i RTSP dla rejestratorów Hikvision, dodano stałe etykiety pól portów w ustawieniach NVR oraz zaktualizowano tłumaczenia we wszystkich 22 wspieranych językach.
+    EN: Implemented independent SDK, HTTP, and RTSP port settings per Hikvision recorder, added permanent field labels in NVR settings, and updated localization across all 22 supported languages.
+
 2.6.3-1
   * PL: Ulepszono okresowe zwalnianie pamięci procesu do jądra (malloc_trim), logując dokładną ilość zwolnionej pamięci RAM w megabajtach. Komunikat ten jest zawsze widoczny na konsoli (stderr), również w trybie normalnym.
     EN: Enhanced periodic process memory reclaiming (malloc_trim) by logging the exact amount of reclaimed RAM in megabytes. This message is always visible in standard console output (stderr).

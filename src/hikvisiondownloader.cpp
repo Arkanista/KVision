@@ -92,7 +92,8 @@ void HikvisionDownloader::startDownload(const QVariantMap &recorderInfo, int cha
 
     QThread *thread = QThread::create([this, recorderInfo, channelId, start, end, saveFilePath]() {
         QString ip = recorderInfo["ip"].toString();
-        int port = recorderInfo["port"].toInt();
+        int port = recorderInfo.contains("sdkPort") ? recorderInfo["sdkPort"].toInt() : recorderInfo["port"].toInt();
+        if (port <= 0) port = 8000;
         QString username = recorderInfo["username"].toString();
         QString password = recorderInfo["password"].toString();
 

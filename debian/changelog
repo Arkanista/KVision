@@ -1,3 +1,11 @@
+cctv-viewer (2.7.0-1) jammy; urgency=medium
+
+  * Implemented independent SDK, HTTP, and RTSP port settings per Hikvision recorder.
+  * Added permanent field labels in NVR settings for port configurations.
+  * Updated multi-language localization across all 22 supported languages.
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Mon, 27 Jul 2026 16:30:00 +02:00
+
 cctv-viewer (2.4.1-1) jammy; urgency=medium
 
   * Added low-level FFmpeg options (nobuffer, low_delay) to eliminate live stream delay (drift) over long operational periods.
