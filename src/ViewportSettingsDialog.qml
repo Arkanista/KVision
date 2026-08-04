@@ -278,6 +278,27 @@ Dialog {
                 if (Object.keys(options).length === 0) {
                     options = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
                 }
+                
+                var uriStr = String(item.url || "");
+                var idx = uriStr.indexOf("hikvision://");
+                if (idx !== -1) {
+                    var ipPort = uriStr.substring(idx + 12).split("/")[0].split("@").pop().split(":");
+                    var vpIp = ipPort[0] || "";
+                    var jsonStr = rootWindow.hikvisionRecordersJson;
+                    if (jsonStr) {
+                        var recordersList = JSON.parse(jsonStr);
+                        for (var i = 0; i < recordersList.length; ++i) {
+                            if (recordersList[i].ip === vpIp) {
+                                var transport = recordersList[i].rtspTransport || "";
+                                if (transport === "tcp" || transport === "udp") {
+                                    options["rtsp_transport"] = transport;
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
+                
                 channelAVFormatOptions.text = Utils.stringifyOptions(options);
                 channelIgnoreGlobalAVFormatOptions.checked = item.ignoreGlobalAVFormatOptions;
             } else {

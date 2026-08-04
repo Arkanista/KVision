@@ -4409,7 +4409,15 @@
             <source>LNG_00537</source>
             <translation>Language &amp; Localization: Complete multi-language support for new port options.</translation>
         </message>
-    </context>
+            <message>
+            <source>LNG_00538</source>
+            <translation>RTSP átvitel NVR-enként: Lehetőség az RTSP átviteli protokoll (Auto/TCP/UDP) kiválasztására rögzítőnként a jobb WAN/NAT kompatibilitás érdekében.</translation>
+        </message>
+        <message>
+            <source>LNG_00539</source>
+            <translation>UI szinkronizáció: A nézet beállításai párbeszédablak most tükrözi a rögzítőspecifikus RTSP átviteli felülbírálásokat.</translation>
+        </message>
+</context>
     <context>
         <name>SideBarItem</name>
         <message>

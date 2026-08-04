@@ -77,6 +77,7 @@ ColumnLayout {
             var sdkP = parseInt(portField.text) || 8000;
             var httpP = parseInt(httpPortField.text) || 80;
             var rtspP = parseInt(rtspPortField.text) || 554;
+            var rtspTransport = rtspTransportField.currentText === "TCP" ? "tcp" : (rtspTransportField.currentText === "UDP" ? "udp" : "");
 
             var newRecorder = {
                 name: nameField.text.trim(),
@@ -87,7 +88,8 @@ ColumnLayout {
                 rtspPort: rtspP,
                 username: userField.text.trim(),
                 password: passField.text,
-                cameras: cameras
+                cameras: cameras,
+                rtspTransport: rtspTransport
             };
 
             if (rootPanel.editingIndex === -1) {
@@ -135,7 +137,7 @@ ColumnLayout {
                 rootPanel.recorders = arr2;
                 saveRecorders();
 
-                // Update corresponding NVR view layout
+                // Update corresponding NVR view layout and any custom layouts
                 for (var j = 0; j < layoutsCollectionModel.count; ++j) {
                     var l = layoutsCollectionModel.get(j);
                     if (l && l.isNvr && l.nvrIp === oldIp) {
@@ -147,12 +149,43 @@ ColumnLayout {
                         for (var k = 0; k < numCams2; ++k) {
                             var vp2 = l.get(k);
                             if (vp2) {
-                                vp2.url = "hikvision://" + newRecorder.username + ":" + newRecorder.password + "@" + newRecorder.ip + ":" + newRecorder.port + "/" + cameras[k].channelId;
+                                var newUrl = "hikvision://" + newRecorder.username + ":" + newRecorder.password + "@" + newRecorder.ip + ":" + newRecorder.port + "/" + cameras[k].channelId;
+                                if (vp2.url === newUrl) {
+                                    vp2.url = ""; // force refresh in case only RTSP/HTTP ports changed
+                                }
+                                vp2.url = newUrl;
                                 vp2.secondaryUrl = vp2.url;
                                 vp2.volume = 0;
                             }
                         }
-                        break;
+                    } else if (l && !l.isNvr) {
+                        // Update any standalone viewports in custom layouts
+                        for (var k2 = 0; k2 < l.count; ++k2) {
+                            var vp = l.get(k2);
+                            if (vp && vp.url && vp.url.indexOf("hikvision://") !== -1) {
+                                var uriStr = String(vp.url);
+                                var idx = uriStr.indexOf("hikvision://");
+                                var content = uriStr.substring(idx + 12);
+                                var parts = content.split("/");
+                                var mainPart = parts[0];
+                                var addrParts = mainPart.split("@");
+                                var addrPort = (addrParts.length > 1) ? addrParts[1] : addrParts[0];
+                                var ipPort = addrPort.split(":");
+                                var vpIp = ipPort[0] || "";
+
+                                if (vpIp === oldIp) {
+                                    var chanId = parts.length > 1 ? parts[1] : "1";
+                                    var newUrl2 = "hikvision://" + newRecorder.username + ":" + newRecorder.password + "@" + newRecorder.ip + ":" + newRecorder.port + "/" + chanId;
+                                    if (vp.url === newUrl2) {
+                                        vp.url = ""; // force refresh
+                                    }
+                                    vp.url = newUrl2;
+                                    if (String(vp.secondaryUrl).indexOf("hikvision://") !== -1) {
+                                        vp.secondaryUrl = newUrl2;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 rootPanel.editingIndex = -1;
@@ -166,6 +199,7 @@ ColumnLayout {
             rtspPortField.text = "554";
             userField.text = "admin";
             passField.text = "";
+            rtspTransportField.currentIndex = 0;
             rootPanel.statusMessage = "";
         }
     }
@@ -428,6 +462,83 @@ ColumnLayout {
                 }
             }
 
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: 8
+
+                ColumnLayout {
+                    spacing: 2
+                    Layout.fillWidth: true
+
+                    Text {
+                        text: "RTSP Transport"
+                        color: "#8898a6"
+                        font.pixelSize: 10
+                    }
+
+                    ComboBox {
+                        id: rtspTransportField
+                        Layout.fillWidth: true
+                        model: ["Auto (Global)", "TCP", "UDP"]
+                        
+                        background: Rectangle {
+                            implicitHeight: 32
+                            color: "#0f151b"
+                            border.color: rtspTransportField.activeFocus ? "#ff7a00" : "#2a3540"
+                            border.width: 1
+                            radius: 4
+                        }
+
+                        contentItem: Text {
+                            text: rtspTransportField.displayText
+                            color: "white"
+                            font.pixelSize: 11
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: 10
+                        }
+
+                        delegate: ItemDelegate {
+                            width: rtspTransportField.width
+                            height: 32
+                            contentItem: Text {
+                                text: modelData
+                                color: hovered ? "#ff7a00" : "white"
+                                font.pixelSize: 11
+                                verticalAlignment: Text.AlignVCenter
+                                leftPadding: 10
+                            }
+                            background: Rectangle {
+                                color: hovered ? "#2a3540" : "transparent"
+                                border.color: hovered ? "#ff7a00" : "transparent"
+                                border.width: 1
+                                radius: 4
+                            }
+                        }
+
+                        popup: Popup {
+                            y: rtspTransportField.height + 2
+                            width: rtspTransportField.width
+                            implicitHeight: Math.min(320, rtspTransportField.popup.visible ? contentItem.implicitHeight : 0)
+                            padding: 4
+
+                            contentItem: ListView {
+                                clip: true
+                                implicitHeight: contentHeight
+                                model: rtspTransportField.popup.visible ? rtspTransportField.delegateModel : null
+                                currentIndex: rtspTransportField.highlightedIndex
+                            }
+
+                            background: Rectangle {
+                                color: "#0f151b"
+                                border.color: "#ff7a00"
+                                border.width: 1
+                                radius: 6
+                            }
+                        }
+                    }
+                }
+            }
+
             // Live status message feedback
             Text {
                 text: rootPanel.statusMessage
@@ -532,6 +643,7 @@ ColumnLayout {
                         rtspPortField.text = "554";
                         userField.text = "admin";
                         passField.text = "";
+                        rtspTransportField.currentIndex = 0;
                         rootPanel.statusMessage = "";
                     }
                 }
@@ -724,6 +836,15 @@ ColumnLayout {
                             rtspPortField.text = modelData.rtspPort || "554";
                             userField.text = modelData.username;
                             passField.text = modelData.password;
+                            
+                            if (modelData.rtspTransport === "tcp") {
+                                rtspTransportField.currentIndex = 1;
+                            } else if (modelData.rtspTransport === "udp") {
+                                rtspTransportField.currentIndex = 2;
+                            } else {
+                                rtspTransportField.currentIndex = 0;
+                            }
+                            
                             rootPanel.editingIndex = index;
                         }
 

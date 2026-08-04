@@ -4409,7 +4409,15 @@
             <source>LNG_00537</source>
             <translation>Language &amp; Localization: Complete multi-language support for new port options.</translation>
         </message>
-    </context>
+            <message>
+            <source>LNG_00538</source>
+            <translation>Transporte RTSP por NVR: Opção para selecionar o protocolo de transporte RTSP (Auto/TCP/UDP) por gravador para melhor compatibilidade com WAN/NAT.</translation>
+        </message>
+        <message>
+            <source>LNG_00539</source>
+            <translation>Sincronização da interface: A caixa de diálogo de configurações de exibição agora reflete as sobreposições de transporte RTSP específicas do gravador.</translation>
+        </message>
+</context>
     <context>
         <name>SideBarItem</name>
         <message>

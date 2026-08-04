@@ -133,6 +133,14 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.7.1-rc1",
+            date: "04.08.2026",
+            changes: [
+                qsTr("LNG_00538"),
+                qsTr("LNG_00539")
+            ]
+        },
+        {
             version: "v2.7.0",
             date: "27.07.2026",
             changes: [
@@ -1239,7 +1247,7 @@ FocusScope {
                                     }
 
                                     TextField {
-                                        text: (rootSideBar.currentViewportIndex >= 0 && Utils.currentModel()) ? getOptionsString(Utils.currentModel().get(rootSideBar.currentViewportIndex).avFormatOptions) : ""
+                                        text: (rootSideBar.currentViewportIndex >= 0 && Utils.currentModel()) ? getOptionsString(Utils.currentModel().get(rootSideBar.currentViewportIndex).avFormatOptions, Utils.currentModel().get(rootSideBar.currentViewportIndex).url) : ""
                                         selectByMouse: true
                                         enabled: configUnlockSwitch.checked
                                         Layout.fillWidth: true
@@ -1262,8 +1270,27 @@ FocusScope {
                                             }
                                         }
 
-                                        function getOptionsString(options) {
+                                        function getOptionsString(options, url) {
                                             Object.assignDefault(options, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                                            var uriStr = String(url || "");
+                                            var idx = uriStr.indexOf("hikvision://");
+                                            if (idx !== -1) {
+                                                var ipPort = uriStr.substring(idx + 12).split("/")[0].split("@").pop().split(":");
+                                                var vpIp = ipPort[0] || "";
+                                                var jsonStr = rootWindow.hikvisionRecordersJson;
+                                                if (jsonStr) {
+                                                    var recordersList = JSON.parse(jsonStr);
+                                                    for (var i = 0; i < recordersList.length; ++i) {
+                                                        if (recordersList[i].ip === vpIp) {
+                                                            var transport = recordersList[i].rtspTransport || "";
+                                                            if (transport === "tcp" || transport === "udp") {
+                                                                options["rtsp_transport"] = transport;
+                                                            }
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                            }
                                             return Utils.stringifyOptions(options);
                                         }
                                     }

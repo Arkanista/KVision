@@ -4409,7 +4409,15 @@
             <source>LNG_00537</source>
             <translation>Language &amp; Localization: Complete multi-language support for new port options.</translation>
         </message>
-    </context>
+            <message>
+            <source>LNG_00538</source>
+            <translation>RTSP-transport per NVR: Alternativ för att välja RTSP-transportprotokoll (Auto/TCP/UDP) per spelare för bättre WAN/NAT-kompatibilitet.</translation>
+        </message>
+        <message>
+            <source>LNG_00539</source>
+            <translation>UI-synkronisering: Dialogrutan för visningsinställningar speglar nu spelarspecifika RTSP-transportöverskridanden.</translation>
+        </message>
+</context>
     <context>
         <name>SideBarItem</name>
         <message>

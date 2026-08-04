@@ -410,7 +410,7 @@ ApplicationWindow {
                 }
                 Context.writeSetting("ViewportsLayoutsCollection", "migratedLowLatencyFlags", true);
             } else {
-                var defaultStr = "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\",\"stimeout\":5000000}";
+                var defaultStr = "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\",\"stimeout\":5000000,\"rtsp_transport\":\"tcp\"}";
                 diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", defaultStr);
             }
             
@@ -450,6 +450,21 @@ ApplicationWindow {
                 Context.writeSetting("ViewportsLayoutsCollection", "migratedTimeout5s_v2", true);
             }
 
+            var hasMigratedRtspTcp = Context.readSetting("ViewportsLayoutsCollection", "migratedRtspTcp", false);
+            if (!hasMigratedRtspTcp) {
+                try {
+                    var opts4 = JSON.parse(diskDefaultAVFormatOptions);
+                    if (opts4["rtsp_transport"] === undefined) {
+                        opts4["rtsp_transport"] = "tcp";
+                    }
+                    diskDefaultAVFormatOptions = JSON.stringify(opts4);
+                    Context.writeSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", diskDefaultAVFormatOptions);
+                } catch(err) {
+                    console.warn("Failed to migrate rtsp_transport");
+                }
+                Context.writeSetting("ViewportsLayoutsCollection", "migratedRtspTcp", true);
+            }
+
             if (layoutsCollectionSettings.defaultAVFormatOptions !== diskDefaultAVFormatOptions) {
                 layoutsCollectionSettings.defaultAVFormatOptions = diskDefaultAVFormatOptions;
             }
@@ -478,7 +493,7 @@ ApplicationWindow {
         category: "ViewportsLayoutsCollection"
 
         property string models
-        property string defaultAVFormatOptions: "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\",\"stimeout\":5000000}"
+        property string defaultAVFormatOptions: "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\",\"stimeout\":5000000,\"rtsp_transport\":\"tcp\"}"
 
         function toJSValue(key) {
             var obj = {};

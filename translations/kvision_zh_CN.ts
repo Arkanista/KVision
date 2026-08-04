@@ -4409,7 +4409,15 @@
             <source>LNG_00537</source>
             <translation>Language &amp; Localization: Complete multi-language support for new port options.</translation>
         </message>
-    </context>
+            <message>
+            <source>LNG_00538</source>
+            <translation>按 NVR 配置 RTSP 传输：可按录像机选择 RTSP 传输协议（Auto/TCP/UDP），以获得更好的 WAN/NAT 兼容性。</translation>
+        </message>
+        <message>
+            <source>LNG_00539</source>
+            <translation>UI 同步：视口设置对话框现在可准确反映特定于录像机的 RTSP 传输覆盖项。</translation>
+        </message>
+</context>
     <context>
         <name>SideBarItem</name>
         <message>

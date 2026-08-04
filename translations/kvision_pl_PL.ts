@@ -4598,7 +4598,15 @@
             <source>LNG_00537</source>
             <translation>Języki i lokalizacja: Pełna obsługa wielojęzyczna i tłumaczenia dla nowych opcji portów.</translation>
         </message>
-    </context>
+            <message>
+            <source>LNG_00538</source>
+            <translation>Protokół RTSP per Rejestrator: Możliwość wyboru protokołu RTSP (Auto/TCP/UDP) dla każdego rejestratora w celu lepszej zgodności z WAN/NAT.</translation>
+        </message>
+        <message>
+            <source>LNG_00539</source>
+            <translation>Synchronizacja interfejsu: Okno ustawień viewportu odzwierciedla teraz nadpisania protokołu RTSP zdefiniowane w rejestratorze.</translation>
+        </message>
+</context>
     <context>
         <name>SideBarItem</name>
         <message>

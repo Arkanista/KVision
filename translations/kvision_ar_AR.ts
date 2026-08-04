@@ -4409,7 +4409,15 @@
             <source>LNG_00537</source>
             <translation>Language &amp; Localization: Complete multi-language support for new port options.</translation>
         </message>
-    </context>
+            <message>
+            <source>LNG_00538</source>
+            <translation>نقل RTSP لكل مسجل: خيار لتحديد بروتوكول نقل RTSP (تلقائي/TCP/UDP) لكل مسجل لتوافق أفضل مع WAN/NAT.</translation>
+        </message>
+        <message>
+            <source>LNG_00539</source>
+            <translation>مزامنة واجهة المستخدم: حوار إعدادات شاشة العرض يعكس الآن التجاوزات المحددة لمسجل RTSP.</translation>
+        </message>
+</context>
     <context>
         <name>SideBarItem</name>
         <message>

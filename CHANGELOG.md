@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.1-rc1] - 2026-08-04
+
+### EN: Features & Bug Fixes
+* **Per-NVR RTSP Transport:** Added a dedicated RTSP Transport setting (Auto/TCP/UDP) for each NVR recorder. This resolves recent connection issues over WAN/NAT by allowing users to force a specific protocol for Live View per device.
+* **RTSP Transport UI Sync:** Fixed a visual bug in the viewport settings dialog and sidebar where the displayed `-rtsp_transport` FFmpeg option did not reflect the specific NVR override. The UI now accurately reads and displays the dynamically injected transport protocol.
+
+### PL: Funkcje i Poprawki Błędów
+* **Protokół RTSP per Rejestrator:** Dodano możliwość ręcznego wyboru protokołu RTSP (Auto/TCP/UDP) indywidualnie dla każdego rejestratora NVR. Rozwiązuje to ostatnie problemy z połączeniami przez WAN/NAT, umożliwiając wymuszenie protokołu dla wybranego urządzenia.
+* **Synchronizacja interfejsu RTSP:** Naprawiono błąd wizualny w oknie ustawień viewportu i na pasku bocznym. Wyświetlane tam parametry FFmpeg (`-rtsp_transport`) poprawnie odzwierciedlają teraz nadpisany protokół (UDP lub TCP) przypisany do konkretnego rejestratora NVR.
+
 ## [2.7.0] - 2026-07-27
 
 ### EN: Features & Improvements

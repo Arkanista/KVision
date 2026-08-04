@@ -4413,7 +4413,15 @@
             <source>LNG_00537</source>
             <translation>Language &amp; Localization: Complete multi-language support for new port options.</translation>
         </message>
-    </context>
+            <message>
+            <source>LNG_00538</source>
+            <translation>Per-NVR RTSP Transport: Option to select RTSP transport protocol (Auto/TCP/UDP) per recorder for better WAN/NAT compatibility.</translation>
+        </message>
+        <message>
+            <source>LNG_00539</source>
+            <translation>UI Synchronization: Viewport settings dialog now reflects recorder-specific RTSP transport overrides.</translation>
+        </message>
+</context>
     <context>
         <name>SideBarItem</name>
         <message>

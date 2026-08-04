@@ -80,6 +80,7 @@ FocusScope {
     property int sdkPort: 8000
     property int httpPort: 80
     property int rtspPort: 554
+    property string rtspTransport: ""
     property string username: ""
     property string password: ""
     property int channelId: 1
@@ -902,6 +903,9 @@ FocusScope {
                 if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
                     avOptions["allowed_media_types"] = "video";
                 }
+                if (root.rtspTransport === "tcp" || root.rtspTransport === "udp") {
+                    avOptions["rtsp_transport"] = root.rtspTransport;
+                }
                 return avOptions;
             }
 
@@ -942,6 +946,9 @@ FocusScope {
                 }
                 if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
                     avOptions["allowed_media_types"] = "video";
+                }
+                if (root.rtspTransport === "tcp" || root.rtspTransport === "udp") {
+                    avOptions["rtsp_transport"] = root.rtspTransport;
                 }
                 return avOptions;
             }
@@ -2119,6 +2126,7 @@ FocusScope {
                         recorderPort = sdkPort;
                         httpPort = parseInt(rec.httpPort || (rec.port == 8000 ? 80 : rec.port)) || 80;
                         rtspPort = parseInt(rec.rtspPort) || 554;
+                        rtspTransport = rec.rtspTransport || "";
                         if (!username && rec.username) username = rec.username;
                         if (!password && rec.password) password = rec.password;
                         break;
@@ -2179,6 +2187,7 @@ FocusScope {
                         recorderPort = sdkPort;
                         httpPort = parseInt(rec2.httpPort || (rec2.port == 8000 ? 80 : rec2.port)) || 80;
                         rtspPort = parseInt(rec2.rtspPort) || 554;
+                        rtspTransport = rec2.rtspTransport || "";
                         if (!username && rec2.username) username = rec2.username;
                         if (!password && rec2.password) password = rec2.password;
                         break;
