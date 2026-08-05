@@ -54,10 +54,12 @@ compile_commands.json
 
 # Temporary development files
 app.log
+*.log
 *.patch
 scratch/
 test_arg.cpp
 test_layer.qml
+walkthrough.md
 
 # Package build files
 *.pkg.tar.zst
