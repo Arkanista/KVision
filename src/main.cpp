@@ -41,7 +41,7 @@ QMutex g_logMutex;
 void initFileLogging() {
     QSettings settings(Context::config() ? Context::config()->fileName() : QSettings().fileName(), QSettings::IniFormat);
     if (settings.value("enableDiagnosticLogs", false).toBool()) {
-        QString logDir = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + "/" + QCoreApplication::organizationName() + "/log";
+        QString logDir = QFileInfo(settings.fileName()).absolutePath() + "/log";
         QDir().mkpath(logDir);
         QString logFilePath = logDir + "/kvision_diagnostic.log";
         QMutexLocker locker(&g_logMutex);
