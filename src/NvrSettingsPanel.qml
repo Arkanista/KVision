@@ -120,7 +120,7 @@ ColumnLayout {
                     var vp = newLayout.get(i);
                     if (vp) {
                         // Store Hikvision URI
-                        vp.url = "hikvision://" + newRecorder.username + ":" + newRecorder.password + "@" + newRecorder.ip + ":" + newRecorder.port + "/" + cameras[i].channelId;
+                        vp.url = "hikvision://" + newRecorder.ip + "/" + cameras[i].channelId;
                         vp.secondaryUrl = vp.url;
                         vp.volume = 0;
                     }
@@ -149,7 +149,7 @@ ColumnLayout {
                         for (var k = 0; k < numCams2; ++k) {
                             var vp2 = l.get(k);
                             if (vp2) {
-                                var newUrl = "hikvision://" + newRecorder.username + ":" + newRecorder.password + "@" + newRecorder.ip + ":" + newRecorder.port + "/" + cameras[k].channelId;
+                                var newUrl = "hikvision://" + newRecorder.ip + "/" + cameras[k].channelId;
                                 if (vp2.url === newUrl) {
                                     vp2.url = ""; // force refresh in case only RTSP/HTTP ports changed
                                 }
@@ -175,7 +175,7 @@ ColumnLayout {
 
                                 if (vpIp === oldIp) {
                                     var chanId = parts.length > 1 ? parts[1] : "1";
-                                    var newUrl2 = "hikvision://" + newRecorder.username + ":" + newRecorder.password + "@" + newRecorder.ip + ":" + newRecorder.port + "/" + chanId;
+                                    var newUrl2 = "hikvision://" + newRecorder.ip + "/" + chanId;
                                     if (vp.url === newUrl2) {
                                         vp.url = ""; // force refresh
                                     }

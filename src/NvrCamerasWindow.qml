@@ -168,7 +168,7 @@ Window {
                             Layout.fillWidth: true
                             height: 140
 
-                            property string cameraUrl: "hikvision://" + recorder.username + ":" + recorder.password + "@" + recorder.ip + ":" + recorder.port + "/" + modelData.channelId
+                            property string cameraUrl: "hikvision://" + recorder.ip + "/" + modelData.channelId
                             // Read name directly from global JSON so it stays in sync even when the
                             // Repeater reuses this delegate instead of recreating it.
                             property string cameraName: {
