@@ -656,7 +656,31 @@ ApplicationWindow {
             try {
                 if (!layoutsCollectionSettings.models.isEmpty()) {
                     initialModels = layoutsCollectionSettings.models;
-                    fromJSValue(JSON.parse(initialModels));
+                    var parsedModels = JSON.parse(initialModels);
+                    
+                    // Migrate hikvision URLs to strip credentials and port
+                    for (var i = 0; i < parsedModels.length; i++) {
+                        var model = parsedModels[i];
+                        if (model.items) {
+                            for (var j = 0; j < model.items.length; j++) {
+                                var item = model.items[j];
+                                ["url", "secondaryUrl"].forEach(function(prop) {
+                                    if (item[prop] && item[prop].indexOf("hikvision://") === 0) {
+                                        var uri = item[prop];
+                                        var content = uri.substring(12);
+                                        var chanIdx = content.indexOf("/");
+                                        var chanId = chanIdx !== -1 ? content.substring(chanIdx) : "/1";
+                                        var addrPart = content.substring(0, chanIdx !== -1 ? chanIdx : content.length);
+                                        var ipPort = addrPart.split("@").pop().split(":");
+                                        var ip = ipPort[0] || "";
+                                        item[prop] = "hikvision://" + ip + chanId;
+                                    }
+                                });
+                            }
+                        }
+                    }
+                    
+                    fromJSValue(parsedModels);
                 }
             } catch(err) {
                 Utils.log_error(qsTr("LNG_00219"));

@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.1-rc4] - 2026-08-07
+
+### Features & Bug Fixes
+* **URI Migration:** Added an automatic migration script at startup to clean up old saved `hikvision://` URIs in existing layouts, ensuring legacy saved layouts also benefit from the simplified and secure URI format (removing credentials and ports from the UI).
+
 ## [2.7.1-rc3] - 2026-08-07
 
 ### Features & Bug Fixes
