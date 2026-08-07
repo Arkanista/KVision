@@ -95,14 +95,13 @@ static QByteArray fetchUrl(const QString &ip, int port, const QString &username,
     return QByteArray();
 }
 
-QVariantList HikvisionManager::discoverCameras(const QString &ip, int port, const QString &username, const QString &password)
+QVariantList HikvisionManager::discoverCameras(const QString &ip, int port, int httpPort, const QString &username, const QString &password)
 {
     QVariantList cameraList;
 
     // Try ISAPI HTTP discovery first to support real NVRs/DVRs
-    int httpPort = port;
-    if (port == 8000) {
-        httpPort = 80; // Default HTTP port when SDK port is specified
+    if (httpPort <= 0) {
+        httpPort = 80;
     }
 
     qDebug() << "[Hikvision] Attempting real NVR HTTP ISAPI discovery on" << ip << "port" << httpPort;
@@ -267,10 +266,10 @@ QVariantList HikvisionManager::discoverCameras(const QString &ip, int port, cons
     return cameraList;
 }
 
-void HikvisionManager::discoverCamerasAsync(const QString &ip, int port, const QString &username, const QString &password)
+void HikvisionManager::discoverCamerasAsync(const QString &ip, int port, int httpPort, const QString &username, const QString &password)
 {
-    QThread *thread = QThread::create([this, ip, port, username, password]() {
-        QVariantList cameras = discoverCameras(ip, port, username, password);
+    QThread *thread = QThread::create([this, ip, port, httpPort, username, password]() {
+        QVariantList cameras = discoverCameras(ip, port, httpPort, username, password);
         bool success = !cameras.isEmpty();
         QString errorMsg = success ? "" : tr("LNG_00099");
         emit discoveryFinished(ip, cameras, success, errorMsg);

@@ -25,8 +25,8 @@ public:
     static HikvisionManager* instance();
 
     // Login and discover channels for a specific recorder
-    Q_INVOKABLE QVariantList discoverCameras(const QString &ip, int port, const QString &username, const QString &password);
-    Q_INVOKABLE void discoverCamerasAsync(const QString &ip, int port, const QString &username, const QString &password);
+    Q_INVOKABLE QVariantList discoverCameras(const QString &ip, int port, int httpPort, const QString &username, const QString &password);
+    Q_INVOKABLE void discoverCamerasAsync(const QString &ip, int port, int httpPort, const QString &username, const QString &password);
 
     // Logout from a recorder session
     Q_INVOKABLE void logout(const QString &ip);

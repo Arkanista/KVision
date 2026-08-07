@@ -55,12 +55,10 @@ void HikvisionISAPI::doSearchRequest(const QString &sessionId)
     const HikvisionSearchSession &session = m_sessions[sessionId];
 
     QString ip = session.recorderInfo["ip"].toString();
-    QString portStr = session.recorderInfo["port"].toString();
+    int port = session.recorderInfo.contains("httpPort") ? session.recorderInfo["httpPort"].toInt() : 80;
+    if (port <= 0) port = 80; // fallback if invalid
     m_currentUser = session.recorderInfo["username"].toString();
     m_currentPassword = session.recorderInfo["password"].toString();
-
-    int port = portStr.toInt();
-    if (port == 8000) port = 80;
 
     QUrl url(QString("http://%1:%2/ISAPI/ContentMgmt/search").arg(ip).arg(port));
     QNetworkRequest request(url);

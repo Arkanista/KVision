@@ -601,7 +601,8 @@ ColumnLayout {
                         }
 
                         var ip = ipField.text.trim();
-                        var port = parseInt(portField.text) || 8000;
+                        var sdkP = parseInt(portField.text) || 8000;
+                        var httpP = parseInt(httpPortField.text) || 80;
                         var user = userField.text.trim();
                         var pass = passField.text;
 
@@ -610,7 +611,7 @@ ColumnLayout {
                         rootPanel.isDiscovering = true;
 
                         // Log in and fetch camera channels from NVR asynchronously
-                        HikvisionManager.discoverCamerasAsync(ip, port, user, pass);
+                        HikvisionManager.discoverCamerasAsync(ip, sdkP, httpP, user, pass);
                     }
                 }
 
