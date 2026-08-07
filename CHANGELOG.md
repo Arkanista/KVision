@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.1-rc3] - 2026-08-07
+
+### Features & Bug Fixes
+* **Simplified Internal URIs:** Removed credentials and port numbers from internal `hikvision://` URIs, cleaning up the configuration and improving internal URL generation logic.
+* **Custom Ports Handling:** Fixed a bug where HTTP ISAPI searches would incorrectly fallback to port 80 or the SDK port instead of the configured HTTP port.
+
 ## [2.7.1-rc2] - 2026-08-07
 
 ### Features & Diagnostics
