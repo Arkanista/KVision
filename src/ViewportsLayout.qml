@@ -1086,7 +1086,7 @@ FocusScope {
                         MenuItem {
                             id: reloadMenuItem
                             text: qsTr("LNG_00471")
-                            enabled: model.url !== "" && !playerPool.activePlayersMap[model.index].isQuickPlayback
+                            enabled: model.url !== "" && (playerPool.activePlayersMap[model.index] ? !playerPool.activePlayersMap[model.index].isQuickPlayback : true)
                             leftPadding: 12
                             
                             contentItem: Text {

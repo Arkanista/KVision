@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.1-rc2] - 2026-08-07
+
+### Features & Diagnostics
+* **Diagnostic Logs:** Introduced a new UI option to enable writing comprehensive diagnostic logs (including previously silenced FFmpeg and QML errors) to a dedicated `kvision_diagnostic.log` file in the application config directory. This assists in troubleshooting issues like memory leaks or silent decoding failures.
+
 ## [2.7.1-rc1] - 2026-08-04
 
 ### EN: Features & Bug Fixes

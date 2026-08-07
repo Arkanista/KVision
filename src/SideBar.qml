@@ -2140,6 +2140,19 @@ FocusScope {
                             }
 
                             CheckBox {
+                                text: qsTr("Twórz pełne logi diagnostyczne (wymaga restartu)")
+                                checked: generalSettings.enableDiagnosticLogs
+                                onCheckedChanged: generalSettings.enableDiagnosticLogs = checked
+                                Layout.fillWidth: true
+                            }
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                height: 1
+                                color: "#2a3540"
+                            }
+
+                            CheckBox {
                                 text: qsTr("LNG_00270")
                                 checked: NvrStatusManager.monitoringEnabled
                                 onCheckedChanged: NvrStatusManager.monitoringEnabled = checked

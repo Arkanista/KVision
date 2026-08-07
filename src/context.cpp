@@ -220,6 +220,19 @@ void Context::startAuxiliaryProcess()
     process->start(exePath, arguments);
 }
 
+void Context::writeSetting(const QString &category, const QString &key, const QVariant &value)
+{
+    QString path = m_config ? m_config->fileName() : QSettings().fileName();
+    QSettings settings(path, QSettings::IniFormat);
+    if (!category.isEmpty()) {
+        settings.beginGroup(category);
+    }
+    settings.setValue(key, value);
+    if (!category.isEmpty()) {
+        settings.endGroup();
+    }
+}
+
 QVariant Context::readSetting(const QString &category, const QString &key, const QVariant &defaultValue) const
 {
     QString path = m_config ? m_config->fileName() : QSettings().fileName();

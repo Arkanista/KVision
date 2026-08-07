@@ -10,6 +10,11 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <cstdarg>
+#include <QStandardPaths>
+#include <QDateTime>
+#include <QTextStream>
+#include <QMutex>
+#include <QMutexLocker>
 
 extern "C" {
 #include <libavutil/log.h>
@@ -30,12 +35,68 @@ extern "C" {
 #include "hikvisiondownloader.h"
 #include "systemstats.h"
 
+QFile *g_logFile = nullptr;
+QMutex g_logMutex;
+
+void initFileLogging() {
+    QSettings settings(Context::config() ? Context::config()->fileName() : QSettings().fileName(), QSettings::IniFormat);
+    if (settings.value("enableDiagnosticLogs", false).toBool()) {
+        QString logDir = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + "/" + QCoreApplication::organizationName() + "/log";
+        QDir().mkpath(logDir);
+        QString logFilePath = logDir + "/kvision_diagnostic.log";
+        QMutexLocker locker(&g_logMutex);
+        if (!g_logFile) {
+            g_logFile = new QFile(logFilePath);
+            if (g_logFile->open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
+                QTextStream out(g_logFile);
+                out << "\n=== KVision Log Started at " << QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss") << " ===\n";
+            } else {
+                delete g_logFile;
+                g_logFile = nullptr;
+            }
+        }
+    }
+}
+
 void custom_ffmpeg_log_callback(void* ptr, int level, const char* fmt, va_list vl)
 {
     Q_UNUSED(ptr);
-    Q_UNUSED(level);
-    Q_UNUSED(fmt);
-    Q_UNUSED(vl);
+    bool diagnosticLogsEnabled = Context::enableLogs() || (g_logFile != nullptr);
+    if (!diagnosticLogsEnabled || level > AV_LOG_WARNING) {
+        return;
+    }
+
+    char message[1024];
+    vsnprintf(message, sizeof(message), fmt, vl);
+    QString msg = QString::fromUtf8(message).trimmed();
+    if (msg.isEmpty()) return;
+
+    if (msg.contains("PPS id out of range") ||
+        msg.contains("non-existing PPS 0 referenced") ||
+        msg.contains("no frame!") ||
+        msg.contains("Skipping invalid undecodable NALU") ||
+        msg.contains("reference picture missing during") ||
+        msg.contains("missing picture in access unit") ||
+        msg.contains("Could not find ref with POC") ||
+        msg.contains("Error constructing the frame RPS") ||
+        msg.contains("cabac_init_idc 32 overflow") ||
+        msg.contains("Missing reference picture") ||
+        msg.contains("Failed reading RTSP data: Immediate exit requested") ||
+        msg.contains("top block unavailable for requested intra mode") ||
+        msg.contains("error while decoding MB")) {
+        return;
+    }
+
+    if (g_logFile) {
+        QMutexLocker locker(&g_logMutex);
+        if (g_logFile->isOpen()) {
+            QTextStream out(g_logFile);
+            out << QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss.zzz ") << "[FFmpeg] " << msg << "\n";
+            out.flush();
+        }
+    } else {
+        fprintf(stderr, "[FFmpeg] %s\n", qPrintable(msg));
+    }
 }
 
 extern bool g_qmlav_enable_logs;
@@ -43,7 +104,8 @@ extern bool g_qmlav_enable_logs;
 void customMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     Q_UNUSED(context);
-    if (!Context::enableLogs()) {
+    bool diagnosticLogsEnabled = Context::enableLogs() || (g_logFile != nullptr);
+    if (!diagnosticLogsEnabled) {
         if (type == QtDebugMsg || type == QtInfoMsg) {
             return;
         }
@@ -54,24 +116,54 @@ void customMessageHandler(QtMsgType type, const QMessageLogContext &context, con
                 return;
             }
         }
+    } else {
+        if (type == QtDebugMsg) {
+            if (msg.contains("setVideoSurface old:") || msg.contains("QmlAVPlayer_QML") || msg.contains("QmlAVPlayer::bytesRead")) {
+                return;
+            }
+        }
+        if (type == QtWarningMsg) {
+            if (msg.contains("Qml Binding:") || msg.contains("QmlAVDecoder") || msg.contains("Unable send packet to decoder") || msg.contains("TypeError")) {
+                return;
+            }
+        }
     }
 
     QByteArray localMsg = msg.toLocal8Bit();
+    QString levelStr;
     switch (type) {
     case QtDebugMsg:
+        levelStr = "Debug";
         fprintf(stderr, "%s\n", localMsg.constData());
         break;
     case QtInfoMsg:
+        levelStr = "Info";
         fprintf(stderr, "%s\n", localMsg.constData());
         break;
     case QtWarningMsg:
+        levelStr = "Warning";
         fprintf(stderr, "Warning: %s\n", localMsg.constData());
         break;
     case QtCriticalMsg:
+        levelStr = "Critical";
         fprintf(stderr, "Critical: %s\n", localMsg.constData());
         break;
     case QtFatalMsg:
+        levelStr = "Fatal";
         fprintf(stderr, "Fatal: %s\n", localMsg.constData());
+        break;
+    }
+
+    if (g_logFile) {
+        QMutexLocker locker(&g_logMutex);
+        if (g_logFile->isOpen()) {
+            QTextStream out(g_logFile);
+            out << QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss.zzz ") << levelStr << ": " << msg << "\n";
+            out.flush();
+        }
+    }
+
+    if (type == QtFatalMsg) {
         abort();
     }
 }
@@ -221,6 +313,7 @@ int main(int argc, char *argv[])
     SingleApplication singleApp;
     if (singleApp.isRunning()) {
         Context::init();
+        initFileLogging();
         g_qmlav_enable_logs = Context::enableLogs();
         qInfo() << "KVision version:" << APP_VERSION;
         Context::initLanguage();
@@ -239,6 +332,7 @@ int main(int argc, char *argv[])
     }
 
     Context::init();
+    initFileLogging();
     g_qmlav_enable_logs = Context::enableLogs();
     qInfo() << "KVision version:" << APP_VERSION;
     Context::initLanguage();

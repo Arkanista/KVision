@@ -52,6 +52,7 @@ public:
     Q_INVOKABLE QString selectFolder(const QString &title, const QString &initialPath) const;
     Q_INVOKABLE QString readLocalFile(const QString &filePath) const;
     Q_INVOKABLE QVariant readSetting(const QString &category, const QString &key, const QVariant &defaultValue = QVariant()) const;
+    Q_INVOKABLE void writeSetting(const QString &category, const QString &key, const QVariant &value);
 
 signals:
     void languageChanged();

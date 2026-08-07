@@ -208,6 +208,7 @@ ApplicationWindow {
         property int auxiliaryLimit: 1
         property int playbackOffsetSeconds: 120
         property int playbackTimelineHours: 2
+        property bool enableDiagnosticLogs: false
     }
 
     Settings {
