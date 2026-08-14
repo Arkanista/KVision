@@ -177,12 +177,17 @@ git clone --recurse-submodules https://github.com/arkanista/kvision.git
 
 If you are running Arch Linux or CachyOS, you can skip compilation and install the pre-compiled Pacman package directly from the latest release:
 
-* **[Download kvision-2.7.0-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.7.0/kvision-2.7.0-1-x86_64.pkg.tar.zst)**
+* **[Download kvision-2.7.1rc4-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.7.1-rc4/kvision-2.7.1rc4-1-x86_64.pkg.tar.zst)**
+* **[Download kvision-2.7.1rc4-1-x86_64-ffmpeg9.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.7.1-rc4/kvision-2.7.1rc4-1-x86_64-ffmpeg9.pkg.tar.zst)** *(Recommended for FFmpeg 9 / Arch rolling updates)*
 
 To install the downloaded package:
 ```bash
-sudo pacman -U kvision-2.7.0-1-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.7.1rc4-1-x86_64-ffmpeg9.pkg.tar.zst
 ```
+
+> [!IMPORTANT]
+> **FFmpeg 9 Upgrade Note:**
+> If your distribution has upgraded to **FFmpeg 9** (`libavutil.so.61` / `libavformat.so.63`), you must recompile the application or install the dedicated FFmpeg 9 package (`kvision-2.7.1rc4-1-x86_64-ffmpeg9.pkg.tar.zst`). Packages compiled against older FFmpeg versions will experience ABI symbol conflicts and decoding errors under FFmpeg 9 environments.
 
 ### Building from Source (Arch Linux / CachyOS)
 
