@@ -28,7 +28,11 @@ Window {
 
     // Helper to build the RTSP sub-stream URL for thumbnails
     function subStreamUrl(rec, cam) {
-        return "rtsp://" + rec.username + ":" + rec.password + "@" + rec.ip + ":" + (rec.rtspPort || 554) + "/Streaming/Channels/" + cam.channelId + "02";
+        var creds = "";
+        if (rec.username) {
+            creds = encodeURIComponent(rec.username) + (rec.password ? (":" + encodeURIComponent(rec.password)) : "") + "@";
+        }
+        return "rtsp://" + creds + rec.ip + ":" + (rec.rtspPort || 554) + "/Streaming/Channels/" + cam.channelId + "02";
     }
 
     // Helper to build the cache key for a camera

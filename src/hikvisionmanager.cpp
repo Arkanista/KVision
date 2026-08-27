@@ -83,12 +83,23 @@ HikvisionManager* HikvisionManager::instance()
 static QByteArray fetchUrl(const QString &ip, int port, const QString &username, const QString &password, const QString &path) {
     QProcess process;
     QStringList args;
-    args << "-s" << "--digest" << "-u" << QString("%1:%2").arg(username, password)
+    args << "-s" << "-k" << "--anyauth" << "-u" << QString("%1:%2").arg(username, password)
          << "--max-time" << "4"
          << QString("http://%1:%2%3").arg(ip).arg(port).arg(path);
     
     qDebug() << "[Hikvision ISAPI] Querying:" << args.last();
     process.start("curl", args);
+    if (process.waitForFinished(5000)) {
+        QByteArray res = process.readAllStandardOutput();
+        if (!res.isEmpty()) return res;
+    }
+
+    // Fallback to HTTPS if HTTP failed (e.g. port 443, 8443 or SSL-only NVR)
+    QStringList httpsArgs;
+    httpsArgs << "-s" << "-k" << "--anyauth" << "-u" << QString("%1:%2").arg(username, password)
+              << "--max-time" << "4"
+              << QString("https://%1:%2%3").arg(ip).arg(port).arg(path);
+    process.start("curl", httpsArgs);
     if (process.waitForFinished(5000)) {
         return process.readAllStandardOutput();
     }
@@ -98,24 +109,71 @@ static QByteArray fetchUrl(const QString &ip, int port, const QString &username,
 QVariantList HikvisionManager::discoverCameras(const QString &ip, int port, int httpPort, const QString &username, const QString &password)
 {
     QVariantList cameraList;
+    QSet<int> seenChannels;
+
+    QString cleanIp = ip.trimmed();
+    if (cleanIp.startsWith("http://", Qt::CaseInsensitive)) cleanIp = cleanIp.mid(7);
+    if (cleanIp.startsWith("https://", Qt::CaseInsensitive)) cleanIp = cleanIp.mid(8);
+    if (cleanIp.contains(":")) cleanIp = cleanIp.section(':', 0, 0);
 
     // Try ISAPI HTTP discovery first to support real NVRs/DVRs
     if (httpPort <= 0) {
         httpPort = 80;
     }
+    if (port <= 0) {
+        port = 8000;
+    }
 
-    qDebug() << "[Hikvision] Attempting real NVR HTTP ISAPI discovery on" << ip << "port" << httpPort;
-    QByteArray xmlAnalog = fetchUrl(ip, httpPort, username, password, "/ISAPI/System/Video/inputs/channels");
-    if (xmlAnalog.isEmpty() && httpPort != 80) {
-        xmlAnalog = fetchUrl(ip, 80, username, password, "/ISAPI/System/Video/inputs/channels");
+    qDebug() << "[Hikvision] Attempting real NVR HTTP ISAPI discovery on" << cleanIp << "port" << httpPort;
+
+    // 1. Try IP Proxy Channels (/ISAPI/ContentMgmt/InputProxy/channels) - Standard for Hikvision IP NVRs
+    QByteArray xmlIP = fetchUrl(cleanIp, httpPort, username, password, "/ISAPI/ContentMgmt/InputProxy/channels");
+    if (xmlIP.isEmpty() && httpPort != 80) {
+        xmlIP = fetchUrl(cleanIp, 80, username, password, "/ISAPI/ContentMgmt/InputProxy/channels");
+        if (!xmlIP.isEmpty()) {
+            httpPort = 80;
+        }
+    }
+    if (!xmlIP.isEmpty()) {
+        qDebug() << "[Hikvision ISAPI] Found InputProxy channels XML. Parsing...";
+        QRegularExpression rxIP("<InputProxyChannel[^>]*>([\\s\\S]*?)</InputProxyChannel>");
+        QRegularExpressionMatchIterator iIP = rxIP.globalMatch(QString::fromUtf8(xmlIP));
+        while (iIP.hasNext()) {
+            QRegularExpressionMatch match = iIP.next();
+            QString channelXml = match.captured(1);
+            
+            QRegularExpression rxId("<id>(\\d+)</id>");
+            QRegularExpression rxName("<name>(.*?)</name>");
+            QRegularExpression rxChanName("<channelName>(.*?)</channelName>");
+            
+            int id = rxId.match(channelXml).captured(1).toInt();
+            QString name = rxName.match(channelXml).captured(1);
+            if (name.isEmpty()) {
+                name = rxChanName.match(channelXml).captured(1);
+            }
+            
+            if (id > 0 && !seenChannels.contains(id)) {
+                seenChannels.insert(id);
+                QVariantMap cam;
+                cam.insert("channelId", id);
+                cam.insert("name", name.isEmpty() ? QString("Camera %1").arg(id) : name);
+                cam.insert("recorderIp", cleanIp);
+                cameraList.append(cam);
+                qDebug() << "[Hikvision ISAPI] Discovered proxy IP channel:" << id << "name:" << name;
+            }
+        }
+    }
+
+    // 2. Try Analog/TVI Video Inputs (/ISAPI/System/Video/inputs/channels) - For DVRs / Hybrid NVRs
+    QByteArray xmlAnalog = fetchUrl(cleanIp, httpPort, username, password, "/ISAPI/System/Video/inputs/channels");
+    if (xmlAnalog.isEmpty() && httpPort != 80 && cameraList.isEmpty()) {
+        xmlAnalog = fetchUrl(cleanIp, 80, username, password, "/ISAPI/System/Video/inputs/channels");
         if (!xmlAnalog.isEmpty()) {
             httpPort = 80;
         }
     }
-
     if (!xmlAnalog.isEmpty()) {
-        qDebug() << "[Hikvision] ISAPI discovery succeeded! Parsing channels...";
-        // Parse active analog/TVI channels
+        qDebug() << "[Hikvision ISAPI] Found Video inputs channels XML. Parsing...";
         QRegularExpression rxChan("<VideoInputChannel[^>]*>([\\s\\S]*?)</VideoInputChannel>");
         QRegularExpressionMatchIterator iChan = rxChan.globalMatch(QString::fromUtf8(xmlAnalog));
         while (iChan.hasNext()) {
@@ -124,51 +182,68 @@ QVariantList HikvisionManager::discoverCameras(const QString &ip, int port, int 
             
             QRegularExpression rxId("<id>(\\d+)</id>");
             QRegularExpression rxName("<name>(.*?)</name>");
+            QRegularExpression rxChanName("<channelName>(.*?)</channelName>");
             QRegularExpression rxEnabled("<videoInputEnabled>(.*?)</videoInputEnabled>");
             
             int id = rxId.match(channelXml).captured(1).toInt();
             QString name = rxName.match(channelXml).captured(1);
+            if (name.isEmpty()) {
+                name = rxChanName.match(channelXml).captured(1);
+            }
             QString enabled = rxEnabled.match(channelXml).captured(1);
             
-            if (id > 0 && enabled != "false") {
+            if (id > 0 && enabled != "false" && !seenChannels.contains(id)) {
+                seenChannels.insert(id);
                 QVariantMap cam;
                 cam.insert("channelId", id);
                 cam.insert("name", name.isEmpty() ? QString("Camera %1").arg(id) : name);
-                cam.insert("recorderIp", ip);
+                cam.insert("recorderIp", cleanIp);
                 cameraList.append(cam);
-                qDebug() << "[Hikvision ISAPI] Discovered active analog channel:" << id << "name:" << name;
+                qDebug() << "[Hikvision ISAPI] Discovered analog channel:" << id << "name:" << name;
             }
         }
+    }
 
-        // Parse IP/Proxy channels
-        QByteArray xmlIP = fetchUrl(ip, httpPort, username, password, "/ISAPI/ContentMgmt/InputProxy/channels");
-        if (!xmlIP.isEmpty()) {
-            QRegularExpression rxIP("<InputProxyChannel[^>]*>([\\s\\S]*?)</InputProxyChannel>");
-            QRegularExpressionMatchIterator iIP = rxIP.globalMatch(QString::fromUtf8(xmlIP));
-            while (iIP.hasNext()) {
-                QRegularExpressionMatch match = iIP.next();
+    // 3. Try Streaming Channels (/ISAPI/Streaming/channels) - Universal fallback on all Hikvision devices
+    if (cameraList.isEmpty()) {
+        QByteArray xmlStreaming = fetchUrl(cleanIp, httpPort, username, password, "/ISAPI/Streaming/channels");
+        if (xmlStreaming.isEmpty() && httpPort != 80) {
+            xmlStreaming = fetchUrl(cleanIp, 80, username, password, "/ISAPI/Streaming/channels");
+        }
+        if (!xmlStreaming.isEmpty()) {
+            qDebug() << "[Hikvision ISAPI] Found Streaming channels XML. Parsing...";
+            QRegularExpression rxStream("<StreamingChannel[^>]*>([\\s\\S]*?)</StreamingChannel>");
+            QRegularExpressionMatchIterator iStream = rxStream.globalMatch(QString::fromUtf8(xmlStreaming));
+            while (iStream.hasNext()) {
+                QRegularExpressionMatch match = iStream.next();
                 QString channelXml = match.captured(1);
                 
                 QRegularExpression rxId("<id>(\\d+)</id>");
-                QRegularExpression rxName("<name>(.*?)</name>");
+                QRegularExpression rxName("<channelName>(.*?)</channelName>");
+                QRegularExpression rxEnabled("<enabled>(.*?)</enabled>");
                 
-                int id = rxId.match(channelXml).captured(1).toInt();
+                int rawId = rxId.match(channelXml).captured(1).toInt();
                 QString name = rxName.match(channelXml).captured(1);
+                QString enabled = rxEnabled.match(channelXml).captured(1);
                 
-                if (id > 0) {
-                    QVariantMap cam;
-                    cam.insert("channelId", id);
-                    cam.insert("name", name.isEmpty() ? QString("Camera %1").arg(id) : name);
-                    cam.insert("recorderIp", ip);
-                    cameraList.append(cam);
-                    qDebug() << "[Hikvision ISAPI] Discovered proxy IP channel:" << id << "name:" << name;
+                if (rawId > 0 && enabled != "false") {
+                    int baseChanId = (rawId >= 100) ? (rawId / 100) : rawId;
+                    if (!seenChannels.contains(baseChanId)) {
+                        seenChannels.insert(baseChanId);
+                        QVariantMap cam;
+                        cam.insert("channelId", baseChanId);
+                        cam.insert("name", name.isEmpty() ? QString("Camera %1").arg(baseChanId) : name);
+                        cam.insert("recorderIp", cleanIp);
+                        cameraList.append(cam);
+                        qDebug() << "[Hikvision ISAPI] Discovered streaming channel:" << baseChanId << "(raw ID: " << rawId << ") name:" << name;
+                    }
                 }
             }
         }
+    }
 
-        if (!cameraList.isEmpty()) {
-            return cameraList;
-        }
+    if (!cameraList.isEmpty()) {
+        return cameraList;
     }
 
     qDebug() << "[Hikvision] Real NVR HTTP ISAPI discovery returned no channels. Falling back to SDK/Mock...";

@@ -424,7 +424,7 @@
         </message>
         <message>
             <source>LNG_00051</source>
-            <translation>يمشي</translation>
+            <translation>مارس</translation>
         </message>
         <message>
             <source>LNG_00050</source>
@@ -432,7 +432,7 @@
         </message>
         <message>
             <source>LNG_00049</source>
-            <translation>يمكن</translation>
+            <translation>مايو</translation>
         </message>
         <message>
             <source>LNG_00048</source>
@@ -1618,7 +1618,7 @@
         </message>
         <message>
             <source>LNG_00183</source>
-            <translation>يمشي</translation>
+            <translation>مارس</translation>
         </message>
         <message>
             <source>LNG_00182</source>
@@ -1626,7 +1626,7 @@
         </message>
         <message>
             <source>LNG_00181</source>
-            <translation>يمكن</translation>
+            <translation>مايو</translation>
         </message>
         <message>
             <source>LNG_00180</source>
@@ -1670,31 +1670,31 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>شهر</translation>
+            <translation>إث</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>تو</translation>
+            <translation>ثل</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>نحن</translation>
+            <translation>أر</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>ذ</translation>
+            <translation>خم</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>الأب</translation>
+            <translation>جم</translation>
         </message>
         <message>
             <source>LNG_00167</source>
-            <translation>سا</translation>
+            <translation>سب</translation>
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>سو</translation>
+            <translation>أح</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>مزامنة واجهة المستخدم: حوار إعدادات شاشة العرض يعكس الآن التجاوزات المحددة لمسجل RTSP.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>عناوين URI الداخلية المبسطة: تم تنظيف عناوين hikvision:// الداخلية عن طريق إزالة معلمات المنفذ وبيانات الاعتماد غير الضرورية.</translation></message><message><source>LNG_00541</source><translation>التعامل مع المنافذ المخصصة: تم إصلاح البحث عن تسجيلات ISAPI HTTP على المنافذ المخصصة.</translation></message><message><source>LNG_00542</source><translation>ترحيل URI: تمت إضافة ترحيل تلقائي عند بدء التشغيل لتنظيف عناوين hikvision:// القديمة وإزالة بيانات الاعتماد والمنافذ من الواجهة.</translation></message><message><source>LNG_00543</source><translation>سجلات التشخيص: تمت إضافة خيار في الإعدادات لكتابة سجلات تشخيصية شاملة لـ FFmpeg و QML إلى kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>إصلاح البث المباشر للمنافذ المخصصة: تم إصلاح بث الفيديو المباشر عند استخدام منافذ HTTP/RTSP مخصصة، وإضافة تحديثات تفاعلية لشاشات العرض، وترميز بيانات الاعتماد بشكل صحيح.</translation></message><message><source>LNG_00545</source><translation>بنية اكتشاف ISAPI: تم إصلاح اكتشاف الكاميرا لمسح وكيل IP والقنوات التناظرية وقنوات البث بشكل مستقل مع تفاوض Digest/Basic التلقائي.</translation></message><message><source>LNG_00546</source><translation>تقرير ذاكرة وحدة التحكم: يسجل المقدار الدقيق لذاكرة الوصول العشوائي التي تم إرجاعها إلى نواة النظام بعد كل استرداد دوري للذاكرة.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

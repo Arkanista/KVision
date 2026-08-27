@@ -3027,7 +3027,7 @@
             <source>LNG_00539</source>
             <translation>UI Synchronization: Viewport settings dialog now reflects recorder-specific RTSP transport overrides.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Simplified Internal URIs: Cleaned internal hikvision:// URIs by removing unnecessary port and credential parameters.</translation></message><message><source>LNG_00541</source><translation>Custom Ports Handling: Fixed HTTP ISAPI recording search fallback on custom HTTP ports.</translation></message><message><source>LNG_00542</source><translation>URI Migration: Added automatic startup migration to clean legacy saved hikvision:// URIs, removing credentials and ports from the UI.</translation></message><message><source>LNG_00543</source><translation>Diagnostic Logs: Added an option in settings to write comprehensive FFmpeg and QML diagnostic logs to kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Custom Ports Live Streaming Fix: Fixed live view video streaming when using custom HTTP/RTSP ports, added reactive viewport updates on recorder settings changes, and proper URL credential encoding.</translation></message><message><source>LNG_00545</source><translation>ISAPI Discovery Architecture: Overhauled camera discovery to scan IP Proxy, analog, and streaming channels independently with automatic Digest/Basic negotiation.</translation></message><message><source>LNG_00546</source><translation>Console Memory Reporting: Logs the exact amount of RAM returned to the system kernel after each periodic memory reclaim.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

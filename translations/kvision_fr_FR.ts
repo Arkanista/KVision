@@ -416,7 +416,7 @@
         </message>
         <message>
             <source>LNG_00053</source>
-            <translation>janvier</translation>
+            <translation>Janvier</translation>
         </message>
         <message>
             <source>LNG_00052</source>
@@ -428,39 +428,39 @@
         </message>
         <message>
             <source>LNG_00050</source>
-            <translation>avril</translation>
+            <translation>Avril</translation>
         </message>
         <message>
             <source>LNG_00049</source>
-            <translation>mai</translation>
+            <translation>Mai</translation>
         </message>
         <message>
             <source>LNG_00048</source>
-            <translation>juin</translation>
+            <translation>Juin</translation>
         </message>
         <message>
             <source>LNG_00047</source>
-            <translation>juillet</translation>
+            <translation>Juillet</translation>
         </message>
         <message>
             <source>LNG_00046</source>
-            <translation>août</translation>
+            <translation>Août</translation>
         </message>
         <message>
             <source>LNG_00045</source>
-            <translation>septembre</translation>
+            <translation>Septembre</translation>
         </message>
         <message>
             <source>LNG_00044</source>
-            <translation>octobre</translation>
+            <translation>Octobre</translation>
         </message>
         <message>
             <source>LNG_00043</source>
-            <translation>novembre</translation>
+            <translation>Novembre</translation>
         </message>
         <message>
             <source>LNG_00042</source>
-            <translation>décembre</translation>
+            <translation>Décembre</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1610,7 +1610,7 @@
         </message>
         <message>
             <source>LNG_00185</source>
-            <translation>janvier</translation>
+            <translation>Janvier</translation>
         </message>
         <message>
             <source>LNG_00184</source>
@@ -1622,39 +1622,39 @@
         </message>
         <message>
             <source>LNG_00182</source>
-            <translation>avril</translation>
+            <translation>Avril</translation>
         </message>
         <message>
             <source>LNG_00181</source>
-            <translation>mai</translation>
+            <translation>Mai</translation>
         </message>
         <message>
             <source>LNG_00180</source>
-            <translation>juin</translation>
+            <translation>Juin</translation>
         </message>
         <message>
             <source>LNG_00179</source>
-            <translation>juillet</translation>
+            <translation>Juillet</translation>
         </message>
         <message>
             <source>LNG_00178</source>
-            <translation>août</translation>
+            <translation>Août</translation>
         </message>
         <message>
             <source>LNG_00177</source>
-            <translation>septembre</translation>
+            <translation>Septembre</translation>
         </message>
         <message>
             <source>LNG_00176</source>
-            <translation>octobre</translation>
+            <translation>Octobre</translation>
         </message>
         <message>
             <source>LNG_00175</source>
-            <translation>novembre</translation>
+            <translation>Novembre</translation>
         </message>
         <message>
             <source>LNG_00174</source>
-            <translation>décembre</translation>
+            <translation>Décembre</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1670,23 +1670,23 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>Mo</translation>
+            <translation>Lu</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>Tu</translation>
+            <translation>Ma</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>Nous</translation>
+            <translation>Me</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>e</translation>
+            <translation>Je</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>Fr</translation>
+            <translation>Ve</translation>
         </message>
         <message>
             <source>LNG_00167</source>
@@ -1694,7 +1694,7 @@
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>Su</translation>
+            <translation>Di</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>Synchronisation de l'interface : La boîte de dialogue des paramètres d'affichage reflète désormais les surcharges de transport RTSP spécifiques à l'enregistreur.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>URI internes simplifiés : Nettoyage des URI internes hikvision:// en supprimant les paramètres de port et d'identifiants inutiles.</translation></message><message><source>LNG_00541</source><translation>Gestion des ports personnalisés : Correction de la recherche d'enregistrements HTTP ISAPI sur des ports personnalisés.</translation></message><message><source>LNG_00542</source><translation>Migration d'URI : Ajout d'une migration automatique au démarrage pour nettoyer les anciens URI hikvision:// enregistrés, supprimant les identifiants et les ports de l'interface.</translation></message><message><source>LNG_00543</source><translation>Journaux de diagnostic : Ajout d'une option dans les paramètres pour enregistrer des journaux de diagnostic complets FFmpeg et QML dans kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Correction du streaming en direct sur ports personnalisés : Correction du flux vidéo en direct lors de l'utilisation de ports HTTP/RTSP personnalisés, ajout de mises à jour réactives des vues et encodage approprié des identifiants dans l'URL.</translation></message><message><source>LNG_00545</source><translation>Architecture de découverte ISAPI : Refonte de la détection des caméras pour analyser indépendamment les canaux proxy IP, analogiques et de streaming avec négociation automatique Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Rapport de mémoire en console : Enregistre la quantité exacte de RAM restituée au noyau système après chaque libération périodique de mémoire.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

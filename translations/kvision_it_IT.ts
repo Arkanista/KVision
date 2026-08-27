@@ -428,7 +428,7 @@
         </message>
         <message>
             <source>LNG_00050</source>
-            <translation>aprile</translation>
+            <translation>Aprile</translation>
         </message>
         <message>
             <source>LNG_00049</source>
@@ -1622,7 +1622,7 @@
         </message>
         <message>
             <source>LNG_00182</source>
-            <translation>aprile</translation>
+            <translation>Aprile</translation>
         </message>
         <message>
             <source>LNG_00181</source>
@@ -1670,15 +1670,15 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>Mo</translation>
+            <translation>Lu</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>Tu</translation>
+            <translation>Ma</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>Noi</translation>
+            <translation>Me</translation>
         </message>
         <message>
             <source>LNG_00169</source>
@@ -1686,7 +1686,7 @@
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>p</translation>
+            <translation>Ve</translation>
         </message>
         <message>
             <source>LNG_00167</source>
@@ -1694,7 +1694,7 @@
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>Su</translation>
+            <translation>Do</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>Sincronizzazione interfaccia: La finestra delle impostazioni del viewport ora riflette le sovrascritture del trasporto RTSP specifiche del registratore.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>URI interni semplificati: Puliti gli URI interni hikvision:// rimuovendo i parametri di porta e credenziali non necessari.</translation></message><message><source>LNG_00541</source><translation>Gestione porte personalizzate: Corretta la ricerca delle registrazioni HTTP ISAPI su porte personalizzate.</translation></message><message><source>LNG_00542</source><translation>Migrazione URI: Aggiunta la migrazione automatica all'avvio per ripulire i vecchi URI hikvision:// salvati, rimuovendo credenziali e porte dall'interfaccia.</translation></message><message><source>LNG_00543</source><translation>Registri di diagnostica: Aggiunta un'opzione nelle impostazioni per scrivere registri di diagnostica completi di FFmpeg e QML in kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Correzione streaming live su porte personalizzate: Risolto lo streaming video in tempo reale quando si utilizzano porte HTTP/RTSP personalizzate, aggiunti aggiornamenti reattivi delle visualizzazioni e codifica corretta delle credenziali nell'URL.</translation></message><message><source>LNG_00545</source><translation>Architettura di rilevamento ISAPI: Riprogettato il rilevamento delle telecamere per scansionare indipendentemente i canali IP Proxy, analogici e di streaming con negoziazione automatica Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Report della memoria in console: Registra la quantità esatta di RAM restituita al kernel di sistema dopo ogni rilascio periodico della memoria.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

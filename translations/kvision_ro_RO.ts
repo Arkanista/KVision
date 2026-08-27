@@ -416,51 +416,51 @@
         </message>
         <message>
             <source>LNG_00053</source>
-            <translation>ianuarie</translation>
+            <translation>Ianuarie</translation>
         </message>
         <message>
             <source>LNG_00052</source>
-            <translation>februarie</translation>
+            <translation>Februarie</translation>
         </message>
         <message>
             <source>LNG_00051</source>
-            <translation>martie</translation>
+            <translation>Martie</translation>
         </message>
         <message>
             <source>LNG_00050</source>
-            <translation>aprilie</translation>
+            <translation>Aprilie</translation>
         </message>
         <message>
             <source>LNG_00049</source>
-            <translation>mai</translation>
+            <translation>Mai</translation>
         </message>
         <message>
             <source>LNG_00048</source>
-            <translation>iunie</translation>
+            <translation>Iunie</translation>
         </message>
         <message>
             <source>LNG_00047</source>
-            <translation>iulie</translation>
+            <translation>Iulie</translation>
         </message>
         <message>
             <source>LNG_00046</source>
-            <translation>august</translation>
+            <translation>August</translation>
         </message>
         <message>
             <source>LNG_00045</source>
-            <translation>septembrie</translation>
+            <translation>Septembrie</translation>
         </message>
         <message>
             <source>LNG_00044</source>
-            <translation>octombrie</translation>
+            <translation>Octombrie</translation>
         </message>
         <message>
             <source>LNG_00043</source>
-            <translation>noiembrie</translation>
+            <translation>Noiembrie</translation>
         </message>
         <message>
             <source>LNG_00042</source>
-            <translation>decembrie</translation>
+            <translation>Decembrie</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1610,51 +1610,51 @@
         </message>
         <message>
             <source>LNG_00185</source>
-            <translation>ianuarie</translation>
+            <translation>Ianuarie</translation>
         </message>
         <message>
             <source>LNG_00184</source>
-            <translation>februarie</translation>
+            <translation>Februarie</translation>
         </message>
         <message>
             <source>LNG_00183</source>
-            <translation>martie</translation>
+            <translation>Martie</translation>
         </message>
         <message>
             <source>LNG_00182</source>
-            <translation>aprilie</translation>
+            <translation>Aprilie</translation>
         </message>
         <message>
             <source>LNG_00181</source>
-            <translation>mai</translation>
+            <translation>Mai</translation>
         </message>
         <message>
             <source>LNG_00180</source>
-            <translation>iunie</translation>
+            <translation>Iunie</translation>
         </message>
         <message>
             <source>LNG_00179</source>
-            <translation>iulie</translation>
+            <translation>Iulie</translation>
         </message>
         <message>
             <source>LNG_00178</source>
-            <translation>august</translation>
+            <translation>August</translation>
         </message>
         <message>
             <source>LNG_00177</source>
-            <translation>septembrie</translation>
+            <translation>Septembrie</translation>
         </message>
         <message>
             <source>LNG_00176</source>
-            <translation>octombrie</translation>
+            <translation>Octombrie</translation>
         </message>
         <message>
             <source>LNG_00175</source>
-            <translation>noiembrie</translation>
+            <translation>Noiembrie</translation>
         </message>
         <message>
             <source>LNG_00174</source>
-            <translation>decembrie</translation>
+            <translation>Decembrie</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1670,31 +1670,31 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>lu</translation>
+            <translation>Lu</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>Tu</translation>
+            <translation>Ma</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>Noi</translation>
+            <translation>Mi</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>Th</translation>
+            <translation>Jo</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>pr</translation>
+            <translation>Vi</translation>
         </message>
         <message>
             <source>LNG_00167</source>
-            <translation>Sa</translation>
+            <translation>Sâ</translation>
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>Su</translation>
+            <translation>Du</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>Sincronizare UI: Caseta de dialog pentru setările ferestrei reflectă acum suprascrierile de transport RTSP specifice înregistratorului.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>URI-uri interne simplificate: S-au curățat URI-urile interne hikvision:// prin eliminarea parametrilor inutili de port și autentificare.</translation></message><message><source>LNG_00541</source><translation>Gestionarea porturilor personalizate: S-a remediat căutarea înregistrărilor HTTP ISAPI pe porturi personalizate.</translation></message><message><source>LNG_00542</source><translation>Migrare URI: S-a adăugat migrarea automată la pornire pentru curățarea URI-urilor vechi salvate hikvision://, eliminând credențialele și porturile din interfață.</translation></message><message><source>LNG_00543</source><translation>Jurnale de diagnostic: S-a adăugat o opțiune în setări pentru scrierea jurnalelor detaliate de diagnostic FFmpeg și QML în kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Remediere streaming live pe porturi personalizate: S-a rezolvat redarea video în direct la utilizarea porturilor HTTP/RTSP personalizate, s-au adăugat actualizări reactive ale vizualizărilor și codificarea corectă a credențialelor în URL.</translation></message><message><source>LNG_00545</source><translation>Arhitectură de descoperire ISAPI: S-a reproiectat descoperirea camerelor pentru a scana independent canalele IP Proxy, analogice și de streaming cu negociere automată Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Raportare memorie în consolă: Înregistrează cantitatea exactă de RAM returnată nucleului de sistem după fiecare eliberare periodică de memorie.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

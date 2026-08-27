@@ -416,51 +416,51 @@
         </message>
         <message>
             <source>LNG_00053</source>
-            <translation>tammikuuta</translation>
+            <translation>Tammikuu</translation>
         </message>
         <message>
             <source>LNG_00052</source>
-            <translation>helmikuuta</translation>
+            <translation>Helmikuu</translation>
         </message>
         <message>
             <source>LNG_00051</source>
-            <translation>maaliskuuta</translation>
+            <translation>Maaliskuu</translation>
         </message>
         <message>
             <source>LNG_00050</source>
-            <translation>huhtikuuta</translation>
+            <translation>Huhtikuu</translation>
         </message>
         <message>
             <source>LNG_00049</source>
-            <translation>toukokuuta</translation>
+            <translation>Toukokuu</translation>
         </message>
         <message>
             <source>LNG_00048</source>
-            <translation>kesäkuuta</translation>
+            <translation>Kesäkuu</translation>
         </message>
         <message>
             <source>LNG_00047</source>
-            <translation>heinäkuuta</translation>
+            <translation>Heinäkuu</translation>
         </message>
         <message>
             <source>LNG_00046</source>
-            <translation>elokuuta</translation>
+            <translation>Elokuu</translation>
         </message>
         <message>
             <source>LNG_00045</source>
-            <translation>syyskuuta</translation>
+            <translation>Syyskuu</translation>
         </message>
         <message>
             <source>LNG_00044</source>
-            <translation>lokakuuta</translation>
+            <translation>Lokakuu</translation>
         </message>
         <message>
             <source>LNG_00043</source>
-            <translation>marraskuuta</translation>
+            <translation>Marraskuu</translation>
         </message>
         <message>
             <source>LNG_00042</source>
-            <translation>joulukuuta</translation>
+            <translation>Joulukuu</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1610,51 +1610,51 @@
         </message>
         <message>
             <source>LNG_00185</source>
-            <translation>tammikuuta</translation>
+            <translation>Tammikuu</translation>
         </message>
         <message>
             <source>LNG_00184</source>
-            <translation>helmikuuta</translation>
+            <translation>Helmikuu</translation>
         </message>
         <message>
             <source>LNG_00183</source>
-            <translation>maaliskuuta</translation>
+            <translation>Maaliskuu</translation>
         </message>
         <message>
             <source>LNG_00182</source>
-            <translation>huhtikuuta</translation>
+            <translation>Huhtikuu</translation>
         </message>
         <message>
             <source>LNG_00181</source>
-            <translation>toukokuuta</translation>
+            <translation>Toukokuu</translation>
         </message>
         <message>
             <source>LNG_00180</source>
-            <translation>kesäkuuta</translation>
+            <translation>Kesäkuu</translation>
         </message>
         <message>
             <source>LNG_00179</source>
-            <translation>heinäkuuta</translation>
+            <translation>Heinäkuu</translation>
         </message>
         <message>
             <source>LNG_00178</source>
-            <translation>elokuuta</translation>
+            <translation>Elokuu</translation>
         </message>
         <message>
             <source>LNG_00177</source>
-            <translation>syyskuuta</translation>
+            <translation>Syyskuu</translation>
         </message>
         <message>
             <source>LNG_00176</source>
-            <translation>lokakuuta</translation>
+            <translation>Lokakuu</translation>
         </message>
         <message>
             <source>LNG_00175</source>
-            <translation>marraskuuta</translation>
+            <translation>Marraskuu</translation>
         </message>
         <message>
             <source>LNG_00174</source>
-            <translation>joulukuuta</translation>
+            <translation>Joulukuu</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1670,27 +1670,27 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>Mo</translation>
+            <translation>Ma</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>Tu</translation>
+            <translation>Ti</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>Me</translation>
+            <translation>Ke</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>Th</translation>
+            <translation>To</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>Fr</translation>
+            <translation>Pe</translation>
         </message>
         <message>
             <source>LNG_00167</source>
-            <translation>Sa</translation>
+            <translation>La</translation>
         </message>
         <message>
             <source>LNG_00166</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>Käyttöliittymän synkronointi: Katseluruudun asetussivu näyttää nyt tallenninkohtaiset RTSP-siirron ohitukset.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Yksinkertaistetut sisäiset URI-osoitteet: Puhdistettu sisäiset hikvision://-osoitteet poistamalla tarpeettomat portti- ja tunnistetiedot.</translation></message><message><source>LNG_00541</source><translation>Mukautettujen porttien käsittely: Korjattu HTTP ISAPI -tallenteiden haku mukautetuilla porteilla.</translation></message><message><source>LNG_00542</source><translation>URI-migraatio: Lisätty automaattinen käynnistyksen siirto vanhojen tallennettujen hikvision://-osoitteiden puhdistamiseksi ja tunnistetietojen sekä porttien poistamiseksi käyttöliittymästä.</translation></message><message><source>LNG_00543</source><translation>Diagnostiikkalokit: Lisätty asetuksiin vaihtoehto kattavien FFmpeg- ja QML-diagnostiikkalokien kirjoittamiseksi tiedostoon kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Mukautettujen porttien suoratoistokorjaus: Korjattu suoratoisto käytettäessä mukautettuja HTTP/RTSP-portteja, lisätty näkymien reaktiiviset päivitykset ja tunnistetietojen oikea URL-koodaus.</translation></message><message><source>LNG_00545</source><translation>ISAPI-tunnistusarkkitehtuuri: Uudistettu kameroiden tunnistus skannaamaan IP-välityspalvelin-, analogiset ja suoratoistokanavat itsenäisesti automaattisella Digest/Basic-neuvottelulla.</translation></message><message><source>LNG_00546</source><translation>Konsolin muistiraportointi: Kirjaa lokiin järjestelmän ytimelle palautetun RAM-muistin tarkan määrän jokaisen säännöllisen muistin vapauttamisen jälkeen.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

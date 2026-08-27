@@ -288,7 +288,9 @@ Dialog {
                     if (jsonStr) {
                         var recordersList = JSON.parse(jsonStr);
                         for (var i = 0; i < recordersList.length; ++i) {
-                            if (recordersList[i].ip === vpIp) {
+                            var recIp = (recordersList[i].ip || "").trim();
+                            var cleanRecIp = recIp.split(":")[0];
+                            if (recIp === vpIp.trim() || cleanRecIp === vpIp.trim()) {
                                 var transport = recordersList[i].rtspTransport || "";
                                 if (transport === "tcp" || transport === "udp") {
                                     options["rtsp_transport"] = transport;

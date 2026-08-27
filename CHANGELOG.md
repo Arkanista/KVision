@@ -2,21 +2,47 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.1-rc5] - 2026-08-27
+
+### EN: Features & Bug Fixes
+* **Custom Ports Live Streaming Fix:** Fixed an issue where custom HTTP/RTSP ports failed to stream video in Live View. Added dynamic reactivity in `Player.qml` to NVR settings changes, robust IP matching, and proper credential URL encoding.
+* **ISAPI Discovery Architecture:** Overhauled camera channel discovery to query IP Proxy channels (`InputProxy/channels`), Analog channels (`Video/inputs/channels`), and Streaming channels (`Streaming/channels`) independently, ensuring pure IP NVRs, hybrid DVRs, and standalone IP cameras discover channels reliably.
+* **Universal Authentication Negotiation:** Switched ISAPI communication to `--anyauth` in curl to automatically negotiate between Digest and Basic authentication.
+* **FFmpeg Demuxer Credential Encoding:** Ensured percent-encoded credentials in RTSP URLs are preserved cleanly when loaded by QmlAV demuxer.
+* **Mock Hikvision NVR Test Server:** Added `tools/mock_hikvision_server.py` supporting both ISAPI HTTP discovery and RTSP H.264 video streaming on custom ports for local development and verification.
+
+### PL: Funkcje i Poprawki Błędów
+* **Naprawa odtwarzania na niestandardowych portach:** Rozwiązano problem z brakiem obrazu na żywo przy konfiguracji niestandardowych portów HTTP/RTSP. Dodano dynamiczne odświeżanie widoków w `Player.qml` po zmianie ustawień rejestratora, ulepszono dopasowywanie adresów IP oraz dodano bezpieczne kodowanie poświadczeń w URL.
+* **Usprawnienie wykrywania kanałów ISAPI:** Zreorganizowano proces wykrywania kanałów, aby niezależnie odpytywać kanały IP (`InputProxy/channels`), analogowe (`Video/inputs/channels`) oraz uniwersalne strumienie (`Streaming/channels`), gwarantując pełną zgodność z rejestratorami IP NVR, hybrydowymi DVR oraz kamerami IPC.
+* **Automatyczna negocjacja autoryzacji:** Zastosowano opcję `--anyauth` w curl, co pozwala na automatyczny wybór pomiędzy Digest i Basic Authentication.
+* **Kodowanie poświadczeń w demuxerze FFmpeg:** Zabezpieczono przekazywanie zakodowanych znaków w adresach RTSP bezpośrednio do demuxera QmlAV.
+* **Symulator rejestratora do testów:** Dodano skrypt `tools/mock_hikvision_server.py` symulujący rejestrator Hikvision (ISAPI + RTSP H.264) na dowolnych portach do testów lokalnych.
+
 ## [2.7.1-rc4] - 2026-08-07
 
-### Features & Bug Fixes
+### EN: Features & Bug Fixes
 * **URI Migration:** Added an automatic migration script at startup to clean up old saved `hikvision://` URIs in existing layouts, ensuring legacy saved layouts also benefit from the simplified and secure URI format (removing credentials and ports from the UI).
+
+### PL: Funkcje i Poprawki Błędów
+* **Migracja adresów URI:** Dodano automatyczny skrypt migracyjny przy starcie programu czyszczący stare zapisane adresy `hikvision://` w istniejących układach, dzięki czemu wcześniejsze układy również korzystają z uproszczonego i bezpieczniejszego formatu URI (usunięcie haseł i portów z interfejsu).
 
 ## [2.7.1-rc3] - 2026-08-07
 
-### Features & Bug Fixes
+### EN: Features & Bug Fixes
 * **Simplified Internal URIs:** Removed credentials and port numbers from internal `hikvision://` URIs, cleaning up the configuration and improving internal URL generation logic.
 * **Custom Ports Handling:** Fixed a bug where HTTP ISAPI searches would incorrectly fallback to port 80 or the SDK port instead of the configured HTTP port.
 
+### PL: Funkcje i Poprawki Błędów
+* **Uproszczenie wewnętrznych URI:** Usunięto dane logowania i numery portów z wewnętrznych adresów `hikvision://`, upraszczając konfigurację i poprawiając logikę generowania URL.
+* **Obsługa niestandardowych portów:** Naprawiono błąd, przez który wyszukiwanie nagrań ISAPI HTTP niepoprawnie powracało do portu 80 lub portu SDK zamiast skonfigurowanego portu HTTP.
+
 ## [2.7.1-rc2] - 2026-08-07
 
-### Features & Diagnostics
+### EN: Features & Diagnostics
 * **Diagnostic Logs:** Introduced a new UI option to enable writing comprehensive diagnostic logs (including previously silenced FFmpeg and QML errors) to a dedicated `kvision_diagnostic.log` file in the application config directory. This assists in troubleshooting issues like memory leaks or silent decoding failures.
+
+### PL: Funkcje i Diagnostyka
+* **Logi diagnostyczne:** Wprowadzono nową opcję w interfejsie umożliwiającą zapis pełnych logów diagnostycznych (w tym wyciszonych wcześniej błędów FFmpeg i QML) do dedykowanego pliku `kvision_diagnostic.log` w katalogu konfiguracyjnym aplikacji. Pomaga to w diagnozowaniu problemów z wyciekami pamięci lub cichymi błędami dekodowania.
 
 ## [2.7.1-rc1] - 2026-08-04
 

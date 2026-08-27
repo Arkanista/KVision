@@ -416,51 +416,51 @@
         </message>
         <message>
             <source>LNG_00053</source>
-            <translation>januar</translation>
+            <translation>Januar</translation>
         </message>
         <message>
             <source>LNG_00052</source>
-            <translation>februar</translation>
+            <translation>Februar</translation>
         </message>
         <message>
             <source>LNG_00051</source>
-            <translation>mars</translation>
+            <translation>Mars</translation>
         </message>
         <message>
             <source>LNG_00050</source>
-            <translation>april</translation>
+            <translation>April</translation>
         </message>
         <message>
             <source>LNG_00049</source>
-            <translation>mai</translation>
+            <translation>Mai</translation>
         </message>
         <message>
             <source>LNG_00048</source>
-            <translation>juni</translation>
+            <translation>Juni</translation>
         </message>
         <message>
             <source>LNG_00047</source>
-            <translation>juli</translation>
+            <translation>Juli</translation>
         </message>
         <message>
             <source>LNG_00046</source>
-            <translation>august</translation>
+            <translation>August</translation>
         </message>
         <message>
             <source>LNG_00045</source>
-            <translation>september</translation>
+            <translation>September</translation>
         </message>
         <message>
             <source>LNG_00044</source>
-            <translation>oktober</translation>
+            <translation>Oktober</translation>
         </message>
         <message>
             <source>LNG_00043</source>
-            <translation>november</translation>
+            <translation>November</translation>
         </message>
         <message>
             <source>LNG_00042</source>
-            <translation>desember</translation>
+            <translation>Desember</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1610,51 +1610,51 @@
         </message>
         <message>
             <source>LNG_00185</source>
-            <translation>januar</translation>
+            <translation>Januar</translation>
         </message>
         <message>
             <source>LNG_00184</source>
-            <translation>februar</translation>
+            <translation>Februar</translation>
         </message>
         <message>
             <source>LNG_00183</source>
-            <translation>mars</translation>
+            <translation>Mars</translation>
         </message>
         <message>
             <source>LNG_00182</source>
-            <translation>april</translation>
+            <translation>April</translation>
         </message>
         <message>
             <source>LNG_00181</source>
-            <translation>mai</translation>
+            <translation>Mai</translation>
         </message>
         <message>
             <source>LNG_00180</source>
-            <translation>juni</translation>
+            <translation>Juni</translation>
         </message>
         <message>
             <source>LNG_00179</source>
-            <translation>juli</translation>
+            <translation>Juli</translation>
         </message>
         <message>
             <source>LNG_00178</source>
-            <translation>august</translation>
+            <translation>August</translation>
         </message>
         <message>
             <source>LNG_00177</source>
-            <translation>september</translation>
+            <translation>September</translation>
         </message>
         <message>
             <source>LNG_00176</source>
-            <translation>oktober</translation>
+            <translation>Oktober</translation>
         </message>
         <message>
             <source>LNG_00175</source>
-            <translation>november</translation>
+            <translation>November</translation>
         </message>
         <message>
             <source>LNG_00174</source>
-            <translation>desember</translation>
+            <translation>Desember</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1670,19 +1670,19 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>Mo</translation>
+            <translation>Ma</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>ti</translation>
+            <translation>Ti</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>Vi</translation>
+            <translation>On</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>Th</translation>
+            <translation>To</translation>
         </message>
         <message>
             <source>LNG_00168</source>
@@ -1690,11 +1690,11 @@
         </message>
         <message>
             <source>LNG_00167</source>
-            <translation>Sa</translation>
+            <translation>Lø</translation>
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>Su</translation>
+            <translation>Sø</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>UI-synkronisering: Dialogen for visningsinnstillinger gjenspeiler nå opptakerspesifikke RTSP-transportoverstyringer.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Forenklede interne URI-er: Ryddet opp i interne hikvision://-URI-er ved å fjerne unødvendige port- og påloggingsparametere.</translation></message><message><source>LNG_00541</source><translation>Håndtering av egendefinerte porter: Rettet søk etter HTTP ISAPI-opptak på egendefinerte porter.</translation></message><message><source>LNG_00542</source><translation>URI-migrering: Lagt til automatisk oppstartsmigrering for å rydde opp i gamle lagrede hikvision://-URI-er og fjerne påloggingsinformasjon og porter fra grensesnittet.</translation></message><message><source>LNG_00543</source><translation>Diagnostiske logger: Lagt til et alternativ i innstillingene for å skrive omfattende FFmpeg- og QML-diagnoselogger til kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Feilretting for direktesending på egendefinerte porter: Rettet direkteavspilling ved bruk av egendefinerte HTTP/RTSP-porter, lagt til reaktive visningsoppdateringer og riktig URL-koding av påloggingsinformasjon.</translation></message><message><source>LNG_00545</source><translation>ISAPI-oppdagelsesarkitektur: Omgjort kameraoppdagelse for uavhengig skanning av IP-proxy, analoge og strømmekanaler med automatisk Digest/Basic-forhandling.</translation></message><message><source>LNG_00546</source><translation>Konsollminnerapportering: Logger nøyaktig mengde RAM som returneres til systemkjernen etter hver periodiske minnefrigjøring.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

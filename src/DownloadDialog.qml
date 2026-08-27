@@ -200,7 +200,7 @@ Popup {
                 Layout.alignment: Qt.AlignHCenter
                 
                 Repeater {
-                    model: ["Pn", "Wt", "Śr", "Cz", "Pt", "So", "Nd"]
+                    model: [qsTr("LNG_00172"), qsTr("LNG_00171"), qsTr("LNG_00170"), qsTr("LNG_00169"), qsTr("LNG_00168"), qsTr("LNG_00167"), qsTr("LNG_00166")]
                     Text { 
                         text: modelData; color: "#8898a6"; font.bold: true; 
                         horizontalAlignment: Text.AlignHCenter; 

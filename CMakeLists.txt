@@ -6,7 +6,7 @@ set(VER_PAT 1)
 if(NOT DEFINED VER_REL)
     set(VER_REL 0)
 endif()
-set(REL_STATUS "rc4")
+set(REL_STATUS "rc5")
 
 set(APP_NAME "KVision")
 set(ORG_NAME "KVision")

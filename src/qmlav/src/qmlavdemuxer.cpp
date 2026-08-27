@@ -28,7 +28,7 @@ QmlAVDemuxer::~QmlAVDemuxer()
 void QmlAVDemuxer::load(const QUrl &url, const QmlAVOptions &avOptions)
 {
     int ret = AVERROR_UNKNOWN;
-    QString source(url.toString());
+    QString source;
 
     if (m_context->avFormatCtx->iformat) {
         return;
@@ -38,6 +38,8 @@ void QmlAVDemuxer::load(const QUrl &url, const QmlAVOptions &avOptions)
     if (url.isLocalFile()) {
         avdevice_register_all();
         source = url.toLocalFile();
+    } else {
+        source = url.toString(QUrl::FullyEncoded);
     }
 
     if (source.isEmpty()) {

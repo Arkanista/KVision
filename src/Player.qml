@@ -373,7 +373,11 @@ FocusScope {
             if (hikPlayerSettings.useRealStreams) {
                 var streamSuffix = isSubStream ? "02" : "01";
                 var rPort = rtspPort || 554;
-                newUrl = "rtsp://" + username + ":" + password + "@" + recorderIp + ":" + rPort + "/Streaming/Channels/" + channelId + streamSuffix;
+                var creds = "";
+                if (username) {
+                    creds = encodeURIComponent(username) + (password ? (":" + encodeURIComponent(password)) : "") + "@";
+                }
+                newUrl = "rtsp://" + creds + recorderIp + ":" + rPort + "/Streaming/Channels/" + channelId + streamSuffix;
                 newCameraId = recorderIp + "_" + channelId;
             }
         }
@@ -896,17 +900,22 @@ FocusScope {
             property bool isSubStreamOfPlayer: false
 
             avOptions: {
-                var avOptions = root.avOptions;
+                var avOpts = {};
                 if (!root.ignoreGlobalAVFormatOptions) {
-                    Object.assignDefault(avOptions, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                    Object.assignDefault(avOpts, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                }
+                if (root.avOptions) {
+                    for (var k in root.avOptions) {
+                        avOpts[k] = root.avOptions[k];
+                    }
                 }
                 if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
-                    avOptions["allowed_media_types"] = "video";
+                    avOpts["allowed_media_types"] = "video";
                 }
                 if (root.rtspTransport === "tcp" || root.rtspTransport === "udp") {
-                    avOptions["rtsp_transport"] = root.rtspTransport;
+                    avOpts["rtsp_transport"] = root.rtspTransport;
                 }
-                return avOptions;
+                return avOpts;
             }
 
             onStatusChanged: {
@@ -940,17 +949,22 @@ FocusScope {
             property bool isSubStreamOfPlayer: false
 
             avOptions: {
-                var avOptions = root.avOptions;
+                var avOpts2 = {};
                 if (!root.ignoreGlobalAVFormatOptions) {
-                    Object.assignDefault(avOptions, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                    Object.assignDefault(avOpts2, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                }
+                if (root.avOptions) {
+                    for (var k2 in root.avOptions) {
+                        avOpts2[k2] = root.avOptions[k2];
+                    }
                 }
                 if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
-                    avOptions["allowed_media_types"] = "video";
+                    avOpts2["allowed_media_types"] = "video";
                 }
                 if (root.rtspTransport === "tcp" || root.rtspTransport === "udp") {
-                    avOptions["rtsp_transport"] = root.rtspTransport;
+                    avOpts2["rtsp_transport"] = root.rtspTransport;
                 }
-                return avOptions;
+                return avOpts2;
             }
 
             onStatusChanged: {
@@ -2058,7 +2072,7 @@ FocusScope {
     }
 
     function parseUri(uri) {
-        var s = String(uri);
+        var s = String(uri).trim();
         if (s.indexOf("hikvision://") !== -1) {
             parseHikvisionUri(uri);
         } else if (s.indexOf("rtsp://") !== -1) {
@@ -2067,17 +2081,20 @@ FocusScope {
     }
 
     function parseRtspUri(uri) {
-        var s = String(uri);
+        var s = String(uri).trim();
         var idx = s.indexOf("rtsp://");
         if (idx === -1) return;
 
         var content = s.substring(idx + 7); // after "rtsp://"
 
         // Split at "/" for path
-        var parts = content.split("/");
-        if (parts.length > 1) {
+        var slashIdx = content.indexOf("/");
+        var mainPart = (slashIdx !== -1) ? content.substring(0, slashIdx) : content;
+        var pathPart = (slashIdx !== -1) ? content.substring(slashIdx + 1) : "";
+
+        if (pathPart.length > 0) {
             // Find channel ID from path, e.g. "Streaming/Channels/401"
-            var channelMatch = parts[parts.length - 1].match(/(\d+)/);
+            var channelMatch = pathPart.match(/(\d+)/);
             if (channelMatch) {
                 var chanNum = parseInt(channelMatch[1]);
                 if (chanNum >= 100) {
@@ -2090,42 +2107,49 @@ FocusScope {
             }
         }
 
-        var mainPart = parts[0]; // "username:password@ip:port"
-
-        // Split at "@" for credentials and address
-        var addrParts = mainPart.split("@");
+        // Split at "@" for credentials and address (find LAST '@' in mainPart)
+        var atIdx = mainPart.lastIndexOf("@");
         var addrPort = "";
-        if (addrParts.length > 1) {
-            var creds = addrParts[0].split(":");
-            username = creds[0] || "";
-            password = creds[1] || "";
-            addrPort = addrParts[1];
+        if (atIdx !== -1) {
+            var credsPart = mainPart.substring(0, atIdx);
+            addrPort = mainPart.substring(atIdx + 1);
+            var colonIdx = credsPart.indexOf(":");
+            if (colonIdx !== -1) {
+                username = decodeURIComponent(credsPart.substring(0, colonIdx));
+                password = decodeURIComponent(credsPart.substring(colonIdx + 1));
+            } else {
+                username = decodeURIComponent(credsPart);
+                password = "";
+            }
         } else {
-            addrPort = addrParts[0];
+            addrPort = mainPart;
             username = "";
             password = "";
         }
 
         // Split at ":" for ip and port
         var ipPort = addrPort.split(":");
-        recorderIp = ipPort[0] || "";
+        recorderIp = (ipPort[0] || "").trim();
+        var explicitPort = (ipPort.length > 1) ? parseInt(ipPort[1]) : 0;
 
         // Resolve SDK, HTTP, RTSP ports by searching in configured recorders
         sdkPort = 8000;
         recorderPort = 8000;
         httpPort = 80;
-        rtspPort = 554;
+        rtspPort = explicitPort > 0 ? explicitPort : 554;
         try {
             var jsonStr = rootWindow.hikvisionRecordersJson;
             if (jsonStr) {
                 var recordersList = JSON.parse(jsonStr);
                 for (var i = 0; i < recordersList.length; ++i) {
                     var rec = recordersList[i];
-                    if (rec.ip === recorderIp) {
+                    var recIp = (rec.ip || "").trim();
+                    var cleanRecIp = recIp.split(":")[0];
+                    if (recIp === recorderIp || cleanRecIp === recorderIp) {
                         sdkPort = parseInt(rec.sdkPort || rec.port) || 8000;
                         recorderPort = sdkPort;
                         httpPort = parseInt(rec.httpPort || (rec.port == 8000 ? 80 : rec.port)) || 80;
-                        rtspPort = parseInt(rec.rtspPort) || 554;
+                        rtspPort = parseInt(rec.rtspPort) || explicitPort || 554;
                         rtspTransport = rec.rtspTransport || "";
                         if (!username && rec.username) username = rec.username;
                         if (!password && rec.password) password = rec.password;
@@ -2139,41 +2163,49 @@ FocusScope {
     }
 
     function parseHikvisionUri(uri) {
-        var s = String(uri);
+        var s = String(uri).trim();
         var idx = s.indexOf("hikvision://");
         if (idx === -1) return;
         
         var content = s.substring(idx + 12); // after "hikvision://"
         
         // Split at "/" for channel
-        var parts = content.split("/");
-        if (parts.length > 1) {
-            channelId = parseInt(parts[1]) || 1;
+        var slashIdx = content.indexOf("/");
+        var mainPart = (slashIdx !== -1) ? content.substring(0, slashIdx) : content;
+        var pathPart = (slashIdx !== -1) ? content.substring(slashIdx + 1) : "";
+
+        if (pathPart.length > 0) {
+            channelId = parseInt(pathPart) || 1;
         }
         
-        var mainPart = parts[0]; // "username:password@ip:port"
-        
         // Split at "@" for credentials and address
-        var addrParts = mainPart.split("@");
+        var atIdx = mainPart.lastIndexOf("@");
         var addrPort = "";
-        if (addrParts.length > 1) {
-            var creds = addrParts[0].split(":");
-            username = creds[0] || "";
-            password = creds[1] || "";
-            addrPort = addrParts[1];
+        if (atIdx !== -1) {
+            var credsPart = mainPart.substring(0, atIdx);
+            addrPort = mainPart.substring(atIdx + 1);
+            var colonIdx = credsPart.indexOf(":");
+            if (colonIdx !== -1) {
+                username = decodeURIComponent(credsPart.substring(0, colonIdx));
+                password = decodeURIComponent(credsPart.substring(colonIdx + 1));
+            } else {
+                username = decodeURIComponent(credsPart);
+                password = "";
+            }
         } else {
-            addrPort = addrParts[0];
+            addrPort = mainPart;
             username = "";
             password = "";
         }
         
         // Split at ":" for ip and port
         var ipPort = addrPort.split(":");
-        recorderIp = ipPort[0] || "";
+        recorderIp = (ipPort[0] || "").trim();
+        var explicitPort = (ipPort.length > 1) ? parseInt(ipPort[1]) : 0;
 
         // Resolve all ports from JSON
-        sdkPort = 8000;
-        recorderPort = 8000;
+        sdkPort = explicitPort > 0 ? explicitPort : 8000;
+        recorderPort = sdkPort;
         httpPort = 80;
         rtspPort = 554;
         try {
@@ -2182,8 +2214,10 @@ FocusScope {
                 var recordersList2 = JSON.parse(jsonStr2);
                 for (var j = 0; j < recordersList2.length; ++j) {
                     var rec2 = recordersList2[j];
-                    if (rec2.ip === recorderIp) {
-                        sdkPort = parseInt(rec2.sdkPort || rec2.port) || 8000;
+                    var recIp2 = (rec2.ip || "").trim();
+                    var cleanRecIp2 = recIp2.split(":")[0];
+                    if (recIp2 === recorderIp || cleanRecIp2 === recorderIp) {
+                        sdkPort = parseInt(rec2.sdkPort || rec2.port) || explicitPort || 8000;
                         recorderPort = sdkPort;
                         httpPort = parseInt(rec2.httpPort || (rec2.port == 8000 ? 80 : rec2.port)) || 80;
                         rtspPort = parseInt(rec2.rtspPort) || 554;
@@ -2196,6 +2230,15 @@ FocusScope {
             }
         } catch (e2) {
             console.log("[Player QML Error] Failed to resolve recorder ports from JSON:", e2);
+        }
+    }
+
+    Connections {
+        target: (typeof rootWindow !== "undefined") ? rootWindow : null
+        function onHikvisionRecordersJsonChanged() {
+            if (root.isHikvision) {
+                updateSource();
+            }
         }
     }
 

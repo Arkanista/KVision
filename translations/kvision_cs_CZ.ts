@@ -416,51 +416,51 @@
         </message>
         <message>
             <source>LNG_00053</source>
-            <translation>ledna</translation>
+            <translation>Leden</translation>
         </message>
         <message>
             <source>LNG_00052</source>
-            <translation>února</translation>
+            <translation>Únor</translation>
         </message>
         <message>
             <source>LNG_00051</source>
-            <translation>března</translation>
+            <translation>Březen</translation>
         </message>
         <message>
             <source>LNG_00050</source>
-            <translation>dubna</translation>
+            <translation>Duben</translation>
         </message>
         <message>
             <source>LNG_00049</source>
-            <translation>května</translation>
+            <translation>Květen</translation>
         </message>
         <message>
             <source>LNG_00048</source>
-            <translation>června</translation>
+            <translation>Červen</translation>
         </message>
         <message>
             <source>LNG_00047</source>
-            <translation>července</translation>
+            <translation>Červenec</translation>
         </message>
         <message>
             <source>LNG_00046</source>
-            <translation>srpna</translation>
+            <translation>Srpen</translation>
         </message>
         <message>
             <source>LNG_00045</source>
-            <translation>září</translation>
+            <translation>Září</translation>
         </message>
         <message>
             <source>LNG_00044</source>
-            <translation>října</translation>
+            <translation>Říjen</translation>
         </message>
         <message>
             <source>LNG_00043</source>
-            <translation>listopadu</translation>
+            <translation>Listopad</translation>
         </message>
         <message>
             <source>LNG_00042</source>
-            <translation>prosince</translation>
+            <translation>Prosinec</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1610,51 +1610,51 @@
         </message>
         <message>
             <source>LNG_00185</source>
-            <translation>ledna</translation>
+            <translation>Leden</translation>
         </message>
         <message>
             <source>LNG_00184</source>
-            <translation>února</translation>
+            <translation>Únor</translation>
         </message>
         <message>
             <source>LNG_00183</source>
-            <translation>března</translation>
+            <translation>Březen</translation>
         </message>
         <message>
             <source>LNG_00182</source>
-            <translation>dubna</translation>
+            <translation>Duben</translation>
         </message>
         <message>
             <source>LNG_00181</source>
-            <translation>května</translation>
+            <translation>Květen</translation>
         </message>
         <message>
             <source>LNG_00180</source>
-            <translation>června</translation>
+            <translation>Červen</translation>
         </message>
         <message>
             <source>LNG_00179</source>
-            <translation>července</translation>
+            <translation>Červenec</translation>
         </message>
         <message>
             <source>LNG_00178</source>
-            <translation>srpna</translation>
+            <translation>Srpen</translation>
         </message>
         <message>
             <source>LNG_00177</source>
-            <translation>září</translation>
+            <translation>Září</translation>
         </message>
         <message>
             <source>LNG_00176</source>
-            <translation>října</translation>
+            <translation>Říjen</translation>
         </message>
         <message>
             <source>LNG_00175</source>
-            <translation>listopadu</translation>
+            <translation>Listopad</translation>
         </message>
         <message>
             <source>LNG_00174</source>
-            <translation>prosince</translation>
+            <translation>Prosinec</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1670,27 +1670,27 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>Mo</translation>
+            <translation>Po</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>út</translation>
+            <translation>Út</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>my</translation>
+            <translation>St</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>Th</translation>
+            <translation>Čt</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>Fr</translation>
+            <translation>Pá</translation>
         </message>
         <message>
             <source>LNG_00167</source>
-            <translation>so</translation>
+            <translation>So</translation>
         </message>
         <message>
             <source>LNG_00166</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>Synchronizace UI: Dialog nastavení viewportu nyní odráží konkrétní přepsání transportu RTSP z rekordéru.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Zjednodušené interní URI: Vyčištěny interní adresy hikvision:// odstraněním nadbytečných portů a přihlašovacích údajů.</translation></message><message><source>LNG_00541</source><translation>Zpracování vlastních portů: Opraveno vyhledávání záznamů HTTP ISAPI na vlastních portech.</translation></message><message><source>LNG_00542</source><translation>Migrace URI: Přidána automatická migrace při spuštění pro vyčištění starých adres hikvision://, čímž se odstraní údaje a porty z rozhraní.</translation></message><message><source>LNG_00543</source><translation>Diagnostické protokoly: Přidána možnost v nastavení zapisovat podrobné diagnostické protokoly FFmpeg a QML do souboru kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Oprava živého vysílání na vlastních portech: Opraveno streamování živého videa při použití vlastních portů HTTP/RTSP, přidána reaktivní aktualizace zobrazení a kódování přihlašovacích údajů v URL.</translation></message><message><source>LNG_00545</source><translation>Architektura zjišťování ISAPI: Přepracováno zjišťování kamer pro nezávislé skenování IP Proxy, analogových a streamovacích kanálů s automatickým vyjednáváním Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Hlášení paměti v konzoli: Zaznamenává přesné množství paměti RAM vrácené jádru systému po každém periodickém uvolnění paměti.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

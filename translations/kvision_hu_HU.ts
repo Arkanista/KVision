@@ -416,51 +416,51 @@
         </message>
         <message>
             <source>LNG_00053</source>
-            <translation>január</translation>
+            <translation>Január</translation>
         </message>
         <message>
             <source>LNG_00052</source>
-            <translation>február</translation>
+            <translation>Február</translation>
         </message>
         <message>
             <source>LNG_00051</source>
-            <translation>március</translation>
+            <translation>Március</translation>
         </message>
         <message>
             <source>LNG_00050</source>
-            <translation>április</translation>
+            <translation>Április</translation>
         </message>
         <message>
             <source>LNG_00049</source>
-            <translation>május</translation>
+            <translation>Május</translation>
         </message>
         <message>
             <source>LNG_00048</source>
-            <translation>június</translation>
+            <translation>Június</translation>
         </message>
         <message>
             <source>LNG_00047</source>
-            <translation>július</translation>
+            <translation>Július</translation>
         </message>
         <message>
             <source>LNG_00046</source>
-            <translation>augusztus</translation>
+            <translation>Augusztus</translation>
         </message>
         <message>
             <source>LNG_00045</source>
-            <translation>szeptember</translation>
+            <translation>Szeptember</translation>
         </message>
         <message>
             <source>LNG_00044</source>
-            <translation>október</translation>
+            <translation>Október</translation>
         </message>
         <message>
             <source>LNG_00043</source>
-            <translation>november</translation>
+            <translation>November</translation>
         </message>
         <message>
             <source>LNG_00042</source>
-            <translation>december</translation>
+            <translation>December</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1610,51 +1610,51 @@
         </message>
         <message>
             <source>LNG_00185</source>
-            <translation>január</translation>
+            <translation>Január</translation>
         </message>
         <message>
             <source>LNG_00184</source>
-            <translation>február</translation>
+            <translation>Február</translation>
         </message>
         <message>
             <source>LNG_00183</source>
-            <translation>március</translation>
+            <translation>Március</translation>
         </message>
         <message>
             <source>LNG_00182</source>
-            <translation>április</translation>
+            <translation>Április</translation>
         </message>
         <message>
             <source>LNG_00181</source>
-            <translation>május</translation>
+            <translation>Május</translation>
         </message>
         <message>
             <source>LNG_00180</source>
-            <translation>június</translation>
+            <translation>Június</translation>
         </message>
         <message>
             <source>LNG_00179</source>
-            <translation>július</translation>
+            <translation>Július</translation>
         </message>
         <message>
             <source>LNG_00178</source>
-            <translation>augusztus</translation>
+            <translation>Augusztus</translation>
         </message>
         <message>
             <source>LNG_00177</source>
-            <translation>szeptember</translation>
+            <translation>Szeptember</translation>
         </message>
         <message>
             <source>LNG_00176</source>
-            <translation>október</translation>
+            <translation>Október</translation>
         </message>
         <message>
             <source>LNG_00175</source>
-            <translation>november</translation>
+            <translation>November</translation>
         </message>
         <message>
             <source>LNG_00174</source>
-            <translation>december</translation>
+            <translation>December</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1670,31 +1670,31 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>Mo</translation>
+            <translation>H</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>Tu</translation>
+            <translation>K</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>Mi</translation>
+            <translation>Sze</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>Th</translation>
+            <translation>Cs</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>Fr</translation>
+            <translation>P</translation>
         </message>
         <message>
             <source>LNG_00167</source>
-            <translation>Sa</translation>
+            <translation>Szo</translation>
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>Su</translation>
+            <translation>V</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>UI szinkronizáció: A nézet beállításai párbeszédablak most tükrözi a rögzítőspecifikus RTSP átviteli felülbírálásokat.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Egyszerűsített belső URI-k: Megtisztított belső hikvision:// URI-k a felesleges port- és hitelesítőadat-paraméterek eltávolításával.</translation></message><message><source>LNG_00541</source><translation>Egyéni portok kezelése: Javítva a HTTP ISAPI felvételkeresés az egyéni portokon.</translation></message><message><source>LNG_00542</source><translation>URI migráció: Automatikus indítási migráció hozzáadva a régi mentett hikvision:// URI-k megtisztítására, eltávolítva a hitelesítő adatokat és portokat a felületről.</translation></message><message><source>LNG_00543</source><translation>Diagnosztikai naplók: Új beállítási lehetőség hozzáadva a részletes FFmpeg és QML diagnosztikai naplók kvision_diagnostic.log fájlba írásához.</translation></message><message><source>LNG_00544</source><translation>Egyéni portos élő közvetítés javítása: Javítva az élő videostreaming egyéni HTTP/RTSP portok használatakor, reaktív nézetfrissítések és megfelelő URL-hitelesítőadat-kódolás hozzáadva.</translation></message><message><source>LNG_00545</source><translation>ISAPI felderítési architektúra: Újraalkotott kamerafelderítés az IP Proxy, analóg és streaming csatornák független vizsgálatához automatikus Digest/Basic egyeztetéssel.</translation></message><message><source>LNG_00546</source><translation>Konzol memóriajelentés: Naplózza a rendszerkernelnek visszaadott RAM pontos mennyiségét minden periodikus memóriafelszabadítás után.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

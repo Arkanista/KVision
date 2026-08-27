@@ -1,3 +1,23 @@
+2.7.1rc5-1
+  * PL: Rozwiązano problem z odtwarzaniem obrazu na niestandardowych portach RTSP/HTTP, dodano dynamiczne odświeżanie widoków w Player.qml, ulepszono wykrywanie kanałów ISAPI (niezależne skanowanie kanałów IP i analogowych, elastyczna autoryzacja --anyauth) oraz dodano symulator rejestratora do testów w tools/.
+    EN: Fixed Live View streaming on custom RTSP/HTTP ports, added reactive updates on recorder changes in Player.qml, overhauled ISAPI discovery (independent IP and analog channels scanning, universal --anyauth negotiation), and added mock Hikvision NVR server in tools/.
+
+2.7.1rc4-1
+  * PL: Dodano automatyczną migrację zapisanych adresów hikvision:// w istniejących układach przy uruchomieniu programu, usuwając poświadczenia i porty z konfiguracji widoków.
+    EN: Added automatic startup migration for saved hikvision:// URIs in existing layouts, cleaning credentials and ports from viewport configurations.
+
+2.7.1rc3-1
+  * PL: Uproszczono wewnętrzne adresy hikvision:// oraz naprawiono wyszukiwanie nagrań w archiwum ISAPI HTTP na niestandardowych portach.
+    EN: Simplified internal hikvision:// URIs and fixed ISAPI HTTP archive recording search on custom ports.
+
+2.7.1rc2-1
+  * PL: Dodano opcję włączania pełnych logów diagnostycznych (kvision_diagnostic.log) w ustawieniach aplikacji do ułatwienia analizy problemów z odtwarzaniem.
+    EN: Added UI option for comprehensive diagnostic logging (kvision_diagnostic.log) in application settings to facilitate troubleshooting.
+
+2.7.1rc1-1
+  * PL: Dodano konfigurację protokołu transportu RTSP (Auto/TCP/UDP) per rejestrator oraz naprawiono wyświetlanie aktywnej opcji transportu w oknie ustawień viewportu.
+    EN: Added per-recorder RTSP transport configuration (Auto/TCP/UDP) and fixed active transport option display in viewport settings dialog.
+
 2.7.0-1
   * PL: Wdrożono niezależną konfigurację portów SDK, HTTP i RTSP dla rejestratorów Hikvision, dodano stałe etykiety pól portów w ustawieniach NVR oraz zaktualizowano tłumaczenia we wszystkich 22 wspieranych językach.
     EN: Implemented independent SDK, HTTP, and RTSP port settings per Hikvision recorder, added permanent field labels in NVR settings, and updated localization across all 22 supported languages.

@@ -416,7 +416,7 @@
         </message>
         <message>
             <source>LNG_00053</source>
-            <translation>січня</translation>
+            <translation>Січень</translation>
         </message>
         <message>
             <source>LNG_00052</source>
@@ -424,23 +424,23 @@
         </message>
         <message>
             <source>LNG_00051</source>
-            <translation>березень</translation>
+            <translation>Березень</translation>
         </message>
         <message>
             <source>LNG_00050</source>
-            <translation>квітень</translation>
+            <translation>Квітень</translation>
         </message>
         <message>
             <source>LNG_00049</source>
-            <translation>травня</translation>
+            <translation>Травень</translation>
         </message>
         <message>
             <source>LNG_00048</source>
-            <translation>червень</translation>
+            <translation>Червень</translation>
         </message>
         <message>
             <source>LNG_00047</source>
-            <translation>липень</translation>
+            <translation>Липень</translation>
         </message>
         <message>
             <source>LNG_00046</source>
@@ -448,11 +448,11 @@
         </message>
         <message>
             <source>LNG_00045</source>
-            <translation>вересень</translation>
+            <translation>Вересень</translation>
         </message>
         <message>
             <source>LNG_00044</source>
-            <translation>жовтень</translation>
+            <translation>Жовтень</translation>
         </message>
         <message>
             <source>LNG_00043</source>
@@ -460,7 +460,7 @@
         </message>
         <message>
             <source>LNG_00042</source>
-            <translation>грудень</translation>
+            <translation>Грудень</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1610,7 +1610,7 @@
         </message>
         <message>
             <source>LNG_00185</source>
-            <translation>січня</translation>
+            <translation>Січень</translation>
         </message>
         <message>
             <source>LNG_00184</source>
@@ -1618,23 +1618,23 @@
         </message>
         <message>
             <source>LNG_00183</source>
-            <translation>березень</translation>
+            <translation>Березень</translation>
         </message>
         <message>
             <source>LNG_00182</source>
-            <translation>квітень</translation>
+            <translation>Квітень</translation>
         </message>
         <message>
             <source>LNG_00181</source>
-            <translation>травня</translation>
+            <translation>Травень</translation>
         </message>
         <message>
             <source>LNG_00180</source>
-            <translation>червень</translation>
+            <translation>Червень</translation>
         </message>
         <message>
             <source>LNG_00179</source>
-            <translation>липень</translation>
+            <translation>Липень</translation>
         </message>
         <message>
             <source>LNG_00178</source>
@@ -1642,11 +1642,11 @@
         </message>
         <message>
             <source>LNG_00177</source>
-            <translation>вересень</translation>
+            <translation>Вересень</translation>
         </message>
         <message>
             <source>LNG_00176</source>
-            <translation>жовтень</translation>
+            <translation>Жовтень</translation>
         </message>
         <message>
             <source>LNG_00175</source>
@@ -1654,7 +1654,7 @@
         </message>
         <message>
             <source>LNG_00174</source>
-            <translation>грудень</translation>
+            <translation>Грудень</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1670,27 +1670,27 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>пн</translation>
+            <translation>Пн</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>вт</translation>
+            <translation>Вт</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>ми</translation>
+            <translation>Ср</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>чт</translation>
+            <translation>Чт</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>О</translation>
+            <translation>Пт</translation>
         </message>
         <message>
             <source>LNG_00167</source>
-            <translation>Sa</translation>
+            <translation>Сб</translation>
         </message>
         <message>
             <source>LNG_00166</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>Синхронізація інтерфейсу: Діалог налаштувань вікна перегляду тепер відображає конкретні перевизначення транспорту RTSP з реєстратора.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Спрощені внутрішні URI: Очищено внутрішні адреси hikvision:// від зайвих параметрів портів та облікових даних.</translation></message><message><source>LNG_00541</source><translation>Обробка нестандартних портів: Виправлено пошук записів HTTP ISAPI на нестандартних портах.</translation></message><message><source>LNG_00542</source><translation>Міграція URI: Додано автоматичну міграцію при запуску для очищення старих збережених адрес hikvision://, видаляючи облікові дані та порти з інтерфейсу.</translation></message><message><source>LNG_00543</source><translation>Діагностичні журнали: Додано опцію в налаштуваннях для запису детальних діагностичних журналів FFmpeg та QML у файл kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Виправлення прямої трансляції на нестандартних портах: Виправлено відтворення прямого відео при використанні нестандартних портів HTTP/RTSP, додано реактивне оновлення переглядів та коректне кодування облікових даних у URL.</translation></message><message><source>LNG_00545</source><translation>Архітектура виявлення ISAPI: Перероблено виявлення камер для незалежного сканування каналів IP Proxy, аналогових та потокових каналів з автоматичним узгодженням Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Звіт про пам'ять у консолі: Фіксує точну кількість оперативної пам'яті, повернутої ядру системи після кожного періодичного звільнення пам'яті.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

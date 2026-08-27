@@ -1670,31 +1670,31 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>Ay</translation>
+            <translation>Pt</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>Salı</translation>
-        </message>
-        <message>
-            <source>LNG_00170</source>
-            <translation>Biz</translation>
-        </message>
-        <message>
-            <source>LNG_00169</source>
-            <translation>Bu</translation>
-        </message>
-        <message>
-            <source>LNG_00168</source>
-            <translation>Fr</translation>
-        </message>
-        <message>
-            <source>LNG_00167</source>
             <translation>Sa</translation>
         </message>
         <message>
+            <source>LNG_00170</source>
+            <translation>Ça</translation>
+        </message>
+        <message>
+            <source>LNG_00169</source>
+            <translation>Pe</translation>
+        </message>
+        <message>
+            <source>LNG_00168</source>
+            <translation>Cu</translation>
+        </message>
+        <message>
+            <source>LNG_00167</source>
+            <translation>Ct</translation>
+        </message>
+        <message>
             <source>LNG_00166</source>
-            <translation>Su</translation>
+            <translation>Pz</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>Kullanıcı Arayüzü Senkronizasyonu: Görüntü alanı ayarları iletişim kutusu artık kaydediciye özel RTSP taşıma geçersiz kılmalarını yansıtır.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Basitleştirilmiş Dahili URI'ler: Gereksiz bağlantı noktası ve kimlik bilgisi parametreleri kaldırılarak dahili hikvision:// URI'leri temizlendi.</translation></message><message><source>LNG_00541</source><translation>Özel Bağlantı Noktası Yönetimi: Özel HTTP bağlantı noktalarında HTTP ISAPI kayıt arama düzeltildi.</translation></message><message><source>LNG_00542</source><translation>URI Geçişi: Eski kaydedilmiş hikvision:// URI'lerini temizlemek, kimlik bilgilerini ve bağlantı noktalarını kullanıcı arayüzünden kaldırmak için otomatik başlangıç geçişi eklendi.</translation></message><message><source>LNG_00543</source><translation>Tanılama Günlükleri: Kapsamlı FFmpeg ve QML tanılama günlüklerini kvision_diagnostic.log dosyasına yazmak için ayarlara bir seçenek eklendi.</translation></message><message><source>LNG_00544</source><translation>Özel Bağlantı Noktalarında Canlı Yayın Düzeltmesi: Özel HTTP/RTSP bağlantı noktaları kullanılırken canlı video akışı düzeltildi, kayıt cihazı değişikliklerinde dinamik görünüm güncellemeleri ve URL kimlik bilgisi kodlaması eklendi.</translation></message><message><source>LNG_00545</source><translation>ISAPI Keşif Mimarisi: Otomatik Digest/Basic anlaşmasıyla IP Proxy, analog ve akış kanallarını bağımsız olarak taramak için kamera keşfi yeniden tasarlandı.</translation></message><message><source>LNG_00546</source><translation>Konsol Bellek Raporlama: Her periyodik bellek geri kazanımından sonra sistem çekirdeğine geri verilen tam RAM miktarını günlüğe kaydeder.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

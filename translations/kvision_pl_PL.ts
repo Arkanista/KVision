@@ -1624,51 +1624,51 @@
         </message>
         <message>
             <source>LNG_00185</source>
-            <translation>January</translation>
+            <translation>Styczeń</translation>
         </message>
         <message>
             <source>LNG_00184</source>
-            <translation>February</translation>
+            <translation>Luty</translation>
         </message>
         <message>
             <source>LNG_00183</source>
-            <translation>March</translation>
+            <translation>Marzec</translation>
         </message>
         <message>
             <source>LNG_00182</source>
-            <translation>April</translation>
+            <translation>Kwiecień</translation>
         </message>
         <message>
             <source>LNG_00181</source>
-            <translation>May</translation>
+            <translation>Maj</translation>
         </message>
         <message>
             <source>LNG_00180</source>
-            <translation>June</translation>
+            <translation>Czerwiec</translation>
         </message>
         <message>
             <source>LNG_00179</source>
-            <translation>July</translation>
+            <translation>Lipiec</translation>
         </message>
         <message>
             <source>LNG_00178</source>
-            <translation>August</translation>
+            <translation>Sierpień</translation>
         </message>
         <message>
             <source>LNG_00177</source>
-            <translation>September</translation>
+            <translation>Wrzesień</translation>
         </message>
         <message>
             <source>LNG_00176</source>
-            <translation>October</translation>
+            <translation>Październik</translation>
         </message>
         <message>
             <source>LNG_00175</source>
-            <translation>November</translation>
+            <translation>Listopad</translation>
         </message>
         <message>
             <source>LNG_00174</source>
-            <translation>December</translation>
+            <translation>Grudzień</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1684,31 +1684,31 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>Mo</translation>
+            <translation>Pn</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>Tu</translation>
+            <translation>Wt</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>We</translation>
+            <translation>Śr</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>Th</translation>
+            <translation>Czw</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>Fr</translation>
+            <translation>Pt</translation>
         </message>
         <message>
             <source>LNG_00167</source>
-            <translation>Sa</translation>
+            <translation>Sob</translation>
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>Su</translation>
+            <translation>Nd</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4606,7 +4606,7 @@
             <source>LNG_00539</source>
             <translation>Synchronizacja interfejsu: Okno ustawień viewportu odzwierciedla teraz nadpisania protokołu RTSP zdefiniowane w rejestratorze.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Uproszczenie wewnętrznych URI: Oczyszczono wewnętrzne adresy hikvision:// z nadmiarowych parametrów portów i danych logowania.</translation></message><message><source>LNG_00541</source><translation>Obsługa niestandardowych portów: Naprawiono wyszukiwanie nagrań w archiwum ISAPI HTTP na niestandardowych portach.</translation></message><message><source>LNG_00542</source><translation>Migracja URI: Dodano automatyczną migrację zapisanych adresów hikvision:// przy starcie programu, usuwając dane logowania i porty z widoków.</translation></message><message><source>LNG_00543</source><translation>Logi diagnostyczne: Dodano opcję w ustawieniach do zapisu szczegółowych logów diagnostycznych FFmpeg i QML do pliku kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Naprawa odtwarzania na niestandardowych portach: Rozwiązano problem z odtwarzaniem obrazu na żywo przy konfiguracji niestandardowych portów HTTP/RTSP, dodano dynamiczne odświeżanie widoków po zmianie ustawień rejestratora oraz bezpieczne kodowanie poświadczeń w URL.</translation></message><message><source>LNG_00545</source><translation>Architektura wykrywania ISAPI: Zreorganizowano proces wykrywania kamer, aby niezależnie odpytywać kanały IP, analogowe i uniwersalne strumienie z automatyczną negocjacją Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Logowanie odzysku pamięci: Loguje dokładną ilość pamięci RAM zwróconej do jądra systemu po każdym okresowym zwolnieniu pamięci.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

@@ -428,7 +428,7 @@
         </message>
         <message>
             <source>LNG_00050</source>
-            <translation>abril</translation>
+            <translation>Abril</translation>
         </message>
         <message>
             <source>LNG_00049</source>
@@ -1622,7 +1622,7 @@
         </message>
         <message>
             <source>LNG_00182</source>
-            <translation>abril</translation>
+            <translation>Abril</translation>
         </message>
         <message>
             <source>LNG_00181</source>
@@ -1670,23 +1670,23 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>Mo</translation>
+            <translation>Se</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>Você</translation>
+            <translation>Te</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>Nós</translation>
+            <translation>Qu</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>O</translation>
+            <translation>Qu</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>Padre</translation>
+            <translation>Se</translation>
         </message>
         <message>
             <source>LNG_00167</source>
@@ -1694,7 +1694,7 @@
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>Su</translation>
+            <translation>Do</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>Sincronização da interface: A caixa de diálogo de configurações de exibição agora reflete as sobreposições de transporte RTSP específicas do gravador.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>URIs internos simplificados: Limpeza dos URIs internos hikvision:// removendo parâmetros desnecessários de porta e credenciais.</translation></message><message><source>LNG_00541</source><translation>Gestão de portas personalizadas: Corrigida a pesquisa de gravações HTTP ISAPI em portas personalizadas.</translation></message><message><source>LNG_00542</source><translation>Migração de URI: Adicionada migração automática na inicialização para limpar URIs hikvision:// antigos, removendo credenciais e portas da interface.</translation></message><message><source>LNG_00543</source><translation>Registos de diagnóstico: Adicionada opção nas configurações para gravar registos de diagnóstico detalhados do FFmpeg e QML em kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Correção de transmissão em direto em portas personalizadas: Corrigida a transmissão de vídeo em direto ao usar portas HTTP/RTSP personalizadas, adicionadas atualizações reativas de visualização e codificação de credenciais em URL.</translation></message><message><source>LNG_00545</source><translation>Arquitetura de descoberta ISAPI: Reformulação da descoberta de câmaras para verificar independentemente canais de IP Proxy, analógicos e de transmissão com negociação automática Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Relatório de memória na consola: Regista a quantidade exata de RAM devolvida ao kernel do sistema após cada libertação periódica de memória.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

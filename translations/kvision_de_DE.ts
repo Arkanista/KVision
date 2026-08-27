@@ -1678,11 +1678,11 @@
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>Wir</translation>
+            <translation>Mi</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>Th</translation>
+            <translation>Do</translation>
         </message>
         <message>
             <source>LNG_00168</source>
@@ -1694,7 +1694,7 @@
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>Su</translation>
+            <translation>So</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>UI-Synchronisierung: Der Ansichtseinstellungsdialog spiegelt nun rekorderspezifische RTSP-Transportüberschreibungen wider.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Vereinfachte interne URIs: Interne hikvision://-URIs wurden bereinigt, indem unnötige Port- und Anmeldeinformationsparameter entfernt wurden.</translation></message><message><source>LNG_00541</source><translation>Benutzerdefinierte Ports: Die Suche nach HTTP-ISAPI-Aufnahmen auf benutzerdefinierten Ports wurde korrigiert.</translation></message><message><source>LNG_00542</source><translation>URI-Migration: Automatische Startmigration hinzugefügt, um alte gespeicherte hikvision://-URIs zu bereinigen und Anmeldeinformationen sowie Ports aus der Benutzeroberfläche zu entfernen.</translation></message><message><source>LNG_00543</source><translation>Diagnoseprotokolle: Eine Option in den Einstellungen wurde hinzugefügt, um umfassende FFmpeg- und QML-Diagnoseprotokolle in kvision_diagnostic.log zu schreiben.</translation></message><message><source>LNG_00544</source><translation>Live-Streaming auf benutzerdefinierten Ports: Das Live-Video-Streaming bei Verwendung benutzerdefinierter HTTP/RTSP-Ports wurde behoben, reaktive Ansichtsaktualisierungen und URL-Kodierung von Anmeldedaten wurden hinzugefügt.</translation></message><message><source>LNG_00545</source><translation>ISAPI-Erkennungsarchitektur: Die Kameraerkennung wurde überarbeitet, um IP-Proxy-, Analog- und Streaming-Kanäle unabhängig mit automatischer Digest/Basic-Aushandlung zu scannen.</translation></message><message><source>LNG_00546</source><translation>Konsolenspeicherberichte: Protokolliert die genaue Menge an RAM, die nach jeder periodischen Speicherbereinigung an den Systemkernel zurückgegeben wird.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

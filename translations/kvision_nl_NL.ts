@@ -1670,7 +1670,7 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>ma</translation>
+            <translation>Ma</translation>
         </message>
         <message>
             <source>LNG_00171</source>
@@ -1678,15 +1678,15 @@
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>Wij</translation>
+            <translation>Wo</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>Th</translation>
+            <translation>Do</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>Fr</translation>
+            <translation>Vr</translation>
         </message>
         <message>
             <source>LNG_00167</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>UI-synchronisatie: Het instellingenvenster voor weergave toont nu de recorderspecifieke RTSP-transportoverschrijvingen.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Vereenvoudigde interne URI's: Interne hikvision:// URI's opgeschoond door overbodige poort- en inloggegevensparameters te verwijderen.</translation></message><message><source>LNG_00541</source><translation>Verwerking van aangepaste poorten: Probleem met zoeken naar HTTP ISAPI-opnamen op aangepaste poorten opgelost.</translation></message><message><source>LNG_00542</source><translation>URI-migratie: Automatische opstartmigratie toegevoegd om oude opgeslagen hikvision:// URI's op te schonen en inloggegevens en poorten uit de interface te verwijderen.</translation></message><message><source>LNG_00543</source><translation>Diagnostische logboeken: Optie toegevoegd in instellingen om uitgebreide FFmpeg- en QML-diagnostische logs naar kvision_diagnostic.log te schrijven.</translation></message><message><source>LNG_00544</source><translation>Oplossing voor live streaming op aangepaste poorten: Live videostreaming bij gebruik van aangepaste HTTP/RTSP-poorten opgelost, reactieve weergave-updates en correcte URL-codering van inloggegevens toegevoegd.</translation></message><message><source>LNG_00545</source><translation>ISAPI-detectiearchitectuur: Cameradetectie herzien om IP Proxy-, analoge en streamingkanalen onafhankelijk te scannen met automatische Digest/Basic-onderhandeling.</translation></message><message><source>LNG_00546</source><translation>Console-geheugenrapportage: Registreert de exacte hoeveelheid RAM die na elke periodieke geheugenvrijgave aan de systeemkernel wordt geretourneerd.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

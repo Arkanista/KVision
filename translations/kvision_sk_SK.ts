@@ -416,51 +416,51 @@
         </message>
         <message>
             <source>LNG_00053</source>
-            <translation>januára</translation>
+            <translation>Január</translation>
         </message>
         <message>
             <source>LNG_00052</source>
-            <translation>februára</translation>
+            <translation>Február</translation>
         </message>
         <message>
             <source>LNG_00051</source>
-            <translation>marca</translation>
+            <translation>Marec</translation>
         </message>
         <message>
             <source>LNG_00050</source>
-            <translation>apríla</translation>
+            <translation>Apríl</translation>
         </message>
         <message>
             <source>LNG_00049</source>
-            <translation>mája</translation>
+            <translation>Máj</translation>
         </message>
         <message>
             <source>LNG_00048</source>
-            <translation>júna</translation>
+            <translation>Jún</translation>
         </message>
         <message>
             <source>LNG_00047</source>
-            <translation>júla</translation>
+            <translation>Júl</translation>
         </message>
         <message>
             <source>LNG_00046</source>
-            <translation>augusta</translation>
+            <translation>August</translation>
         </message>
         <message>
             <source>LNG_00045</source>
-            <translation>septembra</translation>
+            <translation>September</translation>
         </message>
         <message>
             <source>LNG_00044</source>
-            <translation>októbra</translation>
+            <translation>Október</translation>
         </message>
         <message>
             <source>LNG_00043</source>
-            <translation>novembra</translation>
+            <translation>November</translation>
         </message>
         <message>
             <source>LNG_00042</source>
-            <translation>decembra</translation>
+            <translation>December</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1610,51 +1610,51 @@
         </message>
         <message>
             <source>LNG_00185</source>
-            <translation>januára</translation>
+            <translation>Január</translation>
         </message>
         <message>
             <source>LNG_00184</source>
-            <translation>februára</translation>
+            <translation>Február</translation>
         </message>
         <message>
             <source>LNG_00183</source>
-            <translation>marca</translation>
+            <translation>Marec</translation>
         </message>
         <message>
             <source>LNG_00182</source>
-            <translation>apríla</translation>
+            <translation>Apríl</translation>
         </message>
         <message>
             <source>LNG_00181</source>
-            <translation>mája</translation>
+            <translation>Máj</translation>
         </message>
         <message>
             <source>LNG_00180</source>
-            <translation>júna</translation>
+            <translation>Jún</translation>
         </message>
         <message>
             <source>LNG_00179</source>
-            <translation>júla</translation>
+            <translation>Júl</translation>
         </message>
         <message>
             <source>LNG_00178</source>
-            <translation>augusta</translation>
+            <translation>August</translation>
         </message>
         <message>
             <source>LNG_00177</source>
-            <translation>septembra</translation>
+            <translation>September</translation>
         </message>
         <message>
             <source>LNG_00176</source>
-            <translation>októbra</translation>
+            <translation>Október</translation>
         </message>
         <message>
             <source>LNG_00175</source>
-            <translation>novembra</translation>
+            <translation>November</translation>
         </message>
         <message>
             <source>LNG_00174</source>
-            <translation>decembra</translation>
+            <translation>December</translation>
         </message>
         <message>
             <source>LNG_00041</source>
@@ -1670,7 +1670,7 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>Mo</translation>
+            <translation>Po</translation>
         </message>
         <message>
             <source>LNG_00171</source>
@@ -1678,15 +1678,15 @@
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>my</translation>
+            <translation>St</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>Th</translation>
+            <translation>Št</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>O</translation>
+            <translation>Pia</translation>
         </message>
         <message>
             <source>LNG_00167</source>
@@ -1694,7 +1694,7 @@
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>Su</translation>
+            <translation>Ne</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>Synchronizácia UI: Dialóg nastavení viewportu teraz odráža konkrétne prepísania transportu RTSP z rekordéra.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Zjednodušené interné URI: Vyčistené interné adresy hikvision:// odstránením nepotrebných portov a prihlasovacích údajov.</translation></message><message><source>LNG_00541</source><translation>Spracovanie vlastných portov: Opravené vyhľadávanie záznamov HTTP ISAPI na vlastných portoch.</translation></message><message><source>LNG_00542</source><translation>Migrácia URI: Pridaná automatická migrácia pri štarte na vyčistenie starých adries hikvision://, čím sa odstránia údaje a porty z rozhrania.</translation></message><message><source>LNG_00543</source><translation>Diagnostické protokoly: Pridaná možnosť v nastaveniach zapisovať podrobné diagnostické protokoly FFmpeg a QML do súboru kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Oprava živého vysielania na vlastných portoch: Opravené streamovanie živého videa pri použití vlastných portov HTTP/RTSP, pridaná reaktívna aktualizácia zobrazení a kódovanie prihlasovacích údajov v URL.</translation></message><message><source>LNG_00545</source><translation>Architektúra zisťovania ISAPI: Prepracované zisťovanie kamier na nezávislé skenovanie IP Proxy, analógových a streamovacích kanálov s automatickým vyjednávaním Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Hlásenie pamäte v konzole: Zaznamenáva presné množstvo pamäte RAM vrátenej jadru systému po každom periodickom uvoľnení pamäte.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

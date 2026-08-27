@@ -13,6 +13,7 @@ extern "C" {
 #include <QDir>
 #include <QFileInfo>
 #include <QSettings>
+#include <QUrl>
 #include "hcnetsdk_compat.h"
 #include "context.h"
 #include "config.h"
@@ -355,10 +356,16 @@ void ThumbnailProvider::generateSingleThumbnail(const QVariantMap &recorderInfo,
     int rtspPort = recorderInfo.contains("rtspPort") ? recorderInfo["rtspPort"].toInt() : 554;
     if (rtspPort <= 0) rtspPort = 554;
 
+    QString creds;
+    if (!username.isEmpty()) {
+        creds = QString("%1:%2@")
+                    .arg(QString::fromUtf8(QUrl::toPercentEncoding(username)),
+                         QString::fromUtf8(QUrl::toPercentEncoding(password)));
+    }
+
     // Use main stream (01) instead of substream (02) for better quality before downscaling
-    QString rtspUrl = QString("rtsp://%1:%2@%3:%4/Streaming/Channels/%5%6")
-                        .arg(username)
-                        .arg(password)
+    QString rtspUrl = QString("rtsp://%1%2:%3/Streaming/Channels/%4%5")
+                        .arg(creds)
                         .arg(ip)
                         .arg(rtspPort)
                         .arg(channelId)
@@ -416,7 +423,7 @@ void ThumbnailProvider::generateThumbnails(const QVariantMap &recorderInfo)
 
     QString outDir = thumbnailsDir();
     if (outDir.isEmpty()) {
-        qWarning() << "[ThumbnailProvider] Cannot save thumbnails: cache dir unavailable";
+        qWarning() << "[ThumbnailProvider] Thumbnails directory not available";
         return;
     }
 
@@ -429,14 +436,20 @@ void ThumbnailProvider::generateThumbnails(const QVariantMap &recorderInfo)
         QFile::remove(fi.absoluteFilePath());
     }
 
+    QString creds;
+    if (!username.isEmpty()) {
+        creds = QString("%1:%2@")
+                    .arg(QString::fromUtf8(QUrl::toPercentEncoding(username)),
+                         QString::fromUtf8(QUrl::toPercentEncoding(password)));
+    }
+
     // Queue new fetches using RTSP
     for (const QVariant &camVar : cameras) {
         QVariantMap cam = camVar.toMap();
         int channelId = cam["channelId"].toInt();
         
-        QString rtspUrl = QString("rtsp://%1:%2@%3:%4/Streaming/Channels/%5%6")
-                            .arg(username)
-                            .arg(password)
+        QString rtspUrl = QString("rtsp://%1%2:%3/Streaming/Channels/%4%5")
+                            .arg(creds)
                             .arg(ip)
                             .arg(rtspPort)
                             .arg(channelId)

@@ -424,7 +424,7 @@
         </message>
         <message>
             <source>LNG_00051</source>
-            <translation>Πορεία</translation>
+            <translation>Μάρτιος</translation>
         </message>
         <message>
             <source>LNG_00050</source>
@@ -1618,7 +1618,7 @@
         </message>
         <message>
             <source>LNG_00183</source>
-            <translation>Πορεία</translation>
+            <translation>Μάρτιος</translation>
         </message>
         <message>
             <source>LNG_00182</source>
@@ -1670,31 +1670,31 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>Μο</translation>
+            <translation>Δε</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>Tu</translation>
+            <translation>Τρ</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>Εμείς</translation>
+            <translation>Τε</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>Th</translation>
+            <translation>Πε</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>Ο π</translation>
+            <translation>Πα</translation>
         </message>
         <message>
             <source>LNG_00167</source>
-            <translation>Sa</translation>
+            <translation>Σα</translation>
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>Su</translation>
+            <translation>Κυ</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>Συγχρονισμός UI: Ο διάλογος ρυθμίσεων παραθύρου προβολής αντικατοπτρίζει τώρα τις παρακάμψεις μεταφοράς RTSP του καταγραφικού.</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>Απλοποιημένα εσωτερικά URI: Εκκαθάριση εσωτερικών διευθύνσεων hikvision:// αφαιρώντας περιττές παραμέτρους θυρών και διαπιστευτηρίων.</translation></message><message><source>LNG_00541</source><translation>Διαχείριση προσαρμοσμένων θυρών: Διορθώθηκε η αναζήτηση εγγραφών HTTP ISAPI σε προσαρμοσμένες θύρες.</translation></message><message><source>LNG_00542</source><translation>Μετανάστευση URI: Προστέθηκε αυτόματη μετανάστευση κατά την εκκίνηση για εκκαθάριση παλαιών αποθηκευμένων URI hikvision://, αφαιρώντας διαπιστευτήρια και θύρες από το UI.</translation></message><message><source>LNG_00543</source><translation>Αρχεία καταγραφής διάγνωσης: Προστέθηκε επιλογή στις ρυθμίσεις για εγγραφή λεπτομερών αρχείων διάγνωσης FFmpeg και QML στο kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Διόρθωση ζωντανής ροής σε προσαρμοσμένες θύρες: Διορθώθηκε η ζωντανή προβολή βίντεο κατά τη χρήση προσαρμοσμένων θυρών HTTP/RTSP, προστέθηκαν δυναμικές ενημερώσεις προβολών και σωστή κωδικοποίηση URL.</translation></message><message><source>LNG_00545</source><translation>Αρχιτεκτονική εντοπισμού ISAPI: Αναθεωρήθηκε ο εντοπισμός καμερών για ανεξάρτητη σάρωση καναλιών IP Proxy, αναλογικών και ροών με αυτόματη διαπραγμάτευση Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Αναφορά μνήμης κονσόλας: Καταγράφει την ακριβή ποσότητα μνήμης RAM που επιστρέφεται στον πυρήνα του συστήματος μετά από κάθε περιοδική απελευθέρωση μνήμης.</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

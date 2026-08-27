@@ -424,7 +424,7 @@
         </message>
         <message>
             <source>LNG_00051</source>
-            <translation>行进</translation>
+            <translation>三月</translation>
         </message>
         <message>
             <source>LNG_00050</source>
@@ -432,7 +432,7 @@
         </message>
         <message>
             <source>LNG_00049</source>
-            <translation>可能</translation>
+            <translation>五月</translation>
         </message>
         <message>
             <source>LNG_00048</source>
@@ -1618,7 +1618,7 @@
         </message>
         <message>
             <source>LNG_00183</source>
-            <translation>行进</translation>
+            <translation>三月</translation>
         </message>
         <message>
             <source>LNG_00182</source>
@@ -1626,7 +1626,7 @@
         </message>
         <message>
             <source>LNG_00181</source>
-            <translation>可能</translation>
+            <translation>五月</translation>
         </message>
         <message>
             <source>LNG_00180</source>
@@ -1670,31 +1670,31 @@
         </message>
         <message>
             <source>LNG_00172</source>
-            <translation>莫</translation>
+            <translation>一</translation>
         </message>
         <message>
             <source>LNG_00171</source>
-            <translation>涂</translation>
+            <translation>二</translation>
         </message>
         <message>
             <source>LNG_00170</source>
-            <translation>我们</translation>
+            <translation>三</translation>
         </message>
         <message>
             <source>LNG_00169</source>
-            <translation>钍</translation>
+            <translation>四</translation>
         </message>
         <message>
             <source>LNG_00168</source>
-            <translation>Fr</translation>
+            <translation>五</translation>
         </message>
         <message>
             <source>LNG_00167</source>
-            <translation>萨</translation>
+            <translation>六</translation>
         </message>
         <message>
             <source>LNG_00166</source>
-            <translation>苏</translation>
+            <translation>日</translation>
         </message>
         <message>
             <source>LNG_00165</source>
@@ -4417,7 +4417,7 @@
             <source>LNG_00539</source>
             <translation>UI 同步：视口设置对话框现在可准确反映特定于录像机的 RTSP 传输覆盖项。</translation>
         </message>
-</context>
+<message><source>LNG_00540</source><translation>简化内部 URI：清理了内部 hikvision:// URI，移除了不必要的端口和凭据参数。</translation></message><message><source>LNG_00541</source><translation>自定义端口处理：修复了在自定义 HTTP 端口上进行 HTTP ISAPI 录像搜索的问题。</translation></message><message><source>LNG_00542</source><translation>URI 迁移：添加了启动时的自动迁移功能，以清理旧的已保存 hikvision:// URI，并从界面中移除凭据和端口。</translation></message><message><source>LNG_00543</source><translation>诊断日志：在设置中添加了将全面的 FFmpeg 和 QML 诊断日志写入 kvision_diagnostic.log 的选项。</translation></message><message><source>LNG_00544</source><translation>自定义端口实时流修复：修复了使用自定义 HTTP/RTSP 端口时的实时视频流播放问题，增加了录像机设置更改时的响应式视口更新，并实现了正确的 URL 凭据编码。</translation></message><message><source>LNG_00545</source><translation>ISAPI 发现架构：重构了摄像机发现功能，以独立扫描 IP 代理、模拟和流媒体通道，并支持自动 Digest/Basic 身份验证协商。</translation></message><message><source>LNG_00546</source><translation>控制台内存报告：在每次定期内存回收后，记录返回给系统内核的确切 RAM 量。</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>

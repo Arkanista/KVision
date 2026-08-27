@@ -133,6 +133,36 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.7.1-rc5",
+            date: "27.08.2026",
+            changes: [
+                qsTr("LNG_00544"),
+                qsTr("LNG_00545")
+            ]
+        },
+        {
+            version: "v2.7.1-rc4",
+            date: "07.08.2026",
+            changes: [
+                qsTr("LNG_00542")
+            ]
+        },
+        {
+            version: "v2.7.1-rc3",
+            date: "07.08.2026",
+            changes: [
+                qsTr("LNG_00540"),
+                qsTr("LNG_00541")
+            ]
+        },
+        {
+            version: "v2.7.1-rc2",
+            date: "07.08.2026",
+            changes: [
+                qsTr("LNG_00543")
+            ]
+        },
+        {
             version: "v2.7.1-rc1",
             date: "04.08.2026",
             changes: [
@@ -153,7 +183,7 @@ FocusScope {
             version: "v2.6.3",
             date: "08.07.2026",
             changes: [
-                qsTr("Console Memory Reporting: Logs the exact amount of RAM returned to the system kernel after each periodic memory reclaim.")
+                qsTr("LNG_00546")
             ]
         },
         {
@@ -1281,7 +1311,9 @@ FocusScope {
                                                 if (jsonStr) {
                                                     var recordersList = JSON.parse(jsonStr);
                                                     for (var i = 0; i < recordersList.length; ++i) {
-                                                        if (recordersList[i].ip === vpIp) {
+                                                        var recIp = (recordersList[i].ip || "").trim();
+                                                        var cleanRecIp = recIp.split(":")[0];
+                                                        if (recIp === vpIp.trim() || cleanRecIp === vpIp.trim()) {
                                                             var transport = recordersList[i].rtspTransport || "";
                                                             if (transport === "tcp" || transport === "udp") {
                                                                 options["rtsp_transport"] = transport;
