@@ -88,11 +88,11 @@ W tej sekcji opisano znaczenie wszystkich ikon i przycisków używanych w aplika
 ### Instalacja pakietu Arch Linux (Pacman)
 Aby zainstalować program z przygotowanej paczki binarnej, przejdź do katalogu `packaging/arch/` i wykonaj:
 ```bash
-sudo pacman -U kvision-2.7.1rc4-1-x86_64-ffmpeg9.pkg.tar.zst
+sudo pacman -U kvision-2.7.1rc5-1-x86_64.pkg.tar.zst
 ```
 Pakiet automatycznie zainstaluje program, plik aktywacyjny `.desktop` oraz wymagane biblioteki Hikvision SDK w systemowej ścieżce `/usr/lib/kvision`.
 
-> **Uwaga (FFmpeg 9):** W przypadku aktualizacji systemu do wersji FFmpeg 9 (`libavutil.so.61`), należy użyć paczki `kvision-2.7.1rc4-1-x86_64-ffmpeg9.pkg.tar.zst` lub ponownie skompilować aplikację ze źródeł, ponieważ starsze paczki zbudowane pod FFmpeg 7/8 będą powodować konflikty symboli ABI i błędy dekodowania.
+> **Uwaga (FFmpeg 9):** Paczka jest w pełni kompatybilna z bibliotekami FFmpeg 9 (`libavutil.so.61`) oraz nowoczesnymi środowiskami Arch Linux / CachyOS.
 
 ### Ręczna kompilacja (ze źródeł)
 Jeśli zamiast gotowej paczki chcesz skompilować program ręcznie (np. na innej dystrybucji Linuksa):
