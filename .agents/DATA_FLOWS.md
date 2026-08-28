@@ -1,155 +1,164 @@
-# KVision Data Flows & Lifecycles
+# KVision Data Flows & Execution Lifecycles
 
-This document details the main data paths and execution lifecycles within KVision.
-
----
-
-## 1. Live Video Streaming Flow
-
-```
-+------------------+       User selects / assigns camera
-|  ViewportsLayout | ----------------------------------------+
-+------------------+                                         |
-         |                                                   v
-         | Instantiates                              +---------------+
-         +-----------------------------------------> |  Player.qml   |
-                                                     +---------------+
-                                                             |
-                                      +----------------------+----------------------+
-                                      | (Mode A: RTSP / FFmpeg)                     | (Mode B: Native SDK)
-                                      v                                             v
-                              +---------------+                             +------------------+
-                              |  QmlAVPlayer  |                             | HikvisionPlayer  |
-                              +---------------+                             +------------------+
-                                      |                                             |
-                   +------------------+------------------+                          | NET_DVR_RealPlay_V40
-                   v                                     v                          v
-          +-----------------+                   +------------------+         +---------------+
-          |  QmlAVDemuxer   | (libavformat)     |   QmlAVDecoder   |         | HCNetSDK Core |
-          +-----------------+                   +------------------+         +---------------+
-                   |                                     |                          |
-                   +------------------+------------------+                          v
-                                      v                                      [ Direct Blit ]
-                             [ OpenGL Frame Buffer ]                                |
-                                      v                                             v
-                             [ Screen Display Item ] <------------------------------+
-```
-
-### Key Steps:
-1. **Assignment**: `ViewportsLayout.qml` loads the active grid from `ViewportsLayoutsCollectionModel`.
-2. **Player Selection**: Each tile creates `Player.qml`, which determines whether to stream via RTSP (using `QmlAVPlayer`) or direct SDK (`HikvisionPlayer`).
-3. **Demuxing & Decoding**: In RTSP mode, `QmlAVDemuxer` reads network packets into thread-safe queues, and `QmlAVDecoder` decodes them to YUV/RGB buffers.
-4. **Rendering**: Frames are rendered directly to the Qt Quick scene graph using OpenGL or `QQuickPaintedItem`.
+This document details the step-by-step lifecycles, state machines, and sequence protocols across the system.
 
 ---
 
-## 2. Archive Search & Playback Flow
+## 1. Live Video Streaming & Auto-Reconnect Lifecycle
 
 ```
-[ User opens PlaybackWindow ]
-          |
-          v
-[ Select Camera & Date ]
-          |
-          +---> [ HikvisionISAPI::searchRecordings() ]
-                         |
-                         v (HTTP Digest /ISAPI/ContentMgmt/search)
-                [ NVR returns XML/JSON recording segments ]
+[ User assigns camera to Player tile ]
+                   |
+                   v
+[ Player.qml: Selects primary player (qmlAvPlayer1) ]
+                   |
+                   v
+[ QmlAVPlayer::setSource(rtspUrl) ]
+                   |
+                   v
+[ QmlAVDemuxer::load() ] ---> Spawns QmlAVThread (m_loaderThread)
+                                       |
+                                       v
+                     [ avformat_open_input(dict) ]
+                                       |
+                   +-------------------+-------------------+
+                   | Success                               | Timeout / Failure (5000ms)
+                   v                                       v
+[ avformat_find_stream_info() ]             [ Emit mediaStatusChanged(InvalidMedia) ]
+                   |                                       |
+                   v                                       v
+[ QmlAVDemuxer::initDecoders() ]             [ Player.qml triggers reconnect timer ]
+                   |                                       |
+                   v                                       v
+[ QmlAVVideoDecoder::open() ]               [ Exponential backoff (1s, 2s, 5s) ]
+                   |                                       |
+                   v                                       v
+[ QmlAVDemuxer::start() ]                   [ Retries loading stream ]
+                   |
+                   v
++-------------------------------------------------------------+
+| Demuxer Loop: av_read_frame() -> Packet Queue (Limit 64)   |
+| Video Decoder: avcodec_send_packet() -> AVFrame (Limit 8)   |
+| Direct Blit: Frame -> VideoOutput (OpenGL Texture)          |
++-------------------------------------------------------------+
+```
+
+### Stream Switching & Smooth Transition:
+* `Player.qml` contains two instances: `qmlAvPlayer1` and `qmlAvPlayer2`.
+* When switching between Main Stream (high resolution) and Sub Stream (low resolution), the secondary player pre-loads and buffers the new stream behind the scenes.
+* Once the first decoded frame is presented (`framePresentedChanged`), visibility toggles instantly without a black frame.
+
+---
+
+## 2. Archive Search & Playback Synchronization Flow
+
+```
+1. Search Phase:
+[ PlaybackWindow.qml ] 
+        |
+        v
+[ HikvisionISAPI::searchMonthAvailability() ] ---> Queries HTTP /ISAPI/ContentMgmt/search
+        |                                           Marks active calendar dates with dots
+        v
+[ HikvisionISAPI::searchRecordings(start, end) ]
+        |
+        v
+[ NVR returns XML CMSearchDescription response with recording spans ]
+        |
+        v
+[ Segments parsed into QVariantList -> Timeline Bar renders colored blocks ]
+
+2. Playback Phase:
+[ User clicks point on Timeline Bar (QDateTime) ]
+        |
+        v
+[ HikvisionArchivePlayer::playAtTime(targetTime) ]
+        |
+        +---> [ HikvisionManager::loginShared() ] (Reuses cached lUserID)
+        |
+        v
+[ NET_DVR_PlayBackByTime_V40(lUserID, realSdkChannel, &startTime, &stopTime) ]
+        |
+        v Returns lPlayHandle
++-------+-----------------------------------------------------+
+| SDK Internal Playback Pipeline:                             |
+| 1. Stream Packets arrive in PlayDataCallBack()              |
+| 2. Decoded YV12 frames arrive in DecCallBack()              |
+| 3. FrameBufferPool provides pre-allocated buffer memory     |
+| 4. YV12ToRGBTask converts YV12 -> RGB32 in worker thread    |
+| 5. QMetaObject::invokeMethod() schedules paint on GUI thread|
+| 6. Audio samples in AudioCallBack() forwarded to QAudioOutput|
++-------------------------------------------------------------+
+```
+
+---
+
+## 3. Video Clip Export & Download Flow
+
+```
+[ User selects Time Interval in DownloadDialog.qml ]
                          |
                          v
-                [ Segments parsed & sent to QML ]
+[ HikvisionDownloader::startDownload(recorderInfo, ch, start, end, targetFile) ]
                          |
                          v
-                [ Timeline Bar renders colored recording spans ]
-                         |
-                         v User clicks time / presses Play
-                [ HikvisionArchivePlayer::playAtTime(QDateTime) ]
-                         |
-                         +---> [ HikvisionManager::loginShared() ]
+[ Calculates realSdkChannel using byStartDChan formula ]
                          |
                          v
-                [ NET_DVR_PlayBackByTime_V40() ]
+[ Queries recording segments in range via NET_DVR_FindFile_V40 ]
                          |
-       +-----------------+-----------------+
-       | Stream Callbacks                 | Audio Callbacks
-       v                                  v
- [ PlayDataCallBack() ]            [ AudioCallBack() ]
-       |                                  |
-       v                                  v
- [ DecCallBack() ] (YV12 frame)     [ QAudioOutput ] (PCM Sound)
-       |
-       v
- [ FrameBufferPool & YV12ToRGBTask ] (Worker thread)
-       |
-       v
- [ QQuickPaintedItem::paint() ] (Screen rendering)
-```
-
-### Key Steps:
-1. **Segment Search**: `HikvisionISAPI` queries the NVR for available video chunks across 24 hours.
-2. **Timeline Rendering**: Segments are bound to the QML timeline bar component for visual navigation.
-3. **Shared Session Playback**: `HikvisionArchivePlayer` uses `HikvisionManager::loginShared()` to prevent opening redundant connections to the NVR.
-4. **Zero-Allocation Conversion**: Decoded YV12 video frames are processed via `FrameBufferPool` to prevent heap fragmentation.
-5. **Audio-Video Synchronization**: Audio samples are forwarded via `AudioCallBack` directly into `QAudioOutput`.
-
----
-
-## 3. Video Download & Export Flow
-
-```
-[ User selects Time Range in DownloadDialog.qml ]
-                    |
-                    v
-[ HikvisionDownloader::startDownload(recorderInfo, ch, start, end, targetPath) ]
-                    |
-                    v
-[ Splits requested range into NVR-supported download segments ]
-                    |
-                    v (Loop over segments)
-[ NET_DVR_GetFileByTime_V40() -> Saves raw stream to /tmp/kvision_*.mp4 ]
-                    |
-                    v (Progress timer checks download percentage)
-[ Raw stream download completes ]
-                    |
-                    v
-[ Spawns background QProcess: "ffmpeg -y -i input.mp4 -c copy final.mp4" ]
-                    |
-                    v
-[ Emits downloadFinished(success, message) & Cleans temp files ]
+                         v (Iterates matching segments)
+[ NET_DVR_GetFileByTime_V40() -> Saves raw stream chunks to /tmp/kvision_download_*.mp4 ]
+                         |
+                         v (Progress Timer polls NET_DVR_GetDownloadPos every 500ms)
+[ Raw chunk download completes (100%) ]
+                         |
+                         v
+[ Spawns background QProcess: "ffmpeg -y -i raw.mp4 -c copy final.mp4" ]
+                         |
+                         v
+[ FFmpeg process exits (code 0) ]
+                         |
+                         v
+[ Removes temporary /tmp files & emits downloadFinished(true, "Completed") ]
 ```
 
 ---
 
-## 4. NVR Health & Status Diagnostic Loop
+## 4. NVR Health Diagnostic Loop
 
 ```
 +-------------------------------------------------------------+
-|           NvrStatusManager (Background Timer / 60s)         |
+|        NvrStatusManager (Triggered every 60s or checkNow)   |
 +-------------------------------------------------------------+
                                |
                                v
                [ Spawns NvrStatusWorker in QThread ]
                                |
-                               +---> Iterates configured NVRs
+                               v
+            [ Iterates configured NVRs in recordersJson ]
+                               |
+                               +---> [ HikvisionManager::getSession() ]
                                |
                                v
-               [ NET_DVR_GetDVRConfig / NET_DVR_GET_WORK_STATUS ]
+            [ NET_DVR_GetDVRWorkState_V30(lUserID, &workState) ]
                                |
-             +-----------------+-----------------+
-             | Check items                       |
-             v                                   v
-   [ HDD Status: Full / Error ]         [ CPU & Network Load ]
-   [ Unformatted Disks ]                [ Offline Channels / Cameras ]
-             |                                   |
-             +-----------------+-----------------+
+        +----------------------+----------------------+
+        | Check Conditions                            |
+        v                                             v
+[ dwDeviceStatic == 1 ] (CPU Overload)      [ dwHardDiskStatic in (2,3,5,8) ] (HDD Error)
+[ dwDeviceStatic == 2 ] (Hardware Error)    [ dwHardDiskStatic == 4 ] (Unformatted)
+[ lUserID < 0 ] (NVR Offline)               [ dwHardDiskStatic == 7 ] (HDD Full)
+        |                                             |
+        +----------------------+----------------------+
                                v
-               [ Collects raw errors list ]
-                               |
+              [ Aggregates raw error list ]
                                v
-               [ Applies user Muting filters ]
-                               |
+       [ Applies mutedRecorders filter (User suppressed NVRs) ]
                                v
-         [ Emits errorsChanged() & Updates UI Status Badge ]
+              [ Emits finished(errors, checkedRecorders) ]
+                               v
+            [ GUI updates warning badge in ToolBar ]
 ```
 
 ---
@@ -157,24 +166,32 @@ This document details the main data paths and execution lifecycles within KVisio
 ## 5. Multi-Process Configuration Synchronization
 
 ```
-+-----------------------------+               +-----------------------------+
-|     Window A (Main GUI)     |               |   Window B (Auxiliary GUI)  |
-+-----------------------------+               +-----------------------------+
-               |                                             ^
-  User saves setting or layout                               |
-               |                                             |
-               v                                             |
-   [ QSettings::setValue() ]                                 |
-               |                                             |
-               v                                             |
-   [ QSettings::sync() ]                                     |
-               |                                             |
-               v Writes to disk                              |
-    ~/.config/KVision/KVision.conf                           |
-               |                                             |
-               | Linux inotify event                         |
-               v                                             |
-   [ QFileSystemWatcher ] -----------------------------------+
-                                   Triggers onConfigFileChanged()
-                                   Reloads QSettings cache & models
++--------------------------------+                  +--------------------------------+
+|    Window A (Primary GUI)      |                  |   Window B (Auxiliary GUI)     |
++--------------------------------+                  +--------------------------------+
+                |                                                   |
+  User modifies layout or NVR                                       |
+                |                                                   |
+                v                                                   |
+    [ Context::writeSetting() ]                                     |
+                |                                                   |
+                v                                                   |
+      [ QSettings::sync() ]                                         |
+                |                                                   |
+                v Flushes to disk                                   |
+    ~/.config/KVision/KVision.conf                                  |
+                |                                                   |
+                +-------------------------+-------------------------+
+                                          |
+                                          v (Linux inotify kernel event)
+                               [ QFileSystemWatcher ]
+                                          |
+                                          v Emits fileChanged()
+                             [ Context::configFileChanged ]
+                                          |
+                                          +---------------------------------+
+                                          |                                 |
+                                          v                                 v
+                             [ Reloads QSettings Cache ]       [ Reloads QSettings Cache ]
+                             [ Updates Active Layouts ]        [ Updates Active Layouts ]
 ```
