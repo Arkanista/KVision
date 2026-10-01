@@ -183,6 +183,21 @@ Jeśli KVision łączy się z rejestratorem i poprawnie pobiera nazwy/listę kam
    ```
    Jeśli `ffplay` z flagą `-rtsp_transport tcp` poprawnie wyświetla obraz, a KVision ma czarny ekran – przyczyną jest brak wtyczki `libqt5multimedia5-plugins`.
 
+5. **Lokalny test za pomocą wbudowanego symulatora NVR:**
+   Aby całkowicie wykluczyć problemy z routerem, przekierowaniem portów (NAT), zaporą sieciową lub fizycznym urządzeniem, możesz uruchomić lokalny symulator rejestratora Hikvision:
+   ```bash
+   python3 tools/mock_hikvision_server.py --http-port 17080 --rtsp-port 17554
+   ```
+   Następnie w KVision dodaj rejestrator o parametrach:
+   * **IP:** `127.0.0.1`
+   * **Port HTTP:** `17080`
+   * **Port RTSP:** `17554`
+   * **Użytkownik:** `admin`
+   * **Hasło:** `12345`
+   * **Transport RTSP:** `TCP`
+   
+   Kliknij **„Wykryj kamery”** i zapisz. Jeśli w siatce pojawią się plansze testowe z zegarem czasu rzeczywistego, oznacza to, że KVision oraz obsługa niestandardowych portów działają na Twoim komputerze bez zarzutu, a problem z fizycznym NVR leży po stronie sieci lub ustawień urządzenia.
+
 ### Rozwiązywanie problemów ze skalowaniem (KDE Plasma)
 
 Począwszy od wersji 2.4.4, KVision automatycznie wykrywa i poprawnie stosuje ułamkowe skalowanie pulpitu (np. 125%, 145%, 150%) skonfigurowane w ustawieniach KDE Plasma. Interfejs użytkownika powinien teraz skalować się poprawnie i natywnie, bez konieczności ręcznej interwencji.

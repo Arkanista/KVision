@@ -185,6 +185,21 @@ If KVision connects to your NVR, retrieves the camera names, but the video feeds
    ```
    If `ffplay` streams video properly with `-rtsp_transport tcp`, but KVision displays a black screen, verify that `libqt5multimedia5-plugins` is installed.
 
+5. **Isolate Network/Router vs Local Issues using the Mock NVR Server:**
+   You can run a local simulated Hikvision NVR to test streaming and custom ports in a completely isolated environment (no external network, router, or physical NVR needed):
+   ```bash
+   python3 tools/mock_hikvision_server.py --http-port 17080 --rtsp-port 17554
+   ```
+   Then in KVision, add a new NVR with:
+   * **IP:** `127.0.0.1`
+   * **HTTP Port:** `17080`
+   * **RTSP Port:** `17554`
+   * **Username:** `admin`
+   * **Password:** `12345`
+   * **RTSP Transport:** `TCP`
+   
+   Click **"Discover Cameras"** and add. If video plays with the mock server, KVision and custom port handling are functioning properly on your system, and any streaming failure with your real NVR is due to network/NAT/firewall routing or physical device configuration.
+
 ### Troubleshooting System Scaling (KDE Plasma)
 
 Starting from version 2.4.4, KVision automatically detects and correctly applies fractional desktop scaling (e.g., 125%, 145%, 150%) configured in KDE Plasma settings by enforcing native High DPI pass-through policies in Qt. The user interface should now scale correctly out-of-the-box without any manual intervention.
