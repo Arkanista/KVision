@@ -1,6 +1,12 @@
 # KVision
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Donate-yellow.svg?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/arkanis)
+
+<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
+
+> [!TIP]
+> **Support KVision:** If you find this software useful and enjoy using it, you can support its development by [buying me a coffee](https://buymeacoffee.com/arkanis)! ☕
 
 > [!IMPORTANT]
 > **Important Disclaimer & User Information:**

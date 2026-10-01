@@ -1,5 +1,10 @@
 # Instrukcja Obsługi programu KVision
 
+<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
+
+> [!TIP]
+> **Wsparcie projektu:** Jeśli program KVision jest dla Ciebie przydatny i podoba Ci się wykonana praca, możesz wesprzeć rozwój projektu [stawiając mi kawę](https://buymeacoffee.com/arkanis)! ☕
+
 > [!NOTE]
 > Ta instrukcja obsługi została przygotowana, sformatowana i przetłumaczona przy użyciu sztucznej inteligencji (AI).
 

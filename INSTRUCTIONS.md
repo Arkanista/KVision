@@ -1,5 +1,10 @@
 # User Manual for KVision
 
+<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
+
+> [!TIP]
+> **Support KVision:** If you find this software useful and enjoy using it, you can support its development by [buying me a coffee](https://buymeacoffee.com/arkanis)! ☕
+
 > [!NOTE]
 > This instruction manual has been automatically translated and formatted with the assistance of Artificial Intelligence (AI).
 
