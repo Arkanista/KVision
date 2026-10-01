@@ -114,11 +114,74 @@ Jeśli zamiast gotowej paczki chcesz skompilować program ręcznie (np. na innej
    sudo cmake --install build
    ```
 
+### Instalacja na Ubuntu / Debian (oraz pochodnych)
+
+#### Opcja A: Szybki skrypt instalacyjny (Zalecane)
+Możesz skompilować i zainstalować KVision ze wszystkimi zależnościami jednym poleceniem przy użyciu dołączonego skryptu:
+```bash
+git clone --recurse-submodules https://github.com/Arkanista/KVision.git
+cd KVision
+./tools/install_ubuntu.sh
+```
+
+#### Opcja B: Ręczna instalacja krok po kroku
+1. Włącz repozytorium `universe` (wymagane na Ubuntu 22.04 / 24.04 dla pakietów multimedialnych Qt5) i zainstaluj pakiety:
+   ```bash
+   sudo add-apt-repository -y universe
+   sudo apt update
+   sudo apt install -y cmake build-essential git ffmpeg \
+     qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev \
+     libqt5svg5-dev libqt5multimedia5-plugins qttools5-dev libgtest-dev libva-dev \
+     libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavdevice-dev \
+     qml-module-qtgraphicaleffects qml-module-qtquick-controls2 \
+     qml-module-qtquick-layouts qml-module-qtmultimedia \
+     qml-module-qt-labs-platform qml-module-qt-labs-settings \
+     qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qtwayland5
+   ```
+2. Skonfiguruj i skompiluj projekt:
+   ```bash
+   cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+   cmake --build build -j$(nproc)
+   ```
+3. Zainstaluj w systemie:
+   ```bash
+   sudo cmake --install build
+   ```
+
 ### Uruchamianie
 Program można uruchomić z menu systemowego lub wpisując w terminalu:
 ```bash
 kvision
 ```
+
+### 🔧 Rozwiązywanie problemów: Podgląd na żywo i strumienie wideo (Ubuntu / Debian)
+
+#### Kamery zostały wykryte, ale w kafelkach widnieje czarny ekran lub wykrzyknik
+Jeśli KVision łączy się z rejestratorem i poprawnie pobiera nazwy/listę kamer, ale obraz wideo się nie wyświetla:
+
+1. **Brakujące wtyczki odtwarzacza QtMultimedia w Ubuntu:**
+   Upewnij się, że w systemie zainstalowane są wtyczki runtime modułu QtMultimedia:
+   ```bash
+   sudo apt update
+   sudo apt install -y libqt5multimedia5-plugins qml-module-qtmultimedia
+   ```
+   Bez pakietu `libqt5multimedia5-plugins` silnik `VideoOutput` środowiska Qt Quick nie jest w stanie wyrenderować zdekodowanych klatek na ekranie.
+
+2. **Protokół transportu RTSP (blokowanie pakietów UDP):**
+   Domyślnie negocjacja strumienia RTSP może próbować protokołu UDP. Większość domowych i firmowych routerów (zwłaszcza z przekierowaniem portów / NAT) oraz wiele rejestratorów Hikvision blokuje pakiety UDP.
+   * W KVision otwórz **Ustawienia NVR** (ikona zębatki na pasku bocznym) i przejdź do edycji rejestratora.
+   * Zmień pole **Transport RTSP** z `Auto` lub `UDP` na **`TCP`**.
+
+3. **Konieczność pełnej instalacji (`sudo cmake --install build`):**
+   Nie uruchamiaj programu bezpośrednio z katalogu `build/` bez wcześniejszej instalacji. Polecenie `sudo cmake --install build` umieszcza biblioteki Hikvision SDK w systemowej ścieżce wieloarchitekturowej (`/usr/lib/x86_64-linux-gnu/kvision`), co jest niezbędne do poprawnego działania odtwarzacza archiwum.
+
+4. **Test strumienia poza KVision:**
+   Możesz zweryfikować dostępność strumienia RTSP w swoim systemie, wpisując w konsoli:
+   ```bash
+   ffplay -rtsp_transport tcp "rtsp://UZYTKOWNIK:HASLO@IP:PORT/Streaming/Channels/101"
+   ```
+   Jeśli `ffplay` z flagą `-rtsp_transport tcp` poprawnie wyświetla obraz, a KVision ma czarny ekran – przyczyną jest brak wtyczki `libqt5multimedia5-plugins`.
 
 ### Rozwiązywanie problemów ze skalowaniem (KDE Plasma)
 
