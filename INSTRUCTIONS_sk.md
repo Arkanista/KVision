@@ -1,5 +1,10 @@
 # Používateľská príručka pre KVision
 
+<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
+
+> [!TIP]
+> **Podporte projekt:** Ak je pre vás KVision užitočný a softvér sa vám páči, môžete podporiť jeho vývoj tým, že [mi kúpite kávu](https://buymeacoffee.com/arkanis)! ☕
+
 > [!POZNÁMKA]
 > Tento návod na použitie bol automaticky preložený a naformátovaný s pomocou umelej inteligencie (AI).
 
@@ -116,11 +121,90 @@ Ak chcete program skompilovať manuálne (napr. v inej distribúcii Linuxu) nami
    sudo cmake --install build
    ```
 
+
+### Inštalácia na Ubuntu / Debian (a derivátoch)
+
+#### Možnosť A: Rýchly automatický inštalátor (Odporúčané)
+KVision môžete skompilovať a nainštalovať so všetkými závislosťami v jedinom kroku pomocou priloženého skriptu:
+```bash
+git clone --recurse-submodules https://github.com/Arkanista/KVision.git
+cd KVision
+./tools/install_ubuntu.sh
+```
+
+#### Možnosť B: Manuálna inštalácia krok za krokom
+1. Povoľte repozitár `universe` (vyžadované na Ubuntu 22.04 / 24.04 pre balíky multimédií Qt5) a nainštalujte závislosti:
+   ```bash
+   sudo add-apt-repository -y universe
+   sudo apt update
+   sudo apt install -y cmake build-essential git ffmpeg \
+     qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev \
+     libqt5svg5-dev libqt5multimedia5-plugins qttools5-dev libgtest-dev libva-dev \
+     libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavdevice-dev \
+     qml-module-qtgraphicaleffects qml-module-qtquick-controls2 \
+     qml-module-qtquick-layouts qml-module-qtmultimedia \
+     qml-module-qt-labs-platform qml-module-qt-labs-settings \
+     qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qtwayland5
+   ```
+2. Nakonfigurujte a skompilujte projekt:
+   ```bash
+   cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+   cmake --build build -j$(nproc)
+   ```
+3. Nainštalujte do systému:
+   ```bash
+   sudo cmake --install build
+   ```
+
 ### Spustenie
 Program je možné spustiť zo systémovej ponuky alebo zadaním do terminálu:
 ```bash
 kvision
 ```
+
+### 🔧 Riešenie problémov: Video streamy a inštalácia na Ubuntu
+
+#### Kamery sú detegované, ale v živom náhľade je čierna obrazovka alebo výkričník
+Ak sa KVision pripojí k vášmu NVR a načíta názvy kamier, ale video streamy sa neprehrávajú:
+
+1. **Chýbajúce runtime pluginy QtMultimedia (Ubuntu/Debian):**
+   Uistite sa, že sú nainštalované runtime multimediálne pluginy:
+   ```bash
+   sudo apt update
+   sudo apt install -y libqt5multimedia5-plugins qml-module-qtmultimedia
+   ```
+   Bez balíka `libqt5multimedia5-plugins` nedokáže vykresľovacie jadro `VideoOutput` v Qt Quick zobraziť dekódované snímky videa na obrazovke.
+
+2. **Transportný protokol RTSP (Strata paketov UDP):**
+   V predvolenom nastavení môže vyjednávanie streamu RTSP skúsiť UDP. Väčšina firewallov, smerovačov s presmerovaním portov (NAT) a zariadení Hikvision pakety UDP zahadzuje.
+   * V KVision otvorte **Nastavenia NVR** (ikona ozubeného kolieska) a upravte svoj rekordér.
+   * Zmeňte **RTSP Transport** na **`TCP`** (namiesto Auto alebo UDP).
+
+3. **Uistite sa, že prebehla úplná inštalácia (`sudo cmake --install build`):**
+   Nespúšťajte binárny súbor priamo z priečinka `build/` bez inštalácie. Príkaz `sudo cmake --install build` nainštaluje binárne komponenty SDK Hikvision do systémovej cesty multi-arch (`/usr/lib/x86_64-linux-gnu/kvision`), čo je nevyhnutné na vyhľadanie knižníc prehrávania.
+
+4. **Overenie streamu RTSP mimo KVision:**
+   Dostupnosť streamu RTSP vašej kamery môžete otestovať spustením v termináli:
+   ```bash
+   ffplay -rtsp_transport tcp "rtsp://POUZIVATEL:HESLO@IP:PORT/Streaming/Channels/101"
+   ```
+   Ak `ffplay` s voľbou `-rtsp_transport tcp` prehráva video správne, ale KVision zobrazuje čiernu obrazovku, skontrolujte inštaláciu `libqt5multimedia5-plugins`.
+
+5. **Izolácia problémov so sieťou/smerovačom pomocou testovacieho servera Mock NVR:**
+   Môžete spustiť lokálny simulátor Hikvision NVR a otestovať streamovanie aj vlastné porty v úplne izolovanom prostredí (bez potreby externej siete, smerovača alebo fyzického NVR):
+   ```bash
+   python3 tools/mock_hikvision_server.py --http-port 17080 --rtsp-port 17554
+   ```
+   Potom v KVision pridajte nový NVR s parametrami:
+   * **IP:** `127.0.0.1`
+   * **Port HTTP:** `17080`
+   * **Port RTSP:** `17554`
+   * **Používateľské meno:** `admin`
+   * **Heslo:** `12345`
+   * **RTSP Transport:** `TCP`
+   
+   Kliknite na **„Vyhľadať kamery“** a uložte. Ak sa video s testovacím serverom prehráva, KVision aj obsluha portov na vašom počítači fungujú správne a problém s vaším reálnym NVR je spôsobený smerovaním v sieti/NAT/firewallom alebo nastavením fyzického zariadenia.
 
 ### Riešenie problémov so škálovaním systému (KDE Plasma)
 

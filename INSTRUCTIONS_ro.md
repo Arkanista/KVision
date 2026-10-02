@@ -1,5 +1,10 @@
 # Manual de utilizare pentru KVision
 
+<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
+
+> [!TIP]
+> **Susține proiectul:** Dacă găsești util KVision și îți place aplicația, poți susține dezvoltarea acesteia [cumpărându-mi o cafea](https://buymeacoffee.com/arkanis)! ☕
+
 > [!NOTĂ]
 > Acest manual de instrucțiuni a fost tradus și formatat automat cu ajutorul Inteligenței Artificiale (AI).
 
@@ -116,11 +121,90 @@ Dacă doriți să compilați programul manual (de exemplu, pe o altă distribuț
    sudo cmake --install build
    ```
 
+
+### Instalare pe Ubuntu / Debian (și derivate)
+
+#### Opțiunea A: Instalator automat rapid (Recomandat)
+Puteți compila și instala KVision cu toate dependențele într-un singur pas folosind scriptul inclus:
+```bash
+git clone --recurse-submodules https://github.com/Arkanista/KVision.git
+cd KVision
+./tools/install_ubuntu.sh
+```
+
+#### Opțiunea B: Instalare manuală pas cu pas
+1. Activați depozitul `universe` (necesar pe Ubuntu 22.04 / 24.04 pentru pachetele multimedia Qt5) și instalați dependențele:
+   ```bash
+   sudo add-apt-repository -y universe
+   sudo apt update
+   sudo apt install -y cmake build-essential git ffmpeg \
+     qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev \
+     libqt5svg5-dev libqt5multimedia5-plugins qttools5-dev libgtest-dev libva-dev \
+     libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavdevice-dev \
+     qml-module-qtgraphicaleffects qml-module-qtquick-controls2 \
+     qml-module-qtquick-layouts qml-module-qtmultimedia \
+     qml-module-qt-labs-platform qml-module-qt-labs-settings \
+     qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qtwayland5
+   ```
+2. Configurați și compilați proiectul:
+   ```bash
+   cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+   cmake --build build -j$(nproc)
+   ```
+3. Instalați în sistem:
+   ```bash
+   sudo cmake --install build
+   ```
+
 ### Lansare
 Programul poate fi lansat din meniul de sistem sau tastând în terminal:
 ```bash
 kvision
 ```
+
+### 🔧 Depanare: Fluxuri video și configurare Ubuntu
+
+#### Camerele sunt descoperite, dar Live View afișează un ecran negru sau un semn de exclamare
+Dacă KVision se conectează la NVR și preia numele camerelor, dar fluxurile video nu pornesc:
+
+1. **Lipsesc pluginurile de runtime QtMultimedia (Ubuntu/Debian):**
+   Asigurați-vă că pluginurile multimedia sunt instalate:
+   ```bash
+   sudo apt update
+   sudo apt install -y libqt5multimedia5-plugins qml-module-qtmultimedia
+   ```
+   Fără `libqt5multimedia5-plugins`, motorul `VideoOutput` din Qt Quick nu poate reda cadrele video decodificate pe ecran.
+
+2. **Protocolul de transport RTSP (Pachete UDP blocate):**
+   În mod implicit, negocierea fluxului RTSP poate încerca UDP. Majoritatea firewall-urilor, ruterelor cu redirecționare de porturi (NAT) și dispozitivelor Hikvision blochează pachetele UDP.
+   * În KVision, deschideți **Setări NVR** (pictograma roată dințată) și editați recorderul.
+   * Schimbați **Transport RTSP** la **`TCP`** (în loc de Auto sau UDP).
+
+3. **Asigurați instalarea completă (`sudo cmake --install build`):**
+   Nu rulați binarul direct din folderul `build/` fără instalare. Rularea comenzii `sudo cmake --install build` instalează componentele SDK Hikvision în calea multi-arch a sistemului (`/usr/lib/x86_64-linux-gnu/kvision`), necesară pentru funcțiile de redare și arhivă.
+
+4. **Verificați fluxul RTSP în afara KVision:**
+   Puteți verifica dacă fluxul RTSP este accesibil pe sistem rulând în terminal:
+   ```bash
+   ffplay -rtsp_transport tcp "rtsp://UTILIZATOR:PAROLA@IP:PORT/Streaming/Channels/101"
+   ```
+   Dacă `ffplay` redă corect cu `-rtsp_transport tcp`, dar KVision afișează ecran negru, verificați prezența `libqt5multimedia5-plugins`.
+
+5. **Izolarea problemelor de rețea/router cu serverul de test Mock NVR:**
+   Puteți rula un simulator local de NVR Hikvision pentru a testa redarea și porturile personalizate într-un mediu complet izolat (fără rețea externă, router sau NVR fizic):
+   ```bash
+   python3 tools/mock_hikvision_server.py --http-port 17080 --rtsp-port 17554
+   ```
+   Apoi în KVision adăugați un nou NVR cu:
+   * **IP:** `127.0.0.1`
+   * **Port HTTP:** `17080`
+   * **Port RTSP:** `17554`
+   * **Utilizator:** `admin`
+   * **Parolă:** `12345`
+   * **Transport RTSP:** `TCP`
+   
+   Faceți clic pe **„Descoperă camere”** și salvați. Dacă fluxul se afișează cu serverul de test, KVision și gestionarea porturilor funcționează perfect, iar problema provine din rețea/NAT/firewall sau din setările NVR-ului fizic.
 
 ### Depanarea la scalarea sistemului (KDE Plasma)
 

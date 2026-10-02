@@ -1,5 +1,10 @@
 # KVision felhasználói kézikönyv
 
+<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
+
+> [!TIP]
+> **Támogasd a projektet:** Ha hasznosnak találod a KVisiont és tetszik a szoftver, támogathatod a fejlesztését azzal, hogy [meghívsz egy kávéra](https://buymeacoffee.com/arkanis)! ☕
+
 > [!MEGJEGYZÉS]
 > Ezt a használati útmutatót a mesterséges intelligencia (AI) segítségével automatikusan lefordították és formázták.
 
@@ -116,11 +121,90 @@ Ha manuálisan szeretné lefordítani a programot (például egy másik Linux di
    sudo cmake --install build
    ```
 
+
+### Telepítés Ubuntu / Debian (és származékai) rendszerekre
+
+#### „A” lehetőség: Gyors automatikus telepítő (Ajánlott)
+A KVisiont és minden függőségét egyetlen lépésben lefordíthatja és telepítheti a mellékelt szkripttel:
+```bash
+git clone --recurse-submodules https://github.com/Arkanista/KVision.git
+cd KVision
+./tools/install_ubuntu.sh
+```
+
+#### „B” lehetőség: Kézi telepítés lépésről lépésre
+1. Engedélyezze a `universe` tárolót (Ubuntu 22.04 / 24.04 alatt szükséges a Qt5 multimédiás csomagokhoz), és telepítse a függőségeket:
+   ```bash
+   sudo add-apt-repository -y universe
+   sudo apt update
+   sudo apt install -y cmake build-essential git ffmpeg \
+     qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev \
+     libqt5svg5-dev libqt5multimedia5-plugins qttools5-dev libgtest-dev libva-dev \
+     libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavdevice-dev \
+     qml-module-qtgraphicaleffects qml-module-qtquick-controls2 \
+     qml-module-qtquick-layouts qml-module-qtmultimedia \
+     qml-module-qt-labs-platform qml-module-qt-labs-settings \
+     qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qtwayland5
+   ```
+2. Konfigurálja és fordítsa le a projektet:
+   ```bash
+   cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+   cmake --build build -j$(nproc)
+   ```
+3. Telepítse a rendszerbe:
+   ```bash
+   sudo cmake --install build
+   ```
+
 ### Indítás
-A program elindítható a rendszermenüből vagy a terminálba begépelve:
+A program elindítható a rendszermenüből vagy a terminálba beírva:
 ```bash
 kvision
 ```
+
+### 🔧 Hibaelhárítás: Videófolyamok és Ubuntu beállítás
+
+#### A kamerákat felismeri, de az élő nézetben fekete képernyő vagy felkiáltójel látható
+Ha a KVision csatlakozik az NVR-hez és lekéri a kameraneveket, de a videók nem indulnak el:
+
+1. **Hiányzó QtMultimedia futásidejű beépülő modulok (Ubuntu/Debian):**
+   Győződjön meg arról, hogy a multimédiás futásidejű modulok telepítve vannak:
+   ```bash
+   sudo apt update
+   sudo apt install -y libqt5multimedia5-plugins qml-module-qtmultimedia
+   ```
+   A `libqt5multimedia5-plugins` nélkül a Qt Quick `VideoOutput` motorja nem képes megjeleníteni a dekódolt videokockákat a képernyőn.
+
+2. **RTSP átviteli protokoll (UDP csomagvesztés):**
+   Alapértelmezés szerint az RTSP-folyam egyeztetése UDP-vel próbálkozhat. A legtöbb hálózati tűzfal, porttovábbítással (NAT) rendelkező útválasztó és Hikvision eszköz eldobja az UDP-csomagokat.
+   * A KVisionben nyissa meg az **NVR beállítások** menüt (fogaskerék ikon), és szerkessze a rögzítőt.
+   * Állítsa az **RTSP átvitel** értékét **`TCP`**-re (az Auto vagy UDP helyett).
+
+3. **Gondoskodjon a teljes telepítésről (`sudo cmake --install build`):**
+   Ne futtassa a bináris fájlt közvetlenül a `build/` mappából telepítés nélkül. A `sudo cmake --install build` parancs futtatásával a Hikvision SDK bináris összetevői a rendszer többarchitektúrás könyvtárába (`/usr/lib/x86_64-linux-gnu/kvision`) kerülnek, amely szükséges a lejátszó függvényekhez.
+
+4. **RTSP-folyam ellenőrzése a KVisionön kívül:**
+   A kamera RTSP-folyamának elérhetőségét a terminálban tesztelheti:
+   ```bash
+   ffplay -rtsp_transport tcp "rtsp://FELHASZNALO:JELSZO@IP:PORT/Streaming/Channels/101"
+   ```
+   Ha az `ffplay` megfelelően közvetíti a videót a `-rtsp_transport tcp` opcióval, de a KVision fekete képernyőt mutat, ellenőrizze, hogy a `libqt5multimedia5-plugins` telepítve van-e.
+
+5. **Hálózati/útválasztó problémák elkülönítése a Mock NVR szerverrel:**
+   Futtathat egy helyi szimulált Hikvision NVR-t a közvetítés és az egyéni portok teszteléséhez teljesen izolált környezetben (külső hálózat, útválasztó vagy fizikai NVR nélkül):
+   ```bash
+   python3 tools/mock_hikvision_server.py --http-port 17080 --rtsp-port 17554
+   ```
+   Ezután a KVisionben adjon hozzá egy új NVR-t:
+   * **IP:** `127.0.0.1`
+   * **HTTP port:** `17080`
+   * **RTSP port:** `17554`
+   * **Felhasználónév:** `admin`
+   * **Jelszó:** `12345`
+   * **RTSP átvitel:** `TCP`
+   
+   Kattintson a **„Kamerák felderítése”** gombra, majd mentse el. Ha a tesztszerverrel működik a videó, akkor a KVision és a portkezelés hibátlanul működik a rendszerén, és a fizikai NVR-rel kapcsolatos hiba a hálózatban/NAT-ban/tűzfalban vagy magában az eszközben keresendő.
 
 ### Rendszerméretezési hibaelhárítás (KDE plazma)
 

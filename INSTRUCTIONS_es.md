@@ -1,5 +1,10 @@
 # Manual de usuario para KVision
 
+<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
+
+> [!TIP]
+> **Apoya el proyecto:** Si encuentras útil KVision y te gusta el software, ¡puedes apoyar su desarrollo [invitándome a un café](https://buymeacoffee.com/arkanis)! ☕
+
 > [!NOTA]
 > Este manual de instrucciones ha sido traducido y formateado automáticamente con la ayuda de Inteligencia Artificial (IA).
 
@@ -116,11 +121,90 @@ Si desea compilar el programa manualmente (por ejemplo, en otra distribución de
    sudo cmake --install build
    ```
 
+
+### Instalación en Ubuntu / Debian (y derivados)
+
+#### Opción A: Instalador automático rápido (Recomendado)
+Puede compilar e instalar KVision con todas las dependencias en un solo paso utilizando el script de configuración proporcionado:
+```bash
+git clone --recurse-submodules https://github.com/Arkanista/KVision.git
+cd KVision
+./tools/install_ubuntu.sh
+```
+
+#### Opción B: Instalación manual paso a paso
+1. Habilite el repositorio `universe` (requerido en Ubuntu 22.04 / 24.04 para paquetes multimedia Qt5) e instale las dependencias:
+   ```bash
+   sudo add-apt-repository -y universe
+   sudo apt update
+   sudo apt install -y cmake build-essential git ffmpeg \
+     qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev \
+     libqt5svg5-dev libqt5multimedia5-plugins qttools5-dev libgtest-dev libva-dev \
+     libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavdevice-dev \
+     qml-module-qtgraphicaleffects qml-module-qtquick-controls2 \
+     qml-module-qtquick-layouts qml-module-qtmultimedia \
+     qml-module-qt-labs-platform qml-module-qt-labs-settings \
+     qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qtwayland5
+   ```
+2. Configure y compile el proyecto:
+   ```bash
+   cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+   cmake --build build -j$(nproc)
+   ```
+3. Instale en el sistema:
+   ```bash
+   sudo cmake --install build
+   ```
+
 ### Lanzamiento
 El programa se puede iniciar desde el menú del sistema o escribiendo en la terminal:
 ```bash
 kvision
 ```
+
+### 🔧 Solución de problemas: Transmisiones de video y configuración en Ubuntu
+
+#### Las cámaras se detectan, pero Live View muestra una pantalla negra o un signo de exclamación
+Si KVision se conecta a su NVR y recupera los nombres de las cámaras, pero las transmisiones de video no se reproducen:
+
+1. **Faltan complementos en tiempo de ejecución de QtMultimedia (Ubuntu/Debian):**
+   Asegúrese de que los complementos multimedia estén instalados (son independientes de los encabezados de desarrollo):
+   ```bash
+   sudo apt update
+   sudo apt install -y libqt5multimedia5-plugins qml-module-qtmultimedia
+   ```
+   Sin `libqt5multimedia5-plugins`, el motor `VideoOutput` de Qt Quick no puede renderizar cuadros de video decodificados en la pantalla.
+
+2. **Protocolo de transporte RTSP (Pérdida de paquetes UDP):**
+   Por defecto, la negociación RTSP puede intentar UDP. La mayoría de los firewalls, enrutadores con reenvío de puertos (NAT) y dispositivos Hikvision descartan paquetes UDP.
+   * En KVision, abra **Configuración de NVR** (icono de engranaje) y edite su grabador.
+   * Cambie **Transporte RTSP** a **`TCP`** (en lugar de Auto o UDP).
+
+3. **Garantizar una instalación completa (`sudo cmake --install build`):**
+   No ejecute el binario directamente desde la carpeta `build/` sin instalarlo. La ejecución de `sudo cmake --install build` instala los componentes del SDK de Hikvision en la ruta multiarquitectura del sistema (`/usr/lib/x86_64-linux-gnu/kvision`), necesaria para que las funciones de reproducción y archivo localicen los renderizadores.
+
+4. **Verificar la transmisión RTSP fuera de KVision:**
+   Puede comprobar si la transmisión RTSP de su cámara es accesible en su sistema ejecutando:
+   ```bash
+   ffplay -rtsp_transport tcp "rtsp://USUARIO:CONTRASEÑA@IP:PUERTO/Streaming/Channels/101"
+   ```
+   Si `ffplay` transmite correctamente con `-rtsp_transport tcp`, pero KVision muestra una pantalla negra, asegúrese de tener instalado `libqt5multimedia5-plugins`.
+
+5. **Aislar problemas de red/enrutador frente a problemas locales mediante el servidor simulador NVR:**
+   Puede ejecutar un NVR Hikvision simulado local para probar la transmisión y los puertos personalizados en un entorno completamente aislado (sin red externa, enrutador ni NVR físico):
+   ```bash
+   python3 tools/mock_hikvision_server.py --http-port 17080 --rtsp-port 17554
+   ```
+   Luego en KVision, agregue un nuevo NVR con:
+   * **IP:** `127.0.0.1`
+   * **Puerto HTTP:** `17080`
+   * **Puerto RTSP:** `17554`
+   * **Usuario:** `admin`
+   * **Contraseña:** `12345`
+   * **Transporte RTSP:** `TCP`
+   
+   Haga clic en **"Descubrir cámaras"** y agregue. Si el video se reproduce con el servidor de prueba, KVision y el manejo de puertos funcionan correctamente en su sistema, y cualquier falla con su NVR real se debe al enrutamiento de red/NAT/firewall o a la configuración del dispositivo físico.
 
 ### Solución de problemas de escalado del sistema (KDE Plasma)
 

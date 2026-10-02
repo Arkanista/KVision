@@ -1,5 +1,10 @@
 # Brukerhåndbok for KVision
 
+<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
+
+> [!TIP]
+> **Støtt prosjektet:** Hvis du finner KVision nyttig og liker programvaren, kan du støtte utviklingen ved å [spandere en kaffe på meg](https://buymeacoffee.com/arkanis)! ☕
+
 > [!MERK]
 > Denne bruksanvisningen er automatisk oversatt og formatert ved hjelp av kunstig intelligens (AI).
 
@@ -116,11 +121,90 @@ Hvis du ønsker å kompilere programmet manuelt (f.eks. på en annen Linux-distr
    sudo cmake --install build
    ```
 
-### Lansering
-Programmet kan startes fra systemmenyen eller ved å skrive inn terminalen:
+
+### Installering på Ubuntu / Debian (og derivater)
+
+#### Alternativ A: Rask automatisk installasjon (Anbefalt)
+Du kan kompilere og installere KVision med alle avhengigheter i ett enkelt trinn ved å bruke det medfølgende skriptet:
+```bash
+git clone --recurse-submodules https://github.com/Arkanista/KVision.git
+cd KVision
+./tools/install_ubuntu.sh
+```
+
+#### Alternativ B: Manuell trinnvis installasjon
+1. Aktiver `universe`-arkivet (påkrevd på Ubuntu 22.04 / 24.04 for Qt5-mult mediepakker) og installer avhengigheter:
+   ```bash
+   sudo add-apt-repository -y universe
+   sudo apt update
+   sudo apt install -y cmake build-essential git ffmpeg \
+     qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev \
+     libqt5svg5-dev libqt5multimedia5-plugins qttools5-dev libgtest-dev libva-dev \
+     libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavdevice-dev \
+     qml-module-qtgraphicaleffects qml-module-qtquick-controls2 \
+     qml-module-qtquick-layouts qml-module-qtmultimedia \
+     qml-module-qt-labs-platform qml-module-qt-labs-settings \
+     qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qtwayland5
+   ```
+2. Konfigurer og kompiler prosjektet:
+   ```bash
+   cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+   cmake --build build -j$(nproc)
+   ```
+3. Installer i systemet:
+   ```bash
+   sudo cmake --install build
+   ```
+
+### Start
+Programmet kan startes fra systemmenyen eller ved å skrive i terminalen:
 ```bash
 kvision
 ```
+
+### 🔧 Feilsøking: Videostrømmer og Ubuntu-oppsett
+
+#### Kameraer oppdages, men Live View viser en svart skjerm eller et utropstegn
+Hvis KVision kobler til din NVR og henter kameranavnene, men videostrømmene ikke spilles av:
+
+1. **Manglende QtMultimedia runtime-plugins (Ubuntu/Debian):**
+   Sørg for at runtime-multimedieplugins er installert:
+   ```bash
+   sudo apt update
+   sudo apt install -y libqt5multimedia5-plugins qml-module-qtmultimedia
+   ```
+   Uten `libqt5multimedia5-plugins` kan ikke Qt Quicks `VideoOutput`-motor gjengi dekodede videobilder på skjermen.
+
+2. **RTSP-transportprotokoll (UDP-pakketap):**
+   Som standard kan RTSP-strømforhandling forsøke UDP. De fleste brannmurer, rutere med portvideresending (NAT) og Hikvision-enheter blokkerer UDP-pakker.
+   * I KVision åpner du **NVR-innstillinger** (tannhjulikonet) og redigerer opptakeren din.
+   * Sett **RTSP Transport** til **`TCP`** (i stedet for Auto eller UDP).
+
+3. **Sørg for full installasjon (`sudo cmake --install build`):**
+   Ikke kjør den binære filen direkte fra `build/`-mappen uten installasjon. Å kjøre `sudo cmake --install build` installerer Hikvision SDK-komponentene i systemets multi-arch-bane (`/usr/lib/x86_64-linux-gnu/kvision`), som kreves for avspillingsfunksjoner.
+
+4. **Bekreft RTSP-strøm utenfor KVision:**
+   Du kan bekrefte om kameraets RTSP-strøm er tilgjengelig ved å kjøre:
+   ```bash
+   ffplay -rtsp_transport tcp "rtsp://BRUKER:PASSORD@IP:PORT/Streaming/Channels/101"
+   ```
+   Hvis `ffplay` strømmer riktig med `-rtsp_transport tcp`, men KVision viser svart skjerm, sjekk at `libqt5multimedia5-plugins` er installert.
+
+5. **Isoler nettverks-/ruterproblemer med Mock NVR-serveren:**
+   Du kan kjøre en lokal simulert Hikvision NVR for å teste strømming og egendefinerte porter i et fullstendig isolert miljø:
+   ```bash
+   python3 tools/mock_hikvision_server.py --http-port 17080 --rtsp-port 17554
+   ```
+   Legg deretter til en ny NVR i KVision med:
+   * **IP:** `127.0.0.1`
+   * **HTTP-port:** `17080`
+   * **RTSP-port:** `17554`
+   * **Brukernavn:** `admin`
+   * **Passord:** `12345`
+   * **RTSP Transport:** `TCP`
+   
+   Klikk **"Oppdag kameraer"** og lagre. Hvis videoen spilles av med testserveren, fungerer KVision riktig, og problemet skyldes nettverk/NAT/brannmur eller den fysiske opptakeren.
 
 ### Feilsøking av systemskalering (KDE Plasma)
 

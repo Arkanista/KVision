@@ -1,5 +1,10 @@
 # KVisionin käyttöopas
 
+<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
+
+> [!TIP]
+> **Tue projektia:** Jos pidät KVisionia hyödyllisenä ja pidät ohjelmistosta, voit tukea sen kehitystä [ostamalla minulle kahvin](https://buymeacoffee.com/arkanis)! ☕
+
 > [!HUOM]
 > Tämä käyttöohje on käännetty ja muotoiltu automaattisesti tekoälyn (AI) avulla.
 
@@ -116,11 +121,90 @@ Jos haluat kääntää ohjelman manuaalisesti (esim. toisessa Linux-jakelussa) v
    sudo cmake --install build
    ```
 
-### Käynnistetään
-Ohjelma voidaan käynnistää järjestelmävalikosta tai kirjoittamalla terminaaliin:
+
+### Asennus Ubuntuun / Debianiin (ja johdannaisiin)
+
+#### Vaihtoehto A: Nopea automaattinen asennusohjelma (Suositus)
+Voit kääntää ja asentaa KVisionin kaikkine riippuvuuksineen yhdessä vaiheessa mukana toimitetulla komentosarjalla:
+```bash
+git clone --recurse-submodules https://github.com/Arkanista/KVision.git
+cd KVision
+./tools/install_ubuntu.sh
+```
+
+#### Vaihtoehto B: Manuaalinen vaiheittainen asennus
+1. Ota `universe`-pakettilähde käyttöön (vaaditaan Ubuntu 22.04 / 24.04:ssä Qt5-multimediapaketeille) ja asenna riippuvuudet:
+   ```bash
+   sudo add-apt-repository -y universe
+   sudo apt update
+   sudo apt install -y cmake build-essential git ffmpeg \
+     qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev \
+     libqt5svg5-dev libqt5multimedia5-plugins qttools5-dev libgtest-dev libva-dev \
+     libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavdevice-dev \
+     qml-module-qtgraphicaleffects qml-module-qtquick-controls2 \
+     qml-module-qtquick-layouts qml-module-qtmultimedia \
+     qml-module-qt-labs-platform qml-module-qt-labs-settings \
+     qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qtwayland5
+   ```
+2. Määritä ja käännä projekti:
+   ```bash
+   cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+   cmake --build build -j$(nproc)
+   ```
+3. Asenna järjestelmään:
+   ```bash
+   sudo cmake --install build
+   ```
+
+### Käynnistäminen
+Ohjelma voidaan käynnistää järjestelmävalikosta tai kirjoittamalla päätteeseen:
 ```bash
 kvision
 ```
+
+### 🔧 Vianmääritys: Videovirrat ja Ubuntu-asennus
+
+#### Kamerat havaitaan, mutta Live View näyttää mustan ruudun tai huutomerkin
+Jos KVision muodostaa yhteyden NVR-laitteeseen ja hakee kameroiden nimet, mutta videovirrat eivät toistu:
+
+1. **Puuttuvat QtMultimedia-ajonaikaiset laajennukset (Ubuntu/Debian):**
+   Varmista, että ajonaikaiset multimedialaajennukset on asennettu:
+   ```bash
+   sudo apt update
+   sudo apt install -y libqt5multimedia5-plugins qml-module-qtmultimedia
+   ```
+   Ilman `libqt5multimedia5-plugins`-pakettia Qt Quickin `VideoOutput`-moottori ei pysty piirtämään purettuja videoruutuja näytölle.
+
+2. **RTSP-siirtoprotokolla (UDP-pakettihäviö):**
+   Oletusarvoisesti RTSP-neuvottelu voi kokeilla UDP-protokollaa. Useimmat palomuurit, reitittimet portinohjauksella (NAT) ja Hikvision-laitteet pudottavat UDP-paketit.
+   * Avaa KVisionissa **NVR-asetukset** (hammasrataskuvake) ja muokkaa tallennintasi.
+   * Aseta **RTSP Transport** -asetukseksi **`TCP`** (Auton tai UDP:n sijaan).
+
+3. **Varmista täydellinen asennus (`sudo cmake --install build`):**
+   Älä suorita binaaritiedostoa suoraan `build/`-kansiosta ilman asennusta. Komennon `sudo cmake --install build` suorittaminen asentaa Hikvision SDK -komponentit järjestelmän multi-arch-polkuun (`/usr/lib/x86_64-linux-gnu/kvision`), jota toistotoiminnot tarvitsevat.
+
+4. **Tarkista RTSP-virta KVisionin ulkopuolella:**
+   Voit tarkistaa kamerasi RTSP-syötteen toimivuuden suorittamalla:
+   ```bash
+   ffplay -rtsp_transport tcp "rtsp://KÄYTTÄJÄ:SALASANA@IP:PORTTI/Streaming/Channels/101"
+   ```
+   Jos `ffplay` toistaa videon oikein parametrilla `-rtsp_transport tcp`, mutta KVision näyttää mustaa ruutua, varmista, että `libqt5multimedia5-plugins` on asennettu.
+
+5. **Eristä verkko-/reititinongelmat Mock NVR -palvelimella:**
+   Voit suorittaa paikallisen simuloidun Hikvision NVR:n testataksesi suoratoistoa ja mukautettuja portteja täysin eristetyssä ympäristössä:
+   ```bash
+   python3 tools/mock_hikvision_server.py --http-port 17080 --rtsp-port 17554
+   ```
+   Lisää sitten KVisioniin uusi NVR seuraavilla tiedoilla:
+   * **IP:** `127.0.0.1`
+   * **HTTP-portti:** `17080`
+   * **RTSP-portti:** `17554`
+   * **Käyttäjänimi:** `admin`
+   * **Salasana:** `12345`
+   * **RTSP Transport:** `TCP`
+   
+   Napsauta **"Havaitse kamerat"** ja tallenna. Jos video toistuu testisovelluksella, KVision toimii oikein ja ongelma johtuu verkosta/NATista/palomuurista tai fyysisestä laitteesta.
 
 ### Järjestelmän skaalauksen vianmääritys (KDE Plasma)
 

@@ -1,5 +1,10 @@
 # دليل المستخدم لبرنامج KVision
 
+<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
+
+> [!TIP]
+> **دعم المشروع:** إذا وجدتم KVision مفيداً وأعجبكم البرنامج، يمكنكم دعم استمرار تطويره من خلال [شراء قهوة لي](https://buymeacoffee.com/arkanis)! ☕
+
 > [!ملاحظة]
 > تمت ترجمة دليل التعليمات هذا وتنسيقه تلقائيًا بمساعدة الذكاء الاصطناعي (AI).
 
@@ -116,11 +121,90 @@ sudo pacman -U kvision-2.7.1rc5-1-x86_64.pkg.tar.zst
    sudo cmake --install build
    ```
 
-### إطلاق
-يمكن إطلاق البرنامج من قائمة النظام أو عن طريق الكتابة في الجهاز:
+
+### التثبيت على Ubuntu / Debian (والمشتقات)
+
+#### الخيار أ: مثبت تلقائي سريع (موصى به)
+يمكنك تجميع وتثبيت KVision مع جميع التبعيات في خطوة واحدة باستخدام البرنامج النصي المرفق:
+```bash
+git clone --recurse-submodules https://github.com/Arkanista/KVision.git
+cd KVision
+./tools/install_ubuntu.sh
+```
+
+#### الخيار ب: التثبيت اليدوي خطوة بخطوة
+1. تفعيل مستودع `universe` (مطلوب على Ubuntu 22.04 / 24.04 لحزم الوسائط المتعددة Qt5) وتثبيت التبعيات:
+   ```bash
+   sudo add-apt-repository -y universe
+   sudo apt update
+   sudo apt install -y cmake build-essential git ffmpeg \
+     qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev \
+     libqt5svg5-dev libqt5multimedia5-plugins qttools5-dev libgtest-dev libva-dev \
+     libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavdevice-dev \
+     qml-module-qtgraphicaleffects qml-module-qtquick-controls2 \
+     qml-module-qtquick-layouts qml-module-qtmultimedia \
+     qml-module-qt-labs-platform qml-module-qt-labs-settings \
+     qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qtwayland5
+   ```
+2. تكوين وبناء المشروع:
+   ```bash
+   cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+   cmake --build build -j$(nproc)
+   ```
+3. التثبيت في النظام:
+   ```bash
+   sudo cmake --install build
+   ```
+
+### التشغيل
+يمكن تشغيل البرنامج من قائمة النظام أو بكتابة الأمر التالي في الطرفية:
 ```bash
 kvision
 ```
+
+### 🔧 استكشاف الأخطاء وإصلاحها: تدفق الفيديو وإعداد Ubuntu
+
+#### تم اكتشاف الكاميرات، ولكن العرض المباشر يظهر شاشة سوداء أو علامة تعجب
+إذا كان KVision يتصل بمسجل NVR ويسترد أسماء الكاميرات، ولكن مقاطع الفيديو لا تعمل:
+
+1. **مكونات وقت تشغيل QtMultimedia مفقودة (Ubuntu/Debian):**
+   تأكد من تثبيت حزم وقت التشغيل للوسائط المتعددة:
+   ```bash
+   sudo apt update
+   sudo apt install -y libqt5multimedia5-plugins qml-module-qtmultimedia
+   ```
+   بدون `libqt5multimedia5-plugins`، لا يمكن لمحرك `VideoOutput` في Qt Quick عرض إطارات الفيديو التي تم فك تشفيرها على الشاشة.
+
+2. **بروتوكول نقل RTSP (فقدان حزم UDP):**
+   بشكل افتراضي، قد تحاول مفاوضة RTSP استخدام UDP. تقوم معظم جدران الحماية والموجهات التي تحتوي على إعادة توجيه المنافذ (NAT) وأجهزة Hikvision بإسقاط حزم UDP.
+   * في KVision، افتح **إعدادات NVR** (أيقونة الترس) وقم بتعديل المسجل الخاص بك.
+   * قم بتغيير **نقل RTSP** إلى **`TCP`** (بدلاً من تلقائي أو UDP).
+
+3. **التأكد من التثبيت الكامل (`sudo cmake --install build`):**
+   لا تقم بتشغيل الملف التنفيذي مباشرة من مجلد `build/` دون تثبيت. يؤدي تشغيل `sudo cmake --install build` إلى تثبيت مكتبات Hikvision SDK في مسار النظام متعدد البنيات (`/usr/lib/x86_64-linux-gnu/kvision`)، وهو أمر ضروري لتشغيل ميزات الأرشيف والعرض.
+
+4. **التحقق من تدفق RTSP خارج KVision:**
+   يمكنك التحقق من إمكانية الوصول إلى تدفق RTSP للكاميرا عبر الطرفية باستخدام:
+   ```bash
+   ffplay -rtsp_transport tcp "rtsp://USER:PASSWORD@IP:PORT/Streaming/Channels/101"
+   ```
+   إذا كان `ffplay` يعمل بشكل صحيح مع `-rtsp_transport tcp`، ولكن KVision يعرض شاشة سوداء، فتأكد من تثبيت `libqt5multimedia5-plugins`.
+
+5. **عزل مشكلات الشبكة والموجه باستخدام خادم Mock NVR:**
+   يمكنك تشغيل مسجل Hikvision NVR محاكى محلياً لاختبار البث والمنافذ المخصصة في بيئة معزولة تماماً:
+   ```bash
+   python3 tools/mock_hikvision_server.py --http-port 17080 --rtsp-port 17554
+   ```
+   ثم في KVision، أضف NVR جديد بالبيانات التالية:
+   * **IP:** `127.0.0.1`
+   * **منفذ HTTP:** `17080`
+   * **منفذ RTSP:** `17554`
+   * **اسم المستخدم:** `admin`
+   * **كلمة المرور:** `12345`
+   * **نقل RTSP:** `TCP`
+   
+   انقر على **"اكتشاف الكاميرات"** واحفظ. إذا تم تشغيل الفيديو مع خادم الاختبار، فإن KVision يعمل بشكل مثالي في نظامك، وتكون المشكلة ناتجة عن إعدادات الشبكة أو NAT أو جدار الحماية أو الجهاز الفعلي.
 
 ### استكشاف أخطاء قياس النظام وإصلاحها (KDE Plasma)
 

@@ -1,5 +1,10 @@
 # KVision 用户手册
 
+<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
+
+> [!TIP]
+> **支持本项目：** 如果您觉得 KVision 对您有帮助并且喜欢这款软件，可以通过[请我喝杯咖啡](https://buymeacoffee.com/arkanis)来支持它的持续开发！☕
+
 > [!注意]
 > 本使用说明书已在人工智能 (AI) 的帮助下自动翻译和格式化。
 
@@ -116,11 +121,90 @@ sudo pacman -U kvision-2.7.1rc5-1-x86_64.pkg.tar.zst
    sudo cmake --install build
    ```
 
-### 启动中
-该程序可以从系统菜单或通过在终端中键入来启动：
+
+### 在 Ubuntu / Debian（及衍生版本）上安装
+
+#### 方案 A：快速自动化安装脚本（推荐）
+您可以使用提供的安装脚本，一键编译并安装 KVision 及其所有依赖项：
+```bash
+git clone --recurse-submodules https://github.com/Arkanista/KVision.git
+cd KVision
+./tools/install_ubuntu.sh
+```
+
+#### 方案 B：手动分步安装
+1. 启用 `universe` 软件源（Ubuntu 22.04 / 24.04 上 Qt5 多媒体包需要此源）并安装依赖项：
+   ```bash
+   sudo add-apt-repository -y universe
+   sudo apt update
+   sudo apt install -y cmake build-essential git ffmpeg \
+     qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev \
+     libqt5svg5-dev libqt5multimedia5-plugins qttools5-dev libgtest-dev libva-dev \
+     libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavdevice-dev \
+     qml-module-qtgraphicaleffects qml-module-qtquick-controls2 \
+     qml-module-qtquick-layouts qml-module-qtmultimedia \
+     qml-module-qt-labs-platform qml-module-qt-labs-settings \
+     qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qtwayland5
+   ```
+2. 配置并编译项目：
+   ```bash
+   cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+   cmake --build build -j$(nproc)
+   ```
+3. 安装到系统：
+   ```bash
+   sudo cmake --install build
+   ```
+
+### 启动应用
+您可以从系统应用程序菜单启动 KVision，或在终端中运行：
 ```bash
 kvision
 ```
+
+### 🔧 故障排除：视频流与 Ubuntu 环境配置
+
+#### 已发现摄像机，但实时预览显示黑屏或感叹号
+如果 KVision 可以成功连接到 NVR 并获取摄像机列表，但无法播放视频画面：
+
+1. **缺少 QtMultimedia 运行时插件（Ubuntu/Debian）：**
+   请确保安装了多媒体运行时插件（与开发头文件包是分开的）：
+   ```bash
+   sudo apt update
+   sudo apt install -y libqt5multimedia5-plugins qml-module-qtmultimedia
+   ```
+   如果缺少 `libqt5multimedia5-plugins`，Qt Quick 的 `VideoOutput` 引擎将无法在屏幕上渲染已解码的视频帧。
+
+2. **RTSP 传输协议（UDP 数据包丢弃）：**
+   默认情况下，RTSP 流协商可能会尝试 UDP 模式。大多数网络防火墙、带有端口转发（NAT）的路由器以及海康威视设备都会丢弃 UDP 数据包。
+   * 在 KVision 中打开 **NVR 设置**（齿轮图标）并编辑您的录像机。
+   * 将 **RTSP 传输**（RTSP Transport）更改为 **`TCP`**（而非 Auto 或 UDP）。
+
+3. **确保完整安装到系统（`sudo cmake --install build`）：**
+   请勿在未执行安装的情况下直接从 `build/` 文件夹运行二进制文件。执行 `sudo cmake --install build` 会将海康威视 SDK 二进制组件安装到系统的多架构目录（`/usr/lib/x86_64-linux-gnu/kvision`）中，这是回放和归档功能定位依赖渲染器所必需的。
+
+4. **在 KVision 外部测试 RTSP 流：**
+   您可以在终端中使用 `ffplay` 测试摄像机 RTSP 流是否可在系统上正常访问：
+   ```bash
+   ffplay -rtsp_transport tcp "rtsp://用户名:密码@IP:端口/Streaming/Channels/101"
+   ```
+   如果 `ffplay` 配合 `-rtsp_transport tcp` 可以正常播放，但 KVision 仍显示黑屏，请确认已安装 `libqt5multimedia5-plugins`。
+
+5. **使用模拟测试服务器排查网络/路由器问题：**
+   您可以运行本地模拟的海康威视 NVR 服务器，在完全隔离的环境下测试视频流和自定义端口（无需外部网络、路由器或物理 NVR）：
+   ```bash
+   python3 tools/mock_hikvision_server.py --http-port 17080 --rtsp-port 17554
+   ```
+   然后在 KVision 中添加一个新 NVR：
+   * **IP：** `127.0.0.1`
+   * **HTTP 端口：** `17080`
+   * **RTSP 端口：** `17554`
+   * **用户名：** `admin`
+   * **密码：** `12345`
+   * **RTSP 传输：** `TCP`
+   
+   点击**“发现摄像机”**并保存。如果模拟服务器能正常播放视频画面，则说明 KVision 和端口处理在您的系统上工作完全正常，实际 NVR 无法播放的原因在于网络/NAT/防火墙路由或物理设备本身的配置。
 
 ### 系统扩展故障排除 (KDE Plasma)
 
