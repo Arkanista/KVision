@@ -16,11 +16,11 @@
         </message>
         <message>
             <source>LNG_00003</source>
-            <translation>凯维视</translation>
+            <translation>KVision</translation>
         </message>
         <message>
             <source>LNG_00002</source>
-            <translation>您无法打开更多辅助窗口</translation>
+            <translation>无法再打开更多辅助窗口</translation>
         </message>
         <message>
             <source>LNG_00001</source>
@@ -95,15 +95,15 @@
         </message>
         <message>
             <source>LNG_00017</source>
-            <translation>未选择视图，请选择一个视图</translation>
+            <translation>未选择视图，请先选择视图</translation>
         </message>
         <message>
             <source>LNG_00016</source>
-            <translation>从顶部菜单中选择一个视图以开始显示摄像机。</translation>
+            <translation>请从顶部菜单中选择视图，开始显示摄像机画面。</translation>
         </message>
         <message>
             <source>LNG_00015</source>
-            <translation>侧边栏面板的选项和设置</translation>
+            <translation>侧边栏面板的选项与设置</translation>
         </message>
         <message>
             <source>LNG_00014</source>
@@ -111,11 +111,11 @@
         </message>
         <message>
             <source>LNG_00013</source>
-            <translation>程序用户手册</translation>
+            <translation>程序使用手册</translation>
         </message>
         <message>
             <source>LNG_00012</source>
-            <translation>网格视图：</translation>
+            <translation>画面布局：</translation>
         </message>
         <message>
             <source>LNG_00011</source>
@@ -123,31 +123,31 @@
         </message>
         <message>
             <source>LNG_00010</source>
-            <translation>🔒 锁定布局更改</translation>
+            <translation>🔒 锁定布局</translation>
         </message>
         <message>
             <source>LNG_00009</source>
-            <translation>更多选择</translation>
+            <translation>更多选项</translation>
         </message>
         <message>
             <source>LNG_00008</source>
-            <translation>查看选择：</translation>
+            <translation>视图选择：</translation>
         </message>
         <message>
             <source>LNG_00007</source>
-            <translation>关闭程序</translation>
+            <translation>退出程序</translation>
         </message>
         <message>
             <source>LNG_00006</source>
-            <translation>您确定要关闭该程序吗？</translation>
+            <translation>确定要退出程序吗？</translation>
         </message>
         <message>
             <source>LNG_00005</source>
-            <translation>是的</translation>
+            <translation>是</translation>
         </message>
         <message>
             <source>LNG_00004</source>
-            <translation>不</translation>
+            <translation>否</translation>
         </message>
     </context>
     <context>
@@ -162,11 +162,11 @@
         </message>
         <message>
             <source>LNG_00020</source>
-            <translation>是的</translation>
+            <translation>是</translation>
         </message>
         <message>
             <source>LNG_00019</source>
-            <translation>不</translation>
+            <translation>否</translation>
         </message>
     </context>
     <context>
@@ -269,7 +269,7 @@
         </message>
         <message>
             <source>LNG_00476</source>
-            <translation>KVision - 查看器和安装器视频流。</translation>
+            <translation>KVision - 视频码流查看与接入工具。</translation>
         </message>
     </context>
     <context>
@@ -412,7 +412,7 @@
         </message>
         <message>
             <source>LNG_00054</source>
-            <translation>结束日期和时间必须晚于开始日期和时间！</translation>
+            <translation>结束时间必须晚于开始时间！</translation>
         </message>
         <message>
             <source>LNG_00053</source>
@@ -476,11 +476,11 @@
         </message>
         <message>
             <source>LNG_00038</source>
-            <translation>小时</translation>
+            <translation>时</translation>
         </message>
         <message>
             <source>LNG_00037</source>
-            <translation>最小</translation>
+            <translation>分</translation>
         </message>
         <message>
             <source>LNG_00036</source>
@@ -492,35 +492,35 @@
         </message>
         <message>
             <source>LNG_00035</source>
-            <translation>确认</translation>
+            <translation>确定</translation>
         </message>
         <message>
             <source>LNG_00034</source>
-            <translation>下载录音</translation>
+            <translation>下载录像</translation>
         </message>
         <message>
             <source>LNG_00033</source>
-            <translation>从：</translation>
+            <translation>开始：</translation>
         </message>
         <message>
             <source>LNG_00031</source>
-            <translation>日期格式不正确！所需格式：DD.MM.YYYY（例如 26.06.2026）</translation>
+            <translation>日期格式不正确！正确格式为 DD.MM.YYYY（例如 26.06.2026）</translation>
         </message>
         <message>
             <source>LNG_00030</source>
-            <translation>时间格式不正确！所需格式：HH:MM:SS 或 HH.MM.SS（例如 12:30:00 或 12.30.00）</translation>
+            <translation>时间格式不正确！正确格式为 HH:MM:SS 或 HH.MM.SS（例如 12:30:00 或 12.30.00）</translation>
         </message>
         <message>
             <source>LNG_00032</source>
-            <translation>到：</translation>
+            <translation>结束：</translation>
         </message>
         <message>
             <source>LNG_00029</source>
-            <translation>全部的：</translation>
+            <translation>总计：</translation>
         </message>
         <message>
             <source>LNG_00028</source>
-            <translation>正在下载...</translation>
+            <translation>正在下载…</translation>
         </message>
         <message>
             <source>LNG_00027</source>
@@ -528,7 +528,7 @@
         </message>
         <message>
             <source>LNG_00026</source>
-            <translation>正在初始化...</translation>
+            <translation>正在初始化…</translation>
         </message>
         <message>
             <source>LNG_00025</source>
@@ -536,7 +536,7 @@
         </message>
         <message>
             <source>LNG_00024</source>
-            <translation>打开保存文件夹</translation>
+            <translation>打开保存目录</translation>
         </message>
         <message>
             <source>LNG_00022</source>
@@ -623,45 +623,45 @@
         </message>
         <message>
             <source>LNG_00504</source>
-            <translation>下载已经在进行中。</translation>
+            <translation>已有下载任务正在进行。</translation>
         </message>
         <message>
             <source>LNG_00503</source>
-            <translation>正在初始化文件搜索...</translation>
+            <translation>正在初始化文件检索…</translation>
         </message>
         <message>
             <source>LNG_00502</source>
-            <translation>登录设备时出错：%1</translation>
+            <translation>登录设备失败：%1</translation>
         </message>
         <message>
             <source>LNG_00501</source>
-            <translation>该摄像机在所选时间范围内没有录制内容。</translation>
+            <translation>该摄像机在所选时间段内无录像。</translation>
         </message>
         <message>
             <source>LNG_00500</source>
-            <translation>已下载并转换 %1 个文件（共 %2 个）。</translation>
+            <translation>已下载并转换 %1/%2 个文件。</translation>
         </message>
         <message>
             <source>LNG_00499</source>
-            <translation>指定的保存路径无效或写访问被拒绝：
+            <translation>指定的保存路径无效或拒绝写入：
 %1</translation>
         </message>
         <message>
             <source>LNG_00498</source>
-            <translation>该目录没有写权限：
+            <translation>目录无写入权限：
 %1</translation>
         </message>
         <message>
             <source>LNG_00497</source>
-            <translation>初始化第 %1 部分的下载时出错：%2</translation>
+            <translation>初始化第 %1 段下载失败：%2</translation>
         </message>
         <message>
             <source>LNG_00496</source>
-            <translation>开始下载部分 %1 时出错：%2</translation>
+            <translation>启动第 %1 段下载失败：%2</translation>
         </message>
         <message>
             <source>LNG_00495</source>
-            <translation>正在下载 %2 的第 %1 部分...</translation>
+            <translation>正在下载第 %1/%2 段…</translation>
         </message>
         <message>
             <source>LNG_00025</source>
@@ -669,19 +669,19 @@
         </message>
         <message>
             <source>LNG_00494</source>
-            <translation>下载被用户中断。</translation>
+            <translation>下载已被用户中断。</translation>
         </message>
         <message>
             <source>LNG_00493</source>
-            <translation>正在转换 %2 的第 %1 部分...</translation>
+            <translation>正在转换第 %1/%2 段…</translation>
         </message>
         <message>
             <source>LNG_00492</source>
-            <translation>下载部分 %1 时出错。</translation>
+            <translation>第 %1 段下载失败。</translation>
         </message>
         <message>
             <source>LNG_00491</source>
-            <translation>已下载并转换 %1 个部分（共 %2 个部分）...</translation>
+            <translation>已下载并转换 %1/%2 段…</translation>
         </message>
         <message>
             <source>LNG_00490</source>
@@ -689,7 +689,7 @@
         </message>
         <message>
             <source>LNG_00489</source>
-            <translation>将部分 %1 转换为 MP4 失败：%2</translation>
+            <translation>第 %1 段转 MP4 失败：%2</translation>
         </message>
     </context>
     <context>
@@ -700,7 +700,7 @@
         </message>
         <message>
             <source>LNG_00099</source>
-            <translation>登录失败或未发现摄像头。</translation>
+            <translation>登录失败或未搜索到摄像机。</translation>
         </message>
     </context>
     <context>
@@ -719,7 +719,7 @@
         </message>
         <message>
             <source>LNG_00057</source>
-            <translation>KVision - 用户手册/说明</translation>
+            <translation>KVision - 用户手册 / 使用说明</translation>
         </message>
         <message>
             <source>LNG_00056</source>
@@ -727,7 +727,7 @@
         </message>
         <message>
             <source>LNG_00055</source>
-            <translation>加载说明时出错。</translation>
+            <translation>加载使用说明失败。</translation>
         </message>
     </context>
     <context>
@@ -802,59 +802,59 @@
         </message>
         <message>
             <source>LNG_00074</source>
-            <translation>%1 上的摄像头</translation>
+            <translation>%1 上的摄像机</translation>
         </message>
         <message>
             <source>LNG_00073</source>
-            <translation>相机</translation>
+            <translation>摄像机</translation>
         </message>
         <message>
             <source>LNG_00072</source>
-            <translation>IP：%1 |端口：%2 | %3 个频道</translation>
+            <translation>IP：%1 | 端口：%2 | %3 个通道</translation>
         </message>
         <message>
             <source>LNG_00071</source>
-            <translation>为所有相机生成缩略图</translation>
+            <translation>为所有摄像机生成缩略图</translation>
         </message>
         <message>
             <source>LNG_00070</source>
-            <translation>相机%1</translation>
+            <translation>摄像机 %1</translation>
         </message>
         <message>
             <source>LNG_00069</source>
-            <translation>已分配摄像机 %1 通道%2 到视口 %3</translation>
+            <translation>已将摄像机 %1（通道 %2）分配到窗格 %3</translation>
         </message>
         <message>
             <source>LNG_00068</source>
-            <translation>指定到活动视口</translation>
+            <translation>分配到当前窗格</translation>
         </message>
         <message>
             <source>LNG_00067</source>
-            <translation>重命名相机</translation>
+            <translation>重命名摄像机</translation>
         </message>
         <message>
             <source>LNG_00066</source>
-            <translation>刷新相机缩略图</translation>
+            <translation>刷新摄像机缩略图</translation>
         </message>
         <message>
             <source>LNG_00065</source>
-            <translation>更改相机名称</translation>
+            <translation>修改摄像机名称</translation>
         </message>
         <message>
             <source>LNG_00064</source>
-            <translation>频道：%1</translation>
+            <translation>通道：%1</translation>
         </message>
         <message>
             <source>LNG_00063</source>
-            <translation>原名：%1</translation>
+            <translation>原名称：%1</translation>
         </message>
         <message>
             <source>LNG_00062</source>
-            <translation>没有任何</translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>LNG_00061</source>
-            <translation>输入新相机名称...</translation>
+            <translation>输入新的摄像机名称…</translation>
         </message>
         <message>
             <source>LNG_00060</source>
@@ -866,7 +866,7 @@
         </message>
         <message>
             <source>LNG_00058</source>
-            <translation>节省</translation>
+            <translation>保存</translation>
         </message>
     </context>
     <context>
@@ -977,7 +977,7 @@
         </message>
         <message>
             <source>LNG_00099</source>
-            <translation>登录失败或未发现摄像头。</translation>
+            <translation>登录失败或未搜索到摄像机。</translation>
         </message>
         <message>
             <source>LNG_00098</source>
@@ -985,11 +985,11 @@
         </message>
         <message>
             <source>LNG_00097</source>
-            <translation>记录器名称（可选）</translation>
+            <translation>录像机名称（可选）</translation>
         </message>
         <message>
             <source>LNG_00096</source>
-            <translation>IP地址</translation>
+            <translation>IP 地址</translation>
         </message>
         <message>
             <source>LNG_00095</source>
@@ -1005,11 +1005,11 @@
         </message>
         <message>
             <source>LNG_00092</source>
-            <translation>发现...</translation>
+            <translation>正在搜索…</translation>
         </message>
         <message>
             <source>LNG_00091</source>
-            <translation>连接与发现</translation>
+            <translation>连接并搜索</translation>
         </message>
         <message>
             <source>LNG_00090</source>
@@ -1017,11 +1017,11 @@
         </message>
         <message>
             <source>LNG_00089</source>
-            <translation>错误：需要 IP 和密码。</translation>
+            <translation>错误：IP 地址与密码为必填项。</translation>
         </message>
         <message>
             <source>LNG_00088</source>
-            <translation>正在连接到 NVR 并发现频道...</translation>
+            <translation>正在连接 NVR 并搜索通道…</translation>
         </message>
         <message>
             <source>LNG_00059</source>
@@ -1029,7 +1029,7 @@
         </message>
         <message>
             <source>LNG_00087</source>
-            <translation>联网录音机</translation>
+            <translation>已连接的录像机</translation>
         </message>
         <message>
             <source>LNG_00086</source>
@@ -1045,11 +1045,11 @@
         </message>
         <message>
             <source>LNG_00083</source>
-            <translation>绿色：活动 SDK 会话（PTZ/存档）。红色：没有活动会话（RTSP 流独立工作）。</translation>
+            <translation>绿色：SDK 会话已建立（云台 / 录像检索）；红色：无活动会话（RTSP 码流不受影响）。</translation>
         </message>
         <message>
             <source>LNG_00082</source>
-            <translation>在浏览器中打开NVR登录页面</translation>
+            <translation>在浏览器中打开 NVR 登录页</translation>
         </message>
         <message>
             <source>LNG_00081</source>
@@ -1057,19 +1057,19 @@
         </message>
         <message>
             <source>LNG_00080</source>
-            <translation>编辑录音机连接详细信息</translation>
+            <translation>编辑录像机连接参数</translation>
         </message>
         <message>
             <source>LNG_00079</source>
-            <translation>从列表中删除录音机</translation>
+            <translation>从列表中删除录像机</translation>
         </message>
         <message>
             <source>LNG_00078</source>
-            <translation>确认 NVR 删除</translation>
+            <translation>确认删除 NVR</translation>
         </message>
         <message>
             <source>LNG_00077</source>
-            <translation>您确定要删除此 NVR 吗？</translation>
+            <translation>确定要删除此 NVR 吗？</translation>
         </message>
         <message>
             <source>LNG_00076</source>
@@ -1077,19 +1077,19 @@
         </message>
         <message>
             <source>LNG_00075</source>
-            <translation>您绝对确定并了解自己在做什么吗？</translation>
+            <translation>请确认您完全清楚此操作的后果。</translation>
         </message>
         <message>
             <source>LNG_00532</source>
-            <translation>SDK 端口 (8000)</translation>
+            <translation>SDK 端口（8000）</translation>
         </message>
         <message>
             <source>LNG_00533</source>
-            <translation>HTTP 端口 (80)</translation>
+            <translation>HTTP 端口（80）</translation>
         </message>
         <message>
             <source>LNG_00534</source>
-            <translation>RTSP 端口 (554)</translation>
+            <translation>RTSP 端口（554）</translation>
         </message>
     </context>
     <context>
@@ -1140,23 +1140,23 @@
         </message>
         <message>
             <source>LNG_00110</source>
-            <translation>NVR状态</translation>
+            <translation>NVR 状态</translation>
         </message>
         <message>
             <source>LNG_00109</source>
-            <translation>正在检查 NVR 状态...</translation>
+            <translation>正在检测 NVR 状态…</translation>
         </message>
         <message>
             <source>LNG_00108</source>
-            <translation>最后一次检查：</translation>
+            <translation>上次检测：</translation>
         </message>
         <message>
             <source>LNG_00107</source>
-            <translation>绝不</translation>
+            <translation>从未</translation>
         </message>
         <message>
             <source>LNG_00106</source>
-            <translation>沉默的</translation>
+            <translation>静音</translation>
         </message>
         <message>
             <source>LNG_00105</source>
@@ -1164,19 +1164,19 @@
         </message>
         <message>
             <source>LNG_00104</source>
-            <translation>好的</translation>
+            <translation>正常</translation>
         </message>
         <message>
             <source>LNG_00103</source>
-            <translation>无状态数据</translation>
+            <translation>暂无状态数据</translation>
         </message>
         <message>
             <source>LNG_00102</source>
-            <translation>按下面的按钮检查 NVR 状态。</translation>
+            <translation>点击下方按钮检测 NVR 状态。</translation>
         </message>
         <message>
             <source>LNG_00101</source>
-            <translation>立即查看</translation>
+            <translation>立即检测</translation>
         </message>
         <message>
             <source>LNG_00100</source>
@@ -1235,51 +1235,51 @@
         </message>
         <message>
             <source>LNG_00516</source>
-            <translation>模拟NVR</translation>
+            <translation>模拟 NVR</translation>
         </message>
         <message>
             <source>LNG_00515</source>
-            <translation>磁盘1</translation>
+            <translation>硬盘 1</translation>
         </message>
         <message>
             <source>LNG_00514</source>
-            <translation>严重磁盘错误/故障（模拟）</translation>
+            <translation>硬盘严重故障（模拟）</translation>
         </message>
         <message>
             <source>LNG_00513</source>
-            <translation>无连接或登录错误（模拟）</translation>
+            <translation>未连接或登录失败（模拟）</translation>
         </message>
         <message>
             <source>LNG_00512</source>
-            <translation>无连接或登录错误</translation>
+            <translation>未连接或登录失败</translation>
         </message>
         <message>
             <source>LNG_00511</source>
-            <translation>读取 NVR 状态时出错 (SDK)</translation>
+            <translation>读取 NVR 状态失败（SDK）</translation>
         </message>
         <message>
             <source>LNG_00510</source>
-            <translation>CPU 负载高 (&gt;85%)</translation>
+            <translation>CPU 负载过高（>85%）</translation>
         </message>
         <message>
             <source>LNG_00509</source>
-            <translation>设备硬件错误</translation>
+            <translation>设备硬件故障</translation>
         </message>
         <message>
             <source>LNG_00508</source>
-            <translation>磁盘%1</translation>
+            <translation>硬盘 %1</translation>
         </message>
         <message>
             <source>LNG_00507</source>
-            <translation>严重磁盘错误/故障</translation>
+            <translation>硬盘严重故障</translation>
         </message>
         <message>
             <source>LNG_00506</source>
-            <translation>磁盘未格式化</translation>
+            <translation>硬盘未格式化</translation>
         </message>
         <message>
             <source>LNG_00505</source>
-            <translation>磁盘已满（禁用覆盖）</translation>
+            <translation>硬盘已满（未开启覆盖）</translation>
         </message>
     </context>
     <context>
@@ -1606,7 +1606,7 @@
         </message>
         <message>
             <source>LNG_00186</source>
-            <translation>档案 -</translation>
+            <translation>录像 -</translation>
         </message>
         <message>
             <source>LNG_00185</source>
@@ -1662,7 +1662,7 @@
         </message>
         <message>
             <source>LNG_00173</source>
-            <translation>选择存档日期</translation>
+            <translation>选择录像日期</translation>
         </message>
         <message>
             <source>LNG_00040</source>
@@ -1698,15 +1698,15 @@
         </message>
         <message>
             <source>LNG_00165</source>
-            <translation>正在获取可用性...</translation>
+            <translation>正在获取录像分布…</translation>
         </message>
         <message>
             <source>LNG_00164</source>
-            <translation>相机</translation>
+            <translation>摄像机</translation>
         </message>
         <message>
             <source>LNG_00163</source>
-            <translation>搜索相机...</translation>
+            <translation>搜索摄像机…</translation>
         </message>
         <message>
             <source>LNG_00162</source>
@@ -1714,23 +1714,23 @@
         </message>
         <message>
             <source>LNG_00161</source>
-            <translation>确定录音的实际结束...</translation>
+            <translation>正在确认录像实际结束时刻…</translation>
         </message>
         <message>
             <source>LNG_00160</source>
-            <translation>正在获取录音信息...</translation>
+            <translation>正在获取录像信息…</translation>
         </message>
         <message>
             <source>LNG_00159</source>
-            <translation>正在加载海康威视存档...</translation>
+            <translation>正在加载海康录像…</translation>
         </message>
         <message>
             <source>LNG_00158</source>
-            <translation>所选时刻没有录音</translation>
+            <translation>所选时刻无录像</translation>
         </message>
         <message>
             <source>LNG_00106</source>
-            <translation>沉默的</translation>
+            <translation>静音</translation>
         </message>
         <message>
             <source>LNG_00157</source>
@@ -1738,31 +1738,31 @@
         </message>
         <message>
             <source>LNG_00156</source>
-            <translation>以全分辨率拍摄快照</translation>
+            <translation>按原始分辨率抓图</translation>
         </message>
         <message>
             <source>LNG_00155</source>
-            <translation>禁用 1:1 模式</translation>
+            <translation>关闭 1:1 像素显示</translation>
         </message>
         <message>
             <source>LNG_00154</source>
-            <translation>启用 1:1 模式（像素到像素）</translation>
+            <translation>开启 1:1 像素显示</translation>
         </message>
         <message>
             <source>LNG_00153</source>
-            <translation>重置缩放</translation>
+            <translation>复位缩放</translation>
         </message>
         <message>
             <source>LNG_00152</source>
-            <translation>选择要缩放的区域</translation>
+            <translation>框选放大区域</translation>
         </message>
         <message>
             <source>LNG_00151</source>
-            <translation>选择要缩放的区域</translation>
+            <translation>框选放大区域</translation>
         </message>
         <message>
             <source>LNG_00150</source>
-            <translation>恢复网格视图</translation>
+            <translation>恢复画面布局</translation>
         </message>
         <message>
             <source>LNG_00149</source>
@@ -1770,15 +1770,15 @@
         </message>
         <message>
             <source>LNG_00148</source>
-            <translation>从视图中删除相机</translation>
+            <translation>从该窗格移除摄像机</translation>
         </message>
         <message>
             <source>LNG_00147</source>
-            <translation>空视口</translation>
+            <translation>空窗格</translation>
         </message>
         <message>
             <source>LNG_00146</source>
-            <translation>选择此窗口，从列表中选择一个摄像头，然后单击 + 添加它</translation>
+            <translation>选中该窗格，在列表中选择摄像机后点击 + 添加</translation>
         </message>
         <message>
             <source>LNG_00145</source>
@@ -1786,11 +1786,11 @@
         </message>
         <message>
             <source>LNG_00144</source>
-            <translation>从日历中选择日期</translation>
+            <translation>从日历选择日期</translation>
         </message>
         <message>
             <source>LNG_00143</source>
-            <translation>第二天</translation>
+            <translation>后一天</translation>
         </message>
         <message>
             <source>LNG_00142</source>
@@ -1798,35 +1798,35 @@
         </message>
         <message>
             <source>LNG_00141</source>
-            <translation>转到今天</translation>
+            <translation>跳到今天</translation>
         </message>
         <message>
             <source>LNG_00140</source>
-            <translation>刷新录音</translation>
+            <translation>刷新录像</translation>
         </message>
         <message>
             <source>LNG_00139</source>
-            <translation>缩放至最后 1 小时</translation>
+            <translation>缩放至最近 1 小时</translation>
         </message>
         <message>
             <source>LNG_00138</source>
-            <translation>缩放至过去 8 小时</translation>
+            <translation>缩放至最近 8 小时</translation>
         </message>
         <message>
             <source>LNG_00137</source>
-            <translation>在时间轴上显示全天</translation>
+            <translation>时间轴显示全天</translation>
         </message>
         <message>
             <source>LNG_00136</source>
-            <translation>以当前播放时间为中心的时间轴</translation>
+            <translation>时间轴定位到当前回放时刻</translation>
         </message>
         <message>
             <source>LNG_00135</source>
-            <translation>速度：</translation>
+            <translation>倍速：</translation>
         </message>
         <message>
             <source>LNG_00134</source>
-            <translation>将播放速度设置为%1x</translation>
+            <translation>将回放倍速设为 %1x</translation>
         </message>
         <message>
             <source>LNG_00021</source>
@@ -1834,27 +1834,27 @@
         </message>
         <message>
             <source>LNG_00133</source>
-            <translation>下载选定时间范围内的视频片段</translation>
+            <translation>下载所选时间段的录像片段</translation>
         </message>
         <message>
             <source>LNG_00132</source>
-            <translation>快退 60 秒</translation>
+            <translation>后退 60 秒</translation>
         </message>
         <message>
             <source>LNG_00131</source>
-            <translation>快退 45 秒</translation>
+            <translation>后退 45 秒</translation>
         </message>
         <message>
             <source>LNG_00130</source>
-            <translation>快退 15 秒</translation>
+            <translation>后退 15 秒</translation>
         </message>
         <message>
             <source>LNG_00129</source>
-            <translation>暂停播放</translation>
+            <translation>暂停回放</translation>
         </message>
         <message>
             <source>LNG_00128</source>
-            <translation>开始播放</translation>
+            <translation>开始回放</translation>
         </message>
         <message>
             <source>LNG_00127</source>
@@ -1862,7 +1862,7 @@
         </message>
         <message>
             <source>LNG_00126</source>
-            <translation>前进 45 秒</translation>
+            <translation>快进 45 秒</translation>
         </message>
         <message>
             <source>LNG_00125</source>
@@ -1870,15 +1870,15 @@
         </message>
         <message>
             <source>LNG_00124</source>
-            <translation>取消固定底部栏</translation>
+            <translation>取消固定底栏</translation>
         </message>
         <message>
             <source>LNG_00123</source>
-            <translation>固定底部栏</translation>
+            <translation>固定底栏</translation>
         </message>
         <message>
             <source>LNG_00122</source>
-            <translation>正在加载录音可用性信息...</translation>
+            <translation>正在加载录像分布信息…</translation>
         </message>
         <message>
             <source>LNG_00121</source>
@@ -1890,7 +1890,7 @@
         </message>
         <message>
             <source>LNG_00119</source>
-            <translation>顶栏针</translation>
+            <translation>固定顶栏</translation>
         </message>
         <message>
             <source>LNG_00118</source>
@@ -1910,19 +1910,19 @@
         </message>
         <message>
             <source>LNG_00114</source>
-            <translation>显示时间线</translation>
+            <translation>显示时间轴</translation>
         </message>
         <message>
             <source>LNG_00113</source>
-            <translation>隐藏时间线</translation>
+            <translation>隐藏时间轴</translation>
         </message>
         <message>
             <source>LNG_00112</source>
-            <translation>打开录音文件夹</translation>
+            <translation>打开录像目录</translation>
         </message>
         <message>
             <source>LNG_00111</source>
-            <translation>打开快照文件夹</translation>
+            <translation>打开抓图目录</translation>
         </message>
     </context>
     <context>
@@ -2025,11 +2025,11 @@
         </message>
         <message>
             <source>LNG_00200</source>
-            <translation>没有媒体</translation>
+            <translation>无媒体</translation>
         </message>
         <message>
             <source>LNG_00199</source>
-            <translation>加载中...</translation>
+            <translation>正在加载…</translation>
         </message>
         <message>
             <source>LNG_00198</source>
@@ -2037,23 +2037,23 @@
         </message>
         <message>
             <source>LNG_00197</source>
-            <translation>停滞</translation>
+            <translation>已卡顿</translation>
         </message>
         <message>
             <source>LNG_00196</source>
-            <translation>缓冲%1\%</translation>
+            <translation>缓冲中 %1%</translation>
         </message>
         <message>
             <source>LNG_00195</source>
-            <translation>无数据可显示</translation>
+            <translation>暂无数据可显示</translation>
         </message>
         <message>
             <source>LNG_00194</source>
-            <translation>正在恢复实时取景...</translation>
+            <translation>正在恢复实时预览…</translation>
         </message>
         <message>
             <source>LNG_00106</source>
-            <translation>沉默的</translation>
+            <translation>静音</translation>
         </message>
         <message>
             <source>LNG_00157</source>
@@ -2061,55 +2061,55 @@
         </message>
         <message>
             <source>LNG_00156</source>
-            <translation>以全分辨率拍摄快照</translation>
+            <translation>按原始分辨率抓图</translation>
         </message>
         <message>
             <source>LNG_00193</source>
-            <translation>回放存档</translation>
+            <translation>回放录像</translation>
         </message>
         <message>
             <source>LNG_00192</source>
-            <translation>禁用快速播放</translation>
+            <translation>关闭快速回放</translation>
         </message>
         <message>
             <source>LNG_00191</source>
-            <translation>快速播放（最长 30 分钟）</translation>
+            <translation>快速回放（最多 30 分钟）</translation>
         </message>
         <message>
             <source>LNG_00155</source>
-            <translation>禁用 1:1 模式</translation>
+            <translation>关闭 1:1 像素显示</translation>
         </message>
         <message>
             <source>LNG_00154</source>
-            <translation>启用 1:1 模式（像素到像素）</translation>
+            <translation>开启 1:1 像素显示</translation>
         </message>
         <message>
             <source>LNG_00153</source>
-            <translation>重置缩放</translation>
+            <translation>复位缩放</translation>
         </message>
         <message>
             <source>LNG_00190</source>
-            <translation>单击并拖动相机源以进行缩放</translation>
+            <translation>在画面上按住并拖动以放大</translation>
         </message>
         <message>
             <source>LNG_00189</source>
-            <translation>选择要缩放的区域</translation>
+            <translation>框选放大区域</translation>
         </message>
         <message>
             <source>LNG_00128</source>
-            <translation>开始播放</translation>
+            <translation>开始回放</translation>
         </message>
         <message>
             <source>LNG_00129</source>
-            <translation>暂停播放</translation>
+            <translation>暂停回放</translation>
         </message>
         <message>
             <source>LNG_00188</source>
-            <translation>播放速度</translation>
+            <translation>回放倍速</translation>
         </message>
         <message>
             <source>LNG_00187</source>
-            <translation>关闭快退视图</translation>
+            <translation>关闭回退视图</translation>
         </message>
     </context>
     <context>
@@ -2260,11 +2260,11 @@
         </message>
         <message>
             <source>LNG_00003</source>
-            <translation>凯维视</translation>
+            <translation>KVision</translation>
         </message>
         <message>
             <source>LNG_00219</source>
-            <translation>读取配置错误！</translation>
+            <translation>读取配置失败！</translation>
         </message>
         <message>
             <source>LNG_00120</source>
@@ -2272,7 +2272,7 @@
         </message>
         <message>
             <source>LNG_00119</source>
-            <translation>顶栏针</translation>
+            <translation>固定顶栏</translation>
         </message>
         <message>
             <source>LNG_00011</source>
@@ -2284,7 +2284,7 @@
         </message>
         <message>
             <source>LNG_00015</source>
-            <translation>侧边栏面板的选项和设置</translation>
+            <translation>侧边栏面板的选项与设置</translation>
         </message>
         <message>
             <source>LNG_00014</source>
@@ -2292,47 +2292,47 @@
         </message>
         <message>
             <source>LNG_00217</source>
-            <translation>录音档案和播放器</translation>
+            <translation>录像检索与回放</translation>
         </message>
         <message>
             <source>LNG_00013</source>
-            <translation>程序用户手册</translation>
+            <translation>程序使用手册</translation>
         </message>
         <message>
             <source>LNG_00216</source>
-            <translation>禁用资源使用统计</translation>
+            <translation>关闭资源占用统计</translation>
         </message>
         <message>
             <source>LNG_00215</source>
-            <translation>启用资源使用统计</translation>
+            <translation>开启资源占用统计</translation>
         </message>
         <message>
             <source>LNG_00214</source>
-            <translation>检测到 NVR 错误！</translation>
+            <translation>检测到 NVR 故障！</translation>
         </message>
         <message>
             <source>LNG_00213</source>
-            <translation>NVR状态：正常</translation>
+            <translation>NVR 状态：正常</translation>
         </message>
         <message>
             <source>LNG_00212</source>
-            <translation>锁定网格大小变化</translation>
+            <translation>锁定网格数量变更</translation>
         </message>
         <message>
             <source>LNG_00009</source>
-            <translation>更多选择</translation>
+            <translation>更多选项</translation>
         </message>
         <message>
             <source>LNG_00211</source>
-            <translation>检测到 NVR 错误！点击查看详情。</translation>
+            <translation>检测到 NVR 故障！点击查看详情。</translation>
         </message>
         <message>
             <source>LNG_00017</source>
-            <translation>未选择视图，请选择一个视图</translation>
+            <translation>未选择视图，请先选择视图</translation>
         </message>
         <message>
             <source>LNG_00016</source>
-            <translation>从顶部菜单中选择一个视图以开始显示摄像机。</translation>
+            <translation>请从顶部菜单中选择视图，开始显示摄像机画面。</translation>
         </message>
         <message>
             <source>LNG_00210</source>
@@ -2344,27 +2344,27 @@
         </message>
         <message>
             <source>LNG_00007</source>
-            <translation>关闭程序</translation>
+            <translation>退出程序</translation>
         </message>
         <message>
             <source>LNG_00209</source>
-            <translation>您确定要关闭此窗口吗？</translation>
+            <translation>确定要关闭此窗口吗？</translation>
         </message>
         <message>
             <source>LNG_00006</source>
-            <translation>您确定要关闭该程序吗？</translation>
+            <translation>确定要退出程序吗？</translation>
         </message>
         <message>
             <source>LNG_00005</source>
-            <translation>是的</translation>
+            <translation>是</translation>
         </message>
         <message>
             <source>LNG_00004</source>
-            <translation>不</translation>
+            <translation>否</translation>
         </message>
         <message>
             <source>LNG_00208</source>
-            <translation>📊 系统统计</translation>
+            <translation>📊 系统状态</translation>
         </message>
         <message>
             <source>LNG_00207</source>
@@ -2380,19 +2380,19 @@
         </message>
         <message>
             <source>LNG_00204</source>
-            <translation>中央处理器：</translation>
+            <translation>CPU：</translation>
         </message>
         <message>
             <source>LNG_00203</source>
-            <translation>图形处理器：</translation>
+            <translation>GPU：</translation>
         </message>
         <message>
             <source>LNG_00202</source>
-            <translation>网：</translation>
+            <translation>网络：</translation>
         </message>
         <message>
             <source>LNG_00201</source>
-            <translation>正在加载新窗口...</translation>
+            <translation>正在加载新窗口…</translation>
         </message>
     </context>
     <context>
@@ -3355,555 +3355,555 @@
         </message>
         <message>
             <source>LNG_00452</source>
-            <translation>修复了网络丢失和 RTSP 流超时导致玩家变成僵尸、无法成功重新连接的严重错误。重新加载按钮和自动恢复现在可以完全可靠地工作。</translation>
+            <translation>修复网络中断与 RTSP 超时导致播放器僵死、无法重连的严重问题；“重新加载”按钮与自动恢复现已完全可靠。</translation>
         </message>
         <message>
             <source>LNG_00451</source>
-            <translation>刷新了播放器和存档状态消息的外观。加载和恢复通知现在具有令人愉快的青色主题和适当的图标，以更好地将它们与严重错误（无媒体/网络）区分开来。</translation>
+            <translation>刷新播放器与录像状态提示外观：加载与恢复提示改为青色主题并配图标，与严重错误（无媒体、网络异常）区分更明显。</translation>
         </message>
         <message>
             <source>LNG_00450</source>
-            <translation>与海康威视 SDK 集成 MakeKeyFrame 硬件命令。现在，该应用程序在切换子/主流以及从实时到存档时积极强制摄像机发出 I 帧，从而消除了 10 秒的关键帧等待。</translation>
+            <translation>接入海康 SDK 的 MakeKeyFrame 指令：切换子码流与主码流、以及从实时预览进入录像时，主动请求摄像机输出 I 帧，消除约 10 秒的关键帧等待。</translation>
         </message>
         <message>
             <source>LNG_00449</source>
-            <translation>删除了对analyzeduration参数的即时覆盖。该应用程序严格执行用户定义的 FFmpeg 值（强烈建议将其设置为 100000，以便无音频摄像机绕过 5 秒停顿限制）。</translation>
+            <translation>取消对 analyzeduration 参数的运行时覆盖，严格遵循用户设置的 FFmpeg 参数（无音频摄像机建议设为 100000，以绕过 5 秒卡顿限制）。</translation>
         </message>
         <message>
             <source>LNG_00448</source>
-            <translation>在记录器视口上添加了“HikSDK”徽章，以更好地区分协议。</translation>
+            <translation>录像机窗格增加“HikSDK”标识，便于区分接入协议。</translation>
         </message>
         <message>
             <source>LNG_00447</source>
-            <translation>简化的诊断日志记录 (QDebug)，允许在详细模式之外将警告和严重错误打印到控制台，从而更轻松地进行 NVR 故障调试。</translation>
+            <translation>精简诊断日志：非详细模式下也输出警告与严重错误，便于排查 NVR 故障。</translation>
         </message>
         <message>
             <source>LNG_00446</source>
-            <translation>过滤掉误报的 PlayM4 SDK 错误（第 17 号和第 2 号），这些错误在播放器中快速时间线清理期间向控制台发送垃圾邮件。</translation>
+            <translation>过滤播放器中快速拖动时间轴时频繁刷屏的 PlayM4 SDK 误报（17、2 号错误）。</translation>
         </message>
         <message>
             <source>LNG_00445</source>
-            <translation>修复了 KDE Plasma 系统上 Qt5 框架对非线性缩放（例如 145%）的截断，强制正确解释高 DPI 策略。</translation>
+            <translation>修复 KDE Plasma 下 Qt5 对非整数缩放（如 145%）的截断问题，正确解释高 DPI 策略。</translation>
         </message>
         <message>
             <source>LNG_00444</source>
-            <translation>解决了搜索或拖动时间线时实时网格上其他摄像机的临时冻结问题。</translation>
+            <translation>修复拖动时间轴或定位时实时画面中其他摄像机短暂卡住的问题。</translation>
         </message>
         <message>
             <source>LNG_00443</source>
-            <translation>将所有阻塞的 Hikvision SDK 网络调用（登录、停止、启动、速度控制）移至异步工作线程。</translation>
+            <translation>海康 SDK 的阻塞式网络调用（登录、停止、启动、倍速控制）全部移入异步工作线程。</translation>
         </message>
         <message>
             <source>LNG_00442</source>
-            <translation>彻底解决了RTSP摄像机切换画质（SUB/MAIN）时的黑屏问题。</translation>
+            <translation>彻底解决 RTSP 摄像机切换子码流与主码流时的黑屏问题。</translation>
         </message>
         <message>
             <source>LNG_00441</source>
-            <translation>将无缝流切换定时器优化至 100ms，以实现最大速度。</translation>
+            <translation>无缝码流切换的检测间隔优化为 100 毫秒，切换更快。</translation>
         </message>
         <message>
             <source>LNG_00440</source>
-            <translation>添加了低级 FFmpeg 选项（nobuffer、low_delay），以消除长时间运行期间的实时流延迟（漂移）。</translation>
+            <translation>增加 FFmpeg 底层参数（nobuffer、low_delay），消除长时间运行后实时画面的累积延迟。</translation>
         </message>
         <message>
             <source>LNG_00439</source>
-            <translation>引入了一个按钮来批量更新所有布局中所有现有摄像机的 FFmpeg 参数。</translation>
+            <translation>新增按钮，可批量更新所有布局中全部摄像机的 FFmpeg 参数。</translation>
         </message>
         <message>
             <source>LNG_00438</source>
-            <translation>添加了从全局 FFmpeg 参数更新中排除特定摄像机的选项（视口设置中的新复选框）。</translation>
+            <translation>新增选项可将指定摄像机排除在全局 FFmpeg 参数更新之外（窗格设置中新复选框）。</translation>
         </message>
         <message>
             <source>LNG_00437</source>
-            <translation>保护默认设置迁移过程，允许用户永久删除或修改新标志，而无需在每次启动时强制执行这些标志。</translation>
+            <translation>加固默认配置迁移流程，用户可永久删除或修改新增开关，不会被每次启动强制重置。</translation>
         </message>
         <message>
             <source>LNG_00436</source>
-            <translation>直接在相机视口内添加了快速播放功能（最多可倒带 30 分钟）。</translation>
+            <translation>摄像机窗格内新增快速回放功能（最多回退 30 分钟）。</translation>
         </message>
         <message>
             <source>LNG_00435</source>
-            <translation>在所有窗口和辅助程序进程之间实现完全、双向实时同步，用于设置：音频静音、禁用缩放动画以及所有海康威视 NVR 状态监控选项。</translation>
+            <translation>所有窗口与辅助进程之间实现设置双向实时同步：音频静音、缩放动画开关及全部海康 NVR 状态监测选项。</translation>
         </message>
         <message>
             <source>LNG_00434</source>
-            <translation>通过智能标签密度调整 (zoomHours)，在存档播放器时间轴上的分钟刻度处添加了分钟标签的动态显示（例如：15、:30、:45）。</translation>
+            <translation>录像时间轴在分钟刻度上动态显示分钟标签（如 :15、:30、:45），并根据缩放跨度智能调整标签密度。</translation>
         </message>
         <message>
             <source>LNG_00433</source>
-            <translation>在 UI 设置中添加了一个新选项：“禁用视口缩放动画”，并在相机网格视图中立即应用。</translation>
+            <translation>界面设置新增“关闭窗格缩放动画”，在摄像机画面中立即生效。</translation>
         </message>
         <message>
             <source>LNG_00432</source>
-            <translation>重建存档播放器初始化过程：暂停连接和视频加载，直到确定准确的录制限制（通过超快的 24 小时异步搜索），消除过早播放和图像跳跃。</translation>
+            <translation>重构录像播放器初始化流程：先通过超快的 24 小时异步检索确定精确录像边界，再连接并加载视频，避免提前回放与画面跳动。</translation>
         </message>
         <message>
             <source>LNG_00431</source>
-            <translation>完善的海康威视存档加载消息 - 仅在活动流缓冲期间显示加载状态，并且如果播放头移动到可用录制边界之外，则会显示专用警告。</translation>
+            <translation>优化海康录像加载提示——仅在码流实际缓冲时显示加载状态，播放指针移出录像范围时给出专门提示。</translation>
         </message>
         <message>
             <source>LNG_00430</source>
-            <translation>在设置面板中引入了新的配置字段：默认存档播放开始偏移（以秒为单位，默认 60 秒）和默认时间线缩放跨度（缩放小时数，默认 2 小时）。</translation>
+            <translation>设置面板新增配置项：默认回放起始回退量（秒，默认 60）与默认时间轴缩放跨度（小时，默认 2）。</translation>
         </message>
         <message>
             <source>LNG_00429</source>
-            <translation>在 NVR 状态弹出窗口内的录像机 Web 面板中添加了直接 Web 登录图标。</translation>
+            <translation>NVR 状态弹窗中新增图标，可直接打开录像机 Web 管理页。</translation>
         </message>
         <message>
             <source>LNG_00428</source>
-            <translation>为单个记录器添加了错误报告抑制功能。</translation>
+            <translation>支持对单台录像机抑制故障上报。</translation>
         </message>
         <message>
             <source>LNG_00427</source>
-            <translation>修复了状态窗口中不正确的波兰语翻译“模拟录音机”，并实现了正确的单词区分（“抑制”错误与“静音”音频）。</translation>
+            <translation>修复状态窗口中“模拟录像机”的波兰语误译，并区分“抑制”（故障）与“静音”（音频）两个词。</translation>
         </message>
         <message>
             <source>LNG_00426</source>
-            <translation>使用 SDK/ISAPI 诊断实施定期（每 5 分钟）和手动 Hikvision NVR/DVR 错误状态监控。</translation>
+            <translation>基于 SDK 与 ISAPI 诊断实现海康 NVR/DVR 故障状态监测，支持每 5 分钟自动检测与手动检测。</translation>
         </message>
         <message>
             <source>LNG_00425</source>
-            <translation>常规设置中添加了配置选项，用于启用/禁用海康威视 NVR 状态检查并自定义监控的严重错误类型。</translation>
+            <translation>常规设置新增开关，可启用或关闭海康 NVR 状态检测并自定义监测的故障类型。</translation>
         </message>
         <message>
             <source>LNG_00424</source>
-            <translation>设计了一个高保真暖绿色/红色顶栏状态图标，具有深脉冲外波和内部心跳波纹动画，以表示活动的严重错误。</translation>
+            <translation>顶栏状态图标采用暖绿与红色高保真设计，配合外圈脉动与内部心跳波纹动画提示当前关键故障。</translation>
         </message>
         <message>
             <source>LNG_00423</source>
-            <translation>引入了顶部边缘突出的红色指示器圆圈，当主工具栏折叠时，该指示器圆圈会在屏幕顶部闪烁，确保永远不会错过重要警告。</translation>
+            <translation>主工具栏收起时，屏幕顶部显示探出的红色圆形指示并脉动，确保关键告警不被忽略。</translation>
         </message>
         <message>
             <source>LNG_00422</source>
-            <translation>创建了一个优雅的、可滚动的弹出窗口“记录器状态”，限制为屏幕高度的 85%，显示详细的错误代码。</translation>
+            <translation>新增“录像机状态”弹窗，可滚动、高度不超过屏幕 85%，展示详细错误码。</translation>
         </message>
         <message>
             <source>LNG_00421</source>
-            <translation>添加了运行标志“--simulate-error”以立即模拟所有记录器的磁盘故障和连接错误，以用于演示目的。</translation>
+            <translation>新增启动参数 --simulate-error，可一键为所有录像机模拟硬盘故障与连接错误，便于演示。</translation>
         </message>
         <message>
             <source>LNG_00420</source>
-            <translation>在配置的记录器视图中实现了列表框徽章和状态指示器对齐。</translation>
+            <translation>各录像机视图中实现列表边框徽标与状态指示器对齐。</translation>
         </message>
         <message>
             <source>LNG_00419</source>
-            <translation>为所有 NVR 诊断、设置复选框、工具提示、警告和命令行解析器选项实现了完整的双语翻译覆盖（波兰语/英语）。</translation>
+            <translation>NVR 诊断信息、设置复选项、提示、警告与命令行参数说明均完成波兰语与英语双语覆盖。</translation>
         </message>
         <message>
             <source>LNG_00418</source>
-            <translation>添加了通过单击顶部工具栏上的按钮来重新加载活动布局的功能。</translation>
+            <translation>点击顶部工具栏中当前布局的按钮即可重新加载该布局。</translation>
         </message>
         <message>
             <source>LNG_00417</source>
-            <translation>随着时间的推移平均 NVML 使用率样本，以平滑 GPU 使用率图表并消除锯齿状读数。</translation>
+            <translation>NVML 占用率按时间取平均，平滑 GPU 使用率曲线，消除锯齿跳变。</translation>
         </message>
         <message>
             <source>LNG_00416</source>
-            <translation>通过延迟活动播放器交换直到第一帧绘制在屏幕上，消除了在视口最大化期间将质量从 SUB 流切换到主流时的瞬时视频闪烁（黑帧）和音频视频不同步间隙。</translation>
+            <translation>窗格最大化时由子码流切主码流不再出现黑帧闪烁与音画不同步——改为首帧上屏后再切换当前播放器。</translation>
         </message>
         <message>
             <source>LNG_00415</source>
-            <translation>在存档下载时间选择器弹出窗口中的小时、分钟和秒选择列中添加了交互式、清晰且 2 倍宽的滚动条。</translation>
+            <translation>录像下载时间选择弹窗中时、分、秒列的滚动条加宽一倍，更易操作。</translation>
         </message>
         <message>
             <source>LNG_00414</source>
-            <translation>在视口上下文菜单中添加了新的直观选项：“快照”（保存当前帧）和“回放”（立即转换到给定摄像机的存档回放）。</translation>
+            <translation>窗格右键菜单新增“抓图”（保存当前画面）与“回放”（直接进入该摄像机的录像回放）。</translation>
         </message>
         <message>
             <source>LNG_00413</source>
-            <translation>革命性和固定的 PCM 音频处理：直接管道转发到 QAudioOutput、通过稳定采样率（5 个稳定帧后去抖）消除接口冻结（ALSA/PulseAudio/Pipewire）、输出重新创建 2 秒冷却、过滤损坏的参数和减少网络抖动的 64KB 缓冲区。</translation>
+            <translation>彻底重做并修复 PCM 音频处理：音频直通 QAudioOutput，稳定采样率（连续 5 帧后防抖）以消除界面卡顿（ALSA/PulseAudio/PipeWire），输出重建 2 秒冷却，过滤异常参数，并用 64KB 缓冲降低网络抖动。</translation>
         </message>
         <message>
             <source>LNG_00412</source>
-            <translation>直接在视口图块上实现交互式 HUD 音量滑块，以及快速静音选项和一键音量最大化。</translation>
+            <translation>窗格上新增交互式音量滑块，支持快速静音与一键最大音量。</translation>
         </message>
         <message>
             <source>LNG_00411</source>
-            <translation>打开存档播放窗口后，在主网格中实现实时流的自动和立即静音，防止声音重叠（刺耳的声音）。</translation>
+            <translation>打开录像回放窗口时自动立即静音主画面实时码流，避免声音叠加杂音。</translation>
         </message>
         <message>
             <source>LNG_00410</source>
-            <translation>引入了用于保存快照的中央 SnapshotSavedDialog 通知系统（深灰色外壳，青色边框，10 秒后自动关闭），并带有快速“浏览”链接，可直接在系统文件管理器中打开文件夹。</translation>
+            <translation>新增抓图保存提示窗口（深灰底、青色边框、10 秒自动关闭），并提供“浏览”链接直接在系统文件管理器中打开目录。</translation>
         </message>
         <message>
             <source>LNG_00409</source>
-            <translation>使用原生、清晰的 SVG 矢量图标，通过详细的“按钮功能描述”章节丰富了内置帮助窗口。现在，在程序首次启动时，帮助窗口会完全自动打开并位于主窗口的中央。</translation>
+            <translation>内置帮助窗口新增“按钮功能说明”章节，配原生清晰 SVG 矢量图标；首次启动时帮助窗口自动打开并居中显示于主窗口之上。</translation>
         </message>
         <message>
             <source>LNG_00408</source>
-            <translation>在程序/窗口启动时引入了顶部栏的默认显示，并在设置中添加了“打开窗口后默认显示顶部栏”选项，允许根据个人喜好自定义此行为。</translation>
+            <translation>程序与窗口启动时默认显示顶栏，并在设置中新增“打开窗口时默认显示顶栏”，可按习惯调整。</translation>
         </message>
         <message>
             <source>LNG_00407</source>
-            <translation>使用 GNUInstallDirs 在 CMakeLists.txt 中实现动态 RPATH 库路径，从而可以在 Ubuntu 和 Debian 上立即执行已编译的应用程序，而无需手动配置 /etc/ld.so.conf.d/ 和 ldconfig。</translation>
+            <translation>通过 GNUInstallDirs 生成动态 RPATH，编译后的程序在 Ubuntu 与 Debian 上可直接运行，无需手工配置 /etc/ld.so.conf.d/ 与 ldconfig。</translation>
         </message>
         <message>
             <source>LNG_00406</source>
-            <translation>将程序重命名为 KVision，引入自动用户配置迁移、新的多尺寸图标（128px、256px、512px）以及窗口标题栏中的完整版本显示。</translation>
+            <translation>程序更名为 KVision，用户配置自动迁移，新增多尺寸图标（128/256/512 像素），并在标题栏显示完整版本号。</translation>
         </message>
         <message>
             <source>LNG_00405</source>
-            <translation>修复了超出辅助窗口限制的警告窗口（缺少 QML 资源和 QSettings 读取）。</translation>
+            <translation>修复超出辅助窗口上限时的提示窗口（缺失 QML 资源与配置读取）。</translation>
         </message>
         <message>
             <source>LNG_00404</source>
-            <translation>修复了 Wayland 下丢失的程序图标（hicolor 主题安装和 setDesktopFileName）。</translation>
+            <translation>修复 Wayland 下程序图标缺失（安装 hicolor 主题并设置 setDesktopFileName）。</translation>
         </message>
         <message>
             <source>LNG_00403</source>
-            <translation>从“设置”中删除了自动折叠顶部栏选项 - 从现在开始，实时窗口（主窗口和辅助窗口）中的顶部栏在启动时默认折叠，并且固定按钮将其固定在本地和临时（在内存中）而不保存其状态。</translation>
+            <translation>设置中移除“自动收起顶栏”选项——实时预览窗口（主窗口与辅助窗口）启动时默认收起顶栏，固定按钮仅在本次运行内临时生效，不保存状态。</translation>
         </message>
         <message>
             <source>LNG_00402</source>
-            <translation>引入了对辅助窗口数量的限制（可配置为 0 到 3），并在尝试超过该数量时显示一个优雅的警告窗口。</translation>
+            <translation>辅助窗口数量上限可配置（0–3），超出时弹出友好提示窗口。</translation>
         </message>
         <message>
             <source>LNG_00401</source>
-            <translation>在实时布局网格中未使用的视口周围添加了微妙的 1px 深灰色边框，以更好地描绘字段。</translation>
+            <translation>实时预览布局中未使用窗格增加 1 像素深灰细边框，便于区分区域。</translation>
         </message>
         <message>
             <source>LNG_00400</source>
-            <translation>在临时“激活此部分中的更改”复选框后面安全地编辑保存路径和系统媒体配置选项，防止意外修改（编辑状态在关闭时重置）。</translation>
+            <translation>保存路径与系统媒体配置需勾选临时性的“启用本节修改”方可编辑，防止误改（关闭窗口后编辑状态复位）。</translation>
         </message>
         <message>
             <source>LNG_00399</source>
-            <translation>引入了“打开保存文件夹”的直接快捷方式（在“存档”窗口中完成下载后以青瓷突出显示）以及“设置”中快照和视频文件夹的始终有效的快速打开按钮（如果丢失，则会在磁盘上自动创建目录）。</translation>
+            <translation>新增“打开保存目录”快捷入口（录像窗口下载完成后以青色高亮），设置中的抓图与录像目录常驻快捷按钮（目录不存在时自动创建）。</translation>
         </message>
         <message>
             <source>LNG_00398</source>
-            <translation>单击下载窗口中的“Pobierz”（下载）按钮时引入了交互式验证：自动格式和时间顺序日期检查，显示红色警告工具提示并聚焦第一个无效字段。</translation>
+            <translation>下载窗口点击“下载”按钮时进行交互式校验：自动检查格式与时间顺序，以红色提示框报错并聚焦首个无效字段。</translation>
         </message>
         <message>
             <source>LNG_00397</source>
-            <translation>在时钟选择器弹出窗口中实现了完整的键盘导航（向上/向下箭头键更改值，向左/向右切换列）。</translation>
+            <translation>时间选择弹窗支持完整键盘操作（上下键改数值，左右键切换列）。</translation>
         </message>
         <message>
             <source>LNG_00396</source>
-            <translation>确保辅助窗口完全干净地启动（不会自动打开选项侧边栏）并排除从辅助窗口保存的几何设置，从而消除共享配置污染。</translation>
+            <translation>辅助窗口启动时保持干净（不自动打开选项侧边栏），且不再保存几何设置，避免配置互相污染。</translation>
         </message>
         <message>
             <source>LNG_00395</source>
-            <translation>在下载窗口中添加了对所有新格式和时间顺序验证错误消息的完整英语支持。</translation>
+            <translation>下载窗口新增的格式与时间顺序校验提示全部支持英语。</translation>
         </message>
         <message>
             <source>LNG_00394</source>
-            <translation>通过在更新格式和匹配渲染器尺寸之前自动正确停止视频表面，消除了切换摄像机布局时的 RAM 内存泄漏。</translation>
+            <translation>切换画面布局时先自动正确停止渲染表面，再更新格式并与渲染器尺寸对齐，消除内存泄漏。</translation>
         </message>
         <message>
             <source>LNG_00393</source>
-            <translation>实现了播放器停止时音频输出对象的无条件释放和销毁，并引入了这些对象的自动回收以消除 Linux 上的内存和线程泄漏。</translation>
+            <translation>播放器停止时无条件释放并销毁音频输出对象，并引入对象自动回收，消除 Linux 下的内存与线程泄漏。</translation>
         </message>
         <message>
             <source>LNG_00392</source>
-            <translation>通过在呈现新流的第一帧时强制发出正确的视频可用性信号，解决了视频冻结问题（视口缩放后的纯色屏幕）。</translation>
+            <translation>修复视频卡死（窗格放大后画面变纯色）——新码流首帧呈现时强制发出正确的可用信号。</translation>
         </message>
         <message>
             <source>LNG_00391</source>
-            <translation>添加了全局设置“完全禁用音频支持”，允许完全绕过音频处理，以消除潜在的开销和内存泄漏。</translation>
+            <translation>新增全局设置“完全关闭音频”，可彻底跳过音频处理，消除潜在开销与内存泄漏。</translation>
         </message>
         <message>
             <source>LNG_00390</source>
-            <translation>优化系统统计模块，通过缓存进程 ID 和删除动态正则表达式分配来消除连续的内存使用开销。</translation>
+            <translation>系统统计模块通过缓存进程 ID、去除动态正则分配，消除持续性内存开销。</translation>
         </message>
         <message>
             <source>LNG_00389</source>
-            <translation>对摄像机布局切换强制执行积极的垃圾收集 (GC)，并取消视频缓冲区中的图像缩放上下文 (SwsContext)。</translation>
+            <translation>切换画面布局时强制执行一次垃圾回收（GC），并置空视频缓冲中的图像缩放上下文（SwsContext）。</translation>
         </message>
         <message>
             <source>LNG_00388</source>
-            <translation>确保在应用程序退出时正确清理静态配置文件更改检测器 (QFileSystemWatcher) 的资源。</translation>
+            <translation>程序退出时正确释放配置文件变更监听（QFileSystemWatcher）资源。</translation>
         </message>
         <message>
             <source>LNG_00387</source>
-            <translation>修复了在顺序相机删除和视口合并或移动过程中较慢机器上辅助窗口进程的同步和冻结问题。</translation>
+            <translation>修复低配机器上连续删除摄像机、合并或移动窗格时辅助窗口进程的同步与卡死问题。</translation>
         </message>
         <message>
             <source>LNG_00386</source>
-            <translation>修复了后台使用共享内存 (/dev/shm) 的所有应用程序进程的 GPU 利用率、VRAM 使用率和网络带宽统计数据的聚合。</translation>
+            <translation>修复通过共享内存（/dev/shm）汇总各进程 GPU 占用、显存与网络带宽统计的问题。</translation>
         </message>
         <message>
             <source>LNG_00385</source>
-            <translation>清理待处理的 RGB 任务时，保护存档播放器析构函数免受数据竞争的影响。</translation>
+            <translation>加固录像播放器析构流程，避免清理待处理 RGB 任务时出现数据竞争。</translation>
         </message>
         <message>
             <source>LNG_00384</source>
-            <translation>实施视频播放器池，以消除切换布局时的 RAM 使用峰值和闪烁。</translation>
+            <translation>实现播放器池化复用，消除切换布局时的内存抖动与画面闪烁。</translation>
         </message>
         <message>
             <source>LNG_00383</source>
-            <translation>针对特定于进程的模型（无 nvidia-smi 生成）优化 GPU/VRAM 监控，并提供对 NVIDIA、AMD 和 Intel GPU 的本机支持（AMD/Intel 统计数据未经测试）。</translation>
+            <translation>GPU 与显存监测改为进程级采集（不再调用 nvidia-smi），原生支持 NVIDIA、AMD 与 Intel 显卡（AMD/Intel 统计尚未实测）。</translation>
         </message>
         <message>
             <source>LNG_00382</source>
-            <translation>允许通过使用自动缩放图表拖动其边缘和角落来调整系统统计面板的大小。</translation>
+            <translation>系统统计面板支持拖拽边缘与边角调整大小，图表自适应缩放。</translation>
         </message>
         <message>
             <source>LNG_00381</source>
-            <translation>在退出确认时实现了主窗口和辅助窗口的即时隐藏，使用户可以立即看到关闭，同时线程和内存清理在后台安全运行。</translation>
+            <translation>确认退出时立即隐藏主窗口与辅助窗口，用户感知为瞬时退出，线程与内存清理在后台安全进行。</translation>
         </message>
         <message>
             <source>LNG_00380</source>
-            <translation>将 LIVE 和 ARCHIVE 窗口中的顶部工具栏转换为居中的浮动停靠栏（LIVE 停靠栏具有动态宽度）。</translation>
+            <translation>实时预览与录像窗口的顶部工具栏改为居中浮动工具栏（预览工具栏宽度自适应）。</translation>
         </message>
         <message>
             <source>LNG_00379</source>
-            <translation>在网格选项和布局之间的顶部栏停靠处添加了垂直分隔符。</translation>
+            <translation>顶栏浮动工具栏中，网格选项与布局之间增加竖分隔线。</translation>
         </message>
         <message>
             <source>LNG_00378</source>
-            <translation>提高了存档顶部和底部栏的透明度（窗口模式下为 60%，全屏模式下为 26%）并将时间线背景设置为透明。</translation>
+            <translation>提高录像窗口顶栏与底栏透明度（窗口模式 60%，全屏 26%），时间轴背景设为透明。</translation>
         </message>
         <message>
             <source>LNG_00377</source>
-            <translation>将存档中的播放速度图标简化为清晰文本（1x、2x、4x），并删除了不稳定的 8x 速度选项。</translation>
+            <translation>录像回放倍速按钮简化为文字（1x、2x、4x），并移除不稳定的 8x 选项。</translation>
         </message>
         <message>
             <source>LNG_00376</source>
-            <translation>将存档和下载日历中的每月导航文本按钮替换为图形箭头（V 形）。</translation>
+            <translation>录像与下载日历的月份切换文字按钮改为图形箭头。</translation>
         </message>
         <message>
             <source>LNG_00375</source>
-            <translation>将相机视口关闭按钮从右上角重新定位到右下控制区域，以防止意外点击。</translation>
+            <translation>摄像机窗格关闭按钮由右上角移至右下控制区，避免误触。</translation>
         </message>
         <message>
             <source>LNG_00374</source>
-            <translation>优化了存档窗口中所选网格布局文本的对比度（青瓷背景上的深色文本）。</translation>
+            <translation>优化录像窗口中所选布局的文字对比度（青色底配深色文字）。</translation>
         </message>
         <message>
             <source>LNG_00373</source>
-            <translation>使用新的专用抓柄将系统统计面板转换为可拖动的浮动面板（可点击）。</translation>
+            <translation>系统统计面板改为可拖动浮窗（支持点击穿透），并新增专用拖动手柄。</translation>
         </message>
         <message>
             <source>LNG_00372</source>
-            <translation>解决了删除视口布局时关键设置同步循环和 UI 冻结的问题。</translation>
+            <translation>修复删除窗格布局时配置同步死循环与界面卡死的问题。</translation>
         </message>
         <message>
             <source>LNG_00371</source>
-            <translation>放大了存档中的速度、缩放和 VCR 控制图标以提高可视性，并增加了 SVG 图标内的文本大小。</translation>
+            <translation>加大录像窗口的倍速、缩放与录像机控制图标，并增大图标内文字。</translation>
         </message>
         <message>
             <source>LNG_00370</source>
-            <translation>删除了存档中缩放快捷方式的重复文本按钮，将其完全替换为圆形图标。</translation>
+            <translation>移除录像窗口中重复的缩放文字按钮，全部改为圆形图标。</translation>
         </message>
         <message>
             <source>LNG_00369</source>
-            <translation>为存档窗口中的所有工具提示添加了完整的英语和波兰语翻译。</translation>
+            <translation>录像窗口全部提示框补齐英语与波兰语翻译。</translation>
         </message>
         <message>
             <source>LNG_00368</source>
-            <translation>在主窗口和辅助窗口之间引入了实时双向配置同步，并支持唯一的自动辅助窗口 ID。</translation>
+            <translation>主窗口与辅助窗口实现配置双向实时同步，并支持辅助窗口自动分配唯一 ID。</translation>
         </message>
         <message>
             <source>LNG_00367</source>
-            <translation>下载完成或记录仪断开连接后，在海康威视存档播放器中添加了自动会话恢复（自动重新连接）。</translation>
+            <translation>海康录像播放器新增会话自动恢复（自动重连），应对下载完成或录像机主动断连。</translation>
         </message>
         <message>
             <source>LNG_00366</source>
-            <translation>通过对解码器媒体上下文采用安全的 std::weak_ptr 引用，消除了潜在的线程泄漏和 FFmpeg 视频解码器在布局切换期间挂起的情况。</translation>
+            <translation>解码器媒体上下文改用安全的 std::weak_ptr 引用，消除切换布局时的线程泄漏与 FFmpeg 解码卡死。</translation>
         </message>
         <message>
             <source>LNG_00365</source>
-            <translation>通过使用 deleteLater() 安全删除布局对象，修复了 ViewportsLayouts 模型中的内存泄漏。</translation>
+            <translation>使用 deleteLater() 安全销毁布局对象，修复 ViewportsLayouts 模型的内存泄漏。</translation>
         </message>
         <message>
             <source>LNG_00364</source>
-            <translation>减少了 NVR 选项卡快速更改期间的视频渲染表面启动错误 (OpenGL) - 日志被降级为调试级别，并且系统在释放 GPU 缓冲区后以静默方式在后台重试渲染。</translation>
+            <translation>缓解快速切换 NVR 标签时视频渲染表面（OpenGL）启动报错——日志降为调试级别，并在 GPU 缓冲释放后于后台自动重试渲染。</translation>
         </message>
         <message>
             <source>LNG_00363</source>
-            <translation>通过多步堆清理和 QML 引擎缓存优化，解决了关闭存档窗口后剩余 RAM 使用量 (20-30 MB) 的问题。</translation>
+            <translation>通过分级堆清理与 QML 引擎缓存优化，解决关闭录像窗口后残留 20–30MB 内存的问题。</translation>
         </message>
         <message>
             <source>LNG_00362</source>
-            <translation>优化了相机缩放和视口调整大小/缩放期间的 RAM 使用情况，防止连续视频流布局更改期间内存过多积累。</translation>
+            <translation>优化摄像机缩放与窗格调整、放大过程中的内存占用，避免频繁切换布局导致内存持续增长。</translation>
         </message>
         <message>
             <source>LNG_00361</source>
-            <translation>在实时和存档播放流的每个视口的左上角添加了精确的实时每秒帧数 (FPS) 指示器。</translation>
+            <translation>每个窗格左上角新增精确的实时帧率（FPS）显示，实时预览与录像回放均支持。</translation>
         </message>
         <message>
             <source>LNG_00360</source>
-            <translation>在海康威视下载器中实现下载线程的安全终止和释放，确保应用程序稳定、立即关闭，而不阻塞系统资源。</translation>
+            <translation>海康下载器实现下载线程的安全终止与释放，程序可立即稳定退出且不占用系统资源。</translation>
         </message>
         <message>
             <source>LNG_00359</source>
-            <translation>在存档窗口中添加了动态摄像机搜索字段，带有重置按钮和自动扩展的匹配录像机。</translation>
+            <translation>录像窗口新增动态摄像机搜索框，带重置按钮，并自动展开匹配的录像机。</translation>
         </message>
         <message>
             <source>LNG_00358</source>
-            <translation>启用了存档中列表图块上长摄像机名称的换行。</translation>
+            <translation>录像窗口中过长的摄像机名称支持换行显示。</translation>
         </message>
         <message>
             <source>LNG_00357</source>
-            <translation>相机图块（薄荷色背景）上加号按钮 (+) 的放大和反转颜色，以获得更好的可视性，并具有清晰的悬停/按下状态。</translation>
+            <translation>摄像机卡片上的加号按钮加大并反色（薄荷绿底），悬停与按下状态更清晰。</translation>
         </message>
         <message>
             <source>LNG_00356</source>
-            <translation>修复了存档播放器窗口中录制可用性时间线栏 2-3 小时的偏移，使时间线与客户端的本地时区同步（具有正确的夏令时 DST 支持）。</translation>
+            <translation>修复录像窗口中录像分布条偏移 2–3 小时的问题，使时间轴与客户端本地时区一致（含夏令时正确处理）。</translation>
         </message>
         <message>
             <source>LNG_00355</source>
-            <translation>将空视图中的低对比度黑色表情符号 📺 替换为优雅的 Seledyn 高 DPI 矢量监视器 SVG。</translation>
+            <translation>空视图中的低对比度黑色表情符号 📺 替换为青色高 DPI 矢量显示器图标。</translation>
         </message>
         <message>
             <source>LNG_00354</source>
-            <translation>改进了存档窗口中记录器栏的可读性（高度从 22 像素增加到 28 像素，字体大小从 9 像素增加到 11 像素，展开箭头更大）。</translation>
+            <translation>提高录像窗口中录像机条目的可读性（高度 22→28 像素，字号 9→11 像素，展开箭头加大）。</translation>
         </message>
         <message>
             <source>LNG_00353</source>
-            <translation>为记录器栏添加了完整的动态悬停效果，背景、文本和图标颜色明显变化为 seledyn/white。</translation>
+            <translation>录像机条目增加完整悬停动效，背景、文字与图标同步变为青色/白色。</translation>
         </message>
         <message>
             <source>LNG_00352</source>
-            <translation>将顶部栏上的文本操作按钮（选项、新窗口、存档、说明）替换为带有有用工具提示的专用彩色 SVG 图标。</translation>
+            <translation>顶栏文字按钮（选项、新建窗口、录像、使用说明）改为配色 SVG 图标并附提示。</translation>
         </message>
         <message>
             <source>LNG_00351</source>
-            <translation>将系统统计开关替换为反映系统监视器活动状态的交互式 SVG 图标。</translation>
+            <translation>系统统计开关改为可交互 SVG 图标，并反映监控器工作状态。</translation>
         </message>
         <message>
             <source>LNG_00350</source>
-            <translation>将网格选择按钮 (1x1-9x9) 统一为一致的 30x30px 圆形按钮。</translation>
+            <translation>网格选择按钮（1x1–9x9）统一为 30×30 像素圆形按钮。</translation>
         </message>
         <message>
             <source>LNG_00349</source>
-            <translation>在选项部分和网格选择部分之间添加了垂直分隔线。</translation>
+            <translation>选项区与网格选择区之间增加竖分隔线。</translation>
         </message>
         <message>
             <source>LNG_00348</source>
-            <translation>将视图按钮重新设计为优雅的圆形药丸形状，高度为 30 像素，保留侧边距。</translation>
+            <translation>视图按钮改为 30 像素高的圆角胶囊造型，并保留左右边距。</translation>
         </message>
         <message>
             <source>LNG_00347</source>
-            <translation>视图名称强制自动显示大写。</translation>
+            <translation>视图名称统一自动大写显示。</translation>
         </message>
         <message>
             <source>LNG_00346</source>
-            <translation>改进了活动视图按钮的可读性和对比度 - 明亮的 Seledyn 背景上的深色文本 (#121214)。</translation>
+            <translation>提高当前视图按钮的可读性与对比度——青色底配深色文字（#121214）。</translation>
         </message>
         <message>
             <source>LNG_00345</source>
-            <translation>将记录器和视图列表上的删除图标以及预设激活按钮统一并改进为带有工具提示的 SVG 图标。</translation>
+            <translation>录像机与视图列表的删除图标、预置方案启用按钮统一为带提示的 SVG 图标。</translation>
         </message>
         <message>
             <source>LNG_00344</source>
-            <translation>减少顶部栏按钮之间的间距以优化界面空间。</translation>
+            <translation>缩小顶栏按钮间距，节省界面空间。</translation>
         </message>
         <message>
             <source>LNG_00343</source>
-            <translation>恢复了辅助窗口中丢失的最小化图标。</translation>
+            <translation>恢复辅助窗口缺失的最小化图标。</translation>
         </message>
         <message>
             <source>LNG_00342</source>
-            <translation>修复了辅助窗口中的登录和播放问题。</translation>
+            <translation>修复辅助窗口的登录与回放异常。</translation>
         </message>
         <message>
             <source>LNG_00341</source>
-            <translation>修复了直接从相机打开播放时的布局按钮状态（1x1 与 2x2）。</translation>
+            <translation>修复从摄像机直接进入回放时布局按钮状态错误（1x1 与 2x2）。</translation>
         </message>
         <message>
             <source>LNG_00340</source>
-            <translation>在 Hikvision ISAPI 查询中添加了正确的 XML 命名空间（修复了较新记录器固件上的“无效 XML 内容”错误）。</translation>
+            <translation>海康 ISAPI 查询补充正确的 XML 命名空间（修复较新固件上的“Invalid XML Content”报错）。</translation>
         </message>
         <message>
             <source>LNG_00339</source>
-            <translation>修复了搜索结果分页处理（searchResultPostion 标记）。</translation>
+            <translation>修复录像搜索结果分页处理（searchResultPostion 标签）。</translation>
         </message>
         <message>
             <source>LNG_00338</source>
-            <translation>播放窗口中的“刷新”按钮可手动清除缓存并重新获取录制可用性数据。</translation>
+            <translation>回放窗口新增“刷新”按钮，可手动清空缓存并重新获取录像分布数据。</translation>
         </message>
         <message>
             <source>LNG_00337</source>
-            <translation>网络预取队列优化 - 将后台提取限制为 12 个月，消除了数百个不必要的查询并加快播放启动速度。</translation>
+            <translation>网络预取队列优化——后台预取限制在 12 个月内，减少数百次无效查询并加快回放启动。</translation>
         </message>
         <message>
             <source>LNG_00336</source>
-            <translation>在后台线程中异步初始化 Hikvision SDK，完全消除打开选项时 GUI 冻结的情况。</translation>
+            <translation>海康 SDK 改为后台线程异步初始化，彻底消除打开选项时的界面卡顿。</translation>
         </message>
         <message>
             <source>LNG_00335</source>
-            <translation>海康威视SDK方法访问的线程安全同步。</translation>
+            <translation>海康 SDK 接口调用增加线程安全保护。</translation>
         </message>
         <message>
             <source>LNG_00334</source>
-            <translation>通过删除记录器 IP 地址来清理下载的文件和屏幕截图名称。</translation>
+            <translation>下载文件与抓图文件名去除录像机 IP，避免命名异常。</translation>
         </message>
         <message>
             <source>LNG_00333</source>
-            <translation>绿松石色的时尚下载进度条 (#00f5d4)，带有居中的轮廓文本。</translation>
+            <translation>青色（#00f5d4）下载进度条，居中描边文字。</translation>
         </message>
         <message>
             <source>LNG_00332</source>
-            <translation>计算多部分录制的全局下载进度 (overallProgress)。</translation>
+            <translation>分段录像下载时计算整体进度（overallProgress）。</translation>
         </message>
         <message>
             <source>LNG_00331</source>
-            <translation>将临时下载文件扩展名从“.ps”更改为“.pspart”。</translation>
+            <translation>下载临时文件扩展名由 .ps 改为 .pspart。</translation>
         </message>
         <message>
             <source>LNG_00330</source>
-            <translation>用户界面设置中的“仅在悬停时显示信息字段”选项和按钮。</translation>
+            <translation>界面设置新增“仅悬停时显示信息栏”开关与按钮。</translation>
         </message>
         <message>
             <source>LNG_00329</source>
-            <translation>配置面板中相机发现的视觉指示器（旋转图标、表单阻止和“发现...”文本）。</translation>
+            <translation>配置面板新增摄像机搜索状态提示（旋转图标、表单锁定与“正在搜索…”字样）。</translation>
         </message>
         <message>
             <source>LNG_00328</source>
-            <translation>完全本地化（添加了官方波兰语和英语翻译支持）。</translation>
+            <translation>完整本地化（新增波兰语与英语官方翻译）。</translation>
         </message>
         <message>
             <source>LNG_00327</source>
-            <translation>辅助窗口启动优化 - 将加载时间从 3 秒减少到 300 毫秒以下。</translation>
+            <translation>辅助窗口启动优化——加载时间由 3 秒缩短至 300 毫秒以内。</translation>
         </message>
         <message>
             <source>LNG_00326</source>
-            <translation>辅助窗口中带有绿松石边框的美观占位符（“未选择视图”）。</translation>
+            <translation>辅助窗口新增带青色边框的占位提示（“未选择视图”）。</translation>
         </message>
         <message>
             <source>LNG_00325</source>
-            <translation>用于实时查看和回放模式的海康威视 SDK 集成。</translation>
+            <translation>实时预览与回放模式接入海康 SDK。</translation>
         </message>
         <message>
             <source>LNG_00324</source>
-            <translation>具有自动时间线定位和居中功能的多机位播放播放器。</translation>
+            <translation>多摄像机同步回放播放器，时间轴自动定位并居中。</translation>
         </message>
         <message>
             <source>LNG_00323</source>
-            <translation>多线程系统监视器（CPU、RAM、GPU、VRAM 和网络带宽统计）。</translation>
+            <translation>多线程系统监视器（CPU、内存、GPU、显存与网络带宽统计）。</translation>
         </message>
         <message>
             <source>LNG_00322</source>
-            <translation>实时网络带宽消耗跟踪。</translation>
+            <translation>实时网络带宽占用监测。</translation>
         </message>
         <message>
             <source>LNG_00321</source>
-            <translation>高分辨率的应用程序图标和精致的深色主题界面。</translation>
+            <translation>高分辨率程序图标与重新打磨的深色界面。</translation>
         </message>
         <message>
             <source>LNG_00320</source>
-            <translation>Arch Linux 的自动 Pacman 包构建脚本。</translation>
+            <translation>Arch Linux 的 Pacman 软件包自动构建脚本。</translation>
         </message>
         <message>
             <source>LNG_00003</source>
-            <translation>凯维视</translation>
+            <translation>KVision</translation>
         </message>
         <message>
             <source>LNG_00319</source>
-            <translation>版本%1</translation>
+            <translation>版本 %1</translation>
         </message>
         <message>
             <source>LNG_00318</source>
-            <translation>原作者：叶夫根尼·S·马克西莫夫</translation>
+            <translation>原作者：Evgeny S. Maksimov</translation>
         </message>
         <message>
             <source>LNG_00317</source>
-            <translation>修改：arkanista（有AI辅助）</translation>
+            <translation>修改：arkanista（AI 辅助）</translation>
         </message>
         <message>
             <source>LNG_00316</source>
-            <translation>视口%1</translation>
+            <translation>窗格%1</translation>
         </message>
         <message>
             <source>LNG_00315</source>
@@ -3915,11 +3915,11 @@
         </message>
         <message>
             <source>LNG_00313</source>
-            <translation>录音机</translation>
+            <translation>录像机</translation>
         </message>
         <message>
             <source>LNG_00312</source>
-            <translation>预设</translation>
+            <translation>预置方案</translation>
         </message>
         <message>
             <source>LNG_00311</source>
@@ -3927,7 +3927,7 @@
         </message>
         <message>
             <source>LNG_00310</source>
-            <translation>变更日志</translation>
+            <translation>更新日志</translation>
         </message>
         <message>
             <source>LNG_00309</source>
@@ -3935,11 +3935,11 @@
         </message>
         <message>
             <source>LNG_00308</source>
-            <translation>视口详细信息</translation>
+            <translation>窗格详情</translation>
         </message>
         <message>
             <source>LNG_00307</source>
-            <translation>请在主网格中选择一个视口以自定义其设置。</translation>
+            <translation>请先在主画面中选择一个窗格，再修改其设置。</translation>
         </message>
         <message>
             <source>LNG_00306</source>
@@ -3947,47 +3947,47 @@
         </message>
         <message>
             <source>LNG_00305</source>
-            <translation>活动流连接</translation>
+            <translation>当前码流连接</translation>
         </message>
         <message>
             <source>LNG_00304</source>
-            <translation>主码流网址</translation>
+            <translation>主用地址</translation>
         </message>
         <message>
             <source>LNG_00303</source>
-            <translation>辅助备份 URL</translation>
+            <translation>备用地址</translation>
         </message>
         <message>
             <source>LNG_00302</source>
-            <translation>音频和渲染选项</translation>
+            <translation>音频与渲染选项</translation>
         </message>
         <message>
             <source>LNG_00301</source>
-            <translation>音频静音/取消静音</translation>
+            <translation>静音 / 取消静音</translation>
         </message>
         <message>
             <source>LNG_00300</source>
-            <translation>FFmpeg 选项覆盖</translation>
+            <translation>FFmpeg 参数覆盖</translation>
         </message>
         <message>
             <source>LNG_00299</source>
-            <translation>布局和网格工具</translation>
+            <translation>布局与网格工具</translation>
         </message>
         <message>
             <source>LNG_00298</source>
-            <translation>解锁工具窗格</translation>
+            <translation>解锁工具面板</translation>
         </message>
         <message>
             <source>LNG_00297</source>
-            <translation>窗部</translation>
+            <translation>窗口分割</translation>
         </message>
         <message>
             <source>LNG_00219</source>
-            <translation>读取配置错误！</translation>
+            <translation>读取配置失败！</translation>
         </message>
         <message>
             <source>LNG_00296</source>
-            <translation>按住可编辑分度值</translation>
+            <translation>长按修改分割数</translation>
         </message>
         <message>
             <source>LNG_00295</source>
@@ -3995,7 +3995,7 @@
         </message>
         <message>
             <source>LNG_00294</source>
-            <translation>几何比例</translation>
+            <translation>画面比例</translation>
         </message>
         <message>
             <source>LNG_00011</source>
@@ -4003,43 +4003,43 @@
         </message>
         <message>
             <source>LNG_00293</source>
-            <translation>网格运营</translation>
+            <translation>网格操作</translation>
         </message>
         <message>
             <source>LNG_00292</source>
-            <translation>合并突出显示的单元格</translation>
+            <translation>合并选中窗格</translation>
         </message>
         <message>
             <source>LNG_00291</source>
-            <translation>NVR/海康录像机管理器</translation>
+            <translation>NVR / 海康录像机管理</translation>
         </message>
         <message>
             <source>LNG_00290</source>
-            <translation>预设和快速布局视图</translation>
+            <translation>预置方案与快捷布局</translation>
         </message>
         <message>
             <source>LNG_00289</source>
-            <translation>ONVIF 和 RTSP 布局设置</translation>
+            <translation>ONVIF 与 RTSP 布局设置</translation>
         </message>
         <message>
             <source>LNG_00288</source>
-            <translation>布局%1</translation>
+            <translation>布局 %1</translation>
         </message>
         <message>
             <source>LNG_00278</source>
-            <translation>可见的</translation>
+            <translation>可见</translation>
         </message>
         <message>
             <source>LNG_00287</source>
-            <translation>激活此预览布局</translation>
+            <translation>应用该预览布局</translation>
         </message>
         <message>
             <source>LNG_00286</source>
-            <translation>删除此预览布局</translation>
+            <translation>删除该预览布局</translation>
         </message>
         <message>
             <source>LNG_00285</source>
-            <translation>添加预设布局</translation>
+            <translation>添加预置布局</translation>
         </message>
         <message>
             <source>LNG_00284</source>
@@ -4047,35 +4047,35 @@
         </message>
         <message>
             <source>LNG_00283</source>
-            <translation>NVR查看</translation>
+            <translation>NVR 视图</translation>
         </message>
         <message>
             <source>LNG_00282</source>
-            <translation>激活此 NVR 摄像机视图</translation>
+            <translation>应用该 NVR 摄像机视图</translation>
         </message>
         <message>
             <source>LNG_00281</source>
-            <translation>删除此 NVR 摄像机视图</translation>
+            <translation>删除该 NVR 摄像机视图</translation>
         </message>
         <message>
             <source>LNG_00280</source>
-            <translation>NVR 预设（网格视图）</translation>
+            <translation>NVR 预置方案（画面布局）</translation>
         </message>
         <message>
             <source>LNG_00279</source>
-            <translation>NVR 预设 #%1</translation>
+            <translation>NVR 预置方案 #%1</translation>
         </message>
         <message>
             <source>LNG_00277</source>
-            <translation>激活此 NVR 摄像机预设</translation>
+            <translation>应用该 NVR 摄像机预置方案</translation>
         </message>
         <message>
             <source>LNG_00276</source>
-            <translation>删除此 NVR 摄像机预设</translation>
+            <translation>删除该 NVR 摄像机预置方案</translation>
         </message>
         <message>
             <source>LNG_00275</source>
-            <translation>添加NVR预设</translation>
+            <translation>添加 NVR 预置方案</translation>
         </message>
         <message>
             <source>LNG_00274</source>
@@ -4087,71 +4087,71 @@
         </message>
         <message>
             <source>LNG_00272</source>
-            <translation>允许运行多个应用程序实例</translation>
+            <translation>允许多开程序实例</translation>
         </message>
         <message>
             <source>LNG_00271</source>
-            <translation>禁用此选项是为了防止设置文件写入冲突。要启用它（危险且不推荐！），请在 kvision.conf 配置文件中设置“singleApplication=false”。</translation>
+            <translation>为避免配置文件写入冲突，该选项已禁用。如需启用（危险，不建议），请在 kvision.conf 中将 singleApplication 设为 false。</translation>
         </message>
         <message>
             <source>LNG_00270</source>
-            <translation>检查海康威视 NVR 错误状态</translation>
+            <translation>检测海康 NVR 故障状态</translation>
         </message>
         <message>
             <source>LNG_00269</source>
-            <translation>声音的</translation>
+            <translation>音频</translation>
         </message>
         <message>
             <source>LNG_00268</source>
-            <translation>完全禁用音频</translation>
+            <translation>完全关闭音频</translation>
         </message>
         <message>
             <source>LNG_00267</source>
-            <translation>将相机最大化至全屏并不会取消静音</translation>
+            <translation>摄像机最大化时不自动取消静音</translation>
         </message>
         <message>
             <source>LNG_00266</source>
-            <translation>上下文菜单设置</translation>
+            <translation>右键菜单设置</translation>
         </message>
         <message>
             <source>LNG_00265</source>
-            <translation>启用右键单击上下文菜单</translation>
+            <translation>启用右键菜单</translation>
         </message>
         <message>
             <source>LNG_00264</source>
-            <translation>允许交换视口位置</translation>
+            <translation>允许交换窗格位置</translation>
         </message>
         <message>
             <source>LNG_00263</source>
-            <translation>启用“删除相机”选项</translation>
+            <translation>启用“移除摄像机”功能</translation>
         </message>
         <message>
             <source>LNG_00262</source>
-            <translation>允许更改视口设置</translation>
+            <translation>允许修改窗格设置</translation>
         </message>
         <message>
             <source>LNG_00261</source>
-            <translation>启用“流选择”选项</translation>
+            <translation>启用“码流选择”功能</translation>
         </message>
         <message>
             <source>LNG_00260</source>
-            <translation>用户界面设置</translation>
+            <translation>界面设置</translation>
         </message>
         <message>
             <source>LNG_00259</source>
-            <translation>在视口左上角显示通道状态</translation>
+            <translation>在窗格左上角显示通道状态</translation>
         </message>
         <message>
             <source>LNG_00258</source>
-            <translation>在视口左下角显示相机信息</translation>
+            <translation>在窗格左下角显示摄像机信息</translation>
         </message>
         <message>
             <source>LNG_00257</source>
-            <translation>仅当悬停时在视口右下角显示控件图标</translation>
+            <translation>仅悬停时显示窗格右下角控制图标</translation>
         </message>
         <message>
             <source>LNG_00256</source>
-            <translation>仅在悬停时显示信息字段</translation>
+            <translation>仅悬停时显示信息栏</translation>
         </message>
         <message>
             <source>LNG_00255</source>
@@ -4159,11 +4159,11 @@
         </message>
         <message>
             <source>LNG_00254</source>
-            <translation>在全屏模式下隐藏鼠标光标</translation>
+            <translation>全屏时隐藏鼠标指针</translation>
         </message>
         <message>
             <source>LNG_00253</source>
-            <translation>禁用视口缩放动画</translation>
+            <translation>关闭窗格缩放动画</translation>
         </message>
         <message>
             <source>LNG_00252</source>
@@ -4175,35 +4175,35 @@
         </message>
         <message>
             <source>LNG_00250</source>
-            <translation>将辅助窗口限制为：</translation>
+            <translation>辅助窗口数量上限：</translation>
         </message>
         <message>
             <source>LNG_00249</source>
-            <translation>NVR状态监控</translation>
+            <translation>NVR 状态监测</translation>
         </message>
         <message>
             <source>LNG_00248</source>
-            <translation>监控离线状态和登录错误</translation>
+            <translation>监测离线状态与登录异常</translation>
         </message>
         <message>
             <source>LNG_00247</source>
-            <translation>监控 CPU 过载 (&gt;85%)</translation>
+            <translation>监测 CPU 过载（>85%）</translation>
         </message>
         <message>
             <source>LNG_00246</source>
-            <translation>监控录像机硬件错误</translation>
+            <translation>监测录像机硬件故障</translation>
         </message>
         <message>
             <source>LNG_00245</source>
-            <translation>监控硬盘故障/异常</translation>
+            <translation>监测硬盘故障/异常</translation>
         </message>
         <message>
             <source>LNG_00244</source>
-            <translation>监控未格式化的硬盘</translation>
+            <translation>监测未格式化硬盘</translation>
         </message>
         <message>
             <source>LNG_00243</source>
-            <translation>监控完整硬盘（禁用循环覆盖）</translation>
+            <translation>监测硬盘写满（未开启循环覆盖）</translation>
         </message>
         <message>
             <source>LNG_00242</source>
@@ -4211,43 +4211,43 @@
         </message>
         <message>
             <source>LNG_00241</source>
-            <translation>默认向后播放开始偏移量，秒：</translation>
+            <translation>默认回放起始回退量（秒）：</translation>
         </message>
         <message>
             <source>LNG_00240</source>
-            <translation>默认播放时间线范围，小时：</translation>
+            <translation>默认回放时间轴跨度（小时）：</translation>
         </message>
         <message>
             <source>LNG_00239</source>
-            <translation>保存</translation>
+            <translation>保存中</translation>
         </message>
         <message>
             <source>LNG_00231</source>
-            <translation>激活此部分中的更改</translation>
+            <translation>启用本节修改</translation>
         </message>
         <message>
             <source>LNG_00238</source>
-            <translation>默认快照路径：</translation>
+            <translation>默认抓图路径：</translation>
         </message>
         <message>
             <source>LNG_00237</source>
-            <translation>选择快照文件夹</translation>
+            <translation>选择抓图保存目录</translation>
         </message>
         <message>
             <source>LNG_00236</source>
-            <translation>默认录音路径：</translation>
+            <translation>默认录像路径：</translation>
         </message>
         <message>
             <source>LNG_00235</source>
-            <translation>选择录音文件夹</translation>
+            <translation>选择录像保存目录</translation>
         </message>
         <message>
             <source>LNG_00234</source>
-            <translation>打开图像文件夹</translation>
+            <translation>打开抓图目录</translation>
         </message>
         <message>
             <source>LNG_00233</source>
-            <translation>打开视频文件夹</translation>
+            <translation>打开录像目录</translation>
         </message>
         <message>
             <source>LNG_00232</source>
@@ -4255,19 +4255,19 @@
         </message>
         <message>
             <source>LNG_00230</source>
-            <translation>默认 FFmpeg 命令行选项</translation>
+            <translation>默认 FFmpeg 命令行参数</translation>
         </message>
         <message>
             <source>LNG_00229</source>
-            <translation>更新所有相机</translation>
+            <translation>更新全部摄像机</translation>
         </message>
         <message>
             <source>LNG_00228</source>
-            <translation>变更日志</translation>
+            <translation>更新日志</translation>
         </message>
         <message>
             <source>LNG_00227</source>
-            <translation>KVision 的改进、错误修复和新功能的历史记录。</translation>
+            <translation>KVision 的功能改进、问题修复与新增特性记录。</translation>
         </message>
         <message>
             <source>LNG_00222</source>
@@ -4275,63 +4275,63 @@
         </message>
         <message>
             <source>LNG_00226</source>
-            <translation>您确定要删除预设“%1”吗？此操作是完全不可逆转的。</translation>
+            <translation>确定要删除预置方案“%1”吗？此操作不可恢复。</translation>
         </message>
         <message>
             <source>LNG_00225</source>
-            <translation>您确定要删除预设 #%1 吗？此操作是完全不可逆转的。</translation>
+            <translation>确定要删除预置方案 #%1 吗？此操作不可恢复。</translation>
         </message>
         <message>
             <source>LNG_00224</source>
-            <translation>您确定要删除 NVR 视图“%1”吗？此操作是完全不可逆转的。</translation>
+            <translation>确定要删除 NVR 视图“%1”吗？此操作不可恢复。</translation>
         </message>
         <message>
             <source>LNG_00223</source>
-            <translation>您确定要删除此 NVR 视图布局吗？此操作是完全不可逆转的。</translation>
+            <translation>确定要删除该 NVR 视图布局吗？此操作不可恢复。</translation>
         </message>
         <message>
             <source>LNG_00221</source>
-            <translation>您确定要删除 NVR 预设“%1”吗？此操作是完全不可逆转的。</translation>
+            <translation>确定要删除 NVR 预置方案“%1”吗？此操作不可恢复。</translation>
         </message>
         <message>
             <source>LNG_00220</source>
-            <translation>您确定要删除此 NVR 预设吗？此操作是完全不可逆转的。</translation>
+            <translation>确定要删除该 NVR 预置方案吗？此操作不可恢复。</translation>
         </message>
         <message>
             <source>LNG_00460</source>
-            <translation type="obsolete">不包括全局 FFmpeg 设置更改</translation>
+            <translation type="obsolete">不跟随全局 FFmpeg 设置变更</translation>
         </message>
         <message>
             <source>LNG_00461</source>
-            <translation type="obsolete">FFmpeg 选项</translation>
+            <translation type="obsolete">FFmpeg 参数</translation>
         </message>
         <message>
             <source>LNG_00462</source>
-            <translation type="obsolete">频道选项</translation>
+            <translation type="obsolete">通道选项</translation>
         </message>
         <message>
             <source>LNG_00463</source>
-            <translation type="obsolete">视口设置</translation>
+            <translation type="obsolete">窗格设置</translation>
         </message>
         <message>
             <source>LNG_00464</source>
-            <translation type="obsolete">您确定要从此视口中删除相机吗？</translation>
+            <translation type="obsolete">确定要从该窗格移除摄像机吗？</translation>
         </message>
         <message>
             <source>LNG_00465</source>
-            <translation type="obsolete">确认相机移除</translation>
+            <translation type="obsolete">确认移除摄像机</translation>
         </message>
         <message>
             <source>LNG_00466</source>
-            <translation type="obsolete">泰尔科SUB</translation>
+            <translation type="obsolete">仅子码流</translation>
         </message>
         <message>
             <source>LNG_00467</source>
-            <translation type="obsolete">泰尔科主要</translation>
+            <translation type="obsolete">仅主码流</translation>
         </message>
         <message>
             <source>LNG_00468</source>
-            <translation type="obsolete">自动化</translation>
+            <translation type="obsolete">自动</translation>
         </message>
         <message>
             <source>LNG_00469</source>
@@ -4339,85 +4339,85 @@
         </message>
         <message>
             <source>LNG_00517</source>
-            <translation>本地化扩展：KVision 现已完全本地化为 20 种新的人工智能翻译语言，使支持的语言总数达到 22 种（英语、波兰语和 20 种新语言）。整个应用程序界面 (UI) 和完整的用户手册均已翻译。</translation>
+            <translation>本地化扩展：KVision 现已完整支持 20 种新增 AI 翻译语言，支持语言总数达 22 种（英语、波兰语及 20 种新增语言）。程序界面与全部用户手册均已翻译。</translation>
         </message>
         <message>
             <source>LNG_00518</source>
-            <translation>Viewport 快速播放文档：在所有 22 个用户手册中添加了解释圆形箭头覆盖按钮（迷你播放器）及其详细功能的综合文档。</translation>
+            <translation>窗格快速回放文档：在全部 22 种语言的使用手册中新增说明，介绍圆形箭头浮层按钮（迷你播放器）及其详细功能。</translation>
         </message>
         <message>
             <source>LNG_00519</source>
-            <translation>平移缩放：添加了通过按住鼠标中键（滚轮）并拖动光标来自由平移放大视频（实时、迷你播放器、存档）的功能。</translation>
+            <translation>平移缩放：实时预览、迷你播放器与录像回放中，按住鼠标中键（滚轮）拖动即可平移已放大的画面。</translation>
         </message>
         <message>
             <source>LNG_00520</source>
-            <translation>按比例缩放选择：引入了 Shift 快捷键。绘制缩放矩形时按住 Shift 键会强制将选区锁定为 16:9 的宽高比，严格限制在视口边界内。</translation>
+            <translation>等比缩放框选：新增 Shift 快捷键，绘制缩放框时按住 Shift 可将选区锁定为 16:9，并严格限制在窗格范围内。</translation>
         </message>
         <message>
             <source>LNG_00521</source>
-            <translation>强制窗口定位：由于 Qt 中无法解决的多显示器投影问题，完全取代了旧的窗口几何保存机制。该应用程序（主窗口和辅助窗口）现在严格强制以主显示器为中心以其 90% 的分辨率启动，确保所有设置的稳定性和可预测性。</translation>
+            <translation>强制窗口定位：彻底替换旧的窗口几何保存机制，解决 Qt 多显示器投影无法解决的问题。程序（主窗口与辅助窗口）现统一在主显示器上以 90% 分辨率居中启动，保证各种环境下的稳定与可预期。</translation>
         </message>
         <message>
             <source>LNG_00522</source>
-            <translation>本地化重构：替换了源代码中嵌入的所有硬编码的波兰语和英语字符串（qsTr、tr）。超过 500 个唯一字符串已被重构为 LNG_XXXXX 标识符，并通过改进的 .ts/.qm 文件系统安全地映射。</translation>
+            <translation>本地化重构：清除源码（qsTr、tr）中所有硬编码的波兰语与英语字符串，500 余条唯一文本改为 LNG_XXXXX 标识，并通过改进的 .ts/.qm 文件体系统一映射。</translation>
         </message>
         <message>
             <source>LNG_00523</source>
-            <translation>纯英文 CLI：命令行界面选项和 --help 参数现在永久为英文，以防止本地化引擎初始化延迟出现问题。</translation>
+            <translation>命令行仅英文：命令行参数与 --help 说明固定为英文，避免本地化引擎初始化延迟带来的问题。</translation>
         </message>
         <message>
             <source>LNG_00524</source>
-            <translation>存档纵横比：修复了存档播放器视口中视频纵横比扭曲的问题。 HikvisionArchivePlayer 组件现在可以正确渲染原始帧，保留其自然的宽高比（黑框），而不是拉伸视频以适应 UI 边界。</translation>
+            <translation>录像画面比例：修复录像播放窗格中画面比例失真——HikvisionArchivePlayer 现按原始比例渲染（黑边填充），不再拉伸铺满界面。</translation>
         </message>
         <message>
             <source>LNG_00525</source>
-            <translation>解复用器内存泄漏：改进了 QmlAVPlayer::stop() 例程中的对象清理逻辑，防止“僵尸”解复用器实例在后台累积。</translation>
+            <translation>解复用器内存泄漏：改进 QmlAVPlayer::stop() 的对象清理逻辑，避免“僵尸”解复用实例在后台堆积。</translation>
         </message>
         <message>
             <source>LNG_00526</source>
-            <translation>writeSetting 修复：在 Context 类中添加了 writeSetting 方法的缺失实现，消除了设置迁移期间的 TypeErrors 和 QML 执行中断。</translation>
+            <translation>writeSetting 修复：补全 Context 类中缺失的 writeSetting 实现，消除配置迁移时的 TypeError 与 QML 执行中断。</translation>
         </message>
         <message>
             <source>LNG_00527</source>
-            <translation>Reduced log spam: Suppressed repetitive QML/JS warnings, TypeErrors, and video packet decoding errors from default output.</translation>
+            <translation>减少日志刷屏：默认输出不再打印重复的 QML/JS 警告、TypeError 与视频包解码错误。</translation>
         </message>
         <message>
             <source>LNG_00528</source>
-            <translation>Translation Polish: Corrected the Polish translation of the archive player window title from 'Archive' to 'Archiwum'.</translation>
+            <translation>翻译修正：录像播放器窗口标题的波兰语译文由“Archive”改为“Archiwum”。</translation>
         </message>
         <message>
             <source>LNG_00529</source>
-            <translation>Fixed GPU Driver Memory Leak: Resolved critical NVIDIA/GLX driver memory leak.</translation>
+            <translation>修复显卡驱动内存泄漏：解决 NVIDIA/GLX 驱动的严重内存泄漏。</translation>
         </message>
         <message>
             <source>LNG_00530</source>
-            <translation>Thread Count Optimization: Restricted FFmpeg decoding to a single thread per stream, drastically reducing RAM usage.</translation>
+            <translation>线程数优化：FFmpeg 解码限制为每路码流单线程，大幅降低内存占用。</translation>
         </message>
         <message>
             <source>LNG_00531</source>
-            <translation>Periodic Memory Reclaiming: Added a background timer that runs once every hour to perform garbage collection and malloc_trim(0) to release unused heap memory to the OS.</translation>
+            <translation>周期性内存回收：新增后台定时器，每小时执行一次垃圾回收与 malloc_trim(0)，将闲置堆内存归还系统。</translation>
         </message>
         <message>
             <source>LNG_00535</source>
-            <translation>Hikvision Multi-Port Support: Independent configuration of SDK, HTTP, and RTSP ports.</translation>
+            <translation>海康多端口支持：SDK、HTTP、RTSP 端口可分别配置。</translation>
         </message>
         <message>
             <source>LNG_00536</source>
-            <translation>NVR Settings UI Improvements: Permanent field labels for port configurations.</translation>
+            <translation>NVR 设置界面优化：端口配置项增加常驻字段标签。</translation>
         </message>
         <message>
             <source>LNG_00537</source>
-            <translation>Language &amp; Localization: Complete multi-language support for new port options.</translation>
+            <translation>语言与本地化：新增端口选项完成多语言支持。</translation>
         </message>
             <message>
             <source>LNG_00538</source>
-            <translation>按 NVR 配置 RTSP 传输：可按录像机选择 RTSP 传输协议（Auto/TCP/UDP），以获得更好的 WAN/NAT 兼容性。</translation>
+            <translation>按录像机设置 RTSP 传输：每台录像机可单独选择 RTSP 传输协议（自动/TCP/UDP），提升广域网与 NAT 环境兼容性。</translation>
         </message>
         <message>
             <source>LNG_00539</source>
-            <translation>UI 同步：视口设置对话框现在可准确反映特定于录像机的 RTSP 传输覆盖项。</translation>
+            <translation>界面同步：窗格设置对话框正确反映录像机的 RTSP 传输协议设置。</translation>
         </message>
-<message><source>LNG_00540</source><translation>简化内部 URI：清理了内部 hikvision:// URI，移除了不必要的端口和凭据参数。</translation></message><message><source>LNG_00541</source><translation>自定义端口处理：修复了在自定义 HTTP 端口上进行 HTTP ISAPI 录像搜索的问题。</translation></message><message><source>LNG_00542</source><translation>URI 迁移：添加了启动时的自动迁移功能，以清理旧的已保存 hikvision:// URI，并从界面中移除凭据和端口。</translation></message><message><source>LNG_00543</source><translation>诊断日志：在设置中添加了将全面的 FFmpeg 和 QML 诊断日志写入 kvision_diagnostic.log 的选项。</translation></message><message><source>LNG_00544</source><translation>自定义端口实时流修复：修复了使用自定义 HTTP/RTSP 端口时的实时视频流播放问题，增加了录像机设置更改时的响应式视口更新，并实现了正确的 URL 凭据编码。</translation></message><message><source>LNG_00545</source><translation>ISAPI 发现架构：重构了摄像机发现功能，以独立扫描 IP 代理、模拟和流媒体通道，并支持自动 Digest/Basic 身份验证协商。</translation></message><message><source>LNG_00546</source><translation>控制台内存报告：在每次定期内存回收后，记录返回给系统内核的确切 RAM 量。</translation></message></context>
+<message><source>LNG_00540</source><translation>简化内部 URI：清理内部 hikvision:// 地址，去除多余的端口与凭据参数。</translation></message><message><source>LNG_00541</source><translation>自定义端口处理：修复自定义 HTTP 端口下 ISAPI 录像检索的回退逻辑。</translation></message><message><source>LNG_00542</source><translation>URI 迁移：启动时自动清理历史保存的 hikvision:// 地址，界面不再显示凭据与端口。</translation></message><message><source>LNG_00543</source><translation>诊断日志：设置中新增选项，可将完整的 FFmpeg 与 QML 诊断日志写入 kvision_diagnostic.log。</translation></message><message><source>LNG_00544</source><translation>自定义端口预览修复：修复自定义 HTTP/RTSP 端口下的实时预览，录像机设置变更后窗格即时刷新，并正确处理地址中的凭据编码。</translation></message><message><source>LNG_00545</source><translation>ISAPI 搜索架构：重构摄像机搜索流程，分别扫描 IP 代理、模拟与码流通道，并自动协商 Digest/Basic 认证。</translation></message><message><source>LNG_00546</source><translation>控制台内存报告：记录每次周期性内存回收后归还系统内核的确切内存量。</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>
@@ -4426,7 +4426,7 @@
         </message>
         <message>
             <source>LNG_00219</source>
-            <translation>读取配置错误！</translation>
+            <translation>读取配置失败！</translation>
         </message>
     </context>
     <context>
@@ -4445,11 +4445,11 @@
         </message>
         <message>
             <source>LNG_00003</source>
-            <translation>凯维视</translation>
+            <translation>KVision</translation>
         </message>
         <message>
             <source>LNG_00453</source>
-            <translation>该程序已在运行，无法启动第二个</translation>
+            <translation>程序已在运行，无法重复启动</translation>
         </message>
         <message>
             <source>LNG_00001</source>
@@ -4476,11 +4476,11 @@
         </message>
         <message>
             <source>LNG_00457</source>
-            <translation>已保存快照</translation>
+            <translation>抓图已保存</translation>
         </message>
         <message>
             <source>LNG_00456</source>
-            <translation>快照已保存 -</translation>
+            <translation>抓图已保存 -</translation>
         </message>
         <message>
             <source>LNG_00455</source>
@@ -4488,7 +4488,7 @@
         </message>
         <message>
             <source>LNG_00454</source>
-            <translation>出口</translation>
+            <translation>退出</translation>
         </message>
     </context>
     <context>
@@ -4543,23 +4543,23 @@
         </message>
         <message>
             <source>LNG_00299</source>
-            <translation>布局和网格工具</translation>
+            <translation>布局与网格工具</translation>
         </message>
         <message>
             <source>LNG_00298</source>
-            <translation>解锁工具窗格</translation>
+            <translation>解锁工具面板</translation>
         </message>
         <message>
             <source>LNG_00297</source>
-            <translation>窗部</translation>
+            <translation>窗口分割</translation>
         </message>
         <message>
             <source>LNG_00219</source>
-            <translation>读取配置错误！</translation>
+            <translation>读取配置失败！</translation>
         </message>
         <message>
             <source>LNG_00296</source>
-            <translation>按住可编辑分度值</translation>
+            <translation>长按修改分割数</translation>
         </message>
         <message>
             <source>LNG_00295</source>
@@ -4567,15 +4567,15 @@
         </message>
         <message>
             <source>LNG_00294</source>
-            <translation>几何比例</translation>
+            <translation>画面比例</translation>
         </message>
         <message>
             <source>LNG_00459</source>
-            <translation>16:9 纵横比</translation>
+            <translation>16:9 画面比例</translation>
         </message>
         <message>
             <source>LNG_00458</source>
-            <translation>4:3 纵横比</translation>
+            <translation>4:3 画面比例</translation>
         </message>
         <message>
             <source>LNG_00011</source>
@@ -4583,11 +4583,11 @@
         </message>
         <message>
             <source>LNG_00293</source>
-            <translation>网格运营</translation>
+            <translation>网格操作</translation>
         </message>
         <message>
             <source>LNG_00292</source>
-            <translation>合并突出显示的单元格</translation>
+            <translation>合并选中窗格</translation>
         </message>
     </context>
     <context>
@@ -4630,31 +4630,31 @@
         </message>
         <message>
             <source>LNG_00463</source>
-            <translation>视口设置</translation>
+            <translation>窗格设置</translation>
         </message>
         <message>
             <source>LNG_00305</source>
-            <translation>活动流连接</translation>
+            <translation>当前码流连接</translation>
         </message>
         <message>
             <source>LNG_00304</source>
-            <translation>主码流网址</translation>
+            <translation>主用地址</translation>
         </message>
         <message>
             <source>LNG_00303</source>
-            <translation>辅助备份 URL</translation>
+            <translation>备用地址</translation>
         </message>
         <message>
             <source>LNG_00462</source>
-            <translation>频道选项</translation>
+            <translation>通道选项</translation>
         </message>
         <message>
             <source>LNG_00461</source>
-            <translation>FFmpeg 选项</translation>
+            <translation>FFmpeg 参数</translation>
         </message>
         <message>
             <source>LNG_00460</source>
-            <translation>不包括全局 FFmpeg 设置更改</translation>
+            <translation>不跟随全局 FFmpeg 设置变更</translation>
         </message>
         <message>
             <source>LNG_00059</source>
@@ -4662,7 +4662,7 @@
         </message>
         <message>
             <source>LNG_00058</source>
-            <translation>节省</translation>
+            <translation>保存</translation>
         </message>
     </context>
     <context>
@@ -4722,7 +4722,7 @@
         </message>
         <message>
             <source>LNG_00475</source>
-            <translation>交换视口</translation>
+            <translation>交换窗格</translation>
         </message>
         <message>
             <source>LNG_00474</source>
@@ -4730,11 +4730,11 @@
         </message>
         <message>
             <source>LNG_00473</source>
-            <translation>移除相机</translation>
+            <translation>移除摄像机</translation>
         </message>
         <message>
             <source>LNG_00472</source>
-            <translation>更改设置</translation>
+            <translation>修改设置</translation>
         </message>
         <message>
             <source>LNG_00471</source>
@@ -4742,7 +4742,7 @@
         </message>
         <message>
             <source>LNG_00470</source>
-            <translation>快照</translation>
+            <translation>抓图</translation>
         </message>
         <message>
             <source>LNG_00469</source>
@@ -4750,23 +4750,23 @@
         </message>
         <message>
             <source>LNG_00468</source>
-            <translation>自动化</translation>
+            <translation>自动</translation>
         </message>
         <message>
             <source>LNG_00467</source>
-            <translation>泰尔科主要</translation>
+            <translation>仅主码流</translation>
         </message>
         <message>
             <source>LNG_00466</source>
-            <translation>泰尔科SUB</translation>
+            <translation>仅子码流</translation>
         </message>
         <message>
             <source>LNG_00465</source>
-            <translation>确认相机移除</translation>
+            <translation>确认移除摄像机</translation>
         </message>
         <message>
             <source>LNG_00464</source>
-            <translation>您确定要从此视口中删除相机吗？</translation>
+            <translation>确定要从该窗格移除摄像机吗？</translation>
         </message>
     </context>
 </TS>
