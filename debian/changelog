@@ -1,3 +1,12 @@
+cctv-viewer (2.7.2-1) jammy; urgency=medium
+
+  * Rewrote Simplified Chinese (zh_CN) UI translation with professional video surveillance terminology (PR #6 by @kunxiang1).
+  * Fixed custom RTSP/HTTP ports live view streaming and improved ISAPI channel discovery across IP proxy, analog, and streaming channels.
+  * Added automated Ubuntu/Debian installer script (tools/install_ubuntu.sh) and local mock Hikvision NVR test server (tools/mock_hikvision_server.py).
+  * Updated documentation and troubleshooting guides across all 22 supported languages.
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Tue, 27 Oct 2026 11:30:00 +0100
+
 cctv-viewer (2.7.0-1) jammy; urgency=medium
 
   * Implemented independent SDK, HTTP, and RTSP port settings per Hikvision recorder.

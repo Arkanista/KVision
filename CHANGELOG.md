@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.2] - 2026-10-27
+
+### EN: Features & Improvements
+* **Chinese (`zh_CN`) Localization Overhaul:** Rewrote all active Simplified Chinese UI strings with proper, consistent video surveillance industry terminology (e.g., `摄像机`, `录像机/NVR`, `码流`, `主码流/子码流`, `窗格`, `回放`, `云台`) and fixed typographic conventions and format placeholders (contributed by @kunxiang1 in PR #6).
+* **Ubuntu/Debian Automated Installer & Troubleshooting:** Added `tools/install_ubuntu.sh` for one-step dependency installation and compilation on Ubuntu/Debian derivatives, along with a comprehensive 5-point RTSP & QtMultimedia troubleshooting guide across all 22 localized instruction manuals.
+
+### PL: Funkcje i Udoskonalenia
+* **Przebudowa chińskiego tłumaczenia (`zh_CN`):** Przepisano wszystkie aktywne komunikaty interfejsu w języku chińskim uproszczonym z użyciem spójnej, profesjonalnej terminologii branży telewizji przemysłowej (CCTV) oraz poprawiono konwencje typograficzne i znaczniki formatowania (współtworzone przez @kunxiang1 w PR #6).
+* **Automatyczny instalator Ubuntu/Debian i rozwiązywanie problemów:** Dodano skrypt `tools/install_ubuntu.sh` do jednoetapowej instalacji zależności i kompilacji na systemach z rodziny Ubuntu/Debian oraz rozbudowano 5-punktowy poradnik diagnostyki strumieni RTSP i wtyczek QtMultimedia we wszystkich 22 wersjach językowych instrukcji.
+
 ## [2.7.1-rc5] - 2026-08-27
 
 ### EN: Features & Bug Fixes

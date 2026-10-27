@@ -1,3 +1,7 @@
+2.7.2-1
+  * PL: Przebudowano chińskie tłumaczenie interfejsu (zh_CN) z użyciem profesjonalnej terminologii branży CCTV (PR #6 od @kunxiang1), dodano skrypt automatycznej instalacji dla Ubuntu/Debian (tools/install_ubuntu.sh) oraz rozbudowano sekcję rozwiązywania problemów ze strumieniami RTSP we wszystkich 22 wersjach językowych instrukcji.
+    EN: Rewrote Simplified Chinese (zh_CN) UI translation with professional video surveillance terminology (PR #6 by @kunxiang1), added automated Ubuntu/Debian installer (tools/install_ubuntu.sh), and expanded RTSP streaming troubleshooting across all 22 localized instruction manuals.
+
 2.7.1rc5-1
   * PL: Rozwiązano problem z odtwarzaniem obrazu na niestandardowych portach RTSP/HTTP, dodano dynamiczne odświeżanie widoków w Player.qml, ulepszono wykrywanie kanałów ISAPI (niezależne skanowanie kanałów IP i analogowych, elastyczna autoryzacja --anyauth) oraz dodano symulator rejestratora do testów w tools/.
     EN: Fixed Live View streaming on custom RTSP/HTTP ports, added reactive updates on recorder changes in Player.qml, overhauled ISAPI discovery (independent IP and analog channels scanning, universal --anyauth negotiation), and added mock Hikvision NVR server in tools/.
