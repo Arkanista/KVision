@@ -179,8 +179,9 @@ bool QmlAVVideoDecoder::initVideoDecoder(const QmlAVOptions &avOptions)
 
         // TODO: Use parameters to initialize the HW device. See ffmpeg_hw.c (-hwaccel_device, -init_hw_device options)
         if (av_hwdevice_ctx_create(&avHWDeviceCtx, avHWDeviceType, nullptr, opts, 0) < 0) {
-            logWarning() << "Failed to create specified HW device";
-            return false;
+            logWarning() << "Failed to create specified HW device - falling back to software decoding";
+            m_hwOutput.reset();
+            return true;
         }
 
         // NOTE: This field should be set before avcodec_open2() is called and must not be written to thereafter

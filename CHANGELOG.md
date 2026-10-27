@@ -4,13 +4,23 @@ All notable changes to this project will be documented in this file.
 
 ## [2.7.2] - 2026-10-27
 
-### EN: Features & Improvements
+### EN: Features, Improvements & Bug Fixes
 * **Chinese (`zh_CN`) Localization Overhaul:** Rewrote all active Simplified Chinese UI strings with proper, consistent video surveillance industry terminology (e.g., `摄像机`, `录像机/NVR`, `码流`, `主码流/子码流`, `窗格`, `回放`, `云台`) and fixed typographic conventions and format placeholders (contributed by @kunxiang1 in PR #6).
 * **Ubuntu/Debian Automated Installer & Troubleshooting:** Added `tools/install_ubuntu.sh` for one-step dependency installation and compilation on Ubuntu/Debian derivatives, along with a comprehensive 5-point RTSP & QtMultimedia troubleshooting guide across all 22 localized instruction manuals.
+* **Hardware Decoder Software Fallback:** Fixed an issue in `QmlAVVideoDecoder::initVideoDecoder` where a failed `av_hwdevice_ctx_create` call (e.g., unavailable GPU/VAAPI/CUDA context) aborted decoder initialization and caused a black viewport; it now gracefully falls back to CPU software decoding.
+* **Hikvision Auto/Sub Stream Mode Fix:** Fixed `player.isSubStream` binding in `ViewportsLayout.qml` so `hikvision://` channels properly switch to sub-streams (`02` / `streamType: 1`) in Auto (multi-camera grid) and forced Sub modes even when `secondaryUrl` is empty.
+* **Diagnostic Log Option Localization (`LNG_00549`):** Replaced the hardcoded Polish string for the diagnostic logs checkbox in `SideBar.qml` with translation key `LNG_00549` across all 22 supported languages.
+* **Critical QML Load Error Logging:** Updated `customMessageHandler` in `main.cpp` to allow hard QML component errors (`is not a type`, `Cannot assign`, `is not defined`, `non-existent property`, `Unable to assign`) through to `stderr` even when diagnostic logging is disabled.
+* **Explicit `AVDictionaryPtr` Deleter Type:** Replaced the generic lambda parameter `[](auto p)` with explicit `[](AVDictionary **p)` in `QmlAVOptions` (`qmlavoptions.h`) for stricter C++17 compiler compatibility.
 
-### PL: Funkcje i Udoskonalenia
+### PL: Funkcje, Udoskonalenia i Poprawki Błędów
 * **Przebudowa chińskiego tłumaczenia (`zh_CN`):** Przepisano wszystkie aktywne komunikaty interfejsu w języku chińskim uproszczonym z użyciem spójnej, profesjonalnej terminologii branży telewizji przemysłowej (CCTV) oraz poprawiono konwencje typograficzne i znaczniki formatowania (współtworzone przez @kunxiang1 w PR #6).
 * **Automatyczny instalator Ubuntu/Debian i rozwiązywanie problemów:** Dodano skrypt `tools/install_ubuntu.sh` do jednoetapowej instalacji zależności i kompilacji na systemach z rodziny Ubuntu/Debian oraz rozbudowano 5-punktowy poradnik diagnostyki strumieni RTSP i wtyczek QtMultimedia we wszystkich 22 wersjach językowych instrukcji.
+* **Awaryjne przełączanie dekodera sprzętowego na CPU:** Naprawiono błąd w `QmlAVVideoDecoder::initVideoDecoder`, w którym nieudana inicjalizacja urządzenia sprzętowego (`av_hwdevice_ctx_create`, np. przy braku dostępnego kontekstu VAAPI/CUDA/GPU) przerywała otwieranie dekodera i powodowała czarny ekran — teraz następuje płynne przełączenie na dekodowanie programowe (CPU).
+* **Poprawa trybu Auto/Sub dla strumieni Hikvision:** Naprawiono wiązanie `player.isSubStream` w `ViewportsLayout.qml`, dzięki czemu kanały `hikvision://` poprawnie przełączają się na strumień pomocniczy (`02` / `streamType: 1`) w trybie Automatycznym (w siatce wielokamerowej) oraz wymuszonym Sub, nawet gdy pole `secondaryUrl` jest puste.
+* **Lokalizacja opcji logów diagnostycznych (`LNG_00549`):** Zastąpiono zahardkodowany polski napis przy opcji pełnych logów diagnostycznych w `SideBar.qml` kluczem tłumaczenia `LNG_00549` we wszystkich 22 obsługiwanych językach.
+* **Logowanie krytycznych błędów ładowania QML:** Zaktualizowano filtr `customMessageHandler` w `main.cpp`, aby przepuszczał twarde błędy kompilacji/ładowania komponentów QML (`is not a type`, `Cannot assign`, `is not defined`, `non-existent property`, `Unable to assign`) na `stderr` nawet przy wyłączonych pełnych logach diagnostycznych.
+* **Jawne typowanie deletera `AVDictionaryPtr`:** Zastąpiono generyczny parametr lambdy `[](auto p)` jawnym typem `[](AVDictionary **p)` w `qmlavoptions.h` dla pełnej zgodności ze standardem C++17.
 
 ## [2.7.1-rc5] - 2026-08-27
 

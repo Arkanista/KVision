@@ -35,7 +35,7 @@ public:
     }
 
 private:
-    std::shared_ptr<AVDictionary *> m_avDict = std::shared_ptr<AVDictionary *>(new AVDictionary *{}, [](auto p) {
+    std::shared_ptr<AVDictionary *> m_avDict = std::shared_ptr<AVDictionary *>(new AVDictionary *{}, [](AVDictionary **p) {
         av_dict_free(p);
         delete p;
     });

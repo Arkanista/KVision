@@ -137,7 +137,8 @@ FocusScope {
             date: "27.10.2026",
             changes: [
                 qsTr("LNG_00547"),
-                qsTr("LNG_00548")
+                qsTr("LNG_00548"),
+                qsTr("LNG_00550")
             ]
         },
         {
@@ -2180,7 +2181,7 @@ FocusScope {
                             }
 
                             CheckBox {
-                                text: qsTr("Twórz pełne logi diagnostyczne (wymaga restartu)")
+                                text: qsTr("LNG_00549")
                                 checked: generalSettings.enableDiagnosticLogs
                                 onCheckedChanged: generalSettings.enableDiagnosticLogs = checked
                                 Layout.fillWidth: true

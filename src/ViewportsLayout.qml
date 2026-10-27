@@ -100,12 +100,13 @@ FocusScope {
                 var vItem = root.model.get(index);
                 if (!vItem) return false;
                 var d2Failed = viewportItem.d2SecondaryUrlFailed;
+                var isHik = String(vItem.url).indexOf("hikvision://") === 0;
                 if (vItem.streamMode === 1) {
                     return false;
                 } else if (vItem.streamMode === 2) {
-                    return String(vItem.secondaryUrl) !== "" && !d2Failed;
+                    return isHik || (String(vItem.secondaryUrl) !== "" && !d2Failed);
                 } else { // Auto (0)
-                    return (root.size.width > 1 || root.size.height > 1) && !viewportItem.fullScreen && String(vItem.secondaryUrl) !== "" && !d2Failed;
+                    return (root.size.width > 1 || root.size.height > 1) && !viewportItem.fullScreen && (isHik || (String(vItem.secondaryUrl) !== "" && !d2Failed));
                 }
             });
 

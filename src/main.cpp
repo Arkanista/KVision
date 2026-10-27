@@ -110,7 +110,12 @@ void customMessageHandler(QtMsgType type, const QMessageLogContext &context, con
             return;
         }
         if (type == QtWarningMsg) {
-            if (msg.contains("qrc:/") || msg.contains(".qml") || msg.contains("TypeError") ||
+            const bool qmlHardError = msg.contains("is not a type")
+                || msg.contains("Cannot assign") || msg.contains("is not defined")
+                || msg.contains("non-existent property") || msg.contains("Unable to assign");
+            if (qmlHardError) {
+                // Let hard QML errors fall through so engine failure reasons reach stderr
+            } else if (msg.contains("qrc:/") || msg.contains(".qml") || msg.contains("TypeError") ||
                 msg.contains("QmlAVDecoder") || msg.contains("Unable send packet to decoder") ||
                 msg.contains("Unable to read decoded frame") || msg.contains("Unable to open input file")) {
                 return;
