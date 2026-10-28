@@ -1,0 +1,153 @@
+name: Windows build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - "src/**"
+      - "CMakeLists.txt"
+      - ".github/workflows/build-windows.yml"
+  pull_request:
+    paths:
+      - "src/**"
+      - "CMakeLists.txt"
+      - ".github/workflows/build-windows.yml"
+
+jobs:
+  build:
+    runs-on: windows-2022
+    permissions:
+      contents: write   # softprops/action-gh-release has to create the release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Qt 5.15.2 (msvc2019_64)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          pip install aqtinstall
+          aqt install-qt windows desktop 5.15.2 win64_msvc2019_64 --outputdir D:\a\qt --archives qtbase qtdeclarative qtmultimedia qttools qttranslations qtsvg qtquickcontrols2 qtquickcontrols qtgraphicaleffects
+          $qt = "D:\a\qt\5.15.2\msvc2019_64"
+          if (-not (Test-Path "$qt\bin\windeployqt.exe")) { throw "Qt install incomplete: $qt" }
+          "QT_DIR=$qt" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Download FFmpeg 8.1 shared (BtbN)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $u = "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-win64-gpl-shared-8.1.zip"
+          Invoke-WebRequest -Uri $u -OutFile ffmpeg.zip -UserAgent "curl"
+          Expand-Archive ffmpeg.zip -DestinationPath ffmpeg
+          $d = (Get-ChildItem ffmpeg -Directory | Select-Object -First 1).FullName
+          if (-not (Test-Path "$d\include\libavcodec\avcodec.h")) { throw "FFmpeg headers missing in $d" }
+          "FFMPEG_INC=$d\include" | Out-File -FilePath $env:GITHUB_ENV -Append
+          "FFMPEG_LIB=$d\lib"     | Out-File -FilePath $env:GITHUB_ENV -Append
+          "FFMPEG_BIN=$d\bin"     | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      # The repo ships the Linux .so build of the Hikvision SDK; there is no
+      # redistributable MSVC build, so take the DLLs from a PyPI wheel and make
+      # import libraries for them with dumpbin + lib.exe.
+      - name: Fetch Hikvision SDK runtime DLLs (PyPI wheel, win64 V6.1.9.48)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          pip download HCNetSDK-python==1.0.0 --platform win_amd64 --only-binary=:all: --no-deps -d hikwheel
+          $whl = (Get-ChildItem hikwheel\*.whl | Select-Object -First 1).FullName
+          # Expand-Archive rejects unknown extensions -> rename to .zip first
+          Copy-Item $whl hik.zip
+          Expand-Archive hik.zip -DestinationPath hiksdk -Force
+          $dll = Get-ChildItem hiksdk -Recurse -Filter HCNetSDK.dll | Select-Object -First 1
+          if (-not $dll) { throw "HCNetSDK.dll not found inside the wheel" }
+          Write-Host "SDK dir: $($dll.DirectoryName)"
+          Write-Host "$((Get-ChildItem $dll.DirectoryName -Filter *.dll).Count) DLLs"
+          "HIK_LIB=$($dll.DirectoryName)" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Generate import libraries (.lib) from SDK DLLs
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $vs = "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC"
+          $dumpbin = (Get-ChildItem $vs -Recurse -Filter dumpbin.exe | Where-Object { $_.FullName -match "Hostx64\\x64" } | Select-Object -First 1).FullName
+          $libexe  = (Get-ChildItem $vs -Recurse -Filter lib.exe     | Where-Object { $_.FullName -match "Hostx64\\x64" } | Select-Object -First 1).FullName
+          Write-Host "dumpbin: $dumpbin"
+          New-Item -ItemType Directory -Force -Path sdklib | Out-Null
+          foreach ($dll in "HCNetSDK.dll", "PlayCtrl.dll") {
+            & $dumpbin /EXPORTS "$env:HIK_LIB\$dll" | Out-File exports.txt
+            $names = Get-Content exports.txt | ForEach-Object {
+              if ($_ -match '^\s*\d+\s+[0-9A-Fa-f]+\s+[0-9A-Fa-f]+\s+(\S+)\s*$') { $Matches[1] }
+            } | Select-Object -Unique
+            if (-not $names) { throw "no exports parsed from $dll" }
+            Write-Host "$dll -> $($names.Count) exports"
+            # The LIBRARY line matters: without it lib.exe names the imports
+            # "<dll>.dll", which produces a <dll>.dll.dll dependency.
+            ("LIBRARY $dll`nEXPORTS`n" + ($names -join "`n")) | Out-File -Encoding ascii "$dll.def"
+            & $libexe "/def:$dll.def" "/machine:x64" "/out:sdklib\$($dll -replace '\.dll$','.lib')"
+            if (-not (Test-Path "sdklib\$($dll -replace '\.dll$','.lib')")) { throw "lib.exe produced nothing for $dll" }
+          }
+          "HIK_SDKLIB=$((Resolve-Path sdklib -ErrorAction Stop).Path)" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Replace Linux SDK libs with Windows ones
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Remove-Item src\hikvision_sdk\lib\* -Force -Recurse
+          Copy-Item "$env:HIK_SDKLIB\*.lib" src\hikvision_sdk\lib\
+          Get-ChildItem src\hikvision_sdk\lib | ForEach-Object { Write-Host $_.Name }
+
+      - name: Configure & build
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Import-Module "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
+          Enter-VsDevShell -VsInstallPath "C:\Program Files\Microsoft Visual Studio\2022\Enterprise" -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -host_arch=x64"
+          $env:PATH = "$env:QT_DIR\bin;$env:PATH"
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64 `
+            -DCMAKE_PREFIX_PATH="$env:QT_DIR" `
+            -DFFMPEG_INC="$env:FFMPEG_INC" -DFFMPEG_LIB="$env:FFMPEG_LIB"
+          if ($LASTEXITCODE -ne 0) { throw "cmake configure failed" }
+          cmake --build build --config Release --parallel
+          if ($LASTEXITCODE -ne 0) { throw "cmake build failed" }
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $out = "pkg"
+          New-Item -ItemType Directory -Force -Path $out | Out-Null
+          $exe = "build\Release\kvision.exe"
+          if (-not (Test-Path $exe)) { $exe = "build\kvision.exe" }
+          if (-not (Test-Path $exe)) { throw "kvision.exe not built" }
+          Copy-Item $exe $out\
+          & "$env:QT_DIR\bin\windeployqt.exe" --release --qmldir src "$out\kvision.exe"
+          Copy-Item "$env:HIK_LIB\*" $out\ -Recurse -Force
+          Copy-Item "$env:FFMPEG_BIN\*.dll" $out\
+          Compress-Archive -Path "$out\*" -DestinationPath KVision-windows-x64.zip
+          Write-Host "--- package ---"
+          Get-ChildItem $out | Select-Object -First 40 | ForEach-Object { Write-Host $_.Name }
+          Write-Host "zip: $((Get-Item KVision-windows-x64.zip).Length) bytes"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: KVision-windows-x64
+          path: KVision-windows-x64.zip
+
+      # Same tag every run, so the release keeps one stable download URL and
+      # the asset is replaced in place instead of piling up builds.
+      - name: Publish release
+        if: github.event_name == 'workflow_dispatch'   # manual only: PR builds never publish
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: windows-latest
+          name: Windows x64
+          prerelease: true
+          fail_on_unmatched_files: true
+          body: |
+            Windows x64 build of KVision.
+
+            MSVC 2022 (Visual Studio 17), Qt 5.15.2 msvc2019_64, FFmpeg 8.1
+            shared, Hikvision HCNetSDK 6.1.9.48 runtime. Unpack anywhere and run
+            `kvision.exe`; devices on the LAN are discovered on first start.
+          files: KVision-windows-x64.zip
