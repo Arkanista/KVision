@@ -49,37 +49,44 @@ T.CheckBox {
                              implicitContentHeight + topPadding + bottomPadding,
                              implicitIndicatorHeight + topPadding + bottomPadding)
 
-    padding: Compact.buttonPadding
+    padding: 4
     spacing: Compact.spacing
+    hoverEnabled: true
 
     // keep in sync with CheckDelegate.qml (shared CheckIndicator.qml was removed for performance reasons)
     indicator: Rectangle {
         radius: Compact.radius
-        implicitWidth: 24
-        implicitHeight: 24
+        implicitWidth: 18
+        implicitHeight: 18
 
         x: control.text ? (control.mirrored ? control.width - width - control.rightPadding : control.leftPadding) : control.leftPadding + (control.availableWidth - width) / 2
         y: control.topPadding + (control.availableHeight - height) / 2
 
-        color: control.down ? control.palette.light : control.palette.base
-        border.width: control.visualFocus ? 2 : 1
-        border.color: control.visualFocus ? control.palette.highlight : control.palette.mid
+        color: control.down ? "#1c2833"
+             : (control.checkState !== Qt.Unchecked ? "#102a2a"
+             : (control.hovered ? "#162029" : "#0f151b"))
+        border.width: (control.visualFocus || control.checkState !== Qt.Unchecked) ? 1.5 : 1
+        border.color: (control.checkState !== Qt.Unchecked || control.visualFocus) ? "#00f5d4"
+                    : (control.hovered ? "#5a6b7c" : "#3a4856")
+        opacity: control.enabled ? 1.0 : 0.45
 
-        ColorImage {
+        Image {
             x: (parent.width - width) / 2
             y: (parent.height - height) / 2
-            defaultColor: "#353637"
-            color: control.palette.text
-            source: "qrc:/qt-project.org/imports/QtQuick/Controls.2/images/check.png"
+            width: 12
+            height: 12
+            sourceSize: Qt.size(24, 24)
+            source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'></polyline></svg>"
             visible: control.checkState === Qt.Checked
         }
 
         Rectangle {
             x: (parent.width - width) / 2
             y: (parent.height - height) / 2
-            width: 16
-            height: 3
-            color: control.palette.text
+            width: 10
+            height: 2
+            radius: 1
+            color: "#00f5d4"
             visible: control.checkState === Qt.PartiallyChecked
         }
     }
@@ -90,6 +97,7 @@ T.CheckBox {
 
         text: control.text
         font: control.font
-        color: control.palette.windowText
+        color: "#ffffff"
+        opacity: control.enabled ? 1.0 : 0.5
     }
 }

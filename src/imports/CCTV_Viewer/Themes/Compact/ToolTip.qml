@@ -74,7 +74,7 @@ T.ToolTip {
 
     background: Rectangle {
         radius: Compact.radius
-        border.color: control.palette.dark
+        border.color: control.palette.mid
         color: control.palette.toolTipBase
     }
 }
