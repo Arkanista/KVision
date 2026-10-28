@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.3] - 2026-10-28
+
+### EN: Features, Improvements & Bug Fixes
+* **Windows x64 Build Support & CI Workflow:** Integrated full Windows x64 compilation support (`MSVC 2022` / CMake / GitHub Actions CI, contributed by @kunxiang1 in PR #7) with automated artifact packaging (`windeployqt`, FFmpeg, Hikvision SDK, OpenSSL, and cURL DLLs) and multi-mirror HTTPS fallback for `aqtinstall`.
+* **Cross-Platform Settings Import / Export:** Added a new **"Import / Export"** tab in the side panel allowing one-click export and import of the entire application configuration (`.conf` / `.ini`) between Linux and Windows, with automatic adaptation of snapshot and video recording paths to the target operating system and live hot-reload.
+* **Windows Configuration File (`KVision.ini`) & Path Fixes:** Enforced `QSettings::IniFormat` on Windows so settings are stored in a standard file (`%APPDATA%\KVision\KVision.ini`) instead of the Windows Registry, and replaced fixed `.substring(7)` URL stripping with `QUrl::toLocalFile()` / `QUrl::fromLocalFile()` so Windows paths no longer start with a leading slash (`/C:/...`).
+* **Unified Dark `Compact` Theme & `CheckBox` Visual Overhaul:** Fixed `CheckBox` controls on Windows where Qt's default light system palette caused black label text and oversized (`24x24`) white indicator boxes. Redesigned `Compact/CheckBox.qml` (`18x18` dark indicator, `#00f5d4` celadon accent border and vector SVG checkmark, crisp `#ffffff` label text) and configured a complete dark `[Compact\Palette]` in `qtquickcontrols2.conf` for consistent styling across Windows and Linux.
+
+### PL: Funkcje, Udoskonalenia i Poprawki Błędów
+* **Obsługa wersji Windows x64 i CI:** Wdrożono pełne wsparcie kompilacji dla systemu Windows x64 (`MSVC 2022` / CMake / GitHub Actions CI, współtworzone przez @kunxiang1 w PR #7) wraz z automatycznym pakowaniem bibliotek DLL oraz obsługą zapasowych serwerów lustrzanych HTTPS dla `aqtinstall`.
+* **Wieloplatformowy Import / Eksport ustawień:** Dodano nową zakładkę **„Import / Eksport”** w panelu bocznym umożliwiającą eksport i import pełnej konfiguracji programu (`.conf` / `.ini`) pomiędzy systemami Linux i Windows wraz z automatycznym dopasowaniem ścieżek zapisu stopklatek i wideo do docelowego systemu oraz przeładowaniem na żywo.
+* **Naprawa pliku konfiguracyjnego (`KVision.ini`) i ścieżek na Windowsie:** Wymuszono format `QSettings::IniFormat` na Windowsie (zapis w pliku `%APPDATA%\KVision\KVision.ini` zamiast w Rejestrze Windows) oraz wyeliminowano błędny początkowy ukośnik (`/C:/...`) w ścieżkach katalogów stopklatek i nagrań wideo poprzez użycie `QUrl::toLocalFile()` i `QUrl::fromLocalFile()`.
+* **Poprawki wizualne ciemnego motywu `Compact` i pól wyboru (`CheckBox`):** Naprawiono wygląd pól wyboru (`CheckBox`) w wersji dla Windowsa, gdzie domyślna jasna paleta systemowa Qt powodowała czarny, nieczytelny tekst etykiet oraz nienaturalnie duże (`24x24`) białe kwadraty. Przeprojektowano `Compact/CheckBox.qml` (kompaktowy ciemny wskaźnik `18x18`, seledynowe obramowanie i wektorowy znacznik SVG `#00f5d4`, biały tekst `#ffffff`) oraz zdefiniowano pełną ciemną paletę `[Compact\Palette]` w `qtquickcontrols2.conf`.
+
 ## [2.7.2] - 2026-10-27
 
 ### EN: Features, Improvements & Bug Fixes
