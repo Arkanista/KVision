@@ -6,12 +6,22 @@ on:
     branches: [master]
     paths:
       - "src/**"
+      - "images/**"
+      - "translations/**"
       - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.rc"
+      - "qtquickcontrols2.conf"
       - ".github/workflows/build-windows.yml"
   pull_request:
     paths:
       - "src/**"
+      - "images/**"
+      - "translations/**"
       - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.rc"
+      - "qtquickcontrols2.conf"
       - ".github/workflows/build-windows.yml"
 
 jobs:
@@ -148,7 +158,7 @@ jobs:
       # Same tag every run, so the release keeps one stable download URL and
       # the asset is replaced in place instead of piling up builds.
       - name: Publish release
-        if: github.event_name == 'workflow_dispatch'   # manual only: PR builds never publish
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/master')
         uses: softprops/action-gh-release@v2
         with:
           tag_name: windows-latest

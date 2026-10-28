@@ -20,7 +20,10 @@ include(GNUInstallDirs)
 
 if(WIN32)
     add_compile_definitions(NOMINMAX WIN32_LEAN_AND_MEAN)
-    add_compile_options(/FIwindows.h /Zc:__cplusplus)
+    add_compile_options(
+        $<$<COMPILE_LANGUAGE:C,CXX>:/FIwindows.h>
+        $<$<COMPILE_LANGUAGE:C,CXX>:/Zc:__cplusplus>
+    )
 endif()
 
 if(DEFINED VER_REL AND ${VER_REL} GREATER 0)
@@ -62,7 +65,12 @@ endif()
 set(VERSION "${VERSION} ${PACKAGER}.${GIT_COMMIT} (${CMAKE_SYSTEM_PROCESSOR})")
 ###
 
-add_definitions(-DAPP_NAME="${APP_NAME}" -DAPP_VERSION="${VERSION}" -DORG_NAME="${ORG_NAME}" -DORG_DOMAIN="${ORG_DOMAIN}")
+add_compile_definitions(
+    $<$<COMPILE_LANGUAGE:C,CXX>:APP_NAME="${APP_NAME}">
+    $<$<COMPILE_LANGUAGE:C,CXX>:APP_VERSION="${VERSION}">
+    $<$<COMPILE_LANGUAGE:C,CXX>:ORG_NAME="${ORG_NAME}">
+    $<$<COMPILE_LANGUAGE:C,CXX>:ORG_DOMAIN="${ORG_DOMAIN}">
+)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -210,6 +218,9 @@ if (ANDROID)
     target_include_directories(kvision PRIVATE "${CMAKE_SOURCE_DIR}/src/qmlav/3rd/FFmpeg/ffbuild/${ANDROID_ABI}/include")
     target_link_directories(kvision PRIVATE "${CMAKE_SOURCE_DIR}/src/qmlav/3rd/FFmpeg/ffbuild/${ANDROID_ABI}/lib")
 else()
+    if(WIN32)
+        list(APPEND PROJ_FILES kvision.rc)
+    endif()
     add_executable(kvision ${PROJ_FILES} ${QMLAV_FILES})
     if(WIN32)
         set_target_properties(kvision PROPERTIES WIN32_EXECUTABLE TRUE)

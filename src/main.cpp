@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QIcon>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickWindow>
@@ -325,6 +326,13 @@ int main(int argc, char *argv[])
     app.setFont(QFont("DejaVu Sans Condensed"));
     app.setDesktopFileName(QStringLiteral("kvision"));
 
+    QIcon appIcon;
+    appIcon.addFile(QStringLiteral(":/images/kvision.ico"));
+    appIcon.addFile(QStringLiteral(":/images/128.png"), QSize(128, 128));
+    appIcon.addFile(QStringLiteral(":/images/256.png"), QSize(256, 256));
+    appIcon.addFile(QStringLiteral(":/images/512.png"), QSize(512, 512));
+    app.setWindowIcon(appIcon);
+
     SingleApplication singleApp;
     if (singleApp.isRunning()) {
         Context::init();
@@ -397,11 +405,6 @@ int main(int argc, char *argv[])
     auto *thumbnailProvider = new ThumbnailProvider();
     qmlRegisterSingletonInstance("CCTV_Viewer.Utils", 1, 0, "ThumbnailProvider", thumbnailProvider);
     engine.addImageProvider(QStringLiteral("thumbnail"), new ThumbnailImageProvider(thumbnailProvider));
-    QIcon appIcon;
-    appIcon.addFile(QStringLiteral(":/images/128.png"), QSize(128, 128));
-    appIcon.addFile(QStringLiteral(":/images/256.png"), QSize(256, 256));
-    appIcon.addFile(QStringLiteral(":/images/512.png"), QSize(512, 512));
-    app.setWindowIcon(appIcon);
 
     engine.addImportPath(":/src/imports");
     const QUrl url(QStringLiteral("qrc:/src/RootWindow.qml"));

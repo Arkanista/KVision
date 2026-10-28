@@ -1,0 +1,29 @@
+IDI_ICON1 ICON DISCARDABLE "images/kvision.ico"
+
+1 VERSIONINFO
+FILEVERSION     2,7,3,0
+PRODUCTVERSION  2,7,3,0
+FILEFLAGSMASK   0x3fL
+FILEFLAGS       0x0L
+FILEOS          0x00040004L
+FILETYPE        0x1L
+FILESUBTYPE     0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName",      "KVision\0"
+            VALUE "FileDescription",  "KVision - CCTV & NVR Client\0"
+            VALUE "FileVersion",      "2.7.3.0\0"
+            VALUE "InternalName",     "kvision\0"
+            VALUE "OriginalFilename", "kvision.exe\0"
+            VALUE "ProductName",      "KVision\0"
+            VALUE "ProductVersion",   "2.7.3\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
