@@ -156,3 +156,13 @@ cmake --build build --target diagnose_archive
 lupdate src -ts translations/*.ts
 lrelease translations/*.ts
 ```
+
+---
+
+## 5. Windows (MSVC x64) Cross-Platform Checklist for AI Agents
+
+Before finalizing any code modification, AI agents **must** verify all of the following:
+1. **Header & Syscall Guards**: Any POSIX/Linux include (`<unistd.h>`, `<malloc.h>`, etc.) or `/proc` filesystem access must be wrapped in `#ifndef _WIN32`.
+2. **File URLs & Local Paths**: Never use `.substring(7)` on `file://` URLs or `"file://" + path` in QML/C++. Always use `QUrl::toLocalFile()` / `QUrl::fromLocalFile()` via `Context.urlToLocalFile()`, `Context.pathToUrl()`, and `Context.sanitizePlatformPath()`.
+3. **Settings Format**: Both C++ and QML (`Qt.labs.settings`) rely on `QSettings::IniFormat` (`%APPDATA%\KVision\KVision.ini` on Windows, `~/.config/KVision/KVision.conf` on Linux). Do not introduce `QSettings::NativeFormat`.
+4. **CI Workflow Integrity**: Ensure `.github/workflows/build-windows.yml`, `CMakeLists.txt`, and `src/qmlav/CMakeLists.txt` retain intact `WIN32` build targets and library linkage.

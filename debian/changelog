@@ -1,3 +1,11 @@
+cctv-viewer (2.7.3-1) jammy; urgency=medium
+
+  * Merged Windows x64 build support (MSVC 2022 / GitHub Actions CI, PR #7 by @kunxiang1) and updated Windows build documentation.
+  * Added cross-platform Settings Import / Export tab in the side panel with automatic OS path adaptation between Linux and Windows.
+  * Fixed Windows QSettings format to consistently use IniFormat (%APPDATA%\KVision\KVision.ini) and resolved leading slash issues on Windows local directory paths.
+
+ -- arkanis <arkanis@cctv-viewer2.org>  Wed, 28 Oct 2026 12:35:00 +0100
+
 cctv-viewer (2.7.2-1) jammy; urgency=medium
 
   * Rewrote Simplified Chinese (zh_CN) UI translation with professional video surveillance terminology (PR #6 by @kunxiang1).
