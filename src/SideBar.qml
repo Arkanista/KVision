@@ -977,15 +977,15 @@ FocusScope {
                         onClicked: tabsColumn.selectTab(4)
                     }
 
-                    // Changelog Page Button
+                    // Import / Export Settings Page Button
                     Button {
-                        id: btnChangelog
+                        id: btnImportExport
                         Layout.fillWidth: true
                         height: 40
                         hoverEnabled: true
 
                         background: Rectangle {
-                            color: tabsColumn.activeIndex === 5 ? "#1c242c" : (btnChangelog.hovered ? "#141a21" : "transparent")
+                            color: tabsColumn.activeIndex === 5 ? "#1c242c" : (btnImportExport.hovered ? "#141a21" : "transparent")
                             radius: 6
 
                             Rectangle {
@@ -994,6 +994,65 @@ FocusScope {
                                 height: parent.height
                                 color: "#00f5d4"
                                 visible: tabsColumn.activeIndex === 5
+                            }
+                        }
+
+                        contentItem: RowLayout {
+                            anchors.fill: parent
+                            anchors.leftMargin: 12
+                            spacing: 12
+
+                            Item {
+                                implicitWidth: 14
+                                implicitHeight: 14
+
+                                Image {
+                                    id: imgImportExport
+                                    source: "qrc:/images/menu-backup.svg"
+                                    anchors.fill: parent
+                                    fillMode: Image.PreserveAspectFit
+                                    layer.enabled: true
+                                }
+
+                                ColorOverlay {
+                                    anchors.fill: imgImportExport
+                                    source: imgImportExport
+                                    color: tabsColumn.activeIndex === 5 ? "#00f5d4" : (btnImportExport.hovered ? "white" : "#8898a6")
+                                    cached: true
+                                }
+                            }
+
+                            Text {
+                                text: qsTr("LNG_00551")
+                                color: tabsColumn.activeIndex === 5 ? "#00f5d4" : (btnImportExport.hovered ? "white" : "#8898a6")
+                                font {
+                                    pixelSize: 12
+                                    bold: tabsColumn.activeIndex === 5
+                                }
+                                Layout.fillWidth: true
+                            }
+                        }
+
+                        onClicked: tabsColumn.selectTab(5)
+                    }
+
+                    // Changelog Page Button
+                    Button {
+                        id: btnChangelog
+                        Layout.fillWidth: true
+                        height: 40
+                        hoverEnabled: true
+
+                        background: Rectangle {
+                            color: tabsColumn.activeIndex === 6 ? "#1c242c" : (btnChangelog.hovered ? "#141a21" : "transparent")
+                            radius: 6
+
+                            Rectangle {
+                                anchors.left: parent.left
+                                width: 3
+                                height: parent.height
+                                color: "#00f5d4"
+                                visible: tabsColumn.activeIndex === 6
                             }
                         }
 
@@ -1017,23 +1076,23 @@ FocusScope {
                                 ColorOverlay {
                                     anchors.fill: imgChangelog
                                     source: imgChangelog
-                                    color: tabsColumn.activeIndex === 5 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
+                                    color: tabsColumn.activeIndex === 6 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
                                     cached: true
                                 }
                             }
 
                             Text {
                                 text: qsTr("LNG_00310")
-                                color: tabsColumn.activeIndex === 5 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
+                                color: tabsColumn.activeIndex === 6 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
-                                    bold: tabsColumn.activeIndex === 5
+                                    bold: tabsColumn.activeIndex === 6
                                 }
                                 Layout.fillWidth: true
                             }
                         }
 
-                        onClicked: tabsColumn.selectTab(5)
+                        onClicked: tabsColumn.selectTab(6)
                     }
                 }
 
@@ -2909,7 +2968,7 @@ FocusScope {
                                     onClicked: {
                                         var path = generalSettings.snapshotPath;
                                         Context.mkpath(path);
-                                        Qt.openUrlExternally("file://" + path);
+                                        Qt.openUrlExternally(Context.pathToUrl(path));
                                     }
                                 }
 
@@ -2920,7 +2979,7 @@ FocusScope {
                                     onClicked: {
                                         var path = generalSettings.videoPath;
                                         Context.mkpath(path);
-                                        Qt.openUrlExternally("file://" + path);
+                                        Qt.openUrlExternally(Context.pathToUrl(path));
                                     }
                                 }
                             }
@@ -3021,7 +3080,224 @@ FocusScope {
                 }
             }
 
-            // PAGE 5: Changelog
+            // PAGE 5: Import / Export Settings
+            ScrollView {
+                id: pageImportExportScrollView
+                clip: true
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                property string statusMessage: ""
+                property bool statusSuccess: true
+
+                ColumnLayout {
+                    id: pageImportExportLayout
+                    x: 24
+                    width: pageImportExportScrollView.width - 48
+                    spacing: 16
+
+                    Text {
+                        text: qsTr("LNG_00551")
+                        color: "#00f5d4"
+                        font {
+                            pixelSize: 16
+                            bold: true
+                        }
+                    }
+
+                    Text {
+                        text: qsTr("LNG_00552")
+                        color: "#8898a6"
+                        font.pixelSize: 12
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
+                    }
+
+                    // Status feedback banner
+                    Rectangle {
+                        visible: pageImportExportScrollView.statusMessage !== ""
+                        Layout.fillWidth: true
+                        implicitHeight: statusBannerRow.implicitHeight + 20
+                        radius: 6
+                        color: pageImportExportScrollView.statusSuccess ? "#0d2924" : "#2d1215"
+                        border.color: pageImportExportScrollView.statusSuccess ? "#00f5d4" : "#ff4d4d"
+                        border.width: 1
+
+                        RowLayout {
+                            id: statusBannerRow
+                            anchors.fill: parent
+                            anchors.margins: 10
+                            spacing: 10
+
+                            Text {
+                                text: pageImportExportScrollView.statusSuccess ? "✓" : "✕"
+                                color: pageImportExportScrollView.statusSuccess ? "#00f5d4" : "#ff4d4d"
+                                font.pixelSize: 14
+                                font.bold: true
+                            }
+
+                            Text {
+                                text: pageImportExportScrollView.statusMessage
+                                color: "#ffffff"
+                                font.pixelSize: 12
+                                wrapMode: Text.WordWrap
+                                Layout.fillWidth: true
+                            }
+                        }
+                    }
+
+                    // Export GroupBox
+                    GroupBox {
+                        title: qsTr("LNG_00553")
+                        Layout.fillWidth: true
+
+                        background: Rectangle {
+                            color: "#141a21"
+                            border.color: "#2a3540"
+                            border.width: 1
+                            radius: 8
+                        }
+                        label: Text {
+                            text: parent.title
+                            color: "#00f5d4"
+                            font.bold: true
+                            font.pixelSize: 12
+                        }
+
+                        ColumnLayout {
+                            anchors.fill: parent
+                            spacing: 12
+
+                            Text {
+                                text: qsTr("LNG_00554")
+                                color: "#cccccc"
+                                font.pixelSize: 12
+                                wrapMode: Text.WordWrap
+                                Layout.fillWidth: true
+                            }
+
+                            CctvButton {
+                                text: qsTr("LNG_00555")
+                                isCeladon: true
+                                Layout.fillWidth: true
+                                onClicked: {
+                                    if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.flushSettingsToDisk) {
+                                        rootWindow.flushSettingsToDisk();
+                                    }
+                                    var targetPath = Context.selectExportConfigFile(qsTr("LNG_00555"), Context.defaultPicturesPath());
+                                    if (targetPath && targetPath !== "") {
+                                        var ok = Context.exportSettings(targetPath);
+                                        pageImportExportScrollView.statusSuccess = ok;
+                                        pageImportExportScrollView.statusMessage = ok
+                                            ? qsTr("LNG_00561").arg(targetPath)
+                                            : qsTr("LNG_00563");
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Import GroupBox
+                    GroupBox {
+                        title: qsTr("LNG_00556")
+                        Layout.fillWidth: true
+
+                        background: Rectangle {
+                            color: "#141a21"
+                            border.color: "#2a3540"
+                            border.width: 1
+                            radius: 8
+                        }
+                        label: Text {
+                            text: parent.title
+                            color: "#00f5d4"
+                            font.bold: true
+                            font.pixelSize: 12
+                        }
+
+                        ColumnLayout {
+                            anchors.fill: parent
+                            spacing: 12
+
+                            Text {
+                                text: qsTr("LNG_00557")
+                                color: "#cccccc"
+                                font.pixelSize: 12
+                                wrapMode: Text.WordWrap
+                                Layout.fillWidth: true
+                            }
+
+                            CctvButton {
+                                text: qsTr("LNG_00558")
+                                isCeladon: true
+                                Layout.fillWidth: true
+                                onClicked: {
+                                    var sourcePath = Context.selectImportConfigFile(qsTr("LNG_00558"), Context.configDirPath());
+                                    if (sourcePath && sourcePath !== "") {
+                                        var ok = Context.importSettings(sourcePath);
+                                        pageImportExportScrollView.statusSuccess = ok;
+                                        pageImportExportScrollView.statusMessage = ok
+                                            ? qsTr("LNG_00562").arg(sourcePath)
+                                            : qsTr("LNG_00563");
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Active config file info GroupBox
+                    GroupBox {
+                        title: qsTr("LNG_00559")
+                        Layout.fillWidth: true
+
+                        background: Rectangle {
+                            color: "#141a21"
+                            border.color: "#2a3540"
+                            border.width: 1
+                            radius: 8
+                        }
+                        label: Text {
+                            text: parent.title
+                            color: "#00f5d4"
+                            font.bold: true
+                            font.pixelSize: 12
+                        }
+
+                        ColumnLayout {
+                            anchors.fill: parent
+                            spacing: 10
+
+                            TextField {
+                                id: activeConfigPathField
+                                readOnly: true
+                                selectByMouse: true
+                                Layout.fillWidth: true
+                                text: Context.config.fileName
+                                color: "#8898a6"
+                                font.pixelSize: 11
+                                background: Rectangle {
+                                    color: "#0f151b"
+                                    radius: 4
+                                    border.color: activeConfigPathField.activeFocus ? "#00f5d4" : "#2a3540"
+                                }
+                            }
+
+                            CctvButton {
+                                text: qsTr("LNG_00560")
+                                isCeladon: true
+                                Layout.fillWidth: true
+                                onClicked: {
+                                    var dirPath = Context.configDirPath();
+                                    Context.mkpath(dirPath);
+                                    Qt.openUrlExternally(Context.pathToUrl(dirPath));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // PAGE 6: Changelog
             ScrollView {
                 id: page5ScrollView
                 clip: true

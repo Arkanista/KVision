@@ -2386,11 +2386,9 @@ Window {
 
                                                     var path = "";
                                                     if (typeof rootWindow !== "undefined" && rootWindow.generalSettings && rootWindow.generalSettings.snapshotPath !== "") {
-                                                        path = rootWindow.generalSettings.snapshotPath;
+                                                        path = Context.sanitizePlatformPath(rootWindow.generalSettings.snapshotPath, Context.defaultPicturesPath());
                                                     } else {
-                                                        path = Platform.StandardPaths.writableLocation(Platform.StandardPaths.PicturesLocation).toString();
-                                                        if (path.indexOf("file://") === 0) path = path.substring(7);
-                                                        path = path + "/CCTV";
+                                                        path = Context.defaultPicturesPath();
                                                     }
                                                     Context.mkpath(path);
                                                     path = path + "/" + camName + "_ARCHIVE_" + dateStr + ".jpg";
@@ -3908,7 +3906,7 @@ Window {
                         var path = getVideoPath();
                         if (path !== "") {
                             Context.mkpath(path);
-                            Qt.openUrlExternally("file://" + path);
+                            Qt.openUrlExternally(Context.pathToUrl(path));
                         }
                     }
 
@@ -3949,7 +3947,7 @@ Window {
                         var path = getSnapshotPath();
                         if (path !== "") {
                             Context.mkpath(path);
-                            Qt.openUrlExternally("file://" + path);
+                            Qt.openUrlExternally(Context.pathToUrl(path));
                         }
                     }
 

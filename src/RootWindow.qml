@@ -293,6 +293,7 @@ ApplicationWindow {
                     saveTimer.stop();
                     rootWindow.lastLoadedModelsJson = diskModels;
                     rootWindow.lastSavedModelsJson = diskModels;
+                    layoutsCollectionSettings.models = diskModels;
                     rootWindow.isSyncing = true;
                     try {
                         layoutsCollectionModel.fromJSValue(JSON.parse(diskModels));
@@ -305,6 +306,10 @@ ApplicationWindow {
             }
 
             // 3. Check and live-reload General Settings
+            var diskSingleApp = Context.readSetting("", "singleApplication", true);
+            if (generalSettings.singleApplication !== diskSingleApp) {
+                generalSettings.singleApplication = diskSingleApp;
+            }
             var diskAllowSwapping = Context.readSetting("", "allowSwappingViewports", true);
             if (generalSettings.allowSwappingViewports !== diskAllowSwapping) {
                 generalSettings.allowSwappingViewports = diskAllowSwapping;
@@ -317,11 +322,13 @@ ApplicationWindow {
             if (generalSettings.enableStreamSelection !== diskEnableStreamSel) {
                 generalSettings.enableStreamSelection = diskEnableStreamSel;
             }
-            var diskSnapshotPath = Context.readSetting("", "snapshotPath", "");
+            var rawSnapshotPath = Context.readSetting("", "snapshotPath", "");
+            var diskSnapshotPath = Context.sanitizePlatformPath(rawSnapshotPath, Context.defaultPicturesPath());
             if (generalSettings.snapshotPath !== diskSnapshotPath) {
                 generalSettings.snapshotPath = diskSnapshotPath;
             }
-            var diskVideoPath = Context.readSetting("", "videoPath", "");
+            var rawVideoPath = Context.readSetting("", "videoPath", "");
+            var diskVideoPath = Context.sanitizePlatformPath(rawVideoPath, Context.defaultMoviesPath());
             if (generalSettings.videoPath !== diskVideoPath) {
                 generalSettings.videoPath = diskVideoPath;
             }
@@ -356,6 +363,22 @@ ApplicationWindow {
             var diskDisableAudio = Context.readSetting("", "disableAudio", false);
             if (generalSettings.disableAudio !== diskDisableAudio) {
                 generalSettings.disableAudio = diskDisableAudio;
+            }
+            var diskEnableDiagnosticLogs = Context.readSetting("", "enableDiagnosticLogs", false);
+            if (generalSettings.enableDiagnosticLogs !== diskEnableDiagnosticLogs) {
+                generalSettings.enableDiagnosticLogs = diskEnableDiagnosticLogs;
+            }
+            if (!Context.isAuxiliary) {
+                var diskCurrentIndex = Context.readSetting("MainLayout", "currentIndex", windowLayoutSettings.currentIndex);
+                if (layoutsCollectionModel.count > 0) {
+                    var clampedIdx = diskCurrentIndex.clamp(0, layoutsCollectionModel.count - 1);
+                    if (windowLayoutSettings.currentIndex !== clampedIdx) {
+                        windowLayoutSettings.currentIndex = clampedIdx;
+                    }
+                    if (stackLayout.currentIndex !== clampedIdx) {
+                        stackLayout.currentIndex = clampedIdx;
+                    }
+                }
             }
 
             // 4. Check and live-reload View Settings
@@ -1695,23 +1718,64 @@ ApplicationWindow {
         }
     }
 
+    function flushSettingsToDisk() {
+        if (saveTimer.running) {
+            saveTimer.stop();
+        }
+        var modelsJson = JSON.stringify(layoutsCollectionModel.toJSValue());
+        rootWindow.lastSavedModelsJson = modelsJson;
+        layoutsCollectionSettings.models = modelsJson;
+
+        Context.writeSetting("", "singleApplication", generalSettings.singleApplication);
+        Context.writeSetting("", "allowSwappingViewports", generalSettings.allowSwappingViewports);
+        Context.writeSetting("", "enableContextMenu", generalSettings.enableContextMenu);
+        Context.writeSetting("", "enableRemoveCamera", generalSettings.enableRemoveCamera);
+        Context.writeSetting("", "enableChangeViewportSettings", generalSettings.enableChangeViewportSettings);
+        Context.writeSetting("", "enableStreamSelection", generalSettings.enableStreamSelection);
+        Context.writeSetting("", "lockGridSize", generalSettings.lockGridSize);
+        Context.writeSetting("", "snapshotPath", generalSettings.snapshotPath);
+        Context.writeSetting("", "videoPath", generalSettings.videoPath);
+        Context.writeSetting("", "disableAudio", generalSettings.disableAudio);
+        Context.writeSetting("", "auxiliaryLimit", generalSettings.auxiliaryLimit);
+        Context.writeSetting("", "playbackOffsetSeconds", generalSettings.playbackOffsetSeconds);
+        Context.writeSetting("", "playbackTimelineHours", generalSettings.playbackTimelineHours);
+        Context.writeSetting("", "enableDiagnosticLogs", generalSettings.enableDiagnosticLogs);
+        Context.writeSetting("", "language", Context.getLanguage());
+
+        Context.writeSetting("Hikvision", "recordersJson", hikvisionSettings.recordersJson);
+
+        Context.writeSetting("ViewportsLayoutsCollection", "models", modelsJson);
+        Context.writeSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", layoutsCollectionSettings.defaultAVFormatOptions);
+
+        Context.writeSetting("View", "hideCursorWhenFullScreen", viewSettings.hideCursorWhenFullScreen);
+        Context.writeSetting("View", "showChannelStatus", viewSettings.showChannelStatus);
+        Context.writeSetting("View", "showCameraInfo", viewSettings.showCameraInfo);
+        Context.writeSetting("View", "hoverControlIcons", viewSettings.hoverControlIcons);
+        Context.writeSetting("View", "showInfoOnHoverOnly", viewSettings.showInfoOnHoverOnly);
+        Context.writeSetting("View", "showTopBarByDefault", viewSettings.showTopBarByDefault);
+        Context.writeSetting("View", "disableViewportZoomAnimation", viewSettings.disableViewportZoomAnimation);
+
+        Context.writeSetting("Viewport", "noUnmuteWhenFullScreen", viewportSettings.noUnmuteWhenFullScreen);
+
+        if (!Context.isAuxiliary) {
+            Context.writeSetting("MainLayout", "currentIndex", stackLayout.currentIndex);
+            Context.writeSetting("RootWindow", "width", rootWindow.width);
+            Context.writeSetting("RootWindow", "height", rootWindow.height);
+            Context.writeSetting("RootWindow", "fullScreen", Context.config.fullScreen);
+        }
+    }
+
     Component.onCompleted: {
         stackLayout.visible = true;
 
-        var snapPath = generalSettings.snapshotPath;
-        if (snapPath === "") {
-            var picLoc = Platform.StandardPaths.writableLocation(Platform.StandardPaths.PicturesLocation).toString();
-            if (picLoc.indexOf("file://") === 0) picLoc = picLoc.substring(7);
-            snapPath = picLoc + "/CCTV";
+        var snapPath = Context.sanitizePlatformPath(generalSettings.snapshotPath, Context.defaultPicturesPath());
+        if (generalSettings.snapshotPath !== snapPath) {
             generalSettings.snapshotPath = snapPath;
         }
         Context.mkpath(snapPath);
 
-        var vidPath = generalSettings.videoPath;
-        if (vidPath === "") {
-            var movLoc = Platform.StandardPaths.writableLocation(Platform.StandardPaths.MoviesLocation).toString();
-            if (movLoc.indexOf("file://") === 0) movLoc = movLoc.substring(7);
-            vidPath = movLoc + "/CCTV";
+        var vidPath = Context.sanitizePlatformPath(generalSettings.videoPath, Context.defaultMoviesPath());
+        if (generalSettings.videoPath !== vidPath) {
             generalSettings.videoPath = vidPath;
         }
         Context.mkpath(vidPath);

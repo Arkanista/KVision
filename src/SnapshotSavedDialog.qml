@@ -115,9 +115,10 @@ Item {
                     radius: 4
                 }
                 onClicked: {
-                    var folderPath = rootOverlay.filePath.substring(0, rootOverlay.filePath.lastIndexOf("/"));
+                    var sepIdx = Math.max(rootOverlay.filePath.lastIndexOf("/"), rootOverlay.filePath.lastIndexOf("\\"));
+                    var folderPath = sepIdx !== -1 ? rootOverlay.filePath.substring(0, sepIdx) : rootOverlay.filePath;
                     if (folderPath !== "") {
-                        Qt.openUrlExternally("file://" + folderPath);
+                        Qt.openUrlExternally(Context.pathToUrl(folderPath));
                     }
                     rootOverlay.close();
                 }

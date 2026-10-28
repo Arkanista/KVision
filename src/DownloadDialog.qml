@@ -701,13 +701,9 @@ Popup {
             
             var moviesPath = "";
             if (typeof rootWindow !== "undefined" && rootWindow.generalSettings && rootWindow.generalSettings.videoPath !== "") {
-                moviesPath = rootWindow.generalSettings.videoPath;
+                moviesPath = Context.sanitizePlatformPath(rootWindow.generalSettings.videoPath, Context.defaultMoviesPath());
             } else {
-                moviesPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.MoviesLocation).toString();
-                if (moviesPath.indexOf("file://") === 0) {
-                    moviesPath = moviesPath.substring(7);
-                }
-                moviesPath = moviesPath + "/CCTV";
+                moviesPath = Context.defaultMoviesPath();
             }
             var defaultSavePath = moviesPath + "/" + filename;
             
@@ -1227,11 +1223,8 @@ Popup {
                                 enabled: model.downloadEnabled && !downloadDialog.isAnyDownloading()
                                 onClicked: {
                                     var p = model.savePath
-                                    if (p.indexOf("file://") !== 0) {
-                                        p = "file://" + p
-                                    }
                                     activeCameraIndex = index
-                                    fileDialog.currentFile = p
+                                    fileDialog.currentFile = p.indexOf("file://") === 0 ? p : Context.pathToUrl(p)
                                     fileDialog.open()
                                 }
                             }
@@ -1291,13 +1284,13 @@ Popup {
                                 onClicked: {
                                     var path = model.savePath;
                                     var dirPath = "";
-                                    var idx = path.lastIndexOf("/");
+                                    var idx = Math.max(path.lastIndexOf("/"), path.lastIndexOf("\\"));
                                     if (idx !== -1) {
                                         dirPath = path.substring(0, idx);
                                     } else {
                                         dirPath = path;
                                     }
-                                    Qt.openUrlExternally("file://" + dirPath);
+                                    Qt.openUrlExternally(Context.pathToUrl(dirPath));
                                 }
                             }
                         }
@@ -1370,20 +1363,16 @@ Popup {
         defaultSuffix: "mp4"
         folder: {
             if (typeof rootWindow !== "undefined" && rootWindow.generalSettings && rootWindow.generalSettings.videoPath !== "") {
-                Context.mkpath(rootWindow.generalSettings.videoPath);
-                return "file://" + rootWindow.generalSettings.videoPath;
+                var vp = Context.sanitizePlatformPath(rootWindow.generalSettings.videoPath, Context.defaultMoviesPath());
+                Context.mkpath(vp);
+                return Context.pathToUrl(vp);
             }
-            var mLoc = Platform.StandardPaths.writableLocation(Platform.StandardPaths.MoviesLocation).toString();
-            if (mLoc.indexOf("file://") === 0) mLoc = mLoc.substring(7);
-            var defaultPath = mLoc + "/CCTV";
+            var defaultPath = Context.defaultMoviesPath();
             Context.mkpath(defaultPath);
-            return "file://" + defaultPath;
+            return Context.pathToUrl(defaultPath);
         }
         onAccepted: {
-            var path = fileDialog.file.toString()
-            if (path.indexOf("file://") === 0) {
-                path = path.substring(7)
-            }
+            var path = Context.urlToLocalFile(fileDialog.file.toString())
             if (activeCameraIndex >= 0 && activeCameraIndex < downloadModel.count) {
                 downloadModel.setProperty(activeCameraIndex, "savePath", path)
             }

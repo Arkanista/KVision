@@ -27,7 +27,7 @@ public:
 #endif
     {
         // Read configuration to check if single application mode is enabled
-        QSettings settings(QSettings().fileName(), QSettings::NativeFormat);
+        QSettings settings(QSettings().fileName(), QSettings::IniFormat);
         bool singleAppEnabled = settings.value("singleApplication", true).toBool();
 
         if (!singleAppEnabled || QCoreApplication::arguments().contains("--auxiliary")) {

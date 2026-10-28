@@ -609,11 +609,9 @@ FocusScope {
 
         var path = "";
         if (typeof generalSettings !== "undefined" && generalSettings.snapshotPath !== "") {
-            path = generalSettings.snapshotPath;
+            path = Context.sanitizePlatformPath(generalSettings.snapshotPath, Context.defaultPicturesPath());
         } else {
-            path = Platform.StandardPaths.writableLocation(Platform.StandardPaths.PicturesLocation).toString();
-            if (path.indexOf("file://") === 0) path = path.substring(7);
-            path = path + "/CCTV";
+            path = Context.defaultPicturesPath();
         }
         Context.mkpath(path);
         path = path + "/" + camName + "_" + typeStr + "_" + dateStr + ".jpg";

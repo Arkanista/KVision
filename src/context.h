@@ -49,7 +49,17 @@ public:
     Q_INVOKABLE bool dirExists(const QString &dirPath) const;
     Q_INVOKABLE QString homePath() const;
     Q_INVOKABLE QUrl pathToUrl(const QString &path) const;
+    Q_INVOKABLE QString urlToLocalFile(const QString &urlOrPath) const;
+    Q_INVOKABLE bool isValidPlatformPath(const QString &path) const;
+    Q_INVOKABLE QString sanitizePlatformPath(const QString &path, const QString &fallbackPath) const;
+    Q_INVOKABLE QString defaultPicturesPath() const;
+    Q_INVOKABLE QString defaultMoviesPath() const;
+    Q_INVOKABLE QString configDirPath() const;
     Q_INVOKABLE QString selectFolder(const QString &title, const QString &initialPath) const;
+    Q_INVOKABLE QString selectExportConfigFile(const QString &title, const QString &initialDir) const;
+    Q_INVOKABLE QString selectImportConfigFile(const QString &title, const QString &initialDir) const;
+    Q_INVOKABLE bool exportSettings(const QString &targetFilePath);
+    Q_INVOKABLE bool importSettings(const QString &sourceFilePath);
     Q_INVOKABLE QString readLocalFile(const QString &filePath) const;
     Q_INVOKABLE QVariant readSetting(const QString &category, const QString &key, const QVariant &defaultValue = QVariant()) const;
     Q_INVOKABLE void writeSetting(const QString &category, const QString &key, const QVariant &value);

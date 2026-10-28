@@ -7,6 +7,7 @@
 #include <QCoreApplication>
 #include <QLocale>
 #include <QFileDialog>
+#include <QStandardPaths>
 #include <QApplication>
 #include <QWidget>
 #include "context.h"
@@ -129,6 +130,26 @@ void Context::init()
                 qWarning() << "Failed to migrate configuration file from" << oldConfigPath << "to" << newConfigPath;
             }
         }
+#ifdef _WIN32
+        if (!QFile::exists(newConfigPath)) {
+            QFileInfo newFileInfo(newConfigPath);
+            QString siblingConf = newFileInfo.absolutePath() + QStringLiteral("/KVision.conf");
+            QString legacyWinFile = QStringLiteral("\\HKEY_CURRENT_USER\\Software\\KVision\\KVision");
+            if (QFile::exists(siblingConf)) {
+                QDir().mkpath(newFileInfo.absolutePath());
+                if (QFile::copy(siblingConf, newConfigPath)) {
+                    qInfo() << "Migrated sibling KVision.conf to" << newConfigPath;
+                    m_isFirstRun = false;
+                }
+            } else if (QFile::exists(legacyWinFile)) {
+                QDir().mkpath(newFileInfo.absolutePath());
+                if (QFile::copy(legacyWinFile, newConfigPath)) {
+                    qInfo() << "Migrated legacy Windows configuration file to" << newConfigPath;
+                    m_isFirstRun = false;
+                }
+            }
+        }
+#endif
         m_config = new Config();
     }
 
@@ -383,6 +404,82 @@ QUrl Context::pathToUrl(const QString &path) const
     return QUrl::fromLocalFile(path);
 }
 
+QString Context::urlToLocalFile(const QString &urlOrPath) const
+{
+    if (urlOrPath.isEmpty())
+        return QString();
+
+    QString p = urlOrPath.trimmed();
+    if (p.startsWith(QStringLiteral("file://"), Qt::CaseInsensitive)) {
+        QUrl url(p);
+        if (url.isLocalFile()) {
+            p = url.toLocalFile();
+        } else {
+            p = p.mid(7);
+        }
+    }
+#ifdef _WIN32
+    // Strip leading slash before Windows drive letter (e.g. "/C:/Users/..." -> "C:/Users/...")
+    if (p.length() >= 3 && (p[0] == '/' || p[0] == '\\') && p[1].isLetter() && p[2] == ':') {
+        p = p.mid(1);
+    }
+#endif
+    return QDir::fromNativeSeparators(p);
+}
+
+bool Context::isValidPlatformPath(const QString &path) const
+{
+    if (path.trimmed().isEmpty())
+        return false;
+#ifdef _WIN32
+    // Reject Unix-style paths or broken "/C:/..." paths on Windows
+    if (path.startsWith('/') || path.startsWith('\\'))
+        return false;
+    if (path.length() < 2 || !path[0].isLetter() || path[1] != ':')
+        return false;
+#else
+    // Reject Windows drive-letter paths (e.g. "C:/Users/...") on Linux/Unix
+    if (path.length() >= 2 && path[0].isLetter() && path[1] == ':')
+        return false;
+    if (!path.startsWith('/'))
+        return false;
+#endif
+    return true;
+}
+
+QString Context::sanitizePlatformPath(const QString &path, const QString &fallbackPath) const
+{
+    QString cleaned = urlToLocalFile(path);
+    if (isValidPlatformPath(cleaned)) {
+        return cleaned;
+    }
+    return fallbackPath;
+}
+
+QString Context::defaultPicturesPath() const
+{
+    QString base = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    if (base.isEmpty()) {
+        base = QDir::homePath() + QStringLiteral("/Pictures");
+    }
+    return QDir::fromNativeSeparators(base) + QStringLiteral("/CCTV");
+}
+
+QString Context::defaultMoviesPath() const
+{
+    QString base = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation);
+    if (base.isEmpty()) {
+        base = QDir::homePath() + QStringLiteral("/Videos");
+    }
+    return QDir::fromNativeSeparators(base) + QStringLiteral("/CCTV");
+}
+
+QString Context::configDirPath() const
+{
+    QString path = m_config ? m_config->fileName() : QSettings().fileName();
+    return QDir::fromNativeSeparators(QFileInfo(path).absolutePath());
+}
+
 QString Context::selectFolder(const QString &title, const QString &initialPath) const
 {
     QWidget *parent = QApplication::activeWindow();
@@ -392,7 +489,137 @@ QString Context::selectFolder(const QString &title, const QString &initialPath) 
         initialPath,
         QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
     );
-    return dir;
+    return QDir::fromNativeSeparators(dir);
+}
+
+QString Context::selectExportConfigFile(const QString &title, const QString &initialDir) const
+{
+    QWidget *parent = QApplication::activeWindow();
+    QString startDir = initialDir.isEmpty() ? QDir::homePath() : initialDir;
+    QString defaultFile = QDir(startDir).filePath(QStringLiteral("KVision.conf"));
+    QString selected = QFileDialog::getSaveFileName(
+        parent,
+        title,
+        defaultFile,
+        QStringLiteral("KVision Configuration (*.conf *.ini);;All Files (*)")
+    );
+    if (!selected.isEmpty()) {
+        QFileInfo fi(selected);
+        if (fi.suffix().isEmpty()) {
+            selected += QStringLiteral(".conf");
+        }
+    }
+    return QDir::fromNativeSeparators(selected);
+}
+
+QString Context::selectImportConfigFile(const QString &title, const QString &initialDir) const
+{
+    QWidget *parent = QApplication::activeWindow();
+    QString startDir = initialDir.isEmpty() ? QDir::homePath() : initialDir;
+    QString selected = QFileDialog::getOpenFileName(
+        parent,
+        title,
+        startDir,
+        QStringLiteral("KVision Configuration (*.conf *.ini);;All Files (*)")
+    );
+    return QDir::fromNativeSeparators(selected);
+}
+
+bool Context::exportSettings(const QString &targetFilePath)
+{
+    QString dstPath = urlToLocalFile(targetFilePath);
+    if (dstPath.isEmpty())
+        return false;
+
+    QString srcPath = m_config ? m_config->fileName() : QSettings().fileName();
+    QFileInfo srcInfo(srcPath);
+    QFileInfo dstInfo(dstPath);
+
+    if (srcInfo.exists() && dstInfo.exists() && srcInfo.canonicalFilePath() == dstInfo.canonicalFilePath()) {
+        // Exporting to the active config file itself: just sync it
+        QSettings src(srcPath, QSettings::IniFormat);
+        src.sync();
+        return src.status() == QSettings::NoError;
+    }
+
+    QDir().mkpath(dstInfo.absolutePath());
+    if (QFile::exists(dstPath)) {
+        QFile::remove(dstPath);
+    }
+
+    QSettings src(srcPath, QSettings::IniFormat);
+    src.sync();
+
+    QSettings dst(dstPath, QSettings::IniFormat);
+    dst.clear();
+
+    const QStringList keys = src.allKeys();
+    for (const QString &key : keys) {
+        dst.setValue(key, src.value(key));
+    }
+    dst.sync();
+
+    return (dst.status() == QSettings::NoError) && QFileInfo::exists(dstPath);
+}
+
+bool Context::importSettings(const QString &sourceFilePath)
+{
+    QString srcPath = urlToLocalFile(sourceFilePath);
+    if (srcPath.isEmpty() || !QFileInfo::exists(srcPath))
+        return false;
+
+    QSettings src(srcPath, QSettings::IniFormat);
+    src.sync();
+    if (src.status() != QSettings::NoError)
+        return false;
+
+    const QStringList keys = src.allKeys();
+    if (keys.isEmpty())
+        return false;
+
+    QString dstPath = m_config ? m_config->fileName() : QSettings().fileName();
+    QFileInfo dstInfo(dstPath);
+    QDir().mkpath(dstInfo.absolutePath());
+
+    // Create a safety backup of the current settings file before importing
+    if (QFile::exists(dstPath)) {
+        QString backupPath = dstPath + QStringLiteral(".bak");
+        QFile::remove(backupPath);
+        QFile::copy(dstPath, backupPath);
+    }
+
+    QSettings dst(dstPath, QSettings::IniFormat);
+    for (const QString &key : keys) {
+        // Preserve the currently open SidebarWindow geometry/visibility
+        if (key.startsWith(QStringLiteral("SidebarWindow/"))) {
+            continue;
+        }
+        QVariant val = src.value(key);
+        if (key == QStringLiteral("snapshotPath")) {
+            QString sanitized = sanitizePlatformPath(val.toString(), defaultPicturesPath());
+            QDir().mkpath(sanitized);
+            val = sanitized;
+        } else if (key == QStringLiteral("videoPath")) {
+            QString sanitized = sanitizePlatformPath(val.toString(), defaultMoviesPath());
+            QDir().mkpath(sanitized);
+            val = sanitized;
+        }
+        dst.setValue(key, val);
+    }
+    dst.sync();
+
+    if (dst.status() != QSettings::NoError)
+        return false;
+
+    if (m_watcher && !m_watcher->files().contains(dstPath)) {
+        m_watcher->addPath(dstPath);
+    }
+
+    for (Context *instance : m_instances) {
+        emit instance->configFileChanged();
+    }
+
+    return true;
 }
 
 QString Context::readLocalFile(const QString &filePath) const

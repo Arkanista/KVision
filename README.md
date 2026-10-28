@@ -93,7 +93,8 @@ It is designed for Linux users who need a robust, lightweight, and smooth altern
   * `M`: Mute/unmute active viewport audio.
   * `Alt + Left` / `Alt + Right`: Switch layouts.
   * `Alt + 1` to `Alt + 9`: Instant preset switching.
-* **Multilingual UI**: Live translation switching between English and Polish.
+* **Multilingual UI**: Live translation switching across 22 languages.
+* **Cross-Platform Settings Import / Export**: Dedicated **Import / Export** tab in the side panel (below Settings) allowing one-click backup and migration of configuration files (`*.conf` / `*.ini`) between Linux (`~/.config/KVision/KVision.conf`) and Windows (`%APPDATA%\KVision\KVision.ini`), with automatic OS path adaptation for snapshot and video directories.
 
 ---
 
@@ -330,9 +331,16 @@ If you are not using Arch Linux or Ubuntu, you can build the application manuall
    sudo cmake --install build
    ```
 
+### Building on Windows (x64)
+
+KVision supports native 64-bit Windows builds using **MSVC 2022**, **Qt 5.15.2**, **FFmpeg**, and the **Hikvision Windows SDK (`EN-HCNetSDK`)**:
+- **Automated CI Build:** Use the included GitHub Actions workflow (`.github/workflows/build-windows.yml`) to automatically compile KVision and produce a portable `KVision-Windows-x64.zip` bundle with all required DLLs.
+- **Local Build & Configuration Guide:** See [BUILD_WINDOWS.md](BUILD_WINDOWS.md) for complete step-by-step instructions on building locally with CMake/Ninja/MSVC, deploying with `windeployqt`, locating `%APPDATA%\KVision\KVision.ini`, and migrating settings between Linux and Windows.
+
 For detailed usage instructions, check out the documentation files:
 - [English User Manual (INSTRUCTIONS.md)](INSTRUCTIONS.md)
 - [Polish User Manual (INSTRUKCJA.md)](INSTRUKCJA.md)
+- [Windows Build Guide (BUILD_WINDOWS.md)](BUILD_WINDOWS.md)
 
 ---
 

@@ -314,6 +314,9 @@ int main(int argc, char *argv[])
 #if defined(ORG_DOMAIN)
     QCoreApplication::setOrganizationDomain(QLatin1String(ORG_DOMAIN));
 #endif
+#ifdef _WIN32
+    QSettings::setDefaultFormat(QSettings::IniFormat);
+#endif
     QApplication::setDesktopFileName(QStringLiteral("kvision"));
 
     registerQmlTypes();
