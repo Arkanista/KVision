@@ -7,7 +7,14 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QSettings>
-#include <unistd.h>
+#ifdef _WIN32
+  #include <process.h>
+  typedef unsigned long uid_t;
+  #define getpid _getpid
+  #define getuid() 0UL
+#else
+  #include <unistd.h>
+#endif
 #include <sys/types.h>
 #include <cstdarg>
 #include <QStandardPaths>

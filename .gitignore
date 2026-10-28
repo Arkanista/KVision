@@ -33,6 +33,10 @@ build/
 *.qm
 *.prl
 
+# ...but workflows are not qmake build dirs, and "*build-*" matches
+# build-windows.yml
+!.github/workflows/*
+
 # Qt unit tests
 target_wrapper.*
 

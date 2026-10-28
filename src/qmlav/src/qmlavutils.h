@@ -6,7 +6,11 @@ extern "C" {
 #include <libavformat/avformat.h>
 }
 
+#ifdef _MSC_VER
+#include <malloc.h> // alloca() used by av_err2str below
+#else
 #include <cxxabi.h>
+#endif
 
 #include <QLoggingCategory>
 
@@ -294,10 +298,14 @@ public:
     static QLoggingCategory &loggingCategory() { return m_loggingCategory; }
     template<typename T>
     static QString rttiTypeName([[maybe_unused]] const T &type) {
+#ifdef _MSC_VER
+        return QString::fromLatin1(typeid(T).name());
+#else
         char *n = abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, nullptr);
         QString ret(n);
         free(n);
         return ret;
+#endif
     }
     template<typename T>
     static QString logPrefix(const T *sender) {
