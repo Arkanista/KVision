@@ -28,8 +28,32 @@ jobs:
         run: |
           $ErrorActionPreference = 'Stop'
           pip install aqtinstall
-          aqt install-qt windows desktop 5.15.2 win64_msvc2019_64 --outputdir D:\a\qt --archives qtbase qtdeclarative qtmultimedia qttools qttranslations qtsvg qtquickcontrols2 qtquickcontrols qtgraphicaleffects
+          @"
+          [aqt]
+          concurrency = 4
+          [requests]
+          max_retries_on_checksum_error = 5
+          max_retries_to_retrieve_hash = 5
+          [mirrors]
+          blacklist = [
+              "http://ftp1.nluug.nl",
+              "https://ftp1.nluug.nl",
+              "http://ftp2.nluug.nl",
+              "https://ftp2.nluug.nl"
+          ]
+          fallbacks = [
+              "https://mirror.netcologne.de/qtproject",
+              "https://ftp.fau.de/qtproject",
+              "https://mirrors.ocf.berkeley.edu/qt"
+          ]
+          "@ | Out-File -FilePath aqt_settings.ini -Encoding utf8
           $qt = "D:\a\qt\5.15.2\msvc2019_64"
+          for ($attempt = 1; $attempt -le 3; $attempt++) {
+            Write-Host "Installing Qt 5.15.2 (attempt $attempt)..."
+            aqt -c aqt_settings.ini install-qt windows desktop 5.15.2 win64_msvc2019_64 --outputdir D:\a\qt --archives qtbase qtdeclarative qtmultimedia qttools qttranslations qtsvg qtquickcontrols2 qtquickcontrols qtgraphicaleffects
+            if ($LASTEXITCODE -eq 0 -and (Test-Path "$qt\bin\windeployqt.exe")) { break }
+            Start-Sleep -Seconds 5
+          }
           if (-not (Test-Path "$qt\bin\windeployqt.exe")) { throw "Qt install incomplete: $qt" }
           "QT_DIR=$qt" | Out-File -FilePath $env:GITHUB_ENV -Append
 
