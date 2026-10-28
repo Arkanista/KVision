@@ -20,7 +20,7 @@
 #define LPSTR char*
 #endif
 
-#ifndef RECT
+#if !defined(_WIN32) && !defined(RECT)
 typedef struct tagRECT {
     long left;
     long top;
@@ -29,7 +29,7 @@ typedef struct tagRECT {
 } RECT;
 #endif
 
-#ifndef SYSTEMTIME
+#if !defined(_WIN32) && !defined(SYSTEMTIME)
 typedef struct _SYSTEMTIME {
     unsigned short wYear;
     unsigned short wMonth;

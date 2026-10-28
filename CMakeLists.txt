@@ -18,6 +18,11 @@ project(kvision VERSION ${VERSION} HOMEPAGE_URL "https://github.com/arkanista/kv
 
 include(GNUInstallDirs)
 
+if(WIN32)
+    add_compile_definitions(NOMINMAX WIN32_LEAN_AND_MEAN)
+    add_compile_options(/FIwindows.h /Zc:__cplusplus)
+endif()
+
 if(DEFINED VER_REL AND ${VER_REL} GREATER 0)
     set(VERSION "${VERSION}-${VER_REL}")
 endif()
@@ -69,7 +74,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Fix build on LP for Ubuntu 20.04
+if(NOT WIN32)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+endif()
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug" AND NOT ANDROID)
     add_compile_options(
@@ -129,16 +136,21 @@ if (ANDROID)
         "${CMAKE_SOURCE_DIR}/src/qmlav/3rd/FFmpeg/ffbuild/${ANDROID_ABI}/lib/libavfilter.so"
         )
 else()
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules(LIBAV REQUIRED
-        libavformat
-        libavcodec
-        libavutil
-        libswscale
-        libswresample
-        libavdevice
-    )
-    include_directories(${LIBAV_INCLUDE_DIRS})
+    if(WIN32)
+        include_directories(${FFMPEG_INC})
+        link_directories(${FFMPEG_LIB})
+    else()
+        find_package(PkgConfig REQUIRED)
+        pkg_check_modules(LIBAV REQUIRED
+            libavformat
+            libavcodec
+            libavutil
+            libswscale
+            libswresample
+            libavdevice
+        )
+        include_directories(${LIBAV_INCLUDE_DIRS})
+    endif()
 endif()
 
 find_package(QT NAMES Qt5 COMPONENTS ${QT_LINK_DEPENDENCIES} QuickCompiler LinguistTools REQUIRED)
@@ -199,6 +211,9 @@ if (ANDROID)
     target_link_directories(kvision PRIVATE "${CMAKE_SOURCE_DIR}/src/qmlav/3rd/FFmpeg/ffbuild/${ANDROID_ABI}/lib")
 else()
     add_executable(kvision ${PROJ_FILES} ${QMLAV_FILES})
+    if(WIN32)
+        set_target_properties(kvision PROPERTIES WIN32_EXECUTABLE TRUE)
+    endif()
 endif()
 
 target_include_directories(kvision PRIVATE ${QMLAV_INCLUDE})
@@ -215,10 +230,12 @@ target_link_directories(kvision PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/l
 target_link_libraries(kvision PRIVATE hcnetsdk PlayCtrl)
 # Use RPATH (not RUNPATH) so transitive deps (libAudioRender.so, libSuperRender.so) loaded
 # by libPlayCtrl.so/libhcnetsdk.so can also be found via this path.
+if(UNIX)
 target_link_options(kvision PRIVATE 
     "LINKER:--disable-new-dtags"
     "LINKER:-rpath-link,${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib"
 )
+endif()
 set_target_properties(kvision PROPERTIES
     BUILD_RPATH "\$ORIGIN/../src/hikvision_sdk/lib"
     INSTALL_RPATH "\$ORIGIN/../${CMAKE_INSTALL_LIBDIR}/kvision"
@@ -232,10 +249,12 @@ if (NOT ANDROID)
     target_include_directories(diagnose_archive PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/inc")
     target_link_directories(diagnose_archive PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib")
     target_link_libraries(diagnose_archive PRIVATE hcnetsdk PlayCtrl Qt5::Widgets)
+    if(UNIX)
     target_link_options(diagnose_archive PRIVATE 
         "LINKER:--disable-new-dtags"
         "LINKER:-rpath-link,${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib"
     )
+    endif()
     set_target_properties(diagnose_archive PROPERTIES
         BUILD_RPATH "\$ORIGIN/../src/hikvision_sdk/lib"
     )
@@ -244,10 +263,12 @@ if (NOT ANDROID)
     target_include_directories(diagnose_live PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/inc")
     target_link_directories(diagnose_live PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib")
     target_link_libraries(diagnose_live PRIVATE hcnetsdk PlayCtrl Qt5::Widgets)
+    if(UNIX)
     target_link_options(diagnose_live PRIVATE 
         "LINKER:--disable-new-dtags"
         "LINKER:-rpath-link,${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib"
     )
+    endif()
     set_target_properties(diagnose_live PROPERTIES
         BUILD_RPATH "\$ORIGIN/../src/hikvision_sdk/lib"
     )
@@ -256,10 +277,12 @@ if (NOT ANDROID)
     target_include_directories(diagnose_compression PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/inc")
     target_link_directories(diagnose_compression PRIVATE "${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib")
     target_link_libraries(diagnose_compression PRIVATE hcnetsdk PlayCtrl Qt5::Widgets)
+    if(UNIX)
     target_link_options(diagnose_compression PRIVATE 
         "LINKER:--disable-new-dtags"
         "LINKER:-rpath-link,${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib"
     )
+    endif()
     set_target_properties(diagnose_compression PROPERTIES
         BUILD_RPATH "\$ORIGIN/../src/hikvision_sdk/lib"
     )
