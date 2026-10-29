@@ -1,7 +1,7 @@
 Source: cctv-viewer
 Section: video
 Priority: optional
-Maintainer: arkanista <arkanista@cctv-viewer2.org>
+Maintainer: Arkanista
 Build-Depends: debhelper (>= 9),
                libva-dev,
                libglx-dev,

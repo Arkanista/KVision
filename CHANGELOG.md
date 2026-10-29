@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.4] - 2026-10-29
+
+### EN: Features, Improvements & Bug Fixes
+* **Archive Video Download & Conversion Pipeline (`HikvisionDownloader`):**
+  * Bundled `ffmpeg.exe` in the Windows x64 release package (`KVision-windows-x64.zip`) and added `resolveFfmpegExecutable()` so `HikvisionDownloader` automatically finds `ffmpeg.exe` next to `kvision.exe` without flashing a console window (`CREATE_NO_WINDOW`).
+  * Implemented a 3-tier `.pspart` -> `.mp4` conversion pipeline: (1) `ffmpeg` CLI with video stream copy and AAC audio transcoding (`-c:v copy -c:a aac`), (2) automatic retry without audio (`-c:v copy -an`) when Hikvision PS audio streams are corrupted or unsupported, and (3) a built-in in-process `libavformat` remuxer fallback (`remuxPsToMp4InProcess`) that converts `.pspart` directly to `.mp4` without requiring an external process.
+  * Fixed Windows NTFS directory entry caching during active `HCNetSDK.dll` downloads by reading uncached file sizes via file handle (`getActualFileSize()`), and added stall detection (`m_stalledTicks`) to cleanly finish SDK downloads and trigger MP4 conversion as soon as the stream ends instead of hitting an SDK timeout (`pos == 200`) and deleting `.pspart`.
+  * Preserved `.pspart` files on disk if all conversion tiers ever fail so downloaded footage is never lost.
+* **Windows Snapshot & Recording Folder Browsing (`SnapshotSavedDialog`, `Context`):**
+  * Fixed the **"Browse"** (`Przeglądaj`) button in `SnapshotSavedDialog.qml` after taking a quick viewport snapshot by adding the missing `import CCTV_Viewer.Core 1.0` import.
+  * Added `Context::openLocalFolder()` with automatic directory resolution and a native `explorer.exe` fallback on Windows across `SnapshotSavedDialog.qml`, `DownloadDialog.qml`, `PlaybackWindow.qml`, and `SideBar.qml`.
+* **Windows Executable Icon & Resource Metadata (`kvision.rc`, `images/kvision.ico`):**
+  * Embedded a multi-resolution (`256x256` down to `16x16`) application icon and Windows PE `VERSIONINFO` resource into `kvision.exe`.
+
+### PL: Funkcje, Udoskonalenia i Poprawki Błędów
+* **Pobieranie i konwersja nagrań z archiwum (`HikvisionDownloader`):**
+  * Dołączono `ffmpeg.exe` do paczki wydania Windows x64 (`KVision-windows-x64.zip`) oraz dodano automatyczne wykrywanie `ffmpeg.exe` obok `kvision.exe` (z ukryciem okna konsoli `CREATE_NO_WINDOW`).
+  * Wdrożono 3-poziomowy mechanizm konwersji `.pspart` -> `.mp4`: (1) `ffmpeg` CLI z kopiowaniem wideo i transkodowaniem dźwięku do AAC (`-c:v copy -c:a aac`), (2) automatyczne ponowienie bez ścieżki audio (`-c:v copy -an`) w przypadku uszkodzonego strumienia dźwięku z rejestratora, oraz (3) wbudowany remukser `libavformat` działający bezpośrednio w procesie aplikacji (`remuxPsToMp4InProcess`).
+  * Naprawiono odczyt rzeczywistego rozmiaru pliku `.pspart` na systemie plików NTFS podczas pobierania przez `HCNetSDK.dll` oraz dodano detekcję zakończenia strumienia (`m_stalledTicks`), która natychmiast zamyka sesję pobierania i uruchamia konwersję do `.mp4` zamiast czekać na błąd timeout SDK (`pos == 200`) i usuwać plik `.pspart`.
+  * Zabezpieczono plik `.pspart` przed usunięciem w razie niepowodzenia wszystkich metod konwersji.
+* **Przeglądanie folderu stopklatek i nagrań na Windowsie (`SnapshotSavedDialog`, `Context`):**
+  * Naprawiono niedziałający przycisk **„Przeglądaj”** po wykonaniu szybkiej stopklatki w viewporcie (`SnapshotSavedDialog.qml`) poprzez dodanie brakującego importu `import CCTV_Viewer.Core 1.0`.
+  * Dodano metodę `Context::openLocalFolder()` z natywnym wsparciem `explorer.exe` na systemie Windows we wszystkich oknach programu (`SnapshotSavedDialog.qml`, `DownloadDialog.qml`, `PlaybackWindow.qml`, `SideBar.qml`).
+* **Ikona programu Windows (`.exe`) i metadane wersji (`kvision.rc`, `images/kvision.ico`):**
+  * Osadzono wielorozdzielczą (`256x256` – `16x16`) ikonę programu KVision oraz zasoby `VERSIONINFO` bezpośrednio w pliku wykonywalnym `kvision.exe`.
+
 ## [2.7.3] - 2026-10-28
 
 ### EN: Features, Improvements & Bug Fixes

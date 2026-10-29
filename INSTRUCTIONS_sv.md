@@ -97,7 +97,7 @@ Det här avsnittet beskriver innebörden av alla grafiska ikoner och knappar som
 ### Installera på Arch Linux (Pacman)
 För att installera programmet från det förberedda binära paketet, gå till katalogen `packaging/arch/` och kör:
 ```bash
-sudo pacman -U kvision-2.7.3-1-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.7.4-1-x86_64.pkg.tar.zst
 ```
 Paketet kommer automatiskt att installera programmet, aktiveringsfilen `.desktop` och de nödvändiga Hikvision SDK-biblioteken till systemsökvägen `/usr/lib/kvision`.
 

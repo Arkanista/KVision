@@ -9,8 +9,8 @@ description: |
   CCTV Viewer - a simple application for simultaneously viewing multiple
   video streams. Designed for high performance and low latency.
   Based on ffmpeg.
-website: https://cctv-viewer2.org
-contact: mailto:arkanista@cctv-viewer2.org
+website: https://github.com/arkanista/kvision
+contact: https://github.com/arkanista/kvision/issues
 issues: https://github.com/arkanista/kvision/issues
 source-code: https://github.com/arkanista/kvision
 
