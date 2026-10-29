@@ -1282,15 +1282,7 @@ Popup {
                                 isCeladon: true
                                 visible: !!model.downloadSuccess
                                 onClicked: {
-                                    var path = model.savePath;
-                                    var dirPath = "";
-                                    var idx = Math.max(path.lastIndexOf("/"), path.lastIndexOf("\\"));
-                                    if (idx !== -1) {
-                                        dirPath = path.substring(0, idx);
-                                    } else {
-                                        dirPath = path;
-                                    }
-                                    Qt.openUrlExternally(Context.pathToUrl(dirPath));
+                                    Context.openLocalFolder(model.savePath);
                                 }
                             }
                         }

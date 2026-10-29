@@ -3,7 +3,165 @@
 #include <QDebug>
 #include <QThread>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
+#include <QCoreApplication>
+#include <QStandardPaths>
+#include <QVector>
+
+extern "C" {
+#include <libavformat/avformat.h>
+#include <libavcodec/avcodec.h>
+#include <libavutil/avutil.h>
+}
+
+static qint64 getActualFileSize(const QString &filePath)
+{
+    if (filePath.isEmpty())
+        return 0;
+    QFile f(filePath);
+    if (f.open(QIODevice::ReadOnly)) {
+        qint64 sz = f.size();
+        f.close();
+        if (sz > 0)
+            return sz;
+    }
+    QFileInfo fi(filePath);
+    fi.refresh();
+    return fi.exists() ? fi.size() : 0;
+}
+
+static QString resolveFfmpegExecutable()
+{
+    const QString appDir = QCoreApplication::applicationDirPath();
+#ifdef _WIN32
+    const QString bundledExe = QDir(appDir).filePath(QStringLiteral("ffmpeg.exe"));
+    if (QFileInfo::exists(bundledExe)) {
+        return bundledExe;
+    }
+#else
+    const QString bundledBin = QDir(appDir).filePath(QStringLiteral("ffmpeg"));
+    if (QFileInfo::exists(bundledBin)) {
+        return bundledBin;
+    }
+#endif
+    const QString fromPath = QStandardPaths::findExecutable(QStringLiteral("ffmpeg"));
+    if (!fromPath.isEmpty()) {
+        return fromPath;
+    }
+    return QStringLiteral("ffmpeg");
+}
+
+static bool remuxPsToMp4InProcess(const QString &inputPath, const QString &outputPath)
+{
+    AVFormatContext *inFmtCtx = nullptr;
+    AVFormatContext *outFmtCtx = nullptr;
+    AVPacket *pkt = av_packet_alloc();
+    if (!pkt)
+        return false;
+
+    const QByteArray inBytes = QDir::toNativeSeparators(inputPath).toUtf8();
+    const QByteArray outBytes = QDir::toNativeSeparators(outputPath).toUtf8();
+
+    bool ok = false;
+    do {
+        if (avformat_open_input(&inFmtCtx, inBytes.constData(), nullptr, nullptr) < 0)
+            break;
+        inFmtCtx->flags |= AVFMT_FLAG_GENPTS;
+        if (avformat_find_stream_info(inFmtCtx, nullptr) < 0)
+            break;
+
+        if (avformat_alloc_output_context2(&outFmtCtx, nullptr, "mp4", outBytes.constData()) < 0 || !outFmtCtx)
+            break;
+
+        QVector<int> streamMap(static_cast<int>(inFmtCtx->nb_streams), -1);
+        int outStreamIdx = 0;
+
+        for (unsigned int i = 0; i < inFmtCtx->nb_streams; ++i) {
+            AVStream *inStream = inFmtCtx->streams[i];
+            AVCodecParameters *inCodecPar = inStream->codecpar;
+            bool copyStream = (inCodecPar->codec_type == AVMEDIA_TYPE_VIDEO) ||
+                              (inCodecPar->codec_type == AVMEDIA_TYPE_AUDIO &&
+                               (inCodecPar->codec_id == AV_CODEC_ID_AAC ||
+                                inCodecPar->codec_id == AV_CODEC_ID_MP3 ||
+                                inCodecPar->codec_id == AV_CODEC_ID_MP2));
+            if (!copyStream)
+                continue;
+
+            AVStream *outStream = avformat_new_stream(outFmtCtx, nullptr);
+            if (!outStream)
+                break;
+            if (avcodec_parameters_copy(outStream->codecpar, inCodecPar) < 0)
+                break;
+            outStream->codecpar->codec_tag = 0;
+            outStream->time_base = inStream->time_base;
+            streamMap[static_cast<int>(i)] = outStreamIdx++;
+        }
+
+        if (outStreamIdx == 0)
+            break;
+
+        if (!(outFmtCtx->oformat->flags & AVFMT_NOFILE)) {
+            if (avio_open(&outFmtCtx->pb, outBytes.constData(), AVIO_FLAG_WRITE) < 0)
+                break;
+        }
+
+        if (avformat_write_header(outFmtCtx, nullptr) < 0)
+            break;
+
+        QVector<int64_t> lastDts(outStreamIdx, AV_NOPTS_VALUE);
+        int64_t packetCount = 0;
+
+        while (av_read_frame(inFmtCtx, pkt) >= 0) {
+            int inIdx = pkt->stream_index;
+            if (inIdx < 0 || inIdx >= streamMap.size() || streamMap[inIdx] < 0) {
+                av_packet_unref(pkt);
+                continue;
+            }
+            int outIdx = streamMap[inIdx];
+            AVStream *inStream = inFmtCtx->streams[inIdx];
+            AVStream *outStream = outFmtCtx->streams[outIdx];
+
+            pkt->stream_index = outIdx;
+            av_packet_rescale_ts(pkt, inStream->time_base, outStream->time_base);
+
+            if (pkt->dts == AV_NOPTS_VALUE) {
+                pkt->dts = (lastDts[outIdx] != AV_NOPTS_VALUE) ? (lastDts[outIdx] + 1) : 0;
+            }
+            if (lastDts[outIdx] != AV_NOPTS_VALUE && pkt->dts <= lastDts[outIdx]) {
+                pkt->dts = lastDts[outIdx] + 1;
+            }
+            if (pkt->pts == AV_NOPTS_VALUE || pkt->pts < pkt->dts) {
+                pkt->pts = pkt->dts;
+            }
+            lastDts[outIdx] = pkt->dts;
+            pkt->pos = -1;
+
+            if (av_interleaved_write_frame(outFmtCtx, pkt) >= 0) {
+                packetCount++;
+            }
+            av_packet_unref(pkt);
+        }
+
+        av_write_trailer(outFmtCtx);
+        ok = (packetCount > 0);
+    } while (false);
+
+    av_packet_free(&pkt);
+    if (inFmtCtx) {
+        avformat_close_input(&inFmtCtx);
+    }
+    if (outFmtCtx) {
+        if (!(outFmtCtx->oformat->flags & AVFMT_NOFILE) && outFmtCtx->pb) {
+            avio_closep(&outFmtCtx->pb);
+        }
+        avformat_free_context(outFmtCtx);
+    }
+    if (!ok) {
+        QFile::remove(outputPath);
+    }
+    return ok && (getActualFileSize(outputPath) > 0);
+}
 
 HikvisionDownloader::HikvisionDownloader(QObject *parent)
     : QObject(parent)
@@ -19,7 +177,14 @@ HikvisionDownloader::HikvisionDownloader(QObject *parent)
     connect(m_timer, &QTimer::timeout, this, &HikvisionDownloader::checkProgress);
 
     m_ffmpegProcess = new QProcess(this);
+    m_ffmpegProcess->setWorkingDirectory(QCoreApplication::applicationDirPath());
+#ifdef _WIN32
+    m_ffmpegProcess->setCreateProcessArgumentsModifier([](QProcess::CreateProcessArguments *args) {
+        args->flags |= CREATE_NO_WINDOW;
+    });
+#endif
     connect(m_ffmpegProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &HikvisionDownloader::onFfmpegFinished);
+    connect(m_ffmpegProcess, &QProcess::errorOccurred, this, &HikvisionDownloader::onFfmpegError);
 }
 
 HikvisionDownloader::~HikvisionDownloader()
@@ -331,7 +496,7 @@ void HikvisionDownloader::startNextSegment()
     if (fileInfo.exists()) {
         QFile::remove(m_tempFilePath);
     }
-    QByteArray pathBytes = m_tempFilePath.toLocal8Bit();
+    QByteArray pathBytes = QDir::toNativeSeparators(m_tempFilePath).toLocal8Bit();
 
     m_lFileHandle = NET_DVR_GetFileByTime_V40(m_lUserID, pathBytes.data(), &downloadCond);
     if (m_lFileHandle < 0) {
@@ -379,6 +544,8 @@ void HikvisionDownloader::startNextSegment()
 
     m_progress = 0;
     m_lastFileSize = 0;
+    m_stalledTicks = 0;
+    m_ffmpegFallbackAttempted = false;
     emit progressChanged();
     emit overallProgressChanged();
 
@@ -392,6 +559,7 @@ void HikvisionDownloader::stopDownload()
 {
     if (!m_isDownloading) return;
 
+    m_stopping = true;
     m_timer->stop();
     m_segments.clear();
 
@@ -425,6 +593,7 @@ void HikvisionDownloader::stopDownload()
         m_lUserID = -1;
     }
 
+    m_stopping = false;
     m_isDownloading = false;
     m_isConverting = false;
     emit isConvertingChanged();
@@ -441,51 +610,43 @@ void HikvisionDownloader::checkProgress()
 {
     if (m_lFileHandle < 0) return;
 
-    QFileInfo fi(m_tempFilePath);
-    if (fi.exists()) {
-        qint64 currentSize = fi.size();
-        qint64 diff = currentSize - m_lastFileSize;
-        if (diff > 0) {
-            g_networkBytesAccumulator.fetch_add(diff, std::memory_order_relaxed);
-        }
+    qint64 currentSize = getActualFileSize(m_tempFilePath);
+    qint64 diff = currentSize - m_lastFileSize;
+    if (diff > 0) {
+        g_networkBytesAccumulator.fetch_add(diff, std::memory_order_relaxed);
         m_lastFileSize = currentSize;
+        m_stalledTicks = 0;
+    } else if (currentSize > 0) {
+        m_stalledTicks++;
     }
 
     int pos = NET_DVR_GetDownloadPos(m_lFileHandle);
-    
-    if (pos == 100 || pos == 200 || pos < 0) {
+    bool stalledButComplete = (currentSize > 4096) &&
+                              ((pos >= 90 && m_stalledTicks >= 3) || (m_stalledTicks >= 5));
+
+    if (pos == 100 || pos == 200 || pos < 0 || stalledButComplete) {
         m_timer->stop();
         NET_DVR_StopGetFile(m_lFileHandle);
         m_lFileHandle = -1;
-        
-        QFileInfo finalFi(m_tempFilePath);
-        if (finalFi.exists()) {
-            qint64 currentSize = finalFi.size();
-            qint64 diff = currentSize - m_lastFileSize;
-            if (diff > 0) {
-                g_networkBytesAccumulator.fetch_add(diff, std::memory_order_relaxed);
-            }
-            m_lastFileSize = currentSize;
+
+        // Allow HCNetSDK worker thread to flush and close the file handle on Windows
+        QThread::msleep(50);
+
+        qint64 finalSize = getActualFileSize(m_tempFilePath);
+        qint64 finalDiff = finalSize - m_lastFileSize;
+        if (finalDiff > 0) {
+            g_networkBytesAccumulator.fetch_add(finalDiff, std::memory_order_relaxed);
+            m_lastFileSize = finalSize;
         }
 
-        bool isSuccess = (pos == 100) || (finalFi.exists() && finalFi.size() > 102400); // 100 KB
-        
+        bool isSuccess = (finalSize > 0) && (pos == 100 || stalledButComplete || finalSize > 4096);
+
         if (isSuccess) {
             m_progress = 100;
             emit progressChanged();
             emit overallProgressChanged();
-            
-            if (m_finalFilePath.endsWith(".mp4", Qt::CaseInsensitive)) {
-                m_isConverting = true;
-                emit isConvertingChanged();
-                m_statusText = tr("LNG_00493").arg(m_currentSegmentIndex + 1).arg(m_totalSegmentsCount);
-                emit statusTextChanged();
-                m_ffmpegProcess->start("ffmpeg", QStringList() << "-y" << "-i" << m_tempFilePath << "-c:v" << "copy" << "-c:a" << "aac" << m_finalFilePath);
-            } else {
-                m_convertedSegmentsCount++;
-                m_currentSegmentIndex++;
-                startNextSegment();
-            }
+
+            startConversion();
         } else {
             if (m_lUserID >= 0) {
                 NET_DVR_Logout(m_lUserID);
@@ -512,41 +673,117 @@ void HikvisionDownloader::checkProgress()
     }
 }
 
-void HikvisionDownloader::onFfmpegFinished(int exitCode, QProcess::ExitStatus exitStatus)
+void HikvisionDownloader::startConversion()
+{
+    if (!m_finalFilePath.endsWith(QStringLiteral(".mp4"), Qt::CaseInsensitive)) {
+        finishSegmentConversionSuccess(false);
+        return;
+    }
+
+    m_isConverting = true;
+    m_ffmpegFallbackAttempted = false;
+    emit isConvertingChanged();
+    m_statusText = tr("LNG_00493").arg(m_currentSegmentIndex + 1).arg(m_totalSegmentsCount);
+    emit statusTextChanged();
+
+    const QString ffmpegBin = resolveFfmpegExecutable();
+    QStringList args;
+    args << QStringLiteral("-y")
+         << QStringLiteral("-fflags") << QStringLiteral("+genpts")
+         << QStringLiteral("-i") << QDir::toNativeSeparators(m_tempFilePath)
+         << QStringLiteral("-c:v") << QStringLiteral("copy")
+         << QStringLiteral("-c:a") << QStringLiteral("aac")
+         << QDir::toNativeSeparators(m_finalFilePath);
+    m_ffmpegProcess->start(ffmpegBin, args);
+}
+
+void HikvisionDownloader::finishSegmentConversionSuccess(bool removeTempFile)
 {
     m_isConverting = false;
     emit isConvertingChanged();
 
-    if (exitStatus == QProcess::NormalExit && exitCode == 0) {
+    if (removeTempFile && !m_tempFilePath.isEmpty()) {
         QFile::remove(m_tempFilePath);
-        m_convertedSegmentsCount++;
-        m_currentSegmentIndex++;
-        m_statusText = tr("LNG_00491").arg(m_convertedSegmentsCount).arg(m_totalSegmentsCount);
-        emit statusTextChanged();
-        
-        startNextSegment();
-    } else {
-        m_isDownloading = false;
-        emit isDownloadingChanged();
-        if (m_lUserID >= 0) {
-            NET_DVR_Logout(m_lUserID);
-            m_lUserID = -1;
-        }
-        QByteArray stderrOutput = m_ffmpegProcess->readAllStandardError();
-        QByteArray stdoutOutput = m_ffmpegProcess->readAllStandardOutput();
-        
-        QString shortError = QString::fromUtf8(stderrOutput.trimmed());
-        if (shortError.isEmpty()) {
-            shortError = tr("LNG_00490");
+    }
+    m_convertedSegmentsCount++;
+    m_currentSegmentIndex++;
+    m_statusText = tr("LNG_00491").arg(m_convertedSegmentsCount).arg(m_totalSegmentsCount);
+    emit statusTextChanged();
+
+    startNextSegment();
+}
+
+void HikvisionDownloader::handleConversionFailure(const QString &reason)
+{
+    m_isConverting = false;
+    emit isConvertingChanged();
+    m_isDownloading = false;
+    emit isDownloadingChanged();
+    if (m_lUserID >= 0) {
+        NET_DVR_Logout(m_lUserID);
+        m_lUserID = -1;
+    }
+    emit downloadFinished(false, tr("LNG_00489").arg(m_currentSegmentIndex + 1).arg(reason.left(100)));
+}
+
+void HikvisionDownloader::onFfmpegError(QProcess::ProcessError error)
+{
+    if (m_stopping || !m_isConverting) {
+        return;
+    }
+    if (error == QProcess::FailedToStart) {
+        if (remuxPsToMp4InProcess(m_tempFilePath, m_finalFilePath)) {
+            finishSegmentConversionSuccess(true);
         } else {
-            QStringList lines = shortError.split('\n');
-            if (!lines.isEmpty()) {
-                shortError = lines.last().trimmed();
-                if (shortError.isEmpty() && lines.size() > 1) {
-                    shortError = lines[lines.size() - 2].trimmed();
-                }
+            handleConversionFailure(tr("LNG_00490"));
+        }
+    }
+}
+
+void HikvisionDownloader::onFfmpegFinished(int exitCode, QProcess::ExitStatus exitStatus)
+{
+    if (m_stopping || !m_isConverting) {
+        return;
+    }
+
+    if (exitStatus == QProcess::NormalExit && exitCode == 0 && getActualFileSize(m_finalFilePath) > 0) {
+        finishSegmentConversionSuccess(true);
+        return;
+    }
+
+    // Retry once without audio (-c:v copy -an) if the audio track in the PS container failed to decode
+    if (!m_ffmpegFallbackAttempted) {
+        m_ffmpegFallbackAttempted = true;
+        const QString ffmpegBin = resolveFfmpegExecutable();
+        QStringList args;
+        args << QStringLiteral("-y")
+             << QStringLiteral("-fflags") << QStringLiteral("+genpts")
+             << QStringLiteral("-i") << QDir::toNativeSeparators(m_tempFilePath)
+             << QStringLiteral("-c:v") << QStringLiteral("copy")
+             << QStringLiteral("-an")
+             << QDir::toNativeSeparators(m_finalFilePath);
+        m_ffmpegProcess->start(ffmpegBin, args);
+        return;
+    }
+
+    // Fall back to in-process libavformat remuxing
+    if (remuxPsToMp4InProcess(m_tempFilePath, m_finalFilePath)) {
+        finishSegmentConversionSuccess(true);
+        return;
+    }
+
+    QByteArray stderrOutput = m_ffmpegProcess->readAllStandardError();
+    QString shortError = QString::fromUtf8(stderrOutput.trimmed());
+    if (shortError.isEmpty()) {
+        shortError = tr("LNG_00490");
+    } else {
+        QStringList lines = shortError.split('\n');
+        if (!lines.isEmpty()) {
+            shortError = lines.last().trimmed();
+            if (shortError.isEmpty() && lines.size() > 1) {
+                shortError = lines[lines.size() - 2].trimmed();
             }
         }
-        emit downloadFinished(false, tr("LNG_00489").arg(m_currentSegmentIndex + 1).arg(shortError.left(100)));
     }
+    handleConversionFailure(shortError);
 }

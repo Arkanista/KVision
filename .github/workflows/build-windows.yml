@@ -144,6 +144,9 @@ jobs:
           & "$env:QT_DIR\bin\windeployqt.exe" --release --qmldir src "$out\kvision.exe"
           Copy-Item "$env:HIK_LIB\*" $out\ -Recurse -Force
           Copy-Item "$env:FFMPEG_BIN\*.dll" $out\
+          if (Test-Path "$env:FFMPEG_BIN\ffmpeg.exe") {
+            Copy-Item "$env:FFMPEG_BIN\ffmpeg.exe" $out\
+          }
           Compress-Archive -Path "$out\*" -DestinationPath KVision-windows-x64.zip
           Write-Host "--- package ---"
           Get-ChildItem $out | Select-Object -First 40 | ForEach-Object { Write-Host $_.Name }

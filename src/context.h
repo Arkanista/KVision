@@ -50,6 +50,7 @@ public:
     Q_INVOKABLE QString homePath() const;
     Q_INVOKABLE QUrl pathToUrl(const QString &path) const;
     Q_INVOKABLE QString urlToLocalFile(const QString &urlOrPath) const;
+    Q_INVOKABLE bool openLocalFolder(const QString &fileOrDirPath) const;
     Q_INVOKABLE bool isValidPlatformPath(const QString &path) const;
     Q_INVOKABLE QString sanitizePlatformPath(const QString &path, const QString &fallbackPath) const;
     Q_INVOKABLE QString defaultPicturesPath() const;

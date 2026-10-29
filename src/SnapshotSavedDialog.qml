@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import CCTV_Viewer.Core 1.0
 
 Item {
     id: rootOverlay
@@ -115,10 +116,8 @@ Item {
                     radius: 4
                 }
                 onClicked: {
-                    var sepIdx = Math.max(rootOverlay.filePath.lastIndexOf("/"), rootOverlay.filePath.lastIndexOf("\\"));
-                    var folderPath = sepIdx !== -1 ? rootOverlay.filePath.substring(0, sepIdx) : rootOverlay.filePath;
-                    if (folderPath !== "") {
-                        Qt.openUrlExternally(Context.pathToUrl(folderPath));
+                    if (rootOverlay.filePath !== "") {
+                        Context.openLocalFolder(rootOverlay.filePath);
                     }
                     rootOverlay.close();
                 }

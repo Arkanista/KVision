@@ -45,9 +45,13 @@ signals:
 private slots:
     void checkProgress();
     void onFfmpegFinished(int exitCode, QProcess::ExitStatus exitStatus);
+    void onFfmpegError(QProcess::ProcessError error);
 
 private:
     void startNextSegment();
+    void startConversion();
+    void finishSegmentConversionSuccess(bool removeTempFile);
+    void handleConversionFailure(const QString &reason);
 
     bool m_isDownloading;
     bool m_isConverting;
@@ -60,6 +64,9 @@ private:
     QString m_finalFilePath;
     QProcess *m_ffmpegProcess;
     qint64 m_lastFileSize = 0;
+    int m_stalledTicks = 0;
+    bool m_ffmpegFallbackAttempted = false;
+    bool m_stopping = false;
 
     struct DownloadSegment {
         QDateTime startTime;

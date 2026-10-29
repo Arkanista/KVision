@@ -2973,9 +2973,8 @@ FocusScope {
                                     isCeladon: true
                                     Layout.fillWidth: true
                                     onClicked: {
-                                        var path = generalSettings.snapshotPath;
-                                        Context.mkpath(path);
-                                        Qt.openUrlExternally(Context.pathToUrl(path));
+                                        var path = Context.sanitizePlatformPath(generalSettings.snapshotPath, Context.defaultPicturesPath());
+                                        Context.openLocalFolder(path);
                                     }
                                 }
 
@@ -2984,9 +2983,8 @@ FocusScope {
                                     isCeladon: true
                                     Layout.fillWidth: true
                                     onClicked: {
-                                        var path = generalSettings.videoPath;
-                                        Context.mkpath(path);
-                                        Qt.openUrlExternally(Context.pathToUrl(path));
+                                        var path = Context.sanitizePlatformPath(generalSettings.videoPath, Context.defaultMoviesPath());
+                                        Context.openLocalFolder(path);
                                     }
                                 }
                             }
@@ -3295,8 +3293,7 @@ FocusScope {
                                 Layout.fillWidth: true
                                 onClicked: {
                                     var dirPath = Context.configDirPath();
-                                    Context.mkpath(dirPath);
-                                    Qt.openUrlExternally(Context.pathToUrl(dirPath));
+                                    Context.openLocalFolder(dirPath);
                                 }
                             }
                         }

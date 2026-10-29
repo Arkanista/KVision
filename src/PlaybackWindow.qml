@@ -3905,8 +3905,7 @@ Window {
                     onClicked: {
                         var path = getVideoPath();
                         if (path !== "") {
-                            Context.mkpath(path);
-                            Qt.openUrlExternally(Context.pathToUrl(path));
+                            Context.openLocalFolder(path);
                         }
                     }
 
@@ -3946,8 +3945,7 @@ Window {
                     onClicked: {
                         var path = getSnapshotPath();
                         if (path !== "") {
-                            Context.mkpath(path);
-                            Qt.openUrlExternally(Context.pathToUrl(path));
+                            Context.openLocalFolder(path);
                         }
                     }
 

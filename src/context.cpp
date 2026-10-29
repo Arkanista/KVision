@@ -8,6 +8,7 @@
 #include <QLocale>
 #include <QFileDialog>
 #include <QStandardPaths>
+#include <QDesktopServices>
 #include <QApplication>
 #include <QWidget>
 #include "context.h"
@@ -425,6 +426,44 @@ QString Context::urlToLocalFile(const QString &urlOrPath) const
     }
 #endif
     return QDir::fromNativeSeparators(p);
+}
+
+bool Context::openLocalFolder(const QString &fileOrDirPath) const
+{
+    QString clean = urlToLocalFile(fileOrDirPath);
+    if (clean.isEmpty())
+        return false;
+
+    QFileInfo info(clean);
+    QString dirPath;
+    if (info.exists() && info.isDir()) {
+        dirPath = info.absoluteFilePath();
+    } else if (info.exists() && info.isFile()) {
+        dirPath = info.absolutePath();
+    } else {
+        if (!info.suffix().isEmpty()) {
+            dirPath = info.absolutePath();
+        } else {
+            dirPath = info.absoluteFilePath();
+        }
+    }
+
+    if (dirPath.isEmpty())
+        return false;
+
+    QDir dir(dirPath);
+    if (!dir.exists()) {
+        dir.mkpath(dirPath);
+    }
+
+    if (QDesktopServices::openUrl(QUrl::fromLocalFile(dirPath))) {
+        return true;
+    }
+#ifdef _WIN32
+    return QProcess::startDetached(QStringLiteral("explorer.exe"), { QDir::toNativeSeparators(dirPath) });
+#else
+    return false;
+#endif
 }
 
 bool Context::isValidPlatformPath(const QString &path) const
