@@ -20,6 +20,7 @@ public:
 
 public slots:
     void doWork();
+    void emitLatest();
 
 signals:
     void workDone(double cpu, double gpu, double ram, double vram, double net);
@@ -32,6 +33,10 @@ private:
 
     struct NvmlContext;
     NvmlContext *m_nvml = nullptr;
+#ifdef _WIN32
+    struct WinPdhContext;
+    WinPdhContext *m_winPdh = nullptr;
+#endif
 
     QHash<QString, qint64> m_prevDrmEngineTimes;
     QElapsedTimer m_gpuTimer;
@@ -42,6 +47,12 @@ private:
 
     QVector<qint64> m_cachedPids;
     int m_pidCacheTicks = 0;
+
+    double m_lastCpu = 0.0;
+    double m_lastGpu = 0.0;
+    double m_lastRam = 0.0;
+    double m_lastVram = 0.0;
+    double m_lastNet = 0.0;
 
     std::atomic<bool> m_uiActive{false};
 };

@@ -8,7 +8,11 @@
 #include <QFileInfo>
 #include <QRegularExpression>
 #include <QLibrary>
+#include <cstring>
 #ifdef _WIN32
+  #include <windows.h>
+  #include <tlhelp32.h>
+  #include <psapi.h>
   #include <process.h>
   typedef unsigned long uid_t;
   #define getpid _getpid
@@ -80,19 +84,51 @@ struct StatsWorker::NvmlContext {
         if (initialized) return true;
         if (loadFailed) return false;
 
-        lib.setFileName("nvidia-ml");
-        if (!lib.load()) {
+#ifdef _WIN32
+        const QStringList candidates = {
+            "nvml",
+            "C:/Windows/System32/nvml.dll",
+            "C:/Program Files/NVIDIA Corporation/NVSMI/nvml.dll",
+            "nvidia-ml"
+        };
+#else
+        const QStringList candidates = {
+            "nvidia-ml",
+            "libnvidia-ml.so.1"
+        };
+#endif
+        bool loaded = false;
+        for (const QString &name : candidates) {
+            lib.setFileName(name);
+            if (lib.load()) {
+                loaded = true;
+                break;
+            }
+        }
+        if (!loaded) {
             loadFailed = true;
             return false;
         }
 
-        nvmlInit = (fn_nvmlInit)lib.resolve("nvmlInit");
+        nvmlInit = (fn_nvmlInit)lib.resolve("nvmlInit_v2");
+        if (!nvmlInit) nvmlInit = (fn_nvmlInit)lib.resolve("nvmlInit");
+
         nvmlShutdown = (fn_nvmlShutdown)lib.resolve("nvmlShutdown");
-        nvmlDeviceGetCount = (fn_nvmlDeviceGetCount)lib.resolve("nvmlDeviceGetCount");
-        nvmlDeviceGetHandleByIndex = (fn_nvmlDeviceGetHandleByIndex)lib.resolve("nvmlDeviceGetHandleByIndex");
+
+        nvmlDeviceGetCount = (fn_nvmlDeviceGetCount)lib.resolve("nvmlDeviceGetCount_v2");
+        if (!nvmlDeviceGetCount) nvmlDeviceGetCount = (fn_nvmlDeviceGetCount)lib.resolve("nvmlDeviceGetCount");
+
+        nvmlDeviceGetHandleByIndex = (fn_nvmlDeviceGetHandleByIndex)lib.resolve("nvmlDeviceGetHandleByIndex_v2");
+        if (!nvmlDeviceGetHandleByIndex) nvmlDeviceGetHandleByIndex = (fn_nvmlDeviceGetHandleByIndex)lib.resolve("nvmlDeviceGetHandleByIndex");
+
         nvmlDeviceGetUtilizationRates = (fn_nvmlDeviceGetUtilizationRates)lib.resolve("nvmlDeviceGetUtilizationRates");
+
         nvmlDeviceGetGraphicsRunningProcesses = (fn_nvmlDeviceGetGraphicsRunningProcesses)lib.resolve("nvmlDeviceGetGraphicsRunningProcesses");
+        if (!nvmlDeviceGetGraphicsRunningProcesses) nvmlDeviceGetGraphicsRunningProcesses = (fn_nvmlDeviceGetGraphicsRunningProcesses)lib.resolve("nvmlDeviceGetGraphicsRunningProcesses_v2");
+
         nvmlDeviceGetComputeRunningProcesses = (fn_nvmlDeviceGetComputeRunningProcesses)lib.resolve("nvmlDeviceGetComputeRunningProcesses");
+        if (!nvmlDeviceGetComputeRunningProcesses) nvmlDeviceGetComputeRunningProcesses = (fn_nvmlDeviceGetComputeRunningProcesses)lib.resolve("nvmlDeviceGetComputeRunningProcesses_v2");
+
         nvmlDeviceGetProcessUtilization = (fn_nvmlDeviceGetProcessUtilization)lib.resolve("nvmlDeviceGetProcessUtilization");
 
         if (!nvmlInit || !nvmlShutdown || !nvmlDeviceGetCount || !nvmlDeviceGetHandleByIndex ||
@@ -113,17 +149,193 @@ struct StatsWorker::NvmlContext {
     }
 };
 
+#ifdef _WIN32
+typedef HANDLE PDH_HQUERY_T;
+typedef HANDLE PDH_HCOUNTER_T;
+typedef LONG PDH_STATUS_T;
+
+#define KV_PDH_FMT_DOUBLE  ((DWORD)0x00000200)
+#define KV_PDH_FMT_LARGE   ((DWORD)0x00000400)
+#define KV_PDH_MORE_DATA   ((PDH_STATUS_T)0x800007D2L)
+
+struct KvPdhFmtCounterValue {
+    DWORD CStatus;
+    union {
+        LONG longValue;
+        double doubleValue;
+        LONGLONG largeValue;
+        LPCSTR AnsiStringValue;
+        LPCWSTR WideStringValue;
+    };
+};
+
+struct KvPdhFmtCounterValueItemW {
+    LPWSTR szName;
+    KvPdhFmtCounterValue FmtValue;
+};
+
+typedef PDH_STATUS_T (WINAPI *fn_PdhOpenQueryW)(LPCWSTR, DWORD_PTR, PDH_HQUERY_T *);
+typedef PDH_STATUS_T (WINAPI *fn_PdhAddEnglishCounterW)(PDH_HQUERY_T, LPCWSTR, DWORD_PTR, PDH_HCOUNTER_T *);
+typedef PDH_STATUS_T (WINAPI *fn_PdhCollectQueryData)(PDH_HQUERY_T);
+typedef PDH_STATUS_T (WINAPI *fn_PdhGetFormattedCounterArrayW)(PDH_HCOUNTER_T, DWORD, LPDWORD, LPDWORD, KvPdhFmtCounterValueItemW *);
+typedef PDH_STATUS_T (WINAPI *fn_PdhCloseQuery)(PDH_HQUERY_T);
+
+struct StatsWorker::WinPdhContext {
+    QLibrary lib;
+    bool initialized = false;
+    bool initFailed = false;
+    PDH_HQUERY_T query = nullptr;
+    PDH_HCOUNTER_T gpuEngineCounter = nullptr;
+    PDH_HCOUNTER_T gpuDedMemCounter = nullptr;
+    PDH_HCOUNTER_T gpuLocalMemCounter = nullptr;
+
+    fn_PdhOpenQueryW PdhOpenQueryW = nullptr;
+    fn_PdhAddEnglishCounterW PdhAddEnglishCounterW = nullptr;
+    fn_PdhCollectQueryData PdhCollectQueryData = nullptr;
+    fn_PdhGetFormattedCounterArrayW PdhGetFormattedCounterArrayW = nullptr;
+    fn_PdhCloseQuery PdhCloseQuery = nullptr;
+
+    ~WinPdhContext() {
+        if (query && PdhCloseQuery) {
+            PdhCloseQuery(query);
+        }
+        if (lib.isLoaded()) {
+            lib.unload();
+        }
+    }
+
+    bool ensureInitialized() {
+        if (initialized) return true;
+        if (initFailed) return false;
+
+        lib.setFileName("pdh");
+        if (!lib.load()) {
+            initFailed = true;
+            return false;
+        }
+
+        PdhOpenQueryW = (fn_PdhOpenQueryW)lib.resolve("PdhOpenQueryW");
+        PdhAddEnglishCounterW = (fn_PdhAddEnglishCounterW)lib.resolve("PdhAddEnglishCounterW");
+        PdhCollectQueryData = (fn_PdhCollectQueryData)lib.resolve("PdhCollectQueryData");
+        PdhGetFormattedCounterArrayW = (fn_PdhGetFormattedCounterArrayW)lib.resolve("PdhGetFormattedCounterArrayW");
+        PdhCloseQuery = (fn_PdhCloseQuery)lib.resolve("PdhCloseQuery");
+
+        if (!PdhOpenQueryW || !PdhAddEnglishCounterW || !PdhCollectQueryData ||
+            !PdhGetFormattedCounterArrayW || !PdhCloseQuery) {
+            lib.unload();
+            initFailed = true;
+            return false;
+        }
+
+        if (PdhOpenQueryW(nullptr, 0, &query) != 0 || !query) {
+            lib.unload();
+            initFailed = true;
+            return false;
+        }
+
+        PdhAddEnglishCounterW(query, L"\\GPU Engine(*)\\Utilization Percentage", 0, &gpuEngineCounter);
+        PdhAddEnglishCounterW(query, L"\\GPU Process Memory(*)\\Dedicated Usage", 0, &gpuDedMemCounter);
+        PdhAddEnglishCounterW(query, L"\\GPU Process Memory(*)\\Local Usage", 0, &gpuLocalMemCounter);
+
+        if (!gpuEngineCounter && !gpuDedMemCounter && !gpuLocalMemCounter) {
+            PdhCloseQuery(query);
+            query = nullptr;
+            lib.unload();
+            initFailed = true;
+            return false;
+        }
+
+        PdhCollectQueryData(query);
+        initialized = true;
+        return true;
+    }
+
+    bool queryProcessGpuAndVram(qint64 targetPid, double &gpuOut, double &vramOut) {
+        if (!ensureInitialized()) return false;
+        if (PdhCollectQueryData(query) != 0) return false;
+
+        QString pidPrefix = QString("pid_%1_").arg(targetPid);
+        bool gotAny = false;
+
+        if (gpuEngineCounter) {
+            DWORD bufSize = 0;
+            DWORD itemCount = 0;
+            PDH_STATUS_T st = PdhGetFormattedCounterArrayW(gpuEngineCounter, KV_PDH_FMT_DOUBLE, &bufSize, &itemCount, nullptr);
+            if ((st == KV_PDH_MORE_DATA || st == 0) && bufSize > 0) {
+                QByteArray buf(static_cast<int>(bufSize), 0);
+                auto *items = reinterpret_cast<KvPdhFmtCounterValueItemW *>(buf.data());
+                if (PdhGetFormattedCounterArrayW(gpuEngineCounter, KV_PDH_FMT_DOUBLE, &bufSize, &itemCount, items) == 0) {
+                    double sumGpu = 0.0;
+                    for (DWORD i = 0; i < itemCount; ++i) {
+                        if (items[i].szName && items[i].FmtValue.CStatus == 0) {
+                            QString name = QString::fromWCharArray(items[i].szName);
+                            if (name.contains(pidPrefix, Qt::CaseInsensitive)) {
+                                sumGpu += items[i].FmtValue.doubleValue;
+                                gotAny = true;
+                            }
+                        }
+                    }
+                    if (sumGpu > 100.0) sumGpu = 100.0;
+                    gpuOut = sumGpu;
+                }
+            }
+        }
+
+        auto sumMemCounter = [&](PDH_HCOUNTER_T counter) -> double {
+            if (!counter) return 0.0;
+            DWORD bufSize = 0;
+            DWORD itemCount = 0;
+            PDH_STATUS_T st = PdhGetFormattedCounterArrayW(counter, KV_PDH_FMT_LARGE, &bufSize, &itemCount, nullptr);
+            if ((st == KV_PDH_MORE_DATA || st == 0) && bufSize > 0) {
+                QByteArray buf(static_cast<int>(bufSize), 0);
+                auto *items = reinterpret_cast<KvPdhFmtCounterValueItemW *>(buf.data());
+                if (PdhGetFormattedCounterArrayW(counter, KV_PDH_FMT_LARGE, &bufSize, &itemCount, items) == 0) {
+                    double bytesSum = 0.0;
+                    for (DWORD i = 0; i < itemCount; ++i) {
+                        if (items[i].szName && items[i].FmtValue.CStatus == 0) {
+                            QString name = QString::fromWCharArray(items[i].szName);
+                            if (name.contains(pidPrefix, Qt::CaseInsensitive)) {
+                                bytesSum += static_cast<double>(items[i].FmtValue.largeValue);
+                                gotAny = true;
+                            }
+                        }
+                    }
+                    return bytesSum / (1024.0 * 1024.0);
+                }
+            }
+            return 0.0;
+        };
+
+        double dedMb = sumMemCounter(gpuDedMemCounter);
+        if (dedMb <= 0.0) {
+            dedMb = sumMemCounter(gpuLocalMemCounter);
+        }
+        if (dedMb > 0.0) {
+            vramOut = dedMb;
+        }
+
+        return gotAny;
+    }
+};
+#endif
+
 StatsWorker::StatsWorker(QObject *parent)
     : QObject(parent)
 {
     m_netTimer.start();
     m_gpuTimer.start();
     m_nvml = new NvmlContext();
+#ifdef _WIN32
+    m_winPdh = new WinPdhContext();
+#endif
 }
 
 StatsWorker::~StatsWorker()
 {
     delete m_nvml;
+#ifdef _WIN32
+    delete m_winPdh;
+#endif
 
     qint64 selfPid = getpid();
     uid_t myUid = getuid();
@@ -151,6 +363,7 @@ void StatsWorker::doWork()
     qint64 selfPid = getpid();
 
     bool active = m_uiActive.load(std::memory_order_relaxed);
+    const QVector<qint64> targetPids = active ? pids : QVector<qint64>{selfPid};
 
     double cpu = 0.0;
     double ram = 0.0;
@@ -158,16 +371,24 @@ void StatsWorker::doWork()
     double vram = 0.0;
     double net = 0.0;
 
-    if (active) {
-        calculateCpuAndRam(pids, cpu, ram);
-        calculateGpuAndVram(pids, gpu, vram);
-        calculateNetUsage(pids, net);
+    calculateCpuAndRam(pids, cpu, ram);
+    calculateGpuAndVram(targetPids, gpu, vram);
+    calculateNetUsage(targetPids, net);
 
+    m_lastCpu = cpu;
+    m_lastGpu = gpu;
+    m_lastRam = ram;
+    m_lastVram = vram;
+    m_lastNet = net;
+
+    if (active) {
         emit workDone(cpu, gpu, ram, vram, net);
-    } else {
-        calculateGpuAndVram(QVector<qint64>{selfPid}, gpu, vram);
-        calculateNetUsage(QVector<qint64>{selfPid}, net);
     }
+}
+
+void StatsWorker::emitLatest()
+{
+    emit workDone(m_lastCpu, m_lastGpu, m_lastRam, m_lastVram, m_lastNet);
 }
 
 SystemStats::SystemStats(QObject *parent)
@@ -216,7 +437,7 @@ void SystemStats::setActive(bool active)
     m_worker->setUiActive(active);
 
     if (m_active) {
-        QMetaObject::invokeMethod(m_worker, "doWork", Qt::QueuedConnection);
+        QMetaObject::invokeMethod(m_worker, "emitLatest", Qt::QueuedConnection);
     } else {
         m_cpuUsage = 0.0;
         m_gpuUsage = 0.0;
@@ -234,6 +455,63 @@ QVector<qint64> StatsWorker::getProgramPids()
     qint64 selfPid = getpid();
     pids.append(selfPid);
 
+#ifdef _WIN32
+    wchar_t selfPathBuf[MAX_PATH] = {0};
+    GetModuleFileNameW(nullptr, selfPathBuf, MAX_PATH);
+    QString selfExeName = QFileInfo(QString::fromWCharArray(selfPathBuf)).fileName().toLower();
+
+    struct WinProcInfo {
+        qint64 pid;
+        qint64 ppid;
+        QString exeName;
+    };
+    QVector<WinProcInfo> allProcs;
+
+    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (snap != INVALID_HANDLE_VALUE) {
+        PROCESSENTRY32W pe;
+        pe.dwSize = sizeof(pe);
+        if (Process32FirstW(snap, &pe)) {
+            do {
+                qint64 pid = static_cast<qint64>(pe.th32ProcessID);
+                if (pid <= 0 || pid == selfPid) continue;
+                WinProcInfo info;
+                info.pid = pid;
+                info.ppid = static_cast<qint64>(pe.th32ParentProcessID);
+                info.exeName = QString::fromWCharArray(pe.szExeFile).toLower();
+                allProcs.append(info);
+            } while (Process32NextW(snap, &pe));
+        }
+        CloseHandle(snap);
+    }
+
+    // Pass 1: Find all direct KVision instances
+    for (const WinProcInfo &info : allProcs) {
+        bool matches = false;
+        if (!selfExeName.isEmpty() && info.exeName == selfExeName) {
+            matches = true;
+        } else if (info.exeName == "kvision.exe" || info.exeName == "cctv-viewer2.exe" || info.exeName == "cctv-viewer.exe") {
+            matches = true;
+        }
+        if (matches && !pids.contains(info.pid)) {
+            pids.append(info.pid);
+        }
+    }
+
+    // Pass 2: Iteratively add all child processes of any PID in our list
+    bool addedAny = true;
+    while (addedAny) {
+        addedAny = false;
+        for (const WinProcInfo &info : allProcs) {
+            if (!pids.contains(info.pid) && pids.contains(info.ppid)) {
+                pids.append(info.pid);
+                addedAny = true;
+            }
+        }
+    }
+
+    return pids;
+#else
     uid_t myUid = getuid();
     QString selfExe = QFile::symLinkTarget(QString("/proc/%1/exe").arg(selfPid));
 
@@ -351,12 +629,65 @@ QVector<qint64> StatsWorker::getProgramPids()
     }
 
     return pids;
+#endif
 }
 
 void StatsWorker::calculateCpuAndRam(const QVector<qint64> &pids, double &cpu, double &ram)
 {
-    // 1. Read total system CPU time
     qint64 totalCpuTime = 0;
+    qint64 processCpuTimeSum = 0;
+    double ramUsageSum = 0.0;
+    QHash<qint64, qint64> currentProcessCpuTimes;
+
+#ifdef _WIN32
+    auto fileTimeToInt64 = [](const FILETIME &ft) -> qint64 {
+        ULARGE_INTEGER uli;
+        uli.LowPart = ft.dwLowDateTime;
+        uli.HighPart = ft.dwHighDateTime;
+        return static_cast<qint64>(uli.QuadPart);
+    };
+
+    FILETIME idleTime = {0, 0};
+    FILETIME kernelTime = {0, 0};
+    FILETIME userTime = {0, 0};
+    if (GetSystemTimes(&idleTime, &kernelTime, &userTime)) {
+        // On Windows, kernelTime already includes idleTime, so kernelTime + userTime = total CPU capacity across all cores
+        totalCpuTime = fileTimeToInt64(kernelTime) + fileTimeToInt64(userTime);
+    }
+
+    for (qint64 pid : pids) {
+        HANDLE hProc = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION | PROCESS_VM_READ, FALSE, static_cast<DWORD>(pid));
+        if (!hProc) {
+            hProc = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, static_cast<DWORD>(pid));
+        }
+        if (hProc) {
+            FILETIME creationTime = {0, 0};
+            FILETIME exitTime = {0, 0};
+            FILETIME procKernelTime = {0, 0};
+            FILETIME procUserTime = {0, 0};
+            if (GetProcessTimes(hProc, &creationTime, &exitTime, &procKernelTime, &procUserTime)) {
+                qint64 procTime = fileTimeToInt64(procKernelTime) + fileTimeToInt64(procUserTime);
+                currentProcessCpuTimes[pid] = procTime;
+                if (m_prevProcessCpuTimes.contains(pid)) {
+                    qint64 delta = procTime - m_prevProcessCpuTimes[pid];
+                    if (delta > 0) {
+                        processCpuTimeSum += delta;
+                    }
+                }
+            }
+
+            PROCESS_MEMORY_COUNTERS pmc;
+            std::memset(&pmc, 0, sizeof(pmc));
+            pmc.cb = sizeof(pmc);
+            if (K32GetProcessMemoryInfo(hProc, &pmc, sizeof(pmc))) {
+                ramUsageSum += static_cast<double>(pmc.WorkingSetSize) / (1024.0 * 1024.0);
+            }
+
+            CloseHandle(hProc);
+        }
+    }
+#else
+    // 1. Read total system CPU time
     QFile statFile("/proc/stat");
     if (statFile.open(QIODevice::ReadOnly)) {
         QTextStream stream(&statFile);
@@ -372,11 +703,6 @@ void StatsWorker::calculateCpuAndRam(const QVector<qint64> &pids, double &cpu, d
     }
 
     // 2. Read process CPU times and RSS
-    qint64 processCpuTimeSum = 0;
-    double ramUsageSum = 0;
-
-    QHash<qint64, qint64> currentProcessCpuTimes;
-
     for (qint64 pid : pids) {
         // Read /proc/<pid>/stat
         QFile pStatFile(QString("/proc/%1/stat").arg(pid));
@@ -422,6 +748,7 @@ void StatsWorker::calculateCpuAndRam(const QVector<qint64> &pids, double &cpu, d
             }
         }
     }
+#endif
 
     // Calculate CPU %
     if (m_prevTotalCpuTime > 0 && totalCpuTime > m_prevTotalCpuTime) {
@@ -473,7 +800,9 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
                 // Graphics processes
                 if (m_nvml->nvmlDeviceGetGraphicsRunningProcesses(device, &procCount, procInfos) == NVML_SUCCESS) {
                     for (unsigned int p = 0; p < procCount; ++p) {
-                        if (procInfos[p].pid == selfPid) {
+                        if (procInfos[p].pid == static_cast<unsigned int>(selfPid) &&
+                            procInfos[p].usedGpuMemory != ~0ULL &&
+                            procInfos[p].usedGpuMemory < (1ULL << 44)) {
                             vramSum += procInfos[p].usedGpuMemory / (1024.0 * 1024.0); // B to MiB
                         }
                     }
@@ -483,7 +812,9 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
                 procCount = 128;
                 if (m_nvml->nvmlDeviceGetComputeRunningProcesses(device, &procCount, procInfos) == NVML_SUCCESS) {
                     for (unsigned int p = 0; p < procCount; ++p) {
-                        if (procInfos[p].pid == selfPid) {
+                        if (procInfos[p].pid == static_cast<unsigned int>(selfPid) &&
+                            procInfos[p].usedGpuMemory != ~0ULL &&
+                            procInfos[p].usedGpuMemory < (1ULL << 44)) {
                             vramSum += procInfos[p].usedGpuMemory / (1024.0 * 1024.0); // B to MiB
                         }
                     }
@@ -497,7 +828,7 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
                         double devGpuSum = 0.0;
                         int selfSamplesCount = 0;
                         for (unsigned int s = 0; s < sampleCount; ++s) {
-                            if (samples[s].pid == selfPid) {
+                            if (samples[s].pid == static_cast<unsigned int>(selfPid)) {
                                 devGpuSum += samples[s].smUtil + samples[s].decUtil + samples[s].encUtil; // Combined GPU % (SM + Decoder + Encoder)
                                 selfSamplesCount++;
                                 processGpuSuccess = true;
@@ -519,6 +850,21 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
         }
     }
 
+#ifdef _WIN32
+    // 2. Try Windows PDH (GPU Engine & GPU Process Memory) for NVIDIA, AMD, and Intel on Windows
+    if ((ownGpu <= 0.0 || ownVram <= 0.0) && m_winPdh) {
+        double pdhGpu = 0.0;
+        double pdhVram = 0.0;
+        if (m_winPdh->queryProcessGpuAndVram(selfPid, pdhGpu, pdhVram)) {
+            if (ownGpu <= 0.0 && pdhGpu > 0.0) {
+                ownGpu = pdhGpu;
+            }
+            if (ownVram <= 0.0 && pdhVram > 0.0) {
+                ownVram = pdhVram;
+            }
+        }
+    }
+#else
     // 2. Try DRM Client Stats (for AMD, Intel, and fallback Nvidia) for selfPid
     if (ownGpu <= 0.0) {
         double drmVramSum = 0.0;
@@ -627,6 +973,7 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
             ownGpu = drmGpu;
         }
     }
+#endif
 
     // 3. Try System-wide NVML Fallback (if we are Nvidia but have no process stats)
     if (ownGpu <= 0.0 && m_nvml && m_nvml->initialized) {
@@ -642,6 +989,7 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
         }
     }
 
+#ifndef _WIN32
     // 4. Try AMD/Intel System-wide sysfs fallback
     if (ownGpu <= 0.0) {
         QFile amdGpuBusy("/sys/class/drm/card0/device/gpu_busy_percent");
@@ -660,6 +1008,7 @@ void StatsWorker::calculateGpuAndVram(const QVector<qint64> &pids, double &gpu, 
             }
         }
     }
+#endif
 
     // Step B: Write OWN GPU and VRAM to shared memory files
     QString myGpuFile = QString("%1/kvision-gpu-%2-%3").arg(shmDir).arg(myUid).arg(selfPid);

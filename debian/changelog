@@ -1,3 +1,11 @@
+cctv-viewer (2.7.5-1) jammy; urgency=medium
+
+  * Fixed the System Statistics panel on Windows with native Win32 CPU and RAM monitoring (GetSystemTimes, GetProcessTimes, K32GetProcessMemoryInfo) and Toolhelp32 multi-process discovery (--auxiliary windows and child processes).
+  * Added Windows GPU and VRAM monitoring via nvml.dll and universal Windows PDH performance counters (GPU Engine and GPU Process Memory) for NVIDIA, AMD, and Intel GPUs.
+  * Stabilized 1-second network (Mbps) and CPU delta sampling when opening the System Statistics panel via StatsWorker::emitLatest().
+
+ -- Arkanista  Thu, 29 Oct 2026 11:10:00 +0100
+
 cctv-viewer (2.7.4-1) jammy; urgency=medium
 
   * Fixed archive video download and .pspart to .mp4 conversion on Windows by bundling ffmpeg.exe, adding a 3-tier conversion pipeline (ffmpeg CLI with AAC, retry without audio -an, and in-process libavformat remuxer fallback), reading uncached NTFS file sizes, and completing stalled SDK downloads before timeout.

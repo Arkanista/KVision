@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.5] - 2026-10-29
+
+### EN: Features, Improvements & Bug Fixes
+* **Windows System Statistics Panel (`SystemStats` / `StatsWorker`):**
+  * Implemented native Win32 CPU and RAM usage monitoring in `StatsWorker::calculateCpuAndRam()` using `GetSystemTimes()`, `GetProcessTimes()`, and `K32GetProcessMemoryInfo()` (`WorkingSetSize`), fixing `0.0%` CPU and `0.0 MB` RAM readings on Windows.
+  * Added Windows multi-process discovery in `StatsWorker::getProgramPids()` via `CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0)` to aggregate CPU, RAM, GPU, VRAM, and Network metrics across all `kvision.exe` instances (`--auxiliary` multi-monitor windows) and child processes (`ffmpeg.exe`).
+  * Added Windows GPU & VRAM monitoring via both NVIDIA `nvml.dll` (`C:\Windows\System32\nvml.dll`, including `_v2` symbol resolution and `NVML_VALUE_NOT_AVAILABLE` WDDM filtering) and universal Windows Performance Data Helper (`pdh.dll`) counters (`\GPU Engine(*)\Utilization Percentage` and `\GPU Process Memory(*)\Dedicated Usage` / `Local Usage`) supporting NVIDIA, AMD, and Intel GPUs.
+  * Stabilized 1-second network speed (`Mbps`) and CPU delta sampling when opening the System Statistics panel by keeping background sampling aligned to the 1000ms timer and immediately publishing the latest cached sample via `StatsWorker::emitLatest()`.
+
+### PL: Funkcje, Udoskonalenia i Poprawki Błędów
+* **Panel statystyk systemu na Windowsie (`SystemStats` / `StatsWorker`):**
+  * Dodano natywny pomiar zużycia procesora (CPU) oraz pamięci RAM w `StatsWorker::calculateCpuAndRam()` z użyciem funkcji Win32 API `GetSystemTimes()`, `GetProcessTimes()` oraz `K32GetProcessMemoryInfo()` (`WorkingSetSize`), eliminując problem stałego wyświetlania `0.0%` CPU i `0.0 MB` RAM na systemie Windows.
+  * Dodano wykrywanie procesów na Windowsie w `StatsWorker::getProgramPids()` przy pomocy `CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0)`, dzięki czemu statystyki CPU, RAM, GPU, VRAM oraz sieci sumują wszystkie okna `kvision.exe` (tryb wielomonitorowy `--auxiliary`) i procesy potomne (`ffmpeg.exe`).
+  * Dodano odczyt obciążenia GPU i pamięci VRAM na Windowsie poprzez bibliotekę NVIDIA `nvml.dll` (`C:\Windows\System32\nvml.dll` z obsługą symboli `_v2` i filtrowaniem wartości `NVML_VALUE_NOT_AVAILABLE` na sterownikach WDDM) oraz uniwersalne liczniki systemowe Windows PDH (`pdh.dll`: `\GPU Engine(*)\Utilization Percentage` i `\GPU Process Memory(*)\Dedicated Usage` / `Local Usage`) działające na kartach NVIDIA, AMD oraz Intel.
+  * Ustabilizowano 1-sekundowy takt pomiaru prędkości sieci (`Mbps`) oraz delty CPU przy otwieraniu panelu statystyk (`StatsWorker::emitLatest()`).
+
 ## [2.7.4] - 2026-10-29
 
 ### EN: Features, Improvements & Bug Fixes
