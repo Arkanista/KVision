@@ -284,6 +284,7 @@ static QString getTransFileForLang(const QString &lang)
     static const QHash<QString, QString> langMap = {
         {"pl", "kvision_pl_PL"},
         {"en", "kvision_en_US"},
+        {"ru", "kvision_ru_RU"},
         {"es", "kvision_es_ES"},
         {"ar", "kvision_ar_AR"},
         {"bg", "kvision_bg_BG"},
