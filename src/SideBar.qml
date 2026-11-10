@@ -2469,6 +2469,7 @@ FocusScope {
                                     model: [
                                         { text: qsTr("LNG_00251"), value: "system" },
                                         { text: "English", value: "en" },
+                                        { text: "Русский (ИИ)", value: "ru" },
                                         { text: "Polski", value: "pl" },
                                         { text: "العربية (AI)", value: "ar" },
                                         { text: "Български (AI)", value: "bg" },
