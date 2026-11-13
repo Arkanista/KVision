@@ -15,49 +15,6 @@ FocusScope {
     property var model: ViewportsLayoutModel {}
     property string color: "black"
     property int pendingSwapSourceIndex: -1
-    property var remoteRecorderIps: ({})
-
-    function refreshRemoteRecordersMap() {
-        var map = {};
-        try {
-            if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.hikvisionRecordersJson) {
-                var list = JSON.parse(rootWindow.hikvisionRecordersJson);
-                for (var i = 0; i < list.length; ++i) {
-                    var rec = list[i];
-                    if (rec && rec.ip && rec.remoteRecorder) {
-                        var rawIp = String(rec.ip).trim();
-                        map[rawIp] = true;
-                        map[rawIp.split(":")[0]] = true;
-                    }
-                }
-            }
-        } catch (e) {}
-        remoteRecorderIps = map;
-    }
-
-    function isUrlRemoteRecorder(urlStr) {
-        var s = String(urlStr || "").trim();
-        var schemeIdx = s.indexOf("://");
-        if (schemeIdx === -1) return false;
-        var rest = s.substring(schemeIdx + 3);
-        var slashIdx = rest.indexOf("/");
-        var addrPart = slashIdx !== -1 ? rest.substring(0, slashIdx) : rest;
-        var atIdx = addrPart.lastIndexOf("@");
-        var hostPort = atIdx !== -1 ? addrPart.substring(atIdx + 1) : addrPart;
-        var host = hostPort.split(":")[0].trim();
-        return !!root.remoteRecorderIps[host];
-    }
-
-    Component.onCompleted: {
-        refreshRemoteRecordersMap();
-    }
-
-    Connections {
-        target: (typeof rootWindow !== "undefined") ? rootWindow : null
-        function onHikvisionRecordersJsonChanged() {
-            root.refreshRemoteRecordersMap();
-        }
-    }
 
     Component.onDestruction: {
         playerPool.releaseAll();
@@ -129,7 +86,7 @@ FocusScope {
                 } else if (vItem.streamMode === 2) {
                     return (String(vItem.secondaryUrl) !== "" && !d2Failed) ? vItem.secondaryUrl : vItem.url;
                 } else { // Auto (0)
-                    if ((root.size.width > 1 || root.size.height > 1) && !viewportItem.fullScreen && String(vItem.secondaryUrl) !== "" && !d2Failed) {
+                    if (!player.isOneToOne && (root.size.width > 1 || root.size.height > 1) && !viewportItem.fullScreen && String(vItem.secondaryUrl) !== "" && !d2Failed) {
                         return vItem.secondaryUrl;
                     }
                     return vItem.url;
@@ -137,9 +94,6 @@ FocusScope {
             });
 
             player.isSubStream = Qt.binding(function() {
-                if (player.isOneToOne) {
-                    return false;
-                }
                 var vItem = root.model.get(index);
                 if (!vItem) return false;
                 var d2Failed = viewportItem.d2SecondaryUrlFailed;
@@ -150,12 +104,11 @@ FocusScope {
                     return false;
                 } else if (vItem.streamMode === 2) {
                     return canUseSub;
-                } else { // Auto (0)
-                    if (root.isUrlRemoteRecorder(urlStr)) {
-                        return canUseSub;
-                    }
-                    return (root.size.width > 1 || root.size.height > 1) && !viewportItem.fullScreen && canUseSub;
                 }
+                if (player.isOneToOne) {
+                    return false;
+                }
+                return (root.size.width > 1 || root.size.height > 1) && !viewportItem.fullScreen && canUseSub;
             });
 
             player.scale = Qt.binding(function() {
@@ -562,7 +515,7 @@ FocusScope {
                         var fullScreenKey = QT_TR_NOOP("F", "Shortcut");
                         if (event.text.toUpperCase() === fullScreenKey ||
                             event.text.toUpperCase() === qsTr(fullScreenKey)) {
-                            fullScreen = (root.size.width > 1 && root.size.height > 1) ? !fullScreen : false;
+                            fullScreen = (root.size.width > 1 || root.size.height > 1) ? !fullScreen : false;
                             d.selectionReset();
                         }
 
@@ -880,7 +833,7 @@ FocusScope {
                         }
                         onPressAndHold: d2.setCurrentIndex("pressAndHoldIndex", true)
                         onDoubleClicked: {
-                            viewport.fullScreen = (root.size.width > 1 && root.size.height > 1) ? !viewport.fullScreen : false;
+                            viewport.fullScreen = (root.size.width > 1 || root.size.height > 1) ? !viewport.fullScreen : false;
                             d.selectionReset();
                         }
 
@@ -890,7 +843,7 @@ FocusScope {
                         // Handle mousewheel zoom when in fullscreen (requires CTRL modifier)
                         onWheel: {
                             if (wheel.modifiers & Qt.ControlModifier) {
-                                if (!viewport.fullScreen && root.size.width > 1 && root.size.height > 1) {
+                                if (!viewport.fullScreen && (root.size.width > 1 || root.size.height > 1)) {
                                     viewport.fullScreen = true;
                                     viewport.forceActiveFocus();
                                     d.selectionReset();

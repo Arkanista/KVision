@@ -1,3 +1,10 @@
+cctv-viewer (2.7.6-2) jammy; urgency=medium
+
+  * Fixed stream switching when enlarging a camera (fullScreen / 1x1) in "Remote recorder (WAN / NAT)" mode so Auto mode seamlessly switches to Main Stream unless Sub-Stream is manually forced.
+  * Prevented duplicate RTSP sessions on rapid enlarge/shrink toggles and skipped multi-camera startup stagger when a viewport is enlarged.
+
+ -- Arkanista  Fri, 13 Nov 2026 17:15:00 +0100
+
 cctv-viewer (2.7.6-1) jammy; urgency=medium
 
   * Added TCP Port Reachability Verifier ("Test Ports") and per-recorder "Remote recorder (WAN / NAT)" optimization mode in NVR settings, plus explicit viewport OSD diagnostics when the RTSP port is unreachable.

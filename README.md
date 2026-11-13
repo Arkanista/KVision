@@ -51,7 +51,7 @@ It is designed for Linux users who need a robust, lightweight, and smooth altern
 ### 🔌 Hikvision NVR/DVR Deep Integration
 * **Auto-Discovery (ISAPI + Hybrid SDK Fallback)**: Enter your NVR/DVR IP or hostname and credentials to automatically discover and list all active camera channels (analog BNC/coax channels on Hybrid DVRs and IP channels via `NET_DVR_GET_IPPARACFG_V40` when HTTP ISAPI is unavailable).
 * **Built-in TCP Port Reachability Verifier**: Click **"Test Ports"** inside NVR Settings to run concurrent TCP connectivity probes for the **SDK** (`8000`), **RTSP** (`554`), and **HTTP** (`80`) ports with latency measurements (ms) and per-port guidance. Viewports also display explicit OSD diagnostics when Live View fails due to an unreachable RTSP port.
-* **Remote Recorder (WAN / NAT) Mode**: Dedicated per-recorder toggle for remote sites accessed over the Internet/VPN/NAT. Enabling it automatically enforces **RTSP over TCP**, extends FFmpeg probe buffers and timeouts (`3s` analyzeduration, `2 MB` probesize, `15s` socket timeout, `20s` demuxer timeout without `nobuffer`), defaults `Auto` quality to Sub-Stream (`02`) even in `1x1` and fullscreen views, staggers multi-camera startup, applies exponential reconnect backoff, and locks manual viewport FFmpeg overrides so global LAN defaults cannot break WAN streams.
+* **Remote Recorder (WAN / NAT) Mode**: Dedicated per-recorder toggle for remote sites accessed over the Internet/VPN/NAT. Enabling it automatically enforces **RTSP over TCP**, extends FFmpeg probe buffers and timeouts (`3s` analyzeduration, `2 MB` probesize, `15s` socket timeout, `20s` demuxer timeout without `nobuffer`), uses Sub-Stream (`02`) in multi-camera grids and seamlessly switches to Main Stream (`01`) when enlarged or in `1x1` view (unless Sub-Stream is manually forced), staggers multi-camera startup, applies exponential reconnect backoff, and locks manual viewport FFmpeg overrides so global LAN defaults cannot break WAN streams.
 * **Automatic NVR Preset Grid**: Click **"Generate Grid"** in the recorders panel to automatically generate a tailored viewport layout (preset) mapping all discovered cameras to an optimal grid size.
 * **Dynamic Quality Selection**: Manually toggle between **Main Stream** (high resolution) and **Sub Stream** (low bandwidth/CPU load) for any viewport via the context menu to save system resources and network bandwidth.
 * **Local Camera Renaming (Custom Names)**: Clicking the edit icon (pencil) on a camera tile in the recorder channel list allows setting a custom, local name for that camera. The name update is immediately reflected on the tile, live players, and playback timeline. Custom names are saved locally in the settings JSON and do not alter the physical NVR device. The custom name can be reset to the NVR default at any time.
@@ -186,11 +186,11 @@ git clone --recurse-submodules https://github.com/arkanista/kvision.git
 
 If you are running Arch Linux or CachyOS, you can skip compilation and install the pre-compiled Pacman package directly from the latest release:
 
-* **[Download kvision-2.7.6-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.7.6/kvision-2.7.6-1-x86_64.pkg.tar.zst)**
+* **[Download kvision-2.7.6-2-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.7.6/kvision-2.7.6-2-x86_64.pkg.tar.zst)**
 
 To install the downloaded package:
 ```bash
-sudo pacman -U kvision-2.7.6-1-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.7.6-2-x86_64.pkg.tar.zst
 ```
 
 > [!NOTE]
@@ -286,7 +286,7 @@ If you are migrating from **Hikvision iVMS-4200**, note a critical architectural
    * Note that if you remap RTSP externally on your router (e.g., external `10554` → internal `554`), enter `10554` in the recorder's **RTSP Port** field in KVision.
 2. **Enable "Remote recorder (WAN / NAT)":**
    * Check **"Remote recorder (WAN / NAT)"** in the recorder's settings panel.
-   * KVision will automatically enforce `TCP` RTSP transport, use larger WAN-safe FFmpeg probe buffers and timeouts (`15s`–`20s`), default to Sub-Stream (`02`) to protect remote uplink bandwidth even in `1x1` mode, stagger multi-camera startup, and use exponential reconnect backoff.
+   * KVision will automatically enforce `TCP` RTSP transport, use larger WAN-safe FFmpeg probe buffers and timeouts (`15s`–`20s`), stream Sub-Stream (`02`) in multi-camera grids while seamlessly switching to Main Stream (`01`) when a camera is enlarged (unless Sub-Stream is manually forced), stagger multi-camera startup, and use exponential reconnect backoff.
 3. **Avoid Port Scanning Lockouts (*Illegal Login Lock*):**
    * Hikvision firmware locks accounts for ~30 minutes after several consecutive failed logins (`HTTP 401`). Double-check your username and password before clicking **Discover Cameras**.
 

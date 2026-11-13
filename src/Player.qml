@@ -440,9 +440,17 @@ FocusScope {
         var isSameCamera = (newCameraId !== "" && newCameraId === activeCameraId && playbackState === MediaPlayer.PlayingState);
 
         if (isSameCamera) {
-            console.log("[Player] Seamless switch quality of camera " + newCameraId + " to URL: " + newUrl);
             staggerStartTimer.stop();
             staggerStartTimer.pendingUrl = "";
+            if (String(activePlayer.source) === newUrl && activePlayer.playbackState === MediaPlayer.PlayingState) {
+                console.log("[Player] Active player already playing target URL: " + newUrl + ". Cancelling pending quality switch.");
+                seamlessSwitchTimer.stop();
+                inactivePlayer.source = "";
+                inactivePlayer.isSubStreamOfPlayer = false;
+                activeStreamUrl = newUrl;
+                return;
+            }
+            console.log("[Player] Seamless switch quality of camera " + newCameraId + " to URL: " + newUrl);
             inactivePlayer.muted = true; // Keep inactive player muted during loading
             inactivePlayer.isSubStreamOfPlayer = root.isSubStream;
             inactivePlayer.source = newUrl;
@@ -465,7 +473,7 @@ FocusScope {
             activeStreamUrl = newUrl;
             activeCameraId = newCameraId;
 
-            if (root.isRemoteRecorder && root.index > 0) {
+            if (root.isRemoteRecorder && root.index > 0 && !root.isFullScreen) {
                 qmlAvPlayer1.source = "";
                 qmlAvPlayer1.isSubStreamOfPlayer = root.isSubStream;
                 staggerStartTimer.pendingUrl = newUrl;
