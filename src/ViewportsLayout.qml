@@ -15,6 +15,49 @@ FocusScope {
     property var model: ViewportsLayoutModel {}
     property string color: "black"
     property int pendingSwapSourceIndex: -1
+    property var remoteRecorderIps: ({})
+
+    function refreshRemoteRecordersMap() {
+        var map = {};
+        try {
+            if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.hikvisionRecordersJson) {
+                var list = JSON.parse(rootWindow.hikvisionRecordersJson);
+                for (var i = 0; i < list.length; ++i) {
+                    var rec = list[i];
+                    if (rec && rec.ip && rec.remoteRecorder) {
+                        var rawIp = String(rec.ip).trim();
+                        map[rawIp] = true;
+                        map[rawIp.split(":")[0]] = true;
+                    }
+                }
+            }
+        } catch (e) {}
+        remoteRecorderIps = map;
+    }
+
+    function isUrlRemoteRecorder(urlStr) {
+        var s = String(urlStr || "").trim();
+        var schemeIdx = s.indexOf("://");
+        if (schemeIdx === -1) return false;
+        var rest = s.substring(schemeIdx + 3);
+        var slashIdx = rest.indexOf("/");
+        var addrPart = slashIdx !== -1 ? rest.substring(0, slashIdx) : rest;
+        var atIdx = addrPart.lastIndexOf("@");
+        var hostPort = atIdx !== -1 ? addrPart.substring(atIdx + 1) : addrPart;
+        var host = hostPort.split(":")[0].trim();
+        return !!root.remoteRecorderIps[host];
+    }
+
+    Component.onCompleted: {
+        refreshRemoteRecordersMap();
+    }
+
+    Connections {
+        target: (typeof rootWindow !== "undefined") ? rootWindow : null
+        function onHikvisionRecordersJsonChanged() {
+            root.refreshRemoteRecordersMap();
+        }
+    }
 
     Component.onDestruction: {
         playerPool.releaseAll();
@@ -100,13 +143,18 @@ FocusScope {
                 var vItem = root.model.get(index);
                 if (!vItem) return false;
                 var d2Failed = viewportItem.d2SecondaryUrlFailed;
-                var isHik = String(vItem.url).indexOf("hikvision://") === 0;
+                var urlStr = String(vItem.url);
+                var isHik = urlStr.indexOf("hikvision://") === 0;
+                var canUseSub = (isHik && !d2Failed) || (String(vItem.secondaryUrl) !== "" && !d2Failed);
                 if (vItem.streamMode === 1) {
                     return false;
                 } else if (vItem.streamMode === 2) {
-                    return isHik || (String(vItem.secondaryUrl) !== "" && !d2Failed);
+                    return canUseSub;
                 } else { // Auto (0)
-                    return (root.size.width > 1 || root.size.height > 1) && !viewportItem.fullScreen && (isHik || (String(vItem.secondaryUrl) !== "" && !d2Failed));
+                    if (root.isUrlRemoteRecorder(urlStr)) {
+                        return canUseSub;
+                    }
+                    return (root.size.width > 1 || root.size.height > 1) && !viewportItem.fullScreen && canUseSub;
                 }
             });
 
@@ -130,7 +178,15 @@ FocusScope {
             // Connect mediaError signal
             var slot = function(errorSource) {
                 var vItem = root.model.get(index);
-                if (vItem && errorSource === String(vItem.secondaryUrl)) {
+                if (!vItem) return;
+                if (errorSource === String(vItem.secondaryUrl)) {
+                    viewportItem.d2SecondaryUrlFailed = true;
+                } else if (String(vItem.url).indexOf("hikvision://") === 0
+                           && /\/Streaming\/Channels\/\d+02$/.test(errorSource)
+                           && !player.rtspPortUnreachable
+                           && !player.subStreamEverPresented
+                           && player.consecutiveSubStreamFailures >= 2) {
+                    console.log("[ViewportsLayout] Sub-stream failed twice while RTSP port is reachable; falling back to Main Stream for viewport " + index);
                     viewportItem.d2SecondaryUrlFailed = true;
                 }
             };

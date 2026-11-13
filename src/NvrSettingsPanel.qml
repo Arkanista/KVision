@@ -27,6 +27,19 @@ ColumnLayout {
     // Track NVR editing state
     property int editingIndex: -1
     property bool isDiscovering: false
+    property bool isTestingPorts: false
+    property bool hasPortTestResult: false
+    property int testedSdkPort: 8000
+    property int testedHttpPort: 80
+    property int testedRtspPort: 554
+    property bool testedSdkOpen: false
+    property bool testedHttpOpen: false
+    property bool testedRtspOpen: false
+    property int testedSdkMs: -1
+    property int testedHttpMs: -1
+    property int testedRtspMs: -1
+    property string lastDiscoveredIp: ""
+    property int lastDiscoveredRtspPort: 554
 
     // ── NvrCamerasWindow Component ──────────────────────────────────────
     // Declared here (outside the Repeater) so its QML creation context
@@ -64,6 +77,28 @@ ColumnLayout {
             rootPanel.activeSessionIps = states;
         }
 
+        function onPortsTestFinished(ip, sdkOpen, httpOpen, rtspOpen, sdkMs, httpMs, rtspMs) {
+            if (!rootPanel.isTestingPorts) return;
+            rootPanel.isTestingPorts = false;
+            rootPanel.hasPortTestResult = true;
+            rootPanel.testedSdkOpen = sdkOpen;
+            rootPanel.testedHttpOpen = httpOpen;
+            rootPanel.testedRtspOpen = rtspOpen;
+            rootPanel.testedSdkMs = sdkMs;
+            rootPanel.testedHttpMs = httpMs;
+            rootPanel.testedRtspMs = rtspMs;
+        }
+
+        function onRtspPortChecked(ip, rtspPort, open) {
+            if (!open && rootPanel.lastDiscoveredIp !== ""
+                    && ip === rootPanel.lastDiscoveredIp
+                    && rtspPort === rootPanel.lastDiscoveredRtspPort) {
+                rootPanel.statusColor = "#ffaa00";
+                rootPanel.statusMessage = qsTr("LNG_00580").arg(rtspPort);
+                rootPanel.lastDiscoveredIp = "";
+            }
+        }
+
         function onDiscoveryFinished(ip, cameras, success, errorMsg) {
             if (!rootPanel.isDiscovering) return;
             rootPanel.isDiscovering = false;
@@ -89,7 +124,8 @@ ColumnLayout {
                 username: userField.text.trim(),
                 password: passField.text,
                 cameras: cameras,
-                rtspTransport: rtspTransport
+                rtspTransport: rtspTransport,
+                remoteRecorder: remoteRecorderCheckBox.checked
             };
 
             if (rootPanel.editingIndex === -1) {
@@ -191,7 +227,7 @@ ColumnLayout {
                 rootPanel.editingIndex = -1;
             }
 
-            // Clear fields & status
+            // Clear fields & status, then verify RTSP port reachability for live view diagnostics
             nameField.text = "";
             ipField.text = "";
             portField.text = "8000";
@@ -200,7 +236,12 @@ ColumnLayout {
             userField.text = "admin";
             passField.text = "";
             rtspTransportField.currentIndex = 0;
+            remoteRecorderCheckBox.checked = false;
+            rootPanel.hasPortTestResult = false;
             rootPanel.statusMessage = "";
+            rootPanel.lastDiscoveredIp = ip;
+            rootPanel.lastDiscoveredRtspPort = rtspP;
+            HikvisionManager.checkRtspPortAsync(ip, rtspP);
         }
     }
 
@@ -258,7 +299,7 @@ ColumnLayout {
         ColumnLayout {
             width: parent.width
             spacing: 8
-            enabled: !rootPanel.isDiscovering
+            enabled: !rootPanel.isDiscovering && !rootPanel.isTestingPorts
 
             ColumnLayout {
                 spacing: 2
@@ -306,7 +347,10 @@ ColumnLayout {
                         radius: 4
                         border.color: ipField.activeFocus ? "#ff7a00" : "#2a3540"
                     }
-                    onTextChanged: rootPanel.statusMessage = ""
+                    onTextChanged: {
+                        rootPanel.statusMessage = "";
+                        rootPanel.hasPortTestResult = false;
+                    }
                 }
             }
 
@@ -336,7 +380,10 @@ ColumnLayout {
                             radius: 4
                             border.color: portField.activeFocus ? "#ff7a00" : "#2a3540"
                         }
-                        onTextChanged: rootPanel.statusMessage = ""
+                        onTextChanged: {
+                            rootPanel.statusMessage = "";
+                            rootPanel.hasPortTestResult = false;
+                        }
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: portField.hovered
@@ -366,7 +413,10 @@ ColumnLayout {
                             radius: 4
                             border.color: httpPortField.activeFocus ? "#ff7a00" : "#2a3540"
                         }
-                        onTextChanged: rootPanel.statusMessage = ""
+                        onTextChanged: {
+                            rootPanel.statusMessage = "";
+                            rootPanel.hasPortTestResult = false;
+                        }
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: httpPortField.hovered
@@ -396,7 +446,10 @@ ColumnLayout {
                             radius: 4
                             border.color: rtspPortField.activeFocus ? "#ff7a00" : "#2a3540"
                         }
-                        onTextChanged: rootPanel.statusMessage = ""
+                        onTextChanged: {
+                            rootPanel.statusMessage = "";
+                            rootPanel.hasPortTestResult = false;
+                        }
                         ToolTip.delay: Compact.toolTipDelay
                         ToolTip.timeout: Compact.toolTipTimeout
                         ToolTip.visible: rtspPortField.hovered
@@ -539,6 +592,155 @@ ColumnLayout {
                 }
             }
 
+            CheckBox {
+                id: remoteRecorderCheckBox
+                text: qsTr("LNG_00569")
+                Layout.fillWidth: true
+                onCheckedChanged: {
+                    if (checked && rtspTransportField.currentIndex === 0) {
+                        rtspTransportField.currentIndex = 1;
+                    }
+                }
+                ToolTip.delay: Compact.toolTipDelay
+                ToolTip.timeout: Compact.toolTipTimeout
+                ToolTip.visible: remoteRecorderCheckBox.hovered
+                ToolTip.text: qsTr("LNG_00570")
+            }
+
+            Button {
+                id: testPortsBtn
+                text: rootPanel.isTestingPorts ? qsTr("LNG_00572") : qsTr("LNG_00571")
+                Layout.fillWidth: true
+
+                contentItem: RowLayout {
+                    spacing: 6
+                    Image {
+                        source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f5d4' stroke-width='3' stroke-linecap='round'><path d='M12 2a10 10 0 1 0 10 10'></path></svg>"
+                        Layout.preferredWidth: 14
+                        Layout.preferredHeight: 14
+                        visible: rootPanel.isTestingPorts
+                        fillMode: Image.PreserveAspectFit
+
+                        RotationAnimation on rotation {
+                            from: 0
+                            to: 360
+                            duration: 1000
+                            loops: Animation.Infinite
+                            running: rootPanel.isTestingPorts
+                        }
+                    }
+                    Text {
+                        text: testPortsBtn.text
+                        font.bold: true
+                        font.pixelSize: 11
+                        color: testPortsBtn.hovered ? "#00f5d4" : "#d0dce5"
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                }
+
+                background: Rectangle {
+                    implicitHeight: 30
+                    color: testPortsBtn.pressed ? "#0c141b" : (testPortsBtn.hovered ? "#22303c" : "#15202b")
+                    border.color: testPortsBtn.hovered ? "#00f5d4" : "#2a3540"
+                    border.width: 1
+                    radius: 4
+                }
+
+                onClicked: {
+                    var ip = ipField.text.trim();
+                    if (ip === "") {
+                        rootPanel.statusColor = "#ff3333";
+                        rootPanel.statusMessage = qsTr("LNG_00573");
+                        return;
+                    }
+                    var sdkP = parseInt(portField.text) || 8000;
+                    var httpP = parseInt(httpPortField.text) || 80;
+                    var rtspP = parseInt(rtspPortField.text) || 554;
+
+                    rootPanel.testedSdkPort = sdkP;
+                    rootPanel.testedHttpPort = httpP;
+                    rootPanel.testedRtspPort = rtspP;
+                    rootPanel.statusMessage = "";
+                    rootPanel.isTestingPorts = true;
+                    HikvisionManager.testPortsAsync(ip, sdkP, httpP, rtspP);
+                }
+            }
+
+            Rectangle {
+                id: portTestResultBox
+                visible: rootPanel.hasPortTestResult
+                Layout.fillWidth: true
+                implicitHeight: portTestResultCol.implicitHeight + 14
+                color: "#0f151b"
+                radius: 4
+                border.color: (!rootPanel.testedRtspOpen || !rootPanel.testedSdkOpen) ? "#ff4d4d" : "#2a3540"
+                border.width: 1
+
+                ColumnLayout {
+                    id: portTestResultCol
+                    anchors.fill: parent
+                    anchors.margins: 7
+                    spacing: 4
+
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: 6
+                        Rectangle {
+                            width: 8
+                            height: 8
+                            radius: 4
+                            color: rootPanel.testedSdkOpen ? "#00ff66" : "#ff4d4d"
+                        }
+                        Text {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            font.pixelSize: 10
+                            color: rootPanel.testedSdkOpen ? "#d8f8e5" : "#ff8080"
+                            text: "SDK (" + rootPanel.testedSdkPort + "): " + (rootPanel.testedSdkOpen ? qsTr("LNG_00574").arg(rootPanel.testedSdkMs) : qsTr("LNG_00575"))
+                        }
+                    }
+
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: 6
+                        Rectangle {
+                            width: 8
+                            height: 8
+                            radius: 4
+                            color: rootPanel.testedRtspOpen ? "#00ff66" : "#ff4d4d"
+                        }
+                        Text {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            font.pixelSize: 10
+                            font.bold: !rootPanel.testedRtspOpen
+                            color: rootPanel.testedRtspOpen ? "#d8f8e5" : "#ff6666"
+                            text: "RTSP (" + rootPanel.testedRtspPort + "): " + (rootPanel.testedRtspOpen ? qsTr("LNG_00576").arg(rootPanel.testedRtspMs) : qsTr("LNG_00577"))
+                        }
+                    }
+
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: 6
+                        Rectangle {
+                            width: 8
+                            height: 8
+                            radius: 4
+                            color: rootPanel.testedHttpOpen ? "#00ff66" : (rootPanel.testedSdkOpen ? "#ffaa00" : "#ff4d4d")
+                        }
+                        Text {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            font.pixelSize: 10
+                            color: rootPanel.testedHttpOpen ? "#d8f8e5" : (rootPanel.testedSdkOpen ? "#ffd27f" : "#ff8080")
+                            text: "HTTP (" + rootPanel.testedHttpPort + "): " + (rootPanel.testedHttpOpen ? qsTr("LNG_00578").arg(rootPanel.testedHttpMs) : qsTr("LNG_00579"))
+                        }
+                    }
+                }
+            }
+
             // Live status message feedback
             Text {
                 text: rootPanel.statusMessage
@@ -611,7 +813,7 @@ ColumnLayout {
                         rootPanel.isDiscovering = true;
 
                         // Log in and fetch camera channels from NVR asynchronously
-                        HikvisionManager.discoverCamerasAsync(ip, sdkP, httpP, user, pass);
+                        HikvisionManager.discoverCamerasAsync(ip, sdkP, httpP, user, pass, remoteRecorderCheckBox.checked);
                     }
                 }
 
@@ -645,6 +847,8 @@ ColumnLayout {
                         userField.text = "admin";
                         passField.text = "";
                         rtspTransportField.currentIndex = 0;
+                        remoteRecorderCheckBox.checked = false;
+                        rootPanel.hasPortTestResult = false;
                         rootPanel.statusMessage = "";
                     }
                 }
@@ -687,11 +891,37 @@ ColumnLayout {
                         spacing: 1
                         Layout.fillWidth: true
 
-                        Text {
-                            text: modelData.name ? modelData.name + " (" + modelData.ip + ")" : modelData.ip
-                            color: "white"
-                            font.bold: true
-                            font.pixelSize: 11
+                        RowLayout {
+                            spacing: 6
+                            Layout.fillWidth: true
+
+                            Text {
+                                text: modelData.name ? modelData.name + " (" + modelData.ip + ")" : modelData.ip
+                                color: "white"
+                                font.bold: true
+                                font.pixelSize: 11
+                                elide: Text.ElideRight
+                                Layout.maximumWidth: 180
+                            }
+
+                            Rectangle {
+                                visible: !!modelData.remoteRecorder
+                                implicitWidth: wanBadgeText.implicitWidth + 8
+                                implicitHeight: 14
+                                radius: 3
+                                color: "#122b2e"
+                                border.color: "#00f5d4"
+                                border.width: 1
+
+                                Text {
+                                    id: wanBadgeText
+                                    anchors.centerIn: parent
+                                    text: "WAN"
+                                    color: "#00f5d4"
+                                    font.pixelSize: 8
+                                    font.bold: true
+                                }
+                            }
                         }
                         Text {
                             text: qsTr("LNG_00086").arg(modelData.cameras ? modelData.cameras.length : 0)
@@ -845,6 +1075,9 @@ ColumnLayout {
                             } else {
                                 rtspTransportField.currentIndex = 0;
                             }
+                            remoteRecorderCheckBox.checked = !!modelData.remoteRecorder;
+                            rootPanel.hasPortTestResult = false;
+                            rootPanel.statusMessage = "";
                             
                             rootPanel.editingIndex = index;
                         }

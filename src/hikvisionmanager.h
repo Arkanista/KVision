@@ -5,6 +5,8 @@
 #include <QVariantList>
 #include <QVariantMap>
 #include <QHash>
+#include <QSet>
+#include <QPair>
 #include <QList>
 #include <QThread>
 #include <mutex>
@@ -24,9 +26,16 @@ public:
     // Singleton provider
     static HikvisionManager* instance();
 
+    static QString sanitizeHost(const QString &rawIp);
+    static int probeTcpPort(const QString &ip, int port, int timeoutMs = 2000);
+
     // Login and discover channels for a specific recorder
-    Q_INVOKABLE QVariantList discoverCameras(const QString &ip, int port, int httpPort, const QString &username, const QString &password);
-    Q_INVOKABLE void discoverCamerasAsync(const QString &ip, int port, int httpPort, const QString &username, const QString &password);
+    Q_INVOKABLE QVariantList discoverCameras(const QString &ip, int port, int httpPort, const QString &username, const QString &password, bool remoteRecorder = false);
+    Q_INVOKABLE void discoverCamerasAsync(const QString &ip, int port, int httpPort, const QString &username, const QString &password, bool remoteRecorder = false);
+
+    // Asynchronous TCP port reachability diagnostics
+    Q_INVOKABLE void testPortsAsync(const QString &ip, int sdkPort, int httpPort, int rtspPort);
+    Q_INVOKABLE void checkRtspPortAsync(const QString &ip, int rtspPort);
 
     // Logout from a recorder session
     Q_INVOKABLE void logout(const QString &ip);
@@ -37,12 +46,13 @@ public:
     // PTZ zoom control
     Q_INVOKABLE bool ptzZoom(const QString &ip, int port, const QString &username, const QString &password, int channelId, int command, bool stop);
 
-    // Force I-Frame for seamless switching
-    Q_INVOKABLE bool forceIFrame(const QString &ip, int port, const QString &username, const QString &password, int channelId);
+    // Force I-Frame (main or sub stream) asynchronously for fast startup & seamless switching
+    Q_INVOKABLE bool forceIFrame(const QString &ip, int port, const QString &username, const QString &password, int channelId, bool isSubStream = false);
 
     // Shared session management for playback players
     struct SharedSession {
         LONG lUserID = -1;
+        int port = 8000;
         NET_DVR_DEVICEINFO_V40 deviceInfo;
         int refCount = 0;
     };
@@ -57,29 +67,34 @@ public:
 signals:
     void sessionStatusChanged(const QString &ip, bool loggedIn);
     void discoveryFinished(const QString &ip, const QVariantList &cameras, bool success, const QString &errorMsg);
+    void portsTestFinished(const QString &ip, bool sdkOpen, bool httpOpen, bool rtspOpen, int sdkMs, int httpMs, int rtspMs);
+    void rtspPortChecked(const QString &ip, int rtspPort, bool open);
 
 private:
     struct SessionInfo {
         LONG lUserID = -1;
+        int port = 8000;
         NET_DVR_DEVICEINFO_V40 deviceInfo;
     };
 
     bool isLoggedInternal(const QString &ip) const;
 
     static HikvisionManager* m_instance;
-    QHash<QString, SessionInfo> m_sessions; // Maps IP to SessionInfo
+    QHash<QString, SessionInfo> m_sessions; // Maps clean IP to SessionInfo
     QHash<QString, SharedSession> m_sharedSessions;
     std::mutex m_sharedSessionsMutex;
     bool m_initialized;
 
     struct PtzCommand {
         QString ip;
-        int port;
+        int port = 8000;
         QString username;
         QString password;
-        int channelId;
-        int command;
-        bool stop;
+        int channelId = 1;
+        int command = 0;
+        bool stop = false;
+        bool isKeyFrame = false;
+        bool isSubStream = false;
     };
 
     std::queue<PtzCommand> m_ptzQueue;
@@ -96,6 +111,8 @@ private:
     bool m_initCompleted = false;
 
     QList<QThread*> m_discoveryThreads;
+    QSet<QString> m_rtspCheckInFlight;
+    QHash<QString, QPair<qint64, bool>> m_rtspCheckCache;
     std::mutex m_discoveryMutex;
 };
 

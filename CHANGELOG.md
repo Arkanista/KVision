@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.6] - 2026-11-13
+
+### EN: Features, Improvements & Bug Fixes
+* **TCP Port Reachability Verifier & "Remote Recorder (WAN / NAT)" Mode (`NvrSettingsPanel`, `HikvisionManager`, `Player`, `ViewportsLayout`):**
+  * Added a **"Test Ports"** button in NVR Settings performing concurrent TCP reachability probes (`SDK`, `RTSP`, `HTTP`) with latency measurements and clear per-port diagnostic guidance explaining which ports are required for Live View vs SDK Login/Archive.
+  * Added a per-recorder **"Remote recorder (WAN / NAT)"** option (`remoteRecorder` with a `WAN` indicator badge) that enforces `TCP` RTSP transport, extends FFmpeg probing and socket timeouts (`analyzeduration: 3s`, `probesize: 2MB`, `timeout/rw_timeout: 15s`, `demuxer_timeout: 20s`, without `nobuffer`), defaults to Sub-Stream (`02`) even in `1x1` / Fullscreen `Auto` mode, staggers multi-camera connection startup (`200 ms` steps), and applies exponential reconnect backoff (`3s` -> `6s` -> `12s` -> `15s`).
+  * Added automatic RTSP port verification upon stream failure (`InvalidMedia`) to display an explicit `"RTSP port (554) unreachable"` message on the camera viewport instead of generic `"No media"`.
+* **Remote / NAT Camera Discovery, Archive Search & FFmpeg Compatibility Fixes (Issue #9):**
+  * Fixed SDK camera discovery fallback (`HikvisionManager::discoverCameras`) when the HTTP port (`80`) is closed behind NAT: properly discovers both analog/coax (`byChanNum` / `byAnalogChanEnable`) and IP (`NET_DVR_GET_IPPARACFG_V40`) channels on Hybrid DVRs and Pure NVRs, maps IP channels to valid RTSP channel IDs (`1..N` on NVRs, `byChanNum + 1..` on Hybrid DVRs instead of raw SDK `33+`), and fetches OSD channel names via `NET_DVR_GET_PICCFG_V40`/`V30`.
+  * Fixed ISAPI XML channel ID collisions between `VideoInputChannel` and `InputProxyChannel` on Hybrid DVRs, replaced external `curl` invocations with native Qt networking (`QNetworkAccessManager` with HTTP->HTTPS redirect handling and fast TCP port pre-check), and added `HTTP 401` single-attempt abort protection against Hikvision's *Illegal Login Lock*.
+  * Added automatic SDK `NET_DVR_FindFile_V40` fallback in `HikvisionISAPI` so Archive Timeline bars and Calendar recording indicators work over the SDK port (`8000`) even when the HTTP port (`80`) is not forwarded.
+  * Fixed FFmpeg `< 5.0` vs `>= 5.0` (`LIBAVFORMAT_VERSION_MAJOR < 59`) RTSP `-timeout` / `-stimeout` option translation in `QmlAVOptions` (preventing passive `listen` mode failures on FFmpeg 4.x and ignored socket timeouts on FFmpeg 6/7+), preserved `InvalidMedia` status in `QmlAVPlayer` instead of overwriting it with `NoMedia` / 1-second reconnect loops, enabled asynchronous `NET_DVR_MakeKeyFrameSub` keyframe requests for sub-streams, and fixed automatic Sub-to-Main stream fallback for `hikvision://` channels.
+
+### PL: Funkcje, Udoskonalenia i Poprawki Błędów
+* **Weryfikator otwartości portów TCP oraz tryb „Zdalny rejestrator (WAN / NAT)” (`NvrSettingsPanel`, `HikvisionManager`, `Player`, `ViewportsLayout`):**
+  * Dodano przycisk **„Sprawdź otwartość portów”** w panelu konfiguracji NVR wykonujący równoległy test połączenia TCP dla portów `SDK`, `RTSP` i `HTTP` wraz z pomiarem czasu odpowiedzi (`ms`) i czytelnym wskazaniem roli każdego portu.
+  * Dodano przełącznik **„Zdalny rejestrator (WAN / NAT)”** (`remoteRecorder` z oznaczeniem `WAN` na liście rejestratorów), który automatycznie ustawia transport `TCP`, wydłuża bufory analizy i limity czasu FFmpeg (`analyzeduration: 3s`, `probesize: 2MB`, `timeout/rw_timeout: 15s`, `demuxer_timeout: 20s`, wyłączenie `nobuffer`), domyślnie uruchamia strumień pomocniczy (`Sub`) również w układzie `1x1`, kaskadowo otwiera kamery w siatce (co `200 ms`) oraz stosuje wykładniczy backoff ponawiania połączeń (`3s` -> `6s` -> `12s` -> `15s`).
+  * Dodano automatyczną weryfikację portu RTSP przy błędzie strumienia i wyświetlanie precyzyjnego komunikatu **„Port RTSP (554) niedostępny”** bezpośrednio na kafelku kamery zamiast mylącego „Brak multimediów”.
+* **Poprawki wykrywania kamer, osi czasu archiwum i zgodności FFmpeg dla połączeń zdalnych (Issue #9):**
+  * Naprawiono zapasowe wykrywanie kamer przez SDK (`HikvisionManager::discoverCameras`) przy zamkniętym porcie HTTP (`80`) za NAT-em: poprawna obsługa zarówno kanałów analogowych BNC/coax (`byChanNum`), jak i kamer IP (`NET_DVR_GET_IPPARACFG_V40`) na rejestratorach hybrydowych i NVR, właściwe mapowanie numerów kanałów RTSP (`1..N` na NVR, `byChanNum + 1..` na hybrydach zamiast surowego `33+`) oraz odczyt nazw kamer OSD przez `NET_DVR_GET_PICCFG_V40`/`V30`.
+  * Wyeliminowano kolizję identyfikatorów kanałów analogowych i IP w ISAPI XML na rejestratorach hybrydowych, zastąpiono wywołania zewnętrznego programu `curl` natywną obsługą sieci w Qt (`QNetworkAccessManager` z obsługą przekierowań HTTPS i szybkim testem TCP) oraz dodano zabezpieczenie przed blokadą konta na rejestratorze (*Illegal Login Lock*) przy błędzie `HTTP 401`.
+  * Dodano automatyczny fallback wyszukiwania nagrań przez SDK (`NET_DVR_FindFile_V40`) w `HikvisionISAPI`, dzięki czemu paski nagrań na osi czasu oraz kropki w kalendarzu archiwum działają po samym porcie SDK (`8000`) nawet przy zamkniętym porcie HTTP (`80`).
+  * Naprawiono translację opcji RTSP `-timeout` / `-stimeout` pomiędzy FFmpeg `< 5.0` i `>= 5.0` w `QmlAVOptions`, usunięto nadpisywanie błędu `InvalidMedia` statusem `NoMedia` i 1-sekundową pętlę reconnectów w `QmlAVPlayer`, dodano asynchroniczne wymuszanie klatek kluczowych dla podstrumieni (`NET_DVR_MakeKeyFrameSub`) oraz naprawiono automatyczne przełączanie awaryjne ze strumienia Sub na Main dla kanałów `hikvision://`.
+
 ## [2.7.5] - 2026-10-29
 
 ### EN: Features, Improvements & Bug Fixes

@@ -1,3 +1,11 @@
+cctv-viewer (2.7.6-1) jammy; urgency=medium
+
+  * Added TCP Port Reachability Verifier ("Test Ports") and per-recorder "Remote recorder (WAN / NAT)" optimization mode in NVR settings, plus explicit viewport OSD diagnostics when the RTSP port is unreachable.
+  * Fixed analog (BNC/coax) and IP channel discovery on Hybrid DVRs and NVRs when the HTTP port is closed behind NAT (accurate RTSP channel mapping, SDK OSD channel name lookup, and SDK NET_DVR_FindFile_V40 fallback for archive timeline search).
+  * Replaced external curl invocations with native Qt networking with Hikvision Illegal Login Lock protection (HTTP 401), resolved FFmpeg 4.x vs 5.0+ RTSP timeout/stimeout conflicts, preserved stream failure status in QmlAVPlayer, enabled sub-stream keyframe requests (MakeKeyFrameSub), and fixed automatic Sub-to-Main fallback (Issue #9).
+
+ -- Arkanista  Fri, 13 Nov 2026 13:25:00 +0100
+
 cctv-viewer (2.7.5-1) jammy; urgency=medium
 
   * Fixed the System Statistics panel on Windows with native Win32 CPU and RAM monitoring (GetSystemTimes, GetProcessTimes, K32GetProcessMemoryInfo) and Toolhelp32 multi-process discovery (--auxiliary windows and child processes).

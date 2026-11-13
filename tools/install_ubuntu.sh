@@ -34,6 +34,8 @@ sudo apt install -y \
     cmake \
     build-essential \
     git \
+    curl \
+    ca-certificates \
     ffmpeg \
     qtdeclarative5-dev \
     qtmultimedia5-dev \
@@ -85,8 +87,10 @@ echo ""
 echo "To launch KVision, run:"
 echo "    kvision"
 echo ""
-echo "[i] Important Tip for NVR Setup:"
-echo "    When adding your Hikvision recorder in KVision Settings, set"
-echo "    'RTSP Transport' to 'TCP' to ensure video streams bypass router/firewall"
-echo "    UDP filtering."
+echo "[i] Important Tips for Remote / NAT Recorders:"
+echo "    - Unlike iVMS-4200 (which tunnels live video over SDK port 8000),"
+echo "      KVision streams Live View via RTSP (default port 554)."
+echo "    - For remote recorders behind NAT, forward both SDK (8000) and RTSP (554),"
+echo "      use the 'Test Ports' button in NVR Settings, and enable"
+echo "      'Remote recorder (WAN / NAT)' (which enforces TCP and WAN timeouts)."
 echo "======================================================================"

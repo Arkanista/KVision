@@ -49,7 +49,9 @@ It is designed for Linux users who need a robust, lightweight, and smooth altern
 * **Mouse Wheel Zoom (Fullscreen)**: Scale the stream dynamically in fullscreen mode by holding the `Ctrl` key and scrolling the mouse wheel.
 
 ### 🔌 Hikvision NVR/DVR Deep Integration
-* **Auto-Discovery**: Enter your NVR/DVR IP address and credentials to automatically discover and list all active camera channels.
+* **Auto-Discovery (ISAPI + Hybrid SDK Fallback)**: Enter your NVR/DVR IP or hostname and credentials to automatically discover and list all active camera channels (analog BNC/coax channels on Hybrid DVRs and IP channels via `NET_DVR_GET_IPPARACFG_V40` when HTTP ISAPI is unavailable).
+* **Built-in TCP Port Reachability Verifier**: Click **"Test Ports"** inside NVR Settings to run concurrent TCP connectivity probes for the **SDK** (`8000`), **RTSP** (`554`), and **HTTP** (`80`) ports with latency measurements (ms) and per-port guidance. Viewports also display explicit OSD diagnostics when Live View fails due to an unreachable RTSP port.
+* **Remote Recorder (WAN / NAT) Mode**: Dedicated per-recorder toggle for remote sites accessed over the Internet/VPN/NAT. Enabling it automatically enforces **RTSP over TCP**, extends FFmpeg probe buffers and timeouts (`3s` analyzeduration, `2 MB` probesize, `15s` socket timeout, `20s` demuxer timeout without `nobuffer`), defaults `Auto` quality to Sub-Stream (`02`) even in `1x1` and fullscreen views, staggers multi-camera startup, applies exponential reconnect backoff, and locks manual viewport FFmpeg overrides so global LAN defaults cannot break WAN streams.
 * **Automatic NVR Preset Grid**: Click **"Generate Grid"** in the recorders panel to automatically generate a tailored viewport layout (preset) mapping all discovered cameras to an optimal grid size.
 * **Dynamic Quality Selection**: Manually toggle between **Main Stream** (high resolution) and **Sub Stream** (low bandwidth/CPU load) for any viewport via the context menu to save system resources and network bandwidth.
 * **Local Camera Renaming (Custom Names)**: Clicking the edit icon (pencil) on a camera tile in the recorder channel list allows setting a custom, local name for that camera. The name update is immediately reflected on the tile, live players, and playback timeline. Custom names are saved locally in the settings JSON and do not alter the physical NVR device. The custom name can be reset to the NVR default at any time.
@@ -184,11 +186,11 @@ git clone --recurse-submodules https://github.com/arkanista/kvision.git
 
 If you are running Arch Linux or CachyOS, you can skip compilation and install the pre-compiled Pacman package directly from the latest release:
 
-* **[Download kvision-2.7.5-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.7.5/kvision-2.7.5-1-x86_64.pkg.tar.zst)**
+* **[Download kvision-2.7.6-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.7.6/kvision-2.7.6-1-x86_64.pkg.tar.zst)**
 
 To install the downloaded package:
 ```bash
-sudo pacman -U kvision-2.7.5-1-x86_64.pkg.tar.zst
+sudo pacman -U kvision-2.7.6-1-x86_64.pkg.tar.zst
 ```
 
 > [!NOTE]
@@ -264,7 +266,33 @@ cd KVision
    kvision
    ```
 
-### 🔧 Troubleshooting: Video Streams & Ubuntu Setup
+### 🌐 Remote Recorders (WAN / NAT / Internet) & Port Forwarding Guide
+
+If you are migrating from **Hikvision iVMS-4200**, note a critical architectural difference when connecting to remote sites behind a router/NAT:
+
+* **iVMS-4200** tunnels almost everything (login, Live View, and playback) over a single proprietary **SDK port (`8000`)**.
+* **KVision** separates traffic into three standard ports:
+
+| Port | Default | Purpose in KVision | Required for Remote Live View? |
+| :--- | :---: | :--- | :---: |
+| **SDK** | `8000` | Authentication, NVR status, fallback channel discovery, archive timeline fallback (`NET_DVR_FindFile_V40`), archive playback & downloads | **Required** |
+| **RTSP** | `554` | **All Live View video streaming** (via FFmpeg / `QmlAV`) | **REQUIRED** (forward on router!) |
+| **HTTP / ISAPI** | `80` | Fast XML camera discovery & primary archive timeline search | Optional (falls back to SDK when closed) |
+
+#### Checklist for Remote NVR / DVR Sites
+1. **Verify Port Reachability:** Open **NVR Settings** (gear icon), enter your remote IP/domain and ports, and click **"Test Ports"**.
+   * Both **SDK** (default `8000`) and **RTSP** (default `554`) must show **Open**.
+   * If **SDK** is open but **RTSP** is unreachable, KVision will log in and discover cameras, but Live View tiles will show **`RTSP port (554) unreachable`** — you must forward the RTSP port (`554` or your custom external RTSP port mapped to the recorder's internal `554`) on the remote router or connect over a VPN (e.g., WireGuard / Tailscale / OpenVPN).
+   * Note that if you remap RTSP externally on your router (e.g., external `10554` → internal `554`), enter `10554` in the recorder's **RTSP Port** field in KVision.
+2. **Enable "Remote recorder (WAN / NAT)":**
+   * Check **"Remote recorder (WAN / NAT)"** in the recorder's settings panel.
+   * KVision will automatically enforce `TCP` RTSP transport, use larger WAN-safe FFmpeg probe buffers and timeouts (`15s`–`20s`), default to Sub-Stream (`02`) to protect remote uplink bandwidth even in `1x1` mode, stagger multi-camera startup, and use exponential reconnect backoff.
+3. **Avoid Port Scanning Lockouts (*Illegal Login Lock*):**
+   * Hikvision firmware locks accounts for ~30 minutes after several consecutive failed logins (`HTTP 401`). Double-check your username and password before clicking **Discover Cameras**.
+
+---
+
+### 🔧 Troubleshooting: Video Streams & Ubuntu / Debian Setup
 
 #### Cameras are discovered, but Live View shows a black screen or exclamation mark
 If KVision connects to your NVR, retrieves the camera names, but the video feeds fail to play:

@@ -7,8 +7,14 @@
 #include <QAuthenticator>
 #include <QVariantMap>
 #include <QDateTime>
+#include <QHash>
+#include <QList>
 #include <QMap>
+#include <QThread>
 #include <QUuid>
+#include <atomic>
+#include <cstdint>
+#include <mutex>
 
 struct PlaybackSegment {
     QDateTime startTime;
@@ -33,6 +39,7 @@ class HikvisionISAPI : public QObject
     Q_OBJECT
 public:
     explicit HikvisionISAPI(QObject *parent = nullptr);
+    ~HikvisionISAPI() override;
 
     // Queries the NVR for available recordings
     // start, end: the date range to query
@@ -51,12 +58,18 @@ private slots:
 
 private:
     void doSearchRequest(const QString &sessionId);
+    void searchViaSdkFallback(const HikvisionSearchSession &session, const QString &fallbackReason);
 
     QNetworkAccessManager *m_netManager;
     QString m_currentUser;
     QString m_currentPassword;
     QMap<QString, HikvisionSearchSession> m_sessions;
     QMap<QString, QNetworkReply*> m_activeReplies;
+    QHash<QString, qint64> m_unreachableHttpEndpoints;
+
+    std::atomic<uint64_t> m_cancelGen{0};
+    QList<QThread*> m_sdkSearchThreads;
+    std::mutex m_sdkThreadsMutex;
 };
 
 #endif // HIKVISIONISAPI_H

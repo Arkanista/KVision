@@ -8,6 +8,7 @@ extern "C" {
 #include <memory>
 #include <optional>
 
+#include <QUrl>
 #include <QVariantMap>
 
 #include "qmlavutils.h"
@@ -54,6 +55,7 @@ public:
     operator const QVariantMap&() const { return m_avOptions; }
 
     operator AVDictionaryPtr() const;
+    AVDictionaryPtr toAVDictionary(const QUrl &url) const;
 
     LIBAVFORMAT_CONST AVInputFormat *avInputFormat() const;
     AVHWDeviceType avHWDeviceType() const;

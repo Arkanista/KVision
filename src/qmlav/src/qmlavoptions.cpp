@@ -14,10 +14,48 @@ QmlAVOptions::QmlAVOptions(const QVariantMap &avOptions)
 
 QmlAVOptions::operator AVDictionaryPtr() const
 {
-    AVDictionaryPtr dict;
+    return toAVDictionary(QUrl());
+}
 
-    for (const auto &[key, value] : asKeyValueRange(m_avOptions)) {
-        dict.set(key.toStdString(), value.toString().toStdString());
+AVDictionaryPtr QmlAVOptions::toAVDictionary(const QUrl &url) const
+{
+    AVDictionaryPtr dict;
+    const QString scheme = url.scheme().toLower();
+    const bool isRtsp = (scheme == QLatin1String("rtsp") || scheme == QLatin1String("rtsps"));
+
+    QVariantMap effectiveOpts = m_avOptions;
+    if (isRtsp) {
+#if (LIBAVFORMAT_VERSION_MAJOR < 59)
+        // FFmpeg < 5.0 (e.g. Debian 11 / Ubuntu 20.04 & 22.04):
+        // RTSP "-timeout" means passive server listen_timeout (implies -rtsp_flags listen).
+        // Socket TCP/I/O timeout is "-stimeout" (microseconds).
+        if (effectiveOpts.contains(QStringLiteral("timeout"))) {
+            if (!effectiveOpts.contains(QStringLiteral("stimeout"))) {
+                effectiveOpts.insert(QStringLiteral("stimeout"), effectiveOpts.value(QStringLiteral("timeout")));
+            }
+            effectiveOpts.remove(QStringLiteral("timeout"));
+        }
+#else
+        // FFmpeg >= 5.0 (Debian 12/13, Ubuntu 24.04+, Arch, Windows FFmpeg 6/7+):
+        // "-stimeout" was deprecated/removed and replaced by "-timeout" (microseconds).
+        if (effectiveOpts.contains(QStringLiteral("stimeout"))) {
+            if (!effectiveOpts.contains(QStringLiteral("timeout"))) {
+                effectiveOpts.insert(QStringLiteral("timeout"), effectiveOpts.value(QStringLiteral("stimeout")));
+            }
+            effectiveOpts.remove(QStringLiteral("stimeout"));
+        }
+#endif
+    }
+
+    for (const auto &[key, value] : asKeyValueRange(effectiveOpts)) {
+        if (key == QLatin1String("demuxer_timeout")) {
+            continue;
+        }
+        const QString valStr = value.toString();
+        if ((key == QLatin1String("fflags") || key == QLatin1String("flags")) && valStr.isEmpty()) {
+            continue;
+        }
+        dict.set(key.toStdString(), valStr.toStdString());
         logDebug() << "Added AVFormat option: -" << key << QmlAV::Space << value;
     }
 

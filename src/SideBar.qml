@@ -27,6 +27,36 @@ FocusScope {
     property int state: SideBar.Expanded
     property int currentViewportIndex: Utils.currentLayout() ? Utils.currentLayout().focusIndex : -1
 
+    function findRecorderForViewportUrl(urlStr) {
+        var s = String(urlStr || "").trim();
+        var schemeIdx = s.indexOf("://");
+        if (schemeIdx === -1) return null;
+        var rest = s.substring(schemeIdx + 3);
+        var slashIdx = rest.indexOf("/");
+        var addrPart = slashIdx !== -1 ? rest.substring(0, slashIdx) : rest;
+        var atIdx = addrPart.lastIndexOf("@");
+        var hostPort = atIdx !== -1 ? addrPart.substring(atIdx + 1) : addrPart;
+        var vpIp = (hostPort.split(":")[0] || "").trim();
+        if (vpIp === "" || typeof rootWindow === "undefined" || !rootWindow || !rootWindow.hikvisionRecordersJson) {
+            return null;
+        }
+        try {
+            var recordersList = JSON.parse(rootWindow.hikvisionRecordersJson);
+            for (var i = 0; i < recordersList.length; ++i) {
+                var recIp = String(recordersList[i].ip || "").trim();
+                if (recIp === vpIp || recIp.split(":")[0] === vpIp) {
+                    return recordersList[i];
+                }
+            }
+        } catch (e) {}
+        return null;
+    }
+
+    function isViewportUrlRemoteRecorder(urlStr) {
+        var rec = findRecorderForViewportUrl(urlStr);
+        return !!(rec && rec.remoteRecorder);
+    }
+
     onVisibleChanged: {
         resetPathChangesCheckbox();
     }
@@ -132,6 +162,14 @@ FocusScope {
     }
 
     property var changelogData: [
+        {
+            version: "v2.7.6",
+            date: "13.11.2026",
+            changes: [
+                qsTr("LNG_00582"),
+                qsTr("LNG_00583")
+            ]
+        },
         {
             version: "v2.7.5",
             date: "29.10.2026",
@@ -1368,11 +1406,23 @@ FocusScope {
                                     }
 
                                     TextField {
-                                        text: (rootSideBar.currentViewportIndex >= 0 && Utils.currentModel()) ? getOptionsString(Utils.currentModel().get(rootSideBar.currentViewportIndex).avFormatOptions, Utils.currentModel().get(rootSideBar.currentViewportIndex).url) : ""
+                                        id: sideBarViewportAvOptionsField
+                                        property bool isRemoteVp: {
+                                            var _dep = typeof rootWindow !== "undefined" && rootWindow ? rootWindow.hikvisionRecordersJson : "";
+                                            if (rootSideBar.currentViewportIndex >= 0 && Utils.currentModel()) {
+                                                var vpObj = Utils.currentModel().get(rootSideBar.currentViewportIndex);
+                                                if (vpObj) {
+                                                    return rootSideBar.isViewportUrlRemoteRecorder(vpObj.url);
+                                                }
+                                            }
+                                            return false;
+                                        }
+                                        text: (rootSideBar.currentViewportIndex >= 0 && Utils.currentModel() && Utils.currentModel().get(rootSideBar.currentViewportIndex)) ? getOptionsString(Utils.currentModel().get(rootSideBar.currentViewportIndex).avFormatOptions, Utils.currentModel().get(rootSideBar.currentViewportIndex).url, typeof rootWindow !== "undefined" && rootWindow ? rootWindow.hikvisionRecordersJson : "") : ""
                                         selectByMouse: true
-                                        enabled: configUnlockSwitch.checked
+                                        enabled: configUnlockSwitch.checked && !isRemoteVp
                                         Layout.fillWidth: true
                                         onEditingFinished: {
+                                            if (isRemoteVp) return;
                                             if (rootSideBar.currentViewportIndex >= 0) {
                                                 var options = Utils.parseOptions(text);
                                                 var defaultAVFormatOptions = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
@@ -1391,31 +1441,39 @@ FocusScope {
                                             }
                                         }
 
-                                        function getOptionsString(options, url) {
-                                            Object.assignDefault(options, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
-                                            var uriStr = String(url || "");
-                                            var idx = uriStr.indexOf("hikvision://");
-                                            if (idx !== -1) {
-                                                var ipPort = uriStr.substring(idx + 12).split("/")[0].split("@").pop().split(":");
-                                                var vpIp = ipPort[0] || "";
-                                                var jsonStr = rootWindow.hikvisionRecordersJson;
-                                                if (jsonStr) {
-                                                    var recordersList = JSON.parse(jsonStr);
-                                                    for (var i = 0; i < recordersList.length; ++i) {
-                                                        var recIp = (recordersList[i].ip || "").trim();
-                                                        var cleanRecIp = recIp.split(":")[0];
-                                                        if (recIp === vpIp.trim() || cleanRecIp === vpIp.trim()) {
-                                                            var transport = recordersList[i].rtspTransport || "";
-                                                            if (transport === "tcp" || transport === "udp") {
-                                                                options["rtsp_transport"] = transport;
-                                                            }
-                                                            break;
-                                                        }
-                                                    }
+                                        function getOptionsString(options, url, _recordersDep) {
+                                            var rec = rootSideBar.findRecorderForViewportUrl(url);
+                                            if (rec && rec.remoteRecorder) {
+                                                var wanTransport = (rec.rtspTransport === "tcp" || rec.rtspTransport === "udp") ? rec.rtspTransport : "tcp";
+                                                return Utils.stringifyOptions({
+                                                    "analyzeduration": 3000000,
+                                                    "probesize": 2000000,
+                                                    "timeout": 15000000,
+                                                    "rw_timeout": 15000000,
+                                                    "demuxer_timeout": 20000000,
+                                                    "flags": "low_delay",
+                                                    "rtsp_transport": wanTransport
+                                                });
+                                            }
+                                            var merged = Object.assign({}, options);
+                                            Object.assignDefault(merged, layoutsCollectionSettings.toJSValue("defaultAVFormatOptions"));
+                                            if (rec) {
+                                                var transport = rec.rtspTransport || "";
+                                                if (transport === "tcp" || transport === "udp") {
+                                                    merged["rtsp_transport"] = transport;
                                                 }
                                             }
-                                            return Utils.stringifyOptions(options);
+                                            return Utils.stringifyOptions(merged);
                                         }
+                                    }
+
+                                    Text {
+                                        visible: sideBarViewportAvOptionsField.isRemoteVp
+                                        text: qsTr("LNG_00584")
+                                        color: "#00f5d4"
+                                        font.pixelSize: 10
+                                        wrapMode: Text.Wrap
+                                        Layout.fillWidth: true
                                     }
                                 }
                             }
@@ -3087,7 +3145,9 @@ FocusScope {
                                                 var layoutModel = layoutsCollectionModel.get(i);
                                                 for (var j = 0; j < layoutModel.count; ++j) {
                                                     var item = layoutModel.get(j);
-                                                    if (!item.ignoreGlobalAVFormatOptions) {
+                                                    if (rootSideBar.isViewportUrlRemoteRecorder(item.url)) {
+                                                        item.avFormatOptions = {};
+                                                    } else if (!item.ignoreGlobalAVFormatOptions) {
                                                         item.avFormatOptions = opts;
                                                     }
                                                 }

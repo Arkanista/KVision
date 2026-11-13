@@ -61,7 +61,7 @@ void QmlAVDemuxer::load(const QUrl &url, const QmlAVOptions &avOptions)
     emit mediaStatusChanged(QMediaPlayer::LoadingMedia);
 
     m_loaderThread = QmlAVThread::run([=]() mutable {
-        AVDictionaryPtr dict = static_cast<AVDictionaryPtr>(avOptions);
+        AVDictionaryPtr dict = avOptions.toAVDictionary(url);
         ret = avformat_open_input(&m_context->avFormatCtx,
                                   source.toUtf8(),
                                   avOptions.avInputFormat(),

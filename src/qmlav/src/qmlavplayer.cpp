@@ -65,8 +65,17 @@ void QmlAVPlayer::play()
 
 void QmlAVPlayer::stop()
 {
-    setStatus(QMediaPlayer::NoMedia);
-    
+    stopInternal(true);
+}
+
+void QmlAVPlayer::stopInternal(bool resetStatusToNoMedia)
+{
+    m_playTimer.stop();
+
+    if (resetStatusToNoMedia) {
+        setStatus(QMediaPlayer::NoMedia);
+    }
+
     bool wasStopped = (m_playbackState == QMediaPlayer::StoppedState);
     if (!wasStopped) {
         qDebug() << "[QmlAVPlayer]" << this << "stop() called from state:" << m_playbackState << "source:" << m_source.toDisplayString();
@@ -369,12 +378,15 @@ void QmlAVPlayer::stateMachine()
         case QMediaPlayer::NoMedia:
         case QMediaPlayer::EndOfMedia:
         case QMediaPlayer::InvalidMedia: {
-            // Internal demuxer interrupt
+            // Internal demuxer interrupt: preserve InvalidMedia/EndOfMedia status so QML OSD and error handlers see the real failure state
             if (m_demuxer) {
-                stop();
+                const QMediaPlayer::MediaStatus terminalStatus = m_status;
+                stopInternal(terminalStatus == QMediaPlayer::NoMedia);
 
-                if (m_loops == -1 /*MediaPlayer.Infinite*/) {
-                    m_playTimer.start(1000);
+                if (m_loops == -1 /*MediaPlayer.Infinite*/
+                        && terminalStatus == QMediaPlayer::EndOfMedia
+                        && (m_source.isLocalFile() || m_source.scheme().isEmpty())) {
+                    m_playTimer.start(200);
                 }
             }
 

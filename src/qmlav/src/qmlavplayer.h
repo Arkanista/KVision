@@ -57,6 +57,7 @@ public slots:
 
 protected:
     bool load();
+    void stopInternal(bool resetStatusToNoMedia);
     void stateMachine();
     void reset();
 

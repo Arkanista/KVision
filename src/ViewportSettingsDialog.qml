@@ -16,6 +16,32 @@ Dialog {
     bottomPadding: 16
 
     property int index: -1
+    property bool isRemoteRecorderViewport: false
+
+    function findRecorderForUrl(urlStr) {
+        var s = String(urlStr || "").trim();
+        var schemeIdx = s.indexOf("://");
+        if (schemeIdx === -1) return null;
+        var rest = s.substring(schemeIdx + 3);
+        var slashIdx = rest.indexOf("/");
+        var addrPart = slashIdx !== -1 ? rest.substring(0, slashIdx) : rest;
+        var atIdx = addrPart.lastIndexOf("@");
+        var hostPort = atIdx !== -1 ? addrPart.substring(atIdx + 1) : addrPart;
+        var vpIp = (hostPort.split(":")[0] || "").trim();
+        if (vpIp === "" || typeof rootWindow === "undefined" || !rootWindow || !rootWindow.hikvisionRecordersJson) {
+            return null;
+        }
+        try {
+            var recordersList = JSON.parse(rootWindow.hikvisionRecordersJson);
+            for (var i = 0; i < recordersList.length; ++i) {
+                var recIp = String(recordersList[i].ip || "").trim();
+                if (recIp === vpIp || recIp.split(":")[0] === vpIp) {
+                    return recordersList[i];
+                }
+            }
+        } catch (e) {}
+        return null;
+    }
 
     background: Rectangle {
         color: "#1c242c"
@@ -102,6 +128,10 @@ Dialog {
                         color: "white"
                         font.pixelSize: 12
                         placeholderText: "rtsp://..."
+                        onTextChanged: {
+                            var rec = viewportSettingsDialog.findRecorderForUrl(text);
+                            viewportSettingsDialog.isRemoteRecorderViewport = !!(rec && rec.remoteRecorder);
+                        }
                         background: Rectangle {
                             color: "#0f151b"
                             radius: 4
@@ -170,20 +200,32 @@ Dialog {
                     TextField {
                         id: channelAVFormatOptions
                         selectByMouse: true
+                        enabled: !viewportSettingsDialog.isRemoteRecorderViewport
                         Layout.fillWidth: true
-                        color: "white"
+                        color: enabled ? "white" : "#7c8b99"
                         font.pixelSize: 12
                         background: Rectangle {
-                            color: "#0f151b"
+                            color: channelAVFormatOptions.enabled ? "#0f151b" : "#12171d"
                             radius: 4
                             border.color: channelAVFormatOptions.activeFocus ? "#ff7a00" : "#2a3540"
                         }
                     }
 
+                    Text {
+                        visible: viewportSettingsDialog.isRemoteRecorderViewport
+                        text: qsTr("LNG_00584")
+                        color: "#00f5d4"
+                        font.pixelSize: 10
+                        wrapMode: Text.Wrap
+                        Layout.fillWidth: true
+                    }
+
                     CheckBox {
                         id: channelIgnoreGlobalAVFormatOptions
                         text: qsTr("LNG_00460")
+                        enabled: !viewportSettingsDialog.isRemoteRecorderViewport
                         checked: false
+                        opacity: enabled ? 1.0 : 0.45
                         contentItem: Text {
                             text: channelIgnoreGlobalAVFormatOptions.text
                             font.pixelSize: 12
@@ -274,42 +316,45 @@ Dialog {
                 primaryUrlField.text = item.url;
                 secondaryUrlField.text = item.secondaryUrl;
 
-                var options = Object.assign({}, item.avFormatOptions);
-                if (Object.keys(options).length === 0) {
-                    options = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
-                }
-                
-                var uriStr = String(item.url || "");
-                var idx = uriStr.indexOf("hikvision://");
-                if (idx !== -1) {
-                    var ipPort = uriStr.substring(idx + 12).split("/")[0].split("@").pop().split(":");
-                    var vpIp = ipPort[0] || "";
-                    var jsonStr = rootWindow.hikvisionRecordersJson;
-                    if (jsonStr) {
-                        var recordersList = JSON.parse(jsonStr);
-                        for (var i = 0; i < recordersList.length; ++i) {
-                            var recIp = (recordersList[i].ip || "").trim();
-                            var cleanRecIp = recIp.split(":")[0];
-                            if (recIp === vpIp.trim() || cleanRecIp === vpIp.trim()) {
-                                var transport = recordersList[i].rtspTransport || "";
-                                if (transport === "tcp" || transport === "udp") {
-                                    options["rtsp_transport"] = transport;
-                                }
-                                break;
-                            }
+                var rec = findRecorderForUrl(item.url);
+                isRemoteRecorderViewport = !!(rec && rec.remoteRecorder);
+
+                var options = {};
+                if (isRemoteRecorderViewport) {
+                    var wanTransport = (rec && (rec.rtspTransport === "tcp" || rec.rtspTransport === "udp")) ? rec.rtspTransport : "tcp";
+                    options = {
+                        "analyzeduration": 3000000,
+                        "probesize": 2000000,
+                        "timeout": 15000000,
+                        "rw_timeout": 15000000,
+                        "demuxer_timeout": 20000000,
+                        "flags": "low_delay",
+                        "rtsp_transport": wanTransport
+                    };
+                } else {
+                    options = Object.assign({}, item.avFormatOptions);
+                    if (Object.keys(options).length === 0) {
+                        options = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
+                    }
+                    if (rec) {
+                        var transport = rec.rtspTransport || "";
+                        if (transport === "tcp" || transport === "udp") {
+                            options["rtsp_transport"] = transport;
                         }
                     }
                 }
-                
+
                 channelAVFormatOptions.text = Utils.stringifyOptions(options);
                 channelIgnoreGlobalAVFormatOptions.checked = item.ignoreGlobalAVFormatOptions;
             } else {
+                isRemoteRecorderViewport = false;
                 primaryUrlField.text = "";
                 secondaryUrlField.text = "";
                 channelAVFormatOptions.text = "";
                 channelIgnoreGlobalAVFormatOptions.checked = false;
             }
         } else {
+            isRemoteRecorderViewport = false;
             primaryUrlField.text = "";
             secondaryUrlField.text = "";
             channelAVFormatOptions.text = "";
@@ -323,6 +368,12 @@ Dialog {
             if (item) {
                 item.url = primaryUrlField.text;
                 item.secondaryUrl = secondaryUrlField.text;
+
+                if (isRemoteRecorderViewport) {
+                    item.avFormatOptions = {};
+                    item.ignoreGlobalAVFormatOptions = false;
+                    return;
+                }
 
                 var options = Utils.parseOptions(channelAVFormatOptions.text);
                 var defaultOpts = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");

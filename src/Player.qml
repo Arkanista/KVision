@@ -81,6 +81,11 @@ FocusScope {
     property int httpPort: 80
     property int rtspPort: 554
     property string rtspTransport: ""
+    property bool isRemoteRecorder: false
+    property bool rtspPortUnreachable: false
+    property int reconnectAttempts: 0
+    property int consecutiveSubStreamFailures: 0
+    property bool subStreamEverPresented: false
     property string username: ""
     property string password: ""
     property int channelId: 1
@@ -142,17 +147,36 @@ FocusScope {
     }
 
     Timer {
+        id: staggerStartTimer
+        interval: 200
+        repeat: false
+        property string pendingUrl: ""
+        property bool pendingIsSub: false
+        onTriggered: {
+            if (!root.visible || root.isQuickPlayback || pendingUrl === "" || pendingUrl !== root.activeStreamUrl) {
+                updateMessageText();
+                return;
+            }
+            qmlAvPlayer1.isSubStreamOfPlayer = pendingIsSub;
+            qmlAvPlayer1.source = pendingUrl;
+            qmlAvPlayer1.play();
+            updateMessageText();
+        }
+    }
+
+    Timer {
         id: autoReconnectTimer
         interval: 5000
-        repeat: true
+        repeat: false
         onTriggered: {
             if (activeStreamUrl !== "" && !root.isQuickPlayback) {
                 var activePlayer = activePlayerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
-                if (activePlayer.status === MediaPlayer.LoadingMedia || activePlayer.status === MediaPlayer.LoadedMedia) {
-                    console.log("[Player] Stream is still loading/loaded, skipping reconnect.");
+                if (activePlayer.status === MediaPlayer.LoadingMedia || activePlayer.status === MediaPlayer.LoadedMedia || activePlayer.status === MediaPlayer.Buffered) {
+                    console.log("[Player] Stream is already loading/loaded, skipping reconnect.");
                     return;
                 }
-                console.log("[Player] Auto-reconnecting stream: " + activeCameraId);
+                root.reconnectAttempts = Math.min(root.reconnectAttempts + 1, 4);
+                console.log("[Player] Auto-reconnecting stream: " + activeCameraId + " (attempt " + root.reconnectAttempts + ")");
                 activePlayer.source = "";
                 activePlayer.source = activeStreamUrl;
                 activePlayer.play();
@@ -206,6 +230,7 @@ FocusScope {
                 "sdkPort": sdkPort || recorderPort || 8000,
                 "httpPort": httpPort || 80,
                 "rtspPort": rtspPort || 554,
+                "remoteRecorder": isRemoteRecorder,
                 "username": username,
                 "password": password
             };
@@ -349,6 +374,9 @@ FocusScope {
 
     function updateSource() {
         if (!root.visible || root.isQuickPlayback) {
+            staggerStartTimer.stop();
+            staggerStartTimer.pendingUrl = "";
+            autoReconnectTimer.stop();
             qmlAvPlayer1.source = "";
             qmlAvPlayer1.isSubStreamOfPlayer = false;
             qmlAvPlayer2.source = "";
@@ -383,6 +411,9 @@ FocusScope {
         }
 
         if (newUrl === "") {
+            staggerStartTimer.stop();
+            staggerStartTimer.pendingUrl = "";
+            autoReconnectTimer.stop();
             qmlAvPlayer1.source = "";
             qmlAvPlayer1.isSubStreamOfPlayer = false;
             qmlAvPlayer2.source = "";
@@ -397,6 +428,9 @@ FocusScope {
         var inactivePlayer = activePlayerIndex === 1 ? qmlAvPlayer2 : qmlAvPlayer1;
 
         if (activeStreamUrl === newUrl) {
+            if (staggerStartTimer.running && staggerStartTimer.pendingUrl === newUrl) {
+                return;
+            }
             if (activePlayer.source === newUrl) {
                 activePlayer.play();
             }
@@ -407,6 +441,8 @@ FocusScope {
 
         if (isSameCamera) {
             console.log("[Player] Seamless switch quality of camera " + newCameraId + " to URL: " + newUrl);
+            staggerStartTimer.stop();
+            staggerStartTimer.pendingUrl = "";
             inactivePlayer.muted = true; // Keep inactive player muted during loading
             inactivePlayer.isSubStreamOfPlayer = root.isSubStream;
             inactivePlayer.source = newUrl;
@@ -415,14 +451,34 @@ FocusScope {
         } else {
             console.log("[Player] Different camera: switching immediately to URL: " + newUrl);
             seamlessSwitchTimer.stop();
+            staggerStartTimer.stop();
+            autoReconnectTimer.stop();
+            if (newCameraId !== activeCameraId) {
+                root.reconnectAttempts = 0;
+                root.consecutiveSubStreamFailures = 0;
+                root.subStreamEverPresented = false;
+                root.rtspPortUnreachable = false;
+            }
             activePlayerIndex = 1;
             qmlAvPlayer2.source = "";
             qmlAvPlayer2.isSubStreamOfPlayer = false;
-            qmlAvPlayer1.isSubStreamOfPlayer = root.isSubStream;
-            qmlAvPlayer1.source = newUrl;
-            qmlAvPlayer1.play();
             activeStreamUrl = newUrl;
             activeCameraId = newCameraId;
+
+            if (root.isRemoteRecorder && root.index > 0) {
+                qmlAvPlayer1.source = "";
+                qmlAvPlayer1.isSubStreamOfPlayer = root.isSubStream;
+                staggerStartTimer.pendingUrl = newUrl;
+                staggerStartTimer.pendingIsSub = root.isSubStream;
+                staggerStartTimer.interval = Math.min((root.index % 16) * 200, 3000);
+                staggerStartTimer.start();
+                updateMessageText();
+            } else {
+                staggerStartTimer.pendingUrl = "";
+                qmlAvPlayer1.isSubStreamOfPlayer = root.isSubStream;
+                qmlAvPlayer1.source = newUrl;
+                qmlAvPlayer1.play();
+            }
         }
     }
 
@@ -450,9 +506,24 @@ FocusScope {
 
     function handlePlayerStatus(playerIndex, status) {
         if (status === MediaPlayer.InvalidMedia || status === MediaPlayer.EndOfMedia) {
+            if (status === MediaPlayer.InvalidMedia && root.isHikvision && root.recorderIp !== "") {
+                if (typeof HikvisionManager !== "undefined") {
+                    HikvisionManager.checkRtspPortAsync(root.recorderIp, root.rtspPort || 554);
+                }
+                if (!root.subStreamEverPresented && !root.rtspPortUnreachable) {
+                    var failedSub = playerIndex === 1 ? qmlAvPlayer1.isSubStreamOfPlayer : qmlAvPlayer2.isSubStreamOfPlayer;
+                    if (failedSub) {
+                        root.consecutiveSubStreamFailures += 1;
+                    }
+                }
+            }
             if (playerIndex === activePlayerIndex && activeStreamUrl !== "" && !root.isQuickPlayback) {
                 if (!autoReconnectTimer.running) {
-                    console.log("[Player] Stream lost connection. Starting auto-reconnect timer.");
+                    var backoffMs = root.isRemoteRecorder
+                                  ? Math.min(3000 * Math.pow(2, root.reconnectAttempts), 15000)
+                                  : 5000;
+                    autoReconnectTimer.interval = backoffMs;
+                    console.log("[Player] Stream lost connection. Starting auto-reconnect timer (" + backoffMs + " ms).");
                     autoReconnectTimer.start();
                 }
             }
@@ -461,12 +532,20 @@ FocusScope {
                 autoReconnectTimer.stop();
             }
 
-            if ((status === MediaPlayer.LoadedMedia || status === MediaPlayer.Buffered) && root.isHikvision && typeof HikvisionManager !== "undefined") {
-                var isSub = playerIndex === 1 ? qmlAvPlayer1.isSubStreamOfPlayer : qmlAvPlayer2.isSubStreamOfPlayer;
-                if (!isSub) {
-                    console.log("[Player] Stream " + (status === MediaPlayer.LoadedMedia ? "Loaded" : "Buffered") + ". Forcing I-Frame on camera: " + root.channelId);
-                    HikvisionManager.forceIFrame(root.recorderIp, root.recorderPort || 8000, root.username, root.password, root.channelId);
+            if (status === MediaPlayer.Buffered) {
+                root.reconnectAttempts = 0;
+                root.rtspPortUnreachable = false;
+                var curSub = playerIndex === 1 ? qmlAvPlayer1.isSubStreamOfPlayer : qmlAvPlayer2.isSubStreamOfPlayer;
+                if (curSub) {
+                    root.subStreamEverPresented = true;
+                    root.consecutiveSubStreamFailures = 0;
                 }
+            }
+
+            if (status === MediaPlayer.LoadedMedia && root.isHikvision && typeof HikvisionManager !== "undefined") {
+                var isSub = playerIndex === 1 ? qmlAvPlayer1.isSubStreamOfPlayer : qmlAvPlayer2.isSubStreamOfPlayer;
+                console.log("[Player] Stream Loaded. Requesting I-Frame on camera: " + root.channelId + " (sub=" + isSub + ")");
+                HikvisionManager.forceIFrame(root.recorderIp, root.sdkPort || root.recorderPort || 8000, root.username, root.password, root.channelId, isSub);
             }
         }
 
@@ -497,6 +576,10 @@ FocusScope {
     }
 
     function updateMessageText() {
+        if (staggerStartTimer.running) {
+            message.text = qsTr("LNG_00199");
+            return;
+        }
         var activePlayer = activePlayerIndex === 1 ? qmlAvPlayer1 : qmlAvPlayer2;
         switch (activePlayer.status) {
         case MediaPlayer.NoMedia:
@@ -519,8 +602,14 @@ FocusScope {
             root.isRestoringLiveView = false;
             break;
         case MediaPlayer.EndOfMedia:
-        case MediaPlayer.InvalidMedia:
             message.text = qsTr("LNG_00195");
+            break;
+        case MediaPlayer.InvalidMedia:
+            if (root.isHikvision && root.rtspPortUnreachable) {
+                message.text = qsTr("LNG_00581").arg(root.rtspPort || 554);
+            } else {
+                message.text = qsTr("LNG_00195");
+            }
             break;
         default:
             message.text = "";
@@ -565,6 +654,9 @@ FocusScope {
             }
         } else {
             timer.stop();
+            staggerStartTimer.stop();
+            staggerStartTimer.pendingUrl = "";
+            autoReconnectTimer.stop();
             qmlAvPlayer1.autoPlay = false;
             qmlAvPlayer2.autoPlay = false;
             qmlAvPlayer1.source = "";
@@ -656,6 +748,7 @@ FocusScope {
             "sdkPort": root.sdkPort || root.recorderPort || 8000,
             "httpPort": root.httpPort || 80,
             "rtspPort": root.rtspPort || 554,
+            "remoteRecorder": root.isRemoteRecorder,
             "username": root.username,
             "password": root.password
         };
@@ -671,6 +764,9 @@ FocusScope {
             console.log("[MEM-TRACK] Destroyed Player.qml component (index: " + index + ")");
         }
         timer.stop();
+        staggerStartTimer.stop();
+        staggerStartTimer.pendingUrl = "";
+        autoReconnectTimer.stop();
         qmlAvPlayer1.autoPlay = false;
         qmlAvPlayer2.autoPlay = false;
         qmlAvPlayer1.source = "";
@@ -820,7 +916,8 @@ FocusScope {
             id: messageContainer
             
             property int activeStatus: activePlayerIndex === 1 ? qmlAvPlayer1.status : qmlAvPlayer2.status
-            property bool isError: activeStatus === MediaPlayer.InvalidMedia || activeStatus === MediaPlayer.EndOfMedia || activeStatus === MediaPlayer.NoMedia
+            property bool isPendingStagger: staggerStartTimer.running
+            property bool isError: !isPendingStagger && (activeStatus === MediaPlayer.InvalidMedia || activeStatus === MediaPlayer.EndOfMedia || activeStatus === MediaPlayer.NoMedia)
             property string themeColor: isError ? "#e74c3c" : "#00f5d4"
             property string themeIcon: isError ? "\u26A0" : "\u21BB"
             
@@ -907,6 +1004,16 @@ FocusScope {
                         avOpts[k] = root.avOptions[k];
                     }
                 }
+                if (root.isRemoteRecorder) {
+                    avOpts["analyzeduration"] = 3000000;
+                    avOpts["probesize"] = 2000000;
+                    avOpts["stimeout"] = 15000000;
+                    avOpts["timeout"] = 15000000;
+                    avOpts["rw_timeout"] = 15000000;
+                    avOpts["demuxer_timeout"] = 20000000;
+                    avOpts["rtsp_transport"] = "tcp";
+                    delete avOpts["fflags"];
+                }
                 if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
                     avOpts["allowed_media_types"] = "video";
                 }
@@ -955,6 +1062,16 @@ FocusScope {
                     for (var k2 in root.avOptions) {
                         avOpts2[k2] = root.avOptions[k2];
                     }
+                }
+                if (root.isRemoteRecorder) {
+                    avOpts2["analyzeduration"] = 3000000;
+                    avOpts2["probesize"] = 2000000;
+                    avOpts2["stimeout"] = 15000000;
+                    avOpts2["timeout"] = 15000000;
+                    avOpts2["rw_timeout"] = 15000000;
+                    avOpts2["demuxer_timeout"] = 20000000;
+                    avOpts2["rtsp_transport"] = "tcp";
+                    delete avOpts2["fflags"];
                 }
                 if (typeof generalSettings !== "undefined" && generalSettings.disableAudio) {
                     avOpts2["allowed_media_types"] = "video";
@@ -2060,6 +2177,9 @@ FocusScope {
 //    function pause() { mediaPlayer.pause(); }
 //    function seek(position) { mediaPlayer.seek(position); }
     function stop() {
+        staggerStartTimer.stop();
+        staggerStartTimer.pendingUrl = "";
+        autoReconnectTimer.stop();
         qmlAvPlayer1.source = "";
         qmlAvPlayer1.isSubStreamOfPlayer = false;
         qmlAvPlayer2.source = "";
@@ -2135,6 +2255,8 @@ FocusScope {
         recorderPort = 8000;
         httpPort = 80;
         rtspPort = explicitPort > 0 ? explicitPort : 554;
+        rtspTransport = "";
+        isRemoteRecorder = false;
         try {
             var jsonStr = rootWindow.hikvisionRecordersJson;
             if (jsonStr) {
@@ -2149,6 +2271,7 @@ FocusScope {
                         httpPort = parseInt(rec.httpPort || (rec.port == 8000 ? 80 : rec.port)) || 80;
                         rtspPort = parseInt(rec.rtspPort) || explicitPort || 554;
                         rtspTransport = rec.rtspTransport || "";
+                        isRemoteRecorder = !!rec.remoteRecorder;
                         if (!username && rec.username) username = rec.username;
                         if (!password && rec.password) password = rec.password;
                         break;
@@ -2206,6 +2329,8 @@ FocusScope {
         recorderPort = sdkPort;
         httpPort = 80;
         rtspPort = 554;
+        rtspTransport = "";
+        isRemoteRecorder = false;
         try {
             var jsonStr2 = rootWindow.hikvisionRecordersJson;
             if (jsonStr2) {
@@ -2220,6 +2345,7 @@ FocusScope {
                         httpPort = parseInt(rec2.httpPort || (rec2.port == 8000 ? 80 : rec2.port)) || 80;
                         rtspPort = parseInt(rec2.rtspPort) || 554;
                         rtspTransport = rec2.rtspTransport || "";
+                        isRemoteRecorder = !!rec2.remoteRecorder;
                         if (!username && rec2.username) username = rec2.username;
                         if (!password && rec2.password) password = rec2.password;
                         break;
@@ -2232,9 +2358,22 @@ FocusScope {
     }
 
     Connections {
+        target: (typeof HikvisionManager !== "undefined") ? HikvisionManager : null
+        function onRtspPortChecked(ip, port, open) {
+            if (root.isHikvision && ip === root.recorderIp && port === (root.rtspPort || 554)) {
+                root.rtspPortUnreachable = !open;
+                if (!open) {
+                    root.consecutiveSubStreamFailures = 0;
+                }
+                root.updateMessageText();
+            }
+        }
+    }
+
+    Connections {
         target: (typeof rootWindow !== "undefined") ? rootWindow : null
         function onHikvisionRecordersJsonChanged() {
-            if (root.isHikvision) {
+            if (root.isHikvision || String(root.source).indexOf("rtsp://") === 0) {
                 updateSource();
             }
         }
