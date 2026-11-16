@@ -1,7 +1,7 @@
 Source: kvision
 Section: video
 Priority: optional
-Maintainer: Arkanista
+Maintainer: Arkanista <68946052+Arkanista@users.noreply.github.com>
 Build-Depends: debhelper (>= 12~),
                libva-dev,
                libgl-dev,
