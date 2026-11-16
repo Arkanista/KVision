@@ -1,0 +1,17 @@
+name: Release Tag Packages
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  deb:
+    uses: ./.github/workflows/build-deb.yml
+  appimage:
+    uses: ./.github/workflows/build-appimage.yml
+  windows:
+    uses: ./.github/workflows/build-windows.yml
