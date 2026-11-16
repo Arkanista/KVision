@@ -20,7 +20,7 @@ struct AVCodecContext;
 struct AVFrame;
 struct SwsContext;
 
-// Worker that runs on a background thread to fetch a single RTSP frame
+// Worker that fetches a single recorder frame on a background thread
 class ThumbnailFetchWorker : public QObject
 {
     Q_OBJECT
@@ -30,6 +30,7 @@ public:
 
 public slots:
     void fetchFrame(const QString &rtspUrl, const QString &cacheKey, int timeoutMs);
+    void fetchSdkFrame(const QVariantMap &recorderInfo, int channelId, const QString &cacheKey);
 
 signals:
     void frameFetched(const QString &cacheKey, const QImage &image);
@@ -61,6 +62,7 @@ signals:
 
     // Internal signal to dispatch work to the worker thread
     void startFetch(const QString &rtspUrl, const QString &cacheKey, int timeoutMs);
+    void startSdkFetch(const QVariantMap &recorderInfo, int channelId, const QString &cacheKey);
 
 private slots:
     void onFrameFetched(const QString &cacheKey, const QImage &image);
@@ -71,8 +73,13 @@ private:
     struct FetchRequest {
         QString rtspUrl;
         QString cacheKey;
-        int timeoutMs;
+        int timeoutMs = 0;
+        QVariantMap recorderInfo;
+        int channelId = 0;
+        bool useSdkMedia = false;
     };
+
+    void enqueueSdkThumbnail(const QVariantMap &recorderInfo, int channelId, const QString &cacheKey, bool prepend = false);
 
     mutable QMutex m_cacheMutex;
     QHash<QString, QImage> m_cache;

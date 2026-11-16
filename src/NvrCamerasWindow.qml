@@ -49,6 +49,7 @@ Window {
             "rtspPort": recorder.rtspPort || 554,
             "username": recorder.username,
             "password": recorder.password,
+            "useSdkMedia": !!recorder.useSdkMedia,
             "cameras": recorder.cameras || []
         };
         ThumbnailProvider.generateThumbnails(recMap);
@@ -505,7 +506,8 @@ Window {
                                                     "httpPort": recorder.httpPort || (recorder.port == 8000 ? 80 : recorder.port) || 80,
                                                     "rtspPort": recorder.rtspPort || 554,
                                                     "username": recorder.username,
-                                                    "password": recorder.password
+                                                    "password": recorder.password,
+                                                    "useSdkMedia": !!recorder.useSdkMedia
                                                 },
                                                 modelData.channelId
                                             );

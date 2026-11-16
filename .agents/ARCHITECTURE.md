@@ -25,8 +25,8 @@ KVision is a multi-monitor, high-performance Video Management System (VMS) clien
 +--------------------------------------+   +--------------------------------------------+
 |        QmlAV Multimedia Engine       |   |       Hikvision Subsystem (SDK & ISAPI)    |
 | - QmlAVDemuxer (libavformat)         |   | - HikvisionManager (Session pooling & PTZ) |
-| - QmlAVDecoder (libavcodec / HW)     |   | - HikvisionPlayer (Live SDK stream)        |
-| - QmlAVAudioIODevice (QAudioOutput)  |   | - HikvisionArchivePlayer (DecCallBack YV12)|
+| - QmlAVDecoder (libavcodec / HW)     |   | - HikvisionArchivePlayer (SDK archive & live preview) |
+| - QmlAVAudioIODevice (QAudioOutput)  |   | - HikvisionPlayer (mock preview overlay)              |
 | - QmlAVHWOutput (VAAPI / GLX / CUDA) |   | - HikvisionISAPI (Digest Auth REST Search) |
 | - Frame Queues & Zero-Latency Sync   |   | - HikvisionDownloader (SDK GetFileByTime)  |
 +--------------------------------------+   +--------------------------------------------+

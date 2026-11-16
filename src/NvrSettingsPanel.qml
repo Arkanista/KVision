@@ -125,7 +125,8 @@ ColumnLayout {
                 password: passField.text,
                 cameras: cameras,
                 rtspTransport: rtspTransport,
-                remoteRecorder: remoteRecorderCheckBox.checked
+                remoteRecorder: remoteRecorderCheckBox.checked,
+                useSdkMedia: useSdkMediaCheckBox.checked
             };
 
             if (rootPanel.editingIndex === -1) {
@@ -237,11 +238,16 @@ ColumnLayout {
             passField.text = "";
             rtspTransportField.currentIndex = 0;
             remoteRecorderCheckBox.checked = false;
+            useSdkMediaCheckBox.checked = false;
             rootPanel.hasPortTestResult = false;
             rootPanel.statusMessage = "";
-            rootPanel.lastDiscoveredIp = ip;
-            rootPanel.lastDiscoveredRtspPort = rtspP;
-            HikvisionManager.checkRtspPortAsync(ip, rtspP);
+            if (newRecorder.useSdkMedia) {
+                rootPanel.lastDiscoveredIp = "";
+            } else {
+                rootPanel.lastDiscoveredIp = ip;
+                rootPanel.lastDiscoveredRtspPort = rtspP;
+                HikvisionManager.checkRtspPortAsync(ip, rtspP);
+            }
         }
     }
 
@@ -607,6 +613,12 @@ ColumnLayout {
                 ToolTip.text: qsTr("LNG_00570")
             }
 
+            CheckBox {
+                id: useSdkMediaCheckBox
+                text: qsTr("Use SDK instead of RTSP")
+                Layout.fillWidth: true
+            }
+
             Button {
                 id: testPortsBtn
                 text: rootPanel.isTestingPorts ? qsTr("LNG_00572") : qsTr("LNG_00571")
@@ -664,7 +676,7 @@ ColumnLayout {
                     rootPanel.testedRtspPort = rtspP;
                     rootPanel.statusMessage = "";
                     rootPanel.isTestingPorts = true;
-                    HikvisionManager.testPortsAsync(ip, sdkP, httpP, rtspP);
+                    HikvisionManager.testPortsAsync(ip, sdkP, httpP, rtspP, !useSdkMediaCheckBox.checked);
                 }
             }
 
@@ -675,7 +687,9 @@ ColumnLayout {
                 implicitHeight: portTestResultCol.implicitHeight + 14
                 color: "#0f151b"
                 radius: 4
-                border.color: (!rootPanel.testedRtspOpen || !rootPanel.testedSdkOpen) ? "#ff4d4d" : "#2a3540"
+                border.color: (!rootPanel.testedSdkOpen
+                               || (!useSdkMediaCheckBox.checked && !rootPanel.testedRtspOpen))
+                              ? "#ff4d4d" : "#2a3540"
                 border.width: 1
 
                 ColumnLayout {
@@ -709,15 +723,24 @@ ColumnLayout {
                             width: 8
                             height: 8
                             radius: 4
-                            color: rootPanel.testedRtspOpen ? "#00ff66" : "#ff4d4d"
+                            color: useSdkMediaCheckBox.checked
+                                   ? "#8898a6"
+                                   : (rootPanel.testedRtspOpen ? "#00ff66" : "#ff4d4d")
                         }
                         Text {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
                             font.pixelSize: 10
-                            font.bold: !rootPanel.testedRtspOpen
-                            color: rootPanel.testedRtspOpen ? "#d8f8e5" : "#ff6666"
-                            text: "RTSP (" + rootPanel.testedRtspPort + "): " + (rootPanel.testedRtspOpen ? qsTr("LNG_00576").arg(rootPanel.testedRtspMs) : qsTr("LNG_00577"))
+                            font.bold: !useSdkMediaCheckBox.checked && !rootPanel.testedRtspOpen
+                            color: useSdkMediaCheckBox.checked
+                                   ? "#8898a6"
+                                   : (rootPanel.testedRtspOpen ? "#d8f8e5" : "#ff6666")
+                            text: "RTSP (" + rootPanel.testedRtspPort + "): "
+                                  + (useSdkMediaCheckBox.checked
+                                     ? qsTr("Not required when SDK media is enabled")
+                                     : (rootPanel.testedRtspOpen
+                                        ? qsTr("LNG_00576").arg(rootPanel.testedRtspMs)
+                                        : qsTr("LNG_00577")))
                         }
                     }
 
@@ -848,6 +871,7 @@ ColumnLayout {
                         passField.text = "";
                         rtspTransportField.currentIndex = 0;
                         remoteRecorderCheckBox.checked = false;
+                        useSdkMediaCheckBox.checked = false;
                         rootPanel.hasPortTestResult = false;
                         rootPanel.statusMessage = "";
                     }
@@ -1067,6 +1091,7 @@ ColumnLayout {
                             rtspPortField.text = modelData.rtspPort || "554";
                             userField.text = modelData.username;
                             passField.text = modelData.password;
+                            useSdkMediaCheckBox.checked = !!modelData.useSdkMedia;
                             
                             if (modelData.rtspTransport === "tcp") {
                                 rtspTransportField.currentIndex = 1;

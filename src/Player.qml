@@ -82,6 +82,7 @@ FocusScope {
     property int rtspPort: 554
     property string rtspTransport: ""
     property bool isRemoteRecorder: false
+    property bool useSdkMedia: false
     property bool rtspPortUnreachable: false
     property int reconnectAttempts: 0
     property int consecutiveSubStreamFailures: 0
@@ -111,6 +112,19 @@ FocusScope {
         interval: 3000
         repeat: false
         onTriggered: root.isRestoringLiveView = false
+    }
+
+    Timer {
+        id: sdkLiveStartTimeout
+        interval: 15000
+        repeat: false
+        onTriggered: {
+            var sdkPlayer = sdkLivePlayerLoader.item;
+            if (sdkPlayer && sdkPlayer.isPlaying && !sdkPlayer.hasReceivedFrames()) {
+                sdkPlayer.playerStatusMessage = qsTr("SDK preview started but no video frames arrived.");
+                sdkPlayer.stop();
+            }
+        }
     }
 
     Timer {
@@ -398,7 +412,7 @@ FocusScope {
             newUrl = source;
             newCameraId = "viewport_" + root.index;
         } else {
-            if (hikPlayerSettings.useRealStreams) {
+            if (!root.useSdkMedia && hikPlayerSettings.useRealStreams) {
                 var streamSuffix = isSubStream ? "02" : "01";
                 var rPort = rtspPort || 554;
                 var creds = "";
@@ -421,6 +435,10 @@ FocusScope {
             activeStreamUrl = "";
             activeCameraId = "";
             seamlessSwitchTimer.stop();
+            if (root.isHikvision && root.useSdkMedia && root.visible
+                    && !root.isQuickPlayback && sdkLivePlayerLoader.item) {
+                sdkLivePlayerLoader.item.startLive(root.isSubStream ? 1 : 0);
+            }
             return;
         }
 
@@ -584,6 +602,17 @@ FocusScope {
     }
 
     function updateMessageText() {
+        if (root.isHikvision && root.useSdkMedia && !root.isQuickPlayback) {
+            var sdkPlayer = sdkLivePlayerLoader.item;
+            if (!sdkPlayer) {
+                message.text = qsTr("LNG_00199");
+            } else if (sdkPlayer.hasReceivedFrames()) {
+                message.text = "";
+            } else {
+                message.text = sdkPlayer.playerStatusMessage || qsTr("LNG_00199");
+            }
+            return;
+        }
         if (staggerStartTimer.running) {
             message.text = qsTr("LNG_00199");
             return;
@@ -627,9 +656,15 @@ FocusScope {
 
     property bool muted: false
     property double volume: 1.0
-    readonly property bool hasAudio: (typeof generalSettings !== "undefined" && generalSettings.disableAudio) ? false : (activePlayerIndex === 1 ? qmlAvPlayer1.hasAudio : qmlAvPlayer2.hasAudio)
+    readonly property bool hasAudio: (typeof generalSettings !== "undefined" && generalSettings.disableAudio)
+                                     ? false
+                                     : (root.useSdkMedia ? true
+                                        : (activePlayerIndex === 1 ? qmlAvPlayer1.hasAudio : qmlAvPlayer2.hasAudio))
 
     onMutedChanged: {
+        if (sdkLivePlayerLoader.item) {
+            sdkLivePlayerLoader.item.muted = muted;
+        }
         if (activePlayerIndex === 1) {
             qmlAvPlayer1.muted = muted;
             qmlAvPlayer2.muted = true;
@@ -642,6 +677,9 @@ FocusScope {
     onVolumeChanged: {
         qmlAvPlayer1.volume = volume;
         qmlAvPlayer2.volume = volume;
+        if (sdkLivePlayerLoader.item) {
+            sdkLivePlayerLoader.item.volume = volume;
+        }
     }
 
     onActivePlayerIndexChanged: {
@@ -726,6 +764,17 @@ FocusScope {
                 showSnapshotDialog(path);
             } else {
                 console.log("Failed to save snapshot (" + typeStr + ") via C++ saveCurrentFrame");
+            }
+            return;
+        }
+
+        if (root.isHikvision && root.useSdkMedia && sdkLivePlayerLoader.item) {
+            var sdkSaved = sdkLivePlayerLoader.item.saveCurrentFrame(path);
+            if (sdkSaved) {
+                console.log("Saved SDK snapshot (" + typeStr + ") to", path);
+                showSnapshotDialog(path);
+            } else {
+                console.log("Failed to save SDK snapshot via C++ saveCurrentFrame");
             }
             return;
         }
@@ -820,7 +869,7 @@ FocusScope {
                 width: root.isOneToOne ? (sourceRect.width > 0 ? sourceRect.width : parent.width) : (parent.width / Math.max(0.001, root.zoomWidth))
                 height: root.isOneToOne ? (sourceRect.height > 0 ? sourceRect.height : parent.height) : (parent.height / Math.max(0.001, root.zoomHeight))
                 fillMode: VideoOutput.Stretch
-                visible: (!root.isHikvision || hikPlayerSettings.useRealStreams)
+                visible: (!root.isHikvision || (hikPlayerSettings.useRealStreams && !root.useSdkMedia))
                 opacity: activePlayerIndex === 1 ? 1.0 : 0.0
                 z: activePlayerIndex === 1 ? 2 : 1
 
@@ -843,7 +892,7 @@ FocusScope {
                 width: root.isOneToOne ? (sourceRect.width > 0 ? sourceRect.width : parent.width) : (parent.width / Math.max(0.001, root.zoomWidth))
                 height: root.isOneToOne ? (sourceRect.height > 0 ? sourceRect.height : parent.height) : (parent.height / Math.max(0.001, root.zoomHeight))
                 fillMode: VideoOutput.Stretch
-                visible: (!root.isHikvision || hikPlayerSettings.useRealStreams)
+                visible: (!root.isHikvision || (hikPlayerSettings.useRealStreams && !root.useSdkMedia))
                 opacity: activePlayerIndex === 2 ? 1.0 : 0.0
                 z: activePlayerIndex === 2 ? 2 : 1
 
@@ -861,17 +910,70 @@ FocusScope {
             // Hikvision C++ Painted Player renders high-tech mock layout if fallback is disabled
             HikvisionPlayer {
                 id: hikPlayer
-                visible: root.isHikvision && !hikPlayerSettings.useRealStreams && root.visible && !root.isQuickPlayback
+                visible: root.isHikvision && !root.useSdkMedia && !hikPlayerSettings.useRealStreams && root.visible && !root.isQuickPlayback
                 x: -root.zoomX * width
                 y: -root.zoomY * height
                 width: parent.width / Math.max(0.001, root.zoomWidth)
                 height: parent.height / Math.max(0.001, root.zoomHeight)
-                recorderIp: (root.visible && root.isHikvision && !hikPlayerSettings.useRealStreams && !root.isQuickPlayback) ? root.recorderIp : ""
+                recorderIp: (root.visible && root.isHikvision && !root.useSdkMedia && !hikPlayerSettings.useRealStreams && !root.isQuickPlayback) ? root.recorderIp : ""
                 recorderPort: root.recorderPort
                 username: root.username
                 password: root.password
                 channelId: root.channelId
                 streamType: root.isSubStream ? 1 : 0
+            }
+
+            Loader {
+                id: sdkLivePlayerLoader
+                z: 2
+                active: root.isHikvision && root.useSdkMedia && root.visible && !root.isQuickPlayback
+                visible: active
+                x: root.isOneToOne ? root.oneToOneX : -root.zoomX * width
+                y: root.isOneToOne ? root.oneToOneY : -root.zoomY * height
+                width: root.isOneToOne && item && item.videoWidth > 0
+                       ? item.videoWidth
+                       : videoContainer.width / Math.max(0.001, root.zoomWidth)
+                height: root.isOneToOne && item && item.videoHeight > 0
+                        ? item.videoHeight
+                        : videoContainer.height / Math.max(0.001, root.zoomHeight)
+
+                sourceComponent: Component {
+                    HikvisionArchivePlayer {
+                        recorderIp: root.recorderIp
+                        username: root.username
+                        password: root.password
+                        channelId: root.channelId
+                        port: root.sdkPort
+                        muted: root.muted
+                        volume: root.volume
+
+                        onVideoSizeChanged: {
+                            sdkLiveStartTimeout.stop();
+                            if (root.isOneToOne && !root.isQuickPlayback) {
+                                root.oneToOneX = Math.min(0, (videoContainer.width - videoWidth) / 2);
+                                root.oneToOneY = Math.min(0, (videoContainer.height - videoHeight) / 2);
+                            }
+                            root.updateMessageText();
+                        }
+
+                        onPlayingChanged: {
+                            if (isPlaying) {
+                                sdkLiveStartTimeout.restart();
+                            } else {
+                                sdkLiveStartTimeout.stop();
+                            }
+                            root.updateMessageText();
+                        }
+                        onPlayerStatusMessageChanged: root.updateMessageText()
+                    }
+                }
+
+                onLoaded: item.startLive(root.isSubStream ? 1 : 0)
+                onActiveChanged: {
+                    if (!active) {
+                        sdkLiveStartTimeout.stop();
+                    }
+                }
             }
 
             Component {
@@ -925,7 +1027,9 @@ FocusScope {
             
             property int activeStatus: activePlayerIndex === 1 ? qmlAvPlayer1.status : qmlAvPlayer2.status
             property bool isPendingStagger: staggerStartTimer.running
-            property bool isError: !isPendingStagger && (activeStatus === MediaPlayer.InvalidMedia || activeStatus === MediaPlayer.EndOfMedia || activeStatus === MediaPlayer.NoMedia)
+            property bool isError: root.useSdkMedia
+                                   ? (sdkLivePlayerLoader.item && !sdkLivePlayerLoader.item.isPlaying)
+                                   : (!isPendingStagger && (activeStatus === MediaPlayer.InvalidMedia || activeStatus === MediaPlayer.EndOfMedia || activeStatus === MediaPlayer.NoMedia))
             property string themeColor: isError ? "#e74c3c" : "#00f5d4"
             property string themeIcon: isError ? "\u26A0" : "\u21BB"
             
@@ -936,7 +1040,9 @@ FocusScope {
             border.color: themeColor
             border.width: 1
             radius: 8
-            visible: root.activeStreamUrl !== "" && !root.isQuickPlayback && (!root.isHikvision || hikPlayerSettings.useRealStreams) && activeStatus !== MediaPlayer.Buffered
+            visible: ((root.activeStreamUrl !== "" && (!root.isHikvision || hikPlayerSettings.useRealStreams) && activeStatus !== MediaPlayer.Buffered)
+                      || (root.isHikvision && root.useSdkMedia && sdkLivePlayerLoader.active))
+                     && !root.isQuickPlayback
             z: 3
 
             Row {
@@ -1117,7 +1223,10 @@ FocusScope {
         Timer {
             id: bitrateTimer
             interval: 1000
-            running: (!root.isHikvision || hikPlayerSettings.useRealStreams) && root.visible && (playbackState === MediaPlayer.PlayingState)
+            running: root.visible && (root.useSdkMedia
+                                      ? (sdkLivePlayerLoader.item && sdkLivePlayerLoader.item.isPlaying)
+                                      : ((!root.isHikvision || hikPlayerSettings.useRealStreams)
+                                         && playbackState === MediaPlayer.PlayingState))
             repeat: true
             
             property var lastBytes: 0
@@ -1163,7 +1272,8 @@ FocusScope {
             
             color: "#66121214"
             border {
-                color: root.isQuickPlayback ? "#00f5d4" : (root.activeIsSubStream ? "#ff7a00" : "#00f5d4")
+                color: root.isQuickPlayback ? "#00f5d4"
+                      : ((root.useSdkMedia ? root.isSubStream : root.activeIsSubStream) ? "#ff7a00" : "#00f5d4")
                 width: 1
             }
             radius: 4
@@ -1178,16 +1288,19 @@ FocusScope {
                 
                 Text {
                     text: {
-                        var quality = root.isQuickPlayback ? "MAIN" : (root.activeIsSubStream ? "SUB" : "MAIN");
+                        var isSub = root.useSdkMedia ? root.isSubStream : root.activeIsSubStream;
+                        var quality = root.isQuickPlayback ? "MAIN" : (isSub ? "SUB" : "MAIN");
                         var protocol = "RTSP";
-                        if (root.isHikvision && typeof hikPlayerSettings !== "undefined" && !hikPlayerSettings.useRealStreams) {
+                        if (root.isHikvision && root.useSdkMedia) {
+                            protocol = "HikSDK";
+                        } else if (root.isHikvision && typeof hikPlayerSettings !== "undefined" && !hikPlayerSettings.useRealStreams) {
                             protocol = "HikSDK";
                         } else if (!root.isHikvision && root.source.toString().indexOf("http") === 0) {
                             protocol = "HTTP";
                         }
                         return quality + " | " + protocol;
                     }
-                    color: root.activeIsSubStream && !root.isQuickPlayback ? "#ff7a00" : "#00f5d4"
+                    color: (root.useSdkMedia ? root.isSubStream : root.activeIsSubStream) && !root.isQuickPlayback ? "#ff7a00" : "#00f5d4"
                     font {
                         pixelSize: 8
                         bold: true
@@ -1197,7 +1310,7 @@ FocusScope {
                 Rectangle {
                     width: 1
                     height: 7
-                    color: root.activeIsSubStream && !root.isQuickPlayback ? "#44ff7a00" : "#4400f5d4"
+                    color: (root.useSdkMedia ? root.isSubStream : root.activeIsSubStream) && !root.isQuickPlayback ? "#44ff7a00" : "#4400f5d4"
                     anchors.verticalCenter: parent.verticalCenter
                 }
                 
@@ -1225,7 +1338,9 @@ FocusScope {
                         if (root.isQuickPlayback && quickPlaybackPlayerLoader.item) {
                             fpsVal = quickPlaybackPlayerLoader.item.fps;
                         } else if (root.isHikvision) {
-                            if (hikPlayerSettings.useRealStreams) {
+                            if (root.useSdkMedia && sdkLivePlayerLoader.item) {
+                                fpsVal = sdkLivePlayerLoader.item.fps;
+                            } else if (hikPlayerSettings.useRealStreams) {
                                 fpsVal = (root.activePlayerIndex === 1 ? qmlAvPlayer1.fps : qmlAvPlayer2.fps);
                             } else {
                                 fpsVal = hikPlayer.fps;
@@ -1245,9 +1360,9 @@ FocusScope {
                 Rectangle {
                     width: 1
                     height: 7
-                    color: root.activeIsSubStream && !root.isQuickPlayback ? "#44ff7a00" : "#4400f5d4"
+                    color: (root.useSdkMedia ? root.isSubStream : root.activeIsSubStream) && !root.isQuickPlayback ? "#44ff7a00" : "#4400f5d4"
                     anchors.verticalCenter: parent.verticalCenter
-                    visible: root.isQuickPlayback ? false : (!root.isHikvision || hikPlayerSettings.useRealStreams)
+                    visible: root.isQuickPlayback ? false : (!root.isHikvision || (!root.useSdkMedia && hikPlayerSettings.useRealStreams))
                 }
                 
                 Text {
@@ -1256,7 +1371,7 @@ FocusScope {
                     font {
                         pixelSize: 8
                     }
-                    visible: root.isQuickPlayback ? false : (!root.isHikvision || hikPlayerSettings.useRealStreams)
+                    visible: root.isQuickPlayback ? false : (!root.isHikvision || (!root.useSdkMedia && hikPlayerSettings.useRealStreams))
                 }
             }
         }
@@ -2195,6 +2310,9 @@ FocusScope {
         activeStreamUrl = "";
         activeCameraId = "";
         seamlessSwitchTimer.stop();
+        if (sdkLivePlayerLoader.item) {
+            sdkLivePlayerLoader.item.stop();
+        }
     }
 
     function parseUri(uri) {
@@ -2203,6 +2321,8 @@ FocusScope {
             parseHikvisionUri(uri);
         } else if (s.indexOf("rtsp://") !== -1) {
             parseRtspUri(uri);
+        } else {
+            useSdkMedia = false;
         }
     }
 
@@ -2265,6 +2385,7 @@ FocusScope {
         rtspPort = explicitPort > 0 ? explicitPort : 554;
         rtspTransport = "";
         isRemoteRecorder = false;
+        useSdkMedia = false;
         try {
             var jsonStr = rootWindow.hikvisionRecordersJson;
             if (jsonStr) {
@@ -2280,6 +2401,7 @@ FocusScope {
                         rtspPort = parseInt(rec.rtspPort) || explicitPort || 554;
                         rtspTransport = rec.rtspTransport || "";
                         isRemoteRecorder = !!rec.remoteRecorder;
+                        useSdkMedia = !!rec.useSdkMedia;
                         if (!username && rec.username) username = rec.username;
                         if (!password && rec.password) password = rec.password;
                         break;
@@ -2339,6 +2461,7 @@ FocusScope {
         rtspPort = 554;
         rtspTransport = "";
         isRemoteRecorder = false;
+        useSdkMedia = false;
         try {
             var jsonStr2 = rootWindow.hikvisionRecordersJson;
             if (jsonStr2) {
@@ -2354,6 +2477,7 @@ FocusScope {
                         rtspPort = parseInt(rec2.rtspPort) || 554;
                         rtspTransport = rec2.rtspTransport || "";
                         isRemoteRecorder = !!rec2.remoteRecorder;
+                        useSdkMedia = !!rec2.useSdkMedia;
                         if (!username && rec2.username) username = rec2.username;
                         if (!password && rec2.password) password = rec2.password;
                         break;

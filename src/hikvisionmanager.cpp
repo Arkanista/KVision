@@ -717,34 +717,41 @@ void HikvisionManager::discoverCamerasAsync(const QString &ip,
     thread->start();
 }
 
-void HikvisionManager::testPortsAsync(const QString &ip, int sdkPort, int httpPort, int rtspPort)
+void HikvisionManager::testPortsAsync(const QString &ip, int sdkPort, int httpPort, int rtspPort, bool testRtsp)
 {
     const QString cleanIp = sanitizeHost(ip);
     const int sPort = sdkPort > 0 ? sdkPort : 8000;
     const int hPort = httpPort > 0 ? httpPort : 80;
     const int rPort = rtspPort > 0 ? rtspPort : 554;
 
-    QThread *thread = QThread::create([this, cleanIp, sPort, hPort, rPort]() {
+    QThread *thread = QThread::create([this, cleanIp, sPort, hPort, rPort, testRtsp]() {
         int sdkMs = -1;
         int httpMs = -1;
         int rtspMs = -1;
 
         std::thread tSdk([&]() { sdkMs = probeTcpPort(cleanIp, sPort, 2500); });
         std::thread tHttp([&]() { httpMs = probeTcpPort(cleanIp, hPort, 2500); });
-        std::thread tRtsp([&]() { rtspMs = probeTcpPort(cleanIp, rPort, 2500); });
+        std::thread tRtsp;
+        if (testRtsp) {
+            tRtsp = std::thread([&]() { rtspMs = probeTcpPort(cleanIp, rPort, 2500); });
+        }
 
         tSdk.join();
         tHttp.join();
-        tRtsp.join();
+        if (tRtsp.joinable()) {
+            tRtsp.join();
+        }
 
-        {
+        if (testRtsp) {
             std::lock_guard<std::mutex> lock(m_discoveryMutex);
             const QString key = QStringLiteral("%1:%2").arg(cleanIp).arg(rPort);
             m_rtspCheckCache.insert(key, qMakePair(QDateTime::currentMSecsSinceEpoch(), rtspMs >= 0));
         }
 
         emit portsTestFinished(cleanIp, sdkMs >= 0, httpMs >= 0, rtspMs >= 0, sdkMs, httpMs, rtspMs);
-        emit rtspPortChecked(cleanIp, rPort, rtspMs >= 0);
+        if (testRtsp) {
+            emit rtspPortChecked(cleanIp, rPort, rtspMs >= 0);
+        }
     });
 
     {

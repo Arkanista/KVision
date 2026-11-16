@@ -15,10 +15,12 @@ extern "C" {
 #include <QSettings>
 #include <QUrl>
 #include "hcnetsdk_compat.h"
+#include "hikvisionmanager.h"
 #include "context.h"
 #include "config.h"
 #include <thread>
 #include <chrono>
+#include <cstring>
 
 static constexpr int THUMBNAIL_WIDTH = 160;
 static constexpr int THUMBNAIL_HEIGHT = 90;
@@ -235,6 +237,82 @@ void ThumbnailFetchWorker::fetchFrame(const QString &rtspUrl, const QString &cac
     emit frameFetched(cacheKey, result);
 }
 
+void ThumbnailFetchWorker::fetchSdkFrame(const QVariantMap &recorderInfo, int channelId, const QString &cacheKey)
+{
+    const QString ip = recorderInfo.value(QStringLiteral("ip")).toString();
+    int sdkPort = recorderInfo.value(QStringLiteral("sdkPort")).toInt();
+    if (sdkPort <= 0) {
+        sdkPort = recorderInfo.value(QStringLiteral("port"), 8000).toInt();
+    }
+    if (sdkPort <= 0) {
+        sdkPort = 8000;
+    }
+
+    HikvisionManager *manager = HikvisionManager::instance();
+    if (!manager) {
+        qWarning() << "[ThumbnailFetch] Hikvision manager unavailable for SDK thumbnail" << cacheKey;
+        emit fetchFailed(cacheKey);
+        return;
+    }
+
+    NET_DVR_DEVICEINFO_V40 deviceInfo;
+    std::memset(&deviceInfo, 0, sizeof(deviceInfo));
+    const LONG userId = manager->loginShared(ip, sdkPort,
+                                              recorderInfo.value(QStringLiteral("username")).toString(),
+                                              recorderInfo.value(QStringLiteral("password")).toString(),
+                                              deviceInfo);
+    if (userId < 0) {
+        qWarning() << "[ThumbnailFetch] SDK login failed for thumbnail" << cacheKey
+                   << "error:" << NET_DVR_GetLastError();
+        emit fetchFailed(cacheKey);
+        return;
+    }
+
+    int sdkChannel = channelId;
+    const int analogChannels = deviceInfo.struDeviceV30.byChanNum;
+    if (analogChannels == 0 && deviceInfo.struDeviceV30.byIPChanNum > 0) {
+        sdkChannel = channelId + deviceInfo.struDeviceV30.byStartDChan - 1;
+    } else if (analogChannels > 0 && channelId > analogChannels) {
+        sdkChannel = deviceInfo.struDeviceV30.byStartDChan + (channelId - analogChannels) - 1;
+    } else if (analogChannels > 0 && channelId <= analogChannels) {
+        sdkChannel = channelId + deviceInfo.struDeviceV30.byStartChan - 1;
+    }
+
+    NET_DVR_JPEGPARA jpegParams;
+    std::memset(&jpegParams, 0, sizeof(jpegParams));
+    jpegParams.wPicSize = 0xff;
+    jpegParams.wPicQuality = 1;
+
+    QByteArray jpegBuffer(4 * 1024 * 1024, '\0');
+    DWORD jpegSize = 0;
+    const BOOL captured = NET_DVR_CaptureJPEGPicture_NEW(userId, sdkChannel, &jpegParams,
+                                                          jpegBuffer.data(),
+                                                          static_cast<DWORD>(jpegBuffer.size()),
+                                                          &jpegSize);
+    const DWORD captureError = captured ? 0 : NET_DVR_GetLastError();
+    manager->logoutShared(ip);
+
+    if (!captured || jpegSize == 0 || jpegSize > static_cast<DWORD>(jpegBuffer.size())) {
+        qWarning() << "[ThumbnailFetch] SDK JPEG capture failed for" << cacheKey
+                   << "channel:" << sdkChannel << "error:" << captureError;
+        emit fetchFailed(cacheKey);
+        return;
+    }
+
+    const QImage image = QImage::fromData(
+        reinterpret_cast<const uchar *>(jpegBuffer.constData()), static_cast<int>(jpegSize), "JPEG");
+    if (image.isNull()) {
+        qWarning() << "[ThumbnailFetch] Invalid SDK JPEG data for" << cacheKey;
+        emit fetchFailed(cacheKey);
+        return;
+    }
+
+    const QImage result = image.scaled(THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT,
+                                       Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    qInfo() << "[ThumbnailFetch] Successfully fetched SDK thumbnail for" << cacheKey;
+    emit frameFetched(cacheKey, result);
+}
+
 // --------------- ThumbnailProvider ---------------
 
 ThumbnailProvider::ThumbnailProvider(QObject *parent)
@@ -246,6 +324,7 @@ ThumbnailProvider::ThumbnailProvider(QObject *parent)
 
     connect(&m_workerThread, &QThread::finished, m_worker, &QObject::deleteLater);
     connect(this, &ThumbnailProvider::startFetch, m_worker, &ThumbnailFetchWorker::fetchFrame);
+    connect(this, &ThumbnailProvider::startSdkFetch, m_worker, &ThumbnailFetchWorker::fetchSdkFrame);
     connect(m_worker, &ThumbnailFetchWorker::frameFetched, this, &ThumbnailProvider::onFrameFetched);
     connect(m_worker, &ThumbnailFetchWorker::fetchFailed, this, &ThumbnailProvider::onFetchFailed);
 
@@ -278,14 +357,49 @@ void ThumbnailProvider::requestThumbnail(const QString &rtspUrl, const QString &
         }
     }
 
+    FetchRequest request;
+    request.rtspUrl = rtspUrl;
+    request.cacheKey = cacheKey;
+    request.timeoutMs = timeoutMs;
     if (prepend) {
-        m_queue.prepend({rtspUrl, cacheKey, timeoutMs});
+        m_queue.prepend(request);
     } else {
-        m_queue.enqueue({rtspUrl, cacheKey, timeoutMs});
+        m_queue.enqueue(request);
     }
     lock.unlock();
 
     // Trigger processing on the next event loop iteration
+    QMetaObject::invokeMethod(this, "processQueue", Qt::QueuedConnection);
+}
+
+void ThumbnailProvider::enqueueSdkThumbnail(const QVariantMap &recorderInfo,
+                                             int channelId,
+                                             const QString &cacheKey,
+                                             bool prepend)
+{
+    QMutexLocker lock(&m_queueMutex);
+    for (int i = 0; i < m_queue.size(); ++i) {
+        if (m_queue[i].cacheKey == cacheKey) {
+            if (prepend) {
+                m_queue.removeAt(i);
+                break;
+            }
+            return;
+        }
+    }
+
+    FetchRequest request;
+    request.cacheKey = cacheKey;
+    request.recorderInfo = recorderInfo;
+    request.channelId = channelId;
+    request.useSdkMedia = true;
+    if (prepend) {
+        m_queue.prepend(request);
+    } else {
+        m_queue.enqueue(request);
+    }
+    lock.unlock();
+
     QMetaObject::invokeMethod(this, "processQueue", Qt::QueuedConnection);
 }
 
@@ -345,7 +459,11 @@ void ThumbnailProvider::processQueue()
     lock.unlock();
 
     m_fetching = true;
-    emit startFetch(req.rtspUrl, req.cacheKey, req.timeoutMs);
+    if (req.useSdkMedia) {
+        emit startSdkFetch(req.recorderInfo, req.channelId, req.cacheKey);
+    } else {
+        emit startFetch(req.rtspUrl, req.cacheKey, req.timeoutMs);
+    }
 }
 
 void ThumbnailProvider::generateSingleThumbnail(const QVariantMap &recorderInfo, int channelId)
@@ -353,6 +471,24 @@ void ThumbnailProvider::generateSingleThumbnail(const QVariantMap &recorderInfo,
     QString ip = recorderInfo["ip"].toString();
     QString username = recorderInfo["username"].toString();
     QString password = recorderInfo["password"].toString();
+    if (recorderInfo.value(QStringLiteral("useSdkMedia")).toBool()) {
+        const QString cacheKey = QString("%1_%2").arg(ip).arg(channelId);
+        const QString outDir = thumbnailsDir();
+        if (!outDir.isEmpty()) {
+            const QString outPath = QDir(outDir).absoluteFilePath(cacheKey + ".jpg");
+            if (QFile::exists(outPath)) {
+                QFile::remove(outPath);
+            }
+        }
+        {
+            QMutexLocker lock(&m_cacheMutex);
+            m_cache.remove(cacheKey);
+        }
+        emit thumbnailReady(cacheKey);
+        enqueueSdkThumbnail(recorderInfo, channelId, cacheKey, true);
+        return;
+    }
+
     int rtspPort = recorderInfo.contains("rtspPort") ? recorderInfo["rtspPort"].toInt() : 554;
     if (rtspPort <= 0) rtspPort = 554;
 
@@ -434,6 +570,21 @@ void ThumbnailProvider::generateThumbnails(const QVariantMap &recorderInfo)
     QFileInfoList oldFiles = dir.entryInfoList(filters, QDir::Files);
     for (const QFileInfo &fi : oldFiles) {
         QFile::remove(fi.absoluteFilePath());
+    }
+
+    if (recorderInfo.value(QStringLiteral("useSdkMedia")).toBool()) {
+        for (const QVariant &camVar : cameras) {
+            const QVariantMap cam = camVar.toMap();
+            const int channelId = cam.value(QStringLiteral("channelId")).toInt();
+            const QString cacheKey = QString("%1_%2").arg(ip).arg(channelId);
+            {
+                QMutexLocker lock(&m_cacheMutex);
+                m_cache.remove(cacheKey);
+            }
+            emit thumbnailReady(cacheKey);
+            enqueueSdkThumbnail(recorderInfo, channelId, cacheKey);
+        }
+        return;
     }
 
     QString creds;

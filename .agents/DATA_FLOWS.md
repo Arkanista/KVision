@@ -10,37 +10,23 @@ This document details the step-by-step lifecycles, state machines, and sequence 
 [ User assigns camera to Player tile ]
                    |
                    v
-[ Player.qml: Selects primary player (qmlAvPlayer1) ]
+[ Player.qml reads recorder useSdkMedia option ]
                    |
-                   v
-[ QmlAVPlayer::setSource(rtspUrl) ]
-                   |
-                   v
-[ QmlAVDemuxer::load() ] ---> Spawns QmlAVThread (m_loaderThread)
-                                       |
-                                       v
-                     [ avformat_open_input(dict) ]
-                                       |
-                   +-------------------+-------------------+
-                   | Success                               | Timeout / Failure (5000ms)
-                   v                                       v
-[ avformat_find_stream_info() ]             [ Emit mediaStatusChanged(InvalidMedia) ]
-                   |                                       |
-                   v                                       v
-[ QmlAVDemuxer::initDecoders() ]             [ Player.qml triggers reconnect timer ]
-                   |                                       |
-                   v                                       v
-[ QmlAVVideoDecoder::open() ]               [ Exponential backoff (1s, 2s, 5s) ]
-                   |                                       |
-                   v                                       v
-[ QmlAVDemuxer::start() ]                   [ Retries loading stream ]
-                   |
-                   v
-+-------------------------------------------------------------+
-| Demuxer Loop: av_read_frame() -> Packet Queue (Limit 64)   |
-| Video Decoder: avcodec_send_packet() -> AVFrame (Limit 8)   |
-| Direct Blit: Frame -> VideoOutput (OpenGL Texture)          |
-+-------------------------------------------------------------+
+          +--------+---------+
+          |                  |
+       RTSP mode          SDK mode
+          |                  |
+          v                  v
+[ QmlAVPlayer::setSource ] [ HikvisionArchivePlayer::startLive ]
+          |                  |
+          v                  v
+[ FFmpeg RTSP/TCP ]     [ NET_DVR_RealPlay_V40/TCP ]
+          |                  |
+          v                  v
+[ QmlAV decoder ]      [ SDK callback -> PlayM4 decoder ]
+          |                  |
+          v                  v
+[ VideoOutput ]        [ YV12 -> RGB -> painted viewport ]
 ```
 
 ### Stream Switching & Smooth Transition:

@@ -246,15 +246,16 @@ To configure the connection to a Hikvision recorder:
    * **Port**: The SDK network port (default is `8000`).
    * **Username**: User name (e.g., `admin`).
    * **Password**: Password to access the recorder.
+   * **Use SDK instead of RTSP**: Optional live-media mode (off by default) that uses Hikvision SDK preview/capture for live tiles and thumbnails instead of RTSP.
 3. Click **Connect & Discover** (or **Save & Update**).
 4. Upon successful connection, the application will automatically detect all active cameras (channels) connected to the NVR/DVR and add them to the list.
 5. Clicking the **Generate Grid** button will automatically create a viewport layout (preset) containing all active cameras from that NVR in an optimal grid layout.
 6. **Displaying Camera Lists (NvrCamerasWindow)**: Clicking the computer monitor icon button on any recorder's card opens a dedicated window showing all detected camera channels as interactive tiles.
-7. **Generating Thumbnails (Generate thumbnails)**: In the NVR cameras list window, a *„Generate thumbnails”* button is available. Clicking it commands the application to pull single frames from each channel's Sub Stream in the background, setting them as the tile background thumbnails. This provides a quick visual preview of each camera without launching full live feeds.
+7. **Generating Thumbnails (Generate thumbnails)**: In the NVR cameras list window, a *„Generate thumbnails”* button is available. Clicking it pulls a frame from each channel in the background using the recorder's configured media mode (RTSP or SDK), setting it as the tile background thumbnail.
 8. **Click-and-Add Feature**: The application does not support dragging tiles (drag and drop) from the camera list window to the main grid. Camera assignment is done in a simple and reliable way: first left-click any viewport tile in the main screen grid to select it (it will highlight with a bright border), then click the green **"+" (Assign to active viewport)** button on the desired camera tile in the NVR camera list window. The stream will instantly load in that slot.
 9. **SDK Session Status (Dot indicator)**: Beside each recorder's IP on the list, there is a colored status dot:
    * **Green (LOGGED IN)**: Represents an active Hikvision SDK session, which is required for PTZ control, timeline archive requests, and downloading.
-   * **Red (NOT LOGGED IN)**: No active SDK session is currently established (e.g. before the first SDK request or after manual/automatic logout). Note that camera RTSP live feeds will continue to play independently of the SDK session status.
+   * **Red (NOT LOGGED IN)**: No active Hikvision SDK session is currently established. RTSP live feeds can play independently of this session; SDK-media live feeds require it.
 10. **Local Camera Renaming**: On any camera tile in the NVR cameras list, click the **Edit** (pencil) icon. This opens a dialog allowing you to set a custom name for the camera. This name is saved locally and instantly updates across the live players, timeline, and tile views without modifying the physical NVR device. You can reset it to the default name at any time.
 11. **Removing a Recorder from List**: Beside each configured recorder on the list, there is a red trash can button. Clicking it initiates a two-stage security protocol designed to prevent accidental deletion:
     * **Step 1 (Confirmation)**: A dialog titled *“Confirm NVR Deletion”* appears, asking if you are sure you want to delete the recorder.

@@ -34,7 +34,7 @@ public:
     Q_INVOKABLE void discoverCamerasAsync(const QString &ip, int port, int httpPort, const QString &username, const QString &password, bool remoteRecorder = false);
 
     // Asynchronous TCP port reachability diagnostics
-    Q_INVOKABLE void testPortsAsync(const QString &ip, int sdkPort, int httpPort, int rtspPort);
+    Q_INVOKABLE void testPortsAsync(const QString &ip, int sdkPort, int httpPort, int rtspPort, bool testRtsp = true);
     Q_INVOKABLE void checkRtspPortAsync(const QString &ip, int rtspPort);
 
     // Logout from a recorder session

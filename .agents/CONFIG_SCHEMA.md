@@ -77,6 +77,7 @@ Configuration is stored in `~/.config/KVision/KVision.conf` (INI format).
     "sdkPort": 8000,
     "httpPort": 80,
     "rtspPort": 554,
+    "useSdkMedia": false,
     "username": "admin",
     "password": "EncryptedOrPlainTextPassword",
     "cameras": [
@@ -90,6 +91,7 @@ Configuration is stored in `~/.config/KVision/KVision.conf` (INI format).
   }
 ]
 ```
+`useSdkMedia` is optional and defaults to `false` for existing recorder configurations. When enabled, live view and recorder thumbnails use HCNetSDK preview/capture instead of RTSP.
 
 ### `[ViewportsLayoutsCollection]` $\to$ `models` (Array of Grid Layouts)
 ```json

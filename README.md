@@ -50,8 +50,8 @@ It is designed for Linux users who need a robust, lightweight, and smooth altern
 
 ### 🔌 Hikvision NVR/DVR Deep Integration
 * **Auto-Discovery (ISAPI + Hybrid SDK Fallback)**: Enter your NVR/DVR IP or hostname and credentials to automatically discover and list all active camera channels (analog BNC/coax channels on Hybrid DVRs and IP channels via `NET_DVR_GET_IPPARACFG_V40` when HTTP ISAPI is unavailable).
-* **Built-in TCP Port Reachability Verifier**: Click **"Test Ports"** inside NVR Settings to run concurrent TCP connectivity probes for the **SDK** (`8000`), **RTSP** (`554`), and **HTTP** (`80`) ports with latency measurements (ms) and per-port guidance. Viewports also display explicit OSD diagnostics when Live View fails due to an unreachable RTSP port.
-* **Remote Recorder (WAN / NAT) Mode**: Dedicated per-recorder toggle for remote sites accessed over the Internet/VPN/NAT. Enabling it automatically enforces **RTSP over TCP**, extends FFmpeg probe buffers and timeouts (`3s` analyzeduration, `2 MB` probesize, `15s` socket timeout, `20s` demuxer timeout without `nobuffer`), uses Sub-Stream (`02`) in multi-camera grids and seamlessly switches to Main Stream (`01`) when enlarged or in `1x1` view (unless Sub-Stream is manually forced), staggers multi-camera startup, applies exponential reconnect backoff, and locks manual viewport FFmpeg overrides so global LAN defaults cannot break WAN streams.
+* **Built-in TCP Port Reachability Verifier**: Click **"Test Ports"** inside NVR Settings to run concurrent TCP connectivity probes for the **SDK** (`8000`), **RTSP** (`554`, unless SDK media is enabled), and **HTTP** (`80`) ports with latency measurements (ms) and per-port guidance. Viewports also display explicit OSD diagnostics when RTSP Live View fails due to an unreachable port.
+* **Remote Recorder (WAN / NAT) Mode**: Dedicated per-recorder toggle for remote sites accessed over the Internet/VPN/NAT. RTSP mode enforces TCP, extends FFmpeg probe buffers and timeouts, uses Sub-Stream (`02`) in multi-camera grids, staggers startup, and applies exponential reconnect backoff. For recorders where RTSP is unavailable, the separate **Use SDK instead of RTSP** option selects the SDK live-preview path.
 * **Automatic NVR Preset Grid**: Click **"Generate Grid"** in the recorders panel to automatically generate a tailored viewport layout (preset) mapping all discovered cameras to an optimal grid size.
 * **Dynamic Quality Selection**: Manually toggle between **Main Stream** (high resolution) and **Sub Stream** (low bandwidth/CPU load) for any viewport via the context menu to save system resources and network bandwidth.
 * **Local Camera Renaming (Custom Names)**: Clicking the edit icon (pencil) on a camera tile in the recorder channel list allows setting a custom, local name for that camera. The name update is immediately reflected on the tile, live players, and playback timeline. Custom names are saved locally in the settings JSON and do not alter the physical NVR device. The custom name can be reset to the NVR default at any time.
@@ -317,22 +317,23 @@ cd KVision
 If you are migrating from **Hikvision iVMS-4200**, note a critical architectural difference when connecting to remote sites behind a router/NAT:
 
 * **iVMS-4200** tunnels almost everything (login, Live View, and playback) over a single proprietary **SDK port (`8000`)**.
-* **KVision** separates traffic into three standard ports:
+* **KVision** uses SDK traffic for login/control and, by default, direct RTSP for live video. You can instead enable **"Use SDK instead of RTSP"** on a recorder to receive its live preview through HCNetSDK.
 
 | Port | Default | Purpose in KVision | Required for Remote Live View? |
 | :--- | :---: | :--- | :---: |
-| **SDK** | `8000` | Authentication, NVR status, fallback channel discovery, archive timeline fallback (`NET_DVR_FindFile_V40`), archive playback & downloads | **Required** |
-| **RTSP** | `554` | **All Live View video streaming** (via FFmpeg / `QmlAV`) | **REQUIRED** (forward on router!) |
+| **SDK** | `8000` | Authentication, NVR status, fallback channel discovery, archive timeline fallback, archive playback & downloads; live preview when SDK mode is selected | **Required** |
+| **RTSP** | `554` | Default live-view streaming (via FFmpeg / `QmlAV`) | Required unless SDK media is selected |
 | **HTTP / ISAPI** | `80` | Fast XML camera discovery & primary archive timeline search | Optional (falls back to SDK when closed) |
 
 #### Checklist for Remote NVR / DVR Sites
 1. **Verify Port Reachability:** Open **NVR Settings** (gear icon), enter your remote IP/domain and ports, and click **"Test Ports"**.
-   * Both **SDK** (default `8000`) and **RTSP** (default `554`) must show **Open**.
-   * If **SDK** is open but **RTSP** is unreachable, KVision will log in and discover cameras, but Live View tiles will show **`RTSP port (554) unreachable`** — you must forward the RTSP port (`554` or your custom external RTSP port mapped to the recorder's internal `554`) on the remote router or connect over a VPN (e.g., WireGuard / Tailscale / OpenVPN).
-   * Note that if you remap RTSP externally on your router (e.g., external `10554` → internal `554`), enter `10554` in the recorder's **RTSP Port** field in KVision.
+   * The **SDK** port (default `8000`) must show **Open**. **RTSP** (default `554`) must also show **Open** when using the default live-view mode.
+   * If RTSP is unreachable, enable **"Use SDK instead of RTSP"** in the recorder's settings. KVision will request a TCP live preview through HCNetSDK and use the SDK decoder instead of opening an RTSP connection. Thumbnail capture and live-view traffic also use the SDK path in this mode.
+   * SDK preview port behavior can vary by recorder model/firmware. Verify the selected mode through the same NAT/firewall path; do not assume SDK port forwarding alone is sufficient for every device.
+   * When using RTSP with an external mapping (e.g., external `10554` → internal `554`), enter `10554` in the recorder's **RTSP Port** field.
 2. **Enable "Remote recorder (WAN / NAT)":**
    * Check **"Remote recorder (WAN / NAT)"** in the recorder's settings panel.
-   * KVision will automatically enforce `TCP` RTSP transport, use larger WAN-safe FFmpeg probe buffers and timeouts (`15s`–`20s`), stream Sub-Stream (`02`) in multi-camera grids while seamlessly switching to Main Stream (`01`) when a camera is enlarged (unless Sub-Stream is manually forced), stagger multi-camera startup, and use exponential reconnect backoff.
+   * For RTSP live view, KVision enforces TCP transport, uses larger WAN-safe FFmpeg probe buffers and timeouts, streams Sub-Stream in multi-camera grids, staggers startup, and uses exponential reconnect backoff. SDK media mode uses the SDK's TCP preview path instead.
 3. **Avoid Port Scanning Lockouts (*Illegal Login Lock*):**
    * Hikvision firmware locks accounts for ~30 minutes after several consecutive failed logins (`HTTP 401`). Double-check your username and password before clicking **Discover Cameras**.
 

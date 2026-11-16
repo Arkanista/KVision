@@ -11,6 +11,7 @@
 #include <QRunnable>
 #include <iostream>
 #include <set>
+#include <cstring>
 #include <QAudioDeviceInfo>
 
 // Hikvision PlayM4 decoder constants (usually YV12)
@@ -276,6 +277,7 @@ void HikvisionArchivePlayer::cleanupPlayback()
     m_playbackSessionId++;
     LONG playHandle = -1;
     LONG port = -1;
+    const bool isLivePreview = m_isLivePreview.exchange(false);
     {
         std::lock_guard<std::mutex> lock(m_stateMutex);
         playHandle = m_lPlayHandle.exchange(-1);
@@ -289,10 +291,13 @@ void HikvisionArchivePlayer::cleanupPlayback()
     qDebug() << "[HikArchive] cleanupPlayback: playHandle=" << playHandle << "port=" << port << "m_lUserID=" << m_lUserID;
 
     if (playHandle >= 0) {
-        if (!NET_DVR_StopPlayBack(playHandle)) {
-            qWarning() << "[HikArchive] NET_DVR_StopPlayBack FAILED. Error:" << NET_DVR_GetLastError();
+        const BOOL stopped = isLivePreview
+                ? NET_DVR_StopRealPlay(playHandle)
+                : NET_DVR_StopPlayBack(playHandle);
+        if (!stopped) {
+            qWarning() << "[HikArchive] Failed to stop stream. Error:" << NET_DVR_GetLastError();
         } else {
-            qDebug() << "[HikArchive] NET_DVR_StopPlayBack OK";
+            qDebug() << "[HikArchive] Stream stopped";
         }
     }
 
@@ -401,11 +406,20 @@ void HikvisionArchivePlayer::setRecorderIp(const QString &ip) {
 int HikvisionArchivePlayer::channelId() const { return m_channelId; }
 void HikvisionArchivePlayer::setChannelId(int id) {
     if (m_channelId != id) {
+        QString oldIp = m_recorderIp;
+        LONG oldUserId = m_lUserID.exchange(-1);
         m_channelId = id;
         emit channelIdChanged();
 
-        QMetaObject::invokeMethod(m_worker, [this]() {
+        QMetaObject::invokeMethod(m_worker, [this, oldIp, oldUserId]() {
             cleanupPlayback();
+            if (oldUserId >= 0) {
+                if (HikvisionManager::instance()) {
+                    HikvisionManager::instance()->logoutShared(oldIp);
+                } else {
+                    NET_DVR_Logout(oldUserId);
+                }
+            }
         }, Qt::QueuedConnection);
     }
 }
@@ -677,6 +691,99 @@ void HikvisionArchivePlayer::playAtTime(const QDateTime &dateTime)
     }, Qt::QueuedConnection);
 }
 
+void HikvisionArchivePlayer::startLive(int streamType)
+{
+    const QString ip = m_recorderIp;
+    const int port = m_port;
+    const QString user = m_username;
+    const QString pass = m_password;
+    const int requestedStreamType = streamType == 1 ? 1 : 0;
+
+    QMetaObject::invokeMethod(m_worker, [this, ip, port, user, pass, requestedStreamType]() {
+        if (m_isLivePreview.load() && m_lPlayHandle.load() >= 0
+                && m_liveStreamType == requestedStreamType) {
+            return;
+        }
+
+        cleanupPlayback();
+
+        const auto setStatus = [this](const QString &message) {
+            QMetaObject::invokeMethod(this, [this, message]() {
+                setPlayerStatusMessage(message);
+            }, Qt::QueuedConnection);
+        };
+
+        setStatus(QStringLiteral("Connecting to SDK preview..."));
+        if (!ensureLogin(ip, port, user, pass)) {
+            setStatus(QStringLiteral("SDK login failed (%1)").arg(NET_DVR_GetLastError()));
+            return;
+        }
+
+        LONG decoderPort = -1;
+        if (!PlayM4_GetPort(&decoderPort)) {
+            setStatus(QStringLiteral("SDK decoder allocation failed"));
+            qWarning() << "[HikLive] PlayM4_GetPort FAILED";
+            return;
+        }
+
+        {
+            std::lock_guard<std::mutex> lock(m_stateMutex);
+            m_nPort = decoderPort;
+        }
+
+        if (!PlayM4_SetStreamOpenMode(decoderPort, STREAME_REALTIME)) {
+            setStatus(QStringLiteral("SDK decoder setup failed"));
+            qWarning() << "[HikLive] PlayM4_SetStreamOpenMode FAILED. Error:"
+                       << PlayM4_GetLastError(decoderPort);
+            cleanupPlayback();
+            return;
+        }
+
+        NET_DVR_PREVIEWINFO previewInfo;
+        std::memset(&previewInfo, 0, sizeof(previewInfo));
+        previewInfo.lChannel = static_cast<LONG>(m_realSdkChannel);
+        previewInfo.dwStreamType = static_cast<DWORD>(requestedStreamType);
+        previewInfo.dwLinkMode = 0;
+        previewInfo.hPlayWnd = 0;
+        previewInfo.bBlocked = FALSE;
+
+        const LONG previewHandle = NET_DVR_RealPlay_V40(m_lUserID, &previewInfo);
+        if (previewHandle < 0) {
+            const DWORD error = NET_DVR_GetLastError();
+            setStatus(QStringLiteral("SDK live preview failed (%1)").arg(error));
+            qWarning() << "[HikLive] NET_DVR_RealPlay_V40 FAILED. Error:" << error
+                       << "Channel:" << m_realSdkChannel;
+            cleanupPlayback();
+            return;
+        }
+
+        {
+            std::lock_guard<std::mutex> lock(m_stateMutex);
+            m_lPlayHandle = previewHandle;
+            m_isLivePreview = true;
+            m_liveStreamType = requestedStreamType;
+            m_sysHeadReceived = false;
+        }
+
+        if (!NET_DVR_SetRealDataCallBackEx(previewHandle, PlayDataCallBack, this)) {
+            const DWORD error = NET_DVR_GetLastError();
+            setStatus(QStringLiteral("SDK live callback setup failed (%1)").arg(error));
+            qWarning() << "[HikLive] NET_DVR_SetRealDataCallBackEx FAILED. Error:" << error;
+            cleanupPlayback();
+            return;
+        }
+
+        {
+            std::lock_guard<std::mutex> lock(m_stateMutex);
+            m_isPlaying = true;
+        }
+        setStatus(QStringLiteral("Waiting for SDK video..."));
+        QMetaObject::invokeMethod(this, [this]() {
+            emit playingChanged();
+        }, Qt::QueuedConnection);
+    }, Qt::QueuedConnection);
+}
+
 void HikvisionArchivePlayer::setPlaybackSpeed(int speedMultiplier)
 {
     m_currentSpeedMultiplier = speedMultiplier;
@@ -847,7 +954,7 @@ bool HikvisionArchivePlayer::hasReceivedFrames() const
 static std::atomic<int> s_dataCallbackCount{0};
 static std::atomic<int> s_decCallbackCount{0};
 
-void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void *pUser)
+void CALLBACK HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void *pUser)
 {
     g_networkBytesAccumulator.fetch_add(dwBufSize, std::memory_order_relaxed);
 

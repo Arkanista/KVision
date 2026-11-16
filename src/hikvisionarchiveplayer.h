@@ -77,6 +77,7 @@ public:
     }
 
     Q_INVOKABLE void playAtTime(const QDateTime &dateTime);
+    Q_INVOKABLE void startLive(int streamType);
     Q_INVOKABLE void setPlaybackSpeed(int speedMultiplier); // 1, 2, 4, 8, -1, -2, -4, -8
     Q_INVOKABLE void pause();
     Q_INVOKABLE void resume();
@@ -102,7 +103,7 @@ signals:
 
 private:
     void updateImage(const QImage &img);
-    static void PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void *pUser);
+    static void CALLBACK PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void *pUser);
     static void DecCallBack(long nPort, char *pBuf, long nSize, FRAME_INFO *pFrameInfo, long nReserved1, long nReserved2);
 
     void cleanupPlayback();
@@ -117,7 +118,9 @@ private:
     std::atomic<LONG> m_lUserID{-1};
     std::atomic<LONG> m_lPlayHandle{-1};
     std::atomic<LONG> m_nPort{-1};
+    std::atomic<bool> m_isLivePreview{false};
     DWORD m_realSdkChannel = 1;
+    int m_liveStreamType = 0;
 
     bool m_isPlaying = false;
     qint64 m_currentPlayheadMs = 0;
