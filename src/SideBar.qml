@@ -163,6 +163,14 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.7.7",
+            date: "16.11.2026",
+            changes: [
+                qsTr("LNG_00585"),
+                qsTr("LNG_00586")
+            ]
+        },
+        {
             version: "v2.7.6",
             date: "13.11.2026",
             changes: [
@@ -1268,6 +1276,11 @@ FocusScope {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
+                ScrollBar.vertical: StyledScrollBar {
+                    id: page0ScrollBar
+                    scrollView: page0ScrollView
+                }
+
                 ColumnLayout {
                     id: page0Layout
                     x: 24
@@ -1488,6 +1501,11 @@ FocusScope {
                 clip: true
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+
+                ScrollBar.vertical: StyledScrollBar {
+                    id: page1ScrollBar
+                    scrollView: page1ScrollView
+                }
 
                 ColumnLayout {
                     id: page1Layout
@@ -1755,6 +1773,11 @@ FocusScope {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
+                ScrollBar.vertical: StyledScrollBar {
+                    id: page2ScrollBar
+                    scrollView: page2ScrollView
+                }
+
                 ColumnLayout {
                     id: recordersLayout
                     x: 24
@@ -1782,6 +1805,11 @@ FocusScope {
                 clip: true
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+
+                ScrollBar.vertical: StyledScrollBar {
+                    id: page3ScrollBar
+                    scrollView: page3ScrollView
+                }
 
                 ColumnLayout {
                     id: presetsLayout
@@ -2261,6 +2289,11 @@ FocusScope {
                 clip: true
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+
+                ScrollBar.vertical: StyledScrollBar {
+                    id: page4ScrollBar
+                    scrollView: page4ScrollView
+                }
 
                 ColumnLayout {
                     id: page4Layout
@@ -3168,6 +3201,11 @@ FocusScope {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
+                ScrollBar.vertical: StyledScrollBar {
+                    id: pageImportExportScrollBar
+                    scrollView: pageImportExportScrollView
+                }
+
                 property string statusMessage: ""
                 property bool statusSuccess: true
 
@@ -3383,6 +3421,11 @@ FocusScope {
                 clip: true
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+
+                ScrollBar.vertical: StyledScrollBar {
+                    id: page5ScrollBar
+                    scrollView: page5ScrollView
+                }
 
                 ColumnLayout {
                     id: page5Layout

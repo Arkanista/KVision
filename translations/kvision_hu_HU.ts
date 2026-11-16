@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Biztosan eltávolítja a kamerát ebből a nézetből?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Felső sáv dinamikus több-soros nézettördelése: A felső dokksáv átalakítva úgy, hogy a nézet- és rögzítőgombok az ablak szélességéhez és a feliratok hosszához igazodva dinamikusan több sorba törjenek (Flow elrendezés), függőleges éllel, egységesen lekerekített sarkokkal és ablak szintű kurzorkövetéssel.</translation></message><message><source>LNG_00586</source><translation>Nagy kontrasztú függőleges görgetősávok: Jól látható függőleges görgetősáv hozzáadva az NVR állapotablak rögzítőlistájához, valamint javítva a görgetősávok elhelyezkedése és láthatósága az oldalsáv minden beállítási fülén határozott kerettel és ciánkék kiemeléssel.</translation></message></context>
 </TS>

@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Er du sikker på at du vil fjerne kameraet fra denne visningsporten?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Dynamisk linjebryting av visninger i topplinjen: Topplinjen er bygget om slik at visnings- og opptakerknapper dynamisk brytes over flere rader (Flow-oppsett) etter vindusbredde og navnelengde, med vertikal kant, ensartede avrundede hjørner og pekersporing på vindusnivå for stabil automatisk skjuling.</translation></message><message><source>LNG_00586</source><translation>Vertikale rullefelt med høy kontrast: Lagt til et tydelig vertikalt rullefelt i opptakerlisten i NVR-statusdialogen, og fikset plassering og synlighet for vertikale rullefelt i alle innstillingsfaner i sidepanelet med tydelige kanter og cyan-fremheving.</translation></message></context>
 </TS>

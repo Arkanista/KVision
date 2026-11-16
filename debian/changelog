@@ -1,3 +1,10 @@
+cctv-viewer (2.7.7-1) jammy; urgency=medium
+
+  * Rebuilt the top dock toolbar to dynamically wrap view and recorder buttons into multiple rows (Flow layout) with a vertical step and uniform rounded corners expanding downwards only under the views section, plus window-level EventFilter pointer tracking for reliable auto-hide over multi-row buttons.
+  * Added the high-contrast StyledScrollBar component to the NVR status dialog recorder list and fixed ScrollView vertical scrollbar positioning and visibility across all seven sidebar settings tabs.
+
+ -- Arkanista  Mon, 16 Nov 2026 11:10:00 +0100
+
 cctv-viewer (2.7.6-2) jammy; urgency=medium
 
   * Fixed stream switching when enlarging a camera (fullScreen / 1x1) in "Remote recorder (WAN / NAT)" mode so Auto mode seamlessly switches to Main Stream unless Sub-Stream is manually forced.

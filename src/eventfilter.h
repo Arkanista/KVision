@@ -4,6 +4,7 @@
 #include <QQmlParserStatus>
 #include <QMetaEnum>
 #include <QEvent>
+#include <QPointer>
 
 #include "qmlavpropertyhelpers.h"
 
@@ -21,6 +22,7 @@ public:
 
     QMLAV_PROPERTY(bool, enabled, setEnabled, enabledChanged) = true;
     QMLAV_PROPERTY(EventFilter::Scope, scope, setScope, scopeChanged) = Scope::Parent;
+    QMLAV_PROPERTY(QObject *, target, setTarget, targetChanged) = nullptr;
     QMLAV_PROPERTY_DECL(QStringList, eventTypes, setEventTypes, eventTypesChanged);
     QMLAV_PROPERTY(bool, eventProperties, setEventProperties, eventPropertiesChanged) = true;
 
@@ -40,7 +42,7 @@ protected:
 
 private:
     static QMetaEnum m_metaEnum;
-    QObject *m_watched;
+    QPointer<QObject> m_watched;
     std::vector<QEvent::Type> m_events;
 };
 

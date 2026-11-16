@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Haluatko varmasti poistaa kameran tästä kuvaportista?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Yläpalkin näkymien dynaaminen rivitys: Yläpalkki rakennettiin uudelleen siten, että näkymä- ja tallenninpainikkeet rivittyvät dynaamisesti usealle riville (Flow-asettelu) ikkunan leveyden ja nimien pituuden mukaan, pystysuoralla reunalla, yhtenäisillä pyöristyksillä ja ikkunatason osoitinseurannalla.</translation></message><message><source>LNG_00586</source><translation>Korkeakontrastiset pystysuorat vierityspalkit: Lisätty selkeästi erottuva pystysuora vierityspalkki NVR-tiladialogin tallenninluetteloon sekä korjattu vierityspalkkien sijainti ja näkyvyys kaikilla sivupaneelin asetusvälilehdillä selkein reunuksin ja syaanikorostuksin.</translation></message></context>
 </TS>

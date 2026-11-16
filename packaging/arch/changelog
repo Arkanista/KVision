@@ -1,3 +1,6 @@
+2.7.7-1
+  * Rebuilt the top dock toolbar: view and recorder buttons dynamically wrap into multiple rows (Flow layout) based on window width and label lengths, with a vertical step and uniform rounded corners expanding downwards only under the views section, plus window-level EventFilter pointer tracking for reliable auto-hide over multi-row buttons. Added the StyledScrollBar component with high-contrast borders and cyan hover highlights to the NVR status dialog recorder list and fixed ScrollView scrollbar positioning across all seven sidebar settings tabs.
+
 2.7.6-2
   * PL: Poprawiono zachowanie trybu „Zdalny rejestrator (WAN / NAT)” przy powiększeniu kamery (fullScreen / 1x1): w trybie Auto powiększenie przełącza teraz płynnie na strumień główny (Main), chyba że strumień pomocniczy (Sub) został ręcznie wymuszony w ustawieniach widoku; wyeliminowano też zbędne podwójne sesje RTSP przy szybkim powiększeniu i pomniejszeniu kafelka.
     EN: Fixed stream switching when enlarging a camera (fullScreen / 1x1) in "Remote recorder (WAN / NAT)" mode: Auto mode now seamlessly switches to Main Stream upon enlarging unless Sub-Stream is manually forced in viewport settings; also prevented duplicate RTSP sessions on rapid enlarge/shrink toggles.

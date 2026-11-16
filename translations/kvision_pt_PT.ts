@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Tem certeza de que deseja remover a câmera desta janela de visualização?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Quebra dinâmica de vistas em várias linhas na barra superior: A barra superior foi reconstruída para distribuir dinamicamente os botões de vistas e gravadores em várias linhas (layout Flow) consoante a largura da janela, com margem vertical, cantos arredondados uniformes sob a secção de vistas e rastreamento do ponteiro ao nível da janela.</translation></message><message><source>LNG_00586</source><translation>Barras de deslocamento verticais de alto contraste: Adicionada uma barra de deslocamento vertical bem visível à lista de gravadores no diálogo de estado do NVR e corrigido o posicionamento e visibilidade em todos os separadores de definições da barra lateral com contornos nítidos e destaque ciano.</translation></message></context>
 </TS>

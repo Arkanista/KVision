@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Sigur doriți să eliminați camera din această fereastră de vizualizare?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Împărțire dinamică pe mai multe rânduri a vizualizărilor în bara de sus: Bara de sus a fost reconstruită pentru a împărți dinamic butoanele de vizualizări și NVR-uri pe mai multe rânduri (aspect Flow) în funcție de lățimea ferestrei, cu margine verticală, colțuri rotunjite uniform și urmărire a cursorului la nivel de fereastră.</translation></message><message><source>LNG_00586</source><translation>Bare de derulare verticale cu contrast ridicat: A fost adăugată o bară de derulare verticală clar vizibilă în lista de NVR-uri din dialogul de stare și au fost corectate poziționarea și vizibilitatea barelor de derulare în toate filele de setări din panoul lateral cu contur clar și evidențiere cyan.</translation></message></context>
 </TS>

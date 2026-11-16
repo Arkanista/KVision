@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>确定要从该窗格移除摄像机吗？</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>顶部工具栏多行视图动态换行：重构了顶部停靠栏，使视图和录像机按钮根据窗口宽度和名称长度自动换行显示为多行（Flow 布局）；扩展背景仅在视图区域下方呈垂直边缘并带统一圆角向下延伸，并通过窗口级指针追踪防止悬停在任意行按钮上时误触发自动隐藏。</translation></message><message><source>LNG_00586</source><translation>高对比度垂直滚动条：在 NVR 状态对话框的录像机列表中添加了清晰可见的垂直滚动条，并修复了侧边栏所有设置选项卡中垂直滚动条的位置与可见性，配备清晰的轨道边框和青色悬停高亮。</translation></message></context>
 </TS>

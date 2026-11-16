@@ -1,5 +1,6 @@
 import QtQml 2.12
 import QtQuick 2.12
+import QtQuick.Shapes 1.12
 import QtQuick.Window 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
@@ -728,6 +729,39 @@ ApplicationWindow {
         }
     }
 
+    property bool pointerInTopBar: false
+
+    // Track pointer across the full window (including child Buttons that swallow MouseArea hover)
+    EventFilter {
+        id: topBarPointerFilter
+        target: rootWindow
+        eventTypes: ["MouseMove", "Leave"]
+        onEventFiltered: {
+            if (properties.type === "Leave") {
+                if (rootWindow.pointerInTopBar) {
+                    rootWindow.pointerInTopBar = false;
+                    if (rootWindow.topBarAutoCollapse && !hoverArea.containsMouse) {
+                        keepVisibleTimer.start();
+                    }
+                }
+                return;
+            }
+            var mx = properties.x;
+            var my = properties.y;
+            var insideTopTrigger = (my >= 0 && my <= 12);
+            var insideBar = topToolBar.containsPointInWindow(mx, my);
+            var nowInside = insideTopTrigger || insideBar;
+            if (nowInside !== rootWindow.pointerInTopBar) {
+                rootWindow.pointerInTopBar = nowInside;
+                if (nowInside) {
+                    keepVisibleTimer.stop();
+                } else if (rootWindow.topBarAutoCollapse && !hoverArea.containsMouse) {
+                    keepVisibleTimer.start();
+                }
+            }
+        }
+    }
+
     // Hover area at the very top edge of the window to slide down the top bar
     MouseArea {
         id: hoverArea
@@ -736,29 +770,58 @@ ApplicationWindow {
         anchors.left: parent.left
         anchors.right: parent.right
         hoverEnabled: true
-        z: 99999
+        acceptedButtons: Qt.NoButton
+        z: 9998
         onContainsMouseChanged: {
             if (containsMouse) {
                 keepVisibleTimer.stop();
-            } else if (!topToolBarMouseArea.containsMouse) {
+            } else if (!rootWindow.pointerInTopBar) {
                 keepVisibleTimer.start();
             }
         }
     }
 
     // Sleek premium horizontal top bar for settings and grid layout options (DOCK)
-    Rectangle {
+    Item {
         id: topToolBar
-        height: 56
-        width: topRowLayout.implicitWidth + 24
+        readonly property real radiusVal: 12
+        readonly property real leftSectionHeight: 56
+        readonly property real leftSectionWidth: 12 + topRowLayout.implicitWidth
+
+        // Dynamic views width: available space in window before hitting margins
+        readonly property real availViewsWidth: Math.max(150, (rootWindow.width - 48) - leftSectionWidth - 36)
+        // Wrapping threshold: wrap dynamically when hitting available width or a comfortable ratio
+        readonly property real maxViewsWidth: Math.max(150, Math.min(availViewsWidth, Math.max(500, rootWindow.width * 0.55)))
+
+        readonly property real contentViewsWidth: Math.ceil(viewsFlow.childrenRect.width)
+        readonly property real contentViewsHeight: Math.ceil(viewsFlow.childrenRect.height)
+
+        readonly property real viewsSectionHeight: Math.max(56, contentViewsHeight + 26)
+        readonly property bool hasExtension: repeaterViews.count > 0 && viewsSectionHeight > leftSectionHeight
+        readonly property real cornerR: hasExtension ? Math.min(radiusVal, (viewsSectionHeight - leftSectionHeight) / 2) : radiusVal
+        readonly property real viewsSectionWidth: repeaterViews.count > 0 ? (contentViewsWidth + (hasExtension ? 22 : 16)) : 12
+
+        height: Math.max(leftSectionHeight, viewsSectionHeight)
+        width: leftSectionWidth + viewsSectionWidth
         anchors.horizontalCenter: parent.horizontalCenter
-        color: (rootWindow.visibility === Window.FullScreen) ? "#44121214" : "#99121214"
         z: 9999
-        radius: 12
+
+        function containsPointInWindow(mx, my) {
+            var activeTop = (hoverArea.containsMouse || rootWindow.pointerInTopBar || keepVisibleTimer.running) ? -12 : topToolBar.y;
+            var lx = mx - topToolBar.x;
+            var ly = my - activeTop;
+            if (lx < 0 || lx > topToolBar.width || ly < 0) {
+                return false;
+            }
+            if (repeaterViews.count > 0 && lx >= topToolBar.leftSectionWidth) {
+                return ly <= topToolBar.viewsSectionHeight;
+            }
+            return ly <= topToolBar.leftSectionHeight;
+        }
 
         // Slides down to y: -12 so that the top 12px (containing top rounded corners) is off-screen,
         // leaving only the bottom rounded corners visible at the top edge of the window.
-        y: (!rootWindow.topBarAutoCollapse || hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? -12 : -height
+        y: (!rootWindow.topBarAutoCollapse || hoverArea.containsMouse || rootWindow.pointerInTopBar || keepVisibleTimer.running) ? -12 : -height
 
         Behavior on y {
             NumberAnimation {
@@ -767,30 +830,121 @@ ApplicationWindow {
             }
         }
 
-        MouseArea {
-            id: topToolBarMouseArea
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
-            height: 44
-            hoverEnabled: true
-            onContainsMouseChanged: {
-                if (containsMouse) {
-                    keepVisibleTimer.stop();
-                } else if (!hoverArea.containsMouse) {
-                    keepVisibleTimer.start();
-                }
-            }
+        Shape {
+            id: topToolBarShape
+            anchors.fill: parent
+            layer.enabled: true
+            layer.samples: 4
 
-            RowLayout {
-                id: topRowLayout
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.leftMargin: 12
-                anchors.rightMargin: 12
-                height: 44
-                spacing: 6
+            ShapePath {
+                id: topToolBarPath
+                readonly property real inset: 0
+                readonly property real w: topToolBar.width
+                readonly property real h1: topToolBar.leftSectionHeight
+                readonly property real h2: topToolBar.viewsSectionHeight
+                readonly property real xMid: topToolBar.leftSectionWidth
+                readonly property real r: topToolBar.radiusVal
+                readonly property real cr: topToolBar.cornerR
+
+                strokeWidth: -1
+                strokeColor: "transparent"
+                fillColor: (rootWindow.visibility === Window.FullScreen) ? "#44121214" : "#99121214"
+                capStyle: ShapePath.RoundCap
+                joinStyle: ShapePath.RoundJoin
+
+                startX: topToolBarPath.inset
+                startY: 0
+
+                // Top edge
+                PathLine { x: topToolBarPath.w; y: 0 }
+
+                // Right edge down
+                PathLine { x: topToolBarPath.w; y: topToolBarPath.h2 - topToolBarPath.r }
+
+                // Bottom-right outer corner
+                PathArc {
+                    x: topToolBarPath.w - topToolBarPath.r
+                    y: topToolBarPath.h2
+                    radiusX: topToolBarPath.r
+                    radiusY: topToolBarPath.r
+                    direction: PathArc.Clockwise
+                }
+
+                // Bottom edge of views tray
+                PathLine {
+                    x: topToolBar.hasExtension ? (topToolBarPath.xMid + topToolBarPath.cr) : (topToolBarPath.r + topToolBarPath.inset)
+                    y: topToolBarPath.h2
+                }
+
+                // Bottom-left outer corner of views tray (when extended downwards)
+                PathArc {
+                    x: topToolBar.hasExtension ? topToolBarPath.xMid : (topToolBarPath.r + topToolBarPath.inset)
+                    y: topToolBar.hasExtension ? (topToolBarPath.h2 - topToolBarPath.cr) : topToolBarPath.h2
+                    radiusX: topToolBar.hasExtension ? topToolBarPath.cr : 0.01
+                    radiusY: topToolBar.hasExtension ? topToolBarPath.cr : 0.01
+                    direction: PathArc.Clockwise
+                }
+
+                // Vertical left edge of views tray going up
+                PathLine {
+                    x: topToolBar.hasExtension ? topToolBarPath.xMid : (topToolBarPath.r + topToolBarPath.inset)
+                    y: topToolBar.hasExtension ? (topToolBarPath.h1 + topToolBarPath.cr) : topToolBarPath.h1
+                }
+
+                // Inner concave rounded transition into bottom of left section
+                PathArc {
+                    x: topToolBar.hasExtension ? (topToolBarPath.xMid - topToolBarPath.cr) : (topToolBarPath.r + topToolBarPath.inset)
+                    y: topToolBarPath.h1
+                    radiusX: topToolBar.hasExtension ? topToolBarPath.cr : 0.01
+                    radiusY: topToolBar.hasExtension ? topToolBarPath.cr : 0.01
+                    direction: PathArc.Counterclockwise
+                }
+
+                // Bottom edge of left section
+                PathLine { x: topToolBarPath.r + topToolBarPath.inset; y: topToolBarPath.h1 }
+
+                // Bottom-left outer corner
+                PathArc {
+                    x: topToolBarPath.inset
+                    y: topToolBarPath.h1 - topToolBarPath.r
+                    radiusX: topToolBarPath.r
+                    radiusY: topToolBarPath.r
+                    direction: PathArc.Clockwise
+                }
+
+                // Left edge up
+                PathLine { x: topToolBarPath.inset; y: 0 }
+            }
+        }
+
+        // Absorb hover, clicks & wheel on the painted dock sections so underlying viewports don't react
+        MouseArea {
+            x: 0
+            y: 0
+            width: topToolBar.leftSectionWidth
+            height: topToolBar.leftSectionHeight
+            hoverEnabled: true
+            acceptedButtons: Qt.AllButtons
+            onWheel: wheel.accepted = true
+        }
+
+        MouseArea {
+            x: topToolBar.leftSectionWidth
+            y: 0
+            width: topToolBar.viewsSectionWidth
+            height: topToolBar.viewsSectionHeight
+            visible: repeaterViews.count > 0
+            hoverEnabled: true
+            acceptedButtons: Qt.AllButtons
+            onWheel: wheel.accepted = true
+        }
+
+        RowLayout {
+            id: topRowLayout
+            x: 12
+            y: 12
+            height: 44
+            spacing: 6
 
             Button {
                 id: quitButton
@@ -854,6 +1008,9 @@ ApplicationWindow {
 
                 onClicked: {
                     rootWindow.topBarAutoCollapse = !rootWindow.topBarAutoCollapse;
+                    if (rootWindow.topBarAutoCollapse) {
+                        keepVisibleTimer.restart();
+                    }
                 }
 
                 ToolTip.delay: Compact.toolTipDelay
@@ -1366,18 +1523,35 @@ ApplicationWindow {
             }
 
             Rectangle {
+                id: viewsDivider
                 width: 1
                 height: 20
                 color: "#2a3540"
                 Layout.alignment: Qt.AlignVCenter
                 Layout.leftMargin: 6
                 Layout.rightMargin: 6
+                visible: repeaterViews.count > 0
             }
+        }
 
-            RowLayout {
+        Item {
+            id: viewsContainer
+            x: topToolBar.leftSectionWidth + (topToolBar.hasExtension ? 10 : 4)
+            y: 12
+            width: topToolBar.contentViewsWidth
+            height: topToolBar.contentViewsHeight + 14
+            visible: repeaterViews.count > 0
+
+            Flow {
+                id: viewsFlow
+                anchors.top: parent.top
+                anchors.topMargin: 7
+                anchors.left: parent.left
+                width: topToolBar.maxViewsWidth
                 spacing: 4
 
                 Repeater {
+                    id: repeaterViews
                     model: layoutsCollectionModel
                     delegate: Button {
                         id: viewBtn
@@ -1415,6 +1589,7 @@ ApplicationWindow {
                             return "Widok " + (layoutIndex + 1);
                         }
 
+                        height: 30
                         Layout.preferredHeight: 30
                         leftPadding: 12
                         rightPadding: 12
@@ -1448,7 +1623,6 @@ ApplicationWindow {
                 }
             }
         }
-    }
     }
 
     // Protruding error indicator at the top edge of the window when top bar is hidden

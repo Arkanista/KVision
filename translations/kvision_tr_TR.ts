@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Kamerayı bu görünüm alanından kaldırmak istediğinizden emin misiniz?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Üst Çubukta Çok Satırlı Dinamik Görünüm Kaydırma: Üst araç çubuğu, görünüm ve kayıt cihazı düğmelerini pencere genişliğine ve ad uzunluklarına göre dinamik olarak birden çok satıra saracak şekilde (Flow düzeni) yeniden yapılandırıldı; yalnızca görünümler bölümünün altında dikey kenar ve eşit yuvarlatılmış köşelerle genişler ve pencere düzeyinde imleç takibi otomatik gizlemeyi kararlı tutar.</translation></message><message><source>LNG_00586</source><translation>Yüksek Kontrastlı Dikey Kaydırma Çubukları: NVR durum penceresindeki kayıt cihazı listesine belirgin bir dikey kaydırma çubuğu eklendi ve kenar çubuğundaki tüm ayar sekmelerinde net iz kenarlıkları ve camgöbeği vurgularla kaydırma çubuğu konumu ile görünürlüğü düzeltildi.</translation></message></context>
 </TS>

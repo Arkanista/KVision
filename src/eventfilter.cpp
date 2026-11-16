@@ -8,9 +8,9 @@ QMetaEnum EventFilter::m_metaEnum(QMetaEnum::fromType<QEvent::Type>());
 
 EventFilter::EventFilter(QObject *parent)
     : QObject(parent)
-    , m_watched(nullptr)
 {
     connect(this, &EventFilter::scopeChanged, this, &EventFilter::installEventFilter);
+    connect(this, &EventFilter::targetChanged, this, &EventFilter::installEventFilter);
 }
 
 bool EventFilter::eventFilter([[maybe_unused]] QObject *watched, QEvent *event)
@@ -64,7 +64,9 @@ void EventFilter::installEventFilter()
         m_watched->removeEventFilter(this);
     }
 
-    m_watched = (m_scope == Scope::Application) ? QCoreApplication::instance() : parent();
+    m_watched = (m_scope == Scope::Application)
+        ? QCoreApplication::instance()
+        : (m_target ? m_target : parent());
     if (m_watched) {
         m_watched->installEventFilter(this);
     }

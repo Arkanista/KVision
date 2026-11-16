@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>¿Está seguro de que desea eliminar la cámara de esta ventana gráfica?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Ajuste dinámico de vistas en la barra superior: Se rediseñó la barra superior para ajustar dinámicamente los botones de vistas y grabadores en varias filas (diseño Flow) según el ancho de la ventana y la longitud de los nombres, con borde vertical, esquinas redondeadas uniformes solo bajo la sección de vistas y seguimiento del cursor en toda la ventana.</translation></message><message><source>LNG_00586</source><translation>Barras de desplazamiento verticales de alto contraste: Se añadió una barra de desplazamiento vertical bien visible a la lista de grabadores en el diálogo de estado NVR y se corrigió la posición y visibilidad de las barras en todas las pestañas de ajustes con bordes definidos y resaltado cian.</translation></message></context>
 </TS>

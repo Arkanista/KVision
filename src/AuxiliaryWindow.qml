@@ -180,6 +180,39 @@ Window {
         repeat: false
     }
 
+    property bool pointerInTopBar: false
+
+    EventFilter {
+        id: auxTopBarPointerFilter
+        target: auxWindow
+        eventTypes: ["MouseMove", "Leave"]
+        onEventFiltered: {
+            if (properties.type === "Leave") {
+                if (auxWindow.pointerInTopBar) {
+                    auxWindow.pointerInTopBar = false;
+                    if (auxWindow.topBarAutoCollapse && !hoverArea.containsMouse) {
+                        keepVisibleTimer.start();
+                    }
+                }
+                return;
+            }
+            var mx = properties.x;
+            var my = properties.y;
+            var activeTop = (hoverArea.containsMouse || auxWindow.pointerInTopBar || keepVisibleTimer.running) ? 0 : topToolBar.y;
+            var insideTopTrigger = (my >= 0 && my <= 12);
+            var insideBar = (mx >= 0 && mx <= topToolBar.width && my >= activeTop && my <= activeTop + topToolBar.height);
+            var nowInside = insideTopTrigger || insideBar;
+            if (nowInside !== auxWindow.pointerInTopBar) {
+                auxWindow.pointerInTopBar = nowInside;
+                if (nowInside) {
+                    keepVisibleTimer.stop();
+                } else if (auxWindow.topBarAutoCollapse && !hoverArea.containsMouse) {
+                    keepVisibleTimer.start();
+                }
+            }
+        }
+    }
+
     // Hover area at the very top edge of the window to slide down the top bar
     MouseArea {
         id: hoverArea
@@ -188,11 +221,12 @@ Window {
         anchors.left: parent.left
         anchors.right: parent.right
         hoverEnabled: true
+        acceptedButtons: Qt.NoButton
         z: 99999
         onContainsMouseChanged: {
             if (containsMouse) {
                 keepVisibleTimer.stop();
-            } else if (!topToolBarMouseArea.containsMouse) {
+            } else if (!auxWindow.pointerInTopBar) {
                 keepVisibleTimer.start();
             }
         }
@@ -201,14 +235,14 @@ Window {
     // Sleek premium horizontal top bar for settings and grid layout options
     Rectangle {
         id: topToolBar
-        height: 44
+        height: Math.max(44, auxViewsFlow.childrenRect.height + 14)
         anchors.left: parent.left
         anchors.right: parent.right
         color: "#cc121214"
         z: 9999
 
         // Slide animation based on hover states of the top edge or the bar itself
-        y: (!topBarAutoCollapse || hoverArea.containsMouse || topToolBarMouseArea.containsMouse || keepVisibleTimer.running) ? 0 : -height
+        y: (!topBarAutoCollapse || hoverArea.containsMouse || auxWindow.pointerInTopBar || keepVisibleTimer.running) ? 0 : -height
 
         Behavior on y {
             NumberAnimation {
@@ -226,16 +260,10 @@ Window {
         }
 
         MouseArea {
-            id: topToolBarMouseArea
             anchors.fill: parent
             hoverEnabled: true
-            onContainsMouseChanged: {
-                if (containsMouse) {
-                    keepVisibleTimer.stop();
-                } else if (!hoverArea.containsMouse) {
-                    keepVisibleTimer.start();
-                }
-            }
+            acceptedButtons: Qt.AllButtons
+            onWheel: wheel.accepted = true
 
             RowLayout {
                 anchors.fill: parent
@@ -596,10 +624,14 @@ Window {
                     Layout.alignment: Qt.AlignVCenter
                 }
 
-                RowLayout {
+                Flow {
+                    id: auxViewsFlow
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignVCenter
                     spacing: 4
 
                     Repeater {
+                        id: repeaterViewsAux
                         model: layoutsModel
                         delegate: Button {
                             id: viewBtn
@@ -637,6 +669,7 @@ Window {
                                 return "Widok " + (layoutIndex + 1);
                             }
 
+                            height: 30
                             Layout.preferredHeight: 30
                             leftPadding: 12
                             rightPadding: 12

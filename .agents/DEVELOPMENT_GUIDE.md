@@ -152,8 +152,12 @@ cmake --build build --target diagnose_live
 cmake --build build --target diagnose_archive
 ./build/diagnose_archive
 
-# 7. Recompile Translations
-lupdate src -ts translations/*.ts
+# 7. Translate & Recompile Localization Packs (Google Translate API via tools/translate_ts.py)
+# Do NOT hand-translate 20+ languages with the LLM; pass English (and optional Polish) text to:
+python3 tools/translate_ts.py --id LNG_XXXXX --en "English text" --pl "Polish text" --compile
+# Or batch multiple keys via JSON:
+python3 tools/translate_ts.py --json changes.json --compile
+# Manual recompile only:
 lrelease translations/*.ts
 ```
 

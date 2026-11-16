@@ -4772,5 +4772,5 @@
             <source>LNG_00464</source>
             <translation>Are you sure you want to remove the camera from this viewport?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Top Bar Multi-line Views Wrapping: Rebuilt the top dock toolbar to dynamically wrap view and recorder buttons into multiple rows (Flow layout) based on available window width and button label lengths. The dock expands downwards with a vertical edge and uniform rounded corners only under the views section, and window-level pointer tracking prevents auto-hide while hovering over any button row.</translation></message><message><source>LNG_00586</source><translation>High-Contrast Vertical Scrollbars: Added a dedicated, clearly visible vertical scrollbar to the NVR status dialog recorder list and fixed vertical scrollbar positioning and visibility across all settings tabs in the sidebar (views, tools, recorders, general, performance, import/export, and changelog) with distinct track borders and cyan hover highlights.</translation></message></context>
 </TS>

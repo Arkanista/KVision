@@ -64,6 +64,7 @@
         <file>src/ConfirmDialog.qml</file>
         <file>src/DownloadDialog.qml</file>
         <file>src/NvrStatusDialog.qml</file>
+        <file>src/StyledScrollBar.qml</file>
         <file>images/128.png</file>
         <file>images/256.png</file>
         <file>images/512.png</file>

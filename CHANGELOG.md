@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.7] - 2026-11-16
+
+### Features, Improvements & Bug Fixes
+* **Top Bar Rebuild, Dynamic Multi-line Views Wrapping & Auto-Hide Fix (`RootWindow`, `AuxiliaryWindow`, `EventFilter`):**
+  * Rebuilt the top dock toolbar layout to dynamically wrap view and recorder buttons into multiple rows (`Flow` layout) based on available window width and button label lengths, completely eliminating button clipping/overflow when managing multiple NVRs or custom views.
+  * Engineered a custom dock background using `QtQuick.Shapes` (`ShapePath`, `PathLine`, `PathArc`) with a clean vertical left step, uniform rounded corners on all bends, expanding downwards only under the views section while preserving standard single-row height (56px) for the left controls.
+  * Added window-level pointer tracking via `EventFilter` (`target`, `MouseMove` / `Leave`) so hovering over any multi-row button keeps the auto-hide toolbar open until the cursor leaves the dock area.
+  * Added dynamic wrapping, automatic height adjustment, and window-level pointer tracking in auxiliary multi-monitor windows (`AuxiliaryWindow`).
+* **High-Contrast Vertical Scrollbars (`StyledScrollBar`, `SideBar`, `NvrStatusDialog`):**
+  * Created a shared `StyledScrollBar` component with distinct track borders (`#2a3540` on `#0f151b`), prominent slate handles (`#5a6e7f`), persistent full opacity when scrolling is needed, and bright cyan hover/active highlights (`#33f7dc` / `#00f5d4`).
+  * Added the vertical scrollbar to the recorder list in the NVR Status dialog (`NvrStatusDialog`) and fixed `ScrollView` scrollbar positioning and visibility across all seven settings tabs in the sidebar (`SideBar` - views, tools, recorders, general, performance, import/export, and changelog).
+
 ## [2.7.6-2] - 2026-11-13
 
 ### EN: Features, Improvements & Bug Fixes

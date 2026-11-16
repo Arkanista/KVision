@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Sei sicuro di voler rimuovere la fotocamera da questa finestra?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Disposizione dinamica su più righe nella barra superiore: La barra superiore è stata ricostruita per mandare a capo dinamicamente i pulsanti di viste e registratori su più righe (layout Flow) in base alla larghezza della finestra, con bordo verticale, angoli arrotondati uniformi sotto la sezione viste e tracciamento del puntatore a livello di finestra.</translation></message><message><source>LNG_00586</source><translation>Barre di scorrimento verticali ad alto contrasto: Aggiunta una barra di scorrimento verticale ben visibile all'elenco dei registratori nella finestra di stato NVR e corretti posizionamento e visibilità delle barre di scorrimento in tutte le schede delle impostazioni con bordi definiti ed evidenziazione ciano.</translation></message></context>
 </TS>
