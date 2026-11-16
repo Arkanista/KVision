@@ -184,18 +184,27 @@ git clone --recurse-submodules https://github.com/arkanista/kvision.git
 
 ### Pre-compiled Packages (`v2.7.8` & Automated Rolling Builds)
 
-Pre-built binary packages for **Windows x64**, **Arch Linux / CachyOS**, **Debian / Ubuntu / Linux Mint (`.deb`)**, and **Universal Linux (`AppImage`)** are attached directly to the [v2.7.8 Release](https://github.com/Arkanista/KVision/releases/tag/v2.7.8) (latest automated builds from `master` are also published under [`linux-latest`](https://github.com/Arkanista/KVision/releases/tag/linux-latest) and [`windows-latest`](https://github.com/Arkanista/KVision/releases/tag/windows-latest)).
+Pre-built packages for **Windows x64**, **Arch Linux / CachyOS**, **Debian / Ubuntu / Linux Mint**, and **Universal Linux (`AppImage`)** are available from the [v2.7.8 release](https://github.com/Arkanista/KVision/releases/tag/v2.7.8). The latest automated builds from `master` are also published under [`linux-latest`](https://github.com/Arkanista/KVision/releases/tag/linux-latest) and [`windows-latest`](https://github.com/Arkanista/KVision/releases/tag/windows-latest).
 
-#### 1. Universal Linux (`AppImage`) — Works on Any Modern Distribution
-Best if you want a zero-dependency single-file executable that works across Debian, Ubuntu, Linux Mint, Fedora, Arch, etc.:
+#### 1. Universal Linux (`AppImage`)
+
+The AppImage is a single-file executable for modern distributions with **glibc 2.35 or later** (Ubuntu 22.04+, Debian 12+, Linux Mint 21+):
+
 * **[Download KVision-2.7.8-x86_64.AppImage](https://github.com/Arkanista/KVision/releases/download/v2.7.8/KVision-2.7.8-x86_64.AppImage)**
+
 ```bash
 chmod +x KVision-2.7.8-x86_64.AppImage
 ./KVision-2.7.8-x86_64.AppImage
 ```
 
-#### 2. Debian, Ubuntu & Linux Mint (`.deb` Compatibility Table)
-Native `.deb` packages link dynamically against your distribution's system FFmpeg ABI, so **choose the `.deb` file matching your base distribution**:
+> [!NOTE]
+> **AppImage runtime notes:**
+> * **Ubuntu 22.04 / 24.04+ (missing FUSE 2):** If launching the AppImage fails with a FUSE error, install FUSE 2 (`sudo apt install libfuse2` on Ubuntu 22.04 or `sudo apt install libfuse2t64` on Ubuntu 24.04+) or run it with `./KVision-2.7.8-x86_64.AppImage --appimage-extract-and-run`.
+> * **Display server:** The AppImage bundles Qt platform plugins for both **X11 / XWayland (`xcb`)** and **native Wayland (`wayland`)**.
+
+#### 2. Debian, Ubuntu & Linux Mint (`.deb`)
+
+Native `.deb` packages link dynamically against the distribution's system FFmpeg ABI. Choose the package matching your base distribution:
 
 | Package File (`v2.7.8`) | Compatible Distributions |
 | :--- | :--- |
@@ -206,17 +215,19 @@ Native `.deb` packages link dynamically against your distribution's system FFmpe
 | [`kvision_2.7.8-1_ubuntu26.04_amd64.deb`](https://github.com/Arkanista/KVision/releases/download/v2.7.8/kvision_2.7.8-1_ubuntu26.04_amd64.deb) | **Ubuntu 26.04 LTS (`resolute`)**, **Linux Mint 23.x** |
 | [`kvision_2.7.8-1_ubuntu26.10_amd64.deb`](https://github.com/Arkanista/KVision/releases/download/v2.7.8/kvision_2.7.8-1_ubuntu26.10_amd64.deb) | **Ubuntu 26.10** |
 
-To install the matching `.deb` package (automatically pulling runtime Qt5/QML & FFmpeg dependencies):
+Install the matching `.deb` package with `apt` so runtime dependencies are resolved automatically. On Ubuntu, make sure the `universe` repository is enabled:
+
 ```bash
 sudo apt update
 sudo apt install ./kvision_2.7.8-1_<distro>_amd64.deb
 ```
-*(You can also build `.deb` or `AppImage` packages locally with `./tools/build_deb.sh` and `./tools/build_appimage.sh`.)*
 
-#### 3. Arch Linux / CachyOS / Manjaro (`Pacman`)
+You can also build `.deb` or `AppImage` packages locally with `./tools/build_deb.sh` and `./tools/build_appimage.sh`.
+
+#### 3. Arch Linux / CachyOS (`Pacman`)
+
 * **[Download kvision-2.7.8-1-x86_64.pkg.tar.zst](https://github.com/Arkanista/KVision/releases/download/v2.7.8/kvision-2.7.8-1-x86_64.pkg.tar.zst)**
 
-To install the downloaded package:
 ```bash
 sudo pacman -U kvision-2.7.8-1-x86_64.pkg.tar.zst
 ```
@@ -225,7 +236,10 @@ sudo pacman -U kvision-2.7.8-1-x86_64.pkg.tar.zst
 > The Arch Linux package is built and tested with modern system libraries including FFmpeg 9 (`libavutil.so.61` / `libavformat.so.63`) on Arch Linux / CachyOS.
 
 #### 4. Windows 10 / 11 (x64 Portable ZIP)
-* **[Download KVision-windows-x64.zip (v2.7.8)](https://github.com/Arkanista/KVision/releases/download/v2.7.8/KVision-windows-x64.zip)** (compiled with MSVC 2022, Qt 5.15.2, FFmpeg 8.1 shared, and Hikvision SDK). Extract anywhere and run `kvision.exe`.
+
+* **[Download KVision-windows-x64.zip (v2.7.8)](https://github.com/Arkanista/KVision/releases/download/v2.7.8/KVision-windows-x64.zip)** (compiled with MSVC 2022, Qt 5.15.2, FFmpeg 8.1 shared, and Hikvision SDK; rolling builds are available under [`windows-latest`](https://github.com/Arkanista/KVision/releases/tag/windows-latest)).
+
+Extract the archive anywhere and run `kvision.exe`.
 
 ### Building from Source (Arch Linux / CachyOS)
 
