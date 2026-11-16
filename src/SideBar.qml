@@ -2813,6 +2813,7 @@ FocusScope {
                                         { text: "Norsk Bokmål (AI)", value: "no" },
                                         { text: "Português (AI)", value: "pt" },
                                         { text: "Română (AI)", value: "ro" },
+                                        { text: "Русский (ИИ)", value: "ru" },
                                         { text: "Slovenčina (AI)", value: "sk" },
                                         { text: "Svenska (AI)", value: "sv" },
                                         { text: "Türkçe (AI)", value: "tr" },

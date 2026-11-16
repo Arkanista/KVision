@@ -45,6 +45,7 @@ GOOGLE_LANG_MAP = {
     "kvision_nl_NL.ts": "nl",
     "kvision_pt_PT.ts": "pt",
     "kvision_ro_RO.ts": "ro",
+    "kvision_ru_RU.ts": "ru",
     "kvision_sk_SK.ts": "sk",
     "kvision_sv_SE.ts": "sv",
     "kvision_tr_TR.ts": "tr",

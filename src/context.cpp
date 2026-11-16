@@ -286,6 +286,7 @@ static QString getTransFileForLang(const QString &lang)
         {"en", "kvision_en_US"},
         {"es", "kvision_es_ES"},
         {"ar", "kvision_ar_AR"},
+        {"ru", "kvision_ru_RU"},
         {"bg", "kvision_bg_BG"},
         {"cs", "kvision_cs_CZ"},
         {"da", "kvision_da_DK"},
