@@ -1,3 +1,6 @@
+2.7.8-3
+  * Added Russian UI localization (kvision_ru_RU.ts / "Русский (ИИ)") contributed in PR #10 (@demon-5656), registered it in kvision.qrc, Context, SideBar, and translate_ts.py, and translated all 30 missing post-PR UI and changelog strings (LNG_00569-LNG_00598).
+
 2.7.8-2
   * Fixed a settings persistence race between QML Settings (500 ms debounce timer) and QFileSystemWatcher/onConfigFileChanged that could revert disableViewportZoomAnimation and other View/General/Viewport checkboxes back to their previous disk state; persisted all settings checkboxes and lockGridSize immediately via Context.writeSetting, restored reactive QML CheckBox bindings after clicks (onToggled), preserved windowed geometry in flushSettingsToDisk() during fullscreen, and flushed all settings on application quit.
 

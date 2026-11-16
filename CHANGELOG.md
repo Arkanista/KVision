@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.8-3] - 2026-11-16
+
+### Localization
+* **Russian UI Localization (`kvision_ru_RU`, `Context`, `SideBar`, `translate_ts.py` — PR #10):**
+  * Integrated the Russian Qt translation catalog contributed in PR #10 (`@demon-5656`), registered `translations/kvision_ru_RU.qm` in `kvision.qrc`, added the `{"ru", "kvision_ru_RU"}` language mapping in `src/context.cpp`, added `"Русский (ИИ)"` to the language selector in `src/SideBar.qml`, and added `kvision_ru_RU.ts` to `GOOGLE_LANG_MAP` in `tools/translate_ts.py`.
+  * Translated all 30 missing post-PR UI and changelog keys (`LNG_00569`–`LNG_00598`, including `WAN/NAT` mode, port reachability tester, top bar auto-hide tuning, viewport merge/split, and settings persistence fix notes) into Russian and recompiled all `.qm` binaries.
+
 ## [2.7.8-2] - 2026-11-16
 
 ### Bug Fixes
