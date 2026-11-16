@@ -71,7 +71,7 @@ cctv-viewer (2.7.0-1) jammy; urgency=medium
   * Added permanent field labels in NVR settings for port configurations.
   * Updated multi-language localization across all 22 supported languages.
 
- -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Mon, 27 Jul 2026 16:30:00 +02:00
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Mon, 27 Jul 2026 16:30:00 +0200
 
 cctv-viewer (2.4.1-1) jammy; urgency=medium
 

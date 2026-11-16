@@ -4,15 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches: [master]
-    paths:
-      - "src/**"
-      - "images/**"
-      - "translations/**"
-      - "CMakeLists.txt"
-      - "kvision.qrc"
-      - "kvision.rc"
-      - "qtquickcontrols2.conf"
-      - ".github/workflows/build-windows.yml"
+    tags:
+      - "v*"
   pull_request:
     paths:
       - "src/**"
@@ -160,7 +153,7 @@ jobs:
 
       # Same tag every run, so the release keeps one stable download URL and
       # the asset is replaced in place instead of piling up builds.
-      - name: Publish release
+      - name: Publish to rolling windows-latest pre-release
         if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/master')
         uses: softprops/action-gh-release@v2
         with:
@@ -174,4 +167,12 @@ jobs:
             MSVC 2022 (Visual Studio 17), Qt 5.15.2 msvc2019_64, FFmpeg 8.1
             shared, Hikvision HCNetSDK 6.1.9.48 runtime. Unpack anywhere and run
             `kvision.exe`; devices on the LAN are discovered on first start.
+          files: KVision-windows-x64.zip
+
+      - name: Attach Windows package to version release tag
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          fail_on_unmatched_files: true
           files: KVision-windows-x64.zip

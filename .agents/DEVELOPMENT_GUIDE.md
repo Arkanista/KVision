@@ -159,6 +159,10 @@ python3 tools/translate_ts.py --id LNG_XXXXX --en "English text" --pl "Polish te
 python3 tools/translate_ts.py --json changes.json --compile
 # Manual recompile only:
 lrelease translations/*.ts
+
+# 8. Build .deb Package or Portable x86_64 AppImage (via Docker or natively on Debian/Ubuntu)
+./tools/build_deb.sh
+./tools/build_appimage.sh
 ```
 
 ---
