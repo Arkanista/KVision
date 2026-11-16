@@ -70,6 +70,18 @@ jobs:
           pattern: kvision-appimage-*
           merge-multiple: true
 
+      - name: Prune stale .AppImage assets from linux-latest
+        if: "!startsWith(github.ref, 'refs/tags/v')"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view linux-latest --repo "${{ github.repository }}" >/dev/null 2>&1; then
+            for asset in $(gh release view linux-latest --repo "${{ github.repository }}" --json assets --jq '.assets[].name | select(endswith(".AppImage"))'); do
+              echo "Deleting stale .AppImage asset: $asset"
+              gh release delete-asset linux-latest "$asset" --repo "${{ github.repository }}" --yes || true
+            done
+          fi
+
       - name: Publish to rolling linux-latest pre-release
         if: "!startsWith(github.ref, 'refs/tags/v')"
         uses: softprops/action-gh-release@v2
