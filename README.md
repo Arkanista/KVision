@@ -305,6 +305,12 @@ cd KVision
 
 ### 🌐 Remote Recorders (WAN / NAT / Internet) & Port Forwarding Guide
 
+> [!WARNING]
+> **Security Best Practice — Prefer a VPN Over Opening NVR Ports:**
+> * Exposing DVR/NVR ports (`8000` SDK, `554` RTSP, `80`/`443` HTTP) directly to the public Internet is strongly discouraged — even if vendor "Stream Encryption" is enabled. Encrypting the media payload alone does not protect the recorder's exposed web server, RTSP daemon, SDK listener, or login surface against unauthenticated firmware exploits, *Illegal Login Lock* DoS attacks, or closed-source vendor implementation bugs.
+> * Whenever infrastructure permits, **tunnel traffic through a VPN** (e.g., **WireGuard**, **Tailscale**, **OpenVPN**, or **IPsec**). A VPN keeps all recorder ports closed to the Internet, avoids NAT/ALG and multi-port forwarding headaches, and encrypts **all** traffic (video, audio, Digest Auth credentials, ISAPI, PTZ, and SDK) using audited cryptography instead of relying on proprietary NVR firmware security. *(You can still enable **"Remote recorder (WAN / NAT)"** over a VPN tunnel when operating across high-latency WAN or cellular links.)*
+> * If port forwarding is strictly unavoidable, lock forwarded ports down on the router firewall to a strict **source IP allowlist** rather than exposing them to the open Internet (`0.0.0.0/0`).
+
 If you are migrating from **Hikvision iVMS-4200**, note a critical architectural difference when connecting to remote sites behind a router/NAT:
 
 * **iVMS-4200** tunnels almost everything (login, Live View, and playback) over a single proprietary **SDK port (`8000`)**.
