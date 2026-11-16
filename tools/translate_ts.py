@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """
-Translate KVision LNG_XXXXX keys across all 23 Qt .ts translation files
-using Google Translate API (preserving LLM context/tokens).
+Update KVision LNG_XXXXX keys in the English and Bulgarian Qt .ts files.
 
 Usage examples:
-  python3 tools/translate_ts.py --id LNG_00587 --en "English text" --pl "Polish text" --compile
+  python3 tools/translate_ts.py --id LNG_00587 --en "English text" --bg "Bulgarian text" --compile
   python3 tools/translate_ts.py --json changes.json --compile
 
 JSON format for --json:
   [
-    {"id": "LNG_00587", "en": "...", "pl": "..."}
+    {"id": "LNG_00587", "en": "...", "bg": "..."}
   ]
 """
 
@@ -26,30 +25,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 TRANS_DIR = ROOT_DIR / "translations"
 
 EN_FILES = ("en_US.ts", "kvision_en_US.ts")
-PL_FILE = "kvision_pl_PL.ts"
-
-GOOGLE_LANG_MAP = {
-    "kvision_ar_AR.ts": "ar",
-    "kvision_bg_BG.ts": "bg",
-    "kvision_cs_CZ.ts": "cs",
-    "kvision_da_DK.ts": "da",
-    "kvision_de_DE.ts": "de",
-    "kvision_el_GR.ts": "el",
-    "kvision_es_ES.ts": "es",
-    "kvision_fi_FI.ts": "fi",
-    "kvision_fr_FR.ts": "fr",
-    "kvision_hu_HU.ts": "hu",
-    "kvision_it_IT.ts": "it",
-    "kvision_nb_NO.ts": "no",
-    "kvision_nl_NL.ts": "nl",
-    "kvision_pt_PT.ts": "pt",
-    "kvision_ro_RO.ts": "ro",
-    "kvision_sk_SK.ts": "sk",
-    "kvision_sv_SE.ts": "sv",
-    "kvision_tr_TR.ts": "tr",
-    "kvision_uk_UA.ts": "uk",
-    "kvision_zh_CN.ts": "zh-CN",
-}
+BG_FILE = "kvision_bg_BG.ts"
 
 
 def google_translate(text: str, target_lang: str, source_lang: str = "en") -> str:
@@ -118,11 +94,11 @@ def upsert_messages(ts_path: Path, entries: dict[str, str]) -> int:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Translate KVision .ts files using Google Translate API")
+    parser = argparse.ArgumentParser(description="Update KVision English and Bulgarian .ts files")
     parser.add_argument("--id", help="Single key ID (e.g. LNG_00587)")
     parser.add_argument("--en", help="English text for --id")
-    parser.add_argument("--pl", help="Polish text for --id (optional; uses Google Translate if omitted)")
-    parser.add_argument("--json", help="Path to JSON file containing list of {id, en, pl?} objects")
+    parser.add_argument("--bg", help="Bulgarian text for --id (optional; uses Google Translate if omitted)")
+    parser.add_argument("--json", help="Path to JSON file containing list of {id, en, bg?} objects")
     parser.add_argument("--compile", action="store_true", help="Run lrelease translations/*.ts after updating")
     args = parser.parse_args()
 
@@ -130,7 +106,7 @@ def main() -> None:
     if args.json:
         items = json.loads(Path(args.json).read_text(encoding="utf-8"))
     elif args.id and args.en:
-        items = [{"id": args.id, "en": args.en, "pl": args.pl}]
+        items = [{"id": args.id, "en": args.en, "bg": args.bg}]
     else:
         parser.error("Provide either --json or both --id and --en")
 
@@ -141,29 +117,17 @@ def main() -> None:
             n = upsert_messages(path, en_entries)
             print(f"Updated {n} entries in {fname}")
 
-    pl_path = TRANS_DIR / PL_FILE
-    if pl_path.exists():
-        pl_entries = {}
+    bg_path = TRANS_DIR / BG_FILE
+    if bg_path.exists():
+        bg_entries = {}
         for item in items:
-            pl_text = item.get("pl")
-            if not pl_text:
-                pl_text = google_translate(item["en"], "pl")
+            bg_text = item.get("bg")
+            if not bg_text:
+                bg_text = google_translate(item["en"], "bg")
                 time.sleep(0.2)
-            pl_entries[item["id"]] = pl_text
-        n = upsert_messages(pl_path, pl_entries)
-        print(f"Updated {n} entries in {PL_FILE}")
-
-    for fname, lang_code in GOOGLE_LANG_MAP.items():
-        path = TRANS_DIR / fname
-        if not path.exists():
-            print(f"Skipping missing {fname}")
-            continue
-        translated = {}
-        for item in items:
-            translated[item["id"]] = google_translate(item["en"], lang_code)
-            time.sleep(0.2)
-        n = upsert_messages(path, translated)
-        print(f"Translated {n} entries -> {fname} ({lang_code})")
+            bg_entries[item["id"]] = bg_text
+        n = upsert_messages(bg_path, bg_entries)
+        print(f"Updated {n} entries in {BG_FILE}")
 
     if args.compile:
         ts_files = sorted(str(p) for p in TRANS_DIR.glob("*.ts"))

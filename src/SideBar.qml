@@ -632,6 +632,13 @@ FocusScope {
         property string itemsState
     }
 
+    function setPersistedSetting(settingsObj, category, key, value) {
+        if (settingsObj) {
+            settingsObj[key] = value;
+        }
+        Context.writeSetting(category, key, value);
+    }
+
     function getRecorderName(ip) {
         try {
             var list = JSON.parse(rootWindow.hikvisionRecordersJson);
@@ -2335,7 +2342,10 @@ FocusScope {
                                 text: qsTr("LNG_00272")
                                 checked: !generalSettings.singleApplication
                                 enabled: false
-                                onCheckedChanged: generalSettings.singleApplication = !checked
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "singleApplication", !checked);
+                                    checked = Qt.binding(function() { return !generalSettings.singleApplication; });
+                                }
                                 Layout.fillWidth: true
                             }
 
@@ -2356,7 +2366,10 @@ FocusScope {
                             CheckBox {
                                 text: qsTr("LNG_00549")
                                 checked: generalSettings.enableDiagnosticLogs
-                                onCheckedChanged: generalSettings.enableDiagnosticLogs = checked
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "enableDiagnosticLogs", checked);
+                                    checked = Qt.binding(function() { return generalSettings.enableDiagnosticLogs; });
+                                }
                                 Layout.fillWidth: true
                             }
 
@@ -2399,14 +2412,20 @@ FocusScope {
                             CheckBox {
                                 text: qsTr("LNG_00268")
                                 checked: generalSettings.disableAudio
-                                onCheckedChanged: generalSettings.disableAudio = checked
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "disableAudio", checked);
+                                    checked = Qt.binding(function() { return generalSettings.disableAudio; });
+                                }
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
                                 text: qsTr("LNG_00267")
                                 checked: viewportSettings.noUnmuteWhenFullScreen
-                                onCheckedChanged: viewportSettings.noUnmuteWhenFullScreen = checked
+                                onToggled: {
+                                    setPersistedSetting(viewportSettings, "Viewport", "noUnmuteWhenFullScreen", checked);
+                                    checked = Qt.binding(function() { return viewportSettings.noUnmuteWhenFullScreen; });
+                                }
                                 Layout.fillWidth: true
                             }
                         }
@@ -2436,7 +2455,10 @@ FocusScope {
                             CheckBox {
                                 text: qsTr("LNG_00265")
                                 checked: generalSettings.enableContextMenu
-                                onCheckedChanged: generalSettings.enableContextMenu = checked
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "enableContextMenu", checked);
+                                    checked = Qt.binding(function() { return generalSettings.enableContextMenu; });
+                                }
                                 Layout.fillWidth: true
                             }
 
@@ -2444,7 +2466,10 @@ FocusScope {
                                 text: qsTr("LNG_00264")
                                 checked: generalSettings.allowSwappingViewports
                                 enabled: generalSettings.enableContextMenu
-                                onCheckedChanged: generalSettings.allowSwappingViewports = checked
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "allowSwappingViewports", checked);
+                                    checked = Qt.binding(function() { return generalSettings.allowSwappingViewports; });
+                                }
                                 Layout.fillWidth: true
                             }
 
@@ -2452,7 +2477,10 @@ FocusScope {
                                 text: qsTr("LNG_00263")
                                 checked: generalSettings.enableRemoveCamera
                                 enabled: generalSettings.enableContextMenu
-                                onCheckedChanged: generalSettings.enableRemoveCamera = checked
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "enableRemoveCamera", checked);
+                                    checked = Qt.binding(function() { return generalSettings.enableRemoveCamera; });
+                                }
                                 Layout.fillWidth: true
                             }
 
@@ -2460,7 +2488,10 @@ FocusScope {
                                 text: qsTr("LNG_00262")
                                 checked: generalSettings.enableChangeViewportSettings
                                 enabled: generalSettings.enableContextMenu
-                                onCheckedChanged: generalSettings.enableChangeViewportSettings = checked
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "enableChangeViewportSettings", checked);
+                                    checked = Qt.binding(function() { return generalSettings.enableChangeViewportSettings; });
+                                }
                                 Layout.fillWidth: true
                             }
 
@@ -2468,7 +2499,10 @@ FocusScope {
                                 text: qsTr("LNG_00261")
                                 checked: generalSettings.enableStreamSelection
                                 enabled: generalSettings.enableContextMenu
-                                onCheckedChanged: generalSettings.enableStreamSelection = checked
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "enableStreamSelection", checked);
+                                    checked = Qt.binding(function() { return generalSettings.enableStreamSelection; });
+                                }
                                 Layout.fillWidth: true
                             }
                         }
@@ -2498,49 +2532,70 @@ FocusScope {
                             CheckBox {
                                 text: qsTr("LNG_00259")
                                 checked: viewSettings.showChannelStatus
-                                onCheckedChanged: viewSettings.showChannelStatus = checked
+                                onToggled: {
+                                    setPersistedSetting(viewSettings, "View", "showChannelStatus", checked);
+                                    checked = Qt.binding(function() { return viewSettings.showChannelStatus; });
+                                }
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
                                 text: qsTr("LNG_00258")
                                 checked: viewSettings.showCameraInfo
-                                onCheckedChanged: viewSettings.showCameraInfo = checked
+                                onToggled: {
+                                    setPersistedSetting(viewSettings, "View", "showCameraInfo", checked);
+                                    checked = Qt.binding(function() { return viewSettings.showCameraInfo; });
+                                }
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
                                 text: qsTr("LNG_00257")
                                 checked: viewSettings.hoverControlIcons
-                                onCheckedChanged: viewSettings.hoverControlIcons = checked
+                                onToggled: {
+                                    setPersistedSetting(viewSettings, "View", "hoverControlIcons", checked);
+                                    checked = Qt.binding(function() { return viewSettings.hoverControlIcons; });
+                                }
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
                                 text: qsTr("LNG_00256")
                                 checked: viewSettings.showInfoOnHoverOnly
-                                onCheckedChanged: viewSettings.showInfoOnHoverOnly = checked
+                                onToggled: {
+                                    setPersistedSetting(viewSettings, "View", "showInfoOnHoverOnly", checked);
+                                    checked = Qt.binding(function() { return viewSettings.showInfoOnHoverOnly; });
+                                }
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
                                 text: qsTr("LNG_00255")
                                 checked: viewSettings.showTopBarByDefault
-                                onCheckedChanged: viewSettings.showTopBarByDefault = checked
+                                onToggled: {
+                                    setPersistedSetting(viewSettings, "View", "showTopBarByDefault", checked);
+                                    checked = Qt.binding(function() { return viewSettings.showTopBarByDefault; });
+                                }
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
                                 text: qsTr("LNG_00254")
                                 checked: viewSettings.hideCursorWhenFullScreen
-                                onCheckedChanged: viewSettings.hideCursorWhenFullScreen = checked
+                                onToggled: {
+                                    setPersistedSetting(viewSettings, "View", "hideCursorWhenFullScreen", checked);
+                                    checked = Qt.binding(function() { return viewSettings.hideCursorWhenFullScreen; });
+                                }
                                 Layout.fillWidth: true
                             }
 
                             CheckBox {
                                 text: qsTr("LNG_00253")
                                 checked: viewSettings.disableViewportZoomAnimation
-                                onCheckedChanged: viewSettings.disableViewportZoomAnimation = checked
+                                onToggled: {
+                                    setPersistedSetting(viewSettings, "View", "disableViewportZoomAnimation", checked);
+                                    checked = Qt.binding(function() { return viewSettings.disableViewportZoomAnimation; });
+                                }
                                 Layout.fillWidth: true
                             }
 
@@ -2560,27 +2615,7 @@ FocusScope {
                                     model: [
                                         { text: qsTr("LNG_00251"), value: "system" },
                                         { text: "English", value: "en" },
-                                        { text: "Polski", value: "pl" },
-                                        { text: "العربية (AI)", value: "ar" },
-                                        { text: "Български (AI)", value: "bg" },
-                                        { text: "简体中文 (AI)", value: "zh" },
-                                        { text: "Čeština (AI)", value: "cs" },
-                                        { text: "Dansk (AI)", value: "da" },
-                                        { text: "Deutsch (AI)", value: "de" },
-                                        { text: "Español (AI)", value: "es" },
-                                        { text: "Suomi (AI)", value: "fi" },
-                                        { text: "Français (AI)", value: "fr" },
-                                        { text: "Ελληνικά (AI)", value: "el" },
-                                        { text: "Magyar (AI)", value: "hu" },
-                                        { text: "Italiano (AI)", value: "it" },
-                                        { text: "Nederlands (AI)", value: "nl" },
-                                        { text: "Norsk Bokmål (AI)", value: "no" },
-                                        { text: "Português (AI)", value: "pt" },
-                                        { text: "Română (AI)", value: "ro" },
-                                        { text: "Slovenčina (AI)", value: "sk" },
-                                        { text: "Svenska (AI)", value: "sv" },
-                                        { text: "Türkçe (AI)", value: "tr" },
-                                        { text: "Українська (AI)", value: "uk" }
+                                        { text: "Български", value: "bg" }
                                     ]
                                     textRole: "text"
 

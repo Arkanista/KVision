@@ -520,6 +520,12 @@ Window {
                                 generalSettings.lockGridSize = checked;
                             }
                         }
+
+                        onClicked: {
+                            if (generalSettings) {
+                                Context.writeSetting("", "lockGridSize", generalSettings.lockGridSize);
+                            }
+                        }
                     }
 
                     Rectangle {

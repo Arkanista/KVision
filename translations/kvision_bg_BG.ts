@@ -706,10 +706,6 @@
     <context>
         <name>InstructionsWindow</name>
         <message>
-            <source>qrc:/INSTRUKCJA.md</source>
-            <translation type="vanished">qrc:/INSTRUCTIONS.md</translation>
-        </message>
-        <message>
             <source>Błąd ładowania instrukcji.</source>
             <translation type="vanished">Error loading instructions.</translation>
         </message>

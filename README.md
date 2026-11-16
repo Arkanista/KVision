@@ -1,12 +1,6 @@
 # KVision
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Donate-yellow.svg?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/arkanis)
-
-<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
-
-> [!TIP]
-> **Support KVision:** If you find this software useful and enjoy using it, you can support its development by [buying me a coffee](https://buymeacoffee.com/arkanis)! ☕
 
 > [!IMPORTANT]
 > **Important Disclaimer & User Information:**
@@ -88,14 +82,14 @@ It is designed for Linux users who need a robust, lightweight, and smooth altern
 ### 🛠️ Global Application Settings & UI
 * **Auto-Collapsing Top Bar**: The top options toolbar automatically collapses when the mouse leaves its boundary to maximize video workspace. This behavior is toggleable in Settings or directly using the pin icon on the top bar.
 * **Top Bar Controls**: Compact layout controls on the top bar: fullscreen button (with green visual state), window minimize button (with cyan/blue icon), grid locking switch, options, and a hamburger menu for advanced options.
-* **Close Confirmation**: Intercepts both system window close buttons and exit button actions, requesting a Polish/English confirmation before quitting.
+* **Close Confirmation**: Intercepts both system window close buttons and exit button actions, requesting an English/Bulgarian confirmation before quitting.
 * **Custom Layout Presets**: Create custom layout presets with configurable row and column counts (e.g., 2x2, 3x3, 4x4).
 * **Global Shortcuts**: Complete control via keyboard hotkeys:
   * `F11`: Toggle fullscreen.
   * `M`: Mute/unmute active viewport audio.
   * `Alt + Left` / `Alt + Right`: Switch layouts.
   * `Alt + 1` to `Alt + 9`: Instant preset switching.
-* **Multilingual UI**: Live translation switching across 22 languages.
+* **Language support**: Live translation switching between English and Bulgarian, with an optional system-language selection that falls back to English for other locales.
 * **Cross-Platform Settings Import / Export**: Dedicated **Import / Export** tab in the side panel (below Settings) allowing one-click backup and migration of configuration files (`*.conf` / `*.ini`) between Linux (`~/.config/KVision/KVision.conf`) and Windows (`%APPDATA%\KVision\KVision.ini`), with automatic OS path adaptation for snapshot and video directories.
 
 ---
@@ -414,7 +408,7 @@ KVision supports native 64-bit Windows builds using **MSVC 2022**, **Qt 5.15.2**
 
 For detailed usage instructions, check out the documentation files:
 - [English User Manual (INSTRUCTIONS.md)](INSTRUCTIONS.md)
-- [Polish User Manual (INSTRUKCJA.md)](INSTRUKCJA.md)
+- [Bulgarian User Manual (INSTRUCTIONS_bg.md)](INSTRUCTIONS_bg.md)
 - [Windows Build Guide (BUILD_WINDOWS.md)](BUILD_WINDOWS.md)
 
 ---

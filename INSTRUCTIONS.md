@@ -1,10 +1,5 @@
 # User Manual for KVision
 
-<a href="https://buymeacoffee.com/arkanis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" style="height: 42px !important; width: auto !important;"></a>
-
-> [!TIP]
-> **Support KVision:** If you find this software useful and enjoy using it, you can support its development by [buying me a coffee](https://buymeacoffee.com/arkanis)! ☕
-
 > [!NOTE]
 > This instruction manual has been automatically translated and formatted with the assistance of Artificial Intelligence (AI).
 
@@ -299,7 +294,7 @@ In the bottom-right corner of each camera tile/viewport, a control panel with fi
 
 Layouts allow you to organize the arrangement of cameras on the screen. From the **Presets** tab (star icon) you can:
 * **Create New Presets**: Add your own layout with any configuration of columns and rows (e.g., 2x2, 3x3, 4x4).
-* **Assign Cameras**: Click on a viewport in the grid layout to select it, then open the NVR cameras window and click the **"+" (Add)** button on the desired camera tile. You can also swap viewport positions using the right-click context menu (*„Zamień miejscami”* / *„Swap viewports”*) of the source viewport and then clicking on the target viewport.
+* **Assign Cameras**: Click on a viewport in the grid layout to select it, then open the NVR cameras window and click the **"+" (Add)** button on the desired camera tile. You can also swap viewport positions using the **"Swap viewports"** option in the source viewport's right-click context menu, then clicking on the target viewport.
 
 ### Top Bar Buttons (Top Tool Bar)
 The top sliding toolbar provides a comprehensive set of navigation and application control buttons:
@@ -307,11 +302,11 @@ The top sliding toolbar provides a comprehensive set of navigation and applicati
 2. **Pin Button**: Controls the auto-hiding behavior of the top toolbar. When the pin is pointing vertically (pinned state), the bar is locked in place and remains permanently visible. When the pin is rotated by -45 degrees (unpinned state), the bar automatically slides upward out of view when the mouse leaves its area.
 3. **Full Screen (Green Arrows Icon)**: Instantly switches the active window into fullscreen mode and back. In fullscreen mode, the arrows point inward (collapse), and in windowed mode, they point outward (expand).
 4. **Minimize (Cyan Minimization Icon)**: Minimizes the application window to the taskbar. Restoring it returns the window to its exact previous state (e.g. maximized or fullscreen).
-5. **⚙️ OPTIONS (OPCJE)**: Toggles the configuration options window. If the window is already open, clicking this button closes it.
-6. **📺 NEW WINDOW (NOWE OKNO)**: Opens a new, independent, and fully configurable `Auxiliary Window`, perfect for expanding your camera layouts across multiple monitor setups.
+5. **⚙️ OPTIONS**: Toggles the configuration options window. If the window is already open, clicking this button closes it.
+6. **📺 NEW WINDOW**: Opens a new, independent, and fully configurable `Auxiliary Window`, perfect for expanding your camera layouts across multiple monitor setups.
 7. **ARCHIVE**: Opens an empty `PlaybackWindow` (recordings player) with active timeline and calendar, allowing manual stream and camera channel selections from any configured NVR via the sidebar list.
-8. **INSTRUCTIONS (INSTRUKCJA)**: Opens this manual window, loading the complete user documentation in English or Polish depending on your active locale.
-9. **📊 STATS (STATYSTYKI) Switch**: Toggle switch to slide out the System Statistics monitoring panel from the left screen edge.
+8. **INSTRUCTIONS**: Opens this manual window, loading the complete user documentation in English or Bulgarian depending on your active locale.
+9. **📊 STATS Switch**: Toggle switch to slide out the System Statistics monitoring panel from the left screen edge.
 10. **Grid Lock Switch (Padlock)**: Switch that, when turned ON (highlighted in bright orange), disables grid-resizing actions on the adjacent grid buttons, protecting your active camera layout from accidental changes.
 11. **Grid Size Selectors (from 1x1 to 9x9)**: A row of nine buttons that lets you instantly define the row and column structure of your viewport (from a single camera 1x1 view up to 81 simultaneous camera feeds in a 9x9 layout). The currently active size highlights in bright orange.
 12. **More Options (Hamburger Menu with three lines)**: Button opening the sliding `Layout & Grid Tools` toolbox for advanced grid tuning, geometry adjustments, and debugging options (detailed below).
@@ -424,15 +419,15 @@ Allows adjusting global application settings:
 * **Right-click permissions**: Switches to lock/unlock interactive controls in the right-click context menu (Enable context menu, Allow swapping viewports, Enable 'Remove camera' option, Allow changing viewport settings, Enable stream Main/Sub quality selection).
 * **Auto Unmute**: Automatically unmutes the audio stream of the active viewport when entering Full Screen mode.
 * **Hide Cursor in Full Screen**: The checkbox *„Hide cursor in full screen mode”* automatically hides the mouse cursor after a brief inactivity period during fullscreen viewing to ensure an unobstructed view.
-* **Language selection**: Instantly switches interface translation (System default, Polish, English).
+* **Language selection**: Instantly switches interface translation (System default, English, Bulgarian).
 * **UI Preferences**: Hide/show viewport status labels or control badges (such as auto-hiding the control overlays in the bottom right corner of tiles unless hovering).
 * **Default FFmpeg Options & Bulk Update**: Allows configuring global FFmpeg options applied to new viewports (recommended: `-analyzeduration 100000 -probesize 500000 -fflags nobuffer -flags low_delay`).
   * > **[RECOMMENDATION]** If you are migrating from an older version of KVision (prior to v2.4.5), it is highly recommended to change `-analyzeduration 0` to `-analyzeduration 100000` in the global settings and click "Update all cameras". Setting `0` on streams without an audio track causes delays in switching because FFmpeg will block for a hardcoded 5-second timeout waiting for audio packets. Setting a very low value (e.g., 100000 microseconds = 0.1s) completely resolves this issue while maintaining instant switching.
-  * **Update all cameras button**: The button *„Zaktualizuj wszystkie kamery”* applies these global options to all configured viewports.
+  * **Update all cameras button**: This button applies these global options to all configured viewports.
   * **Low-latency flags (`nobuffer`, `low_delay`)**:
     * `-fflags nobuffer` disables internal demuxer packet buffering to eliminate streaming lag over time, but might cause stuttering if your network connection to the camera is unstable.
     * `-flags low_delay` tells the decoder to output frames immediately, but can cause brief artifacts/smearing in streams that use B-frames under rapid movements.
-  * **Override checkbox**: You can exclude specific viewports from global updates or dynamic defaults by checking **"Nie uwzględniaj zmian w globalnych ustawieniach FFMpeg"** in the individual Viewport Settings dialog. Useful for troubleshooting stuttering cameras.
+  * **Override checkbox**: You can exclude specific viewports from global updates or dynamic defaults by checking **"Do not apply changes from global FFmpeg settings"** in the individual Viewport Settings dialog. Useful for troubleshooting stuttering cameras.
 
 
 ### 6. Changelog (Clock/Document Icon)
@@ -490,7 +485,7 @@ The application allows you to quickly capture high-quality snapshots from any ca
 4. **Browser Button Behavior**: The directory picker opens precisely at the path typed in the text field (if it exists). If the field is empty, invalid, or pointing to a folder you don't have access to, the dialog falls back and opens at your home directory (`~/`).
 
 ### User Interface Settings (UI):
-1. Go to the **Settings** tab (gear icon in the options window) or open the **Options** ("Opcje") window.
+1. Go to the **Settings** tab (gear icon in the options window) or open the **Options** window.
 2. In the **User Interface Settings** section, you can customize the visibility of elements overlaid on the camera kafelki/viewports:
    * **Show channel status in the top left corner of the viewport** (default enabled) — Displays stream loading, playing, and connection status information.
    * **Show camera info in the bottom left corner of the viewport** (default enabled) — Displays the camera name retrieved from the Hikvision recorder.

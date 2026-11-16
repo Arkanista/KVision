@@ -406,6 +406,10 @@ ApplicationWindow {
             if (viewSettings.showTopBarByDefault !== diskShowTopBarByDefault) {
                 viewSettings.showTopBarByDefault = diskShowTopBarByDefault;
             }
+            var diskDisableViewportZoomAnimation = Context.readSetting("View", "disableViewportZoomAnimation", false);
+            if (viewSettings.disableViewportZoomAnimation !== diskDisableViewportZoomAnimation) {
+                viewSettings.disableViewportZoomAnimation = diskDisableViewportZoomAnimation;
+            }
             var diskNoUnmuteWhenFullScreen = Context.readSetting("Viewport", "noUnmuteWhenFullScreen", false);
             if (viewportSettings.noUnmuteWhenFullScreen !== diskNoUnmuteWhenFullScreen) {
                 viewportSettings.noUnmuteWhenFullScreen = diskNoUnmuteWhenFullScreen;
@@ -492,11 +496,6 @@ ApplicationWindow {
             if (layoutsCollectionSettings.defaultAVFormatOptions !== diskDefaultAVFormatOptions) {
                 layoutsCollectionSettings.defaultAVFormatOptions = diskDefaultAVFormatOptions;
             }
-            var diskDisableViewportZoomAnimation = Context.readSetting("View", "disableViewportZoomAnimation", false);
-            if (viewSettings.disableViewportZoomAnimation !== diskDisableViewportZoomAnimation) {
-                viewSettings.disableViewportZoomAnimation = diskDisableViewportZoomAnimation;
-            }
-
 
             // 6. Check and live-reload Application Language
             var diskLang = Context.readSetting("", "language", "system");
@@ -603,7 +602,12 @@ ApplicationWindow {
     }
     Shortcut {
         sequence: StandardKey.Quit
-        onActivated: Qt.quit()
+        onActivated: {
+            if (!Context.isAuxiliary && !rootWindow.isSyncing) {
+                rootWindow.flushSettingsToDisk();
+            }
+            Qt.quit();
+        }
     }
 
     Shortcut {
@@ -1286,6 +1290,8 @@ ApplicationWindow {
                         generalSettings.lockGridSize = checked;
                     }
 
+                    onClicked: Context.writeSetting("", "lockGridSize", checked)
+
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: lockGridSwitch.hovered
@@ -1784,8 +1790,8 @@ ApplicationWindow {
 
         if (!Context.isAuxiliary) {
             Context.writeSetting("MainLayout", "currentIndex", stackLayout.currentIndex);
-            Context.writeSetting("RootWindow", "width", rootWindow.width);
-            Context.writeSetting("RootWindow", "height", rootWindow.height);
+            Context.writeSetting("RootWindow", "width", rootWindowSettings.width);
+            Context.writeSetting("RootWindow", "height", rootWindowSettings.height);
             Context.writeSetting("RootWindow", "fullScreen", Context.config.fullScreen);
         }
     }
@@ -1835,7 +1841,9 @@ ApplicationWindow {
         cancelButtonText: qsTr("LNG_00004")
         isDanger: true
         onAccepted: {
-            if (saveTimer.running) {
+            if (!Context.isAuxiliary && !rootWindow.isSyncing) {
+                rootWindow.flushSettingsToDisk();
+            } else if (saveTimer.running) {
                 saveTimer.stop();
                 if (!rootWindow.isSyncing) {
                     var json = JSON.stringify(layoutsCollectionModel.toJSValue());
