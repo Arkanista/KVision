@@ -402,7 +402,7 @@ ApplicationWindow {
             if (viewSettings.showInfoOnHoverOnly !== diskShowInfoOnHoverOnly) {
                 viewSettings.showInfoOnHoverOnly = diskShowInfoOnHoverOnly;
             }
-            var diskShowTopBarByDefault = Context.readSetting("View", "showTopBarByDefault", true);
+            var diskShowTopBarByDefault = Context.readSetting("View", "showTopBarByDefault", false);
             if (viewSettings.showTopBarByDefault !== diskShowTopBarByDefault) {
                 viewSettings.showTopBarByDefault = diskShowTopBarByDefault;
             }
@@ -543,7 +543,7 @@ ApplicationWindow {
         property bool showCameraInfo: true
         property bool hoverControlIcons: true
         property bool showInfoOnHoverOnly: false
-        property bool showTopBarByDefault: true
+        property bool showTopBarByDefault: false
         property bool disableViewportZoomAnimation: false
     }
 
@@ -731,12 +731,13 @@ ApplicationWindow {
     // Hover area at the very top edge of the window to slide down the top bar
     MouseArea {
         id: hoverArea
-        height: 12
+        height: 25
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
         hoverEnabled: true
-        z: 99999
+        acceptedButtons: Qt.NoButton
+        z: 9998
         onContainsMouseChanged: {
             if (containsMouse) {
                 keepVisibleTimer.stop();
@@ -749,8 +750,39 @@ ApplicationWindow {
     // Sleek premium horizontal top bar for settings and grid layout options (DOCK)
     Rectangle {
         id: topToolBar
-        height: 56
-        width: topRowLayout.implicitWidth + 24
+        // Single-row width of the control buttons, measured from the items themselves
+        // (so it does not depend on how the Flow currently wraps them).
+        property real controlsNeededWidth: {
+            var total = 0, n = 0;
+            var items = controlsFlow.children;
+            for (var i = 0; i < items.length; ++i) {
+                var it = items[i];
+                if (it.visible && it.width > 0) { total += it.width; ++n; }
+            }
+            return n > 0 ? total + (n - 1) * controlsFlow.spacing : 0;
+        }
+        // Single-row width of the preset/view buttons.
+        property real presetsNeededWidth: {
+            var total = 0, n = 0;
+            var items = presetFlow.children;
+            for (var i = 0; i < items.length; ++i) {
+                var it = items[i];
+                if (it.visible && it.width > 0) { total += it.width; ++n; }
+            }
+            return n > 0 ? total + (n - 1) * presetFlow.spacing : 0;
+        }
+        // Width needed to keep everything on a single row (presets next to the
+        // controls) and width needed when the presets get their own row(s).
+        // The 26 = 12px + 12px side margins plus a couple of pixels of slack
+        // so the rows never wrap on floating point rounding.
+        property real inlineNeededWidth: controlsNeededWidth + (presetsNeededWidth > 0 ? 12 + presetsNeededWidth : 0) + 26
+        property real stackedNeededWidth: Math.max(controlsNeededWidth, presetsNeededWidth) + 26
+        // Keep the original single row while it fits; only move the presets onto
+        // extra row(s) – never growing wider than the window.
+        property bool presetsInline: inlineNeededWidth <= parent.width - 24
+        width: Math.min(presetsInline ? inlineNeededWidth : stackedNeededWidth, parent.width - 24)
+        // 19px top padding + content (single row or stacked rows 6px apart) + 7px bottom padding.
+        height: 19 + controlsFlow.height + (presetFlow.height > 0 ? (presetsInline ? Math.max(0, presetFlow.height - controlsFlow.height) : 6 + presetFlow.height) : 0) + 7
         anchors.horizontalCenter: parent.horizontalCenter
         color: (rootWindow.visibility === Window.FullScreen) ? "#44121214" : "#99121214"
         z: 9999
@@ -769,10 +801,7 @@ ApplicationWindow {
 
         MouseArea {
             id: topToolBarMouseArea
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
-            height: 44
+            anchors.fill: parent
             hoverEnabled: true
             onContainsMouseChanged: {
                 if (containsMouse) {
@@ -782,48 +811,21 @@ ApplicationWindow {
                 }
             }
 
-            RowLayout {
-                id: topRowLayout
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.leftMargin: 12
-                anchors.rightMargin: 12
-                height: 44
+            Flow {
+                id: controlsFlow
+                x: 12
+                y: 19
+                // On a single row the controls take exactly the space they need;
+                // once the presets move below, they may use the full bar width.
+                width: topToolBar.presetsInline ? controlsNeededWidth + 1 : topToolBar.width - 24
                 spacing: 6
 
             Button {
-                id: quitButton
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-                Layout.alignment: Qt.AlignVCenter
-
-                contentItem: Text {
-                    text: "✕"
-                    font.bold: true
-                    font.pixelSize: 14
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                background: Rectangle {
-                    color: quitButton.pressed ? "#cc2929" : (quitButton.hovered ? "#ff4d4d" : "#d63333")
-                    radius: 15
-                }
-
-                onClicked: {
-                    quitConfirmDialog.open();
-                }
-            }
-
-            Button {
                 id: pinButton
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-                Layout.alignment: Qt.AlignVCenter
+                width: 30
+                height: 30
 
-                property bool isPinned: !rootWindow.topBarAutoCollapse
+                property bool isPinned: viewSettings.showTopBarByDefault
 
                 contentItem: Image {
                     anchors.centerIn: parent
@@ -853,7 +855,8 @@ ApplicationWindow {
                 }
 
                 onClicked: {
-                    rootWindow.topBarAutoCollapse = !rootWindow.topBarAutoCollapse;
+                    viewSettings.showTopBarByDefault = !viewSettings.showTopBarByDefault;
+                    Context.writeSetting("View", "showTopBarByDefault", viewSettings.showTopBarByDefault);
                 }
 
                 ToolTip.delay: Compact.toolTipDelay
@@ -863,10 +866,33 @@ ApplicationWindow {
             }
 
             Button {
+                id: quitButton
+                width: 30
+                height: 30
+
+                contentItem: Text {
+                    text: "✕"
+                    font.bold: true
+                    font.pixelSize: 14
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                background: Rectangle {
+                    color: quitButton.pressed ? "#cc2929" : (quitButton.hovered ? "#ff4d4d" : "#d63333")
+                    radius: 15
+                }
+
+                onClicked: {
+                    quitConfirmDialog.open();
+                }
+            }
+
+            Button {
                 id: fullScreenBtn
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-                Layout.alignment: Qt.AlignVCenter
+                width: 30
+                height: 30
 
                 property bool isActive: Context.config.fullScreen
 
@@ -903,9 +929,8 @@ ApplicationWindow {
 
             Button {
                 id: minimizeButton
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-                Layout.alignment: Qt.AlignVCenter
+                width: 30
+                height: 30
 
                 contentItem: Image {
                     anchors.centerIn: parent
@@ -936,9 +961,8 @@ ApplicationWindow {
 
             Button {
                 id: optionsButton
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-                Layout.alignment: Qt.AlignVCenter
+                width: 30
+                height: 30
 
                 contentItem: Image {
                     anchors.centerIn: parent
@@ -976,9 +1000,8 @@ ApplicationWindow {
 
             Button {
                 id: newWindowButton
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-                Layout.alignment: Qt.AlignVCenter
+                width: 30
+                height: 30
 
                 contentItem: Image {
                     anchors.centerIn: parent
@@ -1012,9 +1035,8 @@ ApplicationWindow {
 
             Button {
                 id: archiveButton
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-                Layout.alignment: Qt.AlignVCenter
+                width: 30
+                height: 30
 
                 contentItem: Image {
                     anchors.centerIn: parent
@@ -1048,9 +1070,8 @@ ApplicationWindow {
 
             Button {
                 id: instructionsButton
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-                Layout.alignment: Qt.AlignVCenter
+                width: 30
+                height: 30
 
                 contentItem: Image {
                     anchors.centerIn: parent
@@ -1088,9 +1109,8 @@ ApplicationWindow {
                 id: systemStatsSwitch
                 checkable: true
                 checked: false
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-                Layout.alignment: Qt.AlignVCenter
+                width: 30
+                height: 30
 
                 contentItem: Image {
                     anchors.centerIn: parent
@@ -1118,9 +1138,8 @@ ApplicationWindow {
             Button {
                 id: nvrStatusButton
                 visible: NvrStatusManager.monitoringEnabled && NvrStatusManager.hasConfiguredRecorders
-                Layout.preferredWidth: 30
-                Layout.preferredHeight: 30
-                Layout.alignment: Qt.AlignVCenter
+                width: 30
+                height: 30
 
                 contentItem: Item {
                     anchors.fill: parent
@@ -1214,15 +1233,22 @@ ApplicationWindow {
                 ToolTip.text: NvrStatusManager.hasErrors ? qsTr("LNG_00214") : qsTr("LNG_00213")
             }
 
-            Rectangle {
+            Item {
                 width: 1
-                height: 20
-                color: "#2a3540"
-                Layout.alignment: Qt.AlignVCenter
+                height: 30
                 visible: nvrStatusButton.visible
+
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: 1
+                    height: 20
+                    color: "#2a3540"
+                }
             }
 
             RowLayout {
+                width: implicitWidth
+                height: implicitHeight
                 spacing: 4
 
                 Switch {
@@ -1365,16 +1391,15 @@ ApplicationWindow {
                 }
             }
 
-            Rectangle {
-                width: 1
-                height: 20
-                color: "#2a3540"
-                Layout.alignment: Qt.AlignVCenter
-                Layout.leftMargin: 6
-                Layout.rightMargin: 6
             }
 
-            RowLayout {
+            Flow {
+                id: presetFlow
+                // Inline next to the controls while everything fits on one row,
+                // otherwise fully on its own row(s) below the controls.
+                x: topToolBar.presetsInline ? 12 + controlsFlow.width + 12 : 12
+                y: topToolBar.presetsInline ? 19 : controlsFlow.y + controlsFlow.height + 6
+                width: topToolBar.presetsInline ? Math.max(0, topToolBar.width - controlsFlow.width - 36) : topToolBar.width - 24
                 spacing: 4
 
                 Repeater {
@@ -1415,7 +1440,8 @@ ApplicationWindow {
                             return "Widok " + (layoutIndex + 1);
                         }
 
-                        Layout.preferredHeight: 30
+                        width: implicitWidth
+                        height: 30
                         leftPadding: 12
                         rightPadding: 12
 
@@ -1448,7 +1474,6 @@ ApplicationWindow {
                 }
             }
         }
-    }
     }
 
     // Protruding error indicator at the top edge of the window when top bar is hidden

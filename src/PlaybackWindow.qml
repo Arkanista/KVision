@@ -32,7 +32,7 @@ Window {
     property bool playbackStoppedForDownload: false
 
     property bool sidebarVisible: true
-    property bool topBarAutoCollapse: (typeof rootWindow !== "undefined" && rootWindow) ? !rootWindow.viewSettings.showTopBarByDefault : false
+    property bool topBarAutoCollapse: (typeof rootWindow !== "undefined" && rootWindow) ? !rootWindow.viewSettings.showTopBarByDefault : true
     property bool hideTimelineOption: false
     readonly property bool isBottomPanelFloating: (fullScreenPlayerIndex !== -1) || (playbackWindow.visibility === Window.FullScreen)
 
@@ -3614,7 +3614,9 @@ Window {
     Rectangle {
         id: topToolBar
         height: 56
-        width: topRowLayout.implicitWidth + 24
+        // Never let the bar grow wider than the window – when space is tight
+        // the row is squeezed to fit instead of running out of bounds.
+        width: Math.min(topRowLayout.implicitWidth + 24, parent.width - 24)
         anchors.horizontalCenter: parent.horizontalCenter
         color: (playbackWindow.visibility === Window.FullScreen) ? "#44121214" : "#99121214"
         z: 9999
@@ -3657,36 +3659,6 @@ Window {
                 spacing: 6
 
                 Button {
-                    id: closeButton
-                    Layout.preferredWidth: 30
-                    Layout.preferredHeight: 30
-                    Layout.alignment: Qt.AlignVCenter
-
-                    contentItem: Text {
-                        text: "✕"
-                        font.bold: true
-                        font.pixelSize: 14
-                        color: "white"
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                    }
-
-                    background: Rectangle {
-                        color: closeButton.pressed ? "#cc2929" : (closeButton.hovered ? "#ff4d4d" : "#d63333")
-                        radius: 15
-                    }
-
-                    onClicked: {
-                        playbackWindow.close();
-                    }
-
-                    ToolTip.delay: Compact.toolTipDelay
-                    ToolTip.timeout: Compact.toolTipTimeout
-                    ToolTip.visible: closeButton.hovered
-                    ToolTip.text: qsTr("LNG_00121")
-                }
-
-                Button {
                     id: pinButton
                     Layout.preferredWidth: 30
                     Layout.preferredHeight: 30
@@ -3727,13 +3699,46 @@ Window {
                     }
 
                     onClicked: {
-                        playbackWindow.topBarAutoCollapse = !playbackWindow.topBarAutoCollapse;
+                        if (typeof rootWindow !== "undefined" && rootWindow) {
+                            rootWindow.viewSettings.showTopBarByDefault = !rootWindow.viewSettings.showTopBarByDefault;
+                            Context.writeSetting("View", "showTopBarByDefault", rootWindow.viewSettings.showTopBarByDefault);
+                        }
                     }
 
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: pinButton.hovered
                     ToolTip.text: pinButton.isPinned ? qsTr("LNG_00120") : qsTr("LNG_00119")
+                }
+
+                Button {
+                    id: closeButton
+                    Layout.preferredWidth: 30
+                    Layout.preferredHeight: 30
+                    Layout.alignment: Qt.AlignVCenter
+
+                    contentItem: Text {
+                        text: "✕"
+                        font.bold: true
+                        font.pixelSize: 14
+                        color: "white"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+
+                    background: Rectangle {
+                        color: closeButton.pressed ? "#cc2929" : (closeButton.hovered ? "#ff4d4d" : "#d63333")
+                        radius: 15
+                    }
+
+                    onClicked: {
+                        playbackWindow.close();
+                    }
+
+                    ToolTip.delay: Compact.toolTipDelay
+                    ToolTip.timeout: Compact.toolTipTimeout
+                    ToolTip.visible: closeButton.hovered
+                    ToolTip.text: qsTr("LNG_00121")
                 }
 
                 Button {
@@ -4025,11 +4030,12 @@ Window {
     // Top edge mouse detection area for sliding bar
     MouseArea {
         id: hoverArea
-        height: 12
+        height: 25
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
         hoverEnabled: true
+        acceptedButtons: Qt.NoButton
         z: 9998
         onContainsMouseChanged: {
             if (containsMouse) {

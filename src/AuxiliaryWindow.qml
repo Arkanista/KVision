@@ -183,12 +183,13 @@ Window {
     // Hover area at the very top edge of the window to slide down the top bar
     MouseArea {
         id: hoverArea
-        height: 12
+        height: 25
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
         hoverEnabled: true
-        z: 99999
+        acceptedButtons: Qt.NoButton
+        z: 9998
         onContainsMouseChanged: {
             if (containsMouse) {
                 keepVisibleTimer.stop();
@@ -201,7 +202,33 @@ Window {
     // Sleek premium horizontal top bar for settings and grid layout options
     Rectangle {
         id: topToolBar
-        height: 44
+        // Single-row width of the control buttons, measured from the items themselves
+        // (so it does not depend on how the Flow currently wraps them).
+        property real controlsNeededWidth: {
+            var total = 0, n = 0;
+            var items = controlsFlow.children;
+            for (var i = 0; i < items.length; ++i) {
+                var it = items[i];
+                if (it.visible && it.width > 0) { total += it.width; ++n; }
+            }
+            return n > 0 ? total + (n - 1) * controlsFlow.spacing : 0;
+        }
+        // Single-row width of the preset/view section (label + buttons).
+        property real presetsNeededWidth: {
+            var total = 0, n = 0;
+            var items = presetFlow.children;
+            for (var i = 0; i < items.length; ++i) {
+                var it = items[i];
+                if (it.visible && it.width > 0) { total += it.width; ++n; }
+            }
+            return n > 0 ? total + (n - 1) * presetFlow.spacing : 0;
+        }
+        // Keep the presets on the first row while they fit next to the controls;
+        // otherwise move them fully onto extra row(s) below.
+        property bool presetsInline: (controlsNeededWidth + 12 + presetsNeededWidth) <= width - 16
+        // The bar grows with its content: control buttons on the first row,
+        // preset/view buttons on extra rows below when needed.
+        height: 7 + controlsFlow.height + (presetFlow.height > 0 ? (presetsInline ? Math.max(0, presetFlow.height - controlsFlow.height) : 6 + presetFlow.height) : 0) + 7
         anchors.left: parent.left
         anchors.right: parent.right
         color: "#cc121214"
@@ -237,17 +264,17 @@ Window {
                 }
             }
 
-            RowLayout {
-                anchors.fill: parent
-                anchors.leftMargin: 8
-                anchors.rightMargin: 8
+            Flow {
+                id: controlsFlow
+                x: 8
+                y: 7
+                width: topToolBar.width - 16
                 spacing: 6
 
                 Button {
                     id: quitButton
-                    Layout.preferredWidth: 30
-                    Layout.preferredHeight: 30
-                    Layout.alignment: Qt.AlignVCenter
+                    width: 30
+                    height: 30
 
                     contentItem: Text {
                         text: "✕"
@@ -270,9 +297,8 @@ Window {
 
                 Button {
                     id: optionsButton
-                    Layout.preferredWidth: 30
-                    Layout.preferredHeight: 30
-                    Layout.alignment: Qt.AlignVCenter
+                    width: 30
+                    height: 30
 
                     contentItem: Image {
                         anchors.centerIn: parent
@@ -312,9 +338,8 @@ Window {
 
                 Button {
                     id: newWindowButton
-                    Layout.preferredWidth: 30
-                    Layout.preferredHeight: 30
-                    Layout.alignment: Qt.AlignVCenter
+                    width: 30
+                    height: 30
 
                     contentItem: Image {
                         anchors.centerIn: parent
@@ -348,9 +373,8 @@ Window {
 
                 Button {
                     id: instructionsButton
-                    Layout.preferredWidth: 30
-                    Layout.preferredHeight: 30
-                    Layout.alignment: Qt.AlignVCenter
+                    width: 30
+                    height: 30
 
                     contentItem: Image {
                         anchors.centerIn: parent
@@ -382,11 +406,16 @@ Window {
                     ToolTip.text: qsTr("LNG_00013")
                 }
 
-                Rectangle {
+                Item {
                     width: 1
-                    height: 20
-                    color: "#2a3540"
-                    Layout.alignment: Qt.AlignVCenter
+                    height: 30
+
+                    Rectangle {
+                        anchors.centerIn: parent
+                        width: 1
+                        height: 20
+                        color: "#2a3540"
+                    }
                 }
 
                 Text {
@@ -394,10 +423,13 @@ Window {
                     color: "#8898a6"
                     font.bold: true
                     font.pixelSize: 11
-                    Layout.alignment: Qt.AlignVCenter
+                    height: 30
+                    verticalAlignment: Text.AlignVCenter
                 }
 
                 RowLayout {
+                    width: implicitWidth
+                    height: implicitHeight
                     spacing: 4
 
                     Button {
@@ -583,23 +615,28 @@ Window {
                     }
                 }
 
-                Item {
-                    Layout.fillWidth: true // Spacer to push existing views to the right
-                }
+            }
 
-                // Right-aligned Existing Views/Presets selector
+            Flow {
+                id: presetFlow
+                // Inline (right-aligned) on the first row while everything fits,
+                // otherwise fully on its own row(s) below the controls.
+                x: topToolBar.presetsInline ? topToolBar.width - 8 - presetFlow.width : 8
+                y: topToolBar.presetsInline ? 7 : controlsFlow.y + controlsFlow.height + 6
+                width: topToolBar.presetsInline ? Math.max(0, presetsNeededWidth + 1) : topToolBar.width - 16
+                spacing: 4
+
+                // Existing Views/Presets selector
                 Text {
                     text: qsTr("LNG_00008")
                     color: "#8898a6"
                     font.bold: true
                     font.pixelSize: 11
-                    Layout.alignment: Qt.AlignVCenter
+                    height: 30
+                    verticalAlignment: Text.AlignVCenter
                 }
 
-                RowLayout {
-                    spacing: 4
-
-                    Repeater {
+                Repeater {
                         model: layoutsModel
                         delegate: Button {
                             id: viewBtn
@@ -637,7 +674,8 @@ Window {
                                 return "Widok " + (layoutIndex + 1);
                             }
 
-                            Layout.preferredHeight: 30
+                            width: implicitWidth
+                            height: 30
                             leftPadding: 12
                             rightPadding: 12
 
@@ -665,7 +703,6 @@ Window {
                             }
                         }
                     }
-                }
             }
         }
     }

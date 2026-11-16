@@ -35,7 +35,7 @@ Configuration is stored in `~/.config/KVision/KVision.conf` (INI format).
 | `[View]` | `showCameraInfo` | `bool` | `true` | Display camera name and stream bitrate overlay. |
 | `[View]` | `hoverControlIcons` | `bool` | `true` | Show playback and stream controls only on hover. |
 | `[View]` | `showInfoOnHoverOnly` | `bool` | `false` | Hide camera title unless hovered. |
-| `[View]` | `showTopBarByDefault` | `bool` | `true` | Keep top navigation bar visible. |
+| `[View]` | `showTopBarByDefault` | `bool` | `false` | Keep top navigation bar visible; when disabled the bar auto-hides until the pointer nears the top edge. |
 | `[Viewport]` | `noUnmuteWhenFullScreen` | `bool` | `false` | Do not automatically unmute audio on entering fullscreen. |
 
 ---

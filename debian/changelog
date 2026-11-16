@@ -1,3 +1,14 @@
+cctv-viewer (2.7.7-1) jammy; urgency=medium
+
+  * Improved toolbar layout in the main and auxiliary windows so controls and
+    view presets wrap onto additional rows when window width is limited.
+  * Kept the archive playback toolbar within the window on narrow layouts.
+  * Made top bars auto-hide by default and made the pin setting persist across
+    the main, auxiliary, and playback windows.
+  * Bumped the application version to 2.7.7.
+
+ -- Arkanista  Mon, 16 Nov 2026 10:21:00 +0100
+
 cctv-viewer (2.7.6-2) jammy; urgency=medium
 
   * Fixed stream switching when enlarging a camera (fullScreen / 1x1) in "Remote recorder (WAN / NAT)" mode so Auto mode seamlessly switches to Main Stream unless Sub-Stream is manually forced.

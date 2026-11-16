@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.7-1] - 2026-11-16
+
+### EN: Features, Improvements & Bug Fixes
+* **Responsive Live-View Toolbars:** Main and auxiliary window controls and view presets now wrap onto additional rows when the window is too narrow. The playback toolbar stays within the window on narrow layouts.
+* **Top-Bar Visibility Preference:** Top bars now auto-hide by default. The pin control persistently toggles whether the bars remain visible by default across the main, auxiliary, and playback windows.
+* **Release Metadata:** Bumped the application and package version to `2.7.7-1`.
+
+### PL: Funkcje, Udoskonalenia i Poprawki Błędów
+* **Responsywne paski narzędzi podglądu na żywo:** Przyciski i presety widoków w oknach głównym i pomocniczym przechodzą do kolejnych wierszy, gdy okno jest zbyt wąskie. Pasek narzędzi archiwum mieści się w oknie przy wąskim układzie.
+* **Ustawienie widoczności górnego paska:** Górne paski są teraz domyślnie automatycznie ukrywane. Przycisk pinezki trwale przełącza ich domyślną widoczność w oknach głównym, pomocniczych i archiwum.
+* **Obszar wysuwania górnego paska:** Zwiększono do 20 px obszar aktywacji przy górnej krawędzi okien głównego, pomocniczego i archiwum.
+* **Metadane wydania:** Zaktualizowano wersję programu i pakietów do `2.7.7-1`.
+
 ## [2.7.6-2] - 2026-11-13
 
 ### EN: Features, Improvements & Bug Fixes
