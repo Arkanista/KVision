@@ -3,6 +3,12 @@ name: DEB Packages
 on:
   workflow_dispatch:
   workflow_call:
+    inputs:
+      publish:
+        description: "Publish release assets from this workflow"
+        type: boolean
+        required: false
+        default: true
   push:
     branches: [master]
     paths:
@@ -70,7 +76,7 @@ jobs:
   publish-deb:
     name: Publish DEB packages
     needs: [build-deb]
-    if: github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' || (github.event_name == 'push' && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v')))
+    if: (github.event_name != 'workflow_call' || inputs.publish) && (github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' || (github.event_name == 'push' && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v'))))
     runs-on: ubuntu-24.04
     permissions:
       contents: write

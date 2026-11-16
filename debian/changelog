@@ -1,3 +1,13 @@
+kvision (2.7.8-1) unstable; urgency=medium
+
+  * Rebuilt top bar grid controls with a compact chevron expander, dynamic lock/unlock tooltips, 3x3 grid selector matrix inside a 4-row protrusion, and right-aligned view preset buttons in RootWindow and AuxiliaryWindow.
+  * Added live-synced top bar trigger zone height (px) and auto-hide persistence delay (ms, default 500 ms) settings across main, auxiliary, and playback windows.
+  * Preserved merged viewport spans (savedColumnSpan / savedRowSpan) when switching grid sizes and fixed a null-item segfault during ViewportsLayoutModel::resize().
+  * Added right-click context menu viewport merging and splitting (live cyan preview submenu, smart edge anchoring, selection merge, one-click split) and a Settings toggle (enableMergeViewports).
+  * Fixed Qt translation context detection in tools/translate_ts.py and unified tag release asset publishing across GitHub Actions workflows.
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Mon, 16 Nov 2026 13:20:00 +0100
+
 kvision (2.7.7-1) unstable; urgency=medium
 
   * Rebuilt the top dock toolbar to dynamically wrap view and recorder buttons into multiple rows (Flow layout) with a vertical step and uniform rounded corners expanding downwards only under the views section, plus window-level EventFilter pointer tracking for reliable auto-hide over multi-row buttons.

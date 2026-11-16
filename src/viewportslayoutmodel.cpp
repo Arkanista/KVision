@@ -1,5 +1,7 @@
 #include "viewportslayoutmodel.h"
 
+#include <algorithm>
+
 ViewportsLayoutItem::ViewportsLayoutItem(QObject *parent)
     : QObject(parent)
 {
@@ -49,7 +51,12 @@ QVariant ViewportsLayoutModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    return get(index.row())->property(m_roleNames.value(role));
+    ViewportsLayoutItem *item = get(index.row());
+    if (!item) {
+        return {};
+    }
+
+    return item->property(m_roleNames.value(role));
 }
 
 bool ViewportsLayoutModel::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -58,7 +65,12 @@ bool ViewportsLayoutModel::setData(const QModelIndex &index, const QVariant &val
         return false;
     }
 
-    return get(index.row())->setProperty(m_roleNames.value(role), value);
+    ViewportsLayoutItem *item = get(index.row());
+    if (!item) {
+        return false;
+    }
+
+    return item->setProperty(m_roleNames.value(role), value);
 }
 
 ViewportsLayoutItem *ViewportsLayoutModel::set(int index, ViewportsLayoutItem *p)
@@ -83,33 +95,61 @@ void ViewportsLayoutModel::clear() {
     endResetModel();
 }
 
+void ViewportsLayoutModel::ensureItemsAllocated()
+{
+    for (int index = 0; index < m_items.size(); ++index) {
+        if (m_items.at(index) == nullptr) {
+            QQmlEngine *engine = qmlEngine(this);
+            Q_ASSERT(engine != nullptr);
+
+            auto *item = new ViewportsLayoutItem(this);
+            QQmlEngine::setContextForObject(item, engine->rootContext());
+            connect(item, &ViewportsLayoutItem::changed, this, [=] {
+                for (int i = 0; i < m_items.size(); ++i) {
+                    if (item == m_items.at(i)) {
+                        QModelIndex modelIndex = createIndex(i, 0);
+                        emit reinterpret_cast<ViewportsLayoutModel *>(this)->dataChanged(modelIndex, modelIndex);
+                    }
+                }
+            });
+            set(index, item);
+        }
+    }
+}
+
 void ViewportsLayoutModel::resize(int columns, int rows)
 {
+    if (rows < 0 || columns < 0) {
+        return;
+    }
+
     int newActiveCount = rows * columns;
     int oldActiveCount = m_columns * m_rows;
 
-    if (rows >= 0 && columns >= 0) {
+    // Grow and allocate all ViewportsLayoutItem objects BEFORE beginInsertRows/endInsertRows
+    // so QML delegates never observe null items during model notifications.
+    int maxNeeded = std::max(newActiveCount, m_items.size());
+    if (maxNeeded > m_items.size()) {
+        m_items.resize(maxNeeded);
+    }
+    ensureItemsAllocated();
+
+    if (newActiveCount > oldActiveCount) {
+        beginInsertRows(QModelIndex(), oldActiveCount, newActiveCount - 1);
         m_columns = columns;
         m_rows = rows;
-
-        // Ensure m_items is at least as large as the maximum active size needed
-        int maxNeeded = std::max(newActiveCount, m_items.size());
-        if (maxNeeded > m_items.size()) {
-            m_items.resize(maxNeeded);
-        }
-
-        if (newActiveCount > oldActiveCount) {
-            beginInsertRows(QModelIndex(), oldActiveCount, newActiveCount - 1);
-            normalize();
-            endInsertRows();
-        } else if (newActiveCount < oldActiveCount) {
-            beginRemoveRows(QModelIndex(), newActiveCount, oldActiveCount - 1);
-            normalize();
-            endRemoveRows();
-        } else {
-            normalize();
-        }
+        endInsertRows();
+    } else if (newActiveCount < oldActiveCount) {
+        beginRemoveRows(QModelIndex(), newActiveCount, oldActiveCount - 1);
+        m_columns = columns;
+        m_rows = rows;
+        endRemoveRows();
+    } else {
+        m_columns = columns;
+        m_rows = rows;
     }
+
+    normalize();
 }
 
 void ViewportsLayoutModel::normalize()
@@ -122,75 +162,84 @@ void ViewportsLayoutModel::normalize()
         emit sizeChanged(QSize(m_columns, m_rows));
     }
 
-normalize:
-    // Mormalize properties
-    for (int index = 0; index < m_items.size(); ++index) {
-        auto item = get(index);
+    // Ensure all allocated items (including surplus items beyond current grid size) are initialized
+    ensureItemsAllocated();
 
-        if (item == nullptr) {
-            QQmlEngine *engine = qmlEngine(this);
-
-            Q_ASSERT(engine != nullptr);
-
-            item = new ViewportsLayoutItem(this);
-            QQmlEngine::setContextForObject(item, engine->rootContext());
-
-            connect(item, &ViewportsLayoutItem::changed, this, [=] {
-                for (int i = 0; i < m_items.size(); ++i) {
-                    if (item == m_items.at(i)) {
-                        QModelIndex index = createIndex(i, 0);
-                        emit reinterpret_cast<ViewportsLayoutModel *>(this)->dataChanged(index, index);
-                    }
-                }
-            });
-
-            set(index, item);
-        } else {
-            int span = 1;
-            int columnSpan = clamp(item->property("columnSpan").toInt(), 1, m_columns - column(index));
-            int rowSpan = clamp(item->property("rowSpan").toInt(), 1, m_rows - row(index));
-
-            if (columnSpan != m_columns || rowSpan != m_rows) {
-                span = std::min(rowSpan, columnSpan);
-            }
-
-            item->setProperty("columnSpan", span);
-            item->setProperty("rowSpan", span);
-            item->setProperty("visible", static_cast<int>(ViewportsLayoutItem::Visible::Visible));
-            item->setProperty("volume", clamp(item->property("volume").toDouble(), 0.0, 1.0));
-        }
+    if (m_columns <= 0 || m_rows <= 0 || count <= 0) {
+        return;
     }
 
-    for (int index = 0; index < m_items.size(); ++index) {
+    // Compute active spans/visibility for 0 .. count - 1 from savedColumnSpan/savedRowSpan,
+    // without overwriting saved spans or mutating surplus items at index >= count.
+    QVector<int> baseColSpan(count, 1);
+    QVector<int> baseRowSpan(count, 1);
+
+    for (int index = 0; index < count; ++index) {
         auto item = get(index);
+        int savedColSpan = std::max(1, item->savedColumnSpan());
+        int savedRowSpan = std::max(1, item->savedRowSpan());
+        int clampedCol = clamp(savedColSpan, 1, m_columns - column(index));
+        int clampedRow = clamp(savedRowSpan, 1, m_rows - row(index));
 
-        if (item->property("visible").toInt() == static_cast<int>(ViewportsLayoutItem::Visible::Visible)) {
-            int columnSpan = item->property("columnSpan").toInt();
-            int rowSpan = item->property("rowSpan").toInt();
+        int span = 1;
+        if (clampedCol != m_columns || clampedRow != m_rows) {
+            span = std::min(clampedRow, clampedCol);
+        }
 
-            // Iterate hidden elements
-            for (int r = 0; r < rowSpan; ++r) {
-                for (int c = 0; c < columnSpan; ++c) {
-                    int hiddenIndex = dataIndex(column(index) + c, row(index) + r);
-                    if (hiddenIndex != index) {
-                        auto hiddenItem = get(hiddenIndex);
-                        if (hiddenItem->property("visible").toInt() == static_cast<int>(ViewportsLayoutItem::Visible::Visible)) {
-                            hiddenItem->setProperty("columnSpan", -c);
-                            hiddenItem->setProperty("rowSpan", -r);
-                            hiddenItem->setProperty("visible", static_cast<int>(ViewportsLayoutItem::Visible::Hidden));
-                        } else {
-                            // Span collision
-                            item->setProperty("columnSpan", 1);
-                            item->setProperty("rowSpan", 1);
-                            goto normalize;
+        baseColSpan[index] = span;
+        baseRowSpan[index] = span;
+        item->setVolume(clamp(item->volume().toDouble(), 0.0, 1.0));
+    }
+
+    QVector<int> effColSpan(count, 1);
+    QVector<int> effRowSpan(count, 1);
+    QVector<ViewportsLayoutItem::Visible> effVisible(count, ViewportsLayoutItem::Visible::Visible);
+
+    bool collision = true;
+    while (collision) {
+        collision = false;
+        effColSpan = baseColSpan;
+        effRowSpan = baseRowSpan;
+        std::fill(effVisible.begin(), effVisible.end(), ViewportsLayoutItem::Visible::Visible);
+
+        for (int index = 0; index < count; ++index) {
+            if (effVisible[index] == ViewportsLayoutItem::Visible::Visible) {
+                int cSpan = effColSpan[index];
+                int rSpan = effRowSpan[index];
+
+                // Mark covered cells as Hidden
+                for (int r = 0; r < rSpan && !collision; ++r) {
+                    for (int c = 0; c < cSpan && !collision; ++c) {
+                        int hiddenIndex = dataIndex(column(index) + c, row(index) + r);
+                        if (hiddenIndex != index && hiddenIndex >= 0 && hiddenIndex < count) {
+                            if (effVisible[hiddenIndex] == ViewportsLayoutItem::Visible::Visible) {
+                                effColSpan[hiddenIndex] = -c;
+                                effRowSpan[hiddenIndex] = -r;
+                                effVisible[hiddenIndex] = ViewportsLayoutItem::Visible::Hidden;
+                            } else {
+                                // Span collision in smaller grid: temporarily fall back to 1x1
+                                baseColSpan[index] = 1;
+                                baseRowSpan[index] = 1;
+                                collision = true;
+                            }
                         }
                     }
                 }
             }
+            if (collision) {
+                break;
+            }
         }
-
-        emit dataChanged(QModelIndex(), QModelIndex());
     }
+
+    for (int index = 0; index < count; ++index) {
+        auto item = get(index);
+        item->setColumnSpan(effColSpan[index]);
+        item->setRowSpan(effRowSpan[index]);
+        item->setVisible(effVisible[index]);
+    }
+
+    emit dataChanged(createIndex(0, 0), createIndex(count - 1, 0));
 }
 
 void ViewportsLayoutModel::fromJSValue(const QVariantMap &model)
@@ -241,14 +290,23 @@ void ViewportsLayoutModel::fromJSValue(const QVariantMap &model)
         }
         normalize();
         for (int i = 0; i < std::min(m_items.size(), items.size()); ++i) {
+            QVariantMap item = items.at(i).toMap();
             QHashIterator<int, QByteArray> role(m_roleNames);
             while (role.hasNext()) {
                 role.next();
 
                 QByteArray roleName = role.value();
                 const char *name = roleName.constData();
-                QVariantMap item = items.at(i).toMap();
-                m_items.at(i)->setProperty(name, item.value(QString::fromUtf8(roleName)));
+                QString key = QString::fromUtf8(roleName);
+                if (item.contains(key)) {
+                    m_items.at(i)->setProperty(name, item.value(key));
+                }
+            }
+            if (!item.contains(QStringLiteral("savedColumnSpan"))) {
+                m_items.at(i)->setSavedColumnSpan(std::max(1, item.value(QStringLiteral("columnSpan")).toInt()));
+            }
+            if (!item.contains(QStringLiteral("savedRowSpan"))) {
+                m_items.at(i)->setSavedRowSpan(std::max(1, item.value(QStringLiteral("rowSpan")).toInt()));
             }
         }
     }

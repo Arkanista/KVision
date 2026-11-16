@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -11,7 +12,37 @@ permissions:
 jobs:
   deb:
     uses: ./.github/workflows/build-deb.yml
+    with:
+      publish: false
   appimage:
     uses: ./.github/workflows/build-appimage.yml
+    with:
+      publish: false
   windows:
     uses: ./.github/workflows/build-windows.yml
+    with:
+      publish: false
+
+  publish-release:
+    name: Publish all packages to tag release
+    needs: [deb, appimage, windows]
+    if: startsWith(github.ref, 'refs/tags/v') && needs.deb.result == 'success' && needs.appimage.result == 'success' && needs.windows.result == 'success'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download all release artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          merge-multiple: true
+
+      - name: Create or update GitHub Release with all assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          fail_on_unmatched_files: true
+          files: |
+            release-assets/*.deb
+            release-assets/*.AppImage
+            release-assets/*.zip

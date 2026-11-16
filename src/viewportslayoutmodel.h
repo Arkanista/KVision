@@ -25,6 +25,8 @@ public:
     QMLAV_PROPERTY(QString, secondaryUrl, setSecondaryUrl, secondaryUrlChanged);
     QMLAV_PROPERTY(int, rowSpan, setRowSpan, rowSpanChanged) = 1;
     QMLAV_PROPERTY(int, columnSpan, setColumnSpan, columnSpanChanged) = 1;
+    QMLAV_PROPERTY(int, savedRowSpan, setSavedRowSpan, savedRowSpanChanged) = 1;
+    QMLAV_PROPERTY(int, savedColumnSpan, setSavedColumnSpan, savedColumnSpanChanged) = 1;
     QMLAV_PROPERTY(ViewportsLayoutItem::Visible, visible, setVisible, visibleChanged) = Visible::Visible;
     QMLAV_PROPERTY(QVariant, volume, setVolume, volumeChanged) = 0.0;
     QMLAV_PROPERTY(QVariantMap, avFormatOptions, setAVFormatOptions, avFormatOptionsChanged);
@@ -91,6 +93,8 @@ protected:
     int row(int index) const { return std::floor(index / m_columns); }
 
 private:
+    void ensureItemsAllocated();
+
     template<class T>
     const T& clamp(const T& v, const T& lo, const T& hi)
     {

@@ -16,6 +16,7 @@ Configuration is stored in `~/.config/KVision/KVision.conf` (INI format).
 | `enableRemoveCamera` | `bool` | `true` | Show option to clear camera from a tile. |
 | `enableChangeViewportSettings`| `bool` | `true` | Allow per-viewport settings modal. |
 | `enableStreamSelection` | `bool` | `true` | Allow switching between Main and Sub streams. |
+| `enableMergeViewports` | `bool` | `true` | Allow merging and splitting viewports from the right-click context menu. |
 | `lockGridSize` | `bool` | `true` | Lock matrix grid dimensions when switching views. |
 | `snapshotPath` | `string` | `""` | Destination directory for PNG/JPG screenshots (empty = default Pictures). |
 | `videoPath` | `string` | `""` | Destination directory for MP4 export clips (empty = default Videos). |
@@ -36,6 +37,8 @@ Configuration is stored in `~/.config/KVision/KVision.conf` (INI format).
 | `[View]` | `hoverControlIcons` | `bool` | `true` | Show playback and stream controls only on hover. |
 | `[View]` | `showInfoOnHoverOnly` | `bool` | `false` | Hide camera title unless hovered. |
 | `[View]` | `showTopBarByDefault` | `bool` | `true` | Keep top navigation bar visible. |
+| `[View]` | `topBarTriggerHeight` | `int` | `12` | Top edge activation zone height in pixels (1–200) to slide down the auto-hidden top bar. |
+| `[View]` | `topBarPersistenceMs` | `int` | `500` | Delay in milliseconds (0–10000) before hiding the auto-hidden top bar after cursor leaves. |
 | `[Viewport]` | `noUnmuteWhenFullScreen` | `bool` | `false` | Do not automatically unmute audio on entering fullscreen. |
 
 ---

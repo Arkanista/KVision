@@ -38,7 +38,7 @@ Window {
 
     Timer {
         id: keepVisibleTimer
-        interval: 350
+        interval: (typeof rootWindow !== "undefined" && rootWindow && rootWindow.viewSettings) ? Math.max(1, rootWindow.viewSettings.topBarPersistenceMs) : 500
         repeat: false
     }
     Timer {
@@ -3642,7 +3642,12 @@ Window {
                 if (containsMouse) {
                     keepVisibleTimer.stop();
                 } else if (!hoverArea.containsMouse) {
-                    keepVisibleTimer.start();
+                    var persistenceMs = (typeof rootWindow !== "undefined" && rootWindow && rootWindow.viewSettings) ? rootWindow.viewSettings.topBarPersistenceMs : 500;
+                    if (persistenceMs > 0) {
+                        keepVisibleTimer.start();
+                    } else {
+                        keepVisibleTimer.stop();
+                    }
                 }
             }
 
@@ -4025,7 +4030,7 @@ Window {
     // Top edge mouse detection area for sliding bar
     MouseArea {
         id: hoverArea
-        height: 12
+        height: (typeof rootWindow !== "undefined" && rootWindow && rootWindow.viewSettings) ? rootWindow.viewSettings.topBarTriggerHeight : 12
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
@@ -4035,7 +4040,12 @@ Window {
             if (containsMouse) {
                 keepVisibleTimer.stop();
             } else if (!topToolBarMouseArea.containsMouse) {
-                keepVisibleTimer.start();
+                var persistenceMs = (typeof rootWindow !== "undefined" && rootWindow && rootWindow.viewSettings) ? rootWindow.viewSettings.topBarPersistenceMs : 500;
+                if (persistenceMs > 0) {
+                    keepVisibleTimer.start();
+                } else {
+                    keepVisibleTimer.stop();
+                }
             }
         }
     }

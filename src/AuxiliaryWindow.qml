@@ -176,8 +176,17 @@ Window {
 
     Timer {
         id: keepVisibleTimer
-        interval: 350
+        interval: (rootWindow && rootWindow.viewSettings) ? Math.max(1, rootWindow.viewSettings.topBarPersistenceMs) : 500
         repeat: false
+    }
+
+    function triggerTopBarHideDelay() {
+        var persistenceMs = (rootWindow && rootWindow.viewSettings) ? rootWindow.viewSettings.topBarPersistenceMs : 500;
+        if (persistenceMs > 0) {
+            keepVisibleTimer.start();
+        } else {
+            keepVisibleTimer.stop();
+        }
     }
 
     property bool pointerInTopBar: false
@@ -191,7 +200,7 @@ Window {
                 if (auxWindow.pointerInTopBar) {
                     auxWindow.pointerInTopBar = false;
                     if (auxWindow.topBarAutoCollapse && !hoverArea.containsMouse) {
-                        keepVisibleTimer.start();
+                        auxWindow.triggerTopBarHideDelay();
                     }
                 }
                 return;
@@ -199,7 +208,8 @@ Window {
             var mx = properties.x;
             var my = properties.y;
             var activeTop = (hoverArea.containsMouse || auxWindow.pointerInTopBar || keepVisibleTimer.running) ? 0 : topToolBar.y;
-            var insideTopTrigger = (my >= 0 && my <= 12);
+            var triggerH = (rootWindow && rootWindow.viewSettings) ? rootWindow.viewSettings.topBarTriggerHeight : 12;
+            var insideTopTrigger = (my >= 0 && my <= triggerH);
             var insideBar = (mx >= 0 && mx <= topToolBar.width && my >= activeTop && my <= activeTop + topToolBar.height);
             var nowInside = insideTopTrigger || insideBar;
             if (nowInside !== auxWindow.pointerInTopBar) {
@@ -207,7 +217,7 @@ Window {
                 if (nowInside) {
                     keepVisibleTimer.stop();
                 } else if (auxWindow.topBarAutoCollapse && !hoverArea.containsMouse) {
-                    keepVisibleTimer.start();
+                    auxWindow.triggerTopBarHideDelay();
                 }
             }
         }
@@ -216,7 +226,7 @@ Window {
     // Hover area at the very top edge of the window to slide down the top bar
     MouseArea {
         id: hoverArea
-        height: 12
+        height: (rootWindow && rootWindow.viewSettings) ? rootWindow.viewSettings.topBarTriggerHeight : 12
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
@@ -227,7 +237,7 @@ Window {
             if (containsMouse) {
                 keepVisibleTimer.stop();
             } else if (!auxWindow.pointerInTopBar) {
-                keepVisibleTimer.start();
+                auxWindow.triggerTopBarHideDelay();
             }
         }
     }
@@ -235,7 +245,8 @@ Window {
     // Sleek premium horizontal top bar for settings and grid layout options
     Rectangle {
         id: topToolBar
-        height: Math.max(44, auxViewsFlow.childrenRect.height + 14)
+        readonly property bool hasGridExtension: generalSettings ? !generalSettings.lockGridSize : false
+        height: Math.max(44, Math.max(hasGridExtension ? (auxGridColumn.implicitHeight + 14) : 44, auxViewsFlow.childrenRect.height + 14))
         anchors.left: parent.left
         anchors.right: parent.right
         color: "#cc121214"
@@ -470,144 +481,145 @@ Window {
                         ToolTip.text: qsTr("LNG_00011")
                     }
 
-                    Switch {
-                        id: lockGridSwitch
-                        checked: generalSettings ? generalSettings.lockGridSize : true
-                        text: qsTr("LNG_00010")
+                    Column {
+                        id: auxGridColumn
+                        Layout.alignment: Qt.AlignTop
+                        Layout.topMargin: 7
+                        spacing: 4
 
-                        Layout.preferredHeight: 28
-                        Layout.alignment: Qt.AlignVCenter
+                        Button {
+                            id: lockGridSwitch
+                            property bool expanded: generalSettings ? !generalSettings.lockGridSize : false
+                            width: 30
+                            height: 30
+                            anchors.horizontalCenter: parent.horizontalCenter
 
-                        indicator: Rectangle {
-                            implicitWidth: 36
-                            implicitHeight: 18
-                            x: lockGridSwitch.leftPadding
-                            y: parent.height / 2 - height / 2
-                            radius: 9
-                            color: lockGridSwitch.checked ? "#ff7a00" : "#1c242c"
-                            border.color: lockGridSwitch.checked ? "#ff9e00" : "#2a3540"
-                            border.width: 1
-
-                            Rectangle {
-                                x: lockGridSwitch.checked ? parent.width - width - 2 : 2
-                                y: 2
-                                width: 14
-                                height: 14
-                                radius: 7
-                                color: "white"
-
-                                Behavior on x {
-                                    NumberAnimation { duration: 150 }
+                            contentItem: Image {
+                                anchors.centerIn: parent
+                                width: 16
+                                height: 16
+                                sourceSize.width: 16
+                                sourceSize.height: 16
+                                fillMode: Image.PreserveAspectFit
+                                source: {
+                                    var colorStr = lockGridSwitch.expanded ? "white" : (lockGridSwitch.hovered ? "white" : "%238898a6");
+                                    if (lockGridSwitch.expanded) {
+                                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='18 15 12 9 6 15'></polyline></svg>";
+                                    }
+                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>";
                                 }
-                            }
-                        }
-
-                        contentItem: Text {
-                            text: lockGridSwitch.text
-                            font.bold: true
-                            font.pixelSize: 10
-                            color: lockGridSwitch.checked ? "white" : (lockGridSwitch.hovered ? "#ffffff" : "#8898a6")
-                            verticalAlignment: Text.AlignVCenter
-                            leftPadding: lockGridSwitch.indicator.width + 6
-                        }
-
-                        onCheckedChanged: {
-                            if (generalSettings) {
-                                generalSettings.lockGridSize = checked;
-                            }
-                        }
-                    }
-
-                    Rectangle {
-                        width: 1
-                        height: 20
-                        color: "#2a3540"
-                        Layout.alignment: Qt.AlignVCenter
-                    }
-
-                    Repeater {
-                        model: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-                        delegate: Button {
-                            id: gridBtn
-                            property int gridSize: modelData
-                            text: gridSize + "x" + gridSize
-                            enabled: !lockGridSwitch.checked && auxWindow.layoutIndex !== -1
-
-                            Layout.preferredWidth: 30
-                            Layout.preferredHeight: 30
-
-                            property bool isActive: {
-                                try {
-                                    var curr = auxWindow.selectedLayoutModel;
-                                    return curr && curr.size.width === gridSize && curr.size.height === gridSize;
-                                } catch(e) {
-                                    return false;
-                                }
-                            }
-
-                            contentItem: Text {
-                                text: gridBtn.text
-                                font.bold: true
-                                font.pixelSize: 10
-                                color: gridBtn.enabled ? (gridBtn.isActive ? "white" : (gridBtn.hovered ? "#ffffff" : "#8898a6")) : "#555555"
-                                horizontalAlignment: Text.AlignHCenter
-                                verticalAlignment: Text.AlignVCenter
                             }
 
                             background: Rectangle {
-                                color: gridBtn.isActive ? "#ff7a00" : (gridBtn.pressed ? "#cc121214" : (gridBtn.hovered ? "#3a4550" : "#1c242c"))
+                                color: lockGridSwitch.expanded ? "#ff7a00" : (lockGridSwitch.pressed ? "#cc121214" : (lockGridSwitch.hovered ? "#3a4550" : "#1c242c"))
                                 radius: 15
-                                border.color: gridBtn.isActive ? "#ff9e00" : (gridBtn.hovered ? "#8898a6" : "#2a3540")
+                                border.color: lockGridSwitch.expanded ? "#ff9e00" : (lockGridSwitch.hovered ? "#8898a6" : "#2a3540")
                                 border.width: 1
-                                opacity: gridBtn.enabled ? 1.0 : 0.4
                             }
 
                             onClicked: {
-                                auxWindow.changeGridSize(gridSize);
+                                if (generalSettings) {
+                                    generalSettings.lockGridSize = !generalSettings.lockGridSize;
+                                }
                             }
+
+                            ToolTip.delay: Compact.toolTipDelay
+                            ToolTip.timeout: Compact.toolTipTimeout
+                            ToolTip.visible: lockGridSwitch.hovered
+                            ToolTip.text: lockGridSwitch.expanded ? qsTr("LNG_00588") : qsTr("LNG_00589")
                         }
-                    }
 
-                    Button {
-                        id: moreOptionsButton
-                        Layout.preferredWidth: 30
-                        Layout.preferredHeight: 30
-                        Layout.alignment: Qt.AlignVCenter
+                        Button {
+                            id: moreOptionsButton
+                            visible: lockGridSwitch.expanded
+                            width: 30
+                            height: 30
+                            anchors.horizontalCenter: parent.horizontalCenter
 
-                        contentItem: Image {
-                            anchors.centerIn: parent
-                            width: 16
-                            height: 16
-                            sourceSize.width: 16
-                            sourceSize.height: 16
-                            fillMode: Image.PreserveAspectFit
-                            source: {
-                                var colorStr = moreOptionsButton.hovered ? "white" : "%238898a6";
-                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='3' y1='12' x2='21' y2='12'></line><line x1='3' y1='6' x2='21' y2='6'></line><line x1='3' y1='18' x2='21' y2='18'></line></svg>";
+                            contentItem: Image {
+                                anchors.centerIn: parent
+                                width: 16
+                                height: 16
+                                sourceSize.width: 16
+                                sourceSize.height: 16
+                                fillMode: Image.PreserveAspectFit
+                                source: {
+                                    var colorStr = moreOptionsButton.hovered ? "white" : "%238898a6";
+                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='3' y1='12' x2='21' y2='12'></line><line x1='3' y1='6' x2='21' y2='6'></line><line x1='3' y1='18' x2='21' y2='18'></line></svg>";
+                                }
                             }
+
+                            background: Rectangle {
+                                color: moreOptionsButton.pressed ? "#cc121214" : (moreOptionsButton.hovered ? "#3a4550" : "#1c242c")
+                                radius: 15
+                                border.color: moreOptionsButton.hovered ? "#ff9e00" : "#2a3540"
+                                border.width: 1
+                            }
+
+                            onClicked: {
+                                if (toolsWindow) {
+                                    toolsWindow.visible = !toolsWindow.visible;
+                                    if (toolsWindow.visible) {
+                                        toolsWindow.raise();
+                                        toolsWindow.requestActivate();
+                                    }
+                                }
+                            }
+
+                            ToolTip.delay: Compact.toolTipDelay
+                            ToolTip.timeout: Compact.toolTipTimeout
+                            ToolTip.visible: moreOptionsButton.hovered
+                            ToolTip.text: qsTr("LNG_00009")
                         }
 
-                        background: Rectangle {
-                            color: moreOptionsButton.pressed ? "#cc121214" : (moreOptionsButton.hovered ? "#3a4550" : "#1c242c")
-                            radius: 15
-                            border.color: moreOptionsButton.hovered ? "#ff9e00" : "#2a3540"
-                            border.width: 1
-                        }
+                        Grid {
+                            visible: lockGridSwitch.expanded
+                            columns: 3
+                            rows: 3
+                            spacing: 4
 
-                        onClicked: {
-                            if (toolsWindow) {
-                                toolsWindow.visible = !toolsWindow.visible;
-                                if (toolsWindow.visible) {
-                                    toolsWindow.raise();
-                                    toolsWindow.requestActivate();
+                            Repeater {
+                                model: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                                delegate: Button {
+                                    id: gridBtn
+                                    property int gridSize: modelData
+                                    text: gridSize + "x" + gridSize
+                                    enabled: lockGridSwitch.expanded && auxWindow.layoutIndex !== -1
+                                    width: 30
+                                    height: 30
+
+                                    property bool isActive: {
+                                        try {
+                                            var curr = auxWindow.selectedLayoutModel;
+                                            return curr && curr.size.width === gridSize && curr.size.height === gridSize;
+                                        } catch(e) {
+                                            return false;
+                                        }
+                                    }
+
+                                    contentItem: Text {
+                                        text: gridBtn.text
+                                        font.bold: true
+                                        font.pixelSize: 10
+                                        color: gridBtn.enabled ? (gridBtn.isActive ? "white" : (gridBtn.hovered ? "#ffffff" : "#8898a6")) : "#555555"
+                                        horizontalAlignment: Text.AlignHCenter
+                                        verticalAlignment: Text.AlignVCenter
+                                    }
+
+                                    background: Rectangle {
+                                        color: gridBtn.isActive ? "#ff7a00" : (gridBtn.pressed ? "#cc121214" : (gridBtn.hovered ? "#3a4550" : "#1c242c"))
+                                        radius: 15
+                                        border.color: gridBtn.isActive ? "#ff9e00" : (gridBtn.hovered ? "#8898a6" : "#2a3540")
+                                        border.width: 1
+                                        opacity: gridBtn.enabled ? 1.0 : 0.4
+                                    }
+
+                                    onClicked: {
+                                        auxWindow.changeGridSize(gridSize);
+                                    }
                                 }
                             }
                         }
-
-                        ToolTip.delay: Compact.toolTipDelay
-                        ToolTip.timeout: Compact.toolTipTimeout
-                        ToolTip.visible: moreOptionsButton.hovered
-                        ToolTip.text: qsTr("LNG_00009")
                     }
                 }
 
@@ -629,6 +641,46 @@ Window {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignVCenter
                     spacing: 4
+
+                    function alignRowsRight() {
+                        var rows = [];
+                        for (var i = 0; i < children.length; ++i) {
+                            var c = children[i];
+                            if (!c || !c.visible || c.width <= 0) {
+                                continue;
+                            }
+                            var ry = Math.round(c.y);
+                            var rowObj = null;
+                            for (var r = 0; r < rows.length; ++r) {
+                                if (Math.abs(rows[r].y - ry) < 2) {
+                                    rowObj = rows[r];
+                                    break;
+                                }
+                            }
+                            if (!rowObj) {
+                                rowObj = { y: ry, items: [], width: 0 };
+                                rows.push(rowObj);
+                            }
+                            rowObj.items.push(c);
+                        }
+                        var targetWidth = width;
+                        for (var r2 = 0; r2 < rows.length; ++r2) {
+                            var ro = rows[r2];
+                            var rw = 0;
+                            for (var j = 0; j < ro.items.length; ++j) {
+                                rw += ro.items[j].width;
+                                if (j > 0) rw += spacing;
+                            }
+                            var curX = Math.max(0, targetWidth - rw);
+                            for (var k = 0; k < ro.items.length; ++k) {
+                                ro.items[k].x = curX;
+                                curX += ro.items[k].width + spacing;
+                            }
+                        }
+                    }
+
+                    onWidthChanged: alignRowsRight()
+                    onPositioningComplete: alignRowsRight()
 
                     Repeater {
                         id: repeaterViewsAux

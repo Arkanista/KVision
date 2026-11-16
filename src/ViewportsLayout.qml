@@ -230,6 +230,8 @@ FocusScope {
         property int selectionIndex2
         property bool multiselect: selectionIndex2 != selectionIndex1
         property int keyModifiers: 0
+        property int previewTopLeftIndex: -1
+        property int previewSpan: 1
 
         onLayoutRatioChanged: selectionReset()
         onSelectionIndex1Changed: selectionReset()
@@ -316,6 +318,17 @@ FocusScope {
         function selectionReset() {
             selectionIndex2 = selectionIndex1;
         }
+
+        function previewContains(index) {
+            if (previewTopLeftIndex < 0 || previewSpan < 2) {
+                return false;
+            }
+            var pc = columnFromIndex(previewTopLeftIndex);
+            var pr = rowFromIndex(previewTopLeftIndex);
+            var col = columnFromIndex(index);
+            var row = rowFromIndex(index);
+            return col >= pc && col < pc + previewSpan && row >= pr && row < pr + previewSpan;
+        }
     }
 
     Rectangle {
@@ -387,6 +400,7 @@ FocusScope {
                         "application/x-cctv-viewport-index": String(model.index)
                     }
 
+                    readonly property int viewportIndex: model.index
                     property int cursorColumnOffset: 0
                     property int cursorRowOffset: 0
                     property bool fullScreen: false
@@ -729,6 +743,15 @@ FocusScope {
                                     target: selectionRect
                                     color: "#4000a8ff"
                                 }
+                            },
+                            State {
+                                name: "mergePreview"
+                                when: d.previewContains(model.index)
+
+                                PropertyChanges {
+                                    target: selectionRect
+                                    color: "#4500f5d4"
+                                }
                             }
                         ]
                     }
@@ -760,6 +783,16 @@ FocusScope {
                                     border.width: 2
                                     border.color: "#00f5d4"
                                 }
+                            },
+                            State {
+                                name: "mergePreview"
+                                when: d.previewContains(model.index)
+
+                                PropertyChanges {
+                                    target: selectionFrame
+                                    border.width: 2
+                                    border.color: "#00f5d4"
+                                }
                             }
                         ]
                     }
@@ -784,6 +817,10 @@ FocusScope {
                             if (mouse.button === Qt.RightButton) {
                                 if (generalSettings.enableContextMenu) {
                                     root.pendingSwapSourceIndex = -1;
+                                    if (!d.multiselect || !d.selectionContains(model.index)) {
+                                        viewport.forceActiveFocus();
+                                        d.selectionReset();
+                                    }
                                     contextMenu.popup();
                                 }
                                 return;
@@ -905,6 +942,9 @@ FocusScope {
                         
                         onClosed: {
                             streamSubMenu.close();
+                            mergeSubMenu.close();
+                            d.previewTopLeftIndex = -1;
+                            d.previewSpan = 1;
                         }
                         
                         enter: Transition {
@@ -953,6 +993,7 @@ FocusScope {
                             onHoveredChanged: {
                                 if (hovered) {
                                     streamSubMenu.close();
+                                    mergeSubMenu.close();
                                 }
                             }
                             
@@ -1006,6 +1047,7 @@ FocusScope {
                             
                             onHoveredChanged: {
                                 if (hovered && enabled) {
+                                    mergeSubMenu.close();
                                     streamSubMenu.popup(streamSelectMenuItem, streamSelectMenuItem.width, 0);
                                 }
                             }
@@ -1045,6 +1087,7 @@ FocusScope {
                             onHoveredChanged: {
                                 if (hovered) {
                                     streamSubMenu.close();
+                                    mergeSubMenu.close();
                                 }
                             }
                             
@@ -1084,6 +1127,7 @@ FocusScope {
                             onHoveredChanged: {
                                 if (hovered) {
                                     streamSubMenu.close();
+                                    mergeSubMenu.close();
                                 }
                             }
                             
@@ -1118,6 +1162,7 @@ FocusScope {
                             onHoveredChanged: {
                                 if (hovered) {
                                     streamSubMenu.close();
+                                    mergeSubMenu.close();
                                 }
                             }
                             
@@ -1153,6 +1198,7 @@ FocusScope {
                             onHoveredChanged: {
                                 if (hovered) {
                                     streamSubMenu.close();
+                                    mergeSubMenu.close();
                                 }
                             }
                             
@@ -1190,6 +1236,7 @@ FocusScope {
                             onHoveredChanged: {
                                 if (hovered) {
                                     streamSubMenu.close();
+                                    mergeSubMenu.close();
                                 }
                             }
                             
@@ -1199,6 +1246,158 @@ FocusScope {
                                     player.openPlayback();
                                 }
                             }
+                        }
+
+                        MenuItem {
+                            id: mergeMenuItem
+                            readonly property bool isMergedCell: viewport.columnSpan > 1 || viewport.rowSpan > 1
+                            readonly property bool isSelectionMerge: !isMergedCell && d.multiselect && d.selectionContains(model.index) && d.selectionWidth() > 1 && root.mergeCells(true)
+                            readonly property bool hasSubMenuOptions: !isMergedCell && !isSelectionMerge && root.hasAnyMergeOption(viewport.viewportIndex)
+                            visible: generalSettings.enableMergeViewports
+                            height: visible ? implicitHeight : 0
+                            enabled: visible && (isMergedCell || isSelectionMerge || hasSubMenuOptions)
+                            leftPadding: 12
+                            text: isMergedCell
+                                  ? qsTr("LNG_00594").arg(viewport.columnSpan)
+                                  : (isSelectionMerge
+                                     ? qsTr("LNG_00593").arg(d.selectionWidth())
+                                     : qsTr("LNG_00592"))
+
+                            contentItem: RowLayout {
+                                spacing: 8
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: mergeMenuItem.text
+                                    font {
+                                        pixelSize: 11
+                                        bold: true
+                                    }
+                                    color: mergeMenuItem.enabled ? (mergeMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+                                Text {
+                                    text: "▶"
+                                    visible: mergeMenuItem.hasSubMenuOptions
+                                    font {
+                                        pixelSize: 9
+                                        bold: true
+                                    }
+                                    color: mergeMenuItem.enabled ? (mergeMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    horizontalAlignment: Text.AlignRight
+                                    verticalAlignment: Text.AlignVCenter
+                                    rightPadding: 8
+                                }
+                            }
+
+                            background: Rectangle {
+                                implicitWidth: 160
+                                implicitHeight: 32
+                                color: mergeMenuItem.hovered ? "#2a3540" : "transparent"
+                                border.color: mergeMenuItem.hovered ? "#00f5d4" : "transparent"
+                                border.width: 1
+                                radius: 4
+                            }
+
+                            onHoveredChanged: {
+                                if (hovered) {
+                                    streamSubMenu.close();
+                                    if (enabled && hasSubMenuOptions) {
+                                        mergeSubMenu.popup(mergeMenuItem, mergeMenuItem.width, 0);
+                                    }
+                                }
+                            }
+
+                            onTriggered: {
+                                if (isMergedCell) {
+                                    root.splitAt(viewport.viewportIndex);
+                                } else if (isSelectionMerge) {
+                                    root.mergeCells();
+                                } else if (hasSubMenuOptions) {
+                                    mergeSubMenu.popup(mergeMenuItem, mergeMenuItem.width, 0);
+                                }
+                            }
+                        }
+                    }
+
+                    Menu {
+                        id: mergeSubMenu
+
+                        topPadding: 5
+                        bottomPadding: 5
+
+                        onClosed: {
+                            d.previewTopLeftIndex = -1;
+                            d.previewSpan = 1;
+                        }
+
+                        enter: Transition {
+                            NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: 150; easing.type: Easing.OutQuad }
+                            NumberAnimation { property: "scale"; from: 0.95; to: 1.0; duration: 150; easing.type: Easing.OutQuad }
+                        }
+                        exit: Transition {
+                            NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; duration: 100; easing.type: Easing.InQuad }
+                            NumberAnimation { property: "scale"; from: 1.0; to: 0.95; duration: 100; easing.type: Easing.InQuad }
+                        }
+
+                        background: Rectangle {
+                            implicitWidth: 110
+                            color: "#151d24"
+                            border.color: "#ff7a00"
+                            border.width: 1
+                            radius: 6
+                        }
+
+                        Instantiator {
+                            model: Math.max(0, Math.min(root.size.width, root.size.height) - 2)
+                            delegate: MenuItem {
+                                id: mergeOptionItem
+                                readonly property int spanSize: index + 2
+                                readonly property int anchorIdx: (contextMenu.visible || mergeSubMenu.visible) ? root.findMergeAnchor(viewport.viewportIndex, spanSize) : -1
+                                text: spanSize + "×" + spanSize
+                                enabled: anchorIdx >= 0
+                                leftPadding: 12
+
+                                contentItem: Text {
+                                    text: mergeOptionItem.text
+                                    font {
+                                        pixelSize: 11
+                                        bold: true
+                                    }
+                                    color: mergeOptionItem.enabled ? (mergeOptionItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+
+                                background: Rectangle {
+                                    implicitWidth: 110
+                                    implicitHeight: 32
+                                    color: mergeOptionItem.hovered ? "#2a3540" : "transparent"
+                                    border.color: mergeOptionItem.hovered ? "#00f5d4" : "transparent"
+                                    border.width: 1
+                                    radius: 4
+                                }
+
+                                onHoveredChanged: {
+                                    if (hovered && enabled && anchorIdx >= 0) {
+                                        d.previewTopLeftIndex = anchorIdx;
+                                        d.previewSpan = spanSize;
+                                    } else if (!hovered && d.previewTopLeftIndex === anchorIdx && d.previewSpan === spanSize) {
+                                        d.previewTopLeftIndex = -1;
+                                        d.previewSpan = 1;
+                                    }
+                                }
+
+                                onTriggered: {
+                                    d.previewTopLeftIndex = -1;
+                                    d.previewSpan = 1;
+                                    if (anchorIdx >= 0) {
+                                        root.mergeAt(anchorIdx, spanSize);
+                                    }
+                                }
+                            }
+                            onObjectAdded: mergeSubMenu.insertItem(index, object)
+                            onObjectRemoved: mergeSubMenu.removeItem(object)
                         }
                     }
 
@@ -1544,9 +1743,13 @@ FocusScope {
 
         if (!testMode) {
             if (topLeftElement.columnSpan > 1 || topLeftElement.rowSpan > 1) {
+                topLeftElement.savedColumnSpan = 1;
+                topLeftElement.savedRowSpan = 1;
                 topLeftElement.columnSpan = 1;
                 topLeftElement.rowSpan = 1;
-            } else {
+            } else if (d.selectionWidth() > 1 || d.selectionHeight() > 1) {
+                topLeftElement.savedColumnSpan = d.selectionWidth();
+                topLeftElement.savedRowSpan = d.selectionHeight();
                 topLeftElement.columnSpan = d.selectionWidth();
                 topLeftElement.rowSpan = d.selectionHeight();
             }
@@ -1556,6 +1759,90 @@ FocusScope {
         }
 
         return true;
+    }
+
+    function findMergeAnchor(targetIndex, span) {
+        if (targetIndex < 0 || span < 2 || span > root.size.width || span > root.size.height ||
+                (span >= root.size.width && span >= root.size.height)) {
+            return -1;
+        }
+        var col = d.columnFromIndex(targetIndex);
+        var row = d.rowFromIndex(targetIndex);
+        var minCol = Math.max(0, col - span + 1);
+        var maxCol = Math.min(col, root.size.width - span);
+        var minRow = Math.max(0, row - span + 1);
+        var maxRow = Math.min(row, root.size.height - span);
+
+        var candidates = [[maxCol, maxRow]];
+        for (var r = maxRow; r >= minRow; --r) {
+            for (var c = maxCol; c >= minCol; --c) {
+                if (c !== maxCol || r !== maxRow) {
+                    candidates.push([c, r]);
+                }
+            }
+        }
+
+        for (var i = 0; i < candidates.length; ++i) {
+            var ac = candidates[i][0];
+            var ar = candidates[i][1];
+            var ok = true;
+            for (var dr = 0; dr < span && ok; ++dr) {
+                for (var dc = 0; dc < span && ok; ++dc) {
+                    var cell = model.get(d.indexFromAddress(ac + dc, ar + dr));
+                    if (!cell || cell.visible !== ViewportsLayoutItem.Visible || cell.columnSpan > 1 || cell.rowSpan > 1) {
+                        ok = false;
+                    }
+                }
+            }
+            if (ok) {
+                return d.indexFromAddress(ac, ar);
+            }
+        }
+        return -1;
+    }
+
+    function hasAnyMergeOption(targetIndex) {
+        var maxSpan = Math.min(root.size.width, root.size.height) - 1;
+        for (var s = 2; s <= maxSpan; ++s) {
+            if (findMergeAnchor(targetIndex, s) >= 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function mergeAt(anchorIndex, span) {
+        if (anchorIndex < 0 || anchorIndex >= model.count || span < 2) {
+            return;
+        }
+        var item = model.get(anchorIndex);
+        if (item) {
+            item.savedColumnSpan = span;
+            item.savedRowSpan = span;
+            item.columnSpan = span;
+            item.rowSpan = span;
+            d.selectionReset();
+            model.normalize();
+            var vp = root.get(anchorIndex);
+            if (vp) {
+                vp.forceActiveFocus();
+            }
+        }
+    }
+
+    function splitAt(targetIndex) {
+        if (targetIndex < 0 || targetIndex >= model.count) {
+            return;
+        }
+        var item = model.get(targetIndex);
+        if (item && (item.columnSpan > 1 || item.rowSpan > 1)) {
+            item.savedColumnSpan = 1;
+            item.savedRowSpan = 1;
+            item.columnSpan = 1;
+            item.rowSpan = 1;
+            d.selectionReset();
+            model.normalize();
+        }
     }
 
     ConfirmDialog {

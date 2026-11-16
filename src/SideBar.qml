@@ -163,6 +163,15 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.7.8",
+            date: "16.11.2026",
+            changes: [
+                qsTr("LNG_00595"),
+                qsTr("LNG_00596"),
+                qsTr("LNG_00597")
+            ]
+        },
+        {
             version: "v2.7.7",
             date: "16.11.2026",
             changes: [
@@ -2471,6 +2480,14 @@ FocusScope {
                                 onCheckedChanged: generalSettings.enableStreamSelection = checked
                                 Layout.fillWidth: true
                             }
+
+                            CheckBox {
+                                text: qsTr("LNG_00591")
+                                checked: generalSettings.enableMergeViewports
+                                enabled: generalSettings.enableContextMenu
+                                onCheckedChanged: generalSettings.enableMergeViewports = checked
+                                Layout.fillWidth: true
+                            }
                         }
                     }
 
@@ -2528,6 +2545,160 @@ FocusScope {
                                 checked: viewSettings.showTopBarByDefault
                                 onCheckedChanged: viewSettings.showTopBarByDefault = checked
                                 Layout.fillWidth: true
+                            }
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 4
+
+                                Text {
+                                    text: qsTr("LNG_00587")
+                                    color: "white"
+                                    font.pixelSize: 11
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 8
+
+                                    TextField {
+                                        id: topBarTriggerHeightField
+                                        Layout.preferredWidth: 70
+                                        Layout.preferredHeight: 30
+                                        selectByMouse: true
+                                        text: viewSettings.topBarTriggerHeight.toString()
+                                        color: "white"
+                                        font.pixelSize: 12
+                                        maximumLength: 3
+                                        validator: IntValidator { bottom: 1; top: 200 }
+                                        background: Rectangle {
+                                            color: "#0f151b"
+                                            radius: 4
+                                            border.color: topBarTriggerHeightField.activeFocus ? "#ff7a00" : "#2a3540"
+                                        }
+                                        Connections {
+                                            target: viewSettings
+                                            function onTopBarTriggerHeightChanged() {
+                                                if (!topBarTriggerHeightField.activeFocus) {
+                                                    var targetStr = viewSettings.topBarTriggerHeight.toString();
+                                                    if (topBarTriggerHeightField.text !== targetStr) {
+                                                        topBarTriggerHeightField.text = targetStr;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        onTextEdited: {
+                                            var val = parseInt(text);
+                                            if (!isNaN(val) && val >= 1 && val <= 200) {
+                                                if (viewSettings.topBarTriggerHeight !== val) {
+                                                    viewSettings.topBarTriggerHeight = val;
+                                                }
+                                                Context.writeSetting("View", "topBarTriggerHeight", val);
+                                            }
+                                        }
+                                        onEditingFinished: {
+                                            var val = parseInt(text);
+                                            if (!isNaN(val)) {
+                                                if (val < 1) val = 1;
+                                                if (val > 200) val = 200;
+                                                viewSettings.topBarTriggerHeight = val;
+                                                Context.writeSetting("View", "topBarTriggerHeight", val);
+                                                text = val.toString();
+                                            } else {
+                                                text = viewSettings.topBarTriggerHeight.toString();
+                                            }
+                                        }
+                                    }
+
+                                    Text {
+                                        text: "px"
+                                        color: "#8898a6"
+                                        font.pixelSize: 12
+                                    }
+
+                                    Item {
+                                        Layout.fillWidth: true
+                                    }
+                                }
+                            }
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 4
+
+                                Text {
+                                    text: qsTr("LNG_00590")
+                                    color: "white"
+                                    font.pixelSize: 11
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 8
+
+                                    TextField {
+                                        id: topBarPersistenceMsField
+                                        Layout.preferredWidth: 70
+                                        Layout.preferredHeight: 30
+                                        selectByMouse: true
+                                        text: viewSettings.topBarPersistenceMs.toString()
+                                        color: "white"
+                                        font.pixelSize: 12
+                                        maximumLength: 5
+                                        validator: IntValidator { bottom: 0; top: 10000 }
+                                        background: Rectangle {
+                                            color: "#0f151b"
+                                            radius: 4
+                                            border.color: topBarPersistenceMsField.activeFocus ? "#ff7a00" : "#2a3540"
+                                        }
+                                        Connections {
+                                            target: viewSettings
+                                            function onTopBarPersistenceMsChanged() {
+                                                if (!topBarPersistenceMsField.activeFocus) {
+                                                    var targetStr = viewSettings.topBarPersistenceMs.toString();
+                                                    if (topBarPersistenceMsField.text !== targetStr) {
+                                                        topBarPersistenceMsField.text = targetStr;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        onTextEdited: {
+                                            var val = parseInt(text);
+                                            if (!isNaN(val) && val >= 0 && val <= 10000) {
+                                                if (viewSettings.topBarPersistenceMs !== val) {
+                                                    viewSettings.topBarPersistenceMs = val;
+                                                }
+                                                Context.writeSetting("View", "topBarPersistenceMs", val);
+                                            }
+                                        }
+                                        onEditingFinished: {
+                                            var val = parseInt(text);
+                                            if (!isNaN(val)) {
+                                                if (val < 0) val = 0;
+                                                if (val > 10000) val = 10000;
+                                                viewSettings.topBarPersistenceMs = val;
+                                                Context.writeSetting("View", "topBarPersistenceMs", val);
+                                                text = val.toString();
+                                            } else {
+                                                text = viewSettings.topBarPersistenceMs.toString();
+                                            }
+                                        }
+                                    }
+
+                                    Text {
+                                        text: "ms"
+                                        color: "#8898a6"
+                                        font.pixelSize: 12
+                                    }
+
+                                    Item {
+                                        Layout.fillWidth: true
+                                    }
+                                }
                             }
 
                             CheckBox {

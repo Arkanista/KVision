@@ -202,6 +202,7 @@ ApplicationWindow {
         property bool enableRemoveCamera: true
         property bool enableChangeViewportSettings: true
         property bool enableStreamSelection: true
+        property bool enableMergeViewports: true
         property bool lockGridSize: true
         property string snapshotPath: ""
         property string videoPath: ""
@@ -240,8 +241,16 @@ ApplicationWindow {
 
     Timer {
         id: keepVisibleTimer
-        interval: 350
+        interval: Math.max(1, viewSettings.topBarPersistenceMs)
         repeat: false
+    }
+
+    function triggerTopBarHideDelay() {
+        if (viewSettings.topBarPersistenceMs > 0) {
+            keepVisibleTimer.start();
+        } else {
+            keepVisibleTimer.stop();
+        }
     }
 
     Settings {
@@ -322,6 +331,10 @@ ApplicationWindow {
             var diskEnableStreamSel = Context.readSetting("", "enableStreamSelection", true);
             if (generalSettings.enableStreamSelection !== diskEnableStreamSel) {
                 generalSettings.enableStreamSelection = diskEnableStreamSel;
+            }
+            var diskEnableMergeViewports = Context.readSetting("", "enableMergeViewports", true);
+            if (generalSettings.enableMergeViewports !== diskEnableMergeViewports) {
+                generalSettings.enableMergeViewports = diskEnableMergeViewports;
             }
             var rawSnapshotPath = Context.readSetting("", "snapshotPath", "");
             var diskSnapshotPath = Context.sanitizePlatformPath(rawSnapshotPath, Context.defaultPicturesPath());
@@ -406,6 +419,18 @@ ApplicationWindow {
             var diskShowTopBarByDefault = Context.readSetting("View", "showTopBarByDefault", true);
             if (viewSettings.showTopBarByDefault !== diskShowTopBarByDefault) {
                 viewSettings.showTopBarByDefault = diskShowTopBarByDefault;
+            }
+            var diskTopBarTriggerHeight = parseInt(Context.readSetting("View", "topBarTriggerHeight", 12));
+            if (isNaN(diskTopBarTriggerHeight) || diskTopBarTriggerHeight < 1) diskTopBarTriggerHeight = 12;
+            if (diskTopBarTriggerHeight > 200) diskTopBarTriggerHeight = 200;
+            if (viewSettings.topBarTriggerHeight !== diskTopBarTriggerHeight) {
+                viewSettings.topBarTriggerHeight = diskTopBarTriggerHeight;
+            }
+            var diskTopBarPersistenceMs = parseInt(Context.readSetting("View", "topBarPersistenceMs", 500));
+            if (isNaN(diskTopBarPersistenceMs) || diskTopBarPersistenceMs < 0) diskTopBarPersistenceMs = 500;
+            if (diskTopBarPersistenceMs > 10000) diskTopBarPersistenceMs = 10000;
+            if (viewSettings.topBarPersistenceMs !== diskTopBarPersistenceMs) {
+                viewSettings.topBarPersistenceMs = diskTopBarPersistenceMs;
             }
             var diskNoUnmuteWhenFullScreen = Context.readSetting("Viewport", "noUnmuteWhenFullScreen", false);
             if (viewportSettings.noUnmuteWhenFullScreen !== diskNoUnmuteWhenFullScreen) {
@@ -545,6 +570,8 @@ ApplicationWindow {
         property bool hoverControlIcons: true
         property bool showInfoOnHoverOnly: false
         property bool showTopBarByDefault: true
+        property int topBarTriggerHeight: 12
+        property int topBarPersistenceMs: 500
         property bool disableViewportZoomAnimation: false
     }
 
@@ -741,14 +768,14 @@ ApplicationWindow {
                 if (rootWindow.pointerInTopBar) {
                     rootWindow.pointerInTopBar = false;
                     if (rootWindow.topBarAutoCollapse && !hoverArea.containsMouse) {
-                        keepVisibleTimer.start();
+                        rootWindow.triggerTopBarHideDelay();
                     }
                 }
                 return;
             }
             var mx = properties.x;
             var my = properties.y;
-            var insideTopTrigger = (my >= 0 && my <= 12);
+            var insideTopTrigger = (my >= 0 && my <= viewSettings.topBarTriggerHeight);
             var insideBar = topToolBar.containsPointInWindow(mx, my);
             var nowInside = insideTopTrigger || insideBar;
             if (nowInside !== rootWindow.pointerInTopBar) {
@@ -756,7 +783,7 @@ ApplicationWindow {
                 if (nowInside) {
                     keepVisibleTimer.stop();
                 } else if (rootWindow.topBarAutoCollapse && !hoverArea.containsMouse) {
-                    keepVisibleTimer.start();
+                    rootWindow.triggerTopBarHideDelay();
                 }
             }
         }
@@ -765,7 +792,7 @@ ApplicationWindow {
     // Hover area at the very top edge of the window to slide down the top bar
     MouseArea {
         id: hoverArea
-        height: 12
+        height: viewSettings.topBarTriggerHeight
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
@@ -776,7 +803,7 @@ ApplicationWindow {
             if (containsMouse) {
                 keepVisibleTimer.stop();
             } else if (!rootWindow.pointerInTopBar) {
-                keepVisibleTimer.start();
+                rootWindow.triggerTopBarHideDelay();
             }
         }
     }
@@ -786,23 +813,34 @@ ApplicationWindow {
         id: topToolBar
         readonly property real radiusVal: 12
         readonly property real leftSectionHeight: 56
-        readonly property real leftSectionWidth: 12 + topRowLayout.implicitWidth
+        readonly property bool hasGridExtension: !generalSettings.lockGridSize
+        readonly property real leftSectionWidth: 12 + topRowLayout.implicitWidth + (hasGridExtension ? 4 : (repeaterViews.count > 0 ? 4 : 12))
+
+        readonly property real gridButtonSize: 30
+        readonly property real gridSpacing: 4
+        readonly property real contentGridWidth: 3 * gridButtonSize + 2 * gridSpacing
+        readonly property real contentGridHeight: 30 + 4 + 30 + 4 + (3 * gridButtonSize + 2 * gridSpacing)
+        readonly property real gridSectionWidth: hasGridExtension ? (contentGridWidth + 22) : (gridButtonSize + 12)
+        readonly property real gridSectionHeight: hasGridExtension ? (contentGridHeight + 26) : leftSectionHeight
+
+        readonly property real xGrid: leftSectionWidth
+        readonly property real xViews: xGrid + gridSectionWidth
 
         // Dynamic views width: available space in window before hitting margins
-        readonly property real availViewsWidth: Math.max(150, (rootWindow.width - 48) - leftSectionWidth - 36)
+        readonly property real availViewsWidth: Math.max(150, (rootWindow.width - 48) - xViews - 36)
         // Wrapping threshold: wrap dynamically when hitting available width or a comfortable ratio
         readonly property real maxViewsWidth: Math.max(150, Math.min(availViewsWidth, Math.max(500, rootWindow.width * 0.55)))
 
-        readonly property real contentViewsWidth: Math.ceil(viewsFlow.childrenRect.width)
+        readonly property real contentViewsWidth: Math.ceil(viewsFlow.contentMaxRight > 0 ? viewsFlow.contentMaxRight : viewsFlow.childrenRect.width)
         readonly property real contentViewsHeight: Math.ceil(viewsFlow.childrenRect.height)
 
-        readonly property real viewsSectionHeight: Math.max(56, contentViewsHeight + 26)
+        readonly property real viewsSectionHeight: repeaterViews.count > 0 ? Math.max(56, contentViewsHeight + 26) : leftSectionHeight
         readonly property bool hasExtension: repeaterViews.count > 0 && viewsSectionHeight > leftSectionHeight
-        readonly property real cornerR: hasExtension ? Math.min(radiusVal, (viewsSectionHeight - leftSectionHeight) / 2) : radiusVal
-        readonly property real viewsSectionWidth: repeaterViews.count > 0 ? (contentViewsWidth + (hasExtension ? 22 : 16)) : 12
+        readonly property real viewsSectionWidth: repeaterViews.count > 0 ? (contentViewsWidth + (hasExtension ? 22 : 16)) : 0
+        readonly property real endHeight: repeaterViews.count > 0 ? viewsSectionHeight : gridSectionHeight
 
-        height: Math.max(leftSectionHeight, viewsSectionHeight)
-        width: leftSectionWidth + viewsSectionWidth
+        height: Math.max(leftSectionHeight, Math.max(gridSectionHeight, viewsSectionHeight))
+        width: xViews + viewsSectionWidth
         anchors.horizontalCenter: parent.horizontalCenter
         z: 9999
 
@@ -813,8 +851,11 @@ ApplicationWindow {
             if (lx < 0 || lx > topToolBar.width || ly < 0) {
                 return false;
             }
-            if (repeaterViews.count > 0 && lx >= topToolBar.leftSectionWidth) {
+            if (repeaterViews.count > 0 && lx >= topToolBar.xViews) {
                 return ly <= topToolBar.viewsSectionHeight;
+            }
+            if (topToolBar.hasGridExtension && lx >= topToolBar.xGrid) {
+                return ly <= topToolBar.gridSectionHeight;
             }
             return ly <= topToolBar.leftSectionHeight;
         }
@@ -841,10 +882,20 @@ ApplicationWindow {
                 readonly property real inset: 0
                 readonly property real w: topToolBar.width
                 readonly property real h1: topToolBar.leftSectionHeight
-                readonly property real h2: topToolBar.viewsSectionHeight
-                readonly property real xMid: topToolBar.leftSectionWidth
+                readonly property real h2: topToolBar.gridSectionHeight
+                readonly property real h3: topToolBar.endHeight
+                readonly property real x1: topToolBar.xGrid
+                readonly property real x2: topToolBar.xViews
                 readonly property real r: topToolBar.radiusVal
-                readonly property real cr: topToolBar.cornerR
+
+                readonly property bool hasStepV: repeaterViews.count > 0 && Math.abs(h3 - h2) > 0.5
+                readonly property bool stepVUp: h3 > h2
+                readonly property real crV: hasStepV ? Math.min(r, Math.abs(h3 - h2) / 2) : 0.01
+
+                readonly property bool hasStepG: topToolBar.hasGridExtension && Math.abs(h2 - h1) > 0.5
+                readonly property real crG: hasStepG ? Math.min(r, Math.abs(h2 - h1) / 2) : 0.01
+
+                readonly property real idleX2: Math.min(w - r, Math.max(r + inset, x1 + topToolBar.gridSectionWidth / 2))
 
                 strokeWidth: -1
                 strokeColor: "transparent"
@@ -859,44 +910,74 @@ ApplicationWindow {
                 PathLine { x: topToolBarPath.w; y: 0 }
 
                 // Right edge down
-                PathLine { x: topToolBarPath.w; y: topToolBarPath.h2 - topToolBarPath.r }
+                PathLine { x: topToolBarPath.w; y: topToolBarPath.h3 - topToolBarPath.r }
 
                 // Bottom-right outer corner
                 PathArc {
                     x: topToolBarPath.w - topToolBarPath.r
-                    y: topToolBarPath.h2
+                    y: topToolBarPath.h3
                     radiusX: topToolBarPath.r
                     radiusY: topToolBarPath.r
                     direction: PathArc.Clockwise
                 }
 
-                // Bottom edge of views tray
+                // Bottom edge of views tray to boundary x2
                 PathLine {
-                    x: topToolBar.hasExtension ? (topToolBarPath.xMid + topToolBarPath.cr) : (topToolBarPath.r + topToolBarPath.inset)
+                    x: topToolBarPath.hasStepV ? (topToolBarPath.x2 + topToolBarPath.crV) : topToolBarPath.idleX2
+                    y: topToolBarPath.hasStepV ? topToolBarPath.h3 : topToolBarPath.h2
+                }
+
+                // Transition corner 1 at x2 (outer clockwise if stepping up, inner concave if stepping down)
+                PathArc {
+                    x: topToolBarPath.hasStepV ? topToolBarPath.x2 : topToolBarPath.idleX2
+                    y: topToolBarPath.hasStepV ? (topToolBarPath.stepVUp ? (topToolBarPath.h3 - topToolBarPath.crV) : (topToolBarPath.h3 + topToolBarPath.crV)) : topToolBarPath.h2
+                    radiusX: topToolBarPath.crV
+                    radiusY: topToolBarPath.crV
+                    direction: (!topToolBarPath.hasStepV || topToolBarPath.stepVUp) ? PathArc.Clockwise : PathArc.Counterclockwise
+                }
+
+                // Vertical segment at x2
+                PathLine {
+                    x: topToolBarPath.hasStepV ? topToolBarPath.x2 : topToolBarPath.idleX2
+                    y: topToolBarPath.hasStepV ? (topToolBarPath.stepVUp ? (topToolBarPath.h2 + topToolBarPath.crV) : (topToolBarPath.h2 - topToolBarPath.crV)) : topToolBarPath.h2
+                }
+
+                // Transition corner 2 at x2 into height h2
+                PathArc {
+                    x: topToolBarPath.hasStepV ? (topToolBarPath.x2 - topToolBarPath.crV) : topToolBarPath.idleX2
+                    y: topToolBarPath.h2
+                    radiusX: topToolBarPath.crV
+                    radiusY: topToolBarPath.crV
+                    direction: (!topToolBarPath.hasStepV || topToolBarPath.stepVUp) ? PathArc.Counterclockwise : PathArc.Clockwise
+                }
+
+                // Bottom edge of grid tray to boundary x1
+                PathLine {
+                    x: topToolBarPath.hasStepG ? (topToolBarPath.x1 + topToolBarPath.crG) : (topToolBarPath.r + topToolBarPath.inset)
                     y: topToolBarPath.h2
                 }
 
-                // Bottom-left outer corner of views tray (when extended downwards)
+                // Outer bottom-left corner of grid tray (when extended downwards)
                 PathArc {
-                    x: topToolBar.hasExtension ? topToolBarPath.xMid : (topToolBarPath.r + topToolBarPath.inset)
-                    y: topToolBar.hasExtension ? (topToolBarPath.h2 - topToolBarPath.cr) : topToolBarPath.h2
-                    radiusX: topToolBar.hasExtension ? topToolBarPath.cr : 0.01
-                    radiusY: topToolBar.hasExtension ? topToolBarPath.cr : 0.01
+                    x: topToolBarPath.hasStepG ? topToolBarPath.x1 : (topToolBarPath.r + topToolBarPath.inset)
+                    y: topToolBarPath.hasStepG ? (topToolBarPath.h2 - topToolBarPath.crG) : topToolBarPath.h2
+                    radiusX: topToolBarPath.crG
+                    radiusY: topToolBarPath.crG
                     direction: PathArc.Clockwise
                 }
 
-                // Vertical left edge of views tray going up
+                // Vertical left edge of grid tray going up
                 PathLine {
-                    x: topToolBar.hasExtension ? topToolBarPath.xMid : (topToolBarPath.r + topToolBarPath.inset)
-                    y: topToolBar.hasExtension ? (topToolBarPath.h1 + topToolBarPath.cr) : topToolBarPath.h1
+                    x: topToolBarPath.hasStepG ? topToolBarPath.x1 : (topToolBarPath.r + topToolBarPath.inset)
+                    y: topToolBarPath.hasStepG ? (topToolBarPath.h1 + topToolBarPath.crG) : topToolBarPath.h1
                 }
 
                 // Inner concave rounded transition into bottom of left section
                 PathArc {
-                    x: topToolBar.hasExtension ? (topToolBarPath.xMid - topToolBarPath.cr) : (topToolBarPath.r + topToolBarPath.inset)
+                    x: topToolBarPath.hasStepG ? (topToolBarPath.x1 - topToolBarPath.crG) : (topToolBarPath.r + topToolBarPath.inset)
                     y: topToolBarPath.h1
-                    radiusX: topToolBar.hasExtension ? topToolBarPath.cr : 0.01
-                    radiusY: topToolBar.hasExtension ? topToolBarPath.cr : 0.01
+                    radiusX: topToolBarPath.crG
+                    radiusY: topToolBarPath.crG
                     direction: PathArc.Counterclockwise
                 }
 
@@ -929,7 +1010,18 @@ ApplicationWindow {
         }
 
         MouseArea {
-            x: topToolBar.leftSectionWidth
+            x: topToolBar.xGrid
+            y: 0
+            width: topToolBar.gridSectionWidth
+            height: topToolBar.gridSectionHeight
+            visible: topToolBar.hasGridExtension
+            hoverEnabled: true
+            acceptedButtons: Qt.AllButtons
+            onWheel: wheel.accepted = true
+        }
+
+        MouseArea {
+            x: topToolBar.xViews
             y: 0
             width: topToolBar.viewsSectionWidth
             height: topToolBar.viewsSectionHeight
@@ -1378,114 +1470,69 @@ ApplicationWindow {
                 Layout.alignment: Qt.AlignVCenter
                 visible: nvrStatusButton.visible
             }
+        }
 
-            RowLayout {
+        // Grid expand chevron in top row + 4 expanded rows (More Options in row 1 + 3x3 grid sizes in rows 2-4)
+        Item {
+            id: gridContainer
+            x: topToolBar.xGrid
+            y: 12
+            width: topToolBar.gridSectionWidth
+            height: topToolBar.hasGridExtension ? (topToolBar.contentGridHeight + 14) : 44
+
+            Column {
+                id: gridColumn
+                anchors.top: parent.top
+                anchors.topMargin: 7
+                anchors.horizontalCenter: parent.horizontalCenter
                 spacing: 4
 
-                Switch {
+                Button {
                     id: lockGridSwitch
-                    checked: generalSettings.lockGridSize
+                    property bool expanded: !generalSettings.lockGridSize
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: 30
+                    height: 30
 
-                    Layout.preferredHeight: 28
-                    Layout.alignment: Qt.AlignVCenter
-
-                    indicator: Rectangle {
-                        implicitWidth: 36
-                        implicitHeight: 18
-                        x: lockGridSwitch.leftPadding
-                        y: parent.height / 2 - height / 2
-                        radius: 9
-                        color: lockGridSwitch.checked ? "#ff7a00" : "#1c242c"
-                        border.color: lockGridSwitch.checked ? "#ff9e00" : "#2a3540"
-                        border.width: 1
-
-                        Rectangle {
-                            x: lockGridSwitch.checked ? parent.width - width - 2 : 2
-                            y: 2
-                            width: 14
-                            height: 14
-                            radius: 7
-                            color: "white"
-
-                            Behavior on x {
-                                NumberAnimation { duration: 150 }
+                    contentItem: Image {
+                        anchors.centerIn: parent
+                        width: 16
+                        height: 16
+                        sourceSize.width: 16
+                        sourceSize.height: 16
+                        fillMode: Image.PreserveAspectFit
+                        source: {
+                            var colorStr = lockGridSwitch.expanded ? "white" : (lockGridSwitch.hovered ? "white" : "%238898a6");
+                            if (lockGridSwitch.expanded) {
+                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='18 15 12 9 6 15'></polyline></svg>";
                             }
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>";
                         }
                     }
 
-                    onCheckedChanged: {
-                        generalSettings.lockGridSize = checked;
+                    background: Rectangle {
+                        color: lockGridSwitch.expanded ? "#ff7a00" : (lockGridSwitch.pressed ? "#cc121214" : (lockGridSwitch.hovered ? "#3a4550" : "#1c242c"))
+                        radius: 15
+                        border.color: lockGridSwitch.expanded ? "#ff9e00" : (lockGridSwitch.hovered ? "#8898a6" : "#2a3540")
+                        border.width: 1
+                    }
+
+                    onClicked: {
+                        generalSettings.lockGridSize = !generalSettings.lockGridSize;
                     }
 
                     ToolTip.delay: Compact.toolTipDelay
                     ToolTip.timeout: Compact.toolTipTimeout
                     ToolTip.visible: lockGridSwitch.hovered
-                    ToolTip.text: qsTr("LNG_00212")
-                }
-
-                Rectangle {
-                    width: 1
-                    height: 20
-                    color: "#2a3540"
-                    Layout.alignment: Qt.AlignVCenter
-                }
-
-                Repeater {
-                    model: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-                    delegate: Button {
-                        id: gridBtn
-                        property int gridSize: modelData
-                        text: gridSize + "x" + gridSize
-                        enabled: !generalSettings.lockGridSize
-
-                        Layout.preferredWidth: 30
-                        Layout.preferredHeight: 30
-
-                        // Highlight if this is the current active size!
-                        property bool isActive: {
-                            try {
-                                var curr = Utils.currentModel();
-                                return curr && curr.size.width === gridSize && curr.size.height === gridSize;
-                            } catch(e) {
-                                return false;
-                            }
-                        }
-
-                        contentItem: Text {
-                            text: gridBtn.text
-                            font.bold: true
-                            font.pixelSize: 10
-                            color: gridBtn.enabled ? (gridBtn.isActive ? "white" : (gridBtn.hovered ? "#ffffff" : "#8898a6")) : "#555555"
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                        }
-
-                        background: Rectangle {
-                            color: gridBtn.isActive ? "#ff7a00" : (gridBtn.pressed ? "#cc121214" : (gridBtn.hovered ? "#3a4550" : "#1c242c"))
-                            radius: 15
-                            border.color: gridBtn.isActive ? "#ff9e00" : (gridBtn.hovered ? "#8898a6" : "#2a3540")
-                            border.width: 1
-                            opacity: gridBtn.enabled ? 1.0 : 0.4
-                        }
-
-                        onClicked: {
-                            try {
-                                var curr = Utils.currentModel();
-                                if (curr) {
-                                    curr.size = Qt.size(gridSize, gridSize);
-                                }
-                            } catch(e) {
-                                console.log("[Grid Selector Error] Failed to change grid size:", e);
-                            }
-                        }
-                    }
+                    ToolTip.text: lockGridSwitch.expanded ? qsTr("LNG_00588") : qsTr("LNG_00589")
                 }
 
                 Button {
                     id: moreOptionsButton
-                    Layout.preferredWidth: 30
-                    Layout.preferredHeight: 30
-                    Layout.alignment: Qt.AlignVCenter
+                    visible: topToolBar.hasGridExtension
+                    width: 30
+                    height: 30
+                    anchors.horizontalCenter: parent.horizontalCenter
 
                     contentItem: Image {
                         anchors.centerIn: parent
@@ -1520,23 +1567,79 @@ ApplicationWindow {
                     ToolTip.visible: moreOptionsButton.hovered
                     ToolTip.text: qsTr("LNG_00009")
                 }
-            }
 
-            Rectangle {
-                id: viewsDivider
-                width: 1
-                height: 20
-                color: "#2a3540"
-                Layout.alignment: Qt.AlignVCenter
-                Layout.leftMargin: 6
-                Layout.rightMargin: 6
-                visible: repeaterViews.count > 0
+                Grid {
+                    id: gridSizeMatrix
+                    visible: topToolBar.hasGridExtension
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    columns: 3
+                    rows: 3
+                    spacing: topToolBar.gridSpacing
+
+                Repeater {
+                    model: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                    delegate: Button {
+                        id: gridBtn
+                        property int gridSize: modelData
+                        text: gridSize + "x" + gridSize
+                        width: topToolBar.gridButtonSize
+                        height: topToolBar.gridButtonSize
+
+                        // Highlight if this is the current active size!
+                        property bool isActive: {
+                            try {
+                                var curr = Utils.currentModel();
+                                return curr && curr.size.width === gridSize && curr.size.height === gridSize;
+                            } catch(e) {
+                                return false;
+                            }
+                        }
+
+                        contentItem: Text {
+                            text: gridBtn.text
+                            font.bold: true
+                            font.pixelSize: 10
+                            color: gridBtn.isActive ? "white" : (gridBtn.hovered ? "#ffffff" : "#8898a6")
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+
+                        background: Rectangle {
+                            color: gridBtn.isActive ? "#ff7a00" : (gridBtn.pressed ? "#cc121214" : (gridBtn.hovered ? "#3a4550" : "#1c242c"))
+                            radius: 15
+                            border.color: gridBtn.isActive ? "#ff9e00" : (gridBtn.hovered ? "#8898a6" : "#2a3540")
+                            border.width: 1
+                        }
+
+                        onClicked: {
+                            try {
+                                var curr = Utils.currentModel();
+                                if (curr) {
+                                    curr.size = Qt.size(gridSize, gridSize);
+                                }
+                            } catch(e) {
+                                console.log("[Grid Selector Error] Failed to change grid size:", e);
+                            }
+                        }
+                    }
+                }
             }
+        }
+        }
+
+        Rectangle {
+            id: viewsDivider
+            x: topToolBar.xViews - (topToolBar.hasGridExtension ? 0 : 1)
+            y: 24
+            width: 1
+            height: 20
+            color: "#2a3540"
+            visible: repeaterViews.count > 0
         }
 
         Item {
             id: viewsContainer
-            x: topToolBar.leftSectionWidth + (topToolBar.hasExtension ? 10 : 4)
+            x: topToolBar.xViews + (topToolBar.hasExtension ? 10 : 8)
             y: 12
             width: topToolBar.contentViewsWidth
             height: topToolBar.contentViewsHeight + 14
@@ -1549,6 +1652,52 @@ ApplicationWindow {
                 anchors.left: parent.left
                 width: topToolBar.maxViewsWidth
                 spacing: 4
+                property real contentMaxRight: 0
+
+                function alignRowsRight() {
+                    var rows = [];
+                    var maxW = 0;
+                    for (var i = 0; i < children.length; ++i) {
+                        var c = children[i];
+                        if (!c || !c.visible || c.width <= 0) {
+                            continue;
+                        }
+                        var ry = Math.round(c.y);
+                        var rowObj = null;
+                        for (var r = 0; r < rows.length; ++r) {
+                            if (Math.abs(rows[r].y - ry) < 2) {
+                                rowObj = rows[r];
+                                break;
+                            }
+                        }
+                        if (!rowObj) {
+                            rowObj = { y: ry, items: [], width: 0 };
+                            rows.push(rowObj);
+                        }
+                        rowObj.items.push(c);
+                    }
+                    for (var r2 = 0; r2 < rows.length; ++r2) {
+                        var ro = rows[r2];
+                        var rw = 0;
+                        for (var j = 0; j < ro.items.length; ++j) {
+                            rw += ro.items[j].width;
+                            if (j > 0) rw += spacing;
+                        }
+                        ro.width = rw;
+                        if (rw > maxW) maxW = rw;
+                    }
+                    contentMaxRight = maxW;
+                    for (var r3 = 0; r3 < rows.length; ++r3) {
+                        var row = rows[r3];
+                        var curX = maxW - row.width;
+                        for (var k = 0; k < row.items.length; ++k) {
+                            row.items[k].x = curX;
+                            curX += row.items[k].width + spacing;
+                        }
+                    }
+                }
+
+                onPositioningComplete: alignRowsRight()
 
                 Repeater {
                     id: repeaterViews
@@ -1906,6 +2055,7 @@ ApplicationWindow {
         Context.writeSetting("", "enableRemoveCamera", generalSettings.enableRemoveCamera);
         Context.writeSetting("", "enableChangeViewportSettings", generalSettings.enableChangeViewportSettings);
         Context.writeSetting("", "enableStreamSelection", generalSettings.enableStreamSelection);
+        Context.writeSetting("", "enableMergeViewports", generalSettings.enableMergeViewports);
         Context.writeSetting("", "lockGridSize", generalSettings.lockGridSize);
         Context.writeSetting("", "snapshotPath", generalSettings.snapshotPath);
         Context.writeSetting("", "videoPath", generalSettings.videoPath);
@@ -1927,6 +2077,8 @@ ApplicationWindow {
         Context.writeSetting("View", "hoverControlIcons", viewSettings.hoverControlIcons);
         Context.writeSetting("View", "showInfoOnHoverOnly", viewSettings.showInfoOnHoverOnly);
         Context.writeSetting("View", "showTopBarByDefault", viewSettings.showTopBarByDefault);
+        Context.writeSetting("View", "topBarTriggerHeight", viewSettings.topBarTriggerHeight);
+        Context.writeSetting("View", "topBarPersistenceMs", viewSettings.topBarPersistenceMs);
         Context.writeSetting("View", "disableViewportZoomAnimation", viewSettings.disableViewportZoomAnimation);
 
         Context.writeSetting("Viewport", "noUnmuteWhenFullScreen", viewportSettings.noUnmuteWhenFullScreen);

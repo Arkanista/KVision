@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.8] - 2026-11-16
+
+### Features, Improvements & Bug Fixes
+* **Top Bar Grid Expander, Alignment & Auto-Hide Controls (`RootWindow`, `AuxiliaryWindow`, `PlaybackWindow`, `SideBar`):**
+  * Replaced the grid unlock toggle switch with a compact `30x30` chevron expander button featuring dynamic lock/unlock tooltips (`"Unlock grid options"` / `"Lock grid options"`), placing the **More options** button in the first revealed row above a centered `3×3` grid size selector matrix (`1x1`–`9x9`) inside a 4-row downward dock protrusion.
+  * Right-aligned multi-row view and recorder preset buttons in both the main window (`RootWindow`) and multi-monitor auxiliary windows (`AuxiliaryWindow`).
+  * Added configurable **Top bar activation zone height (`px`)** (`topBarTriggerHeight`, default `12`, range `1–200`) and **Top bar persistence time (`ms`)** (`topBarPersistenceMs`, default `500`, range `0–10000`) settings in `SideBar` with live synchronization across Main, Auxiliary, and Playback windows.
+* **Merged Viewport Preservation & Resize Crash Fix (`ViewportsLayoutModel`, `ViewportsLayout`):**
+  * Added persistent `savedColumnSpan` and `savedRowSpan` properties to `ViewportsLayoutItem` so merged viewports are never destroyed when temporarily switching to smaller grids (e.g., `4x4 -> 3x3 -> 2x2 -> 1x1 -> 4x4`), including across configuration save/reload and legacy layout files.
+  * Fixed a `nullptr` dereference segmentation fault in `ViewportsLayoutModel::data()` during `resize()` by allocating all `ViewportsLayoutItem` objects via `ensureItemsAllocated()` before emitting `beginInsertRows()` / `endInsertRows()`.
+* **Right-Click Context Menu Merging & Splitting (`ViewportsLayout`, `SideBar`, `RootWindow`):**
+  * Added ergonomic right-click context menu support for merging and splitting both occupied and empty grid tiles: one-click **Split viewports** on merged tiles, direct **Merge selected** on multi-cell selections, and a **Merge viewports** submenu (`2×2`–`8×8`) for single cells with live cyan cell highlighting on hover and automatic edge anchoring.
+  * Added the **Enable merging and splitting viewports** (`enableMergeViewports`, default `true`) option in Settings synchronized across windows.
+* **Localization & Release Pipeline (`tools/translate_ts.py`, `.github/workflows/`):**
+  * Updated `tools/translate_ts.py` to auto-detect target QML `<context>` blocks from `src/`, added empty-result validation on translation fallback endpoints, and relocated keys `LNG_00585`–`LNG_00594` to their proper QML contexts across all 23 `.ts`/`.qm` files.
+  * Unified tag-triggered GitHub Releases in `.github/workflows/release-tag.yml` (`deb`, `appimage`, `windows` feeding one `publish-release` job) so all platform packages are attached cleanly to version tags without race conditions.
+
 ## [2.7.7] - 2026-11-16
 
 ### Features, Improvements & Bug Fixes
