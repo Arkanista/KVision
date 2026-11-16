@@ -520,6 +520,7 @@ Window {
                             onClicked: {
                                 if (generalSettings) {
                                     generalSettings.lockGridSize = !generalSettings.lockGridSize;
+                                    Context.writeSetting("", "lockGridSize", generalSettings.lockGridSize);
                                 }
                             }
 

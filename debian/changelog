@@ -1,3 +1,10 @@
+kvision (2.7.8-2) unstable; urgency=medium
+
+  * Fixed a settings persistence race between QML Settings (500 ms debounce) and QFileSystemWatcher/onConfigFileChanged that could revert disableViewportZoomAnimation and other sidebar checkboxes when adjacent settings or quit events occurred.
+  * Persisted all sidebar CheckBox toggles and lockGridSize immediately via Context.writeSetting, switched to onToggled with restored QML bindings, preserved windowed dimensions during fullscreen flushes, and ensured quit/shortcut exits flush all settings to disk.
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Mon, 16 Nov 2026 14:12:00 +0100
+
 kvision (2.7.8-1) unstable; urgency=medium
 
   * Rebuilt top bar grid controls with a compact chevron expander, dynamic lock/unlock tooltips, 3x3 grid selector matrix inside a 4-row protrusion, and right-aligned view preset buttons in RootWindow and AuxiliaryWindow.

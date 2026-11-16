@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.8-2] - 2026-11-16
+
+### Bug Fixes
+* **Immediate Settings Persistence & Race Fix (`SideBar`, `RootWindow`, `AuxiliaryWindow`):**
+  * Fixed a race condition between Qt Quick `Settings` (500 ms async flush timer) and `QFileSystemWatcher` / `RootWindow.onConfigFileChanged()` where changing `disableViewportZoomAnimation` ("Disable viewport zoom animation") or other settings checkboxes shortly before another config write (such as editing `topBarPersistenceMs`, toggling `lockGridSize`, closing Options, or exiting) could revert the option back to its previous value on disk.
+  * Switched all persisted `SideBar` settings checkboxes (`View`, `Viewport`, and `General`) from `onCheckedChanged` to `onToggled` with immediate `Context.writeSetting()` disk writes and restored reactive `Qt.binding()` links so `CheckBox` states remain synced across imports and auxiliary windows.
+  * Added immediate `Context.writeSetting()` persistence to `lockGridSwitch` in `RootWindow` and `AuxiliaryWindow`, grouped `disableViewportZoomAnimation` live-reload cleanly under View settings, preserved non-fullscreen window dimensions in `flushSettingsToDisk()`, and ensured both `quitConfirmDialog` and `Ctrl+Q` flush all settings before exiting.
+
 ## [2.7.8] - 2026-11-16
 
 ### Features, Improvements & Bug Fixes

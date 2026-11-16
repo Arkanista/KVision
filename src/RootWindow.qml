@@ -432,6 +432,10 @@ ApplicationWindow {
             if (viewSettings.topBarPersistenceMs !== diskTopBarPersistenceMs) {
                 viewSettings.topBarPersistenceMs = diskTopBarPersistenceMs;
             }
+            var diskDisableViewportZoomAnimation = Context.readSetting("View", "disableViewportZoomAnimation", false);
+            if (viewSettings.disableViewportZoomAnimation !== diskDisableViewportZoomAnimation) {
+                viewSettings.disableViewportZoomAnimation = diskDisableViewportZoomAnimation;
+            }
             var diskNoUnmuteWhenFullScreen = Context.readSetting("Viewport", "noUnmuteWhenFullScreen", false);
             if (viewportSettings.noUnmuteWhenFullScreen !== diskNoUnmuteWhenFullScreen) {
                 viewportSettings.noUnmuteWhenFullScreen = diskNoUnmuteWhenFullScreen;
@@ -517,10 +521,6 @@ ApplicationWindow {
 
             if (layoutsCollectionSettings.defaultAVFormatOptions !== diskDefaultAVFormatOptions) {
                 layoutsCollectionSettings.defaultAVFormatOptions = diskDefaultAVFormatOptions;
-            }
-            var diskDisableViewportZoomAnimation = Context.readSetting("View", "disableViewportZoomAnimation", false);
-            if (viewSettings.disableViewportZoomAnimation !== diskDisableViewportZoomAnimation) {
-                viewSettings.disableViewportZoomAnimation = diskDisableViewportZoomAnimation;
             }
 
 
@@ -631,7 +631,12 @@ ApplicationWindow {
     }
     Shortcut {
         sequence: StandardKey.Quit
-        onActivated: Qt.quit()
+        onActivated: {
+            if (!Context.isAuxiliary && !rootWindow.isSyncing) {
+                rootWindow.flushSettingsToDisk();
+            }
+            Qt.quit();
+        }
     }
 
     Shortcut {
@@ -1519,6 +1524,7 @@ ApplicationWindow {
 
                     onClicked: {
                         generalSettings.lockGridSize = !generalSettings.lockGridSize;
+                        Context.writeSetting("", "lockGridSize", generalSettings.lockGridSize);
                     }
 
                     ToolTip.delay: Compact.toolTipDelay
@@ -2085,8 +2091,8 @@ ApplicationWindow {
 
         if (!Context.isAuxiliary) {
             Context.writeSetting("MainLayout", "currentIndex", stackLayout.currentIndex);
-            Context.writeSetting("RootWindow", "width", rootWindow.width);
-            Context.writeSetting("RootWindow", "height", rootWindow.height);
+            Context.writeSetting("RootWindow", "width", rootWindowSettings.width);
+            Context.writeSetting("RootWindow", "height", rootWindowSettings.height);
             Context.writeSetting("RootWindow", "fullScreen", Context.config.fullScreen);
         }
     }
@@ -2136,7 +2142,9 @@ ApplicationWindow {
         cancelButtonText: qsTr("LNG_00004")
         isDanger: true
         onAccepted: {
-            if (saveTimer.running) {
+            if (!Context.isAuxiliary && !rootWindow.isSyncing) {
+                rootWindow.flushSettingsToDisk();
+            } else if (saveTimer.running) {
                 saveTimer.stop();
                 if (!rootWindow.isSyncing) {
                     var json = JSON.stringify(layoutsCollectionModel.toJSValue());

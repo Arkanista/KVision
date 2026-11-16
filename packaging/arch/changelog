@@ -1,3 +1,6 @@
+2.7.8-2
+  * Fixed a settings persistence race between QML Settings (500 ms debounce timer) and QFileSystemWatcher/onConfigFileChanged that could revert disableViewportZoomAnimation and other View/General/Viewport checkboxes back to their previous disk state; persisted all settings checkboxes and lockGridSize immediately via Context.writeSetting, restored reactive QML CheckBox bindings after clicks (onToggled), preserved windowed geometry in flushSettingsToDisk() during fullscreen, and flushed all settings on application quit.
+
 2.7.8-1
   * Rebuilt top bar grid controls with a chevron expander, dynamic lock/unlock tooltips, centered 3x3 grid selector matrix inside a 4-row downward dock protrusion, and right-aligned view buttons in both main and auxiliary windows.
   * Added live-synced top bar activation zone height (px) and persistence delay (ms, default 500 ms) settings across main, auxiliary, and playback windows.
