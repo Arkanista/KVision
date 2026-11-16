@@ -1,11 +1,20 @@
-name: Linux DEB & AppImage builds
+name: DEB Packages
 
 on:
   workflow_dispatch:
+  workflow_call:
   push:
     branches: [master]
-    tags:
-      - "v*"
+    paths:
+      - "src/**"
+      - "images/**"
+      - "translations/**"
+      - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.desktop"
+      - "debian/**"
+      - "tools/build_deb.sh"
+      - ".github/workflows/build-deb.yml"
   pull_request:
     paths:
       - "src/**"
@@ -16,8 +25,7 @@ on:
       - "kvision.desktop"
       - "debian/**"
       - "tools/build_deb.sh"
-      - "tools/build_appimage.sh"
-      - ".github/workflows/build-linux.yml"
+      - ".github/workflows/build-deb.yml"
 
 jobs:
   build-deb:
@@ -59,45 +67,20 @@ jobs:
           name: kvision-deb-${{ matrix.label }}
           path: dist/*.deb
 
-  build-appimage:
-    name: AppImage (x86_64)
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Checkout repository with submodules
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: Build portable AppImage inside ubuntu:22.04
-        run: |
-          docker run --rm \
-            -v "${{ github.workspace }}:/work" \
-            -w /work \
-            ubuntu:22.04 \
-            ./tools/build_appimage.sh
-
-      - name: Upload AppImage artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: kvision-appimage-x86_64
-          path: dist/*.AppImage
-
-  publish-release:
-    name: Publish Linux packages
-    needs: [build-deb, build-appimage]
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v')))
+  publish-deb:
+    name: Publish DEB packages
+    needs: [build-deb]
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' || (github.event_name == 'push' && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v')))
     runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
-      - name: Download all Linux artifacts
+      - name: Download .deb artifacts
         uses: actions/download-artifact@v4
         with:
           path: release-assets
+          pattern: kvision-deb-*
           merge-multiple: true
-
-      - name: List release assets
-        run: ls -lh release-assets
 
       - name: Publish to rolling linux-latest pre-release
         if: "!startsWith(github.ref, 'refs/tags/v')"
@@ -107,20 +90,12 @@ jobs:
           name: Linux DEB & AppImage (x64)
           prerelease: true
           fail_on_unmatched_files: true
-          body: |
-            Automated Linux x86_64 builds of KVision:
-            - Native `.deb` packages for **Debian 12 (`bookworm`)**, **Debian 13 (`trixie`)**, and **Ubuntu `22.04` / `24.04` / `26.04` / `26.10`** (`sudo apt install ./kvision_*.deb`).
-            - Portable **AppImage** (`KVision-*-x86_64.AppImage`) built against Ubuntu 22.04 baseline (`chmod +x` and run directly on any modern Linux distribution).
-          files: |
-            release-assets/*.deb
-            release-assets/*.AppImage
+          files: release-assets/*.deb
 
-      - name: Attach Linux packages to version release tag
+      - name: Attach .deb packages to version release tag
         if: "startsWith(github.ref, 'refs/tags/v')"
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
           fail_on_unmatched_files: true
-          files: |
-            release-assets/*.deb
-            release-assets/*.AppImage
+          files: release-assets/*.deb
