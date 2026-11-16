@@ -1,0 +1,83 @@
+name: AppImage Package
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  push:
+    branches: [master]
+    paths:
+      - "src/**"
+      - "images/**"
+      - "translations/**"
+      - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.desktop"
+      - "tools/build_appimage.sh"
+      - ".github/workflows/build-appimage.yml"
+  pull_request:
+    paths:
+      - "src/**"
+      - "images/**"
+      - "translations/**"
+      - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.desktop"
+      - "tools/build_appimage.sh"
+      - ".github/workflows/build-appimage.yml"
+
+jobs:
+  build-appimage:
+    name: AppImage (x86_64)
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build portable AppImage inside ubuntu:22.04
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/work" \
+            -w /work \
+            ubuntu:22.04 \
+            ./tools/build_appimage.sh
+
+      - name: Upload AppImage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kvision-appimage-x86_64
+          path: dist/*.AppImage
+
+  publish-appimage:
+    name: Publish AppImage package
+    needs: [build-appimage]
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' || (github.event_name == 'push' && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v')))
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download AppImage artifact
+        uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          pattern: kvision-appimage-*
+          merge-multiple: true
+
+      - name: Publish to rolling linux-latest pre-release
+        if: "!startsWith(github.ref, 'refs/tags/v')"
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: linux-latest
+          name: Linux DEB & AppImage (x64)
+          prerelease: true
+          fail_on_unmatched_files: true
+          files: release-assets/*.AppImage
+
+      - name: Attach AppImage to version release tag
+        if: "startsWith(github.ref, 'refs/tags/v')"
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          fail_on_unmatched_files: true
+          files: release-assets/*.AppImage

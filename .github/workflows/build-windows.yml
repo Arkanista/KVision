@@ -2,10 +2,18 @@ name: Windows build
 
 on:
   workflow_dispatch:
+  workflow_call:
   push:
     branches: [master]
-    tags:
-      - "v*"
+    paths:
+      - "src/**"
+      - "images/**"
+      - "translations/**"
+      - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.rc"
+      - "qtquickcontrols2.conf"
+      - ".github/workflows/build-windows.yml"
   pull_request:
     paths:
       - "src/**"
@@ -154,7 +162,7 @@ jobs:
       # Same tag every run, so the release keeps one stable download URL and
       # the asset is replaced in place instead of piling up builds.
       - name: Publish to rolling windows-latest pre-release
-        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/master')
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/v'))
         uses: softprops/action-gh-release@v2
         with:
           tag_name: windows-latest
@@ -170,7 +178,7 @@ jobs:
           files: KVision-windows-x64.zip
 
       - name: Attach Windows package to version release tag
-        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        if: "startsWith(github.ref, 'refs/tags/v')"
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
