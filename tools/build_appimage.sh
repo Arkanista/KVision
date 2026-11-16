@@ -118,25 +118,21 @@ if [ -n "$HIK_SDK_APPDIR" ]; then
     export LD_LIBRARY_PATH="$APPDIR/usr/lib:$HIK_SDK_APPDIR:${LD_LIBRARY_PATH:-}"
 fi
 
-# Dynamically include only Qt5 plugins & directories present in this Qt installation
+# Deploy extra Qt modules (Wayland client plugins) and additional platform plugins
 QT_PLUGIN_ROOT="$("$QMAKE" -query QT_INSTALL_PLUGINS)"
-EXTRA_QT_PLUGINS_LIST=()
-for plug in \
-    mediaservice \
-    audio \
-    wayland-shell-integration \
-    wayland-decoration-client \
-    wayland-graphics-integration-client \
-    platforms/libqwayland-egl.so \
-    platforms/libqwayland-generic.so \
-    platforms/libqoffscreen.so; do
-    if [ -e "${QT_PLUGIN_ROOT}/${plug}" ]; then
-        EXTRA_QT_PLUGINS_LIST+=("$plug")
+EXTRA_PLAT_LIST=()
+for p in libqwayland-egl.so libqwayland-generic.so libqoffscreen.so; do
+    if [ -e "${QT_PLUGIN_ROOT}/platforms/${p}" ]; then
+        EXTRA_PLAT_LIST+=("$p")
     fi
 done
-if [ "${#EXTRA_QT_PLUGINS_LIST[@]}" -gt 0 ]; then
-    export EXTRA_QT_PLUGINS
-    EXTRA_QT_PLUGINS="$(IFS=';'; echo "${EXTRA_QT_PLUGINS_LIST[*]}")"
+if [ "${#EXTRA_PLAT_LIST[@]}" -gt 0 ]; then
+    export EXTRA_PLATFORM_PLUGINS
+    EXTRA_PLATFORM_PLUGINS="$(IFS=';'; echo "${EXTRA_PLAT_LIST[*]}")"
+fi
+
+if [ -d "${QT_PLUGIN_ROOT}/wayland-shell-integration" ]; then
+    export EXTRA_QT_MODULES="waylandclient"
 fi
 
 export QML_SOURCES_PATHS="$(pwd)/src"
