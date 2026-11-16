@@ -1,7 +1,8 @@
 # KVision Workspace Rules & Agent Guide
 
 ## Core Workspace Rules
-* **GitHub Descriptions & Commits**: All GitHub release descriptions, tags, commit messages, and PRs must be in **English only**. Do not mix Polish and English in GitHub-facing descriptions.
+* **GitHub Descriptions, Changelogs & Commits**: All GitHub release descriptions, tags, commit messages, PRs, and changelog files (`CHANGELOG.md`, `packaging/arch/changelog`, `debian/changelog`) must be in **English only**. Do not mix Polish and English in GitHub-facing or changelog descriptions.
+* **Localization & Translations (`LNG_XXXXX` / `.ts`) — Token-Saving Rule**: **NEVER** translate UI strings or in-app changelog entries into the 20+ target languages manually inside your LLM context/response. Always use Google Translate API via the reusable script [`tools/translate_ts.py`](file:///home/robert/cctv/kvision/tools/translate_ts.py) (e.g., `python3 tools/translate_ts.py --id LNG_XXXXX --en "..." --pl "..." --compile` or `--json ... --compile`) to populate all 23 `.ts` language files and compile `.qm` binaries.
 * **Code Style & Structure**: Follow modern Qt/C++ (C++17) idioms. Keep QML code declarative and separate business logic into C++ classes where appropriate.
 * **Mandatory Windows Build & Cross-Platform Verification (`MSVC` / `_WIN32`)**: Every C++, QML, and CMake change **MUST** be verified to ensure it does not break the Windows x64 (`MSVC 2022`) compiler or Windows runtime behavior:
   * **Platform-Specific Headers & APIs**: Never include Linux/POSIX-only headers (e.g., `<unistd.h>`, `<malloc.h>`, `<sys/resource.h>`, `<sys/utsname.h>`) or call Linux-specific functions (`malloc_trim`, `/proc/*` reads) without guarding them inside `#ifndef _WIN32 ... #endif` (or `#ifdef _WIN32 ... #else ... #endif`).

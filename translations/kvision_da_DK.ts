@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Er du sikker på, at du vil fjerne kameraet fra denne visningsport?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Dynamisk ombrydning af visninger i topbjælken: Topværktøjslinjen er ombygget til dynamisk at ombryde visnings- og optagerknapper over flere rækker (Flow-layout) ud fra vinduesbredde og navnelængde med lodret kant, ensartede afrundede hjørner og vinduesbaseret markørsporing for pålidelig automatisk skjulning.</translation></message><message><source>LNG_00586</source><translation>Højkontrast lodrette rullebjælker: Tilføjet en tydelig lodret rullebjælke til optagerlisten i NVR-statusdialogen samt rettet placering og synlighed af lodrette rullebjælker på alle indstillingsfaner i sidepanelet med tydelige kanter og cyan fremhævning.</translation></message></context>
 </TS>

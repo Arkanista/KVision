@@ -144,6 +144,7 @@ cd KVision
      qml-module-qtquick-layouts qml-module-qtmultimedia \
      qml-module-qt-labs-platform qml-module-qt-labs-settings \
      qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qml-module-qtquick-shapes \
      qtwayland5
    ```
 2. Configure and compile the project:

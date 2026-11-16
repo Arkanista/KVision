@@ -100,8 +100,12 @@ Dialog {
                 model: NvrStatusManager.checkedRecorders
                 spacing: 8
 
+                ScrollBar.vertical: StyledScrollBar {
+                    id: recorderScrollBar
+                }
+
                 delegate: Rectangle {
-                    width: recorderListView.width
+                    width: recorderListView.width - (recorderScrollBar.visible ? 16 : 0)
                     implicitHeight: recorderColumn.implicitHeight + 20
                     color: "#1c242c"
                     border.color: modelData.hasError ? "#ff4d4d" : "#2a3540"

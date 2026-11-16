@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Är du säker på att du vill ta bort kameran från den här visningsporten?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Dynamisk radbrytning av vyer i topplisten: Topplisten har byggts om så att vy- och inspelarknappar dynamiskt radbryts i flera rader (Flow-layout) beroende på fönsterbredd och namnlängd, med vertikal kant, enhetligt rundade hörn endast under vysektionen och pekarspårning på fönsternivå.</translation></message><message><source>LNG_00586</source><translation>Vertikala rullningslister med hög kontrast: Lade till en tydlig vertikal rullningslist i inspelarlistan i NVR-statusdialogen samt åtgärdade placering och synlighet för vertikala rullningslister i alla inställningsflikar i sidopanelen med tydliga kanter och cyanmarkering.</translation></message></context>
 </TS>

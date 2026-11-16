@@ -1,10 +1,12 @@
-Source: cctv-viewer
+Source: kvision
 Section: video
 Priority: optional
-Maintainer: Arkanista
-Build-Depends: debhelper (>= 9),
+Maintainer: Arkanista <68946052+Arkanista@users.noreply.github.com>
+Build-Depends: debhelper (>= 12~),
                libva-dev,
+               libgl-dev,
                libglx-dev,
+               libx11-dev,
                libavformat-dev,
                libavcodec-dev,
                libavutil-dev,
@@ -13,6 +15,8 @@ Build-Depends: debhelper (>= 9),
                libavdevice-dev,
                qtdeclarative5-dev,
                qtmultimedia5-dev,
+               qtquickcontrols2-5-dev,
+               libqt5svg5-dev,
                qttools5-dev,
                libgtest-dev,
                git,
@@ -23,9 +27,12 @@ Homepage: https://github.com/arkanista/kvision
 Vcs-Git: https://github.com/arkanista/kvision.git
 Vcs-Browser: https://github.com/arkanista/kvision
 
-Package: cctv-viewer
+Package: kvision
 Architecture: any
+Replaces: cctv-viewer
+Breaks: cctv-viewer
 Depends: ${shlibs:Depends}, ${misc:Depends},
+         ffmpeg,
          libqt5multimedia5-plugins,
          qtwayland5,
          qml-module-qtquick-layouts,
@@ -34,8 +41,13 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
          qml-module-qtquick-controls2,
          qml-module-qtquick-window2,
          qml-module-qtquick-dialogs,
+         qml-module-qtquick-shapes,
+         qml-module-qtgraphicaleffects,
+         qml-module-qt-labs-platform,
          qml-module-qt-labs-settings,
+         qml-module-qt-labs-folderlistmodel,
          qml-module-qtmultimedia
-Description: CCTV Viewer - viewer and mounter video streams.
- A simple application for simultaneously viewing multiple video streams.
- Designed for high performance and low latency. Based on ffmpeg.
+Description: KVision - NVR and IP camera viewing application
+ A cross-platform application for simultaneously viewing multiple IP camera
+ video streams and managing Hikvision NVR/DVR live view and archive playback.
+ Designed for high performance and low latency using Qt5, QML, and FFmpeg.

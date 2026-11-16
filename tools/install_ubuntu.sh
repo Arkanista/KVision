@@ -58,6 +58,7 @@ sudo apt install -y \
     qml-module-qt-labs-settings \
     qml-module-qt-labs-folderlistmodel \
     qml-module-qtquick-dialogs \
+    qml-module-qtquick-shapes \
     qtwayland5
 
 # 4. Synchronize git submodules

@@ -1,20 +1,26 @@
-cctv-viewer (2.7.7-1) jammy; urgency=medium
+kvision (2.7.8-1) unstable; urgency=medium
 
-  * Improved toolbar layout in the main and auxiliary windows so controls and
-    view presets wrap onto additional rows when window width is limited.
-  * Kept the archive playback toolbar within the window on narrow layouts.
-  * Made top bars auto-hide by default and made the pin setting persist across
-    the main, auxiliary, and playback windows.
-  * Bumped the application version to 2.7.7.
+  * Refined the responsive toolbar layout in the main and auxiliary windows,
+    wrapping view presets onto additional rows when the window is narrow; kept
+    the archive playback toolbar within the window.
+  * Made top bars auto-hide by default and persistently saved the pin setting;
+    expanded the top-edge reveal area to 25 pixels.
 
- -- Arkanista  Mon, 16 Nov 2026 10:21:00 +0100
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Mon, 16 Nov 2026 12:55:00 +0200
+
+kvision (2.7.7-1) unstable; urgency=medium
+
+  * Rebuilt the top dock toolbar to dynamically wrap view and recorder buttons into multiple rows (Flow layout) with a vertical step and uniform rounded corners expanding downwards only under the views section, plus window-level EventFilter pointer tracking for reliable auto-hide over multi-row buttons.
+  * Added the high-contrast StyledScrollBar component to the NVR status dialog recorder list and fixed ScrollView vertical scrollbar positioning and visibility across all seven sidebar settings tabs.
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Mon, 16 Nov 2026 11:10:00 +0100
 
 cctv-viewer (2.7.6-2) jammy; urgency=medium
 
   * Fixed stream switching when enlarging a camera (fullScreen / 1x1) in "Remote recorder (WAN / NAT)" mode so Auto mode seamlessly switches to Main Stream unless Sub-Stream is manually forced.
   * Prevented duplicate RTSP sessions on rapid enlarge/shrink toggles and skipped multi-camera startup stagger when a viewport is enlarged.
 
- -- Arkanista  Fri, 13 Nov 2026 17:15:00 +0100
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Fri, 13 Nov 2026 17:15:00 +0100
 
 cctv-viewer (2.7.6-1) jammy; urgency=medium
 
@@ -22,7 +28,7 @@ cctv-viewer (2.7.6-1) jammy; urgency=medium
   * Fixed analog (BNC/coax) and IP channel discovery on Hybrid DVRs and NVRs when the HTTP port is closed behind NAT (accurate RTSP channel mapping, SDK OSD channel name lookup, and SDK NET_DVR_FindFile_V40 fallback for archive timeline search).
   * Replaced external curl invocations with native Qt networking with Hikvision Illegal Login Lock protection (HTTP 401), resolved FFmpeg 4.x vs 5.0+ RTSP timeout/stimeout conflicts, preserved stream failure status in QmlAVPlayer, enabled sub-stream keyframe requests (MakeKeyFrameSub), and fixed automatic Sub-to-Main fallback (Issue #9).
 
- -- Arkanista  Fri, 13 Nov 2026 13:25:00 +0100
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Fri, 13 Nov 2026 13:25:00 +0100
 
 cctv-viewer (2.7.5-1) jammy; urgency=medium
 
@@ -30,7 +36,7 @@ cctv-viewer (2.7.5-1) jammy; urgency=medium
   * Added Windows GPU and VRAM monitoring via nvml.dll and universal Windows PDH performance counters (GPU Engine and GPU Process Memory) for NVIDIA, AMD, and Intel GPUs.
   * Stabilized 1-second network (Mbps) and CPU delta sampling when opening the System Statistics panel via StatsWorker::emitLatest().
 
- -- Arkanista  Thu, 29 Oct 2026 11:10:00 +0100
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Thu, 29 Oct 2026 11:10:00 +0100
 
 cctv-viewer (2.7.4-1) jammy; urgency=medium
 
@@ -38,7 +44,7 @@ cctv-viewer (2.7.4-1) jammy; urgency=medium
   * Fixed the "Browse" button in SnapshotSavedDialog after taking a quick viewport snapshot and added Context::openLocalFolder() with native explorer.exe fallback on Windows.
   * Embedded multi-resolution application icon (images/kvision.ico) and PE VERSIONINFO metadata (kvision.rc) into kvision.exe.
 
- -- Arkanista  Thu, 29 Oct 2026 10:25:00 +0100
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Thu, 29 Oct 2026 10:25:00 +0100
 
 cctv-viewer (2.7.3-1) jammy; urgency=medium
 
@@ -47,7 +53,7 @@ cctv-viewer (2.7.3-1) jammy; urgency=medium
   * Fixed Windows QSettings format to consistently use IniFormat (%APPDATA%\KVision\KVision.ini) and resolved leading slash issues on Windows local directory paths.
   * Unified dark Compact theme palette (qtquickcontrols2.conf) and redesigned CheckBox styling (18x18 dark indicator, celadon #00f5d4 SVG checkmark, white label text) for Windows and Linux.
 
- -- Arkanista  Wed, 28 Oct 2026 12:35:00 +0100
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Wed, 28 Oct 2026 12:35:00 +0100
 
 cctv-viewer (2.7.2-1) jammy; urgency=medium
 
@@ -57,7 +63,7 @@ cctv-viewer (2.7.2-1) jammy; urgency=medium
   * Updated documentation and troubleshooting guides across all 22 supported languages.
   * Added software decoding fallback when hardware decoder device creation fails, fixed hikvision:// Auto/Sub stream switching when secondaryUrl is empty, localized diagnostic log toggle (LNG_00549), allowed hard QML startup errors onto stderr, and enforced explicit AVDictionaryPtr deleter typing.
 
- -- Arkanista  Tue, 27 Oct 2026 13:10:00 +0100
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Tue, 27 Oct 2026 13:10:00 +0100
 
 cctv-viewer (2.7.0-1) jammy; urgency=medium
 
@@ -65,27 +71,27 @@ cctv-viewer (2.7.0-1) jammy; urgency=medium
   * Added permanent field labels in NVR settings for port configurations.
   * Updated multi-language localization across all 22 supported languages.
 
- -- Arkanista  Mon, 27 Jul 2026 16:30:00 +02:00
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Mon, 27 Jul 2026 16:30:00 +02:00
 
 cctv-viewer (2.4.1-1) jammy; urgency=medium
 
   * Added low-level FFmpeg options (nobuffer, low_delay) to eliminate live stream delay (drift) over long operational periods.
   * Added a button to bulk-update FFmpeg parameters for all cameras, and an option to exclude specific cameras from global changes (checkbox "Do not include global settings...").
 
- -- Arkanista  Wed, 01 Jul 2026 10:45:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Wed, 01 Jul 2026 10:45:00 +0200
 
 cctv-viewer (2.4.0-1) jammy; urgency=medium
 
   * Added quick playback functionality (up to 30 minutes rewind) directly inside the camera viewport.
 
- -- Arkanista  Tue, 30 Jun 2026 16:30:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Tue, 30 Jun 2026 16:30:00 +0200
 
 cctv-viewer (2.3.0-1) jammy; urgency=medium
 
   * Enabled real-time settings synchronization between all application windows and auxiliary processes for total audio muting, viewport zoom animation disable, and all granular NVR status monitoring check options.
   * Integrated minute tick descriptions (e.g., :15, :30, :45) on the archive playback timeline with dynamic display density based on the zoom level (zoomHours).
 
- -- Arkanista  Tue, 30 Jun 2026 12:15:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Tue, 30 Jun 2026 12:15:00 +0200
 
 cctv-viewer (2.2.8-1) jammy; urgency=medium
 
@@ -98,7 +104,7 @@ cctv-viewer (2.2.8-1) jammy; urgency=medium
   * Implemented list frame badges and status indicator alignments across configured recorder views.
   * Achieved complete bilingual translation coverage (Polish/English) for all NVR diagnostics, setting check-boxes, tooltips, warnings, and command-line parser options.
 
- -- Arkanista  Mon, 29 Jun 2026 16:15:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Mon, 29 Jun 2026 16:15:00 +0200
 
 cctv-viewer (2.2.7-1) jammy; urgency=medium
 
@@ -112,7 +118,7 @@ cctv-viewer (2.2.7-1) jammy; urgency=medium
   * Changed the default startup behavior to display the floating top toolbar, which can be customized via the new setting 'Domyślnie pokazuj pasek górny po otwarciu okna'.
   * Resolved application crash at startup on Debian/Ubuntu and other multi-arch derivative distributions by using a dynamic INSTALL_RPATH pointing to CMAKE_INSTALL_LIBDIR/kvision (by moving GNUInstallDirs early), making manual ldconfig hacks obsolete.
 
- -- Arkanista  Sun, 28 Jun 2026 02:37:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Sun, 28 Jun 2026 02:37:00 +0200
 
 cctv-viewer (2.2.6-3) jammy; urgency=medium
 
@@ -120,7 +126,7 @@ cctv-viewer (2.2.6-3) jammy; urgency=medium
   * Corrected QSettings configuration lookup path for auxiliary limit to look in the default General group.
   * Fixed application icon under Wayland compositor shells by setting the desktopFileName property on the QApplication instance and installing application icons into standard hicolor icon theme directories.
 
- -- Arkanista  Sat, 27 Jun 2026 12:28:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Sat, 27 Jun 2026 12:28:00 +0200
 
 cctv-viewer (2.2.6-2) jammy; urgency=medium
 
@@ -129,7 +135,7 @@ cctv-viewer (2.2.6-2) jammy; urgency=medium
   * Enforced clean auxiliary window launches by suppressing the options sidebar and disabling window geometry state saving in auxiliary windows to prevent shared settings contamination.
   * Added full bilingual translation support (Polish/English) for all new error and formatting messages in the download dialog.
 
- -- Arkanista  Fri, 26 Jun 2026 12:45:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Fri, 26 Jun 2026 12:45:00 +0200
 
 cctv-viewer (2.2.6-1) jammy; urgency=medium
 
@@ -139,7 +145,7 @@ cctv-viewer (2.2.6-1) jammy; urgency=medium
   * Secured save paths and system media configuration options behind a transient "Uaktywnij zmiany w tej sekcji" (Activate changes in this section) checkbox, which resets on settings window hide or tab switch.
   * Added highlighted celadon "otwórz folder zapisu" button upon completed recording download in Archive, and always-active quick-open shortcut buttons for snapshot and video paths in Settings (auto-creating directories if missing).
 
- -- Arkanista  Fri, 26 Jun 2026 11:26:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Fri, 26 Jun 2026 11:26:00 +0200
 
 cctv-viewer (2.2.5-1) jammy; urgency=medium
 
@@ -151,7 +157,7 @@ cctv-viewer (2.2.5-1) jammy; urgency=medium
   * Enforced aggressive Garbage Collection (gc) upon layout changes and nullified video scaling contexts (SwsContext) inside video buffers to prevent libswscale leaks.
   * Corrected resource cleanup of static configuration file watcher (QFileSystemWatcher) upon application exit.
 
- -- Arkanista  Thu, 25 Jun 2026 11:25:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Thu, 25 Jun 2026 11:25:00 +0200
 
 cctv-viewer (2.2.0-1) jammy; urgency=medium
 
@@ -161,20 +167,20 @@ cctv-viewer (2.2.0-1) jammy; urgency=medium
   * Allowed resizing the system stats panel by dragging its edges and corners with auto-scaling graphs
   * Implemented instant window hide on quit confirmation for clean shutdown UX
 
- -- Arkanista  Wed, 24 Jun 2026 14:15:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Wed, 24 Jun 2026 14:15:00 +0200
 
 cctv-viewer (2.1.9-3) jammy; urgency=medium
 
   * Increased default camera list window height by 40%
   * Replaced "Generate thumbnails" text button with a styled round SVG button
 
- -- Arkanista  Wed, 24 Jun 2026 11:32:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Wed, 24 Jun 2026 11:32:00 +0200
 
 cctv-viewer (2.1.9-2) jammy; urgency=medium
 
   * Resolved missing English translations for QML changelog entries
 
- -- Arkanista  Wed, 24 Jun 2026 11:03:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Wed, 24 Jun 2026 11:03:00 +0200
 
 cctv-viewer (2.1.9-1) jammy; urgency=medium
 
@@ -189,7 +195,7 @@ cctv-viewer (2.1.9-1) jammy; urgency=medium
   * Converted the system statistics panel into a premium semi-transparent draggable panel with a grab handle icon, maintaining click-through functionality
   * Resolved critical layout deletion synchronization bug causing UI freeze and deleted layouts to reappear
 
- -- Arkanista  Tue, 23 Jun 2026 21:10:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Tue, 23 Jun 2026 21:10:00 +0200
 
 cctv-viewer (2.1.8-1) jammy; urgency=medium
 
@@ -198,20 +204,20 @@ cctv-viewer (2.1.8-1) jammy; urgency=medium
   * Removed duplicate text zoom shortcut buttons in the archive window, leaving only icon-only circular buttons
   * Added bilingual tooltip translations (Polish and English) for archive playback control buttons
 
- -- Arkanista  Tue, 23 Jun 2026 16:55:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Tue, 23 Jun 2026 16:55:00 +0200
 
 cctv-viewer (2.1.7-1) jammy; urgency=medium
 
   * Real-time bidirectional configuration synchronization between main and auxiliary windows
   * Support unique, automatic sequential IDs for auxiliary windows to prevent layout setting collision
 
- -- Arkanista  Tue, 23 Jun 2026 14:10:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Tue, 23 Jun 2026 14:10:00 +0200
 
 cctv-viewer (2.1.6-0) jammy; urgency=medium
 
   * Add automatic session recovery (auto-reconnect) in Hikvision archive player
 
- -- Arkanista  Tue, 23 Jun 2026 11:35:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Tue, 23 Jun 2026 11:35:00 +0200
 
 cctv-viewer (2.1.5-0) jammy; urgency=medium
 
@@ -219,7 +225,7 @@ cctv-viewer (2.1.5-0) jammy; urgency=medium
   * Fix memory leaks in viewports layout models using deleteLater()
   * Mitigate OpenGL video surface start errors during rapid layout changes
 
- -- Arkanista  Tue, 23 Jun 2026 10:50:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Tue, 23 Jun 2026 10:50:00 +0200
 
 cctv-viewer (2.0.0-0) jammy; urgency=medium
 
@@ -230,7 +236,7 @@ cctv-viewer (2.0.0-0) jammy; urgency=medium
   * High-res PNG application icon and refined dark theme
   * Automated Pacman packaging script for Arch Linux
 
- -- Arkanista  Fri, 05 Jun 2026 12:44:00 +0200
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Fri, 05 Jun 2026 12:44:00 +0200
 
 cctv-viewer (0.1.9-0) jammy; urgency=medium
 

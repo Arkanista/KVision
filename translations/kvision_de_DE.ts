@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Möchten Sie die Kamera wirklich aus diesem Ansichtsfenster entfernen?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Dynamischer Zeilenumbruch in der oberen Leiste: Die obere Dock-Leiste wurde neu aufgebaut, sodass Ansichts- und Rekorderschaltflächen abhängig von Fensterbreite und Beschriftungslänge dynamisch in mehrere Zeilen umbrechen (Flow-Layout), mit senkrechter Kante, einheitlich abgerundeten Ecken nur unter dem Ansichtsbereich und fensterweiter Zeigerverfolgung gegen vorzeitiges Ausblenden.</translation></message><message><source>LNG_00586</source><translation>Kontrastreiche vertikale Bildlaufleisten: Eine gut sichtbare vertikale Bildlaufleiste zur Rekorderliste im NVR-Statusdialog hinzugefügt sowie Positionierung und Sichtbarkeit der Bildlaufleisten in allen sieben Einstellungs-Tabs der Seitenleiste mit klaren Rändern und Cyan-Hervorhebung korrigiert.</translation></message></context>
 </TS>

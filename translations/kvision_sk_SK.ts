@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Naozaj chcete odstrániť kameru z tohto výrezu?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Dynamické zalamovanie pohľadov v hornej lište: Horná lišta bola prepracovaná tak, aby sa tlačidlá pohľadov a rekordérov dynamicky zalamovali do viacerých riadkov (Flow) podľa šírky okna a dĺžky názvov, so zvislou hranou, jednotným zaoblením rohov len pod sekciou pohľadov a sledovaním kurzora na úrovni okna.</translation></message><message><source>LNG_00586</source><translation>Vysokokontrastné zvislé posuvníky: Pridaný výrazný zvislý posuvník do zoznamu rekordérov v dialógu stavu NVR a opravené umiestnenie aj viditeľnosť zvislých posuvníkov na všetkých kartách nastavení v bočnom paneli s výrazným orámovaním a azúrovým zvýraznením.</translation></message></context>
 </TS>

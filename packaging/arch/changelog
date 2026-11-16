@@ -1,6 +1,9 @@
+2.7.8-1
+  * PL: Ulepszono responsywny układ pasków narzędzi w oknach głównym i pomocniczym: przyciski pozostają zgrupowane, a presety widoków przechodzą do kolejnych wierszy przy wąskim oknie; pasek archiwum dopasowuje się do szerokości okna. Górne paski są domyślnie automatycznie ukrywane, przycisk pinezki trwale zapisuje ustawienie widoczności, a obszar wysuwania przy górnej krawędzi ma 25 px.
+    EN: Refined the responsive main and auxiliary toolbar layout: controls stay grouped and view presets wrap onto extra rows at narrow widths; the archive toolbar fits the window. Top bars auto-hide by default, the pin preference persists, and the top-edge reveal area is 25 px high.
+
 2.7.7-1
-  * PL: Ulepszono paski narzędzi okien głównego i pomocniczego: przyciski oraz presety widoków przechodzą do kolejnych wierszy przy wąskim oknie; pasek narzędzi archiwum pozostaje w granicach okna. Górne paski są domyślnie automatycznie ukrywane, przycisk pinezki trwale zapisuje ustawienie ich widoczności, a obszar wysuwania pasków przy górnej krawędzi ma teraz 25 px.
-    EN: Improved the main and auxiliary toolbars so controls and view presets wrap onto additional rows at narrow widths; kept the archive toolbar within the window. Top bars now auto-hide by default, the pin control persistently saves their visibility preference, and their top-edge reveal area is now 25 px high.
+  * Rebuilt the top dock toolbar to wrap views and recorder buttons into multiple rows with the custom stepped background and window-level pointer tracking. Added high-contrast styled scrollbars to the NVR status dialog recorder list and sidebar settings tabs.
 
 2.7.6-2
   * PL: Poprawiono zachowanie trybu „Zdalny rejestrator (WAN / NAT)” przy powiększeniu kamery (fullScreen / 1x1): w trybie Auto powiększenie przełącza teraz płynnie na strumień główny (Main), chyba że strumień pomocniczy (Sub) został ręcznie wymuszony w ustawieniach widoku; wyeliminowano też zbędne podwójne sesje RTSP przy szybkim powiększeniu i pomniejszeniu kafelka.

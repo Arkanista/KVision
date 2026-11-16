@@ -148,12 +148,13 @@ This document contains a complete technical index of all C++ classes, QML compon
 ## 3. QML Component Tree & Interactions
 
 ```
-RootWindow.qml (Primary UI Window)
-├── ToolBar (Top Navigation: Layout selector, Mute, Fullscreen, Playback trigger, Add NVR)
-├── SideBar.qml (Collapsible left panel)
+RootWindow.qml (Primary UI Window) / AuxiliaryWindow.qml (Multi-Monitor Auxiliary Window)
+├── ToolBar (Dynamic multi-row Flow top dock with QtQuick.Shapes background, Layout/Views selector, Mute, Fullscreen, Playback trigger, Add NVR, EventFilter auto-hide)
+├── SideBar.qml (Collapsible left panel using StyledScrollBar.qml across settings tabs)
 │   ├── NVR TreeView / ListView (NVR entries & channel items)
 │   ├── Channel status badges (Online/Offline indicator)
 │   └── Drag-and-drop triggers for dragging camera to grid tiles
+├── StyledScrollBar.qml (Shared high-contrast vertical/horizontal ScrollBar component)
 ├── ViewportsLayout.qml (Central Matrix Container)
 │   ├── Grid / Flow layout (1x1, 2x2, 3x3, 4x4, custom spans)
 │   ├── Tile DropAreas (Handles camera drop, swap, clear)

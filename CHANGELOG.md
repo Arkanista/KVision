@@ -2,18 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.7.7-1] - 2026-11-16
+## [2.7.8-1] - 2026-11-16
 
 ### EN: Features, Improvements & Bug Fixes
-* **Responsive Live-View Toolbars:** Main and auxiliary window controls and view presets now wrap onto additional rows when the window is too narrow. The playback toolbar stays within the window on narrow layouts.
-* **Top-Bar Visibility Preference:** Top bars now auto-hide by default. The pin control persistently toggles whether the bars remain visible by default across the main, auxiliary, and playback windows.
-* **Release Metadata:** Bumped the application and package version to `2.7.7-1`.
+* **Responsive Toolbar Layout:** Kept controls grouped in the main and auxiliary windows, with view presets moving onto additional rows when space is limited. The playback toolbar is constrained to the window width.
+* **Top-Bar Visibility and Reveal:** Top bars auto-hide by default; the pin control persistently saves the visibility preference. Expanded the top-edge reveal area to 25 px in the main, auxiliary, and playback windows.
+* **Release Metadata:** Bumped the application and package version to `2.7.8-1`.
 
 ### PL: Funkcje, Udoskonalenia i Poprawki Błędów
-* **Responsywne paski narzędzi podglądu na żywo:** Przyciski i presety widoków w oknach głównym i pomocniczym przechodzą do kolejnych wierszy, gdy okno jest zbyt wąskie. Pasek narzędzi archiwum mieści się w oknie przy wąskim układzie.
-* **Ustawienie widoczności górnego paska:** Górne paski są teraz domyślnie automatycznie ukrywane. Przycisk pinezki trwale przełącza ich domyślną widoczność w oknach głównym, pomocniczych i archiwum.
-* **Obszar wysuwania górnego paska:** Zwiększono do 20 px obszar aktywacji przy górnej krawędzi okien głównego, pomocniczego i archiwum.
-* **Metadane wydania:** Zaktualizowano wersję programu i pakietów do `2.7.7-1`.
+* **Responsywny układ pasków narzędzi:** Zachowano grupowanie przycisków w oknach głównym i pomocniczym, a presety widoków przechodzą do kolejnych wierszy przy ograniczonej szerokości. Pasek archiwum dopasowuje się do szerokości okna.
+* **Widoczność i wysuwanie górnego paska:** Górne paski są domyślnie automatycznie ukrywane, a przycisk pinezki trwale zapisuje ustawienie ich widoczności. Zwiększono do 25 px obszar aktywacji przy górnej krawędzi okien głównego, pomocniczego i archiwum.
+* **Metadane wydania:** Zaktualizowano wersję programu i pakietów do `2.7.8-1`.
+
+## [2.7.7] - 2026-11-16
+
+### Features, Improvements & Bug Fixes
+* **Top Bar Rebuild, Dynamic Multi-line Views Wrapping & Auto-Hide Fix (`RootWindow`, `AuxiliaryWindow`, `EventFilter`):**
+  * Rebuilt the top dock toolbar layout to dynamically wrap view and recorder buttons into multiple rows (`Flow` layout) based on available window width and button label lengths, completely eliminating button clipping/overflow when managing multiple NVRs or custom views.
+  * Engineered a custom dock background using `QtQuick.Shapes` (`ShapePath`, `PathLine`, `PathArc`) with a clean vertical left step, uniform rounded corners on all bends, expanding downwards only under the views section while preserving standard single-row height (56px) for the left controls.
+  * Added window-level pointer tracking via `EventFilter` (`target`, `MouseMove` / `Leave`) so hovering over any multi-row button keeps the auto-hide toolbar open until the cursor leaves the dock area.
+  * Added dynamic wrapping, automatic height adjustment, and window-level pointer tracking in auxiliary multi-monitor windows (`AuxiliaryWindow`).
+* **High-Contrast Vertical Scrollbars (`StyledScrollBar`, `SideBar`, `NvrStatusDialog`):**
+  * Created a shared `StyledScrollBar` component with distinct track borders (`#2a3540` on `#0f151b`), prominent slate handles (`#5a6e7f`), persistent full opacity when scrolling is needed, and bright cyan hover/active highlights (`#33f7dc` / `#00f5d4`).
+  * Added the vertical scrollbar to the recorder list in the NVR Status dialog (`NvrStatusDialog`) and fixed `ScrollView` scrollbar positioning and visibility across all seven settings tabs in the sidebar (`SideBar` - views, tools, recorders, general, performance, import/export, and changelog).
 
 ## [2.7.6-2] - 2026-11-13
 

@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Êtes-vous sûr de vouloir supprimer la caméra de cette fenêtre ?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Retour à la ligne dynamique des vues dans la barre supérieure : La barre supérieure a été reconstruite pour répartir dynamiquement les boutons de vues et d'enregistreurs sur plusieurs lignes (disposition Flow) selon la largeur de la fenêtre, avec bord vertical, coins arrondis uniformes sous la section des vues et suivi du curseur au niveau de la fenêtre.</translation></message><message><source>LNG_00586</source><translation>Barres de défilement verticales à contraste élevé : Ajout d'une barre de défilement verticale bien visible dans la liste des enregistreurs du dialogue d'état NVR et correction du positionnement et de la visibilité des barres de défilement dans tous les onglets des paramètres avec bordures nettes et surbrillance cyan.</translation></message></context>
 </TS>

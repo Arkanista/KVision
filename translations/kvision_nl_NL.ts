@@ -4768,5 +4768,5 @@
             <source>LNG_00464</source>
             <translation>Weet u zeker dat u de camera uit deze viewport wilt verwijderen?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Dynamische terugloop van weergaven in de bovenbalk: De bovenste werkbalk is opnieuw opgebouwd zodat weergave- en recorderknoppen dynamisch over meerdere rijen worden verdeeld (Flow-indeling) op basis van de vensterbreedte, met een verticale rand, uniforme afgeronde hoeken en cursorvolging op vensterniveau tegen ongewenst automatisch verbergen.</translation></message><message><source>LNG_00586</source><translation>Verticale schuifbalken met hoog contrast: Een duidelijk zichtbare verticale schuifbalk toegevoegd aan de recorderlijst in het NVR-statusvenster en de positionering en zichtbaarheid van verticale schuifbalken in alle instellingentabbladen gecorrigeerd met duidelijke randen en cyaan markering.</translation></message></context>
 </TS>

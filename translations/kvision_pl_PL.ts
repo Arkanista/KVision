@@ -4981,5 +4981,5 @@
             <source>LNG_00464</source>
             <translation>Czy na pewno chcesz usunąć kamerę z tego viewportu?</translation>
         </message>
-    </context>
+    <message><source>LNG_00585</source><translation>Dynamiczne zawijanie widoków w górnym pasku: Przebudowano górny dock, aby przyciski widoków i rejestratorów dynamicznie zawijały się do wielu wierszy (układ Flow) w zależności od szerokości okna i długości nazw. Rozszerzenie tła ma pionową krawędź i jednolite zaokrąglenia wyłącznie pod sekcją widoków, a śledzenie kursora na poziomie okna zapobiega chowaniu paska w trybie autoukrywania na dowolnym rzędzie przycisków.</translation></message><message><source>LNG_00586</source><translation>Wysokokontrastowe pionowe paski przewijania: Dodano wyraźny suwak przewijania do listy rejestratorów w oknie statusu NVR oraz naprawiono pozycjonowanie i widoczność pasków przewijania we wszystkich zakładkach panelu bocznego (widoki, narzędzia, rejestratory, ogólne, wydajność, import/eksport i historia zmian) z wyraźnym obramowaniem toru i cyjanowym podświetleniem.</translation></message></context>
 </TS>
