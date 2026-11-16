@@ -135,6 +135,14 @@ if [ -d "${QT_PLUGIN_ROOT}/wayland-shell-integration" ]; then
     export EXTRA_QT_MODULES="waylandclient"
 fi
 
+# linuxdeploy-plugin-qt copies wayland-shell-integration and wayland-decoration-client
+# automatically, but omits wayland-graphics-integration-client (wayland-egl buffer integration).
+if [ -f "${QT_PLUGIN_ROOT}/wayland-graphics-integration-client/libqt-plugin-wayland-egl.so" ]; then
+    mkdir -p "$APPDIR/usr/plugins/wayland-graphics-integration-client"
+    cp -a "${QT_PLUGIN_ROOT}/wayland-graphics-integration-client/libqt-plugin-wayland-egl.so" \
+        "$APPDIR/usr/plugins/wayland-graphics-integration-client/"
+fi
+
 export QML_SOURCES_PATHS="$(pwd)/src"
 export VERSION="$APP_VERSION"
 export OUTPUT="KVision-${APP_VERSION}-${ARCH}.AppImage"
