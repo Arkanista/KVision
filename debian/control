@@ -34,6 +34,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
          qml-module-qtquick-controls2,
          qml-module-qtquick-window2,
          qml-module-qtquick-dialogs,
+         qml-module-qtquick-shapes,
          qml-module-qt-labs-settings,
          qml-module-qtmultimedia
 Description: CCTV Viewer - viewer and mounter video streams.

@@ -158,7 +158,7 @@ The application has been extensively developed and tested across multiple hardwa
 To build and run the application, the following packages are required:
 
 * **Runtime Dependencies:**
-  - `qt5-declarative` (Qt5 QML module)
+  - `qt5-declarative` (Qt5 QML & `QtQuick.Shapes` modules; on Debian/Ubuntu `QtQuick.Shapes` is packaged separately as `qml-module-qtquick-shapes`)
   - `qt5-multimedia` (Qt5 Multimedia module)
   - `qt5-quickcontrols` (Qt5 Quick Controls 1)
   - `qt5-quickcontrols2` (Qt5 Quick Controls 2)
@@ -195,6 +195,14 @@ sudo pacman -U kvision-2.7.7-1-x86_64.pkg.tar.zst
 
 > [!NOTE]
 > The package is built and tested with modern system libraries including FFmpeg 9 (`libavutil.so.61` / `libavformat.so.63`) on Arch Linux / CachyOS.
+
+### Pre-compiled Windows Package (Windows 10 / 11 x64)
+
+If you are running 64-bit Windows, you can download the portable ZIP bundle (compiled with MSVC 2022, Qt 5.15.2, FFmpeg 8.1, and Hikvision SDK) directly from the release page:
+
+* **[Download KVision-windows-x64.zip (v2.7.7)](https://github.com/Arkanista/KVision/releases/download/v2.7.7/KVision-windows-x64.zip)** (or the rolling [`windows-latest`](https://github.com/Arkanista/KVision/releases/tag/windows-latest) build)
+
+Extract the archive anywhere and run `kvision.exe`.
 
 ### Building from Source (Arch Linux / CachyOS)
 
@@ -241,6 +249,7 @@ cd KVision
      qml-module-qtquick-layouts qml-module-qtmultimedia \
      qml-module-qt-labs-platform qml-module-qt-labs-settings \
      qml-module-qt-labs-folderlistmodel qml-module-qtquick-dialogs \
+     qml-module-qtquick-shapes \
      qtwayland5 # optional for native Wayland support
    ```
 
