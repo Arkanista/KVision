@@ -99,6 +99,28 @@ It is designed for Linux users who need a robust, lightweight, and smooth altern
 * **Multilingual UI**: Live translation switching across 22 languages.
 * **Cross-Platform Settings Import / Export**: Dedicated **Import / Export** tab in the side panel (below Settings) allowing one-click backup and migration of configuration files (`*.conf` / `*.ini`) between Linux (`~/.config/KVision/KVision.conf`) and Windows (`%APPDATA%\KVision\KVision.ini`), with automatic OS path adaptation for snapshot and video directories.
 
+### 🗂️ How Layout Grouping Works (`Settings → Layout Groups`)
+When managing multiple NVRs, locations, or custom camera grids, **Layout Groups** keep the top toolbar clean while keeping your live video streams running without interruption:
+
+1. **Create, Rename & Keep Groups Persistently**:
+   * Open **Options → Layout Groups** (below **Presets**), enter a group name, and click **Create group** (or press **Enter**).
+   * Click any group title field to rename it inline (`Enter` saves immediately).
+   * Empty groups stay visible persistently until you explicitly delete them via the trash icon, or dissolve all groups at once with **Ungroup all** (all underlying layouts remain untouched).
+2. **Assign Layouts, Dual Shortcut Mode & Hidden Layouts**:
+   * Every **Custom Layout**, **NVR View**, and **NVR Grid** can be assigned to **one or multiple groups** at the same time from either a group card or the **All Layouts** list below.
+   * Turn on **Show also as ungrouped** next to a grouped layout if you also want a standalone shortcut button directly on the top bar alongside the group.
+   * Toggle **Visible** on any layout (or manage inactive views inside the default-collapsed **Hidden layouts** subsection) — hidden layouts are omitted from the top bar without losing their assigned slot or group membership.
+3. **Collapsed Pills vs. Expanded Group Containers**:
+   * **Collapsed**: Appears as a compact pill matching the height of regular view buttons, showing the recorder/network icon and uppercase group title. If any layout inside the group is active, the pill highlights in cyan and shows the **active inner view name as a smaller subtitle** below the group title.
+   * **Expanded**: Click the collapsed pill to smoothly open a titled frame containing the group's view buttons; click the `▾` header chevron to collapse it manually.
+4. **Pinning & Auto-Collapse Behavior**:
+   * The **Pin** icon on the top-bar group title bar stays synced live with the **Collapsed by default** switch in **Layout Groups**:
+     * **Pinned open (vertical cyan pin / Collapsed by default OFF)**: Stays expanded until collapsed manually or unpinned.
+     * **Default-collapsed (tilted grey pin / Collapsed by default ON)**: Automatically collapses as soon as you click outside the group, move the cursor off the top bar, hide the top bar, or expand another default-collapsed group.
+5. **Drag-and-Drop Ordering & Line-Break Separators (`↵`)**:
+   * Drag view rows vertically in **Presets**, or drag group cards, group members, and chips inside **Main top bar sequence** to set the exact left-to-right top-bar layout — live camera streams keep running smoothly during reorders (`holdActiveDuringMove`).
+   * Insert **Line break (`↵`)** separators to split rows neatly: collapsed group pills stay inline on the same row, while expanded groups trigger clean row breaks around the separator. All groups, pins, visibility flags, and ordering sync live to **Auxiliary (`New Window`)** monitors.
+
 ---
 
 ## Screenshots
