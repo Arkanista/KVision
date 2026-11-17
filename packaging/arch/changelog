@@ -1,3 +1,8 @@
+2.7.9-2
+  * Fixed active view restoration on application startup: prevented premature layout clamping and settings overwrite in RootWindow.qml during initial model construction.
+  * Enforced strict layout visibility checks across startup restoration, top bar switching, and Alt+Left / Alt+Right / Alt+1..9 navigation shortcuts: views marked as hidden (visible: false) are never activated or proposed, automatically falling back to the first visible view.
+  * Disabled activation button and added automatic active view fallback when toggling layout visibility off in the SideBar and View Groups panel.
+
 2.7.9-1
   * Added the View Groups system with collapsible/expandable framed group boxes on the top bar, an NVR network group icon, active-view subtitles on collapsed group buttons, title-bar Pin toggles synced with "Collapsed by default", automatic collapse on outside click or leaving/collapsing the top bar, persistent empty groups until explicitly deleted, and inline line-break separators synced across main and auxiliary windows.
   * Added drag-and-drop reordering across Presets and View Groups (top-bar sequence, group order, and group members) alongside a "Show also as ungrouped" toggle while preserving active live camera streams without interruption.

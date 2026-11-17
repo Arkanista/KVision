@@ -228,6 +228,9 @@ Item {
             onCheckedChanged: {
                 if (root.layout) {
                     root.layout.visible = checked;
+                    if (!checked && root.isCurrent && typeof rootWindow !== "undefined" && rootWindow && rootWindow.ensureActiveLayoutIsVisible) {
+                        rootWindow.ensureActiveLayoutIsVisible();
+                    }
                 }
             }
             palette.highlight: "#00f5d4"
@@ -238,26 +241,32 @@ Item {
             id: activateBtn
             implicitWidth: 28
             implicitHeight: 28
+            enabled: root.layout ? !!root.layout.visible : true
+            opacity: enabled ? 1.0 : 0.35
             highlighted: root.isCurrent
-            onClicked: root.activateRequested()
+            onClicked: {
+                if (root.layout && root.layout.visible) {
+                    root.activateRequested();
+                }
+            }
             contentItem: Image {
                 anchors.centerIn: parent
                 width: 14
                 height: 14
                 source: {
-                    var colorStr = activateBtn.pressed ? "%23ffffff" : (activateBtn.highlighted ? "%23ffffff" : (activateBtn.hovered ? "%23ffffff" : "%238898a6"));
+                    var colorStr = !activateBtn.enabled ? "%2355606d" : (activateBtn.pressed ? "%23ffffff" : (activateBtn.highlighted ? "%23ffffff" : (activateBtn.hovered ? "%23ffffff" : "%238898a6")));
                     return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polygon points='6 3 20 12 6 21 6 3'></polygon></svg>";
                 }
             }
             background: Rectangle {
-                color: activateBtn.pressed ? "#cc121214" : (activateBtn.highlighted ? "#ff7a00" : (activateBtn.hovered ? "#3a4550" : "#1c242c"))
+                color: !activateBtn.enabled ? "#141a21" : (activateBtn.pressed ? "#cc121214" : (activateBtn.highlighted ? "#ff7a00" : (activateBtn.hovered ? "#3a4550" : "#1c242c")))
                 radius: 6
-                border.color: activateBtn.highlighted ? "#ff9e00" : (activateBtn.hovered ? "#8898a6" : "#2a3540")
+                border.color: !activateBtn.enabled ? "#202a33" : (activateBtn.highlighted ? "#ff9e00" : (activateBtn.hovered ? "#8898a6" : "#2a3540"))
                 border.width: 1
             }
             ToolTip.delay: Compact.toolTipDelay
             ToolTip.timeout: Compact.toolTipTimeout
-            ToolTip.visible: activateBtn.hovered
+            ToolTip.visible: activateBtn.hovered && activateBtn.enabled
             ToolTip.text: root.activateTooltip
         }
 

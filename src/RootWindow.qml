@@ -59,7 +59,7 @@ ApplicationWindow {
         repeat: false
         onTriggered: {
             if (rootWindow.isSyncing) return;
-            if (!Context.isAuxiliary) {
+            if (!Context.isAuxiliary && rootWindow.isStartupComplete && stackLayout.currentIndex >= 0 && rootWindow.isLayoutIndexVisible(stackLayout.currentIndex)) {
                 rootWindow.lastSavedCurrentIndex = stackLayout.currentIndex;
                 Context.writeSetting("MainLayout", "currentIndex", stackLayout.currentIndex);
             }
@@ -238,6 +238,89 @@ ApplicationWindow {
     property bool isMovingLayout: false
     property var movingActiveLayoutModel: null
     property int lastSavedCurrentIndex: -1
+    property bool isStartupComplete: false
+
+    function isLayoutIndexVisible(idx) {
+        if (typeof idx !== "number" || isNaN(idx)) return false;
+        if (idx < 0 || idx >= layoutsCollectionModel.count) return false;
+        var layout = layoutsCollectionModel.get(idx);
+        if (!layout) return false;
+        return layout.visible !== false;
+    }
+
+    function findFirstVisibleLayoutIndex() {
+        for (var i = 0; i < layoutsCollectionModel.count; ++i) {
+            var l = layoutsCollectionModel.get(i);
+            if (l && l.visible !== false) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    function getVisibleLayoutIndices() {
+        var list = [];
+        for (var i = 0; i < layoutsCollectionModel.count; ++i) {
+            var l = layoutsCollectionModel.get(i);
+            if (l && l.visible !== false) {
+                list.push(i);
+            }
+        }
+        return list;
+    }
+
+    function stepVisibleLayout(forward) {
+        var vis = getVisibleLayoutIndices();
+        if (vis.length === 0) return;
+        var cur = stackLayout.currentIndex;
+        var currentVisIdx = vis.indexOf(cur);
+        if (forward) {
+            if (currentVisIdx >= 0) {
+                if (currentVisIdx + 1 < vis.length) {
+                    stackLayout.currentIndex = vis[currentVisIdx + 1];
+                }
+            } else {
+                for (var i = 0; i < vis.length; ++i) {
+                    if (vis[i] > cur) {
+                        stackLayout.currentIndex = vis[i];
+                        return;
+                    }
+                }
+                stackLayout.currentIndex = vis[0];
+            }
+        } else {
+            if (currentVisIdx >= 0) {
+                if (currentVisIdx - 1 >= 0) {
+                    stackLayout.currentIndex = vis[currentVisIdx - 1];
+                }
+            } else {
+                for (var j = vis.length - 1; j >= 0; --j) {
+                    if (vis[j] < cur) {
+                        stackLayout.currentIndex = vis[j];
+                        return;
+                    }
+                }
+                stackLayout.currentIndex = vis[vis.length - 1];
+            }
+        }
+    }
+
+    function ensureActiveLayoutIsVisible() {
+        if (!rootWindow.isStartupComplete || rootWindow.isSyncing || layoutsCollectionModel.count <= 0) return;
+        if (Context.isAuxiliary) {
+            if (stackLayout.currentIndex !== -1 && !isLayoutIndexVisible(stackLayout.currentIndex)) {
+                stackLayout.currentIndex = -1;
+            }
+        } else {
+            if (!isLayoutIndexVisible(stackLayout.currentIndex)) {
+                var targetIdx = findFirstVisibleLayoutIndex();
+                stackLayout.currentIndex = targetIdx;
+                lastSavedCurrentIndex = targetIdx;
+                windowLayoutSettings.currentIndex = targetIdx;
+                Context.writeSetting("MainLayout", "currentIndex", targetIdx);
+            }
+        }
+    }
 
     function findRecorderByIp(ip) {
         var needle = String(ip || "").trim();
@@ -597,7 +680,7 @@ ApplicationWindow {
         id: windowLayoutSettings
         fileName: Context.config.fileName
         category: Context.isAuxiliary ? "AuxiliaryLayout_" + Context.auxiliaryId : "MainLayout"
-        property int currentIndex: 0
+        property int currentIndex: -1
     }
 
     Connections {
@@ -706,14 +789,16 @@ ApplicationWindow {
             if (!Context.isAuxiliary) {
                 var diskCurrentIndex = parseInt(Context.readSetting("MainLayout", "currentIndex", windowLayoutSettings.currentIndex), 10);
                 if (!isNaN(diskCurrentIndex) && layoutsCollectionModel.count > 0) {
-                    var clampedIdx = diskCurrentIndex.clamp(0, layoutsCollectionModel.count - 1);
-                    if (clampedIdx !== rootWindow.lastSavedCurrentIndex) {
-                        rootWindow.lastSavedCurrentIndex = clampedIdx;
-                        if (windowLayoutSettings.currentIndex !== clampedIdx) {
-                            windowLayoutSettings.currentIndex = clampedIdx;
+                    var targetIdx = rootWindow.isLayoutIndexVisible(diskCurrentIndex)
+                        ? diskCurrentIndex
+                        : rootWindow.findFirstVisibleLayoutIndex();
+                    if (targetIdx !== rootWindow.lastSavedCurrentIndex) {
+                        rootWindow.lastSavedCurrentIndex = targetIdx;
+                        if (windowLayoutSettings.currentIndex !== targetIdx) {
+                            windowLayoutSettings.currentIndex = targetIdx;
                         }
-                        if (stackLayout.currentIndex !== clampedIdx) {
-                            stackLayout.currentIndex = clampedIdx;
+                        if (stackLayout.currentIndex !== targetIdx) {
+                            stackLayout.currentIndex = targetIdx;
                         }
                     }
                 }
@@ -957,20 +1042,25 @@ ApplicationWindow {
     }
     Shortcut {
         sequence: "Alt+Right"
-        onActivated: stackLayout.currentIndex = Math.min(stackLayout.currentIndex + 1, stackLayout.count - 1)
+        onActivated: rootWindow.stepVisibleLayout(true)
     }
     Shortcut {
         sequence: "Alt+Left"
-        onActivated: stackLayout.currentIndex = Math.max(stackLayout.currentIndex - 1, 0)
+        onActivated: rootWindow.stepVisibleLayout(false)
     }
-    // Shortcuts for the first 9 presets (Alt + 1, Alt + 2, ..., Alt + 9)
+    // Shortcuts for the first 9 visible presets (Alt + 1, Alt + 2, ..., Alt + 9)
     Repeater {
-        model: Context.config.kioskMode ? 0 : Math.min(stackLayout.count, 9)
+        model: Context.config.kioskMode ? 0 : 9
 
         Item {
             Shortcut {
                 sequence: "Alt+" + (index + 1)
-                onActivated: stackLayout.currentIndex = index
+                onActivated: {
+                    var vis = rootWindow.getVisibleLayoutIndices();
+                    if (index < vis.length) {
+                        stackLayout.currentIndex = vis[index];
+                    }
+                }
             }
         }
     }
@@ -1056,7 +1146,13 @@ ApplicationWindow {
         }
 
         onCountChanged: {
-            stackLayout.currentIndex = stackLayout.currentIndex.clamp(0, layoutsCollectionModel.count - 1);
+            if (rootWindow.isStartupComplete && !rootWindow.isSyncing && stackLayout.currentIndex >= 0) {
+                if (stackLayout.currentIndex >= layoutsCollectionModel.count) {
+                    stackLayout.currentIndex = rootWindow.findFirstVisibleLayoutIndex();
+                } else if (!rootWindow.isLayoutIndexVisible(stackLayout.currentIndex)) {
+                    rootWindow.ensureActiveLayoutIsVisible();
+                }
+            }
             Qt.callLater(rootWindow.rebuildTopBarEntries);
         }
         onLayoutMoved: {
@@ -1112,6 +1208,7 @@ ApplicationWindow {
             layoutsCollectionModel.changed.connect(function () {
                 Qt.callLater(rootWindow.rebuildTopBarEntries);
                 if (rootWindow.isSyncing) return;
+                rootWindow.ensureActiveLayoutIsVisible();
                 saveTimer.restart();
             });
             rootWindow.rebuildTopBarEntries();
@@ -1119,11 +1216,31 @@ ApplicationWindow {
             if (Context.isAuxiliary) {
                 stackLayout.currentIndex = -1;
             } else {
-                // Force initialize "currentIndex" if option "-p" is set
-                var currentIndex = (Context.config.currentIndex >= 0) ? Context.config.currentIndex : windowLayoutSettings.currentIndex;
-                stackLayout.currentIndex = currentIndex.clamp(0, layoutsCollectionModel.count - 1);
-                rootWindow.lastSavedCurrentIndex = stackLayout.currentIndex;
+                var candidateIndex = -1;
+                if (Context.config.currentIndex >= 0) {
+                    candidateIndex = Context.config.currentIndex;
+                } else {
+                    var diskIdx = parseInt(Context.readSetting("MainLayout", "currentIndex", -1), 10);
+                    if (!isNaN(diskIdx) && diskIdx >= 0) {
+                        candidateIndex = diskIdx;
+                    } else if (windowLayoutSettings.currentIndex >= 0) {
+                        candidateIndex = windowLayoutSettings.currentIndex;
+                    }
+                }
+
+                var finalIndex = 0;
+                if (rootWindow.isLayoutIndexVisible(candidateIndex)) {
+                    finalIndex = candidateIndex;
+                } else {
+                    finalIndex = rootWindow.findFirstVisibleLayoutIndex();
+                }
+
+                stackLayout.currentIndex = finalIndex;
+                rootWindow.lastSavedCurrentIndex = finalIndex;
+                windowLayoutSettings.currentIndex = finalIndex;
+                Context.writeSetting("MainLayout", "currentIndex", finalIndex);
             }
+            rootWindow.isStartupComplete = true;
         }
     }
 
@@ -2035,6 +2152,7 @@ ApplicationWindow {
                 alignRight: true
                 barVisible: topToolBar.isShown
                 onActivateLayout: function(layoutIndex) {
+                    if (!rootWindow.isLayoutIndexVisible(layoutIndex)) return;
                     if (stackLayout.currentIndex === layoutIndex) {
                         stackLayout.currentIndex = -1;
                     }
@@ -2207,10 +2325,14 @@ ApplicationWindow {
             anchors.fill: parent
 
             onCurrentIndexChanged: {
-                if (!rootWindow.isMovingLayout && !rootWindow.isSyncing && !Context.isAuxiliary) {
-                    rootWindow.lastSavedCurrentIndex = currentIndex;
+                if (!rootWindow.isStartupComplete || rootWindow.isMovingLayout || rootWindow.isSyncing || Context.isAuxiliary) {
+                    return;
                 }
-                windowLayoutSettings.currentIndex = currentIndex;
+                if (currentIndex >= 0 && rootWindow.isLayoutIndexVisible(currentIndex)) {
+                    rootWindow.lastSavedCurrentIndex = currentIndex;
+                    windowLayoutSettings.currentIndex = currentIndex;
+                    Context.writeSetting("MainLayout", "currentIndex", currentIndex);
+                }
                 rootWindow.triggerGcDeferred();
             }
 
@@ -2368,7 +2490,9 @@ ApplicationWindow {
         Context.writeSetting("Viewport", "noUnmuteWhenFullScreen", viewportSettings.noUnmuteWhenFullScreen);
 
         if (!Context.isAuxiliary) {
-            Context.writeSetting("MainLayout", "currentIndex", stackLayout.currentIndex);
+            if (rootWindow.isStartupComplete && stackLayout.currentIndex >= 0 && rootWindow.isLayoutIndexVisible(stackLayout.currentIndex)) {
+                Context.writeSetting("MainLayout", "currentIndex", stackLayout.currentIndex);
+            }
             Context.writeSetting("RootWindow", "width", rootWindowSettings.width);
             Context.writeSetting("RootWindow", "height", rootWindowSettings.height);
             Context.writeSetting("RootWindow", "fullScreen", Context.config.fullScreen);

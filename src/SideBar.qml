@@ -2065,7 +2065,7 @@ FocusScope {
                                     dragParent: presetsContentWrapper
                                     dragProxy: dragHandleProxy
                                     rowsContainer: regularRowsCol
-                                    onActivateRequested: stackLayout.currentIndex = modelData
+                                    onActivateRequested: if (rootWindow.isLayoutIndexVisible(modelData)) stackLayout.currentIndex = modelData
                                     onDeleteRequested: {
                                         presetDeleteDialog.index = modelData;
                                         presetDeleteDialog.open();
@@ -2140,7 +2140,7 @@ FocusScope {
                                     dragParent: presetsContentWrapper
                                     dragProxy: dragHandleProxy
                                     rowsContainer: nvrRowsCol
-                                    onActivateRequested: stackLayout.currentIndex = modelData
+                                    onActivateRequested: if (rootWindow.isLayoutIndexVisible(modelData)) stackLayout.currentIndex = modelData
                                     onDeleteRequested: {
                                         nvrPresetDeleteDialog.index = modelData;
                                         nvrPresetDeleteDialog.open();
@@ -2189,7 +2189,7 @@ FocusScope {
                                     dragParent: presetsContentWrapper
                                     dragProxy: dragHandleProxy
                                     rowsContainer: presetRowsCol
-                                    onActivateRequested: stackLayout.currentIndex = modelData
+                                    onActivateRequested: if (rootWindow.isLayoutIndexVisible(modelData)) stackLayout.currentIndex = modelData
                                     onDeleteRequested: {
                                         nvrPresetDeleteDialog2.index = modelData;
                                         nvrPresetDeleteDialog2.open();

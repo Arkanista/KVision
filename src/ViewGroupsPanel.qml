@@ -1801,6 +1801,9 @@ ColumnLayout {
                                 if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.rebuildTopBarEntries) {
                                     Qt.callLater(rootWindow.rebuildTopBarEntries);
                                 }
+                                if (!checked && typeof rootWindow !== "undefined" && rootWindow && rootWindow.ensureActiveLayoutIsVisible) {
+                                    rootWindow.ensureActiveLayoutIsVisible();
+                                }
                             }
                         }
                     }
