@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.12
 Dialog {
     id: rootDialog
     modal: true
+    parent: Overlay.overlay
     anchors.centerIn: parent
     width: 380
 
@@ -118,7 +119,7 @@ Dialog {
                 }
                 background: Rectangle {
                     color: cancelBtn.pressed ? "#2a3540" : (cancelBtn.hovered ? "#3a4550" : "#222c36")
-                    radius: 4
+                    radius: 6
                     border.color: "#2a3540"
                 }
                 onClicked: rootDialog.reject()
@@ -139,7 +140,7 @@ Dialog {
                 }
                 background: Rectangle {
                     color: confirmBtn.pressed ? (rootDialog.isDanger ? "#cc2929" : "#00ccb0") : (confirmBtn.hovered ? (rootDialog.isDanger ? "#ff4d4d" : "#00ffd8") : (rootDialog.isDanger ? "#d63333" : "#00f5d4"))
-                    radius: 4
+                    radius: 6
                 }
                 onClicked: rootDialog.accept()
             }

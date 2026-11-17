@@ -6,6 +6,7 @@
 #include <QQmlEngine>
 #include <QAbstractListModel>
 #include <QSize>
+#include <QStringList>
 
 #include "qmlavpropertyhelpers.h"
 
@@ -50,10 +51,13 @@ class ViewportsLayoutModel : public QAbstractListModel
     Q_PROPERTY(int count READ count NOTIFY sizeChanged)
 
     QMLAV_PROPERTY(QSize, aspectRatio, setAspectRatio, aspectRatioChanged) = {16, 9};
+    QMLAV_PROPERTY(QString, uid, setUid, uidChanged) = "";
     QMLAV_PROPERTY(bool, isNvr, setIsNvr, isNvrChanged) = false;
     QMLAV_PROPERTY(QString, nvrIp, setNvrIp, nvrIpChanged) = "";
     QMLAV_PROPERTY(bool, isNvrPreset, setIsNvrPreset, isNvrPresetChanged) = false;
     QMLAV_PROPERTY(QString, name, setName, nameChanged) = "";
+    QMLAV_PROPERTY(QStringList, groups, setGroups, groupsChanged) = {};
+    QMLAV_PROPERTY(bool, showUngrouped, setShowUngrouped, showUngroupedChanged) = true;
     QMLAV_PROPERTY(bool, visible, setVisible, visibleChanged) = true;
 
 public:

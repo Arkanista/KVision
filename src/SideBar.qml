@@ -163,6 +163,16 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.7.9",
+            date: "17.11.2026",
+            changes: [
+                qsTr("LNG_00635"),
+                qsTr("LNG_00636"),
+                qsTr("LNG_00637"),
+                qsTr("LNG_00638")
+            ]
+        },
+        {
             version: "v2.7.8-3",
             date: "16.11.2026",
             changes: [
@@ -1017,15 +1027,15 @@ FocusScope {
                         onClicked: tabsColumn.selectTab(3)
                     }
 
-                    // General Settings Page Button
+                    // View / Layout Groups Page Button (below Presets)
                     Button {
-                        id: btnSettings
+                        id: btnViewGroups
                         Layout.fillWidth: true
                         height: 40
                         hoverEnabled: true
 
                         background: Rectangle {
-                            color: tabsColumn.activeIndex === 4 ? "#1c242c" : (btnSettings.hovered ? "#141a21" : "transparent")
+                            color: tabsColumn.activeIndex === 4 ? "#1c242c" : (btnViewGroups.hovered ? "#141a21" : "transparent")
                             radius: 6
 
                             Rectangle {
@@ -1034,6 +1044,65 @@ FocusScope {
                                 height: parent.height
                                 color: "#00f5d4"
                                 visible: tabsColumn.activeIndex === 4
+                            }
+                        }
+
+                        contentItem: RowLayout {
+                            anchors.fill: parent
+                            anchors.leftMargin: 12
+                            spacing: 12
+
+                            Item {
+                                implicitWidth: 14
+                                implicitHeight: 14
+
+                                Image {
+                                    id: imgViewGroups
+                                    source: "qrc:/images/menu-groups.svg"
+                                    anchors.fill: parent
+                                    fillMode: Image.PreserveAspectFit
+                                    layer.enabled: true
+                                }
+
+                                ColorOverlay {
+                                    anchors.fill: imgViewGroups
+                                    source: imgViewGroups
+                                    color: tabsColumn.activeIndex === 4 ? "#00f5d4" : (btnViewGroups.hovered ? "white" : "#8898a6")
+                                    cached: true
+                                }
+                            }
+
+                            Text {
+                                text: qsTr("LNG_00600")
+                                color: tabsColumn.activeIndex === 4 ? "#00f5d4" : (btnViewGroups.hovered ? "white" : "#8898a6")
+                                font {
+                                    pixelSize: 12
+                                    bold: tabsColumn.activeIndex === 4
+                                }
+                                Layout.fillWidth: true
+                            }
+                        }
+
+                        onClicked: tabsColumn.selectTab(4)
+                    }
+
+                    // General Settings Page Button
+                    Button {
+                        id: btnSettings
+                        Layout.fillWidth: true
+                        height: 40
+                        hoverEnabled: true
+
+                        background: Rectangle {
+                            color: tabsColumn.activeIndex === 5 ? "#1c242c" : (btnSettings.hovered ? "#141a21" : "transparent")
+                            radius: 6
+
+                            Rectangle {
+                                anchors.left: parent.left
+                                width: 3
+                                height: parent.height
+                                color: "#00f5d4"
+                                visible: tabsColumn.activeIndex === 5
                             }
                         }
 
@@ -1057,23 +1126,23 @@ FocusScope {
                                 ColorOverlay {
                                     anchors.fill: imgSettings
                                     source: imgSettings
-                                    color: tabsColumn.activeIndex === 4 ? "#00f5d4" : (btnSettings.hovered ? "white" : "#8898a6")
+                                    color: tabsColumn.activeIndex === 5 ? "#00f5d4" : (btnSettings.hovered ? "white" : "#8898a6")
                                     cached: true
                                 }
                             }
 
                             Text {
                                 text: qsTr("LNG_00311")
-                                color: tabsColumn.activeIndex === 4 ? "#00f5d4" : (btnSettings.hovered ? "white" : "#8898a6")
+                                color: tabsColumn.activeIndex === 5 ? "#00f5d4" : (btnSettings.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
-                                    bold: tabsColumn.activeIndex === 4
+                                    bold: tabsColumn.activeIndex === 5
                                 }
                                 Layout.fillWidth: true
                             }
                         }
 
-                        onClicked: tabsColumn.selectTab(4)
+                        onClicked: tabsColumn.selectTab(5)
                     }
 
                     // Import / Export Settings Page Button
@@ -1084,7 +1153,7 @@ FocusScope {
                         hoverEnabled: true
 
                         background: Rectangle {
-                            color: tabsColumn.activeIndex === 5 ? "#1c242c" : (btnImportExport.hovered ? "#141a21" : "transparent")
+                            color: tabsColumn.activeIndex === 6 ? "#1c242c" : (btnImportExport.hovered ? "#141a21" : "transparent")
                             radius: 6
 
                             Rectangle {
@@ -1092,7 +1161,7 @@ FocusScope {
                                 width: 3
                                 height: parent.height
                                 color: "#00f5d4"
-                                visible: tabsColumn.activeIndex === 5
+                                visible: tabsColumn.activeIndex === 6
                             }
                         }
 
@@ -1116,23 +1185,23 @@ FocusScope {
                                 ColorOverlay {
                                     anchors.fill: imgImportExport
                                     source: imgImportExport
-                                    color: tabsColumn.activeIndex === 5 ? "#00f5d4" : (btnImportExport.hovered ? "white" : "#8898a6")
+                                    color: tabsColumn.activeIndex === 6 ? "#00f5d4" : (btnImportExport.hovered ? "white" : "#8898a6")
                                     cached: true
                                 }
                             }
 
                             Text {
                                 text: qsTr("LNG_00551")
-                                color: tabsColumn.activeIndex === 5 ? "#00f5d4" : (btnImportExport.hovered ? "white" : "#8898a6")
+                                color: tabsColumn.activeIndex === 6 ? "#00f5d4" : (btnImportExport.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
-                                    bold: tabsColumn.activeIndex === 5
+                                    bold: tabsColumn.activeIndex === 6
                                 }
                                 Layout.fillWidth: true
                             }
                         }
 
-                        onClicked: tabsColumn.selectTab(5)
+                        onClicked: tabsColumn.selectTab(6)
                     }
 
                     // Changelog Page Button
@@ -1143,7 +1212,7 @@ FocusScope {
                         hoverEnabled: true
 
                         background: Rectangle {
-                            color: tabsColumn.activeIndex === 6 ? "#1c242c" : (btnChangelog.hovered ? "#141a21" : "transparent")
+                            color: tabsColumn.activeIndex === 7 ? "#1c242c" : (btnChangelog.hovered ? "#141a21" : "transparent")
                             radius: 6
 
                             Rectangle {
@@ -1151,7 +1220,7 @@ FocusScope {
                                 width: 3
                                 height: parent.height
                                 color: "#00f5d4"
-                                visible: tabsColumn.activeIndex === 6
+                                visible: tabsColumn.activeIndex === 7
                             }
                         }
 
@@ -1175,23 +1244,23 @@ FocusScope {
                                 ColorOverlay {
                                     anchors.fill: imgChangelog
                                     source: imgChangelog
-                                    color: tabsColumn.activeIndex === 6 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
+                                    color: tabsColumn.activeIndex === 7 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
                                     cached: true
                                 }
                             }
 
                             Text {
                                 text: qsTr("LNG_00310")
-                                color: tabsColumn.activeIndex === 6 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
+                                color: tabsColumn.activeIndex === 7 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
-                                    bold: tabsColumn.activeIndex === 6
+                                    bold: tabsColumn.activeIndex === 7
                                 }
                                 Layout.fillWidth: true
                             }
                         }
 
-                        onClicked: tabsColumn.selectTab(6)
+                        onClicked: tabsColumn.selectTab(7)
                     }
                 }
 
@@ -1293,6 +1362,8 @@ FocusScope {
             id: pagesStack
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.topMargin: 20
+            Layout.bottomMargin: 20
             currentIndex: 3
 
             onCurrentIndexChanged: {
@@ -1423,10 +1494,19 @@ FocusScope {
                                 spacing: 12
 
                                 Button {
+                                    id: muteViewportBtn
                                     text: qsTr("LNG_00301")
                                     enabled: configUnlockSwitch.checked && (rootSideBar.currentViewportIndex >= 0 && Utils.currentLayout() ? Utils.currentLayout().get(rootSideBar.currentViewportIndex).hasAudio : false)
                                     highlighted: !(rootSideBar.currentViewportIndex >= 0 && Utils.currentModel() && Utils.currentModel().get(rootSideBar.currentViewportIndex).volume > 0 || !viewportSettings.noUnmuteWhenFullScreen && Utils.currentLayout() && Utils.currentLayout().fullScreenIndex >= 0)
                                     Layout.fillWidth: true
+                                    background: Rectangle {
+                                        radius: 6
+                                        implicitWidth: 100
+                                        implicitHeight: 40
+                                        color: muteViewportBtn.down ? muteViewportBtn.palette.mid : (muteViewportBtn.checked || muteViewportBtn.highlighted ? muteViewportBtn.palette.dark : muteViewportBtn.palette.button)
+                                        border.color: muteViewportBtn.palette.highlight
+                                        border.width: muteViewportBtn.visualFocus ? 2 : 0
+                                    }
                                     onClicked: {
                                         if (rootSideBar.currentViewportIndex >= 0) {
                                             if (Utils.currentModel().get(rootSideBar.currentViewportIndex).volume > 0) {
@@ -1649,10 +1729,19 @@ FocusScope {
                                     }
 
                                     Button {
+                                        id: divisionGridBtn
                                         text: size
                                         highlighted: Utils.currentModel() && Utils.currentModel().size === str2size(size)
                                         enabled: !generalSettings.lockGridSize
                                         anchors.fill: parent
+                                        background: Rectangle {
+                                            radius: 6
+                                            implicitWidth: 100
+                                            implicitHeight: 40
+                                            color: divisionGridBtn.down ? divisionGridBtn.palette.mid : (divisionGridBtn.checked || divisionGridBtn.highlighted ? divisionGridBtn.palette.dark : divisionGridBtn.palette.button)
+                                            border.color: divisionGridBtn.palette.highlight
+                                            border.width: divisionGridBtn.visualFocus ? 2 : 0
+                                        }
                                         onClicked: {
                                             if (Utils.currentModel()) {
                                                 Utils.currentModel().size = str2size(size);
@@ -1731,9 +1820,18 @@ FocusScope {
                                 Layout.fillWidth: true
 
                                 Button {
+                                    id: aspectRatio169Btn
                                     text: "16:9 Aspect Ratio"
                                     highlighted: Utils.currentModel() && Utils.currentModel().aspectRatio === Qt.size(16, 9)
                                     Layout.fillWidth: true
+                                    background: Rectangle {
+                                        radius: 6
+                                        implicitWidth: 100
+                                        implicitHeight: 40
+                                        color: aspectRatio169Btn.down ? aspectRatio169Btn.palette.mid : (aspectRatio169Btn.checked || aspectRatio169Btn.highlighted ? aspectRatio169Btn.palette.dark : aspectRatio169Btn.palette.button)
+                                        border.color: aspectRatio169Btn.palette.highlight
+                                        border.width: aspectRatio169Btn.visualFocus ? 2 : 0
+                                    }
                                     onClicked: {
                                         if (Utils.currentModel()) {
                                             Utils.currentModel().aspectRatio = Qt.size(16, 9);
@@ -1742,9 +1840,18 @@ FocusScope {
                                     }
                                 }
                                 Button {
+                                    id: aspectRatio43Btn
                                     text: "4:3 Aspect Ratio"
                                     highlighted: Utils.currentModel() && Utils.currentModel().aspectRatio === Qt.size(4, 3)
                                     Layout.fillWidth: true
+                                    background: Rectangle {
+                                        radius: 6
+                                        implicitWidth: 100
+                                        implicitHeight: 40
+                                        color: aspectRatio43Btn.down ? aspectRatio43Btn.palette.mid : (aspectRatio43Btn.checked || aspectRatio43Btn.highlighted ? aspectRatio43Btn.palette.dark : aspectRatio43Btn.palette.button)
+                                        border.color: aspectRatio43Btn.palette.highlight
+                                        border.width: aspectRatio43Btn.visualFocus ? 2 : 0
+                                    }
                                     onClicked: {
                                         if (Utils.currentModel()) {
                                             Utils.currentModel().aspectRatio = Qt.size(4, 3);
@@ -1755,9 +1862,18 @@ FocusScope {
                             }
 
                             Button {
+                                id: fullscreenModeBtn
                                 text: qsTr("LNG_00011")
                                 highlighted: Context.config.fullScreen
                                 Layout.fillWidth: true
+                                background: Rectangle {
+                                    radius: 6
+                                    implicitWidth: 100
+                                    implicitHeight: 40
+                                    color: fullscreenModeBtn.down ? fullscreenModeBtn.palette.mid : (fullscreenModeBtn.checked || fullscreenModeBtn.highlighted ? fullscreenModeBtn.palette.dark : fullscreenModeBtn.palette.button)
+                                    border.color: fullscreenModeBtn.palette.highlight
+                                    border.width: fullscreenModeBtn.visualFocus ? 2 : 0
+                                }
                                 onClicked: Context.config.fullScreen = !Context.config.fullScreen
                             }
                         }
@@ -1786,9 +1902,18 @@ FocusScope {
                             spacing: 10
 
                             Button {
+                                id: mergeCellsBtn
                                 text: qsTr("LNG_00292")
                                 enabled: Utils.currentLayout() ? Utils.currentLayout().mergeCells(true) : false
                                 Layout.fillWidth: true
+                                background: Rectangle {
+                                    radius: 6
+                                    implicitWidth: 100
+                                    implicitHeight: 40
+                                    color: mergeCellsBtn.down ? mergeCellsBtn.palette.mid : (mergeCellsBtn.checked || mergeCellsBtn.highlighted ? mergeCellsBtn.palette.dark : mergeCellsBtn.palette.button)
+                                    border.color: mergeCellsBtn.palette.highlight
+                                    border.width: mergeCellsBtn.visualFocus ? 2 : 0
+                                }
                                 onClicked: if (Utils.currentLayout()) Utils.currentLayout().mergeCells()
                             }
                         }
@@ -1841,11 +1966,56 @@ FocusScope {
                     scrollView: page3ScrollView
                 }
 
-                ColumnLayout {
-                    id: presetsLayout
+                Item {
+                    id: presetsContentWrapper
                     x: 24
                     width: page3ScrollView.width - 48
-                    spacing: 20
+                    height: presetsLayout.implicitHeight
+                    implicitHeight: presetsLayout.implicitHeight
+
+                    QtObject {
+                        id: viewDragState
+                        property int sourceGlobalIndex: -1
+                        property int targetGlobalIndex: -1
+                        property string category: ""
+                        property string previewText: ""
+                        function reset() {
+                            sourceGlobalIndex = -1;
+                            targetGlobalIndex = -1;
+                            category = "";
+                            previewText = "";
+                        }
+                    }
+
+                    Rectangle {
+                        id: dragHandleProxy
+                        visible: viewDragState.sourceGlobalIndex !== -1
+                        z: 9999
+                        width: Math.min(260, presetsContentWrapper.width - 24)
+                        height: 30
+                        radius: 6
+                        color: "#1c2a33"
+                        border.color: "#00f5d4"
+                        border.width: 1
+                        opacity: 0.94
+
+                        Text {
+                            anchors.fill: parent
+                            anchors.leftMargin: 10
+                            anchors.rightMargin: 10
+                            text: viewDragState.previewText
+                            color: "#00f5d4"
+                            font.pixelSize: 11
+                            font.bold: true
+                            verticalAlignment: Text.AlignVCenter
+                            elide: Text.ElideRight
+                        }
+                    }
+
+                    ColumnLayout {
+                        id: presetsLayout
+                        width: parent.width
+                        spacing: 20
 
                     Text {
                         text: qsTr("LNG_00290")
@@ -1875,119 +2045,30 @@ FocusScope {
                         }
 
                         ColumnLayout {
+                            id: regularRowsCol
                             anchors.fill: parent
                             anchors.margins: 4
                             spacing: 8
 
                             Repeater {
                                 model: rootSideBar.regularIndices
-                                delegate: RowLayout {
-                                    id: presetRow
-                                    spacing: 12
-                                    Layout.fillWidth: true
-
-                                    property var layout: layoutsCollectionModel.get(modelData)
-
-                                    // Active preset indicator
-                                    Rectangle {
-                                        width: 4
-                                        height: 24
-                                        radius: 2
-                                        color: stackLayout.currentIndex === modelData ? "#00f5d4" : "transparent"
-                                    }
-
-                                    // Editable preset name field
-                                    TextField {
-                                        id: nameField
-                                        text: (presetRow.layout && presetRow.layout.name) ? presetRow.layout.name : ""
-                                        placeholderText: qsTr("LNG_00288").arg(index + 1)
-                                        selectByMouse: true
-                                        Layout.fillWidth: true
-                                        color: "white"
-                                        background: Rectangle {
-                                            color: "#0f151b"
-                                            radius: 4
-                                            border.color: nameField.activeFocus ? "#ff7a00" : "#2a3540"
-                                        }
-                                        onEditingFinished: {
-                                            if (presetRow.layout) {
-                                                presetRow.layout.name = text;
-                                            }
-                                        }
-                                    }
-
-                                    // Visible Checkbox
-                                    CheckBox {
-                                        text: qsTr("LNG_00278")
-                                        checked: presetRow.layout ? presetRow.layout.visible : true
-                                        onCheckedChanged: {
-                                            if (presetRow.layout) {
-                                                presetRow.layout.visible = checked;
-                                            }
-                                        }
-                                        palette.highlight: "#00f5d4"
-                                    }
-
-                                    // Activate button
-                                    Button {
-                                        id: activateBtn
-                                        implicitWidth: 28
-                                        implicitHeight: 28
-                                        highlighted: stackLayout.currentIndex === modelData
-                                        onClicked: {
-                                            stackLayout.currentIndex = modelData;
-                                        }
-                                        contentItem: Image {
-                                            anchors.centerIn: parent
-                                            width: 14
-                                            height: 14
-                                            source: {
-                                                var colorStr = activateBtn.pressed ? "%23ffffff" : (activateBtn.highlighted ? "%23ffffff" : (activateBtn.hovered ? "%23ffffff" : "%238898a6"));
-                                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polygon points='6 3 20 12 6 21 6 3'></polygon></svg>";
-                                            }
-                                        }
-                                        background: Rectangle {
-                                            color: activateBtn.pressed ? "#cc121214" : (activateBtn.highlighted ? "#ff7a00" : (activateBtn.hovered ? "#3a4550" : "#1c242c"))
-                                            radius: 14
-                                            border.color: activateBtn.highlighted ? "#ff9e00" : (activateBtn.hovered ? "#8898a6" : "#2a3540")
-                                            border.width: 1
-                                        }
-                                        ToolTip.delay: Compact.toolTipDelay
-                                        ToolTip.timeout: Compact.toolTipTimeout
-                                        ToolTip.visible: activateBtn.hovered
-                                        ToolTip.text: qsTr("LNG_00287")
-                                    }
-
-                                    // Delete icon button
-                                    Button {
-                                        id: delPresetBtn
-                                        implicitWidth: 28
-                                        implicitHeight: 28
-                                        visible: rootSideBar.regularIndices.length > 1
-                                        contentItem: Image {
-                                            anchors.centerIn: parent
-                                            width: 14
-                                            height: 14
-                                            source: {
-                                                var colorStr = delPresetBtn.hovered ? "%23ff4d4d" : "%238898a6";
-                                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 6 5 6 21 6'></polyline><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path><line x1='10' y1='11' x2='10' y2='17'></line><line x1='14' y1='11' x2='14' y2='17'></line></svg>";
-                                            }
-                                        }
-                                        background: Rectangle {
-                                            color: delPresetBtn.pressed ? "#40ff0000" : (delPresetBtn.hovered ? "#20ff0000" : "transparent")
-                                            radius: 14
-                                            border.color: delPresetBtn.hovered ? "#ff4d4d" : "#2a3540"
-                                            border.width: 1
-                                        }
-
-                                        onClicked: {
-                                            presetDeleteDialog.index = modelData;
-                                            presetDeleteDialog.open();
-                                        }
-                                        ToolTip.delay: Compact.toolTipDelay
-                                        ToolTip.timeout: Compact.toolTipTimeout
-                                        ToolTip.visible: delPresetBtn.hovered
-                                        ToolTip.text: qsTr("LNG_00286")
+                                delegate: ReorderableViewRow {
+                                    globalIndex: modelData
+                                    category: "regular"
+                                    layout: layoutsCollectionModel.get(modelData)
+                                    isCurrent: stackLayout.currentIndex === modelData
+                                    placeholderText: qsTr("LNG_00288").arg(index + 1)
+                                    showDelete: rootSideBar.regularIndices.length > 1
+                                    activateTooltip: qsTr("LNG_00287")
+                                    deleteTooltip: qsTr("LNG_00286")
+                                    dragState: viewDragState
+                                    dragParent: presetsContentWrapper
+                                    dragProxy: dragHandleProxy
+                                    rowsContainer: regularRowsCol
+                                    onActivateRequested: stackLayout.currentIndex = modelData
+                                    onDeleteRequested: {
+                                        presetDeleteDialog.index = modelData;
+                                        presetDeleteDialog.open();
                                     }
                                 }
                             }
@@ -2039,113 +2120,30 @@ FocusScope {
                         }
 
                         ColumnLayout {
+                            id: nvrRowsCol
                             anchors.fill: parent
                             anchors.margins: 4
                             spacing: 8
 
                             Repeater {
                                 model: rootSideBar.nvrIndices
-                                delegate: RowLayout {
-                                    id: nvrRow
-                                    spacing: 12
-                                    Layout.fillWidth: true
-
-                                    property var layout: layoutsCollectionModel.get(modelData)
-
-                                    Rectangle {
-                                        width: 4
-                                        height: 24
-                                        radius: 2
-                                        color: stackLayout.currentIndex === modelData ? "#00f5d4" : "transparent"
-                                    }
-
-                                    TextField {
-                                        id: nvrNameField
-                                        text: (nvrRow.layout && nvrRow.layout.name) ? nvrRow.layout.name : ""
-                                        placeholderText: (nvrRow.layout && nvrRow.layout.nvrIp) ? getRecorderName(nvrRow.layout.nvrIp) : qsTr("LNG_00283")
-                                        selectByMouse: true
-                                        Layout.fillWidth: true
-                                        color: "white"
-                                        background: Rectangle {
-                                            color: "#0f151b"
-                                            radius: 4
-                                            border.color: nvrNameField.activeFocus ? "#ff7a00" : "#2a3540"
-                                        }
-                                        onEditingFinished: {
-                                            if (nvrRow.layout) {
-                                                nvrRow.layout.name = text;
-                                            }
-                                        }
-                                    }
-
-                                    CheckBox {
-                                        text: qsTr("LNG_00278")
-                                        checked: nvrRow.layout ? nvrRow.layout.visible : true
-                                        onCheckedChanged: {
-                                            if (nvrRow.layout) {
-                                                nvrRow.layout.visible = checked;
-                                            }
-                                        }
-                                        palette.highlight: "#00f5d4"
-                                    }
-
-                                    Button {
-                                        id: activateBtnNvr
-                                        implicitWidth: 28
-                                        implicitHeight: 28
-                                        highlighted: stackLayout.currentIndex === modelData
-                                        onClicked: {
-                                            stackLayout.currentIndex = modelData;
-                                        }
-                                        contentItem: Image {
-                                            anchors.centerIn: parent
-                                            width: 14
-                                            height: 14
-                                            source: {
-                                                var colorStr = activateBtnNvr.pressed ? "%23ffffff" : (activateBtnNvr.highlighted ? "%23ffffff" : (activateBtnNvr.hovered ? "%23ffffff" : "%238898a6"));
-                                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polygon points='6 3 20 12 6 21 6 3'></polygon></svg>";
-                                            }
-                                        }
-                                        background: Rectangle {
-                                            color: activateBtnNvr.pressed ? "#cc121214" : (activateBtnNvr.highlighted ? "#ff7a00" : (activateBtnNvr.hovered ? "#3a4550" : "#1c242c"))
-                                            radius: 14
-                                            border.color: activateBtnNvr.highlighted ? "#ff9e00" : (activateBtnNvr.hovered ? "#8898a6" : "#2a3540")
-                                            border.width: 1
-                                        }
-                                        ToolTip.delay: Compact.toolTipDelay
-                                        ToolTip.timeout: Compact.toolTipTimeout
-                                        ToolTip.visible: activateBtnNvr.hovered
-                                        ToolTip.text: qsTr("LNG_00282")
-                                    }
-
-                                    Button {
-                                        id: delNvrBtn
-                                        implicitWidth: 28
-                                        implicitHeight: 28
-                                        contentItem: Image {
-                                            anchors.centerIn: parent
-                                            width: 14
-                                            height: 14
-                                            source: {
-                                                var colorStr = delNvrBtn.hovered ? "%23ff4d4d" : "%238898a6";
-                                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 6 5 6 21 6'></polyline><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path><line x1='10' y1='11' x2='10' y2='17'></line><line x1='14' y1='11' x2='14' y2='17'></line></svg>";
-                                            }
-                                        }
-                                        background: Rectangle {
-                                            color: delNvrBtn.pressed ? "#40ff0000" : (delNvrBtn.hovered ? "#20ff0000" : "transparent")
-                                            radius: 14
-                                            border.color: delNvrBtn.hovered ? "#ff4d4d" : "#2a3540"
-                                            border.width: 1
-                                        }
-
-                                        onClicked: {
-                                            nvrPresetDeleteDialog.index = modelData;
-                                            nvrPresetDeleteDialog.open();
-                                        }
-                                        ToolTip.delay: Compact.toolTipDelay
-                                        ToolTip.timeout: Compact.toolTipTimeout
-                                        ToolTip.visible: delNvrBtn.hovered
-                                        ToolTip.text: qsTr("LNG_00281")
+                                delegate: ReorderableViewRow {
+                                    globalIndex: modelData
+                                    category: "nvr"
+                                    layout: layoutsCollectionModel.get(modelData)
+                                    isCurrent: stackLayout.currentIndex === modelData
+                                    placeholderText: (layout && layout.nvrIp) ? getRecorderName(layout.nvrIp) : qsTr("LNG_00283")
+                                    showDelete: true
+                                    activateTooltip: qsTr("LNG_00282")
+                                    deleteTooltip: qsTr("LNG_00281")
+                                    dragState: viewDragState
+                                    dragParent: presetsContentWrapper
+                                    dragProxy: dragHandleProxy
+                                    rowsContainer: nvrRowsCol
+                                    onActivateRequested: stackLayout.currentIndex = modelData
+                                    onDeleteRequested: {
+                                        nvrPresetDeleteDialog.index = modelData;
+                                        nvrPresetDeleteDialog.open();
                                     }
                                 }
                             }
@@ -2171,113 +2169,30 @@ FocusScope {
                         }
 
                         ColumnLayout {
+                            id: presetRowsCol
                             anchors.fill: parent
                             anchors.margins: 4
                             spacing: 8
 
                             Repeater {
                                 model: rootSideBar.nvrPresetIndices
-                                delegate: RowLayout {
-                                    id: nvrPresetRow
-                                    spacing: 12
-                                    Layout.fillWidth: true
-
-                                    property var layout: layoutsCollectionModel.get(modelData)
-
-                                    Rectangle {
-                                        width: 4
-                                        height: 24
-                                        radius: 2
-                                        color: stackLayout.currentIndex === modelData ? "#00f5d4" : "transparent"
-                                    }
-
-                                    TextField {
-                                        id: nvrPresetNameField
-                                        text: (nvrPresetRow.layout && nvrPresetRow.layout.name) ? nvrPresetRow.layout.name : ""
-                                        placeholderText: qsTr("LNG_00279").arg(index + 1)
-                                        selectByMouse: true
-                                        Layout.fillWidth: true
-                                        color: "white"
-                                        background: Rectangle {
-                                            color: "#0f151b"
-                                            radius: 4
-                                            border.color: nvrPresetNameField.activeFocus ? "#ff7a00" : "#2a3540"
-                                        }
-                                        onEditingFinished: {
-                                            if (nvrPresetRow.layout) {
-                                                nvrPresetRow.layout.name = text;
-                                            }
-                                        }
-                                    }
-
-                                    CheckBox {
-                                        text: qsTr("LNG_00278")
-                                        checked: nvrPresetRow.layout ? nvrPresetRow.layout.visible : true
-                                        onCheckedChanged: {
-                                            if (nvrPresetRow.layout) {
-                                                nvrPresetRow.layout.visible = checked;
-                                            }
-                                        }
-                                        palette.highlight: "#00f5d4"
-                                    }
-
-                                    Button {
-                                        id: activateBtnNvrPreset
-                                        implicitWidth: 28
-                                        implicitHeight: 28
-                                        highlighted: stackLayout.currentIndex === modelData
-                                        onClicked: {
-                                            stackLayout.currentIndex = modelData;
-                                        }
-                                        contentItem: Image {
-                                            anchors.centerIn: parent
-                                            width: 14
-                                            height: 14
-                                            source: {
-                                                var colorStr = activateBtnNvrPreset.pressed ? "%23ffffff" : (activateBtnNvrPreset.highlighted ? "%23ffffff" : (activateBtnNvrPreset.hovered ? "%23ffffff" : "%238898a6"));
-                                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polygon points='6 3 20 12 6 21 6 3'></polygon></svg>";
-                                            }
-                                        }
-                                        background: Rectangle {
-                                            color: activateBtnNvrPreset.pressed ? "#cc121214" : (activateBtnNvrPreset.highlighted ? "#ff7a00" : (activateBtnNvrPreset.hovered ? "#3a4550" : "#1c242c"))
-                                            radius: 14
-                                            border.color: activateBtnNvrPreset.highlighted ? "#ff9e00" : (activateBtnNvrPreset.hovered ? "#8898a6" : "#2a3540")
-                                            border.width: 1
-                                        }
-                                        ToolTip.delay: Compact.toolTipDelay
-                                        ToolTip.timeout: Compact.toolTipTimeout
-                                        ToolTip.visible: activateBtnNvrPreset.hovered
-                                        ToolTip.text: qsTr("LNG_00277")
-                                    }
-
-                                    Button {
-                                        id: delNvrPresetBtn
-                                        implicitWidth: 28
-                                        implicitHeight: 28
-                                        contentItem: Image {
-                                            anchors.centerIn: parent
-                                            width: 14
-                                            height: 14
-                                            source: {
-                                                var colorStr = delNvrPresetBtn.hovered ? "%23ff4d4d" : "%238898a6";
-                                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 6 5 6 21 6'></polyline><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path><line x1='10' y1='11' x2='10' y2='17'></line><line x1='14' y1='11' x2='14' y2='17'></line></svg>";
-                                            }
-                                        }
-                                        background: Rectangle {
-                                            color: delNvrPresetBtn.pressed ? "#40ff0000" : (delNvrPresetBtn.hovered ? "#20ff0000" : "transparent")
-                                            radius: 14
-                                            border.color: delNvrPresetBtn.hovered ? "#ff4d4d" : "#2a3540"
-                                            border.width: 1
-                                        }
-
-                                        onClicked: {
-                                            nvrPresetDeleteDialog2.index = modelData;
-                                            nvrPresetDeleteDialog2.open();
-                                        }
-                                        ToolTip.delay: Compact.toolTipDelay
-                                        ToolTip.timeout: Compact.toolTipTimeout
-                                        ToolTip.visible: delNvrPresetBtn.hovered
-                                        ToolTip.text: qsTr("LNG_00276")
+                                delegate: ReorderableViewRow {
+                                    globalIndex: modelData
+                                    category: "nvrPreset"
+                                    layout: layoutsCollectionModel.get(modelData)
+                                    isCurrent: stackLayout.currentIndex === modelData
+                                    placeholderText: qsTr("LNG_00279").arg(index + 1)
+                                    showDelete: true
+                                    activateTooltip: qsTr("LNG_00277")
+                                    deleteTooltip: qsTr("LNG_00276")
+                                    dragState: viewDragState
+                                    dragParent: presetsContentWrapper
+                                    dragProxy: dragHandleProxy
+                                    rowsContainer: presetRowsCol
+                                    onActivateRequested: stackLayout.currentIndex = modelData
+                                    onDeleteRequested: {
+                                        nvrPresetDeleteDialog2.index = modelData;
+                                        nvrPresetDeleteDialog2.open();
                                     }
                                 }
                             }
@@ -2310,10 +2225,44 @@ FocusScope {
                             }
                         }
                     }
+                    }
                 }
             }
 
-            // PAGE 4: General application settings
+            // PAGE 4: Layout Groups Manager
+            ScrollView {
+                id: pageGroupsScrollView
+                clip: true
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                ScrollBar.vertical: StyledScrollBar {
+                    id: pageGroupsScrollBar
+                    scrollView: pageGroupsScrollView
+                }
+
+                ColumnLayout {
+                    id: viewGroupsLayout
+                    x: 24
+                    width: pageGroupsScrollView.width - 48
+                    spacing: 20
+
+                    Text {
+                        text: qsTr("LNG_00600")
+                        color: "#00f5d4"
+                        font {
+                            pixelSize: 16
+                            bold: true
+                        }
+                    }
+
+                    ViewGroupsPanel {
+                        Layout.fillWidth: true
+                    }
+                }
+            }
+
+            // PAGE 5: General application settings
             ScrollView {
                 id: page4ScrollView
                 clip: true
@@ -2767,6 +2716,131 @@ FocusScope {
                                 }
                             }
 
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 4
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 8
+
+                                    Text {
+                                        text: qsTr("LNG_00621")
+                                        color: "white"
+                                        font.pixelSize: 11
+                                        wrapMode: Text.WordWrap
+                                        Layout.fillWidth: true
+                                    }
+
+                                    Text {
+                                        text: Math.round(topBarTransparencySlider.value) + "%"
+                                        color: "#00f5d4"
+                                        font.pixelSize: 11
+                                        font.bold: true
+                                    }
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 10
+
+                                    Slider {
+                                        id: topBarTransparencySlider
+                                        Layout.fillWidth: true
+                                        Layout.preferredHeight: 24
+                                        from: 0
+                                        to: 100
+                                        stepSize: 1
+                                        value: (typeof rootWindow !== "undefined" && rootWindow) ? rootWindow.liveTopBarBgTransparency : viewSettings.topBarBgTransparency
+
+                                        Timer {
+                                            id: saveTopBarTransparencyTimer
+                                            interval: 220
+                                            repeat: false
+                                            onTriggered: {
+                                                var val = Math.round(topBarTransparencySlider.value);
+                                                if (viewSettings.topBarBgTransparency !== val) {
+                                                    viewSettings.topBarBgTransparency = val;
+                                                }
+                                                Context.writeSetting("View", "topBarBgTransparency", val);
+                                            }
+                                        }
+
+                                        background: Rectangle {
+                                            x: topBarTransparencySlider.leftPadding
+                                            y: topBarTransparencySlider.topPadding + topBarTransparencySlider.availableHeight / 2 - height / 2
+                                            width: topBarTransparencySlider.availableWidth
+                                            height: 6
+                                            radius: 3
+                                            color: "#0f151b"
+                                            border.color: "#2a3540"
+                                            border.width: 1
+
+                                            Rectangle {
+                                                width: topBarTransparencySlider.visualPosition * parent.width
+                                                height: parent.height
+                                                radius: 3
+                                                color: "#00f5d4"
+                                            }
+                                        }
+
+                                        handle: Rectangle {
+                                            x: topBarTransparencySlider.leftPadding + topBarTransparencySlider.visualPosition * (topBarTransparencySlider.availableWidth - width)
+                                            y: topBarTransparencySlider.topPadding + topBarTransparencySlider.availableHeight / 2 - height / 2
+                                            width: 16
+                                            height: 16
+                                            radius: 8
+                                            color: topBarTransparencySlider.pressed ? "#ff9a00" : (topBarTransparencySlider.hovered ? "#ffaa00" : "#ff7a00")
+                                            border.color: "#ffffff"
+                                            border.width: topBarTransparencySlider.pressed ? 2 : 1
+                                        }
+
+                                        onMoved: {
+                                            var val = Math.round(value);
+                                            if (typeof rootWindow !== "undefined" && rootWindow) {
+                                                rootWindow.liveTopBarBgTransparency = val;
+                                            }
+                                            if (pressed) {
+                                                saveTopBarTransparencyTimer.stop();
+                                            } else {
+                                                saveTopBarTransparencyTimer.restart();
+                                            }
+                                        }
+
+                                        onPressedChanged: {
+                                            if (!pressed) {
+                                                saveTopBarTransparencyTimer.stop();
+                                                var val = Math.round(value);
+                                                if (typeof rootWindow !== "undefined" && rootWindow) {
+                                                    rootWindow.liveTopBarBgTransparency = val;
+                                                }
+                                                if (viewSettings.topBarBgTransparency !== val) {
+                                                    viewSettings.topBarBgTransparency = val;
+                                                }
+                                                Context.writeSetting("View", "topBarBgTransparency", val);
+                                            }
+                                        }
+
+                                        Connections {
+                                            target: viewSettings
+                                            function onTopBarBgTransparencyChanged() {
+                                                if (!topBarTransparencySlider.pressed && Math.round(topBarTransparencySlider.value) !== viewSettings.topBarBgTransparency) {
+                                                    topBarTransparencySlider.value = viewSettings.topBarBgTransparency;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                Text {
+                                    text: qsTr("LNG_00622")
+                                    color: "#8898a6"
+                                    font.pixelSize: 10
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+                            }
+
                             CheckBox {
                                 text: qsTr("LNG_00254")
                                 checked: viewSettings.hideCursorWhenFullScreen
@@ -2845,6 +2919,20 @@ FocusScope {
                                         }
                                         verticalAlignment: Text.AlignVCenter
                                         leftPadding: 10
+                                        rightPadding: 28
+                                    }
+
+                                    indicator: Image {
+                                        x: sidebarLanguageCombo.width - width - 10
+                                        y: sidebarLanguageCombo.topPadding + (sidebarLanguageCombo.availableHeight - height) / 2
+                                        width: 12
+                                        height: 14
+                                        sourceSize.width: 12
+                                        sourceSize.height: 14
+                                        source: {
+                                            var c = (sidebarLanguageCombo.hovered || sidebarLanguageCombo.popup.visible) ? "%2300f5d4" : "%23b8c7d4";
+                                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + c + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='7 9 12 4 17 9'/><polyline points='7 15 12 20 17 15'/></svg>";
+                                        }
                                     }
 
                                     delegate: ItemDelegate {
@@ -3232,7 +3320,7 @@ FocusScope {
                                             }
                                             background: Rectangle {
                                                 color: btnBrowseSnapshot.pressed ? "#2a3540" : (btnBrowseSnapshot.hovered ? "#3a4550" : "#222c36")
-                                                radius: 4
+                                                radius: 6
                                                 border.color: "#2a3540"
                                             }
                                             onClicked: {
@@ -3296,7 +3384,7 @@ FocusScope {
                                             }
                                             background: Rectangle {
                                                 color: btnBrowseVideo.pressed ? "#2a3540" : (btnBrowseVideo.hovered ? "#3a4550" : "#222c36")
-                                                radius: 4
+                                                radius: 6
                                                 border.color: "#2a3540"
                                             }
                                             onClicked: {
@@ -3322,6 +3410,7 @@ FocusScope {
                                 CctvButton {
                                     text: qsTr("LNG_00234")
                                     isCeladon: true
+                                    cornerRadius: 6
                                     Layout.fillWidth: true
                                     onClicked: {
                                         var path = Context.sanitizePlatformPath(generalSettings.snapshotPath, Context.defaultPicturesPath());
@@ -3332,6 +3421,7 @@ FocusScope {
                                 CctvButton {
                                     text: qsTr("LNG_00233")
                                     isCeladon: true
+                                    cornerRadius: 6
                                     Layout.fillWidth: true
                                     onClicked: {
                                         var path = Context.sanitizePlatformPath(generalSettings.videoPath, Context.defaultMoviesPath());
@@ -3415,6 +3505,7 @@ FocusScope {
                                     CctvButton {
                                         Layout.fillWidth: true
                                         isCeladon: true
+                                        cornerRadius: 6
                                         text: qsTr("LNG_00229")
                                         onClicked: {
                                             var opts = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
@@ -3481,7 +3572,7 @@ FocusScope {
                         visible: pageImportExportScrollView.statusMessage !== ""
                         Layout.fillWidth: true
                         implicitHeight: statusBannerRow.implicitHeight + 20
-                        radius: 6
+                        radius: 8
                         color: pageImportExportScrollView.statusSuccess ? "#0d2924" : "#2d1215"
                         border.color: pageImportExportScrollView.statusSuccess ? "#00f5d4" : "#ff4d4d"
                         border.width: 1
@@ -3542,6 +3633,7 @@ FocusScope {
                             CctvButton {
                                 text: qsTr("LNG_00555")
                                 isCeladon: true
+                                cornerRadius: 6
                                 Layout.fillWidth: true
                                 onClicked: {
                                     if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.flushSettingsToDisk) {
@@ -3593,6 +3685,7 @@ FocusScope {
                             CctvButton {
                                 text: qsTr("LNG_00558")
                                 isCeladon: true
+                                cornerRadius: 6
                                 Layout.fillWidth: true
                                 onClicked: {
                                     var sourcePath = Context.selectImportConfigFile(qsTr("LNG_00558"), Context.configDirPath());
@@ -3648,6 +3741,7 @@ FocusScope {
                             CctvButton {
                                 text: qsTr("LNG_00560")
                                 isCeladon: true
+                                cornerRadius: 6
                                 Layout.fillWidth: true
                                 onClicked: {
                                     var dirPath = Context.configDirPath();

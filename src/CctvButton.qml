@@ -10,6 +10,7 @@ Button {
     property bool isMini: false
     property bool isTransparent: false
     property string iconSource: ""
+    property real cornerRadius: -1
     
     implicitHeight: isMini ? 24 : (isSmall ? 30 : 32)
     implicitWidth: text === "" ? implicitHeight : (leftPadding + contentItem.implicitWidth + rightPadding)
@@ -65,7 +66,7 @@ Button {
                 : (control.hovered
                     ? (control.isCeladon ? "#33f7dd" : (control.isPrimary ? "#ff8c00" : "#3a4550"))
                     : (control.isCeladon ? "#00f5d4" : (control.isPrimary ? "#ff7a00" : "#1c242c"))))
-        radius: height / 2
+        radius: control.cornerRadius >= 0 ? control.cornerRadius : height / 2
         border.color: control.isTransparent
             ? (control.hovered ? "rgba(255, 255, 255, 0.35)" : "rgba(255, 255, 255, 0.12)")
             : (control.hovered

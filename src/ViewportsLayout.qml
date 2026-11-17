@@ -48,7 +48,11 @@ FocusScope {
             player.parent = parentContainer;
 
             // Set bindings
-            player.visible = Qt.binding(function() { return root.visible && parentContainer.visible; });
+            player.visible = Qt.binding(function() {
+                var vItem = root.model ? root.model.get(index) : null;
+                var itemVis = vItem ? (vItem.visible === ViewportsLayoutItem.Visible) : true;
+                return root.effectiveVisible && itemVis;
+            });
             player.index = index;
             player.color = Qt.binding(function() { return root.color; });
             player.volume = Qt.binding(function() {
@@ -210,7 +214,34 @@ FocusScope {
     readonly property alias pressAndHoldIndex: d.pressAndHoldIndex
     readonly property alias multiselect: d.multiselect
 
+    property bool holdActiveDuringMove: false
+    readonly property bool isHostMovingLayout: (typeof rootWindow !== "undefined" && rootWindow && rootWindow.isMovingLayout) ? true : false
+    readonly property bool effectiveVisible: visible || holdActiveDuringMove
+
+    Connections {
+        target: (typeof rootWindow !== "undefined" && rootWindow) ? rootWindow : null
+        function onIsMovingLayoutChanged() {
+            if (rootWindow.isMovingLayout && root.visible) {
+                root.holdActiveDuringMove = true;
+            } else if (!rootWindow.isMovingLayout) {
+                root.holdActiveDuringMove = false;
+                if (!root.visible) {
+                    d.selectionReset();
+                    playerPool.clearPool();
+                    gc();
+                }
+            }
+        }
+    }
+
     onVisibleChanged: {
+        if (!visible && isHostMovingLayout) {
+            holdActiveDuringMove = true;
+            return;
+        }
+        if (visible) {
+            holdActiveDuringMove = false;
+        }
         d.selectionReset()
         if (!visible) {
             playerPool.clearPool();
@@ -350,7 +381,7 @@ FocusScope {
         Repeater {
             id: repeater
 
-            model: root.visible ? root.model : null
+            model: root.effectiveVisible ? root.model : null
 
             onCountChanged: {
                 if (d.fullScreenIndex >= count) {
@@ -376,7 +407,7 @@ FocusScope {
 
                 implicitWidth: (layout.width / root.size.width) * Math.max(viewport.columnSpan, 0)
                 implicitHeight: (layout.height / root.size.height) * Math.max(viewport.rowSpan, 0)
-                visible: root.visible && ((model.visible === ViewportsLayoutItem.Visible) ? true : false)
+                visible: root.effectiveVisible && ((model.visible === ViewportsLayoutItem.Visible) ? true : false)
 
                 Layout.fillHeight: true
                 Layout.fillWidth: true

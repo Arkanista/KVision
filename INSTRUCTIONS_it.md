@@ -326,6 +326,37 @@ L'apertura del menu Hamburger (Altre opzioni) fa apparire una casella degli stru
    * **Proporzioni 4:3**: adatta il contenitore della griglia al tradizionale rapporto 4:3 (comune nelle telecamere analogiche/IP di vecchia generazione).
 4. **Operazioni sulla griglia (Unisci celle evidenziate)**: accedi alla funzione di unione asimmetrica delle celle (dettagliata nella Sezione 9.2).
 
+
+### Visualizza gruppi, caselle dock pieghevoli e organizzazione drag-and-drop
+Quando si gestiscono molti layout di telecamera, i **Gruppi di layout** mantengono pulita la barra superiore raggruppando i **layout personalizzati**, le **viste NVR** e le **griglie NVR** correlate all'interno di fotogrammi comprimibili etichettati senza interrompere i flussi video in diretta o cambiare layout prematuramente.
+
+#### Creazione, ridenominazione ed eliminazione di gruppi
+1. Apri il pannello Opzioni (**{ICON:options}**) e seleziona **Gruppi di layout** (la quarta scheda sotto **Preimpostazioni**).
+2. Digita un nome nel campo **Nuovo nome gruppo...** e fai clic su **Crea gruppo** (o premi **Invio**).
+3. Fai clic su qualsiasi campo dell'intestazione di gruppo all'interno dell'elenco per modificarne il nome in linea e premi **Invio** per salvare.
+4. Fai clic sull'icona del cestino accanto a un gruppo per eliminare il contenitore del gruppo: tutti i layout all'interno rimangono al sicuro e illesi. Utilizzando **Separa tutto** si dissolve ogni gruppo mantenendo intatti tutti i layout.
+
+#### Assegnazione di layout e "Mostra anche come non raggruppati"
+* Espandi il pool inferiore **Tutti i layout** / **Non raggruppati** o qualsiasi scheda di gruppo per attivare/disattivare l'appartenenza.
+* Qualsiasi layout (**Layout**, **Vista NVR**, **Griglia NVR**) può appartenere a uno o più gruppi contemporaneamente.
+* Anche quando un layout appartiene a un gruppo, puoi attivare **Mostra anche come non raggruppati** accanto a quel layout in modo che anche un pulsante di scelta rapida autonomo aggiuntivo rimanga visibile sulla barra superiore all'esterno dei gruppi.
+
+#### Pillola compressa rispetto a frame di gruppo espanso
+* **Stato compresso**: viene visualizzato come una pillola compatta della stessa altezza di un pulsante di visualizzazione standard, mostrando l'icona della rete NVR e il nome del gruppo in maiuscolo. Se un layout all'interno di quel gruppo è attualmente attivo, il pulsante compresso diventa ciano e visualizza il **nome della vista attiva come sottotitolo più piccolo** direttamente sotto il nome del gruppo. Fai clic sulla pillola compressa per espandere gradualmente il gruppo.
+* **Stato espanso**: anima in modo fluido l'apertura in una casella dock incorniciata che mostra l'icona della rete NVR, il titolo in maiuscolo, l'attivazione/disattivazione del Pin e tutti i pulsanti di visualizzazione dei membri all'interno. Fare clic sulla freccia di compressione (`▾`) a sinistra dell'intestazione del gruppo per ripiegarla manualmente.
+
+#### Blocco del comportamento di apertura e compressione automatica ({ICON:pin})
+Ogni gruppo ha un interruttore **Compresso per impostazione predefinita** in **Gruppi di layout** che rimane sincronizzato in tempo reale con l'icona **{ICON:pin} Pin** sulla barra del titolo della barra superiore:
+* **Bloccato aperto (pin ciano verticale/"Compresso per impostazione predefinita" disattivato)**: il gruppo rimane espanso in modo permanente finché non lo comprimi manualmente o disattivi il blocco.
+* **Compresso per impostazione predefinita (pin grigio inclinato / "Compresso per impostazione predefinita" ON)**: l'espansione di un gruppo compresso per impostazione predefinita ti consente di sfogliarne temporaneamente le visualizzazioni, quindi **si comprime automaticamente** non appena fai clic in un punto qualsiasi all'esterno del gruppo, sposti il ​​cursore del mouse fuori dall'area della barra superiore, comprimi la barra superiore stessa o apri un altro gruppo compresso per impostazione predefinita. Sbloccare un gruppo già aperto lo contrassegna immediatamente come compresso per impostazione predefinita, lasciandolo aperto finché non si fa clic altrove o si lascia la barra superiore.
+
+#### Ordinamento drag-and-drop e separatori di interruzione di riga (`↵`)
+* **Sequenza principale della barra superiore**: nella parte superiore di **Impostazioni → Gruppi di layout**, trascina i chip orizzontalmente all'interno della casella **Sequenza principale della barra superiore** per impostare l'esatto ordine di visualizzazione da sinistra a destra dei pulsanti, dei gruppi e dei separatori della vista autonoma.
+* **Riordinamento dei gruppi e delle visualizzazioni interne**: trascina le schede dei gruppi verticalmente (o utilizza le frecce su/giù) per riordinare l'elenco dei gruppi ed espandi qualsiasi scheda dei gruppi in Impostazioni per trascinare i layout dei membri nell'ordine preferito. In **Preimpostazioni**, i layout possono anche essere riordinati tramite trascinamento.
+* **Aggiunta di separatori di interruzione di riga (`Add separator`)**: fare clic su **Aggiungi separatore** per inserire un chip `↵ Line break` viola in un punto qualsiasi della sequenza della barra superiore (fare clic sull'icona `×` per rimuoverlo).
+* **Regola del separatore intelligente**: quando i gruppi adiacenti accanto a un separatore vengono **compressi**, i pulsanti dei gruppi compressi rimangono insieme sulla stessa riga nell'esatto ordine configurato; una volta che uno dei lati attorno al separatore contiene un gruppo **espanso**, il separatore interrompe automaticamente le righe in modo pulito prima e/o dopo il gruppo espanso in modo che le barre degli strumenti su più righe rimangano perfettamente allineate.
+* Tutte le modifiche alla barra superiore e ai gruppi si aggiornano in tempo reale sulle schermate principale e ausiliaria (`New Window`) mantenendo i flussi delle telecamere RTSP/NVR esistenti senza intoppi.
+
 ---
 
 ## 6. Pannello Statistiche di sistema (Statistiche di sistema)
@@ -416,10 +447,14 @@ Gestore di configurazione completo per le connessioni ai dispositivi Hikvision N
 ### 4. Preimpostazioni (Icona Stella)
 Gestore per i layout della griglia salvati e le assegnazioni delle telecamere. Consente di creare modelli di griglia vuoti, modificarne l'ordine, attivarne la visibilità nella barra superiore (tramite l'interruttore "Visibile") o attivarli nella finestra corrente.
 
+### 4a. Gruppi di layout (icona Gruppi)
+Area di lavoro dedicata sotto le **Preimpostazioni** per raggruppare layout personalizzati, visualizzazioni NVR e griglie NVR in caselle di ancoraggio incorniciate e comprimibili sulla barra superiore, riordinare preimpostazioni e gruppi tramite trascinamento, configurare **Compresso per impostazione predefinita**/Predefinite pin, inserire separatori **Interruzione di riga** (`↵`) e attivare **Mostra anche come non raggruppato** (descritto passo dopo passo nella Sezione 5).
+
 ### 5. Impostazioni (icona dell'ingranaggio)
 Consente di regolare le impostazioni globali dell'applicazione:
 * **Consenti l'esecuzione di più istanze**: selezionando questa casella è possibile avviare più copie parallele del processo KVision (per impostazione predefinita, limita le esecuzioni a una singola istanza attiva).
 * **Impostazioni di compressione automatica**: personalizza i tempi di animazione scorrevole per la barra superiore e il pannello delle statistiche.
+* **Trasparenza dello sfondo della barra superiore**: regola l'opacità dello sfondo della barra superiore (`0%` = superficie scura opaca solida, `100%` = sfondo completamente trasparente), sincronizzato in tempo reale su tutte le finestre.
 * **Consenti lo scambio delle finestre**: la casella di controllo *"Consenti lo scambio delle posizioni delle viste"* consente di riorganizzare al volo le posizioni della telecamera sulla griglia (fare clic con il pulsante destro del mouse sul riquadro di origine -> Scegli "Scambia finestre" -> Fare clic con il pulsante sinistro del mouse sul riquadro di destinazione).
 * **Autorizzazioni tasto destro**: consente di bloccare/sbloccare i controlli interattivi nel menu contestuale del tasto destro (Abilita menu contestuale, Consenti scambio finestre, Abilita opzione "Rimuovi telecamera", Consenti modifica impostazioni finestra, Abilita selezione qualità flusso principale/secondario).
 * **Riattivazione automatica**: riattiva automaticamente il flusso audio della finestra attiva quando si accede alla modalità a schermo intero.

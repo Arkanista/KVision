@@ -326,6 +326,37 @@ Otevřením nabídky Hamburger (Další možnosti) se zobrazí specializovaný p
    * **Poměr stran 4:3**: Přizpůsobí mřížku na tradiční poměr stran 4:3 (běžné u starších analogových/IP kamer).
 4. **Operace mřížky (Sloučit zvýrazněné buňky)**: Přístup k funkci asymetrického slučování buněk (podrobnosti v části 9.2).
 
+
+### Zobrazit skupiny, skládací dokovací boxy a organizaci drag-and-drop
+Při správě mnoha rozvržení kamer udržují **Skupiny rozvržení** horní lištu čistou tím, že sdružují související **Vlastní rozvržení**, **Pohledy NVR** a **Mřížky NVR** do označených, sbalitelných snímků bez přerušení živého streamování videa nebo předčasného přepínání rozvržení.
+
+#### Vytváření, přejmenování a mazání skupin
+1. Otevřete panel Možnosti (**{ICON:options}**) a vyberte **Skupiny rozložení** (čtvrtá karta pod **Předvolby**).
+2. Zadejte název do pole **Název nové skupiny...** a klikněte na **Vytvořit skupinu** (nebo stiskněte **Enter**).
+3. Kliknutím na libovolné pole záhlaví skupiny v seznamu upravte jeho název a stisknutím **Enter** uložte.
+4. Kliknutím na ikonu koše vedle skupiny odstraníte kontejner skupiny – všechna rozvržení uvnitř zůstanou bezpečná a nepoškozená. Použití **Oddělit vše** rozpustí každou skupinu a zachová všechna rozvržení nedotčená.
+
+#### Přiřazení rozvržení a "Zobrazit také jako neseskupené"
+* Chcete-li přepnout členství, rozbalte spodní část **Všechna rozvržení** / **Neseskupené** nebo jakoukoli skupinovou kartu.
+* Jakékoli rozvržení (**Layout**, **NVR View**, **NVR Grid**) může patřit do jedné nebo více skupin současně.
+* I když rozvržení patří do skupiny, můžete vedle tohoto rozvržení zapnout **Zobrazit také jako neseskupené**, takže na horní liště mimo skupiny zůstane viditelné i další samostatné tlačítko zkratky.
+
+#### Sbalená pilulka vs. rozšířený skupinový rámec
+* **Sbalený stav**: Vykresluje se jako kompaktní pilulka přesně stejné výšky jako standardní tlačítko zobrazení a zobrazuje ikonu sítě NVR a název skupiny velkými písmeny. Pokud je rozvržení uvnitř této skupiny aktuálně aktivní, sbalené tlačítko se změní na azurovou a zobrazí **název aktivního zobrazení jako menší podtitul** přímo pod názvem skupiny. Kliknutím na sbalenou pilulku plynule rozbalíte skupinu.
+* **Rozbalený stav**: Plynule se animace otevírají do zarámovaného dokovacího boxu s ikonou sítě NVR, nadpisem velkými písmeny, přepínačem Pin a všemi tlačítky zobrazení členů uvnitř. Kliknutím na šipku sbalení (`▾`) nalevo od záhlaví skupiny ji ručně složíte.
+
+#### Chování připnutí otevřeného a automatického sbalení ({ICON:pin})
+Každá skupina má ve **Skupinách rozvržení** přepínač **Sbaleno ve výchozím nastavení**, který zůstává synchronizován v reálném čase s ikonou **{ICON:pin} Pin** v záhlaví horní lišty:
+* **Připnuto otevřené (svislý azurový špendlík / „Sbaleno ve výchozím nastavení“ VYPNUTO)**: Skupina zůstane trvale rozbalená, dokud ji ručně nesbalíte nebo špendlík nevypnete.
+* **Výchozí sbaleno (nakloněný šedý špendlík / „Ve výchozím nastavení sbaleno“ ZAPNUTO)**: Rozbalení výchozí sbalené skupiny vám umožní dočasně procházet její zobrazení, poté se **automaticky sbalí**, jakmile klepnete kamkoli mimo skupinu, přesunete kurzor myši mimo oblast horní lišty, sbalíte samotnou horní lištu nebo otevřete jinou výchozí sbalenou skupinu. Odepnutím již otevřené skupiny se skupina okamžitě označí jako výchozí – sbalená, zatímco zůstane otevřená, dokud nekliknete jinam nebo neopustíte horní lištu.
+
+#### Řazení drag-and-drop a oddělovače line-break (`↵`)
+* **Hlavní sekvence horního pruhu**: V horní části **Nastavení → Skupiny rozložení** přetáhněte žetony vodorovně do pole **Hlavní sekvence horního pruhu** a nastavte přesné pořadí zobrazení samostatných tlačítek, skupin a oddělovačů zleva doprava.
+* **Změna pořadí skupin a vnitřních zobrazení**: Přetažením karet skupin svisle (nebo pomocí šipek nahoru/dolů) změňte pořadí seznamu skupin a rozbalte libovolnou kartu skupiny v Nastavení a přetáhněte její rozložení členů do preferovaného pořadí. V **Předvolbách** lze uspořádání rozvržení také změnit přetažením.
+* **Přidání oddělovačů řádků (`Add separator`)**: Kliknutím na **Přidat oddělovač** vložíte fialový čip `↵ Line break` kamkoli do sekvence horního pruhu (kliknutím na jeho ikonu `×` odeberete).
+* **Pravidlo inteligentního oddělovače**: Když se sousední skupiny vedle oddělovače **sbalí**, tlačítka sbalených skupin zůstanou pohromadě na stejném řádku v přesně nakonfigurovaném pořadí; jakmile kterákoli strana kolem oddělovače obsahuje **roztaženou** skupinu, oddělovač automaticky zalomí řádky před a/nebo za rozbalenou skupinou, takže víceřádkové panely nástrojů zůstanou úhledně zarovnány.
+* Všechny změny na horní liště a skupiny se aktualizují živě na hlavní a pomocné obrazovce (`New Window`), přičemž stávající streamy z kamer RTSP/NVR běží hladce.
+
 ---
 
 ## 6. Panel statistiky systému (Statistika systému)
@@ -416,10 +447,14 @@ Kompletní konfigurační manažer pro připojení k Hikvision NVR/DVR zařízen
 ### 4. Předvolby (ikona hvězdičky)
 Správce pro vaše uložená rozvržení mřížky a přiřazení kamer. Umožňuje vytvářet prázdné šablony mřížky, měnit jejich pořadí, přepínat jejich viditelnost v horní liště (přes přepínač "Viditelné") nebo je aktivovat v aktuálním okně.
 
+### 4a. Skupiny rozvržení (ikona skupin)
+Vyhrazený pracovní prostor níže **Předvolby** pro seskupování vlastních rozvržení, zobrazení NVR a mřížky NVR do skládacích zarámovaných dokovacích boxů na horní liště, změna pořadí předvoleb a skupin pomocí přetažení, konfigurace **Sbaleno ve výchozím nastavení** / Výchozí nastavení připnutí, vkládání **zalomení řádku** oddělovačů (`↵`) také neoznačené**Skupování a přepínání v části 5).
+
 ### 5. Nastavení (ikona ozubeného kola)
 Umožňuje upravit globální nastavení aplikace:
 * **Povolit spuštění více instancí**: Zaškrtnutím tohoto políčka umožníte spouštění více paralelních kopií procesu KVision (ve výchozím nastavení omezuje spuštění na jednu aktivní instanci).
 * **Nastavení automatického sbalení**: Přizpůsobí časování posuvné animace pro horní panel a panel statistik.
+* **Průhlednost pozadí horní lišty**: Upraví neprůhlednost pozadí horní lišty (`0%` = pevný neprůhledný tmavý povrch, `100%` = plně průhledné pozadí), synchronizované živě napříč okny.
 * **Povolit záměnu výřezů**: Zaškrtávací políčko *„Povolit záměnu výřezů“* umožňuje za běhu měnit uspořádání pozic kamer na mřížce (Klikněte pravým tlačítkem na zdrojovou dlaždici -> Zvolte „Zaměnit výřezy“ -> Klikněte levým tlačítkem na cílovou dlaždici).
 * **Oprávnění po kliknutí pravým tlačítkem**: Přepne na zamknutí/odemknutí interaktivních ovládacích prvků v kontextové nabídce po kliknutí pravým tlačítkem (Povolit kontextovou nabídku, Povolit výměnu výřezů, Povolit možnost „Odebrat kameru“, Povolit změnu nastavení výřezu, Povolit výběr kvality hlavního/podřízeného streamu).
 * **Automatické ztlumení**: Automaticky zruší ztlumení zvukového proudu aktivního výřezu při přechodu do režimu celé obrazovky.

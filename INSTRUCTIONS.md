@@ -325,6 +325,36 @@ Opening the Hamburger (More Options) menu brings up a specialized layout toolbox
    * **4:3 Aspect Ratio**: Adapts the grid container to the traditional 4:3 ratio (common in legacy analog/IP cameras).
 4. **Grid Operations (Merge Highlighted Cells)**: Access the asymmetric cell merging feature (detailed in Section 9.2).
 
+### View Groups, Collapsible Dock Boxes & Drag-and-Drop Organization
+When managing many camera layouts, **Layout Groups** keep the top bar clean by bundling related **Custom Layouts**, **NVR Views**, and **NVR Grids** inside labeled, collapsible frames without interrupting live video streams or switching layouts prematurely.
+
+#### Creating, Renaming & Deleting Groups
+1. Open the Options panel (**{ICON:options}**) and select **Layout Groups** (the fourth tab below **Presets**).
+2. Type a name in the **New group name...** field and click **Create group** (or press **Enter**).
+3. Click any group header field inside the list to edit its name inline and press **Enter** to save.
+4. Click the trash icon next to a group to delete the group container — all layouts inside remain safe and unharmed. Using **Ungroup all** dissolves every group while keeping all layouts intact.
+
+#### Assigning Layouts & "Show also as ungrouped"
+* Expand the bottom **All Layouts** / **Ungrouped** pool or any group card to toggle membership.
+* Any layout (**Layout**, **NVR View**, **NVR Grid**) can belong to one or multiple groups at the same time.
+* Even when a layout belongs to a group, you can turn on **Show also as ungrouped** next to that layout so an extra standalone shortcut button also stays visible on the top bar outside the groups.
+
+#### Collapsed Pill vs. Expanded Group Frame
+* **Collapsed state**: Renders as a compact pill of the exact same height as a standard view button, showing the NVR network icon and the group name in uppercase. If a layout inside that group is currently active, the collapsed button turns cyan and displays the **active view's name as a smaller subtitle** directly underneath the group name. Click the collapsed pill to smoothly expand the group.
+* **Expanded state**: Smoothly animates open into a framed dock box displaying the NVR network icon, uppercase title, Pin toggle, and all member view buttons inside. Click the collapse chevron (`▾`) on the left of the group header to fold it back manually.
+
+#### Pinning Open & Auto-Collapse Behavior ({ICON:pin})
+Each group has a **Collapsed by default** toggle in **Layout Groups** that stays synchronized in real time with the **{ICON:pin} Pin** icon on its top-bar title bar:
+* **Pinned open (vertical cyan pin / "Collapsed by default" OFF)**: The group stays expanded permanently until you collapse it manually or toggle the pin off.
+* **Default-collapsed (tilted grey pin / "Collapsed by default" ON)**: Expanding a default-collapsed group lets you browse its views temporarily, then it **automatically collapses** as soon as you click anywhere outside the group, move the mouse cursor out of the top bar area, collapse the top bar itself, or open another default-collapsed group. Unpinning an already open group marks it as default-collapsed immediately while leaving it open until you click elsewhere or leave the top bar.
+
+#### Drag-and-Drop Ordering & Line-Break Separators (`↵`)
+* **Top-bar master sequence**: At the top of **Settings → Layout Groups**, drag chips horizontally inside the **Main top bar sequence** box to set the exact left-to-right display order of standalone view buttons, groups, and separators.
+* **Reordering groups & inner views**: Drag group cards vertically (or use the up/down arrows) to reorder the group list, and expand any group card in Settings to drag its member layouts into your preferred order.
+* **Adding Line-Break Separators (`Add separator`)**: Click **Add separator** to insert a violet `↵ Line break` chip anywhere in the top-bar sequence (click its `×` icon to remove).
+* **Smart Separator Rule**: When adjacent groups next to a separator are **collapsed**, collapsed group buttons stay together on the same row in their exact configured order; once either side around the separator contains an **expanded** group, the separator automatically breaks lines cleanly before and/or after the expanded group so multi-row toolbars stay neatly aligned.
+* All top-bar and group changes update live across main and auxiliary (`New Window`) screens while keeping existing RTSP/NVR camera streams running smoothly.
+
 ---
 
 ## 6. System Statistics Panel (System Stats)
@@ -413,12 +443,15 @@ Advanced screen grid customization options:
 Full configuration manager for connections to Hikvision NVR/DVR devices (described in detail in Section 3).
 
 ### 4. Presets (Star Icon)
-Manager for your saved grid layouts and camera assignments. Allows creating empty grid templates, changing their order, toggling their top-bar visibility (via the "Visible" switch), or activating them in the current window.
+Manager for your saved grid layouts and camera assignments. Allows creating empty grid templates, reordering layouts by **drag-and-drop**, toggling their top-bar visibility (via the "Visible" switch), or activating them in the current window.
+
+### 4a. Layout Groups (Groups Icon)
+Dedicated workspace below **Presets** for grouping custom layouts, NVR views, and NVR grids into collapsible framed dock boxes on the top bar, configuring **Collapsed by default** / Pin defaults, inserting **Line break** separators (`↵`), toggling **Show also as ungrouped**, and customizing top-bar display order via drag-and-drop (described step-by-step in Section 5).
 
 ### 5. Settings (Gear Icon)
 Allows adjusting global application settings:
 * **Allow running multiple instances**: Checking this box allows launching multiple parallel copies of the KVision process (by default, it restricts runs to a single active instance).
-* **Auto-collapse settings**: Customizes sliding animation timing for the top bar and statistics panel.
+* **Auto-collapse settings & Top bar transparency**: Customizes sliding animation timing for the top bar and statistics panel, plus the **Top bar background transparency (`0%–100%`)** slider (synced live across windows; `0%` = solid opaque dark surface, `100%` = fully transparent backdrop).
 * **Allow swapping viewports**: The checkbox *„Allow swapping viewport places”* enables you to rearrange camera positions on the grid on the fly (Right-click source tile -> Choose "Swap viewports" -> Left-click target tile).
 * **Right-click permissions**: Switches to lock/unlock interactive controls in the right-click context menu (Enable context menu, Allow swapping viewports, Enable 'Remove camera' option, Allow changing viewport settings, Enable stream Main/Sub quality selection).
 * **Auto Unmute**: Automatically unmutes the audio stream of the active viewport when entering Full Screen mode.

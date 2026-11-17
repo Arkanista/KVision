@@ -323,6 +323,36 @@ Po otwarciu panelu hamburgera (Więcej opcji) pojawia się dedykowany przybornik
    * **4:3 Aspect Ratio**: Dopasowuje siatkę do klasycznego formatu kwadratowego 4:3 (częsty dla starszych kamer analogowych/IP).
 4. **Operacje na siatce (Merge Highlighted Cells)**: Umożliwia asymetryczne scalanie komórek (szczegółowo opisane w Sekcji 9.2).
 
+### Grupy widoków, zwijane ramki na pasku górnym i sortowanie przeciąganiem
+Przy większej liczbie kamer i widoków funkcja **Grupy układów** pozwala uporządkować górny pasek narzędziowy, łącząc dowolne **Układy własne**, **Widoki NVR** i **Siatki NVR** w estetyczne, zwijane ramki z podpisem — bez przerywania aktywnego podglądu kamer.
+
+#### Tworzenie, zmiana nazwy i usuwanie grup
+1. Otwórz panel boczny opcji (**{ICON:options}**) i wybierz zakładkę **Grupy układów** (czwarta pozycja pod **Układami**).
+2. Wpisz nazwę w polu **Nazwa nowej grupy...** i kliknij **Utwórz grupę** (lub naciśnij **Enter**).
+3. Kliknij bezpośrednio pole nazwy na karcie grupy, aby zmienić jej nazwę, a następnie zatwierdź klawiszem **Enter**.
+4. Kliknięcie ikony kosza przy grupie usuwa jedynie samą grupę — przypisane do niej układy pozostają bezpiecznie zachowane. Przycisk **Rozwiąż grupę** usuwa wszystkie grupy jednocześnie, zachowując układy.
+
+#### Przypisywanie układów i przełącznik „Pokaż też jako nieprzypisany”
+* Rozwiń dolną listę **Wszystkie układy** / **Bez grupy** lub wybraną kartę grupy, aby dodawać albo usuwać układy z grupy.
+* Dowolny widok (**Układ**, **Widok NVR**, **Siatka NVR**) może należeć jednocześnie do jednej lub wielu grup.
+* Nawet jeśli układ należy już do grupy, włączenie przy nim przełącznika **Pokaż też jako nieprzypisany** sprawi, że na pasku górnym nadal będzie widoczny także jego osobny, niezależny przycisk poza grupami.
+
+#### Zwinięty przycisk grupy a rozwinięta ramka
+* **Stan zwinięty**: Przycisk zwiniętej grupy ma dokładnie taką samą wysokość jak standardowy przycisk pojedynczego widoku, wyświetla ikonę sieci NVR oraz nazwę grupy wielkimi literami. Jeżeli aktualnie włączony jest jeden z widoków znajdujących się w tej grupie, zwinięty przycisk podświetla się na turkusowo, a bezpośrednio pod nazwą grupy pojawia się **drobna, czytelna nazwa włączonego widoku**. Kliknięcie przycisku płynnie rozwija grupę.
+* **Stan rozwinięty**: Grupa płynnie animuje się do obramowanego kontenera z nagłówkiem zawierającym ikonę sieci NVR, nazwę grupy, ikonę pinezki oraz przyciski wszystkich przypisanych widoków. Kliknięcie strzałki zwijania (`▾`) po lewej stronie nagłówka ręcznie zwija grupę z powrotem do pojedynczego przycisku.
+
+#### Przypinanie pinezką i opcja „Domyślnie zwinięta” ({ICON:pin})
+Każda grupa posiada w ustawieniach przełącznik **Domyślnie zwinięta**, który jest na stałe zsynchronizowany z ikoną **{ICON:pin} pinezki** na belce tytułowej rozwiniętej grupy:
+* **Przypięta pionowo (turkusowa pinezka / opcja „Domyślnie zwinięta” WYŁĄCZONA)**: Grupa pozostaje rozwinięta na stałe aż do jej ręcznego zwinięcia strzałką (`▾`) lub odpięcia pinezką.
+* **Domyślnie zwinięta (pochylona szara pinezka / opcja „Domyślnie zwinięta” WŁĄCZONA)**: Po rozwinięciu takiej grupy możesz swobodnie korzystać z jej widoków, natomiast **zwinie się ona automatycznie**, gdy klikniesz poza jej obszar, wyjedziesz kursorem poza obszar górnego paska, zwiniesz sam pasek górny albo rozwiniesz inną grupę domyślnie zwiniętą. Kliknięcie pinezki w celu odpięcia otwartej grupy zmienia jej tryb na domyślnie zwiniętą bez natychmiastowego zamykania — zamknie się dopiero po kliknięciu w inne miejsce lub opuszczeniu paska górnego.
+
+#### Kolejność metodą przeciągnij i upuść oraz separatory nowej linii (`↵`)
+* **Kolejność nadrzędna na pasku górnym**: Na górze zakładki **Grupy układów** przeciągaj kafelki w poziomie w sekcji **Kolejność na górnym pasku**, aby ustalić dokładną kolejność niepogrupowanych widoków, całych grup oraz separatorów.
+* **Kolejność grup i widoków wewnątrz grup**: Karty grup możesz przeciągać w pionie (lub użyć strzałek ↑/↓), a po rozwinięciu karty grupy w ustawieniach możesz przeciągać poszczególne widoki wewnątrz niej. Również w samej zakładce **Układy** możesz zmieniać kolejność presetów przeciąganiem.
+* **Dodawanie separatora (`Dodaj separator`)**: Kliknij **Dodaj separator**, aby wstawić fioletowy kafelek `↵ Nowa linia` w dowolnym miejscu paska (kliknij `×` na separatorze, aby go usunąć).
+* **Zasada działania separatora**: Gdy grupy sąsiadujące z separatorem są **zwinięte**, pozostają jako przyciski w tej samej linii co pozostałe widoki z pełnym zachowaniem ustawionej kolejności; dopiero po **rozwinięciu** grupy sąsiadującej z separatorem wiersze paska rozdzielają się przed i/lub za grupą, dzięki czemu rozwinięte ramki układają się czytelnie i nie burzą układu przycisków.
+* Wszystkie zmiany w grupach i kolejności synchronizują się na żywo pomiędzy oknem głównym oraz oknami pomocniczymi (`Nowe okno`) i nie przerywają trwającego odtwarzania strumieni z kamer.
+
 ---
 
 ## 6. Panel Statystyk Systemowych (System Stats)
@@ -411,12 +441,15 @@ Zaawansowane opcje manipulacji siatką ekranu:
 Pełny menedżer konfiguracji połączeń z urządzeniami NVR/DVR Hikvision (szczegółowo opisany w Sekcji 3).
 
 ### 4. Presety (Presets - ikona gwiazdki)
-Zarządzanie zapisanymi siatkami i konfiguracjami kamer. Umożliwia tworzenie pustych presetów o zadanym rozmiarze siatki, zmianę ich kolejności, ukrywanie ich na pasku górnym (przełącznik „Visible”) oraz ich aktywowanie w bieżącym oknie.
+Zarządzanie zapisanymi siatkami i konfiguracjami kamer. Umożliwia tworzenie pustych presetów o zadanym rozmiarze siatki, zmianę ich kolejności **metodą przeciągnij i upuść**, ukrywanie ich na pasku górnym (przełącznik „Visible”) oraz ich aktywowanie w bieżącym oknie.
+
+### 4a. Grupy układów (ikona grup pod Układami)
+Dedykowany panel pozwalający grupować własne układy, widoki NVR i siatki NVR w zwijane ramki na pasku górnym, ustawiać tryb **Domyślnie zwinięta** / przypięcie pinezką, wstawiać separatory **Nowa linia** (`↵`), włączać przełącznik **Pokaż też jako nieprzypisany** oraz układać kolejność paska górnego przez przeciąganie (szczegółowa instrukcja krok po kroku w Sekcji 5).
 
 ### 5. Ustawienia Systemowe (Settings - ikona koła zębatego)
 Pozwala dostosować parametry globalne programu:
 * **Uruchamianie wielu instancji**: Opcja *„Zezwalaj na uruchamianie wielu instancji aplikacji”* pozwala na jednoczesne otwarcie wielu kopii programu (domyślnie program działa w trybie pojedynczej instancji).
-* **Automatyczne zwijanie**: Opcje regulacji zachowania autozwijania paska górnego oraz panelu statystyk.
+* **Automatyczne zwijanie i przezroczystość paska górnego**: Opcje regulacji zachowania autozwijania paska górnego oraz panelu statystyk, a także suwak **Przezroczystość tła paska górnego (`0%–100%`)** (zsynchronizowany na żywo między oknami; `0%` = pełne tło, `100%` = całkowicie przezroczyste).
 * **Zamiana kafelków miejscami**: Opcja *„Zezwalaj na zamianę kafelków miejscami”* pozwala na intuicyjne przestawianie układu kamer w siatce (klikasz prawym na kafelek źródłowy -> Wybierasz "Zamień miejscami" -> Klikasz lewym na kafelek docelowy).
 * **Zezwolenia menu podręcznego**: Zestaw przełączników pozwalający zablokować lub odblokować funkcje dostępne pod prawym przyciskiem myszy na kafelku (Włącz menu podręczne, Zezwalaj na zamianę kafelków miejscami, Włącz usuwanie kamer z siatki, Zezwalaj na edycję parametrów strumieni, Włącz szybką jakość Main/Sub).
 * **Automatyczne odciszanie**: Funkcja automatycznie odciszająca audio kamery po wejściu w tryb pełnoekranowy.

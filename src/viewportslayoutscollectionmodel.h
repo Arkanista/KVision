@@ -35,6 +35,7 @@ public:
     Q_INVOKABLE ViewportsLayoutModel *insert(int index, ViewportsLayoutModel *p);
     Q_INVOKABLE void remove(int index, int count = 1);
     Q_INVOKABLE ViewportsLayoutModel *append(ViewportsLayoutModel *p = nullptr) { return insert(m_models.size(), p); }
+    Q_INVOKABLE bool move(int from, int to);
     Q_INVOKABLE void resize(int count);
 
     Q_INVOKABLE void fromJSValue(const QVariantList &models);
@@ -52,6 +53,7 @@ private:
 signals:
     void changed();
     void countChanged(int count);
+    void layoutMoved(int from, int to);
 
 private:
     QVector<ViewportsLayoutModel*> m_models;

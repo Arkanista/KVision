@@ -20,6 +20,63 @@ ColumnLayout {
     // Map of active session IPs (IP -> bool)
     property var activeSessionIps: ({})
 
+    function resetFormFields() {
+        rootPanel.editingIndex = -1;
+        nameField.text = "";
+        ipField.text = "";
+        portField.text = "8000";
+        httpPortField.text = "80";
+        rtspPortField.text = "554";
+        userField.text = "admin";
+        passField.text = "";
+        rtspTransportField.currentIndex = 0;
+        remoteRecorderCheckBox.checked = false;
+        rootPanel.hasPortTestResult = false;
+        rootPanel.statusMessage = "";
+    }
+
+    function saveEditedRecorderWithoutDiscovery() {
+        if (editingIndex < 0 || editingIndex >= recorders.length) return;
+        if (ipField.text.trim() === "" || passField.text === "") {
+            statusColor = "#ff3333";
+            statusMessage = qsTr("LNG_00089");
+            return;
+        }
+        var oldRec = recorders[editingIndex];
+        var newIp = ipField.text.trim();
+        var sdkP = parseInt(portField.text) || 8000;
+        var httpP = parseInt(httpPortField.text) || 80;
+        var rtspP = parseInt(rtspPortField.text) || 554;
+        var rtspTransport = rtspTransportField.currentText === "TCP" ? "tcp" : (rtspTransportField.currentText === "UDP" ? "udp" : "");
+
+        var arr = recorders.slice();
+        arr[editingIndex] = {
+            name: nameField.text.trim(),
+            ip: newIp,
+            port: sdkP,
+            sdkPort: sdkP,
+            httpPort: httpP,
+            rtspPort: rtspP,
+            username: userField.text.trim(),
+            password: passField.text,
+            cameras: oldRec.cameras || [],
+            rtspTransport: rtspTransport,
+            remoteRecorder: remoteRecorderCheckBox.checked
+        };
+        recorders = arr;
+        saveRecorders();
+
+        if (oldRec.ip !== newIp) {
+            for (var j = 0; j < layoutsCollectionModel.count; ++j) {
+                var l = layoutsCollectionModel.get(j);
+                if (l && l.isNvr && l.nvrIp === oldRec.ip) {
+                    l.nvrIp = newIp;
+                }
+            }
+        }
+        resetFormFields();
+    }
+
     // Live UX feedback state
     property string statusMessage: ""
     property string statusColor: "#ff7a00"
@@ -228,17 +285,7 @@ ColumnLayout {
             }
 
             // Clear fields & status, then verify RTSP port reachability for live view diagnostics
-            nameField.text = "";
-            ipField.text = "";
-            portField.text = "8000";
-            httpPortField.text = "80";
-            rtspPortField.text = "554";
-            userField.text = "admin";
-            passField.text = "";
-            rtspTransportField.currentIndex = 0;
-            remoteRecorderCheckBox.checked = false;
-            rootPanel.hasPortTestResult = false;
-            rootPanel.statusMessage = "";
+            resetFormFields();
             rootPanel.lastDiscoveredIp = ip;
             rootPanel.lastDiscoveredRtspPort = rtspP;
             HikvisionManager.checkRtspPortAsync(ip, rtspP);
@@ -291,7 +338,7 @@ ColumnLayout {
         Layout.fillWidth: true
         background: Rectangle {
             color: "#1c242c"
-            radius: 6
+            radius: 8
             border.color: "#2a3540"
             border.width: 1
         }
@@ -539,7 +586,7 @@ ColumnLayout {
                             color: "#0f151b"
                             border.color: rtspTransportField.activeFocus ? "#ff7a00" : "#2a3540"
                             border.width: 1
-                            radius: 4
+                            radius: 6
                         }
 
                         contentItem: Text {
@@ -548,6 +595,20 @@ ColumnLayout {
                             font.pixelSize: 11
                             verticalAlignment: Text.AlignVCenter
                             leftPadding: 10
+                            rightPadding: 28
+                        }
+
+                        indicator: Image {
+                            x: rtspTransportField.width - width - 10
+                            y: rtspTransportField.topPadding + (rtspTransportField.availableHeight - height) / 2
+                            width: 12
+                            height: 14
+                            sourceSize.width: 12
+                            sourceSize.height: 14
+                            source: {
+                                var c = (rtspTransportField.hovered || rtspTransportField.popup.visible) ? "%23ff7a00" : "%23b8c7d4";
+                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + c + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='7 9 12 4 17 9'/><polyline points='7 15 12 20 17 15'/></svg>";
+                            }
                         }
 
                         delegate: ItemDelegate {
@@ -645,7 +706,7 @@ ColumnLayout {
                     color: testPortsBtn.pressed ? "#0c141b" : (testPortsBtn.hovered ? "#22303c" : "#15202b")
                     border.color: testPortsBtn.hovered ? "#00f5d4" : "#2a3540"
                     border.width: 1
-                    radius: 4
+                    radius: 6
                 }
 
                 onClicked: {
@@ -674,7 +735,7 @@ ColumnLayout {
                 Layout.fillWidth: true
                 implicitHeight: portTestResultCol.implicitHeight + 14
                 color: "#0f151b"
-                radius: 4
+                radius: 6
                 border.color: (!rootPanel.testedRtspOpen || !rootPanel.testedSdkOpen) ? "#ff4d4d" : "#2a3540"
                 border.width: 1
 
@@ -792,7 +853,7 @@ ColumnLayout {
 
                     background: Rectangle {
                         color: addBtn.pressed ? "#d66600" : (addBtn.hovered ? "#ff8c00" : "#ff7a00")
-                        radius: 4
+                        radius: 6
                     }
 
                     onClicked: {
@@ -818,6 +879,30 @@ ColumnLayout {
                 }
 
                 Button {
+                    id: saveChangesBtn
+                    text: qsTr("LNG_00632")
+                    visible: rootPanel.editingIndex !== -1
+                    implicitWidth: Math.max(96, saveChangesText.implicitWidth + 20)
+                    Layout.fillHeight: true
+
+                    contentItem: Text {
+                        id: saveChangesText
+                        text: saveChangesBtn.text
+                        font.bold: true
+                        color: "#0f151b"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+
+                    background: Rectangle {
+                        color: saveChangesBtn.pressed ? "#00c4a7" : (saveChangesBtn.hovered ? "#2effe1" : "#00f5d4")
+                        radius: 6
+                    }
+
+                    onClicked: rootPanel.saveEditedRecorderWithoutDiscovery()
+                }
+
+                Button {
                     id: cancelBtn
                     text: qsTr("LNG_00059")
                     visible: rootPanel.editingIndex !== -1
@@ -834,23 +919,10 @@ ColumnLayout {
 
                     background: Rectangle {
                         color: cancelBtn.pressed ? "#404040" : (cancelBtn.hovered ? "#505050" : "#303030")
-                        radius: 4
+                        radius: 6
                     }
 
-                    onClicked: {
-                        rootPanel.editingIndex = -1;
-                        nameField.text = "";
-                        ipField.text = "";
-                        portField.text = "8000";
-                        httpPortField.text = "80";
-                        rtspPortField.text = "554";
-                        userField.text = "admin";
-                        passField.text = "";
-                        rtspTransportField.currentIndex = 0;
-                        remoteRecorderCheckBox.checked = false;
-                        rootPanel.hasPortTestResult = false;
-                        rootPanel.statusMessage = "";
-                    }
+                    onClicked: rootPanel.resetFormFields()
                 }
             }
         }
@@ -877,38 +949,99 @@ ColumnLayout {
             model: rootPanel.recorders
             delegate: Rectangle {
                 Layout.fillWidth: true
-                height: 38
+                implicitHeight: Math.max(58, cardRow.implicitHeight + 16)
                 color: "#1c242c"
-                radius: 4
+                radius: 8
                 border.color: "#2a3540"
 
                 RowLayout {
-                    anchors.fill: parent
-                    anchors.margins: 6
-                    spacing: 8
+                    id: cardRow
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.margins: 10
+                    spacing: 12
 
                     ColumnLayout {
-                        spacing: 1
+                        spacing: 5
                         Layout.fillWidth: true
 
                         RowLayout {
-                            spacing: 6
+                            spacing: 8
                             Layout.fillWidth: true
 
                             Text {
                                 text: modelData.name ? modelData.name + " (" + modelData.ip + ")" : modelData.ip
                                 color: "white"
                                 font.bold: true
-                                font.pixelSize: 11
+                                font.pixelSize: 12
                                 elide: Text.ElideRight
-                                Layout.maximumWidth: 180
+                                Layout.fillWidth: true
                             }
 
+                            Text {
+                                text: qsTr("LNG_00086").arg(modelData.cameras ? modelData.cameras.length : 0)
+                                color: "#8898a6"
+                                font.pixelSize: 10
+                            }
+                        }
+
+                        Flow {
+                            Layout.fillWidth: true
+                            spacing: 6
+
+                            // SDK login status badge
+                            Rectangle {
+                                id: sdkStatusBadge
+                                readonly property bool loggedIn: !!(rootPanel.activeSessionIps[modelData.ip])
+                                implicitWidth: sdkStatusRow.implicitWidth + 14
+                                height: 22
+                                radius: 6
+                                color: loggedIn ? "#0e291d" : "#2c1418"
+                                border.color: loggedIn ? "#00cc55" : "#cc3344"
+                                border.width: 1
+
+                                Row {
+                                    id: sdkStatusRow
+                                    anchors.centerIn: parent
+                                    spacing: 5
+
+                                    Rectangle {
+                                        width: 7
+                                        height: 7
+                                        radius: 3.5
+                                        antialiasing: true
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        color: sdkStatusBadge.loggedIn ? "#00ff66" : "#ff4d5e"
+                                    }
+
+                                    Text {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        text: sdkStatusBadge.loggedIn ? qsTr("LNG_00085") : qsTr("LNG_00084")
+                                        color: sdkStatusBadge.loggedIn ? "#6effb0" : "#ff8a95"
+                                        font.pixelSize: 10
+                                        font.bold: true
+                                    }
+                                }
+
+                                MouseArea {
+                                    id: statusArea
+                                    anchors.fill: parent
+                                    hoverEnabled: true
+                                }
+
+                                ToolTip.delay: Compact.toolTipDelay
+                                ToolTip.timeout: Compact.toolTipTimeout
+                                ToolTip.visible: statusArea.containsMouse
+                                ToolTip.text: qsTr("LNG_00083")
+                            }
+
+                            // WAN badge
                             Rectangle {
                                 visible: !!modelData.remoteRecorder
-                                implicitWidth: wanBadgeText.implicitWidth + 8
-                                implicitHeight: 14
-                                radius: 3
+                                implicitWidth: wanBadgeText.implicitWidth + 14
+                                height: 22
+                                radius: 6
                                 color: "#122b2e"
                                 border.color: "#00f5d4"
                                 border.width: 1
@@ -918,209 +1051,169 @@ ColumnLayout {
                                     anchors.centerIn: parent
                                     text: "WAN"
                                     color: "#00f5d4"
-                                    font.pixelSize: 8
+                                    font.pixelSize: 10
                                     font.bold: true
                                 }
                             }
                         }
-                        Text {
-                            text: qsTr("LNG_00086").arg(modelData.cameras ? modelData.cameras.length : 0)
-                            color: "#8898a6"
-                            font.pixelSize: 9
-                        }
                     }
 
-                    MouseArea {
-                        id: statusArea
-                        Layout.alignment: Qt.AlignVCenter
-                        Layout.rightMargin: 4
-                        implicitWidth: statusLayout.implicitWidth
-                        implicitHeight: statusLayout.implicitHeight
-                        hoverEnabled: true
+                    // Right-aligned action buttons cluster
+                    RowLayout {
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        spacing: 6
 
-                        RowLayout {
-                            id: statusLayout
-                            anchors.fill: parent
-                            spacing: 6
+                        Button {
+                            id: webBtn
+                            implicitWidth: 30
+                            implicitHeight: 30
 
-                            Rectangle {
-                                width: 8
-                                height: 8
-                                radius: 4
-                                antialiasing: true
-                                color: (rootPanel.activeSessionIps[modelData.ip] || false) ? "#00ff66" : "#ff3333"
+                            contentItem: Image {
+                                anchors.centerIn: parent
+                                width: 16
+                                height: 16
+                                source: {
+                                    var colorStr = webBtn.hovered ? "%2300f5d4" : "%238898a6";
+                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'></path><polyline points='15 3 21 3 21 9'></polyline><line x1='10' y1='14' x2='21' y2='3'></line></svg>";
+                                }
                             }
 
-                            Text {
-                                text: (rootPanel.activeSessionIps[modelData.ip] || false) ? qsTr("LNG_00085") : qsTr("LNG_00084")
-                                color: (rootPanel.activeSessionIps[modelData.ip] || false) ? "#00ff66" : "#ff3333"
-                                font.pixelSize: 9
-                                font.bold: true
+                            background: Rectangle {
+                                color: webBtn.pressed ? "#cc121214" : (webBtn.hovered ? "#3a4550" : "#151d24")
+                                radius: 6
+                                border.color: webBtn.hovered ? "#00f5d4" : "#2a3540"
+                                border.width: 1
                             }
-                        }
 
-                        ToolTip {
-                            delay: Compact.toolTipDelay
-                            timeout: Compact.toolTipTimeout
-                            visible: statusArea.containsMouse
-                            text: qsTr("LNG_00083")
-                        }
-                    }
-
-                    Button {
-                        id: webBtn
-                        implicitWidth: 30
-                        implicitHeight: 30
-                        Layout.alignment: Qt.AlignVCenter
-
-                        contentItem: Image {
-                            anchors.centerIn: parent
-                            width: 16
-                            height: 16
-                            source: {
-                                var colorStr = webBtn.hovered ? "%2300f5d4" : "%238898a6";
-                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'></path><polyline points='15 3 21 3 21 9'></polyline><line x1='10' y1='14' x2='21' y2='3'></line></svg>";
+                            onClicked: {
+                                var hPort = modelData.httpPort || (modelData.port == 8000 ? 80 : modelData.port) || 80;
+                                var url = "http://" + modelData.ip + (hPort == 80 ? "" : ":" + hPort);
+                                Qt.openUrlExternally(url);
                             }
+
+                            ToolTip.delay: Compact.toolTipDelay
+                            ToolTip.timeout: Compact.toolTipTimeout
+                            ToolTip.visible: webBtn.hovered
+                            ToolTip.text: qsTr("LNG_00082")
                         }
 
-                        background: Rectangle {
-                            color: webBtn.pressed ? "#cc121214" : (webBtn.hovered ? "#3a4550" : "#1c242c")
-                            radius: 15
-                            border.color: webBtn.hovered ? "#00f5d4" : "#2a3540"
-                            border.width: 1
-                        }
+                        Button {
+                            id: listBtn
+                            implicitWidth: 30
+                            implicitHeight: 30
 
-                        onClicked: {
-                            var hPort = modelData.httpPort || (modelData.port == 8000 ? 80 : modelData.port) || 80;
-                            var url = "http://" + modelData.ip + (hPort == 80 ? "" : ":" + hPort);
-                            Qt.openUrlExternally(url);
-                        }
-
-                        ToolTip.delay: Compact.toolTipDelay
-                        ToolTip.timeout: Compact.toolTipTimeout
-                        ToolTip.visible: webBtn.hovered
-                        ToolTip.text: qsTr("LNG_00082")
-                    }
-
-                    Button {
-                        id: listBtn
-                        implicitWidth: 30
-                        implicitHeight: 30
-                        Layout.alignment: Qt.AlignVCenter
-
-                        contentItem: Image {
-                            anchors.centerIn: parent
-                            width: 16
-                            height: 16
-                            source: {
-                                var colorStr = listBtn.hovered ? "%2300f5d4" : "%238898a6";
-                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='3' width='20' height='14' rx='2' ry='2'></rect><line x1='8' y1='21' x2='16' y2='21'></line><line x1='12' y1='17' x2='12' y2='21'></line></svg>";
+                            contentItem: Image {
+                                anchors.centerIn: parent
+                                width: 16
+                                height: 16
+                                source: {
+                                    var colorStr = listBtn.hovered ? "%2300f5d4" : "%238898a6";
+                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='3' width='20' height='14' rx='2' ry='2'></rect><line x1='8' y1='21' x2='16' y2='21'></line><line x1='12' y1='17' x2='12' y2='21'></line></svg>";
+                                }
                             }
-                        }
 
-                        background: Rectangle {
-                            color: listBtn.pressed ? "#cc121214" : (listBtn.hovered ? "#3a4550" : "#1c242c")
-                            radius: 15
-                            border.color: listBtn.hovered ? "#00f5d4" : "#2a3540"
-                            border.width: 1
-                        }
-
-                        onClicked: {
-                            rootPanel.openCamerasWindow(modelData);
-                        }
-
-                        ToolTip.delay: Compact.toolTipDelay
-                        ToolTip.timeout: Compact.toolTipTimeout
-                        ToolTip.visible: listBtn.hovered
-                        ToolTip.text: qsTr("LNG_00081")
-                    }
-
-                    Button {
-                        id: editBtn
-                        implicitWidth: 30
-                        implicitHeight: 30
-                        Layout.alignment: Qt.AlignVCenter
-
-                        contentItem: Image {
-                            anchors.centerIn: parent
-                            width: 16
-                            height: 16
-                            source: {
-                                var colorStr = editBtn.hovered ? "%23ff7a00" : "%238898a6";
-                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='16 3 21 8 8 21 3 21 3 16 16 3'></polygon></svg>";
+                            background: Rectangle {
+                                color: listBtn.pressed ? "#cc121214" : (listBtn.hovered ? "#3a4550" : "#151d24")
+                                radius: 6
+                                border.color: listBtn.hovered ? "#00f5d4" : "#2a3540"
+                                border.width: 1
                             }
-                        }
 
-                        background: Rectangle {
-                            color: editBtn.pressed ? "#cc121214" : (editBtn.hovered ? "#3a4550" : "#1c242c")
-                            radius: 15
-                            border.color: editBtn.hovered ? "#ff7a00" : "#2a3540"
-                            border.width: 1
-                        }
-
-                        onClicked: {
-                            // Populate input fields for editing
-                            nameField.text = modelData.name || "";
-                            ipField.text = modelData.ip;
-                            portField.text = modelData.sdkPort || modelData.port || "8000";
-                            httpPortField.text = modelData.httpPort || (modelData.port == 8000 ? "80" : modelData.port) || "80";
-                            rtspPortField.text = modelData.rtspPort || "554";
-                            userField.text = modelData.username;
-                            passField.text = modelData.password;
-                            
-                            if (modelData.rtspTransport === "tcp") {
-                                rtspTransportField.currentIndex = 1;
-                            } else if (modelData.rtspTransport === "udp") {
-                                rtspTransportField.currentIndex = 2;
-                            } else {
-                                rtspTransportField.currentIndex = 0;
+                            onClicked: {
+                                rootPanel.openCamerasWindow(modelData);
                             }
-                            remoteRecorderCheckBox.checked = !!modelData.remoteRecorder;
-                            rootPanel.hasPortTestResult = false;
-                            rootPanel.statusMessage = "";
-                            
-                            rootPanel.editingIndex = index;
+
+                            ToolTip.delay: Compact.toolTipDelay
+                            ToolTip.timeout: Compact.toolTipTimeout
+                            ToolTip.visible: listBtn.hovered
+                            ToolTip.text: qsTr("LNG_00081")
                         }
 
-                        ToolTip.delay: Compact.toolTipDelay
-                        ToolTip.timeout: Compact.toolTipTimeout
-                        ToolTip.visible: editBtn.hovered
-                        ToolTip.text: qsTr("LNG_00080")
-                    }
+                        Button {
+                            id: editBtn
+                            implicitWidth: 30
+                            implicitHeight: 30
 
-                    Button {
-                        id: delBtn
-                        implicitWidth: 30
-                        implicitHeight: 30
-                        Layout.alignment: Qt.AlignVCenter
-
-                        contentItem: Image {
-                            anchors.centerIn: parent
-                            width: 16
-                            height: 16
-                            source: {
-                                var colorStr = delBtn.hovered ? "%23ff4d4d" : "%238898a6";
-                                return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 6 5 6 21 6'></polyline><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path><line x1='10' y1='11' x2='10' y2='17'></line><line x1='14' y1='11' x2='14' y2='17'></line></svg>";
+                            contentItem: Image {
+                                anchors.centerIn: parent
+                                width: 16
+                                height: 16
+                                source: {
+                                    var colorStr = editBtn.hovered ? "%23ff7a00" : "%238898a6";
+                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='16 3 21 8 8 21 3 21 3 16 16 3'></polygon></svg>";
+                                }
                             }
+
+                            background: Rectangle {
+                                color: editBtn.pressed ? "#cc121214" : (editBtn.hovered ? "#3a4550" : "#151d24")
+                                radius: 6
+                                border.color: editBtn.hovered ? "#ff7a00" : "#2a3540"
+                                border.width: 1
+                            }
+
+                            onClicked: {
+                                // Populate input fields for editing
+                                nameField.text = modelData.name || "";
+                                ipField.text = modelData.ip;
+                                portField.text = modelData.sdkPort || modelData.port || "8000";
+                                httpPortField.text = modelData.httpPort || (modelData.port == 8000 ? "80" : modelData.port) || "80";
+                                rtspPortField.text = modelData.rtspPort || "554";
+                                userField.text = modelData.username;
+                                passField.text = modelData.password;
+
+                                if (modelData.rtspTransport === "tcp") {
+                                    rtspTransportField.currentIndex = 1;
+                                } else if (modelData.rtspTransport === "udp") {
+                                    rtspTransportField.currentIndex = 2;
+                                } else {
+                                    rtspTransportField.currentIndex = 0;
+                                }
+                                remoteRecorderCheckBox.checked = !!modelData.remoteRecorder;
+                                rootPanel.hasPortTestResult = false;
+                                rootPanel.statusMessage = "";
+
+                                rootPanel.editingIndex = index;
+                            }
+
+                            ToolTip.delay: Compact.toolTipDelay
+                            ToolTip.timeout: Compact.toolTipTimeout
+                            ToolTip.visible: editBtn.hovered
+                            ToolTip.text: qsTr("LNG_00080")
                         }
 
-                        background: Rectangle {
-                            color: delBtn.pressed ? "#cc121214" : (delBtn.hovered ? "#3a4550" : "#1c242c")
-                            radius: 15
-                            border.color: delBtn.hovered ? "#ff4d4d" : "#2a3540"
-                            border.width: 1
-                        }
+                        Button {
+                            id: delBtn
+                            implicitWidth: 30
+                            implicitHeight: 30
 
-                        onClicked: {
-                            deleteConfirmDialog1.targetIndex = index;
-                            deleteConfirmDialog1.targetIp = modelData.ip;
-                            deleteConfirmDialog1.open();
-                        }
+                            contentItem: Image {
+                                anchors.centerIn: parent
+                                width: 16
+                                height: 16
+                                source: {
+                                    var colorStr = delBtn.hovered ? "%23ff4d4d" : "%238898a6";
+                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 6 5 6 21 6'></polyline><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path><line x1='10' y1='11' x2='10' y2='17'></line><line x1='14' y1='11' x2='14' y2='17'></line></svg>";
+                                }
+                            }
 
-                        ToolTip.delay: Compact.toolTipDelay
-                        ToolTip.timeout: Compact.toolTipTimeout
-                        ToolTip.visible: delBtn.hovered
-                        ToolTip.text: qsTr("LNG_00079")
+                            background: Rectangle {
+                                color: delBtn.pressed ? "#cc121214" : (delBtn.hovered ? "#3a4550" : "#151d24")
+                                radius: 6
+                                border.color: delBtn.hovered ? "#ff4d4d" : "#2a3540"
+                                border.width: 1
+                            }
+
+                            onClicked: {
+                                deleteConfirmDialog1.targetIndex = index;
+                                deleteConfirmDialog1.targetIp = modelData.ip;
+                                deleteConfirmDialog1.open();
+                            }
+
+                            ToolTip.delay: Compact.toolTipDelay
+                            ToolTip.timeout: Compact.toolTipTimeout
+                            ToolTip.visible: delBtn.hovered
+                            ToolTip.text: qsTr("LNG_00079")
+                        }
                     }
                 }
             }

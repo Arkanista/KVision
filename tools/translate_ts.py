@@ -14,10 +14,13 @@ JSON format for --json:
 """
 
 import argparse
+import concurrent.futures
 import json
 import re
 import subprocess
+import threading
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -54,20 +57,20 @@ GOOGLE_LANG_MAP = {
 }
 
 
+_PRINT_LOCK = threading.Lock()
+_PREFERRED_ENDPOINT_IDX = 0
+_ENDPOINT_LOCK = threading.Lock()
+
+
+def _log(msg: str) -> None:
+    with _PRINT_LOCK:
+        print(msg, flush=True)
+
+
 def google_translate(text: str, target_lang: str, source_lang: str = "en") -> str:
     """Translate text via Google Translate public endpoints with retries."""
+    global _PREFERRED_ENDPOINT_IDX
     endpoints = [
-        (
-            "https://translate.googleapis.com/translate_a/single?"
-            + urllib.parse.urlencode({
-                "client": "gtx",
-                "sl": source_lang,
-                "tl": target_lang,
-                "dt": "t",
-                "q": text,
-            }),
-            lambda data: "".join(part[0] for part in data[0] if part[0]),
-        ),
         (
             "https://clients5.google.com/translate_a/t?"
             + urllib.parse.urlencode({
@@ -85,9 +88,24 @@ def google_translate(text: str, target_lang: str, source_lang: str = "en") -> st
                 )
             ),
         ),
+        (
+            "https://translate.googleapis.com/translate_a/single?"
+            + urllib.parse.urlencode({
+                "client": "gtx",
+                "sl": source_lang,
+                "tl": target_lang,
+                "dt": "t",
+                "q": text,
+            }),
+            lambda data: "".join(part[0] for part in data[0] if part[0]),
+        ),
     ]
     for attempt in range(5):
-        for endpoint_url, parser in endpoints:
+        with _ENDPOINT_LOCK:
+            start_idx = _PREFERRED_ENDPOINT_IDX
+        order = [endpoints[(start_idx + i) % len(endpoints)] for i in range(len(endpoints))]
+        for offset, (endpoint_url, parser) in enumerate(order):
+            actual_idx = (start_idx + offset) % len(endpoints)
             try:
                 req = urllib.request.Request(
                     endpoint_url,
@@ -97,12 +115,17 @@ def google_translate(text: str, target_lang: str, source_lang: str = "en") -> st
                     data = json.loads(resp.read().decode("utf-8"))
                 result = parser(data).strip()
                 if result:
+                    with _ENDPOINT_LOCK:
+                        _PREFERRED_ENDPOINT_IDX = actual_idx
                     return result
                 raise ValueError("Empty translation returned")
+            except urllib.error.HTTPError as exc:
+                if exc.code != 429:
+                    _log(f"  Attempt {attempt + 1} failed for {target_lang}: {exc}.")
             except Exception as exc:
-                print(f"  Attempt {attempt + 1} failed for {target_lang}: {exc}.")
-        wait_s = (attempt + 1) * 2
-        print(f"  Retrying {target_lang} in {wait_s}s...")
+                _log(f"  Attempt {attempt + 1} failed for {target_lang}: {exc}.")
+        wait_s = (attempt + 1) * 1.5
+        _log(f"  Retrying {target_lang} in {wait_s:.1f}s...")
         time.sleep(wait_s)
     raise RuntimeError(f"Failed to translate to {target_lang} after 5 attempts")
 
@@ -209,6 +232,28 @@ def upsert_messages(
     return count
 
 
+def sync_existing_keys_contexts(ts_path: Path, keys: list[str], detected_contexts: dict[str, list[str]]) -> int:
+    """Propagate existing translations for keys into their detected QML <context> blocks."""
+    tree = ET.parse(ts_path)
+    root = tree.getroot()
+    entries: dict[str, str] = {}
+    key_contexts: dict[str, list[str]] = {}
+    wanted = set(keys)
+    for ctx in root.findall("context"):
+        for msg in ctx.findall("message"):
+            src = msg.find("source")
+            trn = msg.find("translation")
+            if src is not None and src.text in wanted and trn is not None and trn.text:
+                if src.text not in entries:
+                    entries[src.text] = trn.text
+    for key in keys:
+        if key in entries and detected_contexts.get(key):
+            key_contexts[key] = detected_contexts[key]
+    if not entries:
+        return 0
+    return upsert_messages(ts_path, entries, key_contexts)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Translate KVision .ts files using Google Translate API")
     parser.add_argument("--id", help="Single key ID (e.g. LNG_00587)")
@@ -216,10 +261,23 @@ def main() -> None:
     parser.add_argument("--pl", help="Polish text for --id (optional; uses Google Translate if omitted)")
     parser.add_argument("--context", help="Comma-separated Qt <context> name(s) for --id (auto-detected from src/ if omitted)")
     parser.add_argument("--json", help="Path to JSON file containing list of {id, en, pl?, contexts?} objects")
+    parser.add_argument("--sync-keys", help="Comma-separated existing key IDs to propagate into detected QML contexts without re-translating")
     parser.add_argument("--compile", action="store_true", help="Run lrelease translations/*.ts after updating")
     args = parser.parse_args()
 
     detected_contexts = detect_qml_contexts()
+    if args.sync_keys:
+        sync_keys = [k.strip() for k in args.sync_keys.split(",") if k.strip()]
+        for ts_path in sorted(TRANS_DIR.glob("*.ts")):
+            n = sync_existing_keys_contexts(ts_path, sync_keys, detected_contexts)
+            print(f"Synced {n} key contexts in {ts_path.name}")
+        if args.compile and not args.json and not (args.id and args.en):
+            ts_files = sorted(str(p) for p in TRANS_DIR.glob("*.ts"))
+            subprocess.run(["lrelease", *ts_files], check=True)
+            print("Compiled .qm files with lrelease.")
+        if not args.json and not (args.id and args.en):
+            return
+
     items = []
     if args.json:
         items = json.loads(Path(args.json).read_text(encoding="utf-8"))
@@ -227,7 +285,7 @@ def main() -> None:
         explicit_ctx = [c.strip() for c in args.context.split(",") if c.strip()] if args.context else None
         items = [{"id": args.id, "en": args.en, "pl": args.pl, "contexts": explicit_ctx}]
     else:
-        parser.error("Provide either --json or both --id and --en")
+        parser.error("Provide either --json, --sync-keys, or both --id and --en")
 
     key_contexts: dict[str, list[str]] = {}
     for item in items:
@@ -254,17 +312,26 @@ def main() -> None:
         n = upsert_messages(pl_path, pl_entries, key_contexts)
         print(f"Updated {n} entries in {PL_FILE}")
 
-    for fname, lang_code in GOOGLE_LANG_MAP.items():
+    def _translate_one_language(fname: str, lang_code: str) -> tuple[str, str, int]:
         path = TRANS_DIR / fname
         if not path.exists():
-            print(f"Skipping missing {fname}")
-            continue
+            _log(f"Skipping missing {fname}")
+            return (fname, lang_code, 0)
         translated = {}
         for item in items:
             translated[item["id"]] = google_translate(item["en"], lang_code)
-            time.sleep(0.2)
         n = upsert_messages(path, translated, key_contexts)
-        print(f"Translated {n} entries -> {fname} ({lang_code})")
+        _log(f"Translated {n} entries -> {fname} ({lang_code})")
+        return (fname, lang_code, n)
+
+    if GOOGLE_LANG_MAP:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(GOOGLE_LANG_MAP)) as pool:
+            futures = [
+                pool.submit(_translate_one_language, fname, lang_code)
+                for fname, lang_code in GOOGLE_LANG_MAP.items()
+            ]
+            for fut in concurrent.futures.as_completed(futures):
+                fut.result()
 
     if args.compile:
         ts_files = sorted(str(p) for p in TRANS_DIR.glob("*.ts"))

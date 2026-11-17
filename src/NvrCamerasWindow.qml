@@ -79,10 +79,24 @@ Window {
             Layout.fillWidth: true
             spacing: 10
 
-            Text {
-                text: "📹"
-                font.pixelSize: 18
-                color: "#00f5d4"
+            Image {
+                width: 24
+                height: 24
+                sourceSize.width: 24
+                sourceSize.height: 24
+                Layout.alignment: Qt.AlignVCenter
+                source: "data:image/svg+xml;utf8," +
+                        "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'>" +
+                        "<rect x='2' y='6' width='20' height='11' rx='2' stroke='%23c7d4df' stroke-width='2'/>" +
+                        "<line x1='2' y1='12.5' x2='22' y2='12.5' stroke='%23c7d4df' stroke-width='1.3'/>" +
+                        "<circle cx='5.5' cy='9.2' r='1.2' fill='%2300f5d4'/>" +
+                        "<circle cx='8.5' cy='9.2' r='1.0' fill='%23c7d4df'/>" +
+                        "<line x1='12' y1='9.2' x2='19' y2='9.2' stroke='%23c7d4df' stroke-width='1.7' stroke-linecap='round'/>" +
+                        "<line x1='5' y1='14.8' x2='9' y2='14.8' stroke='%23c7d4df' stroke-width='1.4' stroke-linecap='round'/>" +
+                        "<line x1='15' y1='14.8' x2='19' y2='14.8' stroke='%23c7d4df' stroke-width='1.4' stroke-linecap='round'/>" +
+                        "<line x1='5.5' y1='17' x2='5.5' y2='19.2' stroke='%23c7d4df' stroke-width='2' stroke-linecap='round'/>" +
+                        "<line x1='18.5' y1='17' x2='18.5' y2='19.2' stroke='%23c7d4df' stroke-width='2' stroke-linecap='round'/>" +
+                        "</svg>"
             }
 
             ColumnLayout {
@@ -107,12 +121,12 @@ Window {
 
             Button {
                 id: generateThumbnailsBtn
-                width: 40
-                height: 40
+                implicitWidth: 38
+                implicitHeight: 38
 
                 background: Rectangle {
                     color: generateThumbnailsBtn.pressed ? "#00ccb0" : (generateThumbnailsBtn.hovered ? "#33ffd2" : "#00f5d4")
-                    radius: 20
+                    radius: 6
                     border.color: generateThumbnailsBtn.hovered ? "white" : "#00ccb0"
                     border.width: 1
 
@@ -221,7 +235,7 @@ Window {
                                 id: tile
                                 anchors.fill: parent
                                 color: tileMouseArea.containsMouse ? "#1500f5d4" : "#1c242c"
-                                radius: 6
+                                radius: 8
                                 border.color: tileMouseArea.containsMouse ? "#00f5d4" : "#2a3540"
                                 border.width: 1
                                 clip: true
@@ -414,7 +428,7 @@ Window {
 
                                         background: Rectangle {
                                             color: addBtn.pressed ? "#cc121214" : (addBtn.hovered ? "#3a4550" : "#d51c242c")
-                                            radius: 17
+                                            radius: 6
                                             border.color: addBtn.hovered ? "#00ff66" : "#2a3540"
                                             border.width: 1
                                         }
@@ -458,7 +472,7 @@ Window {
 
                                         background: Rectangle {
                                             color: editNameBtn.pressed ? "#cc121214" : (editNameBtn.hovered ? "#3a4550" : "#d51c242c")
-                                            radius: 17
+                                            radius: 6
                                             border.color: editNameBtn.hovered ? "#ff7a00" : "#2a3540"
                                             border.width: 1
                                         }
@@ -491,7 +505,7 @@ Window {
 
                                         background: Rectangle {
                                             color: refreshBtn.pressed ? "#cc121214" : (refreshBtn.hovered ? "#3a4550" : "#d51c242c")
-                                            radius: 17
+                                            radius: 6
                                             border.color: refreshBtn.hovered ? "#00c8ff" : "#2a3540"
                                             border.width: 1
                                         }
@@ -694,7 +708,7 @@ Window {
                     }
                     background: Rectangle {
                         color: resetBtn.pressed ? "#2a3540" : (resetBtn.hovered ? "#3a4550" : "#222c36")
-                        radius: 4
+                        radius: 6
                         border.color: "#2a3540"
                     }
                     onClicked: {
@@ -721,7 +735,7 @@ Window {
                      }
                      background: Rectangle {
                          color: cancelBtn.pressed ? "#2a3540" : (cancelBtn.hovered ? "#3a4550" : "#222c36")
-                         radius: 4
+                         radius: 6
                          border.color: "#2a3540"
                      }
                      onClicked: editNameDialog.reject()
@@ -742,7 +756,7 @@ Window {
                      }
                      background: Rectangle {
                          color: saveBtn.pressed ? "#00ccb0" : (saveBtn.hovered ? "#00ffd8" : "#00f5d4")
-                         radius: 4
+                         radius: 6
                      }
                      onClicked: {
                          var cid = editNameDialog.targetChannelId;

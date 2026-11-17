@@ -59,6 +59,10 @@ ApplicationWindow {
         repeat: false
         onTriggered: {
             if (rootWindow.isSyncing) return;
+            if (!Context.isAuxiliary) {
+                rootWindow.lastSavedCurrentIndex = stackLayout.currentIndex;
+                Context.writeSetting("MainLayout", "currentIndex", stackLayout.currentIndex);
+            }
             var json = JSON.stringify(layoutsCollectionModel.toJSValue());
             rootWindow.lastSavedModelsJson = json;
             layoutsCollectionSettings.models = json;
@@ -129,6 +133,8 @@ ApplicationWindow {
     }
 
     property alias hikvisionRecordersJson: hikvisionSettings.recordersJson
+    property alias viewGroupOrderJson: layoutsCollectionSettings.groupOrder
+    property alias viewGroupMetaJson: layoutsCollectionSettings.groupMeta
     property alias layoutRepeater: layoutRepeater
     property alias layoutIndex: stackLayout.currentIndex
     property alias generalSettings: generalSettings
@@ -218,25 +224,340 @@ ApplicationWindow {
         fileName: Context.config.fileName
         category: "Hikvision"
         property string recordersJson: "[]"
-        onRecordersJsonChanged: NvrStatusManager.onRecordersChanged()
+        onRecordersJsonChanged: {
+            NvrStatusManager.onRecordersChanged();
+            Qt.callLater(rootWindow.rebuildTopBarEntries);
+        }
     }
 
+    readonly property string ungroupedOrderKey: "__UNGROUPED__"
+    property var topBarSections: []
+    property var topBarEntries: []
+    property string _topBarEntriesSig: ""
+    property bool hasAnyGroupedViews: false
+    property bool isMovingLayout: false
+    property var movingActiveLayoutModel: null
+    property int lastSavedCurrentIndex: -1
 
-    function getRecorderName(ip) {
+    function findRecorderByIp(ip) {
+        var needle = String(ip || "").trim();
+        if (needle === "") return null;
         try {
             var list = JSON.parse(hikvisionSettings.recordersJson);
             for (var i = 0; i < list.length; ++i) {
-                if (list[i].ip === ip) {
-                    if (list[i].name && list[i].name.trim() !== "") {
-                        return list[i].name;
-                    }
-                    break;
+                if (String(list[i].ip || "").trim() === needle) {
+                    return list[i];
                 }
             }
         } catch(e) {
             console.log("[RootWindow Error] Failed to parse recorders JSON:", e);
         }
+        return null;
+    }
+
+    function resolveLayoutNvrIp(layout) {
+        if (!layout) return "";
+        if (layout.nvrIp && String(layout.nvrIp).trim() !== "") {
+            return String(layout.nvrIp).trim();
+        }
+        if (layout.isNvr) {
+            for (var i = 0; i < layout.count(); ++i) {
+                var vp = layout.get(i);
+                if (vp && vp.url && String(vp.url).indexOf("hikvision://") === 0) {
+                    var rest = String(vp.url).substring(12);
+                    var slash = rest.indexOf("/");
+                    var ipPart = slash !== -1 ? rest.substring(0, slash) : rest;
+                    if (ipPart.trim() !== "") {
+                        return ipPart.trim();
+                    }
+                }
+            }
+        }
+        return "";
+    }
+
+    function getRecorderName(ip) {
+        var rec = findRecorderByIp(ip);
+        if (rec && rec.name && rec.name.trim() !== "") {
+            return rec.name;
+        }
         return ip;
+    }
+
+    function remapIndexAfterMove(cur, from, to) {
+        if (cur < 0) return cur;
+        if (cur === from) return to;
+        if (from < cur && cur <= to) return cur - 1;
+        if (to <= cur && cur < from) return cur + 1;
+        return cur;
+    }
+
+    function moveLayout(from, to) {
+        if (from < 0 || to < 0 || from >= layoutsCollectionModel.count || to >= layoutsCollectionModel.count || from === to) {
+            return false;
+        }
+        var newIdx = remapIndexAfterMove(stackLayout.currentIndex, from, to);
+        movingActiveLayoutModel = (stackLayout.currentIndex >= 0 && stackLayout.currentIndex < layoutsCollectionModel.count)
+                                  ? layoutsCollectionModel.get(stackLayout.currentIndex)
+                                  : null;
+        isMovingLayout = true;
+        var ok = layoutsCollectionModel.move(from, to);
+        if (ok && newIdx !== stackLayout.currentIndex) {
+            stackLayout.currentIndex = newIdx;
+        }
+        if (ok && !Context.isAuxiliary) {
+            lastSavedCurrentIndex = stackLayout.currentIndex;
+            Context.writeSetting("MainLayout", "currentIndex", stackLayout.currentIndex);
+        }
+        isMovingLayout = false;
+        movingActiveLayoutModel = null;
+        return ok;
+    }
+
+    function formatLayoutViewLabel(layoutIndex, layout) {
+        if (layout) {
+            if (layout.name && layout.name.trim() !== "") {
+                return layout.name;
+            }
+            if (layout.isNvr) {
+                return getRecorderName(resolveLayoutNvrIp(layout));
+            }
+            var count = 1;
+            for (var i = 0; i < layoutIndex; ++i) {
+                var l = layoutsCollectionModel.get(i);
+                if (l && !l.isNvr) count++;
+            }
+            return "Widok " + count;
+        }
+        return "Widok " + (layoutIndex + 1);
+    }
+
+    function getViewGroupMeta() {
+        try {
+            var parsed = JSON.parse(layoutsCollectionSettings.groupMeta || "{}");
+            if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+                return parsed;
+            }
+        } catch(e) {}
+        return ({});
+    }
+
+    function setViewGroupMeta(metaObj) {
+        var json = JSON.stringify(metaObj || ({}));
+        if (layoutsCollectionSettings.groupMeta !== json) {
+            layoutsCollectionSettings.groupMeta = json;
+        }
+        Context.writeSetting("ViewportsLayoutsCollection", "groupMeta", json);
+        Qt.callLater(rootWindow.rebuildTopBarEntries);
+    }
+
+    function setGroupCollapsedByDefault(groupName, collapsed) {
+        var g = String(groupName || "").trim();
+        if (g === "") return;
+        var next = Object.assign({}, getViewGroupMeta());
+        var entry = next[g] ? Object.assign({}, next[g]) : ({});
+        entry.collapsedByDefault = !!collapsed;
+        next[g] = entry;
+        setViewGroupMeta(next);
+    }
+
+    function getViewGroupOrder() {
+        try {
+            var parsed = JSON.parse(layoutsCollectionSettings.groupOrder || "[]");
+            if (Array.isArray(parsed)) {
+                var out = [];
+                var seen = Object.create(null);
+                for (var i = 0; i < parsed.length; ++i) {
+                    var g = String(parsed[i] || "").trim();
+                    if (g === "") continue;
+                    // Normalize legacy bare group names (except __UNGROUPED__ and prefixed tokens)
+                    if (g !== ungroupedOrderKey && g.indexOf("group:") !== 0 && g.indexOf("layout:") !== 0 && g.indexOf("sep:") !== 0) {
+                        g = "group:" + g;
+                    }
+                    if (!seen[g]) {
+                        seen[g] = true;
+                        out.push(g);
+                    }
+                }
+                return out;
+            }
+        } catch(e) {}
+        return [];
+    }
+
+    function setViewGroupOrder(orderArray) {
+        var clean = [];
+        var seen = Object.create(null);
+        if (Array.isArray(orderArray)) {
+            for (var i = 0; i < orderArray.length; ++i) {
+                var g = String(orderArray[i] || "").trim();
+                if (g !== "" && !seen[g]) {
+                    seen[g] = true;
+                    clean.push(g);
+                }
+            }
+        }
+        var json = JSON.stringify(clean);
+        if (layoutsCollectionSettings.groupOrder !== json) {
+            layoutsCollectionSettings.groupOrder = json;
+        }
+        Context.writeSetting("ViewportsLayoutsCollection", "groupOrder", json);
+        Qt.callLater(rootWindow.rebuildTopBarEntries);
+    }
+
+    function resolveTopLevelTokens() {
+        var ungroupedMap = Object.create(null);
+        var ungroupedList = [];
+        var groupMap = Object.create(null);
+        var discoveredGroups = [];
+        for (var i = 0; i < layoutsCollectionModel.count; ++i) {
+            var layout = layoutsCollectionModel.get(i);
+            if (!layout || !layout.visible) {
+                continue;
+            }
+            var uid = String(layout.uid || "");
+            if (uid === "") {
+                uid = "idx_" + i;
+            }
+            var showNvrIcon = !!(layout.isNvr && (!layout.name || layout.name.trim() === ""));
+            var label = formatLayoutViewLabel(i, layout);
+            var rawGroups = layout.groups ? layout.groups : [];
+            for (var gIdx = 0; gIdx < rawGroups.length; ++gIdx) {
+                var grp = String(rawGroups[gIdx] || "").trim();
+                if (grp === "") continue;
+                if (!groupMap[grp]) {
+                    groupMap[grp] = [];
+                    discoveredGroups.push(grp);
+                }
+                groupMap[grp].push({
+                    layoutIndex: i,
+                    label: label,
+                    showNvrIcon: showNvrIcon
+                });
+            }
+            if (layout.showUngrouped !== false) {
+                var layoutTok = "layout:" + uid;
+                var lObj = {
+                    token: layoutTok,
+                    uid: uid,
+                    layoutIndex: i,
+                    label: label,
+                    showNvrIcon: showNvrIcon
+                };
+                ungroupedMap[layoutTok] = lObj;
+                ungroupedList.push(lObj);
+            }
+        }
+
+        return {
+            ungroupedMap: ungroupedMap,
+            ungroupedList: ungroupedList,
+            groupMap: groupMap,
+            discoveredGroups: discoveredGroups
+        };
+    }
+
+    function rebuildTopBarEntries() {
+        var resolved = resolveTopLevelTokens();
+        var ungroupedMap = resolved.ungroupedMap;
+        var ungroupedList = resolved.ungroupedList;
+        var groupMap = resolved.groupMap;
+        var discoveredGroups = resolved.discoveredGroups;
+        var meta = getViewGroupMeta();
+
+        var preferredOrder = getViewGroupOrder();
+        var sectionList = [];
+        var addedTokens = Object.create(null);
+        var hasExplicitLayoutTokens = false;
+        for (var c = 0; c < preferredOrder.length; ++c) {
+            if (preferredOrder[c].indexOf("layout:") === 0) {
+                hasExplicitLayoutTokens = true;
+                break;
+            }
+        }
+
+        function appendGroup(grpName) {
+            var gTok = "group:" + grpName;
+            if (addedTokens[gTok] || !groupMap[grpName]) return;
+            addedTokens[gTok] = true;
+            var gMeta = meta[grpName] || ({});
+            sectionList.push({
+                sectionType: "group",
+                itemType: "group",
+                key: gTok,
+                isGroup: true,
+                groupName: grpName,
+                collapsedByDefault: !!gMeta.collapsedByDefault,
+                items: groupMap[grpName]
+            });
+        }
+
+        function appendLayout(uObj) {
+            if (!uObj || addedTokens[uObj.token]) return;
+            addedTokens[uObj.token] = true;
+            sectionList.push({
+                sectionType: "layout",
+                itemType: "layout",
+                key: uObj.token,
+                uid: uObj.uid,
+                isGroup: false,
+                layoutIndex: uObj.layoutIndex,
+                label: uObj.label,
+                showNvrIcon: uObj.showNvrIcon
+            });
+        }
+
+        // If config had no ungrouped anchor and no explicit layout tokens yet, place ungrouped items first
+        if (!hasExplicitLayoutTokens && preferredOrder.indexOf(ungroupedOrderKey) === -1) {
+            for (var u0 = 0; u0 < ungroupedList.length; ++u0) {
+                appendLayout(ungroupedList[u0]);
+            }
+        }
+
+        for (var p = 0; p < preferredOrder.length; ++p) {
+            var pk = preferredOrder[p];
+            if (pk === ungroupedOrderKey) {
+                for (var u1 = 0; u1 < ungroupedList.length; ++u1) {
+                    if (preferredOrder.indexOf(ungroupedList[u1].token) === -1) {
+                        appendLayout(ungroupedList[u1]);
+                    }
+                }
+            } else if (pk.indexOf("layout:") === 0) {
+                if (ungroupedMap[pk]) {
+                    appendLayout(ungroupedMap[pk]);
+                }
+            } else if (pk.indexOf("group:") === 0) {
+                var grpName = pk.substring(6);
+                appendGroup(grpName);
+            } else if (pk.indexOf("sep:") === 0) {
+                if (!addedTokens[pk]) {
+                    addedTokens[pk] = true;
+                    sectionList.push({
+                        sectionType: "separator",
+                        itemType: "separator",
+                        key: pk,
+                        isGroup: false,
+                        isSeparator: true
+                    });
+                }
+            }
+        }
+
+        // Append newly added ungrouped layouts and discovered groups not yet in groupOrder
+        for (var u2 = 0; u2 < ungroupedList.length; ++u2) {
+            appendLayout(ungroupedList[u2]);
+        }
+        for (var d = 0; d < discoveredGroups.length; ++d) {
+            appendGroup(discoveredGroups[d]);
+        }
+
+        hasAnyGroupedViews = discoveredGroups.length > 0;
+        var sig = JSON.stringify(sectionList);
+        if (sig !== _topBarEntriesSig) {
+            _topBarEntriesSig = sig;
+            topBarSections = sectionList;
+            topBarEntries = sectionList;
+        }
     }
 
     Timer {
@@ -383,14 +704,17 @@ ApplicationWindow {
                 generalSettings.enableDiagnosticLogs = diskEnableDiagnosticLogs;
             }
             if (!Context.isAuxiliary) {
-                var diskCurrentIndex = Context.readSetting("MainLayout", "currentIndex", windowLayoutSettings.currentIndex);
-                if (layoutsCollectionModel.count > 0) {
+                var diskCurrentIndex = parseInt(Context.readSetting("MainLayout", "currentIndex", windowLayoutSettings.currentIndex), 10);
+                if (!isNaN(diskCurrentIndex) && layoutsCollectionModel.count > 0) {
                     var clampedIdx = diskCurrentIndex.clamp(0, layoutsCollectionModel.count - 1);
-                    if (windowLayoutSettings.currentIndex !== clampedIdx) {
-                        windowLayoutSettings.currentIndex = clampedIdx;
-                    }
-                    if (stackLayout.currentIndex !== clampedIdx) {
-                        stackLayout.currentIndex = clampedIdx;
+                    if (clampedIdx !== rootWindow.lastSavedCurrentIndex) {
+                        rootWindow.lastSavedCurrentIndex = clampedIdx;
+                        if (windowLayoutSettings.currentIndex !== clampedIdx) {
+                            windowLayoutSettings.currentIndex = clampedIdx;
+                        }
+                        if (stackLayout.currentIndex !== clampedIdx) {
+                            stackLayout.currentIndex = clampedIdx;
+                        }
                     }
                 }
             }
@@ -431,6 +755,15 @@ ApplicationWindow {
             if (diskTopBarPersistenceMs > 10000) diskTopBarPersistenceMs = 10000;
             if (viewSettings.topBarPersistenceMs !== diskTopBarPersistenceMs) {
                 viewSettings.topBarPersistenceMs = diskTopBarPersistenceMs;
+            }
+            var diskTopBarBgTransparency = parseInt(Context.readSetting("View", "topBarBgTransparency", 40));
+            if (isNaN(diskTopBarBgTransparency) || diskTopBarBgTransparency < 0) diskTopBarBgTransparency = 0;
+            if (diskTopBarBgTransparency > 100) diskTopBarBgTransparency = 100;
+            if (viewSettings.topBarBgTransparency !== diskTopBarBgTransparency) {
+                viewSettings.topBarBgTransparency = diskTopBarBgTransparency;
+            }
+            if (rootWindow.liveTopBarBgTransparency !== diskTopBarBgTransparency) {
+                rootWindow.liveTopBarBgTransparency = diskTopBarBgTransparency;
             }
             var diskDisableViewportZoomAnimation = Context.readSetting("View", "disableViewportZoomAnimation", false);
             if (viewSettings.disableViewportZoomAnimation !== diskDisableViewportZoomAnimation) {
@@ -523,6 +856,18 @@ ApplicationWindow {
                 layoutsCollectionSettings.defaultAVFormatOptions = diskDefaultAVFormatOptions;
             }
 
+            var diskGroupOrder = Context.readSetting("ViewportsLayoutsCollection", "groupOrder", "[]");
+            if (layoutsCollectionSettings.groupOrder !== diskGroupOrder) {
+                layoutsCollectionSettings.groupOrder = diskGroupOrder;
+                Qt.callLater(rootWindow.rebuildTopBarEntries);
+            }
+
+            var diskGroupMeta = Context.readSetting("ViewportsLayoutsCollection", "groupMeta", "{}");
+            if (layoutsCollectionSettings.groupMeta !== diskGroupMeta) {
+                layoutsCollectionSettings.groupMeta = diskGroupMeta;
+                Qt.callLater(rootWindow.rebuildTopBarEntries);
+            }
+
 
             // 6. Check and live-reload Application Language
             var diskLang = Context.readSetting("", "language", "system");
@@ -543,7 +888,11 @@ ApplicationWindow {
         category: "ViewportsLayoutsCollection"
 
         property string models
+        property string groupOrder: "[]"
+        property string groupMeta: "{}"
         property string defaultAVFormatOptions: "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\",\"stimeout\":5000000,\"rtsp_transport\":\"tcp\"}"
+        onGroupOrderChanged: Qt.callLater(rootWindow.rebuildTopBarEntries)
+        onGroupMetaChanged: Qt.callLater(rootWindow.rebuildTopBarEntries)
 
         function toJSValue(key) {
             var obj = {};
@@ -557,6 +906,8 @@ ApplicationWindow {
             return obj;
         }
     }
+
+    property int liveTopBarBgTransparency: 40
 
     Settings {
         id: viewSettings
@@ -572,7 +923,10 @@ ApplicationWindow {
         property bool showTopBarByDefault: true
         property int topBarTriggerHeight: 12
         property int topBarPersistenceMs: 500
+        property int topBarBgTransparency: 40
         property bool disableViewportZoomAnimation: false
+        onTopBarBgTransparencyChanged: rootWindow.liveTopBarBgTransparency = topBarBgTransparency
+        Component.onCompleted: rootWindow.liveTopBarBgTransparency = topBarBgTransparency
     }
 
     Settings {
@@ -701,7 +1055,16 @@ ApplicationWindow {
             size: Qt.size(1, 1)
         }
 
-        onCountChanged: stackLayout.currentIndex = stackLayout.currentIndex.clamp(0, layoutsCollectionModel.count - 1)
+        onCountChanged: {
+            stackLayout.currentIndex = stackLayout.currentIndex.clamp(0, layoutsCollectionModel.count - 1);
+            Qt.callLater(rootWindow.rebuildTopBarEntries);
+        }
+        onLayoutMoved: {
+            if (!rootWindow.isMovingLayout) {
+                stackLayout.currentIndex = rootWindow.remapIndexAfterMove(stackLayout.currentIndex, from, to);
+            }
+            Qt.callLater(rootWindow.rebuildTopBarEntries);
+        }
         Component.onCompleted: {
             // Demo streams
             get(0).get(0).url = "rtmp://live.a71.ru/demo/0";
@@ -747,9 +1110,11 @@ ApplicationWindow {
             rootWindow.lastSavedModelsJson = initialModels;
 
             layoutsCollectionModel.changed.connect(function () {
+                Qt.callLater(rootWindow.rebuildTopBarEntries);
                 if (rootWindow.isSyncing) return;
                 saveTimer.restart();
             });
+            rootWindow.rebuildTopBarEntries();
 
             if (Context.isAuxiliary) {
                 stackLayout.currentIndex = -1;
@@ -757,6 +1122,7 @@ ApplicationWindow {
                 // Force initialize "currentIndex" if option "-p" is set
                 var currentIndex = (Context.config.currentIndex >= 0) ? Context.config.currentIndex : windowLayoutSettings.currentIndex;
                 stackLayout.currentIndex = currentIndex.clamp(0, layoutsCollectionModel.count - 1);
+                rootWindow.lastSavedCurrentIndex = stackLayout.currentIndex;
             }
         }
     }
@@ -767,9 +1133,10 @@ ApplicationWindow {
     EventFilter {
         id: topBarPointerFilter
         target: rootWindow
-        eventTypes: ["MouseMove", "Leave"]
+        eventTypes: ["MouseMove", "MouseButtonRelease", "Leave"]
         onEventFiltered: {
             if (properties.type === "Leave") {
+                viewsArea.clearPointer();
                 if (rootWindow.pointerInTopBar) {
                     rootWindow.pointerInTopBar = false;
                     if (rootWindow.topBarAutoCollapse && !hoverArea.containsMouse) {
@@ -778,10 +1145,15 @@ ApplicationWindow {
                 }
                 return;
             }
+            if (properties.type === "MouseButtonRelease") {
+                viewsArea.scheduleSceneClick(properties.x, properties.y);
+                return;
+            }
             var mx = properties.x;
             var my = properties.y;
             var insideTopTrigger = (my >= 0 && my <= viewSettings.topBarTriggerHeight);
             var insideBar = topToolBar.containsPointInWindow(mx, my);
+            viewsArea.updatePointerScenePos(mx, my, insideBar);
             var nowInside = insideTopTrigger || insideBar;
             if (nowInside !== rootWindow.pointerInTopBar) {
                 rootWindow.pointerInTopBar = nowInside;
@@ -819,7 +1191,7 @@ ApplicationWindow {
         readonly property real radiusVal: 12
         readonly property real leftSectionHeight: 56
         readonly property bool hasGridExtension: !generalSettings.lockGridSize
-        readonly property real leftSectionWidth: 12 + topRowLayout.implicitWidth + (hasGridExtension ? 4 : (repeaterViews.count > 0 ? 4 : 12))
+        readonly property real leftSectionWidth: 12 + topRowLayout.implicitWidth + (hasGridExtension ? 4 : (viewsArea.hasAnyViews ? 4 : 12))
 
         readonly property real gridButtonSize: 30
         readonly property real gridSpacing: 4
@@ -836,13 +1208,13 @@ ApplicationWindow {
         // Wrapping threshold: wrap dynamically when hitting available width or a comfortable ratio
         readonly property real maxViewsWidth: Math.max(150, Math.min(availViewsWidth, Math.max(500, rootWindow.width * 0.55)))
 
-        readonly property real contentViewsWidth: Math.ceil(viewsFlow.contentMaxRight > 0 ? viewsFlow.contentMaxRight : viewsFlow.childrenRect.width)
-        readonly property real contentViewsHeight: Math.ceil(viewsFlow.childrenRect.height)
+        readonly property real contentViewsWidth: Math.ceil(viewsArea.contentWidth)
+        readonly property real contentViewsHeight: Math.ceil(viewsArea.contentHeight)
 
-        readonly property real viewsSectionHeight: repeaterViews.count > 0 ? Math.max(56, contentViewsHeight + 26) : leftSectionHeight
-        readonly property bool hasExtension: repeaterViews.count > 0 && viewsSectionHeight > leftSectionHeight
-        readonly property real viewsSectionWidth: repeaterViews.count > 0 ? (contentViewsWidth + (hasExtension ? 22 : 16)) : 0
-        readonly property real endHeight: repeaterViews.count > 0 ? viewsSectionHeight : gridSectionHeight
+        readonly property real viewsSectionHeight: viewsArea.hasAnyViews ? Math.max(56, contentViewsHeight + 26) : leftSectionHeight
+        readonly property bool hasExtension: viewsArea.hasAnyViews && viewsSectionHeight > leftSectionHeight
+        readonly property real viewsSectionWidth: viewsArea.hasAnyViews ? (contentViewsWidth + (hasExtension ? 22 : 16)) : 0
+        readonly property real endHeight: viewsArea.hasAnyViews ? viewsSectionHeight : gridSectionHeight
 
         height: Math.max(leftSectionHeight, Math.max(gridSectionHeight, viewsSectionHeight))
         width: xViews + viewsSectionWidth
@@ -856,7 +1228,7 @@ ApplicationWindow {
             if (lx < 0 || lx > topToolBar.width || ly < 0) {
                 return false;
             }
-            if (repeaterViews.count > 0 && lx >= topToolBar.xViews) {
+            if (viewsArea.hasAnyViews && lx >= topToolBar.xViews) {
                 return ly <= topToolBar.viewsSectionHeight;
             }
             if (topToolBar.hasGridExtension && lx >= topToolBar.xGrid) {
@@ -867,7 +1239,8 @@ ApplicationWindow {
 
         // Slides down to y: -12 so that the top 12px (containing top rounded corners) is off-screen,
         // leaving only the bottom rounded corners visible at the top edge of the window.
-        y: (!rootWindow.topBarAutoCollapse || hoverArea.containsMouse || rootWindow.pointerInTopBar || keepVisibleTimer.running) ? -12 : -height
+        readonly property bool isShown: !rootWindow.topBarAutoCollapse || hoverArea.containsMouse || rootWindow.pointerInTopBar || keepVisibleTimer.running
+        y: isShown ? -12 : -height
 
         Behavior on y {
             NumberAnimation {
@@ -893,7 +1266,7 @@ ApplicationWindow {
                 readonly property real x2: topToolBar.xViews
                 readonly property real r: topToolBar.radiusVal
 
-                readonly property bool hasStepV: repeaterViews.count > 0 && Math.abs(h3 - h2) > 0.5
+                readonly property bool hasStepV: viewsArea.hasAnyViews && Math.abs(h3 - h2) > 0.5
                 readonly property bool stepVUp: h3 > h2
                 readonly property real crV: hasStepV ? Math.min(r, Math.abs(h3 - h2) / 2) : 0.01
 
@@ -904,7 +1277,7 @@ ApplicationWindow {
 
                 strokeWidth: -1
                 strokeColor: "transparent"
-                fillColor: (rootWindow.visibility === Window.FullScreen) ? "#44121214" : "#99121214"
+                fillColor: Qt.rgba(0x12 / 255.0, 0x12 / 255.0, 0x14 / 255.0, Math.max(0.0, Math.min(1.0, (100 - rootWindow.liveTopBarBgTransparency) / 100.0)))
                 capStyle: ShapePath.RoundCap
                 joinStyle: ShapePath.RoundJoin
 
@@ -1030,7 +1403,7 @@ ApplicationWindow {
             y: 0
             width: topToolBar.viewsSectionWidth
             height: topToolBar.viewsSectionHeight
-            visible: repeaterViews.count > 0
+            visible: viewsArea.hasAnyViews
             hoverEnabled: true
             acceptedButtons: Qt.AllButtons
             onWheel: wheel.accepted = true
@@ -1640,7 +2013,7 @@ ApplicationWindow {
             width: 1
             height: 20
             color: "#2a3540"
-            visible: repeaterViews.count > 0
+            visible: viewsArea.hasAnyViews
         }
 
         Item {
@@ -1649,132 +2022,26 @@ ApplicationWindow {
             y: 12
             width: topToolBar.contentViewsWidth
             height: topToolBar.contentViewsHeight + 14
-            visible: repeaterViews.count > 0
+            visible: viewsArea.hasAnyViews
 
-            Flow {
-                id: viewsFlow
+            TopBarViewsArea {
+                id: viewsArea
                 anchors.top: parent.top
                 anchors.topMargin: 7
                 anchors.left: parent.left
-                width: topToolBar.maxViewsWidth
-                spacing: 4
-                property real contentMaxRight: 0
-
-                function alignRowsRight() {
-                    var rows = [];
-                    var maxW = 0;
-                    for (var i = 0; i < children.length; ++i) {
-                        var c = children[i];
-                        if (!c || !c.visible || c.width <= 0) {
-                            continue;
-                        }
-                        var ry = Math.round(c.y);
-                        var rowObj = null;
-                        for (var r = 0; r < rows.length; ++r) {
-                            if (Math.abs(rows[r].y - ry) < 2) {
-                                rowObj = rows[r];
-                                break;
-                            }
-                        }
-                        if (!rowObj) {
-                            rowObj = { y: ry, items: [], width: 0 };
-                            rows.push(rowObj);
-                        }
-                        rowObj.items.push(c);
+                sections: rootWindow.topBarSections
+                currentLayoutIndex: stackLayout.currentIndex
+                maxFlowWidth: topToolBar.maxViewsWidth
+                alignRight: true
+                barVisible: topToolBar.isShown
+                onActivateLayout: function(layoutIndex) {
+                    if (stackLayout.currentIndex === layoutIndex) {
+                        stackLayout.currentIndex = -1;
                     }
-                    for (var r2 = 0; r2 < rows.length; ++r2) {
-                        var ro = rows[r2];
-                        var rw = 0;
-                        for (var j = 0; j < ro.items.length; ++j) {
-                            rw += ro.items[j].width;
-                            if (j > 0) rw += spacing;
-                        }
-                        ro.width = rw;
-                        if (rw > maxW) maxW = rw;
-                    }
-                    contentMaxRight = maxW;
-                    for (var r3 = 0; r3 < rows.length; ++r3) {
-                        var row = rows[r3];
-                        var curX = maxW - row.width;
-                        for (var k = 0; k < row.items.length; ++k) {
-                            row.items[k].x = curX;
-                            curX += row.items[k].width + spacing;
-                        }
-                    }
+                    stackLayout.currentIndex = layoutIndex;
                 }
-
-                onPositioningComplete: alignRowsRight()
-
-                Repeater {
-                    id: repeaterViews
-                    model: layoutsCollectionModel
-                    delegate: Button {
-                        id: viewBtn
-                        property int layoutIndex: model.index
-
-                        visible: {
-                            try {
-                                var layout = model.layoutModel;
-                                if (layout) {
-                                    return layout.visible;
-                                }
-                            } catch(e) {}
-                            return true;
-                        }
-
-                        text: {
-                            try {
-                                var layout = model.layoutModel;
-                                if (layout) {
-                                    if (layout.name && layout.name.trim() !== "") {
-                                        return layout.name;
-                                    }
-                                    if (layout.isNvr) {
-                                        return "📹 " + getRecorderName(layout.nvrIp);
-                                    } else {
-                                        var count = 1;
-                                        for (var i = 0; i < layoutIndex; ++i) {
-                                            var l = layoutsCollectionModel.get(i);
-                                            if (l && !l.isNvr) count++;
-                                        }
-                                        return "Widok " + count;
-                                    }
-                                }
-                            } catch(e) {}
-                            return "Widok " + (layoutIndex + 1);
-                        }
-
-                        height: 30
-                        Layout.preferredHeight: 30
-                        leftPadding: 12
-                        rightPadding: 12
-
-                        // Highlight if this is the currently active view!
-                        property bool isActive: stackLayout.currentIndex === layoutIndex
-
-                        contentItem: Text {
-                            text: viewBtn.text.toUpperCase()
-                            font.bold: true
-                            font.pixelSize: 10
-                            color: viewBtn.isActive ? "#121214" : (viewBtn.hovered ? "#ffffff" : "#8898a6")
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                        }
-
-                        background: Rectangle {
-                            color: viewBtn.isActive ? "#00f5d4" : (viewBtn.pressed ? "#cc121214" : (viewBtn.hovered ? "#3a4550" : "#1c242c"))
-                            radius: 15
-                            border.color: viewBtn.isActive ? "#00f5d4" : (viewBtn.hovered ? "#8898a6" : "#2a3540")
-                            border.width: 1
-                        }
-
-                        onClicked: {
-                            if (stackLayout.currentIndex === layoutIndex) {
-                                stackLayout.currentIndex = -1;
-                            }
-                            stackLayout.currentIndex = layoutIndex;
-                        }
-                    }
+                onSetGroupCollapsedByDefault: function(groupName, collapsed) {
+                    rootWindow.setGroupCollapsedByDefault(groupName, collapsed);
                 }
             }
         }
@@ -1931,14 +2198,18 @@ ApplicationWindow {
             }
         }
 
-        StackLayout {
+        Item {
             id: stackLayout
 
             visible: false
-            currentIndex: -1
+            property int currentIndex: -1
+            readonly property int count: layoutRepeater.count
             anchors.fill: parent
 
             onCurrentIndexChanged: {
+                if (!rootWindow.isMovingLayout && !rootWindow.isSyncing && !Context.isAuxiliary) {
+                    rootWindow.lastSavedCurrentIndex = currentIndex;
+                }
                 windowLayoutSettings.currentIndex = currentIndex;
                 rootWindow.triggerGcDeferred();
             }
@@ -1948,8 +2219,12 @@ ApplicationWindow {
                 model: layoutsCollectionModel
 
                 ViewportsLayout {
+                    anchors.fill: parent
                     model: layoutModel
-                    focus: true
+                    visible: rootWindow.isMovingLayout
+                             ? (model === rootWindow.movingActiveLayoutModel)
+                             : (index === stackLayout.currentIndex)
+                    focus: visible
                 }
             }
         }
@@ -2075,6 +2350,8 @@ ApplicationWindow {
         Context.writeSetting("Hikvision", "recordersJson", hikvisionSettings.recordersJson);
 
         Context.writeSetting("ViewportsLayoutsCollection", "models", modelsJson);
+        Context.writeSetting("ViewportsLayoutsCollection", "groupOrder", layoutsCollectionSettings.groupOrder);
+        Context.writeSetting("ViewportsLayoutsCollection", "groupMeta", layoutsCollectionSettings.groupMeta);
         Context.writeSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", layoutsCollectionSettings.defaultAVFormatOptions);
 
         Context.writeSetting("View", "hideCursorWhenFullScreen", viewSettings.hideCursorWhenFullScreen);
@@ -2085,6 +2362,7 @@ ApplicationWindow {
         Context.writeSetting("View", "showTopBarByDefault", viewSettings.showTopBarByDefault);
         Context.writeSetting("View", "topBarTriggerHeight", viewSettings.topBarTriggerHeight);
         Context.writeSetting("View", "topBarPersistenceMs", viewSettings.topBarPersistenceMs);
+        Context.writeSetting("View", "topBarBgTransparency", viewSettings.topBarBgTransparency);
         Context.writeSetting("View", "disableViewportZoomAnimation", viewSettings.disableViewportZoomAnimation);
 
         Context.writeSetting("Viewport", "noUnmuteWhenFullScreen", viewportSettings.noUnmuteWhenFullScreen);

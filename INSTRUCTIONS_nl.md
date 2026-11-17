@@ -326,6 +326,37 @@ Als u het Hamburger-menu (Meer opties) opent, verschijnt een gespecialiseerde la
    * **4:3-beeldverhouding**: past de rastercontainer aan de traditionele 4:3-verhouding aan (gebruikelijk bij oudere analoge/IP-camera's).
 4. **Rasterbewerkingen (gemarkeerde cellen samenvoegen)**: toegang tot de asymmetrische functie voor het samenvoegen van cellen (gedetailleerd in paragraaf 9.2).
 
+
+### Bekijk groepen, opvouwbare dockboxen en drag-and-drop-organisatie
+Bij het beheren van veel camera-indelingen houden **Lay-outgroepen** de bovenste balk overzichtelijk door gerelateerde **Aangepaste lay-outs**, **NVR-weergaven** en **NVR-rasters** te bundelen in gelabelde, samenvouwbare frames zonder live videostreams te onderbreken of voortijdig van lay-out te wisselen.
+
+#### Groepen maken, hernoemen en verwijderen
+1. Open het paneel Opties (**{ICON:options}**) en selecteer **Lay-outgroepen** (het vierde tabblad onder **Voorinstellingen**).
+2. Typ een naam in het veld **Nieuwe groepsnaam...** en klik op **Groep maken** (of druk op **Enter**).
+3. Klik op een groepskopveld in de lijst om de naam inline te bewerken en druk op **Enter** om op te slaan.
+4. Klik op het prullenbakpictogram naast een groep om de groepscontainer te verwijderen; alle lay-outs binnenin blijven veilig en ongedeerd. Door **Alles degroeperen** te gebruiken, wordt elke groep opgeheven, terwijl alle lay-outs intact blijven.
+
+#### Lay-outs toewijzen en "Ook weergeven als niet-gegroepeerd"
+* Vouw de onderste pool **Alle lay-outs** / **Niet-gegroepeerde** of een groepskaart uit om het lidmaatschap in of uit te schakelen.
+* Elke lay-out (**Lay-out**, **NVR-weergave**, **NVR-raster**) kan tegelijkertijd tot één of meerdere groepen behoren.
+* Zelfs als een layout bij een groep hoort, kun je **Toon ook als niet-gegroepeerd** naast die layout aanzetten, zodat er ook buiten de groepen een extra zelfstandige snelknop zichtbaar blijft op de bovenste balk.
+
+#### Ingestorte pil versus uitgebreid groepsframe
+* **Samengevouwen status**: wordt weergegeven als een compacte pil met exact dezelfde hoogte als een standaardweergaveknop, waarbij het NVR-netwerkpictogram en de groepsnaam in hoofdletters worden weergegeven. Als er momenteel een lay-out binnen die groep actief is, wordt de samengevouwen knop cyaan en wordt de **naam van de actieve weergave weergegeven als een kleinere ondertitel** direct onder de groepsnaam. Klik op de samengevouwen pil om de groep soepel uit te vouwen.
+* **Uitgebreide status**: Geanimeerd openen in een ingelijste dockbox met daarin het NVR-netwerkpictogram, de titel in hoofdletters, de pin-schakelaar en alle ledenweergaveknoppen. Klik op de samengevouwen chevron (`▾`) links van de groepskop om deze handmatig terug te vouwen.
+
+#### Gedrag bij openen en automatisch samenvouwen vastzetten ({ICON:pin})
+Elke groep heeft een schakelaar **Standaard samengevouwen** in **Lay-outgroepen** die in realtime gesynchroniseerd blijft met het pictogram **{ICON:pin} Pin** op de titelbalk bovenaan:
+* **Opengezet (verticale cyaan pin / "Standaard samengevouwen" UIT)**: de groep blijft permanent uitgevouwen totdat u deze handmatig samenvouwt of de pin uitschakelt.
+* **Standaard samengevouwen (gekantelde grijze punaise / "Standaard samengevouwen" AAN)**: als u een standaard samengevouwen groep uitbreidt, kunt u tijdelijk door de weergaven bladeren, waarna deze **automatisch samenvouwt** zodra u ergens buiten de groep klikt, de muiscursor uit het bovenste balkgebied beweegt, de bovenste balk zelf samenvouwt of een andere standaard samengevouwen groep opent. Als u een reeds geopende groep losmaakt, wordt deze onmiddellijk als standaard samengevouwen gemarkeerd, terwijl deze open blijft totdat u ergens anders klikt of de bovenste balk verlaat.
+
+#### Bestellen via slepen en neerzetten en scheidingstekens voor regeleinden (`↵`)
+* **Hoofdreeks bovenaan **: Sleep bovenaan **Instellingen → Indelingsgroepen** de chips horizontaal in het vak **Hoofdreeks bovenaan de balk** om de exacte weergavevolgorde van links naar rechts in te stellen van zelfstandige weergaveknoppen, groepen en scheidingstekens.
+* **Groepen en innerlijke weergaven opnieuw ordenen**: Sleep groepskaarten verticaal (of gebruik de pijlen omhoog/omlaag) om de groepslijst opnieuw te ordenen, en vouw elke groepskaart uit in Instellingen om de ledenlay-outs naar de gewenste volgorde te slepen. In **Voorinstellingen** kunnen lay-outs ook opnieuw worden gerangschikt via slepen en neerzetten.
+* **Lijnscheidingstekens toevoegen (`Add separator`)**: Klik op **Scheidingstekens toevoegen** om een ​​violette `↵ Line break`-chip ergens in de bovenste balkreeks in te voegen (klik op het `×`-pictogram om te verwijderen).
+* **Slimme scheidingsregel**: wanneer aangrenzende groepen naast een scheidingsteken **samengevouwen** zijn, blijven de samengevouwen groepsknoppen bij elkaar in dezelfde rij in de exact geconfigureerde volgorde; Zodra een van de zijden rond het scheidingsteken een **uitgebreide** groep bevat, breekt het scheidingsteken automatisch de lijnen netjes af voor en/of na de uitgevouwen groep, zodat werkbalken met meerdere rijen netjes uitgelijnd blijven.
+* Alle wijzigingen in de bovenste balk en groepen worden live bijgewerkt op het hoofd- en hulpscherm (`New Window`), terwijl bestaande RTSP/NVR-camerastreams soepel blijven werken.
+
 ---
 
 ## 6. Paneel Systeemstatistieken (Systeemstatistieken)
@@ -416,10 +447,14 @@ Volledige configuratiemanager voor verbindingen met Hikvision NVR/DVR-apparaten 
 ### 4. Voorinstellingen (sterpictogram)
 Manager voor uw opgeslagen rasterindelingen en cameratoewijzingen. Maakt het mogelijk om lege rastersjablonen te maken, de volgorde ervan te wijzigen, de zichtbaarheid in de bovenste balk te wijzigen (via de schakelaar "Zichtbaar") of ze in het huidige venster te activeren.
 
+### 4a. Lay-outgroepen (groepspictogram)
+Speciale werkruimte onder **Voorinstellingen** voor het groeperen van aangepaste lay-outs, NVR-weergaven en NVR-rasters in inklapbare dockboxen met frame op de bovenste balk, het opnieuw ordenen van voorinstellingen en groepen via slepen en neerzetten, het configureren van **Standaard samengevouwen** / standaardinstellingen voor vastzetten, het invoegen van **Lijneinde**-scheidingstekens (`↵`) en het in- en uitschakelen van **Ook weergeven als niet-gegroepeerd** (stapsgewijs beschreven in sectie 5).
+
 ### 5. Instellingen (tandwielpictogram)
 Maakt het mogelijk om algemene applicatie-instellingen aan te passen:
 * **Sta het uitvoeren van meerdere exemplaren toe**: Door dit vakje aan te vinken kunt u meerdere parallelle kopieën van het KVision-proces starten (standaard beperkt dit de uitvoering tot één enkel actief exemplaar).
 * **Instellingen voor automatisch samenvouwen**: past de timing van de glijdende animatie aan voor de bovenste balk en het statistiekenpaneel.
+* **Achtergrondtransparantie bovenbalk**: Past de achtergronddekking van de bovenste balk aan (`0%` = effen ondoorzichtig donker oppervlak, `100%` = volledig transparante achtergrond), live gesynchroniseerd tussen vensters.
 * **Sta het wisselen van kijkvensters toe**: Met het selectievakje *"Sta het wisselen van kijkvensterplaatsen toe"* kunt u de cameraposities op het raster direct herschikken (klik met de rechtermuisknop op de brontegel -> Kies 'Weergavevensters wisselen' -> klik met de linkermuisknop op de doeltegel).
 * **Rechtsklikrechten**: Schakelt over naar het vergrendelen/ontgrendelen van interactieve besturingselementen in het rechtermuisknop-contextmenu (Contextmenu inschakelen, Verwisselen van weergavepoorten toestaan, 'Camera verwijderen'-optie inschakelen, Wijzigen van weergavepoortinstellingen toestaan, Selectie van stream-hoofd-/subkwaliteit inschakelen).
 * **Automatisch dempen opheffen**: schakelt automatisch de audiostream van de actieve viewport uit wanneer de modus Volledig scherm wordt geopend.

@@ -326,6 +326,37 @@ Genom att öppna menyn Hamburger (fler alternativ) visas en specialiserad layout
    * **4:3-bildförhållande**: Anpassar rutnätsbehållaren till det traditionella 4:3-förhållandet (vanligt i äldre analoga/IP-kameror).
 4. **Gridoperationer (sammanfoga markerade celler)**: Få tillgång till den asymmetriska cellsammanfogningsfunktionen (detaljerad i avsnitt 9.2).
 
+
+### Visa grupper, hopfällbara dockningsboxar och dra-och-släpp-organisation
+När du hanterar många kameralayouter håller **Layoutgrupper** den övre raden ren genom att bunta ihop relaterade **Anpassade layouter**, **NVR-vyer** och **NVR-rutnät** i märkta, hopfällbara ramar utan att avbryta livevideoströmmar eller byta layout i förtid.
+
+#### Skapa, byta namn på och ta bort grupper
+1. Öppna panelen Alternativ (**{ICON:options}**) och välj **Layoutgrupper** (den fjärde fliken nedan **Förinställningar**).
+2. Skriv ett namn i fältet **Nytt gruppnamn...** och klicka på **Skapa grupp** (eller tryck på **Retur**).
+3. Klicka på ett grupprubrikfält i listan för att redigera dess namn direkt och tryck på **Retur** för att spara.
+4. Klicka på papperskorgen bredvid en grupp för att ta bort gruppbehållaren - alla layouter inuti förblir säkra och oskadda. Genom att använda **Ungroup all** löser du upp varje grupp samtidigt som alla layouter hålls intakta.
+
+#### Tilldela layouter och "Visa även som ogrupperad"
+* Expandera den nedersta poolen **Alla layouter** / **Ogrupperad** eller något gruppkort för att växla medlemskap.
+* Vilken layout som helst (**Layout**, **NVR View**, **NVR Grid**) kan tillhöra en eller flera grupper samtidigt.
+* Även när en layout tillhör en grupp kan du aktivera **Visa även som ogrupperad** bredvid den layouten så att en extra fristående genvägsknapp också förblir synlig i det översta fältet utanför grupperna.
+
+#### Komprimerat piller kontra expanderad gruppram
+* **Komprimerat läge**: Återges som ett kompakt piller med exakt samma höjd som en standardvyknapp, med NVR-nätverksikonen och gruppnamnet med versaler. Om en layout i den gruppen för närvarande är aktiv, blir den komprimerade knappen cyan och visar den **aktiva vyns namn som en mindre undertext** direkt under gruppnamnet. Klicka på det kollapsade pillret för att smidigt utöka gruppen.
+* **Utökat tillstånd**: Animeras mjukt och öppnas i en inramad dockningsbox som visar NVR-nätverksikonen, versaler, stiftväxling och alla medlemsvyknappar inuti. Klicka på kollapsen (`▾`) till vänster om grupphuvudet för att vika tillbaka den manuellt.
+
+#### Fästa öppet och automatiskt kollapsbeteende ({ICON:pin})
+Varje grupp har en **Komprimerad som standard**-växling i **Layoutgrupper** som förblir synkroniserad i realtid med ikonen **{ICON:pin} Pin** i titelraden i topplisten:
+* **Findad öppen (vertikal cyan stift / "Komprimerad som standard" AV)**: Gruppen förblir expanderad permanent tills du komprimerar den manuellt eller stänger av stiftet.
+* **Standard-komprimerad (lutad grå nål / "Komprimerad som standard" PÅ)**: Om du expanderar en standard-komprimerad grupp kan du bläddra i dess vyer tillfälligt, sedan **komprimeras den automatiskt** så fort du klickar någonstans utanför gruppen, flyttar muspekaren ut från det övre fältområdet, komprimerar själva översta fältet eller öppnar en annan standardgrupp. Om du lossar en redan öppen grupp markeras den som standard-komprimerad omedelbart samtidigt som den lämnas öppen tills du klickar någon annanstans eller lämnar den övre raden.
+
+#### Dra-och-släpp-beställning och linjebrytningsseparatorer (`↵`)
+* **Mastersekvens för det övre fältet**: Högst upp i **Inställningar → Layoutgrupper**, dra marker horisontellt inuti rutan **Övre fältsekvens** för att ställa in den exakta visningsordningen från vänster till höger för fristående vyknappar, grupper och avgränsare.
+* **Omordning av grupper och inre vyer**: Dra gruppkort vertikalt (eller använd upp-/nedpilarna) för att ändra ordning på grupplistan, och expandera valfritt gruppkort i Inställningar för att dra dess medlemslayouter i din föredragna ordning. I **Förinställningar** kan layouter också ändras genom att dra och släppa.
+* **Lägga till linjebrytningsseparatorer (`Add separator`)**: Klicka på **Lägg till separator** för att infoga ett violett `↵ Line break`-chip var som helst i sekvensen i toppfältet (klicka på dess `×`-ikon för att ta bort).
+* **Smart Separator Regel**: När intilliggande grupper bredvid en separator **komprimeras**, förblir komprimerade gruppknappar tillsammans på samma rad i exakt konfigurerad ordning; när endera sidan runt avgränsaren innehåller en **expanderad** grupp, bryter avgränsaren automatiskt linjer rent före och/eller efter den utökade gruppen så att verktygsfälten med flera rader förblir prydligt justerade.
+* Alla ändringar i toppfältet och gruppen uppdateras live över huvud- och extraskärmar (`New Window`) samtidigt som befintliga RTSP/NVR-kameraströmmar fungerar smidigt.
+
 ---
 
 ## 6. Systemstatistikpanel (Systemstatistik)
@@ -416,10 +447,14 @@ Fullständig konfigurationshanterare för anslutningar till Hikvision NVR/DVR-en
 ### 4. Förinställningar (stjärnikon)
 Hantera dina sparade rutnätslayouter och kameratilldelningar. Tillåter att skapa tomma rutnätsmallar, ändra deras ordning, växla deras översta fältets synlighet (via "Synlig"-omkopplaren) eller aktivera dem i det aktuella fönstret.
 
+### 4a. Layoutgrupper (gruppikon)
+Dedikerad arbetsyta nedan **Förinställningar** för att gruppera anpassade layouter, NVR-vyer och NVR-rutnät i hopfällbara inramade dockningsrutor på det översta fältet, ändra ordning på förinställningar och grupper via dra-och-släpp, konfigurera **Komprimerad som standard** / Fäst standardvärden, infoga **radbrytning** avgränsare (`↵`) steg för steg i avsnitt 5).
+
 ### 5. Inställningar (kugghjulsikon)
 Tillåter justering av globala appinställningar:
 * **Tillåt körning av flera instanser**: Om du markerar den här rutan kan du starta flera parallella kopior av KVision-processen (som standard begränsar den körningar till en enda aktiv instans).
 * **Inställningar för automatisk komprimering**: Anpassar skjutanimeringstid för den översta raden och statistikpanelen.
+* **Övre fältets bakgrundsgenomskinlighet**: Justerar bakgrundsopaciteten för den översta fältet (`0%` = solid ogenomskinlig mörk yta, `100%` = helt transparent bakgrund), synkroniserad live över fönster.
 * **Tillåt byte av visningsportar**: Kryssrutan *"Tillåt byta visningsportplatser"* låter dig omorganisera kamerapositioner på rutnätet i farten (högerklicka på källrutan -> Välj "Byt vyportar" -> Vänsterklicka på målbrickan).
 * **Högerklicksbehörigheter**: Växlar till att låsa/låsa upp interaktiva kontroller i högerklickskontextmenyn (Aktivera snabbmeny, Tillåt byte av visningsportar, Aktivera alternativet "Ta bort kamera", Tillåt att ändra visningsportinställningar, Aktivera val av strömmen Huvud/Subkvalitet).
 * **Automatisk avstängning**: Slår automatiskt på ljudströmmen för den aktiva visningsporten när du går in i helskärmsläge.

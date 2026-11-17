@@ -326,6 +326,37 @@ Deschiderea meniului Hamburger (Mai multe opțiuni) afișează o casetă de inst
    * **Raport de aspect 4:3**: adaptează containerul grilă la raportul tradițional de 4:3 (obișnuit în camerele analog/IP vechi).
 4. **Operații cu grilă (Imbinare celule evidențiate)**: accesați caracteristica de îmbinare asimetrică a celulelor (detaliată în Secțiunea 9.2).
 
+
+### Vizualizați grupuri, casete de andocare pliabile și organizare prin glisare și plasare
+Atunci când gestionați multe aspecte ale camerei, **Grupurile de aspect** mențin bara de sus curată prin gruparea **Aspecte personalizate**, **Vizualizări NVR** și **Grele NVR** în cadrul cadrelor etichetate, pliabile, fără a întrerupe fluxurile video live sau a schimba layout-ul prematur.
+
+#### Crearea, redenumirea și ștergerea grupurilor
+1. Deschideți panoul Opțiuni (**{ICON:options}**) și selectați **Grupuri de aspect** (a patra filă de mai jos **Presetări**).
+2. Introduceți un nume în câmpul **Nume nou grup...** și faceți clic pe **Creați grup** (sau apăsați **Enter**).
+3. Faceți clic pe orice câmp de antet de grup din listă pentru a-i edita numele în linie și apăsați **Enter** pentru a salva.
+4. Faceți clic pe pictograma coș de gunoi de lângă un grup pentru a șterge containerul grupului - toate aspectele din interior rămân în siguranță și nevătămate. Folosirea **Ungroup all** dizolvă fiecare grup, păstrând toate aspectele intacte.
+
+#### Atribuirea aspectelor și „Afișați și ca negrupat”
+* Extindeți grupul de jos **Toate aspectele** / **Negrupat** sau orice card de grup pentru a comuta calitatea de membru.
+* Orice aspect (**Layout**, **NVR View**, **NVR Grid**) poate aparține unuia sau mai multor grupuri în același timp.
+* Chiar și atunci când un aspect aparține unui grup, puteți activa **Afișați și ca negrupat** lângă aspectul respectiv, astfel încât un buton de comandă rapidă independentă suplimentar să rămână vizibil în bara de sus în afara grupurilor.
+
+#### Pastilă restrânsă vs. Cadru de grup extins
+* **Stare restrânsă**: se redă ca o pastilă compactă de exact aceeași înălțime ca un buton de vizualizare standard, arătând pictograma rețelei NVR și numele grupului cu majuscule. Dacă un aspect din acel grup este activ în prezent, butonul restrâns devine cyan și afișează **numele vizualizării active ca subtitrare mai mică** direct sub numele grupului. Faceți clic pe pastila restrânsă pentru a extinde fără probleme grupul.
+* **Stare extinsă**: animațiile ușor se deschid într-o casetă de andocare încadrată care afișează pictograma rețelei NVR, titlul majuscule, comutatorul PIN și butoanele de vizualizare a tuturor membrilor în interior. Faceți clic pe chevronul de restrângere (`▾`) din stânga antetului grupului pentru a-l plia înapoi manual.
+
+#### Fixarea comportamentului de deschidere și restrângere automată ({ICON:pin})
+Fiecare grup are un comutator **Restrâns în mod prestabilit** în **Grupuri de aspect** care rămâne sincronizat în timp real cu pictograma **{ICON:pin} Pin** de pe bara de titlu din bara de sus:
+* **Fixat deschis (pin vertical cyan / „Restrâns implicit” DEZACTIVAT)**: grupul rămâne extins permanent până când îl restrângeți manual sau dezactivați butonul.
+* **Restrâns implicit (pin gri înclinat / „Restrâns implicit” ACTIVAT)**: extinderea unui grup restrâns implicit vă permite să-i răsfoiți temporar vizualizările, apoi **se restrânge automat** de îndată ce faceți clic oriunde în afara grupului, mutați cursorul mouse-ului din zona barei de sus, restrângeți bara de sus în sine sau deschideți un alt grup restrâns. Anularea fixarii unui grup deja deschis îl marchează imediat ca restrâns implicit, în timp ce îl lăsați deschis până când faceți clic în altă parte sau părăsiți bara de sus.
+
+#### Comandă prin glisare și plasare și separatoare de întrerupere de linie (`↵`)
+* **Secvența principală a barei de sus**: în partea de sus a **Setări → Grupuri de aspect**, trageți jetoanele orizontal în interiorul casetei **Secvență principală a barei de sus** pentru a seta ordinea exactă de afișare de la stânga la dreapta a butoanelor, grupurilor și separatorilor de vizualizare autonome.
+* **Reordonarea grupurilor și a vizualizărilor interioare**: trageți cardurile de grup pe verticală (sau utilizați săgețile sus/jos) pentru a reordona lista de grupuri și extindeți orice card de grup în Setări pentru a trage aspectul membrilor săi în ordinea preferată. În **Presetări**, machetele pot fi reordonate și prin glisare și plasare.
+* **Adăugarea separatoarelor de întrerupere de linie (`Add separator`)**: faceți clic pe **Adăugați separator** pentru a insera un cip violet `↵ Line break` oriunde în secvența barei de sus (faceți clic pe pictograma `×` a acestuia pentru a elimina).
+* **Regula de separare inteligentă**: când grupurile adiacente de lângă un separator sunt **restrânse**, butoanele grupului restrâns rămân împreună pe același rând în ordinea lor exactă configurată; odată ce fiecare parte din jurul separatorului conține un grup **extins**, separatorul rupe automat liniile înainte și/sau după grupul extins, astfel încât barele de instrumente cu mai multe rânduri să rămână bine aliniate.
+* Toate modificările din bara de sus și de grup se actualizează în direct pe ecranele principale și auxiliare (`New Window`), menținând în același timp fluxurile existente de camere RTSP/NVR să funcționeze fără probleme.
+
 ---
 
 ## 6. Panoul de statistici de sistem (statistici de sistem)
@@ -416,10 +447,14 @@ Manager de configurare complet pentru conexiunile la dispozitivele Hikvision NVR
 ### 4. Presetări (pictograma stea)
 Manager pentru aspectele de grilă salvate și alocațiile camerei. Permite crearea de șabloane de grilă goale, modificarea ordinii acestora, comutarea vizibilității barei de sus (prin comutatorul „Vizibil”) sau activarea lor în fereastra curentă.
 
+### 4a. Grupuri de aspect (pictograma Grupuri)
+Spațiu de lucru dedicat de mai jos **Presetări** pentru gruparea machetelor personalizate, vizualizări NVR și grile NVR în casete de andocare încadrate pliabile pe bara de sus, reordonând presetări și grupuri prin glisare și plasare, configurarea **Restrâns în mod implicit** / Fixarea implicită, inserarea separatoarelor **Linie break** (`↵`**), și de asemenea descrierea (`↵`) pas cu pas în Secțiunea 5).
+
 ### 5. Setări (pictograma roată)
 Permite ajustarea setărilor globale ale aplicației:
 * **Permite rularea mai multor instanțe**: bifarea acestei casete permite lansarea mai multor copii paralele ale procesului KVision (în mod implicit, limitează rulările la o singură instanță activă).
 * **Setări de restrângere automată**: personalizează sincronizarea animației glisante pentru bara de sus și panoul de statistici.
+* **Transparența fundalului barei de sus**: ajustează opacitatea fundalului barei de sus (`0%` = suprafață întunecată opac solid, `100%` = fundal complet transparent), sincronizat în direct pe ferestre.
 * **Permite schimbarea ferestrelor de vizualizare**: caseta de selectare *„Permite schimbarea locurilor ferestrelor de vizualizare”* vă permite să rearanjați imediat pozițiile camerei pe grilă (dați clic dreapta sursă -> Alegeți „Schimbați ferestre de vizualizare” -> Faceți clic stânga pe tigla țintă).
 * **Permisiuni pentru clic dreapta**: comută la blocarea/deblocarea comenzilor interactive din meniul contextual pentru clic dreapta (Activați meniul contextual, Permiteți schimbarea ferestrelor de vizualizare, Activați opțiunea „Eliminați camera”, Permite modificarea setărilor ferestrei de vizualizare, Activați selecția calității principale/Sub pentru flux).
 * **Activare automată a sunetului**: dezactivează automat fluxul audio al ferestrei de vizualizare active când intră în modul Ecran complet.

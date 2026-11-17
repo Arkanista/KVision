@@ -326,6 +326,37 @@ L'ouverture du menu Hamburger (Plus d'options) fait apparaître une boîte à ou
    * **Rapport d'aspect 4:3** : adapte le conteneur de grille au rapport 4:3 traditionnel (courant dans les anciennes caméras analogiques/IP).
 4. **Opérations de grille (fusionner les cellules en surbrillance)** : accédez à la fonctionnalité de fusion asymétrique de cellules (détaillée dans la section 9.2).
 
+
+### Afficher les groupes, les boîtes de quai pliables et l'organisation par glisser-déposer
+Lors de la gestion de nombreuses dispositions de caméra, les **groupes de dispositions** maintiennent la barre supérieure propre en regroupant les **mises en page personnalisées**, les **vues NVR** et les **grilles NVR** associées dans des cadres étiquetés et pliables sans interrompre les flux vidéo en direct ni changer de disposition prématurément.
+
+#### Créer, renommer et supprimer des groupes
+1. Ouvrez le panneau Options (**{ICON:options}**) et sélectionnez **Groupes de mise en page** (le quatrième onglet sous **Préréglages**).
+2. Tapez un nom dans le champ **Nouveau nom de groupe...** et cliquez sur **Créer un groupe** (ou appuyez sur **Entrée**).
+3. Cliquez sur n'importe quel champ d'en-tête de groupe dans la liste pour modifier son nom en ligne et appuyez sur **Entrée** pour enregistrer.
+4. Cliquez sur l'icône de la corbeille à côté d'un groupe pour supprimer le conteneur de groupe : toutes les mises en page à l'intérieur restent sûres et indemnes. L'utilisation de **Dissocier tout** dissout chaque groupe tout en conservant toutes les mises en page intactes.
+
+#### Attribution de mises en page et "Afficher également comme non groupé"
+* Développez le pool inférieur **Toutes les mises en page** / **Non groupé** ou n'importe quelle carte de groupe pour basculer l'adhésion.
+* N'importe quelle disposition (**Layout**, **NVR View**, **NVR Grid**) peut appartenir à un ou plusieurs groupes en même temps.
+* Même lorsqu'une mise en page appartient à un groupe, vous pouvez activer **Afficher également comme non groupé** à côté de cette mise en page afin qu'un bouton de raccourci autonome supplémentaire reste également visible sur la barre supérieure en dehors des groupes.
+
+#### Pilule réduite par rapport au cadre de groupe élargi
+* **État réduit** : s'affiche sous la forme d'une pilule compacte ayant exactement la même hauteur qu'un bouton d'affichage standard, affichant l'icône du réseau NVR et le nom du groupe en majuscules. Si une mise en page à l'intérieur de ce groupe est actuellement active, le bouton réduit devient cyan et affiche le **nom de la vue active sous la forme d'un sous-titre plus petit** directement sous le nom du groupe. Cliquez sur la pilule réduite pour agrandir le groupe en douceur.
+* **État étendu** : s'anime en douceur et s'ouvre dans une boîte de dock encadrée affichant l'icône du réseau NVR, le titre en majuscule, la bascule d'épingle et tous les boutons d'affichage des membres à l'intérieur. Cliquez sur le chevron de réduction (`▾`) à gauche de l'en-tête du groupe pour le replier manuellement.
+
+#### Comportement d'épinglage d'ouverture et de repli automatique ({ICON:pin})
+Chaque groupe dispose d'une bascule **Réduit par défaut** dans **Groupes de mise en page** qui reste synchronisée en temps réel avec l'icône **{ICON:pin} Pin** sur sa barre de titre supérieure :
+* **Épinglé ouvert (épingle cyan verticale / « Réduit par défaut » désactivé)** : le groupe reste développé en permanence jusqu'à ce que vous le réduisiez manuellement ou que vous désactiviez l'épingle.
+* **Réduit par défaut (épingle grise inclinée / "Réduit par défaut" activé)** : le développement d'un groupe réduit par défaut vous permet de parcourir temporairement ses vues, puis il **se réduit automatiquement** dès que vous cliquez n'importe où en dehors du groupe, déplacez le curseur de la souris hors de la zone de la barre supérieure, réduisez la barre supérieure elle-même ou ouvrez un autre groupe réduit par défaut. Désépingler un groupe déjà ouvert le marque immédiatement comme réduit par défaut tout en le laissant ouvert jusqu'à ce que vous cliquiez ailleurs ou que vous quittiez la barre supérieure.
+
+#### Séparateurs de commande par glisser-déposer et de saut de ligne (`↵`)
+* **Séquence principale de la barre supérieure** : en haut de **Paramètres → Groupes de mise en page**, faites glisser les puces horizontalement à l'intérieur de la zone **Séquence principale de la barre supérieure** pour définir l'ordre d'affichage exact de gauche à droite des boutons, groupes et séparateurs d'affichage autonomes.
+* **Réorganisation des groupes et des vues internes** : faites glisser les cartes de groupe verticalement (ou utilisez les flèches haut/bas) pour réorganiser la liste des groupes, et développez n'importe quelle carte de groupe dans Paramètres pour faire glisser ses dispositions de membres dans votre ordre préféré. Dans **Presets**, les mises en page peuvent également être réorganisées par glisser-déposer.
+* **Ajout de séparateurs de saut de ligne (`Add separator`)** : cliquez sur **Ajouter un séparateur** pour insérer une puce `↵ Line break` violette n'importe où dans la séquence de la barre supérieure (cliquez sur son icône `×` pour la supprimer).
+* **Règle de séparation intelligente** : lorsque les groupes adjacents à côté d'un séparateur sont **réduit**, les boutons de groupe réduits restent ensemble sur la même ligne dans leur ordre configuré exact ; Une fois que chaque côté autour du séparateur contient un groupe **développé**, le séparateur coupe automatiquement les lignes proprement avant et/ou après le groupe développé afin que les barres d'outils à plusieurs lignes restent parfaitement alignées.
+* Toutes les modifications de la barre supérieure et des groupes sont mises à jour en direct sur les écrans principaux et auxiliaires (`New Window`) tout en garantissant le bon fonctionnement des flux de caméras RTSP/NVR existants.
+
 ---
 
 ## 6. Panneau de statistiques du système (Statistiques du système)
@@ -416,10 +447,14 @@ Gestionnaire de configuration complet pour les connexions aux appareils Hikvisio
 ### 4. Préréglages (icône étoile)
 Gestionnaire de vos dispositions de grille enregistrées et des affectations de caméras. Permet de créer des modèles de grille vides, de modifier leur ordre, de basculer leur visibilité dans la barre supérieure (via le commutateur "Visible") ou de les activer dans la fenêtre actuelle.
 
+### 4a. Groupes de mise en page (icône Groupes)
+Espace de travail dédié sous les **Préréglages** pour regrouper les mises en page personnalisées, les vues NVR et les grilles NVR dans des zones d'accueil encadrées pliables sur la barre supérieure, réorganiser les préréglages et les groupes par glisser-déposer, configurer **Réduit par défaut** / Pin par défaut, insérer des séparateurs de **Saut de ligne** (`↵`) et activer **Afficher également comme non groupé** (décrit étape par étape dans la section 5).
+
 ### 5. Paramètres (icône d'engrenage)
 Permet d'ajuster les paramètres globaux de l'application :
 * **Autoriser l'exécution de plusieurs instances** : Cocher cette case permet de lancer plusieurs copies parallèles du processus KVision (par défaut, elle limite les exécutions à une seule instance active).
 * **Paramètres de réduction automatique** : personnalise le timing de l'animation coulissante pour la barre supérieure et le panneau de statistiques.
+* **Transparence de l'arrière-plan de la barre supérieure** : Ajuste l'opacité de l'arrière-plan de la barre supérieure (`0%` = surface sombre opaque solide, `100%` = arrière-plan entièrement transparent), synchronisée en direct sur toutes les fenêtres.
 * **Autoriser l'échange de fenêtres** : La case à cocher *"Autoriser l'échange de fenêtres"* vous permet de réorganiser les positions de la caméra sur la grille à la volée (clic droit sur la vignette source -> Choisissez "Échanger les fenêtres" -> Cliquez gauche sur la vignette cible).
 * **Autorisations par clic droit** : permet de verrouiller/déverrouiller les commandes interactives dans le menu contextuel du clic droit (Activer le menu contextuel, Autoriser l'échange de fenêtres, Activer l'option "Supprimer la caméra", Autoriser la modification des paramètres de la fenêtre, Activer la sélection de la qualité principale/secondaire du flux).
 * **Activation automatique** : réactive automatiquement le flux audio de la fenêtre active lors du passage en mode plein écran.

@@ -1,5 +1,6 @@
 #include "viewportslayoutmodel.h"
 
+#include <QUuid>
 #include <algorithm>
 
 ViewportsLayoutItem::ViewportsLayoutItem(QObject *parent)
@@ -19,6 +20,7 @@ ViewportsLayoutModel::ViewportsLayoutModel(QObject *parent)
     , m_columns(0)
     , m_rows(0)
 {
+    m_uid = QUuid::createUuid().toString(QUuid::WithoutBraces);
     const QMetaObject* meta = &ViewportsLayoutItem::staticMetaObject;
     for (int i = meta->propertyOffset(); i < meta->propertyCount(); ++i) {
         QMetaProperty property = meta->property(i);
@@ -246,6 +248,14 @@ void ViewportsLayoutModel::fromJSValue(const QVariantMap &model)
 {
     QVariant val;
 
+    if (model.contains("uid")) {
+        const QString parsedUid = model.value("uid").toString().trimmed();
+        if (!parsedUid.isEmpty()) {
+            setUid(parsedUid);
+        }
+    } else if (m_uid.isEmpty()) {
+        setUid(QUuid::createUuid().toString(QUuid::WithoutBraces));
+    }
     if (model.contains("isNvr")) {
         setIsNvr(model.value("isNvr").toBool());
     }
@@ -257,6 +267,28 @@ void ViewportsLayoutModel::fromJSValue(const QVariantMap &model)
     }
     if (model.contains("name")) {
         setName(model.value("name").toString());
+    }
+    QStringList parsedGroups;
+    if (model.contains("groups")) {
+        const QStringList rawGroups = model.value("groups").toStringList();
+        for (const QString &g : rawGroups) {
+            const QString trimmed = g.trimmed();
+            if (!trimmed.isEmpty() && !parsedGroups.contains(trimmed)) {
+                parsedGroups.append(trimmed);
+            }
+        }
+        setGroups(parsedGroups);
+    } else if (model.contains("group")) {
+        const QString legacyGroup = model.value("group").toString().trimmed();
+        if (!legacyGroup.isEmpty()) {
+            parsedGroups.append(legacyGroup);
+        }
+        setGroups(parsedGroups);
+    }
+    if (model.contains("showUngrouped")) {
+        setShowUngrouped(model.value("showUngrouped").toBool());
+    } else if (!parsedGroups.isEmpty() && model.contains("group") && !model.contains("groups")) {
+        setShowUngrouped(false);
     }
     if (model.contains("visible")) {
         setVisible(model.value("visible").toBool());
@@ -336,10 +368,13 @@ QVariantMap ViewportsLayoutModel::toJSValue() const
 
     model["size"] = size();
     model["aspectRatio"] = m_aspectRatio;
+    model["uid"] = uid();
     model["isNvr"] = isNvr();
     model["nvrIp"] = nvrIp();
     model["isNvrPreset"] = isNvrPreset();
     model["name"] = name();
+    model["groups"] = groups();
+    model["showUngrouped"] = showUngrouped();
     model["visible"] = visible();
     model["items"] = items;
 

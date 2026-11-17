@@ -326,6 +326,37 @@ Hamburger (Daha Fazla Seçenek) menüsünü açmak, özel bir düzen araç kutus
    * **4:3 En Boy Oranı**: Izgara kabını geleneksel 4:3 oranına (eski analog/IP kameralarda yaygındır) uyarlar.
 4. **Izgara İşlemleri (Vurgulanan Hücreleri Birleştir)**: Asimetrik hücre birleştirme özelliğine erişin (Bölüm 9.2'de ayrıntılı olarak açıklanmıştır).
 
+
+### Grupları, Katlanabilir Bağlantı Kutularını ve Sürükle ve Bırak Organizasyonunu Görüntüle
+**Düzen Grupları**, çok sayıda kamera düzenini yönetirken, ilgili **Özel Düzenleri**, **NVR Görünümlerini** ve **NVR Izgaralarını** canlı video akışlarını kesmeden veya düzenleri zamanından önce değiştirmeden etiketli, daraltılabilir çerçeveler içinde paketleyerek üst çubuğu temiz tutar.
+
+#### Grup Oluşturma, Yeniden Adlandırma ve Silme
+1. Seçenekler panelini (**{ICON:options}**) açın ve **Düzen Grupları**'nı seçin (**Ön Ayarlar** altındaki dördüncü sekme).
+2. **Yeni grup adı...** alanına bir ad yazın ve **Grup oluştur**'u tıklayın (veya **Enter** tuşuna basın).
+3. Adını satır içinde düzenlemek için listedeki herhangi bir grup başlığı alanına tıklayın ve kaydetmek için **Enter** tuşuna basın.
+4. Grup kapsayıcısını silmek için grubun yanındaki çöp kutusu simgesini tıklayın; içindeki tüm düzenler güvende ve zarar görmeden kalır. **Tüm grubu çöz** seçeneğini kullanmak, tüm düzenleri olduğu gibi korurken her grubu çözer.
+
+#### Düzenleri Atama ve "Gruplanmamış olarak da göster"
+* Üyeliği değiştirmek için alttaki **Tüm Düzenler** / **Gruplanmamış** havuzu veya herhangi bir grup kartını genişletin.
+* Herhangi bir düzen (**Düzen**, **NVR Görünümü**, **NVR Izgarası**) aynı anda bir veya daha fazla gruba ait olabilir.
+* Bir düzen bir gruba ait olsa bile, bu düzenin yanında **Gruplanmamış olarak da göster** seçeneğini açabilirsiniz, böylece grupların dışındaki üst çubukta ekstra bağımsız bir kısayol düğmesi görünür kalır.
+
+#### Daraltılmış Hap ve Genişletilmiş Grup Çerçevesi
+* **Daraltılmış durum**: Standart görünüm düğmesiyle tam olarak aynı yükseklikte, NVR ağ simgesini ve grup adını büyük harfle gösteren kompakt bir hap olarak görüntülenir. Bu grup içindeki bir düzen şu anda etkinse, daraltılmış düğme camgöbeği rengine döner ve **etkin görünümün adını daha küçük bir alt başlık olarak** doğrudan grup adının altında görüntüler. Grubu sorunsuz bir şekilde genişletmek için daraltılmış hapı tıklayın.
+* **Genişletilmiş durum**: NVR ağ simgesini, büyük harf başlığını, Pin değiştirmeyi ve içindeki tüm üye görüntüleme düğmelerini görüntüleyen çerçeveli bir yerleştirme kutusu şeklinde sorunsuz bir şekilde açık bir şekilde animasyon oluşturur. Manuel olarak geri katlamak için grup başlığının solundaki daraltma işaretini (`▾`) tıklayın.
+
+#### Sabitleme Açma ve Otomatik Daraltma Davranışı ({ICON:pin})
+Her grupta, **Düzen Grupları**'nda, üst çubuk başlık çubuğundaki **{ICON:pin} Pin** simgesiyle gerçek zamanlı olarak senkronize kalan **Varsayılan olarak daraltılmış** geçiş düğmesi bulunur:
+* **Sabitlenmiş açık (dikey camgöbeği raptiye / "Varsayılan olarak daraltılmış" KAPALI)**: Grup, siz onu manuel olarak daraltana veya raptiyeyi kapatana kadar kalıcı olarak genişletilmiş durumda kalır.
+* **Varsayılan olarak daraltılmış (eğik gri raptiye / "Varsayılan olarak daraltılmış" AÇIK)**: Varsayılan olarak daraltılmış bir grubu genişletmek, bu grubun görünümlerine geçici olarak göz atmanıza olanak tanır, daha sonra grup dışında herhangi bir yeri tıklattığınızda, fare imlecini üst çubuk alanının dışına çıkardığınızda, üst çubuğun kendisini daraltır veya başka bir varsayılan olarak daraltılmış grubu açar açmaz **otomatik olarak daraltılır**. Zaten açık olan bir grubun sabitlemesini kaldırmak, onu hemen varsayılan olarak daraltılmış olarak işaretler ve siz başka bir yere tıklayana veya üst çubuktan çıkana kadar açık bırakır.
+
+#### Sürükle ve Bırak Sıralama ve Satır Kesme Ayırıcıları (`↵`)
+* **Üst çubuk ana dizisi**: Bağımsız görünüm düğmelerinin, gruplarının ve ayırıcılarının soldan sağa görüntülenme sırasını tam olarak ayarlamak için **Ayarlar → Düzen Grupları**'nın üst kısmındaki **Ana üst çubuk dizisi** kutusunun içine çipleri yatay olarak sürükleyin.
+* **Grupları ve iç görünümleri yeniden sıralama**: Grup listesini yeniden sıralamak için grup kartlarını dikey olarak sürükleyin (veya yukarı/aşağı okları kullanın) ve üye düzenlerini tercih ettiğiniz sıraya sürüklemek için Ayarlar'da herhangi bir grup kartını genişletin. **Ön Ayarlar**'da düzenler sürükle ve bırak yöntemiyle de yeniden sıralanabilir.
+* **Satır Sonu Ayırıcıları Ekleme (`Add separator`)**: Üst çubuk dizisinde herhangi bir yere mor bir `↵ Line break` yongası eklemek için **Ayırıcı ekle**'yi tıklayın (kaldırmak için `×` simgesini tıklayın).
+* **Akıllı Ayırıcı Kuralı**: Bir ayırıcının yanındaki bitişik gruplar **daraltıldığında**, daraltılmış grup düğmeleri aynı satırda tam yapılandırılmış sıralarına göre bir arada kalır; Ayırıcının etrafındaki her iki taraf da **genişletilmiş** bir grup içerdiğinde, ayırıcı genişletilmiş gruptan önceki ve/veya sonraki satırları otomatik olarak temiz bir şekilde keser, böylece çok satırlı araç çubukları düzgün bir şekilde hizalanmış kalır.
+* Tüm üst çubuk ve grup değişiklikleri, ana ve yardımcı (`New Window`) ekranlarda canlı olarak güncellenirken mevcut RTSP/NVR kamera akışlarının sorunsuz çalışmasını sağlar.
+
 ---
 
 ## 6. Sistem İstatistikleri Paneli (Sistem İstatistikleri)
@@ -416,10 +447,14 @@ Hikvision NVR/DVR cihazlarına bağlantılar için tam konfigürasyon yöneticis
 ### 4. Ön Ayarlar (Yıldız Simgesi)
 Kaydedilmiş ızgara düzenleriniz ve kamera atamalarınız için yönetici. Boş ızgara şablonları oluşturmaya, sıralarını değiştirmeye, üst çubuk görünürlüğünü değiştirmeye ("Görünür" anahtarı aracılığıyla) veya bunları geçerli pencerede etkinleştirmeye olanak tanır.
 
+### 4a. Düzen Grupları (Gruplar Simgesi)
+Özel düzenleri, NVR görünümlerini ve NVR ızgaralarını üst çubuktaki daraltılabilir çerçeveli yerleştirme kutuları halinde gruplamak, ön ayarları ve grupları sürükleyip bırakarak yeniden sıralamak, **Varsayılan olarak daraltılmış** / Sabitleme varsayılanlarını yapılandırmak, **Satır sonu** ayırıcıları (`↵`) eklemek ve **Ayrıca gruplanmamış olarak göster** seçeneğini değiştirmek için **Hazır Ayarlar** altında özel çalışma alanı (Bölüm 5'te adım adım açıklanmıştır).
+
 ### 5. Ayarlar (Dişli Simgesi)
 Genel uygulama ayarlarının yapılmasına izin verir:
 * **Birden çok örneğin çalıştırılmasına izin ver**: Bu kutunun işaretlenmesi, KVision işleminin birden çok paralel kopyasının başlatılmasına izin verir (varsayılan olarak, çalıştırmaları tek bir etkin örnekle sınırlandırır).
 * **Otomatik daraltma ayarları**: Üst çubuk ve istatistik paneli için kayan animasyon zamanlamasını özelleştirir.
+* **Üst çubuk arka plan şeffaflığı**: Üst çubuğun arka plan opaklığını ayarlar (`0%` = katı opak koyu yüzey, `100%` = tamamen şeffaf arka plan), pencereler arasında canlı olarak senkronize edilir.
 * **Görünüm pencerelerinin değiştirilmesine izin ver**: *"Görünüm alanı yerlerinin değiştirilmesine izin ver"* onay kutusu, ızgaradaki kamera konumlarını anında yeniden düzenlemenizi sağlar (Kaynak döşemesine sağ tıklayın -> "Görünüm pencerelerini değiştir" seçeneğini seçin -> Hedef döşemesine sol tıklayın).
 * **Sağ tıklama izinleri**: Sağ tıklama bağlam menüsündeki etkileşimli kontrolleri kilitlemek/kilidini açmak için geçiş yapar (Bağlam menüsünü etkinleştir, Görünüm pencerelerinin değiştirilmesine izin ver, 'Kamerayı kaldır' seçeneğini etkinleştir, Görüntü alanı ayarlarını değiştirmeye izin ver, Akış Ana/Alt kalite seçimini etkinleştir).
 * **Otomatik Sesi Aç**: Tam Ekran moduna girildiğinde aktif görüntüleme alanının ses akışının sesini otomatik olarak açar.

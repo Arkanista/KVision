@@ -326,6 +326,37 @@ Abrir o menu Hambúrguer (Mais opções) abre uma caixa de ferramentas de layout
    * **Proporção de aspecto 4:3**: Adapta o contêiner da grade à proporção tradicional de 4:3 (comum em câmeras analógicas/IP legadas).
 4. **Operações de grade (mesclar células destacadas)**: Acesse o recurso de mesclagem assimétrica de células (detalhado na Seção 9.2).
 
+
+### Visualizar grupos, caixas de encaixe dobráveis ​​e organização de arrastar e soltar
+Ao gerenciar muitos layouts de câmera, **Grupos de layout** mantêm a barra superior limpa agrupando **Layouts personalizados**, **Visualizações NVR** e **Grades NVR** relacionadas dentro de quadros rotulados e dobráveis, sem interromper transmissões de vídeo ao vivo ou alternar layouts prematuramente.
+
+#### Criando, renomeando e excluindo grupos
+1. Abra o painel Opções (**{ICON:options}**) e selecione **Grupos de layout** (a quarta guia abaixo de **Predefinições**).
+2. Digite um nome no campo **Novo nome do grupo...** e clique em **Criar grupo** (ou pressione **Enter**).
+3. Clique em qualquer campo de cabeçalho de grupo dentro da lista para editar seu nome inline e pressione **Enter** para salvar.
+4. Clique no ícone da lixeira ao lado de um grupo para excluir o contêiner do grupo – todos os layouts dentro dele permanecem seguros e ilesos. Usar **Desagrupar tudo** dissolve todos os grupos, mantendo todos os layouts intactos.
+
+#### Atribuindo Layouts e "Mostrar também como desagrupado"
+* Expanda o pool inferior **Todos os layouts** / **Desagrupados** ou qualquer cartão de grupo para alternar a associação.
+* Qualquer layout (**Layout**, **NVR View**, **NVR Grid**) pode pertencer a um ou vários grupos ao mesmo tempo.
+* Mesmo quando um layout pertence a um grupo, você pode ativar **Mostrar também como desagrupado** próximo a esse layout para que um botão de atalho extra independente também permaneça visível na barra superior fora dos grupos.
+
+#### Pílula recolhida vs. estrutura de grupo expandida
+* **Estado recolhido**: Renderizado como um comprimido compacto com exatamente a mesma altura de um botão de visualização padrão, mostrando o ícone da rede NVR e o nome do grupo em letras maiúsculas. Se um layout dentro desse grupo estiver ativo no momento, o botão recolhido ficará azul e exibirá o **nome da visualização ativa como um subtítulo menor** diretamente abaixo do nome do grupo. Clique na pílula recolhida para expandir suavemente o grupo.
+* **Estado expandido**: Anima suavemente a abertura em uma caixa de encaixe emoldurada exibindo o ícone da rede NVR, título em maiúscula, alternância de Pin e todos os botões de visualização de membros dentro. Clique na divisa recolhida (`▾`) à esquerda do cabeçalho do grupo para dobrá-lo manualmente.
+
+#### Fixando comportamento de abertura e recolhimento automático ({ICON:pin})
+Cada grupo tem um botão de alternância **Recolhido por padrão** em **Grupos de layout** que permanece sincronizado em tempo real com o ícone **{ICON:pin} Pin** na barra de título da barra superior:
+* **Fixado aberto (pino ciano vertical / "Recolhido por padrão" DESATIVADO)**: o grupo permanece expandido permanentemente até que você o recolha manualmente ou desative o pin.
+* **Recolhido por padrão (pino cinza inclinado / "Recolhido por padrão" ATIVADO)**: expandir um grupo recolhido por padrão permite que você navegue temporariamente em suas visualizações e, em seguida, ele **recolher automaticamente** assim que você clicar em qualquer lugar fora do grupo, mover o cursor do mouse para fora da área da barra superior, recolher a própria barra superior ou abrir outro grupo recolhido por padrão. Desafixar um grupo já aberto marca-o como recolhido por padrão imediatamente, deixando-o aberto até você clicar em outro lugar ou sair da barra superior.
+
+#### Ordenação de arrastar e soltar e separadores de quebra de linha (`↵`)
+* **Sequência mestre da barra superior**: na parte superior de **Configurações → Grupos de layout**, arraste os chips horizontalmente dentro da caixa **Sequência principal da barra superior** para definir a ordem exata de exibição da esquerda para a direita dos botões, grupos e separadores de visualização independente.
+* **Reordenando grupos e visualizações internas**: arraste os cartões de grupo verticalmente (ou use as setas para cima/para baixo) para reordenar a lista de grupos e expanda qualquer cartão de grupo em Configurações para arrastar os layouts dos membros na ordem de sua preferência. Em **Predefinições**, os layouts também podem ser reordenados arrastando e soltando.
+* **Adicionando Separadores de Quebra de Linha (`Add separator`)**: Clique em **Adicionar separador** para inserir um chip `↵ Line break` violeta em qualquer lugar na sequência da barra superior (clique no ícone `×` para remover).
+* **Regra do separador inteligente**: quando grupos adjacentes próximos a um separador são **recolhidos**, os botões de grupo recolhidos permanecem juntos na mesma linha em sua ordem exata configurada; uma vez que cada lado ao redor do separador contém um grupo **expandido**, o separador quebra automaticamente as linhas antes e/ou depois do grupo expandido para que as barras de ferramentas com várias linhas permaneçam perfeitamente alinhadas.
+* Todas as alterações da barra superior e de grupo são atualizadas ao vivo nas telas principal e auxiliar (`New Window`), mantendo os fluxos de câmera RTSP/NVR existentes funcionando perfeitamente.
+
 ---
 
 ## 6. Painel de estatísticas do sistema (estatísticas do sistema)
@@ -416,10 +447,14 @@ Gerenciador de configuração completo para conexões com dispositivos Hikvision
 ### 4. Predefinições (ícone de estrela)
 Gerenciador de layouts de grade e atribuições de câmera salvos. Permite criar modelos de grade vazios, alterar sua ordem, alternar a visibilidade da barra superior (através do botão "Visível") ou ativá-los na janela atual.
 
+### 4a. Grupos de layout (ícone de grupos)
+Espaço de trabalho dedicado abaixo **Predefinições** para agrupar layouts personalizados, visualizações NVR e grades NVR em caixas de encaixe emolduradas dobráveis ​​na barra superior, reordenar predefinições e grupos arrastando e soltando, configurando **Recolhido por padrão** / Padrões de pinos, inserindo separadores de **Quebra de linha** (`↵`) e alternando **Mostrar também como desagrupado** (descrito passo a passo na Seção 5).
+
 ### 5. Configurações (ícone de engrenagem)
 Permite ajustar as configurações globais do aplicativo:
 * **Permitir a execução de múltiplas instâncias**: Marcar esta caixa permite iniciar múltiplas cópias paralelas do processo KVision (por padrão, ela restringe as execuções a uma única instância ativa).
 * **Configurações de recolhimento automático**: personaliza o tempo de animação deslizante da barra superior e do painel de estatísticas.
+* **Transparência do plano de fundo da barra superior**: ajusta a opacidade do plano de fundo da barra superior (`0%` = superfície escura opaca sólida, `100%` = plano de fundo totalmente transparente), sincronizado ao vivo nas janelas.
 * **Permitir troca de viewports**: A caixa de seleção *„Permitir troca de locais de viewports”* permite reorganizar as posições da câmera na grade instantaneamente (clique com o botão direito no bloco de origem -> Escolha "Trocar viewports" -> clique com o botão esquerdo no bloco de destino).
 * **Permissões de clique com o botão direito**: alterna para bloquear/desbloquear controles interativos no menu de contexto do botão direito (Ativar menu de contexto, Permitir troca de viewports, Ativar a opção 'Remover câmera', Permitir alterar as configurações da viewport, Ativar seleção de qualidade principal/sub do stream).
 * **Ativar som automaticamente**: ativa automaticamente o fluxo de áudio da janela de visualização ativa ao entrar no modo de tela cheia.

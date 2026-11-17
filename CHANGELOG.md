@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.9] - 2026-11-17
+
+### Features, UI & Documentation
+* **View Groups, Collapsible Dock Boxes & Top Bar Sequence Customization (`ViewGroupsPanel`, `TopBarViewsArea`, `TopBarViewDelegate`, `TopBarViewButton`, `RootWindow`, `AuxiliaryWindow`):**
+  * Added a dedicated **Layout Groups** tab in the Settings sidebar (`ViewGroupsPanel`) allowing custom layouts, NVR views, and auto-generated NVR camera grids to be grouped into one or multiple named groups, renamed inline, ordered vertically, kept persistently even when empty until explicitly deleted, and optionally displayed simultaneously as standalone buttons (*Show also as ungrouped*).
+  * Rendered grouped views on the top toolbar inside titled framed boxes with a network/recorder icon, cyan highlight when any enclosed view is active, smooth animated expand/collapse transitions, and a compact standard-height collapsed group button showing the active inner view name underneath the group title.
+  * Added a title-bar **Pin** button directly inside expanded groups synchronized bi-directionally with *Collapsed by default* (`collapsedByDefault`), and automatic collapse of unpinned/default-collapsed groups when clicking outside the group, leaving or collapsing the top bar, or opening another default-collapsed group.
+  * Added inline **Line break** separators in the top-bar sequence editor: separators start a new visual row on the top bar when adjacent segments contain an expanded group, while collapsed groups stay inline on the same row in exact configured order.
+* **Zero-Interruption Drag-and-Drop Reordering (`ReorderableViewRow`, `ViewportsLayoutModel`, `ViewportsLayoutCollectionModel`, `ViewportsLayout`):**
+  * Added drag-and-drop reordering for views in Presets and for groups, group members, and top-bar items/separators in Layout Groups, keeping existing `QmlAVPlayer` streams alive cleanly (`holdActiveDuringMove`) and syncing group definitions, UUIDs, and ordering live across main and auxiliary windows.
+* **Top Bar Transparency Slider & Settings / NVR Camera List UI Polish (`SideBar`, `NvrSettingsPanel`, `ViewGroupsPanel`, `NvrCamerasWindow`, `ConfirmDialog`, `CctvButton`):**
+  * Added a configurable **Top bar background transparency (`0%–100%`, default `5%`)** slider in *Settings* synchronized live across main and auxiliary windows.
+  * Added a **Save changes** action when editing existing NVR recorders to update settings without forcing camera re-discovery, unified corner radii across every Settings tab and the NVR Camera List window (`8 px` sections/cards/tiles/banners, `6 px` buttons/thumbnail generator/badges/chips/combos, `4 px` inputs/inner tags), and replaced the legacy header camera emoji in `NvrCamerasWindow` with the vector NVR recorder icon matching the top-bar NVR view button.
+* **View Groups Documentation (`README.md`, `INSTRUCTIONS*.md`, `INSTRUKCJA.md`):**
+  * Added detailed step-by-step documentation explaining group creation, assignment, top-bar expanding/collapsing, pinning, line separators, and drag-and-drop ordering.
+
 ## [2.7.8-3] - 2026-11-16
 
 ### Localization

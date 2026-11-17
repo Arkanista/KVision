@@ -326,6 +326,37 @@ Al abrir el menú Hamburguesa (Más opciones), aparece una caja de herramientas 
    * **Relación de aspecto 4:3**: adapta el contenedor de cuadrícula a la relación tradicional 4:3 (común en cámaras analógicas/IP heredadas).
 4. **Operaciones de cuadrícula (fusionar celdas resaltadas)**: acceda a la función de combinación de celdas asimétricas (detallada en la Sección 9.2).
 
+
+### Ver grupos, cajas de muelle plegables y organización de arrastrar y soltar
+Al administrar muchos diseños de cámara, los **Grupos de diseño** mantienen limpia la barra superior agrupando **Diseños personalizados**, **Vistas NVR** y **Cuadrículas NVR** relacionados dentro de marcos etiquetados y plegables sin interrumpir las transmisiones de video en vivo ni cambiar los diseños prematuramente.
+
+#### Crear, cambiar el nombre y eliminar grupos
+1. Abra el panel Opciones (**{ICON:options}**) y seleccione **Grupos de diseño** (la cuarta pestaña debajo de **Preajustes**).
+2. Escriba un nombre en el campo **Nuevo nombre de grupo...** y haga clic en **Crear grupo** (o presione **Entrar**).
+3. Haga clic en cualquier campo de encabezado de grupo dentro de la lista para editar su nombre en línea y presione **Entrar** para guardar.
+4. Haga clic en el ícono de la papelera al lado de un grupo para eliminar el contenedor del grupo; todos los diseños internos permanecen seguros y ilesos. El uso de **Desagrupar todo** disuelve todos los grupos y mantiene todos los diseños intactos.
+
+#### Asignación de diseños y "Mostrar también como desagrupados"
+* Expanda la parte inferior **Todos los diseños** / **No agrupado** grupo o cualquier tarjeta de grupo para alternar la membresía.
+* Cualquier diseño (**Diseño**, **Vista NVR**, **Cuadrícula NVR**) puede pertenecer a uno o varios grupos al mismo tiempo.
+* Incluso cuando un diseño pertenece a un grupo, puedes activar **Mostrar también como no agrupado** junto a ese diseño para que un botón de acceso directo independiente adicional también permanezca visible en la barra superior fuera de los grupos.
+
+#### Píldora colapsada versus marco de grupo expandido
+* **Estado contraído**: se representa como una pastilla compacta de exactamente la misma altura que un botón de vista estándar, que muestra el ícono de red NVR y el nombre del grupo en mayúsculas. Si un diseño dentro de ese grupo está actualmente activo, el botón contraído se vuelve cian y muestra el **nombre de la vista activa como un subtítulo más pequeño** directamente debajo del nombre del grupo. Haga clic en la pastilla colapsada para expandir suavemente el grupo.
+* **Estado ampliado**: anima suavemente la apertura en un cuadro de acoplamiento enmarcado que muestra el ícono de la red NVR, el título en mayúsculas, la alternancia de pines y todos los botones de vista de miembros en su interior. Haga clic en el galón para contraer (`▾`) a la izquierda del encabezado del grupo para plegarlo manualmente.
+
+#### Comportamiento de fijación de apertura y colapso automático ({ICON:pin})
+Cada grupo tiene un botón **Contraído de forma predeterminada** en **Grupos de diseño** que permanece sincronizado en tiempo real con el icono **{ICON:pin} Pin** en la barra de título de la barra superior:
+* **Fijado abierto (pin cian vertical / "Contraído de forma predeterminada" desactivado)**: el grupo permanece expandido permanentemente hasta que lo contraigas manualmente o desactives el pin.
+* **Contraído por defecto (pin gris inclinado / "Contraído por defecto" activado)**: expandir un grupo contraído por defecto le permite explorar sus vistas temporalmente, luego **se contrae automáticamente** tan pronto como hace clic en cualquier lugar fuera del grupo, mueve el cursor del mouse fuera del área de la barra superior, contrae la barra superior o abre otro grupo contraído por defecto. Al desanclar un grupo ya abierto, se marca inmediatamente como predeterminado colapsado y se deja abierto hasta que haga clic en otro lugar o abandone la barra superior.
+
+#### Orden de arrastrar y soltar y separadores de salto de línea (`↵`)
+* **Secuencia maestra de la barra superior**: en la parte superior de **Configuración → Grupos de diseño**, arrastre los chips horizontalmente dentro del cuadro **Secuencia de la barra superior principal** para establecer el orden de visualización exacto de izquierda a derecha de los botones, grupos y separadores de la vista independiente.
+* **Reordenación de grupos y vistas internas**: arrastre las tarjetas de grupo verticalmente (o use las flechas arriba/abajo) para reordenar la lista de grupos y expanda cualquier tarjeta de grupo en Configuración para arrastrar los diseños de sus miembros a su orden preferido. En **Preajustes**, los diseños también se pueden reordenar arrastrando y soltando.
+* **Agregar separadores de salto de línea (`Add separator`)**: haga clic en **Agregar separador** para insertar un chip `↵ Line break` violeta en cualquier lugar de la secuencia de la barra superior (haga clic en su ícono `×` para eliminarlo).
+* **Regla del separador inteligente**: cuando los grupos adyacentes junto a un separador están **contraídos**, los botones del grupo contraído permanecen juntos en la misma fila en el orden exacto configurado; Una vez que cada lado alrededor del separador contiene un grupo **expandido**, el separador automáticamente divide las líneas limpiamente antes y/o después del grupo expandido para que las barras de herramientas de varias filas permanezcan perfectamente alineadas.
+* Todos los cambios de grupo y de la barra superior se actualizan en vivo en las pantallas principal y auxiliar (`New Window`) mientras mantienen las transmisiones de cámara RTSP/NVR existentes funcionando sin problemas.
+
 ---
 
 ## 6. Panel de estadísticas del sistema (Estadísticas del sistema)
@@ -416,10 +447,14 @@ Administrador de configuración completo para conexiones a dispositivos NVR/DVR 
 ### 4. Presets (icono de estrella)
 Administrador de sus diseños de cuadrícula guardados y asignaciones de cámara. Permite crear plantillas de cuadrícula vacías, cambiar su orden, alternar su visibilidad en la barra superior (a través del interruptor "Visible") o activarlas en la ventana actual.
 
+### 4a. Grupos de diseño (icono de grupos)
+Espacio de trabajo dedicado debajo de **Preajustes** para agrupar diseños personalizados, vistas de NVR y cuadrículas de NVR en cajas de acoplamiento enmarcadas plegables en la barra superior, reordenar ajustes preestablecidos y grupos mediante arrastrar y soltar, configurar **Contraído de forma predeterminada**/Pin predeterminados, insertar separadores de **Salto de línea** (`↵`) y alternar **Mostrar también como desagrupado** (descrito paso a paso en la Sección 5).
+
 ### 5. Configuración (icono de engranaje)
 Permite ajustar la configuración global de la aplicación:
 * **Permitir ejecutar múltiples instancias**: marcar esta casilla permite lanzar múltiples copias paralelas del proceso de KVision (de manera predeterminada, restringe las ejecuciones a una única instancia activa).
 * **Configuración de colapso automático**: personaliza el tiempo de la animación deslizante para la barra superior y el panel de estadísticas.
+* **Transparencia del fondo de la barra superior**: ajusta la opacidad del fondo de la barra superior (`0%` = superficie oscura opaca sólida, `100%` = fondo completamente transparente), sincronizado en vivo en todas las ventanas.
 * **Permitir el intercambio de ventanas gráficas**: la casilla de verificación *"Permitir el intercambio de lugares de las ventanas gráficas"* le permite reorganizar las posiciones de la cámara en la cuadrícula sobre la marcha (haga clic con el botón derecho en el mosaico de origen -> Elija "Intercambiar ventanas gráficas" -> haga clic con el botón izquierdo en el mosaico de destino).
 * **Permisos de clic derecho**: cambia para bloquear/desbloquear controles interactivos en el menú contextual del botón derecho (Habilitar el menú contextual, Permitir el intercambio de ventanas gráficas, Habilitar la opción 'Eliminar cámara', Permitir cambiar la configuración de la ventana gráfica, Habilitar la selección de calidad principal/secundaria de la transmisión).
 * **Activar silencio automáticamente**: activa automáticamente la transmisión de audio de la ventana gráfica activa al ingresar al modo de pantalla completa.

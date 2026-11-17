@@ -326,6 +326,37 @@ Wenn Sie das Hamburger-Menü (Weitere Optionen) öffnen, wird eine spezielle Lay
    * **4:3-Seitenverhältnis**: Passt den Rastercontainer an das traditionelle 4:3-Verhältnis an (üblich bei älteren Analog-/IP-Kameras).
 4. **Rasteroperationen (hervorgehobene Zellen zusammenführen)**: Greifen Sie auf die Funktion zum asymmetrischen Zusammenführen von Zellen zu (ausführlich in Abschnitt 9.2).
 
+
+### Ansichtsgruppen, zusammenklappbare Dockboxen und Organisation per Drag-and-Drop
+Bei der Verwaltung vieler Kameralayouts halten **Layoutgruppen** die obere Leiste sauber, indem sie zugehörige **benutzerdefinierte Layouts**, **NVR-Ansichten** und **NVR-Raster** in beschrifteten, zusammenklappbaren Rahmen bündeln, ohne Live-Videostreams zu unterbrechen oder Layouts vorzeitig zu wechseln.
+
+#### Gruppen erstellen, umbenennen und löschen
+1. Öffnen Sie das Optionsfeld (**{ICON:options}**) und wählen Sie **Layoutgruppen** (die vierte Registerkarte unter **Voreinstellungen**).
+2. Geben Sie einen Namen in das Feld **Neuer Gruppenname...** ein und klicken Sie auf **Gruppe erstellen** (oder drücken Sie **Enter**).
+3. Klicken Sie auf ein beliebiges Gruppenkopffeld in der Liste, um dessen Namen direkt zu bearbeiten, und drücken Sie zum Speichern die Eingabetaste.
+4. Klicken Sie auf das Papierkorbsymbol neben einer Gruppe, um den Gruppencontainer zu löschen. Alle darin enthaltenen Layouts bleiben sicher und unbeschädigt. Mit **Alle Gruppierung aufheben** wird jede Gruppe aufgelöst, während alle Layouts erhalten bleiben.
+
+#### Layouts zuweisen & „Auch als nicht gruppiert anzeigen“
+* Erweitern Sie den unteren Pool **Alle Layouts** / **Nicht gruppiert** oder eine beliebige Gruppenkarte, um die Mitgliedschaft umzuschalten.
+* Jedes Layout (**Layout**, **NVR-Ansicht**, **NVR-Raster**) kann einer oder mehreren Gruppen gleichzeitig angehören.
+* Selbst wenn ein Layout zu einer Gruppe gehört, können Sie neben diesem Layout die Option **Auch als nicht gruppiert anzeigen** aktivieren, sodass eine zusätzliche eigenständige Verknüpfungsschaltfläche auch außerhalb der Gruppen in der oberen Leiste sichtbar bleibt.
+
+#### Reduzierte Pille vs. erweiterter Gruppenrahmen
+* **Zusammengeklappter Zustand**: Wird als kompakte Pille mit genau der gleichen Höhe wie eine Standardansichtsschaltfläche gerendert und zeigt das NVR-Netzwerksymbol und den Gruppennamen in Großbuchstaben. Wenn ein Layout innerhalb dieser Gruppe derzeit aktiv ist, wird die minimierte Schaltfläche cyan und zeigt den **Namen der aktiven Ansicht als kleineren Untertitel** direkt unter dem Gruppennamen an. Klicken Sie auf die ausgeblendete Pille, um die Gruppe reibungslos zu erweitern.
+* **Erweiterter Zustand**: Lässt sich sanft animieren und öffnet sich in einem gerahmten Dock-Feld, in dem das NVR-Netzwerksymbol, der Titel in Großbuchstaben, der Pin-Umschalter und alle darin enthaltenen Schaltflächen für die Mitgliederansicht angezeigt werden. Klicken Sie auf den Minimierungs-Chevron (`▾`) links neben der Gruppenkopfzeile, um sie manuell einzuklappen.
+
+#### Anheften des Verhaltens beim Öffnen und automatischen Reduzieren ({ICON:pin})
+Jede Gruppe verfügt in **Layoutgruppen** über einen Schalter **Standardmäßig minimiert**, der in Echtzeit mit dem Symbol **{ICON:pin} Pin** in der Titelleiste der oberen Leiste synchronisiert bleibt:
+* **Offen angepinnt (vertikaler Cyan-Pin / „Standardmäßig minimiert“ AUS)**: Die Gruppe bleibt dauerhaft erweitert, bis Sie sie manuell reduzieren oder die Pinnwand ausschalten.
+* **Standardmäßig minimiert (gekippter grauer Stift / „Standardmäßig minimiert“ EIN)**: Wenn Sie eine standardmäßig minimierte Gruppe erweitern, können Sie deren Ansichten vorübergehend durchsuchen. Anschließend wird sie **automatisch minimiert**, sobald Sie auf eine beliebige Stelle außerhalb der Gruppe klicken, den Mauszeiger aus dem Bereich der oberen Leiste bewegen, die obere Leiste selbst reduzieren oder eine andere standardmäßig minimierte Gruppe öffnen. Durch das Lösen einer bereits geöffneten Gruppe wird diese sofort als standardmäßig minimiert markiert, während sie geöffnet bleibt, bis Sie auf eine andere Stelle klicken oder die obere Leiste verlassen.
+
+#### Drag-and-Drop-Reihenfolge und Zeilenumbruch-Trennzeichen (`↵`)
+* **Hauptsequenz der oberen Leiste**: Ziehen Sie oben unter **Einstellungen → Layoutgruppen** Chips horizontal in das Feld **Hauptsequenz der oberen Leiste**, um die genaue Anzeigereihenfolge der eigenständigen Ansichtsschaltflächen, Gruppen und Trennzeichen von links nach rechts festzulegen.
+* **Gruppen und Innenansichten neu anordnen**: Ziehen Sie Gruppenkarten vertikal (oder verwenden Sie die Aufwärts-/Abwärtspfeile), um die Gruppenliste neu anzuordnen, und erweitern Sie jede Gruppenkarte in den Einstellungen, um ihre Mitgliederlayouts in die gewünschte Reihenfolge zu ziehen. In **Voreinstellungen** können Layouts auch per Drag-and-Drop neu angeordnet werden.
+* **Zeilenumbruchstrennzeichen hinzufügen (`Add separator`)**: Klicken Sie auf **Trennzeichen hinzufügen**, um an einer beliebigen Stelle in der oberen Leistensequenz einen violetten `↵ Line break`-Chip einzufügen (klicken Sie zum Entfernen auf das Symbol `×`).
+* **Intelligente Trennregel**: Wenn benachbarte Gruppen neben einem Trennzeichen **reduziert** werden, bleiben die Schaltflächen für minimierte Gruppen in derselben Zeile in ihrer exakt konfigurierten Reihenfolge zusammen; Sobald eine Seite um das Trennzeichen eine **erweiterte** Gruppe enthält, bricht das Trennzeichen die Zeilen vor und/oder nach der erweiterten Gruppe automatisch sauber um, sodass mehrzeilige Symbolleisten sauber ausgerichtet bleiben.
+* Alle Änderungen in der oberen Leiste und in den Gruppen werden live auf den Haupt- und Hilfsbildschirmen (`New Window`) aktualisiert, während bestehende RTSP/NVR-Kamerastreams reibungslos laufen.
+
 ---
 
 ## 6. Systemstatistik-Panel (Systemstatistiken)
@@ -416,10 +447,14 @@ Vollständiger Konfigurationsmanager für Verbindungen zu Hikvision NVR/DVR-Ger�
 ### 4. Voreinstellungen (Sternsymbol)
 Manager für Ihre gespeicherten Rasterlayouts und Kamerazuweisungen. Ermöglicht das Erstellen leerer Rastervorlagen, das Ändern ihrer Reihenfolge, das Umschalten ihrer Sichtbarkeit in der oberen Leiste (über den Schalter „Sichtbar“) oder deren Aktivierung im aktuellen Fenster.
 
+### 4a. Layoutgruppen (Gruppensymbol)
+Dedizierter Arbeitsbereich unten **Voreinstellungen** zum Gruppieren benutzerdefinierter Layouts, NVR-Ansichten und NVR-Raster in zusammenklappbaren, gerahmten Dockboxen in der oberen Leiste, zum Neuanordnen von Voreinstellungen und Gruppen per Drag-and-Drop, zum Konfigurieren von **Standardmäßig minimiert** / Pin-Standardeinstellungen, zum Einfügen von **Zeilenumbruch**-Trennzeichen (`↵`) und zum Umschalten von **Auch als nicht gruppiert anzeigen** (Schritt für Schritt beschrieben in Abschnitt 5).
+
 ### 5. Einstellungen (Zahnradsymbol)
 Ermöglicht das Anpassen globaler Anwendungseinstellungen:
 * **Ausführung mehrerer Instanzen zulassen**: Durch Aktivieren dieses Kontrollkästchens können mehrere parallele Kopien des KVision-Prozesses gestartet werden (standardmäßig werden die Ausführungen auf eine einzelne aktive Instanz beschränkt).
 * **Einstellungen für die automatische Minimierung**: Passt das Timing der Gleitanimation für die obere Leiste und das Statistikfeld an.
+* **Hintergrundtransparenz der oberen Leiste**: Passt die Hintergrundopazität der oberen Leiste an (`0%` = durchgehende undurchsichtige dunkle Oberfläche, `100%` = vollständig transparenter Hintergrund), live synchronisiert über Fenster hinweg.
 * **Austauschen von Ansichtsfenstern zulassen**: Mit dem Kontrollkästchen *„Austauschen von Ansichtsfenstern zulassen“* können Sie die Kamerapositionen im Raster im Handumdrehen neu anordnen (Rechtsklick auf Quellkachel -> Wählen Sie „Ansichtsfenster tauschen“ -> Linksklick auf Zielkachel).
 * **Rechtsklick-Berechtigungen**: Wechselt zum Sperren/Entsperren interaktiver Steuerelemente im Kontextmenü mit der rechten Maustaste (Kontextmenü aktivieren, Austauschen von Ansichtsfenstern zulassen, Option „Kamera entfernen“ aktivieren, Ändern der Ansichtsfenstereinstellungen zulassen, Auswahl der Stream-Haupt-/Unterqualität aktivieren).
 * **Automatische Stummschaltung aufheben**: Hebt automatisch die Stummschaltung des Audiostreams des aktiven Ansichtsfensters auf, wenn in den Vollbildmodus gewechselt wird.

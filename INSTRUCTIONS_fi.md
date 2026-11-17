@@ -326,6 +326,37 @@ Hampurilainen (More Options) -valikon avaaminen tuo esiin erikoisen asettelutyö
    * **4:3-kuvasuhde**: mukauttaa ruudukkosäiliön perinteiseen 4:3-kuvasuhteeseen (yleinen vanhoissa analogisissa/IP-kameroissa).
 4. **Ruudukkotoiminnot (Yhdistä korostetut solut)**: Käytä epäsymmetristä solujen yhdistämisominaisuutta (yksityiskohtaisesti kohdassa 9.2).
 
+
+### Näytä ryhmät, kokoontaitettavat telakointilaatikot ja vedä ja pudota -organisaatio
+Kun hallitset useita kamera-asetteluja, **Asetteluryhmät** pitävät yläpalkin puhtaana niputtamalla niihin liittyvät **Muokatut asettelut**, **NVR-näkymät** ja **NVR-ruudukot** merkittyihin, kokoontaitettaviin kehyksiin keskeyttämättä suoraa videolähetystä tai vaihtamatta asettelua ennenaikaisesti.
+
+#### Ryhmien luominen, uudelleennimeäminen ja poistaminen
+1. Avaa Asetukset-paneeli (**{ICON:options}**) ja valitse **Asetteluryhmät** (neljäs välilehti **Esiasetukset** alla).
+2. Kirjoita nimi **Uuden ryhmän nimi...** -kenttään ja napsauta **Luo ryhmä** (tai paina **Enter**).
+3. Napsauta mitä tahansa ryhmän otsikkokenttää luettelossa muokataksesi sen nimeä suoraan ja paina **Enter** tallentaaksesi.
+4. Poista ryhmäsäilö napsauttamalla ryhmän vieressä olevaa roskakorikuvaketta – kaikki sisällä olevat asettelut pysyvät turvassa ja vahingoittumattomina. **Poista kaikki** -toiminnon käyttäminen hajottaa kaikki ryhmät ja säilyttää kaikki asettelut ennallaan.
+
+#### Asettelujen ja "Näytä myös ryhmittämättömänä" määrittäminen
+* Laajenna alareunaa **Kaikki asettelut** / **Ryhmittelemätön** pool tai mikä tahansa ryhmäkortti vaihtaaksesi jäsenyyden.
+* Mikä tahansa asettelu (**Layout**, **NVR View**, **NVR Grid**) voi kuulua yhteen tai useampaan ryhmään samanaikaisesti.
+* Vaikka asettelu kuuluisi ryhmään, voit ottaa käyttöön **Näytä myös ryhmittämättömänä** asettelun viereen, jolloin ylimääräinen erillinen pikanäppäin pysyy myös yläpalkissa ryhmien ulkopuolella.
+
+#### Tiivistetty pilleri vs. laajennettu ryhmäkehys
+* **Tiivistetty tila**: Näkyy kompaktina pillerinä, jonka korkeus on täsmälleen sama kuin vakionäkymäpainike, jossa näkyy NVR-verkkokuvake ja ryhmän nimi isoilla kirjaimilla. Jos ryhmän sisällä oleva asettelu on tällä hetkellä aktiivinen, tiivistetty painike muuttuu syaaniksi ja näyttää **aktiivisen näkymän nimen pienempänä tekstityksenä** suoraan ryhmän nimen alla. Laajenna ryhmää sujuvasti napsauttamalla tiivistettyä pilleriä.
+* **Laajennettu tila**: Animoidaan sujuvasti avautuvaksi kehystettyyn telakointilaatikkoon, jossa näkyy NVR-verkkokuvake, isoilla kirjaimilla oleva otsikko, Pin-kytkin ja kaikki sisällä olevat jäsennäkymän painikkeet. Click the collapse chevron (`▾`) on the left of the group header to fold it back manually.
+
+#### Kiinnitys- ja automaattinen tiivistystoiminta ({ICON:pin})
+Jokaisella ryhmällä on **Layout Groups** -kohdassa **Oletusarvoisesti tiivistetty** -kytkin, joka pysyy synkronoituna reaaliajassa yläpalkin otsikkorivillä olevan **{ICON:pin} Pin** -kuvakkeen kanssa:
+* **Kiinnitetty auki (pysty syaani nasta / "oletusarvoisesti tiivistetty" POIS)**: Ryhmä pysyy laajennettuna pysyvästi, kunnes kutistat sen manuaalisesti tai otat nastan pois päältä.
+* **Oletustiivistetty (kallistutettu harmaa nasta / "Pieni oletuksena" PÄÄLLÄ)**: Oletustiivistetyn ryhmän laajentaminen antaa sinun selata sen näkymiä tilapäisesti, minkä jälkeen se **kutistuu automaattisesti** heti, kun napsautat mitä tahansa ryhmän ulkopuolella, siirrät hiiren osoittimen pois yläpalkin alueelta, kutistat itse yläpalkin tai avaat toisen oletusryhmän. Jo avoimen ryhmän irrottaminen merkitsee sen oletusarvoisesti kutistetuksi välittömästi ja jättää sen auki, kunnes napsautat muuta kohtaa tai poistut yläpalkista.
+
+#### Vedä ja pudota -järjestys ja rivinvaihtoerottimet (`↵`)
+* **Yläpalkin pääjärjestys**: Vedä **Asetukset → Asetteluryhmät** -kohdan yläreunassa olevia siruja vaakasuunnassa **Yläpalkin pääsarja** -ruudun sisällä, jos haluat määrittää itsenäisten näkymäpainikkeiden, ryhmien ja erottimien tarkan vasemmalta oikealle näyttöjärjestyksen.
+* **Ryhmien ja sisänäkymien uudelleenjärjestäminen**: Järjestä ryhmäluettelo uudelleen vetämällä ryhmäkortteja pystysuunnassa (tai käytä ylä-/alasnuolia) ja laajenna mitä tahansa ryhmäkorttia asetuksissa vetääksesi sen jäsenasettelut haluamaasi järjestykseen. **Esiasetuksissa** asetteluja voidaan myös järjestää uudelleen vetämällä ja pudottamalla.
+* **Line-Break-erottimien lisääminen (`Add separator`)**: Napsauta **Lisää erotin** lisätäksesi violetin `↵ Line break`-sirun mihin tahansa yläpalkin sekvenssiin (poista napsauttamalla sen `×`-kuvaketta).
+* **Älykkään erottimen sääntö**: Kun erottimen vieressä olevat viereiset ryhmät **tiivistetään**, tiivistetyn ryhmän painikkeet pysyvät yhdessä samalla rivillä tarkasti määritetyssä järjestyksessä. kun erottimen jommallakummalla puolella on **laajennettu** ryhmä, erotin katkaisee rivit automaattisesti ennen ja/tai jälkeen laajennetun ryhmän, jotta moniriviset työkalurivit pysyvät siististi kohdistettuina.
+* Kaikki yläpalkin ja ryhmien muutokset päivittyvät reaaliajassa pää- ja lisänäytöissä (`New Window`) samalla kun nykyiset RTSP/NVR-kameravirrat toimivat sujuvasti.
+
 ---
 
 ## 6. Järjestelmätilastot-paneeli (Järjestelmätilastot)
@@ -416,10 +447,14 @@ Täydellinen konfigurointihallinta Hikvision NVR/DVR -laitteiden yhteyksiä vart
 ### 4. Esiasetukset (tähtikuvake)
 Tallennettujen ruudukkoasettelujen ja kameratehtävien hallinta. Mahdollistaa tyhjien ruudukkomallien luomisen, niiden järjestyksen muuttamisen, yläpalkin näkyvyyden vaihtamisen ("Näkyvä"-kytkimen kautta) tai niiden aktivoimisen nykyisessä ikkunassa.
 
+### 4a. Asetteluryhmät (ryhmäkuvake)
+Erillinen työtila alla **Esiasetukset** mukautettujen asettelujen, NVR-näkymien ja NVR-ruudukoiden ryhmittelyä varten yläpalkin kokoontaitettaviksi kehystetyiksi telakoiksi, esiasetusten ja ryhmien uudelleenjärjestäminen vetämällä ja pudottamalla, **Tiivistetty oletuksena** / Kiinnitä oletusasetukset, **Rivinvaihto**-erottimien (`↵`) lisääminen ja **Näytä myös ryhmittämättömänä** -asetuksen vaihtaminen (kuvattu vaihe vaiheelta osiossa 5).
+
 ### 5. Asetukset (rataskuvake)
 Mahdollistaa yleisten sovellusasetusten säätämisen:
 * **Salli useiden ilmentymien suorittaminen**: Tämän valintaruudun valitseminen sallii useiden rinnakkaisten kopioiden käynnistämisen KVision-prosessista (oletusarvoisesti se rajoittaa suoritukset yhteen aktiiviseen ilmentymään).
 * **Automaattisen tiivistyksen asetukset**: Muokkaa yläpalkin ja tilastopaneelin liukuvan animaation ajoitusta.
+* **Yläpalkin taustan läpinäkyvyys**: Säätää yläpalkin taustan peittävyyttä (`0%` = kiinteä läpinäkymätön tumma pinta, `100%` = täysin läpinäkyvä tausta), synkronoidaan livenä ikkunoiden välillä.
 * **Salli kuvaporttien vaihtaminen**: valintaruudun *"Salli näkymän paikkojen vaihtaminen"* avulla voit järjestää uudelleen kameran paikkoja ruudukossa lennossa (napsauta lähderuutua hiiren kakkospainikkeella -> Valitse "Vaihda kuvaportteja" -> napsauta hiiren vasemmalla painikkeella kohderuutua).
 * **Kakkospainikkeen käyttöoikeudet**: Vaihtaa interaktiivisten ohjainten lukitsemiseen/aukaisemiseen hiiren kakkospainikkeen kontekstivalikossa (Ota käyttöön kontekstivalikko, Salli kuvaporttien vaihtaminen, Ota käyttöön Poista kamera -vaihtoehto, Salli näkymän asetusten muuttaminen, Ota käyttöön streamin pää-/alilaadun valinta).
 * **Automaattinen mykistyksen poistaminen**: Poistaa automaattisesti aktiivisen näkymän äänivirran mykistyksen siirtyessään koko näytön tilaan.

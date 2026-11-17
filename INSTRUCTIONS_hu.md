@@ -326,6 +326,37 @@ A Hamburger (További beállítások) menü megnyitása egy speciális elrendez�
    * **4:3-as képarány**: A rácstárolót a hagyományos 4:3-as képarányhoz igazítja (a régi analóg/IP-kamerákban gyakori).
 4. **Rácsműveletek (Kiemelt cellák egyesítése)**: Az aszimmetrikus cellaegyesítés funkció elérése (részletek a 9.2. szakaszban).
 
+
+### Tekintse meg a csoportokat, az összecsukható dokkolódobozokat és a fogd és vidd szervezetet
+Számos kameraelrendezés kezelésekor az **Elrendezéscsoportok** tisztán tartják a felső sávot azáltal, hogy a kapcsolódó **Egyéni elrendezéseket**, **NVR-nézeteket** és **NVR-rácsokat** címkézett, összecsukható képkockákba csomagolják anélkül, hogy megszakítanák az élő videoközvetítést vagy idő előtti elrendezést váltanának.
+
+#### Csoportok létrehozása, átnevezése és törlése
+1. Nyissa meg a Beállítások panelt (**{ICON:options}**), és válassza az **Elrendezéscsoportok** lehetőséget (a negyedik lap az **Előbeállítások** alatt).
+2. Írjon be egy nevet az **Új csoportnév...** mezőbe, és kattintson a **Csoport létrehozása** lehetőségre (vagy nyomja meg az **Enter** billentyűt).
+3. Kattintson bármelyik csoport fejlécmezőjére a listán a nevének soron belüli szerkesztéséhez, majd nyomja meg az **Enter** billentyűt a mentéshez.
+4. Kattintson a csoport melletti kuka ikonra a csoporttároló törléséhez – a benne lévő összes elrendezés biztonságos és sértetlen marad. A **Ungroup all** használata minden csoportot felold, miközben az összes elrendezést érintetlenül hagyja.
+
+#### Elrendezések hozzárendelése és "Megjelenítés csoportosítatlanként is"
+* Bontsa ki az alsó **Minden elrendezés** / **Csoport nélküli** készletet vagy bármely csoportkártyát a tagság váltásához.
+* Bármely elrendezés (**Elrendezés**, **NVR-nézet**, **NVR-rács**) tartozhat egy vagy több csoporthoz egyidejűleg.
+* Még akkor is, ha egy elrendezés egy csoporthoz tartozik, az elrendezés mellett bekapcsolhatja a **Megjelenítés csoportosítatlanként is** lehetőséget, így egy különálló gyorsbillentyű is látható marad a felső sávon a csoportokon kívül.
+
+#### Összecsukott tabletta kontra kibővített csoportkeret
+* **Összecsukott állapot**: A normál nézet gombjával pontosan megegyező magasságú kompakt tablettaként jelenik meg, nagybetűvel megjelenítve az NVR-hálózat ikonját és a csoport nevét. Ha a csoporton belüli elrendezés jelenleg aktív, az összecsukott gomb cián színűvé válik, és közvetlenül a csoport neve alatt megjeleníti az **aktív nézet nevét kisebb feliratként**. Kattintson az összecsukott tablettára a csoport zökkenőmentes bővítéséhez.
+* **Kibontott állapot**: Simán animál egy bekeretezett dokkolódobozba, amelyen megjelenik az NVR-hálózat ikonja, nagybetűs címe, Pin kapcsolója és az összes tag nézet gombja. Kattintson a csoportfejléc bal oldalán található összecsukási jelre (`▾`) a kézi visszahajtáshoz.
+
+#### Nyitási és automatikus összecsukási viselkedés rögzítése ({ICON:pin})
+Minden csoport rendelkezik egy **Alapértelmezés szerint összecsukva** kapcsolóval az **Elrendezéscsoportok** részben, amely valós időben szinkronizálva marad a felső sáv címsorában található **{ICON:pin} Pin** ikonnal:
+* **Rögzítve nyitva (függőleges cián tű / "Alapértelmezés szerint összecsukva" KI)**: A csoport folyamatosan kibontva marad mindaddig, amíg manuálisan össze nem csukja, vagy ki nem kapcsolja a tűt.
+* **Alapértelmezett összecsukott (döntött szürke tű / "Alapértelmezés szerint összecsukva" BE)**: Az alapértelmezetten összecsukott csoport kibontásával ideiglenesen böngészhet a nézeteiben, majd **automatikusan összecsukódik**, amint a csoporton kívül bárhová kattint, az egérkurzort kimozdítja a felső sáv területéről, magát a felső sávot összecsukja vagy egy másik alapértelmezett csoportot nyit meg. A már megnyitott csoport rögzítésének feloldása azonnal alapértelmezettként összecsukottként jelöli meg, miközben nyitva marad mindaddig, amíg máshová nem kattint, vagy elhagyja a felső sávot.
+
+#### Fogd és vidd rendezési és sortörés-elválasztók (`↵`)
+* **Felső sáv fő sorozata**: A **Beállítások → Elrendezési csoportok** tetején húzza a lapkákat vízszintesen a **Fő felső sáv sorozata** mezőbe, hogy beállítsa az önálló nézetgombok, csoportok és elválasztók pontos balról jobbra történő megjelenítési sorrendjét.
+* **Csoportok és belső nézetek átrendezése**: Húzza függőlegesen a csoportkártyákat (vagy használja a fel/le nyilat) a csoportlista átrendezéséhez, és bontsa ki a csoportkártyákat a Beállításokban, hogy a tagelrendezéseket a kívánt sorrendbe húzza. Az **Előbeállítások**-ban az elrendezések húzással is átrendezhetők.
+* **Vonaltörés-elválasztók hozzáadása (`Add separator`)**: Kattintson az **Elválasztó hozzáadása** lehetőségre egy lila `↵ Line break` chip beillesztéséhez a felső sáv sorrendjében (kattintson a `×` ikonjára az eltávolításhoz).
+* **Intelligens elválasztó szabály**: Ha az elválasztó melletti szomszédos csoportok **összecsukva** vannak, az összecsukott csoportgombok együtt maradnak ugyanabban a sorban a pontosan beállított sorrendben; Ha az elválasztó körüli mindkét oldalon található egy **kibontott** csoport, az elválasztó automatikusan tisztán töri a sorokat a kibontott csoport előtt és/vagy után, így a többsoros eszköztárak szépen igazodnak.
+* Minden felső sáv és csoport változás élőben frissül a fő- és a kiegészítő (`New Window`) képernyőkön, miközben a meglévő RTSP/NVR kamerafolyamok zökkenőmentesen futnak.
+
 ---
 
 ## 6. Rendszerstatisztikai panel (Rendszerstatisztikák)
@@ -416,10 +447,14 @@ Teljes konfigurációkezelő a Hikvision NVR/DVR eszközökhöz való csatlakoz�
 ### 4. Előbeállítások (csillag ikon)
 A mentett rácselrendezések és kamera-hozzárendelések kezelője. Lehetővé teszi üres rácssablonok létrehozását, sorrendjük megváltoztatását, a felső sáv láthatóságának átkapcsolását (a "Látható" kapcsolón keresztül), vagy aktiválását az aktuális ablakban.
 
+### 4a. Elrendezési csoportok (Csoportok ikon)
+Dedikált munkaterület az **Előbeállítások** alatt az egyéni elrendezések, NVR-nézetek és NVR-rácsok összecsukható, keretes dokkolódobozokba csoportosításához a felső sávon, az előre beállított értékek és csoportok átrendezése húzással, **Alapértelmezés szerint összecsukva** / Alapértelmezések rögzítése, **Sortörés** elválasztók (`↵`) beszúrása és a **Megjelenítés csoportosítatlanként is** kapcsoló kezelése (az 5. szakaszban lépésről lépésre leírva).
+
 ### 5. Beállítások (fogaskerék ikon)
 Lehetővé teszi a globális alkalmazásbeállítások módosítását:
 * **Több példány futtatásának engedélyezése**: A jelölőnégyzet bejelölése lehetővé teszi a KVision folyamat több párhuzamos másolatának elindítását (alapértelmezés szerint egyetlen aktív példányra korlátozza a futtatást).
 * **Automatikus összecsukási beállítások**: testreszabja a csúszó animáció időzítését a felső sávon és a statisztikai panelen.
+* **Felső sáv háttérátlátszósága**: Beállítja a felső sáv háttér átlátszatlanságát (`0%` = tömör, átlátszatlan, sötét felület, `100%` = teljesen átlátszó háttér), élőben szinkronizálva az ablakok között.
 * **Nézetablakok cseréjének engedélyezése**: A *„Nézetablak helyek felcserélésének engedélyezése”* jelölőnégyzet lehetővé teszi, hogy menet közben átrendezze a kamera pozícióit a rácson (jobb gombbal kattintson a forráscsempére -> Válassza a "Nézetablak cseréje" -> Bal kattintás a célcsempét).
 * **Jobb gombbal történő kattintás engedélyei**: Váltás az interaktív vezérlők zárolására/feloldására a jobb gombbal megjelenő helyi menüben (Helyi menü engedélyezése, Nézetablakok cseréjének engedélyezése, „Kamera eltávolítása” opció engedélyezése, Nézetablakok beállításainak módosításának engedélyezése, Az adatfolyam fő/al minőségének kiválasztásának engedélyezése).
 * **Automatikus némítás feloldása**: Teljes képernyő módba lépéskor automatikusan feloldja az aktív nézetablak hangfolyamát.

@@ -103,6 +103,25 @@ void ViewportsLayoutsCollectionModel::remove(int index, int count)
     emit countChanged(m_models.size());
 }
 
+bool ViewportsLayoutsCollectionModel::move(int from, int to)
+{
+    if (from < 0 || from >= m_models.size() || to < 0 || to >= m_models.size() || from == to) {
+        return false;
+    }
+
+    const int dest = (from < to) ? (to + 1) : to;
+    if (!beginMoveRows(QModelIndex(), from, from, QModelIndex(), dest)) {
+        return false;
+    }
+
+    m_models.move(from, to);
+    endMoveRows();
+
+    emit layoutMoved(from, to);
+    emit changed();
+    return true;
+}
+
 void ViewportsLayoutsCollectionModel::resize(int count)
 {
     if (count > m_models.size()) {

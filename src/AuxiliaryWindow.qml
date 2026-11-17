@@ -48,6 +48,15 @@ Window {
         }
     }
 
+    Connections {
+        target: auxWindow.layoutsModel
+        function onLayoutMoved(from, to) {
+            if (rootWindow) {
+                auxWindow.layoutIndex = rootWindow.remapIndexAfterMove(auxWindow.layoutIndex, from, to);
+            }
+        }
+    }
+
     onActiveChanged: {
         if (active) {
             rootWindow.activeLayoutWindow = auxWindow;
@@ -154,10 +163,12 @@ Window {
             }
         }
 
-        // Viewports Layout inside StackLayout
-        StackLayout {
+        // Viewports Layout container (preserves active streams continuously across layout reordering)
+        Item {
             id: stackLayout
             anchors.fill: parent
+            property int currentIndex: -1
+            readonly property int count: layoutRepeater.count
             visible: auxWindow.layoutIndex !== -1
 
             Repeater {
@@ -165,8 +176,12 @@ Window {
                 model: layoutsModel
 
                 ViewportsLayout {
+                    anchors.fill: parent
                     model: layoutModel
-                    focus: true
+                    visible: (rootWindow && rootWindow.isMovingLayout)
+                             ? (model === auxWindow.selectedLayoutModel)
+                             : (index === stackLayout.currentIndex)
+                    focus: visible
                 }
             }
         }
@@ -194,9 +209,10 @@ Window {
     EventFilter {
         id: auxTopBarPointerFilter
         target: auxWindow
-        eventTypes: ["MouseMove", "Leave"]
+        eventTypes: ["MouseMove", "MouseButtonRelease", "Leave"]
         onEventFiltered: {
             if (properties.type === "Leave") {
+                auxViewsArea.clearPointer();
                 if (auxWindow.pointerInTopBar) {
                     auxWindow.pointerInTopBar = false;
                     if (auxWindow.topBarAutoCollapse && !hoverArea.containsMouse) {
@@ -205,12 +221,17 @@ Window {
                 }
                 return;
             }
+            if (properties.type === "MouseButtonRelease") {
+                auxViewsArea.scheduleSceneClick(properties.x, properties.y);
+                return;
+            }
             var mx = properties.x;
             var my = properties.y;
             var activeTop = (hoverArea.containsMouse || auxWindow.pointerInTopBar || keepVisibleTimer.running) ? 0 : topToolBar.y;
             var triggerH = (rootWindow && rootWindow.viewSettings) ? rootWindow.viewSettings.topBarTriggerHeight : 12;
             var insideTopTrigger = (my >= 0 && my <= triggerH);
             var insideBar = (mx >= 0 && mx <= topToolBar.width && my >= activeTop && my <= activeTop + topToolBar.height);
+            auxViewsArea.updatePointerScenePos(mx, my, insideBar);
             var nowInside = insideTopTrigger || insideBar;
             if (nowInside !== auxWindow.pointerInTopBar) {
                 auxWindow.pointerInTopBar = nowInside;
@@ -246,14 +267,17 @@ Window {
     Rectangle {
         id: topToolBar
         readonly property bool hasGridExtension: generalSettings ? !generalSettings.lockGridSize : false
-        height: Math.max(44, Math.max(hasGridExtension ? (auxGridColumn.implicitHeight + 14) : 44, auxViewsFlow.childrenRect.height + 14))
+        height: Math.max(44, Math.max(hasGridExtension ? (auxGridColumn.implicitHeight + 14) : 44, auxViewsArea.contentHeight + 14))
         anchors.left: parent.left
         anchors.right: parent.right
-        color: "#cc121214"
+        color: rootWindow
+               ? Qt.rgba(0x12 / 255.0, 0x12 / 255.0, 0x14 / 255.0, Math.max(0.0, Math.min(1.0, (100 - rootWindow.liveTopBarBgTransparency) / 100.0)))
+               : "#cc121214"
         z: 9999
 
         // Slide animation based on hover states of the top edge or the bar itself
-        y: (!topBarAutoCollapse || hoverArea.containsMouse || auxWindow.pointerInTopBar || keepVisibleTimer.running) ? 0 : -height
+        readonly property bool isShown: !topBarAutoCollapse || hoverArea.containsMouse || auxWindow.pointerInTopBar || keepVisibleTimer.running
+        y: isShown ? 0 : -height
 
         Behavior on y {
             NumberAnimation {
@@ -637,117 +661,26 @@ Window {
                     Layout.alignment: Qt.AlignVCenter
                 }
 
-                Flow {
-                    id: auxViewsFlow
+                Item {
+                    id: auxViewsWrap
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignVCenter
-                    spacing: 4
+                    implicitHeight: auxViewsArea.contentHeight
 
-                    function alignRowsRight() {
-                        var rows = [];
-                        for (var i = 0; i < children.length; ++i) {
-                            var c = children[i];
-                            if (!c || !c.visible || c.width <= 0) {
-                                continue;
-                            }
-                            var ry = Math.round(c.y);
-                            var rowObj = null;
-                            for (var r = 0; r < rows.length; ++r) {
-                                if (Math.abs(rows[r].y - ry) < 2) {
-                                    rowObj = rows[r];
-                                    break;
-                                }
-                            }
-                            if (!rowObj) {
-                                rowObj = { y: ry, items: [], width: 0 };
-                                rows.push(rowObj);
-                            }
-                            rowObj.items.push(c);
+                    TopBarViewsArea {
+                        id: auxViewsArea
+                        anchors.right: parent.right
+                        sections: rootWindow ? rootWindow.topBarSections : []
+                        currentLayoutIndex: auxWindow.layoutIndex
+                        maxFlowWidth: Math.max(150, auxViewsWrap.width)
+                        alignRight: true
+                        barVisible: topToolBar.isShown
+                        onActivateLayout: function(layoutIndex) {
+                            auxWindow.layoutIndex = layoutIndex;
                         }
-                        var targetWidth = width;
-                        for (var r2 = 0; r2 < rows.length; ++r2) {
-                            var ro = rows[r2];
-                            var rw = 0;
-                            for (var j = 0; j < ro.items.length; ++j) {
-                                rw += ro.items[j].width;
-                                if (j > 0) rw += spacing;
-                            }
-                            var curX = Math.max(0, targetWidth - rw);
-                            for (var k = 0; k < ro.items.length; ++k) {
-                                ro.items[k].x = curX;
-                                curX += ro.items[k].width + spacing;
-                            }
-                        }
-                    }
-
-                    onWidthChanged: alignRowsRight()
-                    onPositioningComplete: alignRowsRight()
-
-                    Repeater {
-                        id: repeaterViewsAux
-                        model: layoutsModel
-                        delegate: Button {
-                            id: viewBtn
-                            property int layoutIndex: model.index
-
-                            visible: {
-                                try {
-                                    var layout = model.layoutModel;
-                                    if (layout) {
-                                        return layout.visible;
-                                    }
-                                } catch(e) {}
-                                return true;
-                            }
-
-                            text: {
-                                try {
-                                    var layout = model.layoutModel;
-                                    if (layout) {
-                                        if (layout.name && layout.name.trim() !== "") {
-                                            return layout.name;
-                                        }
-                                        if (layout.isNvr) {
-                                            return "📹 " + rootWindow.getRecorderName(layout.nvrIp);
-                                        } else {
-                                            var count = 1;
-                                            for (var i = 0; i < layoutIndex; ++i) {
-                                                var l = layoutsModel.get(i);
-                                                if (l && !l.isNvr) count++;
-                                            }
-                                            return "Widok " + count;
-                                        }
-                                    }
-                                } catch(e) {}
-                                return "Widok " + (layoutIndex + 1);
-                            }
-
-                            height: 30
-                            Layout.preferredHeight: 30
-                            leftPadding: 12
-                            rightPadding: 12
-
-                            // Highlight if this is the currently active view!
-                            property bool isActive: auxWindow.layoutIndex === layoutIndex
-
-                            contentItem: Text {
-                                text: viewBtn.text.toUpperCase()
-                                font.bold: true
-                                font.pixelSize: 10
-                                color: viewBtn.isActive ? "#121214" : (viewBtn.hovered ? "#ffffff" : "#8898a6")
-                                horizontalAlignment: Text.AlignHCenter
-                                verticalAlignment: Text.AlignVCenter
-                            }
-
-                            background: Rectangle {
-                                color: viewBtn.isActive ? "#00f5d4" : (viewBtn.pressed ? "#cc121214" : (viewBtn.hovered ? "#3a4550" : "#1c242c"))
-                                radius: 15
-                                border.color: viewBtn.isActive ? "#00f5d4" : (viewBtn.hovered ? "#8898a6" : "#2a3540")
-                                border.width: 1
-                            }
-
-                            onClicked: {
-                                auxWindow.layoutIndex = layoutIndex;
+                        onSetGroupCollapsedByDefault: function(groupName, collapsed) {
+                            if (rootWindow) {
+                                rootWindow.setGroupCollapsedByDefault(groupName, collapsed);
                             }
                         }
                     }

@@ -326,6 +326,37 @@ Den øverste skyveverktøylinjen gir et omfattende sett med navigasjons- og prog
    * **4:3-sideforhold**: Tilpasser rutenettbeholderen til det tradisjonelle 4:3-forholdet (vanlig i eldre analoge/IP-kameraer).
 4. **Gridoperasjoner (Slå sammen uthevede celler)**: Få tilgang til funksjonen for asymmetrisk cellesammenslåing (detaljert i avsnitt 9.2).
 
+
+### Se grupper, sammenleggbare dockbokser og dra-og-slipp-organisasjon
+Når du administrerer mange kameraoppsett, holder **Layout Groups** den øverste linjen ren ved å gruppere relaterte **Custom Layouts**, **NVR Views** og **NVR Grids** i merkede, sammenleggbare rammer uten å avbryte direkte videostrømmer eller bytte oppsett for tidlig.
+
+#### Opprette, gi nytt navn og slette grupper
+1. Åpne Options-panelet (**{ICON:options}**) og velg **Layout Groups** (den fjerde fanen under **Presets**).
+2. Skriv inn et navn i feltet **Nytt gruppenavn...** og klikk på **Opprett gruppe** (eller trykk på **Enter**).
+3. Klikk på et gruppeoverskriftsfelt inne i listen for å redigere navnet på den, og trykk på **Enter** for å lagre.
+4. Klikk på søppelikonet ved siden av en gruppe for å slette gruppebeholderen - alle oppsett inne forblir trygge og uskadd. Bruk av **Ungroup all** løser opp hver gruppe samtidig som alle oppsett holdes intakte.
+
+#### Tilordne layouter og "Vis også som ugruppert"
+* Utvid bunnen **Alle layouter** / **Ugruppert** basseng eller et hvilket som helst gruppekort for å bytte medlemskap.
+* Enhver layout (**Layout**, **NVR View**, **NVR Grid**) kan tilhøre én eller flere grupper samtidig.
+* Selv når et oppsett tilhører en gruppe, kan du slå på **Vis også som ugruppert** ved siden av det oppsettet, slik at en ekstra frittstående snarveisknapp også forblir synlig på topplinjen utenfor gruppene.
+
+#### Skjult pille vs. utvidet grupperamme
+* **Skuttet tilstand**: Gjengitt som en kompakt pille med nøyaktig samme høyde som en standardvisningsknapp, og viser NVR-nettverksikonet og gruppenavnet med store bokstaver. Hvis et oppsett i den gruppen er aktivt for øyeblikket, blir den skjulte knappen cyan og viser **navnet til den aktive visningen som en mindre undertittel** rett under gruppenavnet. Klikk på den kollapsede pillen for å utvide gruppen jevnt.
+* **Utvidet tilstand**: Animerer jevnt og åpner seg i en innrammet dokkingboks som viser NVR-nettverksikonet, tittelen med store bokstaver, Pin-veksler og alle medlemsvisningsknappene inni. Klikk på kollaps-shevronen (`▾`) til venstre for gruppeoverskriften for å folde den tilbake manuelt.
+
+#### Åpnings- og autokollapsatferd feste ({ICON:pin})
+Hver gruppe har en **Skjulet som standard**-bryter i **Layout-grupper** som forblir synkronisert i sanntid med **{ICON:pin} Pin**-ikonet på topplinjens tittellinje:
+* **Påpent festet (vertikal cyan pin / "Skjulet som standard" AV)**: Gruppen forblir utvidet permanent til du skjuler den manuelt eller slår av pinnen.
+* **Standard-skjult (tiltet grå nål / "Skjulet som standard" PÅ)**: Ved å utvide en standard-skjult gruppe kan du bla gjennom visningene midlertidig, deretter **kollapser den automatisk** så snart du klikker hvor som helst utenfor gruppen, flytter musepekeren ut av det øverste feltet, skjuler selve den øverste linjen, eller åpner en annen standardgruppe. Hvis du løsner en allerede åpen gruppe, merkes den som standard-skjult umiddelbart mens du lar den være åpen til du klikker et annet sted eller forlater topplinjen.
+
+#### Dra-og-slipp-bestilling og linjeskift-separatorer (`↵`)
+* **Mastersekvens for øverste bjelke**: Øverst i **Innstillinger → Layoutgrupper** drar du sjetonger horisontalt inne i boksen **Sekvenssekvens for hovedlinje** for å angi nøyaktig venstre-til-høyre-visningsrekkefølge for frittstående visningsknapper, grupper og skilletegn.
+* **Endre rekkefølgen på grupper og indre visninger**: Dra gruppekort vertikalt (eller bruk opp/ned-pilene) for å endre rekkefølgen på gruppelisten, og utvide et hvilket som helst gruppekort i Innstillinger for å dra medlemsoppsettene i ønsket rekkefølge. I **Forhåndsinnstillinger** kan layouter også omorganiseres via dra-og-slipp.
+* **Legge til linjeskift-separatorer (`Add separator`)**: Klikk på **Add separator** for å sette inn en fiolett `↵ Line break`-brikke hvor som helst i topplinjesekvensen (klikk `×`-ikonet for å fjerne).
+* **Smart Separator Regel**: Når tilstøtende grupper ved siden av en separator er **skjult**, forblir skjulte gruppeknapper sammen på samme rad i nøyaktig konfigurert rekkefølge; Når hver side rundt skillelinjen inneholder en **utvidet** gruppe, bryter skillelinjen automatisk linjene rene før og/eller etter den utvidede gruppen, slik at verktøylinjer med flere rader forblir pent justert.
+* Alle topplinje- og gruppeendringer oppdateres live på tvers av hoved- og tilleggsskjermer (`New Window`) samtidig som eksisterende RTSP/NVR-kamerastrømmer kjører jevnt.
+
 ---
 
 ## 6. Systemstatistikkpanel (systemstatistikk)
@@ -416,10 +447,14 @@ Full konfigurasjonsbehandling for tilkoblinger til Hikvision NVR/DVR-enheter (be
 ### 4. Forhåndsinnstillinger (stjerneikon)
 Behandler for dine lagrede rutenettoppsett og kameraoppgaver. Gjør det mulig å lage tomme rutenettmaler, endre rekkefølgen deres, veksle synligheten i topplinjen (via «Synlig»-bryteren), eller aktivere dem i det gjeldende vinduet.
 
+### 4a. Layoutgrupper (gruppeikon)
+Dedikert arbeidsområde nedenfor **Forhåndsinnstillinger** for gruppering av egendefinerte oppsett, NVR-visninger og NVR-rutenett i sammenleggbare innrammede dokkingbokser på den øverste linjen, omorganisere forhåndsinnstillinger og grupper via dra-og-slipp, konfigurere **Skjulet som standard** / Feste standarder, sette inn **Linjeskift**-separatorer (`↵`) og beskrevet trinn for trinn i seksjon 5).
+
 ### 5. Innstillinger (tannhjulikon)
 Tillater justering av globale appinnstillinger:
 * **Tillat kjøring av flere forekomster**: Ved å merke av i denne boksen kan du starte flere parallelle kopier av KVision-prosessen (som standard begrenser den kjøringer til en enkelt aktiv forekomst).
 * **Innstillinger for autokollaps**: Tilpasser skyveanimasjonstidspunktet for topplinjen og statistikkpanelet.
+* **Bakgrunnsgjennomsiktighet på topplinjen**: Justerer bakteppeopasiteten til topplinjen (`0%` = solid ugjennomsiktig mørk overflate, `100%` = helt gjennomsiktig bakgrunn), synkronisert direkte på tvers av vinduer.
 * **Tillat bytte av visningsporter**: Avmerkingsboksen *"Tillat å bytte visningsportplasser"* lar deg omorganisere kameraposisjoner på rutenettet med en gang (Høyreklikk på kildebrikken -> Velg "Bytt visningsfelt" -> Venstreklikkmålbrikke).
 * **Høyreklikktillatelser**: Bytter til å låse/låse opp interaktive kontroller i høyreklikk-kontekstmenyen (Aktiver kontekstmeny, Tillat bytte av visningsporter, Aktiver alternativet "Fjern kamera", Tillat endring av visningsportinnstillinger, Aktiver valg av hoved-/underkvalitet for strøm).
 * **Automatisk demping**: Slår automatisk på lydstrømmen til den aktive visningsporten når du går inn i fullskjermmodus.

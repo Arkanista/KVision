@@ -326,6 +326,37 @@ Den øverste glidende værktøjslinje giver et omfattende sæt navigations- og p
    * **4:3-formatforhold**: Tilpasser gitterbeholderen til det traditionelle 4:3-forhold (almindeligt i ældre analoge/IP-kameraer).
 4. **Gitteroperationer (Flet fremhævede celler)**: Få adgang til den asymmetriske cellefletningsfunktion (detaljeret i afsnit 9.2).
 
+
+### Se grupper, sammenklappelige dockbokse og træk-og-slip-organisation
+Når du administrerer mange kameralayouts, holder **Layoutgrupper** den øverste bjælke ren ved at samle relaterede **Custom Layouts**, **NVR Views** og **NVR Grids** i mærkede, sammenklappelige rammer uden at afbryde live videostreams eller skifte layout for tidligt.
+
+#### Oprettelse, omdøbning og sletning af grupper
+1. Åbn panelet Indstillinger (**{ICON:options}**), og vælg **Layoutgrupper** (den fjerde fane nedenfor **Forudindstillinger**).
+2. Indtast et navn i feltet **Nyt gruppenavn...** og klik på **Opret gruppe** (eller tryk på **Enter**).
+3. Klik på et hvilket som helst gruppeoverskriftsfelt på listen for at redigere dets navn inline, og tryk på **Enter** for at gemme.
+4. Klik på papirkurven ved siden af ​​en gruppe for at slette gruppebeholderen - alle layouts indeni forbliver sikre og uskadt. Brug af **Udgroup all** opløser hver gruppe, mens alle layouts holdes intakte.
+
+#### Tildeling af layout og "Vis også som ugrupperet"
+* Udvid bunden **Alle layout** / **Ugrupperet** pool eller et hvilket som helst gruppekort for at skifte medlemskab.
+* Ethvert layout (**Layout**, **NVR View**, **NVR Grid**) kan tilhøre en eller flere grupper på samme tid.
+* Selv når et layout tilhører en gruppe, kan du aktivere **Vis også som ugrupperet** ved siden af ​​det layout, så en ekstra selvstændig genvejsknap også forbliver synlig på den øverste bjælke uden for grupperne.
+
+#### Sammenklappet pille vs. udvidet grupperamme
+* **Skjulet tilstand**: Gengives som en kompakt pille med nøjagtig samme højde som en standardvisningsknap, der viser NVR-netværksikonet og gruppenavnet med store bogstaver. Hvis et layout i den gruppe er aktivt i øjeblikket, bliver den skjulte knap cyan og viser den **aktive visnings navn som en mindre undertekst** direkte under gruppenavnet. Klik på den kollapsede pille for nemt at udvide gruppen.
+* **Udvidet tilstand**: Animerer jævnt og åbner sig i en indrammet dock-boks, der viser NVR-netværksikonet, store bogstaver, Pin-skift og alle medlemsvisningsknapper indeni. Klik på den kollapsende chevron (`▾`) til venstre for gruppeoverskriften for at folde den tilbage manuelt.
+
+#### Fastgøring af åben og automatisk sammenbrudsadfærd ({ICON:pin})
+Hver gruppe har en **Skjulet som standard**-knap i **Layoutgrupper**, der forbliver synkroniseret i realtid med ikonet **{ICON:pin} Pin** på dens øverste titellinje:
+* **Fastet åben (lodret cyan-nål / "Skjulet som standard" FRA)**: Gruppen forbliver udvidet permanent, indtil du skjuler den manuelt eller slår stiften fra.
+* **Standard-skjult (tiltet grå nål / "Skjulet som standard" TIL)**: Udvidelse af en standard-skjult gruppe giver dig mulighed for at gennemse dens visninger midlertidigt, så **klapper den automatisk** sammen, så snart du klikker et vilkårligt sted uden for gruppen, flytter musemarkøren ud af det øverste bjælkeområde, skjuler selve den øverste bjælke eller åbner en anden standardgruppe. Frigørelse af en allerede åben gruppe markerer den som standard-sammenbrudt med det samme, mens den lader den stå åben, indtil du klikker et andet sted eller forlader den øverste bjælke.
+
+#### Træk-og-slip bestilling og linjeskift-separatorer (`↵`)
+* **Mastersekvens for øverste bjælke**: Øverst i **Indstillinger → Layoutgrupper** skal du trække chips vandret inde i feltet **Sekvenssekvens for den øverste bjælke** for at indstille den nøjagtige visningsrækkefølge fra venstre mod højre for selvstændige visningsknapper, grupper og separatorer.
+* **Omarrangering af grupper og indre visninger**: Træk gruppekort lodret (eller brug op/ned-pilene) for at omarrangere gruppelisten, og udvid et hvilket som helst gruppekort i Indstillinger for at trække dets medlemslayout til din foretrukne rækkefølge. I **Forudindstillinger** kan layouts også omarrangeres via træk-og-slip.
+* **Tilføjelse af linjeskift-separatorer (`Add separator`)**: Klik på **Tilføj separator** for at indsætte en violet `↵ Line break`-chip hvor som helst i den øverste bjælkesekvens (klik på dens `×`-ikon for at fjerne).
+* **Smart Separator Rule**: Når tilstødende grupper ved siden af ​​en separator er **foldet**, forbliver de skjulte gruppeknapper sammen på den samme række i deres nøjagtigt konfigurerede rækkefølge; når hver side omkring separatoren indeholder en **udvidet** gruppe, bryder separatoren automatisk linjer rent før og/eller efter den udvidede gruppe, så værktøjslinjer med flere rækker forbliver pænt justeret.
+* Alle topbjælke- og gruppeændringer opdateres live på tværs af hoved- og hjælpeskærme (`New Window`), mens de holder eksisterende RTSP/NVR-kamerastreams kørende.
+
 ---
 
 ## 6. Systemstatistikpanel (Systemstatistik)
@@ -416,10 +447,14 @@ Fuld konfigurationsstyring for forbindelser til Hikvision NVR/DVR-enheder (beskr
 ### 4. Forudindstillinger (stjerneikon)
 Manager for dine gemte gitterlayouts og kameraopgaver. Tillader oprettelse af tomme gitterskabeloner, ændring af deres rækkefølge, skift af synlighed på øverste bjælke (via kontakten "Synlig") eller aktivering af dem i det aktuelle vindue.
 
+### 4a. Layoutgrupper (gruppeikon)
+Dedikeret arbejdsområde nedenfor **Forudindstillinger** til gruppering af brugerdefinerede layouts, NVR-visninger og NVR-gitter i sammenklappelige indrammede dockbokse på den øverste bjælke, omarrangering af forudindstillinger og grupper via træk-og-slip, konfiguration af **Skjulet som standard** / Fastgør standardindstillinger, indsættelse af **Linjeskift**-separatorer (`↵`) og beskrevet trin for trin i afsnit 5).
+
 ### 5. Indstillinger (tandhjulsikon)
 Tillader justering af globale applikationsindstillinger:
 * **Tillad at køre flere forekomster**: Ved at markere dette felt kan du starte flere parallelle kopier af KVision-processen (som standard begrænser den kørsler til en enkelt aktiv forekomst).
 * **Indstillinger for automatisk sammenbrud**: Tilpasser glidende animationstidspunkt for den øverste bjælke og statistikpanelet.
+* **Baggrundsgennemsigtighed for den øverste bjælke**: Justerer baggrundsgennemsigtigheden for den øverste bjælke (`0%` = solid uigennemsigtig mørk overflade, `100%` = fuldt gennemsigtig baggrund), synkroniseret live på tværs af vinduer.
 * **Tillad skift af visningsporte**: Afkrydsningsfeltet *"Tillad skift af visningsportspladser"* giver dig mulighed for at omarrangere kamerapositioner på gitteret med det samme (Højreklik på kildefelt -> Vælg "Skift visningsport" -> Venstre-klik målfelt).
 * **Højreklikstilladelser**: Skifter til at låse/låse op for interaktive kontroller i højreklikskontekstmenuen (Aktiver kontekstmenu, Tillad skift af visningsporte, Aktiver indstillingen 'Fjern kamera', Tillad ændring af visningsportindstillinger, Aktiver valg af hoved-/underkvalitet for stream).
 * **Automatisk slå lyden til**: Slår automatisk lyden fra i den aktive visningsport til, når du går i fuldskærmstilstand.

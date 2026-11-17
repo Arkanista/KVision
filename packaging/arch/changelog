@@ -1,3 +1,8 @@
+2.7.9-1
+  * Added the View Groups system with collapsible/expandable framed group boxes on the top bar, an NVR network group icon, active-view subtitles on collapsed group buttons, title-bar Pin toggles synced with "Collapsed by default", automatic collapse on outside click or leaving/collapsing the top bar, persistent empty groups until explicitly deleted, and inline line-break separators synced across main and auxiliary windows.
+  * Added drag-and-drop reordering across Presets and View Groups (top-bar sequence, group order, and group members) alongside a "Show also as ungrouped" toggle while preserving active live camera streams without interruption.
+  * Added live Top bar background transparency (0%-100%) slider, direct "Save changes" NVR editing without forced camera re-discovery, unified corner radii across all Settings tabs and the NVR camera list window (including tile buttons and thumbnail generator), vector NVR recorder header icon, and detailed View Groups documentation.
+
 2.7.8-3
   * Added Russian UI localization (kvision_ru_RU.ts / "Русский (ИИ)") contributed in PR #10 (@demon-5656), registered it in kvision.qrc, Context, SideBar, and translate_ts.py, and translated all 30 missing post-PR UI and changelog strings (LNG_00569-LNG_00598).
 
