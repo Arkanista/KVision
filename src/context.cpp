@@ -169,21 +169,33 @@ void Context::init()
     if (!m_watcher) {
         m_watcher = new QFileSystemWatcher();
         m_watcher->addPath(configPath);
-        QObject::connect(m_watcher, &QFileSystemWatcher::fileChanged, [](const QString &path) {
-            // Force reload settings file cache
-            QSettings settings(path, QSettings::IniFormat);
-            settings.sync();
+        QString configDir = QFileInfo(configPath).absolutePath();
+        if (QDir(configDir).exists()) {
+            m_watcher->addPath(configDir);
+        }
 
+        auto handleConfigChanged = [configPath, configDir](const QString &path) {
+            Q_UNUSED(path);
             // Re-add to watcher in case the file was recreated/replaced
-            if (m_watcher && !m_watcher->files().contains(path)) {
-                m_watcher->addPath(path);
+            if (m_watcher && !m_watcher->files().contains(configPath) && QFile::exists(configPath)) {
+                m_watcher->addPath(configPath);
             }
+            if (m_watcher && !m_watcher->directories().contains(configDir) && QDir(configDir).exists()) {
+                m_watcher->addPath(configDir);
+            }
+
+            // Force reload settings file cache
+            QSettings settings(configPath, QSettings::IniFormat);
+            settings.sync();
 
             // Emit signal on all active Context instances
             for (Context *instance : m_instances) {
                 emit instance->configFileChanged();
             }
-        });
+        };
+
+        QObject::connect(m_watcher, &QFileSystemWatcher::fileChanged, handleConfigChanged);
+        QObject::connect(m_watcher, &QFileSystemWatcher::directoryChanged, handleConfigChanged);
     }
 
     if (m_commandLineParser.isSet(presetOption)) {
@@ -254,6 +266,14 @@ void Context::writeSetting(const QString &category, const QString &key, const QV
         settings.endGroup();
     }
     settings.sync();
+
+    if (m_watcher && !m_watcher->files().contains(path) && QFile::exists(path)) {
+        m_watcher->addPath(path);
+    }
+
+    for (Context *instance : m_instances) {
+        emit instance->configFileChanged();
+    }
 }
 
 QVariant Context::readSetting(const QString &category, const QString &key, const QVariant &defaultValue) const

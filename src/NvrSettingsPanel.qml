@@ -162,9 +162,11 @@ ColumnLayout {
     }
 
     Connections {
-        target: rootWindow
+        target: (typeof rootWindow !== "undefined" && rootWindow) ? rootWindow : null
         function onHikvisionRecordersJsonChanged() {
-            rootPanel.loadRecorders();
+            if (!rootPanel.isDraggingRecorder) {
+                rootPanel.loadRecorders();
+            }
         }
     }
 
@@ -378,36 +380,34 @@ ColumnLayout {
                 }
             }
             if (data && data.trim() !== "") {
-                recorders = JSON.parse(data);
+                var parsed = JSON.parse(data);
+                rootPanel.recorders = [];
+                rootPanel.recorders = parsed;
             } else {
-                recorders = [];
+                rootPanel.recorders = [];
             }
             initializeActiveSessions();
         } catch(e) {
             console.log("[Hikvision QML Error] Failed to load recorders:", e);
-            recorders = [];
+            rootPanel.recorders = [];
         }
     }
 
     function refreshRecorders() {
         if (rootPanel.isDraggingRecorder) return;
         loadRecorders();
-        var arr = rootPanel.recorders.slice();
-        rootPanel.recorders = [];
-        rootPanel.recorders = arr;
-        saveRecorders();
     }
 
     function saveRecorders() {
         try {
             var jsonStr = JSON.stringify(recorders);
+            Context.writeSetting("Hikvision", "recordersJson", jsonStr);
             if (typeof rootWindow !== "undefined" && rootWindow) {
                 rootWindow.lastSavedRecordersJson = jsonStr;
                 rootWindow.lastLoadedRecordersJson = jsonStr;
                 rootWindow.lastRecordersSaveTime = Date.now();
                 rootWindow.hikvisionRecordersJson = jsonStr;
             }
-            Context.writeSetting("Hikvision", "recordersJson", jsonStr);
         } catch(e) {
             console.log("[Hikvision QML Error] Failed to save recorders:", e);
         }
@@ -432,8 +432,12 @@ ColumnLayout {
             }
         }
 
+        rootPanel.recorders = [];
         rootPanel.recorders = list;
         rootPanel.saveRecorders();
+        if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.flushSettingsToDisk) {
+            rootWindow.flushSettingsToDisk();
+        }
     }
 
     Text {
@@ -1054,18 +1058,10 @@ ColumnLayout {
     Item {
         id: recordersDragWrapper
         Layout.fillWidth: true
-        implicitHeight: Math.max(recordersListColumn.implicitHeight, recordersListColumn.childrenRect.height)
+        implicitHeight: recordersListColumn.implicitHeight
         Layout.preferredHeight: implicitHeight
         height: implicitHeight
         visible: rootPanel.recorders.length > 0
-
-        onVisibleChanged: {
-            if (visible) {
-                height = Qt.binding(function() {
-                    return Math.max(recordersListColumn.implicitHeight, recordersListColumn.childrenRect.height);
-                });
-            }
-        }
 
         QtObject {
             id: recorderDragState
@@ -1149,33 +1145,34 @@ ColumnLayout {
 
         ColumnLayout {
             id: recordersListColumn
-            width: parent.width
-            height: implicitHeight
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
             spacing: 6
 
             function updateRecorderDropTarget(pointerYInWrapper) {
-                var chs = recordersListColumn.children;
                 var bestIdx = recorderDragState.sourceIdx;
                 var bestDist = 1e9;
-                for (var i = 0; i < chs.length; ++i) {
-                    var ch = chs[i];
-                    if (!ch || !ch.visible || typeof ch.recorderIndex !== "number") continue;
+                for (var i = 0; i < recordersRepeater.count; ++i) {
+                    var ch = recordersRepeater.itemAt(i);
+                    if (!ch || !ch.visible) continue;
                     var topY = ch.mapToItem(recordersDragWrapper, 0, 0).y - (ch.pushOffsetY || 0);
                     var bottomY = topY + ch.height;
                     if (pointerYInWrapper >= topY - 4 && pointerYInWrapper <= bottomY + 4) {
-                        bestIdx = ch.recorderIndex;
+                        bestIdx = i;
                         break;
                     }
                     var dist = Math.abs(pointerYInWrapper - (topY + bottomY) * 0.5);
                     if (dist < bestDist) {
                         bestDist = dist;
-                        bestIdx = ch.recorderIndex;
+                        bestIdx = i;
                     }
                 }
                 recorderDragState.targetIdx = bestIdx;
             }
 
             Repeater {
+                id: recordersRepeater
                 model: rootPanel.recorders
                 delegate: Rectangle {
                     id: card
@@ -1239,8 +1236,8 @@ ColumnLayout {
                         Item {
                             id: grpGrip
                             visible: rootPanel.recorders.length > 1
-                            width: visible ? 24 : 0
-                            height: 28
+                            Layout.preferredWidth: visible ? 32 : 0
+                            Layout.preferredHeight: 32
                             Layout.alignment: Qt.AlignVCenter
 
                             Image {
@@ -1265,6 +1262,10 @@ ColumnLayout {
                                 hoverEnabled: true
                                 preventStealing: true
                                 cursorShape: pressed ? Qt.ClosedHandCursor : Qt.OpenHandCursor
+                                drag.target: recorderDragProxy
+                                drag.axis: Drag.YAxis
+                                drag.minimumY: 0
+                                drag.maximumY: Math.max(0, recordersDragWrapper.height - recorderDragProxy.height)
 
                                 onPressed: {
                                     var pt = card.mapToItem(recordersDragWrapper, 0, 0);
@@ -1276,19 +1277,12 @@ ColumnLayout {
                                     recorderDragState.previewIp = card.recorderData ? card.recorderData.ip : "";
                                     recorderDragState.previewCamCount = (card.recorderData && card.recorderData.cameras) ? card.recorderData.cameras.length : 0;
                                     recorderDragState.draggedHeight = card.height;
-                                    var totalH = Math.max(recordersDragWrapper.height, recordersListColumn.implicitHeight, recordersListColumn.childrenRect.height);
-                                    if (recordersDragWrapper.height < totalH) {
-                                        recordersDragWrapper.height = totalH;
-                                    }
                                 }
 
                                 onPositionChanged: {
                                     if (!pressed || recorderDragState.sourceIdx === -1) return;
-                                    var p = grpDragMouse.mapToItem(recordersDragWrapper, mouse.x, mouse.y);
-                                    var totalH = Math.max(recordersDragWrapper.height, recordersListColumn.implicitHeight, recordersListColumn.childrenRect.height);
-                                    var maxY = Math.max(0, totalH - recorderDragProxy.height);
-                                    recorderDragProxy.y = Math.max(0, Math.min(maxY, p.y - recorderDragProxy.height * 0.5));
-                                    recordersListColumn.updateRecorderDropTarget(p.y);
+                                    var midY = recorderDragProxy.y + recorderDragProxy.height * 0.5;
+                                    recordersListColumn.updateRecorderDropTarget(midY);
                                 }
 
                                 onReleased: {

@@ -17,6 +17,12 @@ Dialog {
     topPadding: 16
     bottomPadding: 16
 
+    onAboutToShow: {
+        if (!NvrStatusManager.isChecking && NvrStatusManager.monitoringEnabled && NvrStatusManager.hasConfiguredRecorders) {
+            NvrStatusManager.checkNow();
+        }
+    }
+
     background: Rectangle {
         color: "#1c242c"
         border.color: "#2a3540"

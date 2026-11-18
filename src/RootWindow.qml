@@ -145,7 +145,7 @@ ApplicationWindow {
             lastRecordersSaveTime = Date.now();
             Context.writeSetting("Hikvision", "recordersJson", hikvisionRecordersJson);
         }
-        NvrStatusManager.onRecordersChanged();
+        NvrStatusManager.onRecordersChanged(hikvisionRecordersJson);
         Qt.callLater(rootWindow.rebuildTopBarEntries);
     }
     property alias viewGroupOrderJson: layoutsCollectionSettings.groupOrder

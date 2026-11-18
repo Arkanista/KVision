@@ -49,10 +49,13 @@ bool NvrStatusManager::hasConfiguredRecorders() const
     if (QCoreApplication::arguments().contains("--simulate-error")) {
         return true;
     }
-    QString path = Context::config() ? Context::config()->fileName() : QSettings().fileName();
-    QSettings settings(path, QSettings::IniFormat);
-    settings.sync();
-    QString jsonStr = settings.value("Hikvision/recordersJson", "[]").toString();
+    QString jsonStr = m_cachedRecordersJson;
+    if (jsonStr.isEmpty()) {
+        QString path = Context::config() ? Context::config()->fileName() : QSettings().fileName();
+        QSettings settings(path, QSettings::IniFormat);
+        settings.sync();
+        jsonStr = settings.value("Hikvision/recordersJson", "[]").toString();
+    }
     QJsonDocument doc = QJsonDocument::fromJson(jsonStr.toUtf8());
     return !doc.array().isEmpty();
 }
@@ -132,8 +135,53 @@ void NvrStatusManager::checkNow()
     startCheck();
 }
 
-void NvrStatusManager::onRecordersChanged()
+void NvrStatusManager::reorderCheckedRecorders()
 {
+    QString jsonStr = m_cachedRecordersJson;
+    if (jsonStr.isEmpty()) {
+        QString path = Context::config() ? Context::config()->fileName() : QSettings().fileName();
+        QSettings settings(path, QSettings::IniFormat);
+        settings.sync();
+        jsonStr = settings.value("Hikvision/recordersJson", "[]").toString();
+    }
+    QJsonDocument doc = QJsonDocument::fromJson(jsonStr.toUtf8());
+    QJsonArray recorders = doc.array();
+
+    if (recorders.isEmpty() || m_rawCheckedRecorders.isEmpty()) {
+        return;
+    }
+
+    QVariantList reordered;
+    QSet<QString> placedIps;
+
+    for (const QJsonValue &val : recorders) {
+        QString ip = val.toObject().value("ip").toString();
+        for (const QVariant &curVar : m_rawCheckedRecorders) {
+            QVariantMap curMap = curVar.toMap();
+            if (curMap.value("ip").toString() == ip) {
+                reordered.append(curVar);
+                placedIps.insert(ip);
+                break;
+            }
+        }
+    }
+
+    for (const QVariant &curVar : m_rawCheckedRecorders) {
+        QString ip = curVar.toMap().value("ip").toString();
+        if (!placedIps.contains(ip)) {
+            reordered.append(curVar);
+        }
+    }
+
+    m_rawCheckedRecorders = reordered;
+    applyMuting();
+}
+
+void NvrStatusManager::onRecordersChanged(const QString &jsonStr)
+{
+    if (!jsonStr.isEmpty()) {
+        m_cachedRecordersJson = jsonStr;
+    }
     emit hasConfiguredRecordersChanged();
 
     if (!hasConfiguredRecorders() || !m_monitoringEnabled) {
@@ -151,6 +199,8 @@ void NvrStatusManager::onRecordersChanged()
             emit hasErrorsChanged();
         }
     } else {
+        reorderCheckedRecorders();
+
         if (!m_timer->isActive()) {
             m_timer->start();
         }
@@ -160,7 +210,10 @@ void NvrStatusManager::onRecordersChanged()
 
 void NvrStatusManager::startCheck()
 {
-    if (m_isChecking) return;
+    if (m_isChecking) {
+        m_pendingCheck = true;
+        return;
+    }
     if (!m_monitoringEnabled || !hasConfiguredRecorders()) {
         if (m_timer->isActive()) {
             m_timer->stop();
@@ -181,11 +234,14 @@ void NvrStatusManager::startCheck()
     m_isChecking = true;
     emit isCheckingChanged();
 
-    // Read latest recorders Json from local config
-    QString path = Context::config() ? Context::config()->fileName() : QSettings().fileName();
-    QSettings settings(path, QSettings::IniFormat);
-    settings.sync();
-    QString jsonStr = settings.value("Hikvision/recordersJson", "[]").toString();
+    // Read latest recorders Json from in-memory cache or local config
+    QString jsonStr = m_cachedRecordersJson;
+    if (jsonStr.isEmpty()) {
+        QString path = Context::config() ? Context::config()->fileName() : QSettings().fileName();
+        QSettings settings(path, QSettings::IniFormat);
+        settings.sync();
+        jsonStr = settings.value("Hikvision/recordersJson", "[]").toString();
+    }
     QJsonDocument doc = QJsonDocument::fromJson(jsonStr.toUtf8());
     QJsonArray recorders = doc.array();
 
@@ -218,10 +274,16 @@ void NvrStatusManager::onCheckFinished(const QVariantList &errors, const QVarian
     m_rawErrors = errors;
     m_rawCheckedRecorders = checkedRecorders;
 
+    reorderCheckedRecorders();
     applyMuting();
 
     qDebug() << "[NvrStatusManager] Checked NVRs. Error count (raw/filtered):" << m_rawErrors.size() << "/" << m_errors.size()
              << "Checked count:" << m_checkedRecorders.size();
+
+    if (m_pendingCheck) {
+        m_pendingCheck = false;
+        startCheck();
+    }
 }
 
 void NvrStatusManager::applyMuting()
@@ -322,6 +384,7 @@ void NvrStatusManager::saveSettings()
     settings.setValue("mutedRecorders", mutedList);
 
     settings.endGroup();
+    settings.sync();
 }
 
 void NvrStatusManager::reloadSettings()

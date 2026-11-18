@@ -60,7 +60,7 @@ public:
     void setCheckFull(bool val);
 
     Q_INVOKABLE void checkNow();
-    Q_INVOKABLE void onRecordersChanged();
+    Q_INVOKABLE void onRecordersChanged(const QString &jsonStr = QString());
     Q_INVOKABLE void reloadSettings();
 
     Q_INVOKABLE bool isRecorderMuted(const QString &name) const;
@@ -90,6 +90,7 @@ private:
     void loadSettings();
     void saveSettings();
     void applyMuting();
+    void reorderCheckedRecorders();
 
     static NvrStatusManager *m_instance;
     QTimer *m_timer;
@@ -97,10 +98,12 @@ private:
     QVariantList m_errors;
     QVariantList m_checkedRecorders;
     bool m_isChecking = false;
+    bool m_pendingCheck = false;
 
     QVariantList m_rawErrors;
     QVariantList m_rawCheckedRecorders;
     QSet<QString> m_mutedRecorders;
+    QString m_cachedRecordersJson;
 
     bool m_monitoringEnabled = true;
 
