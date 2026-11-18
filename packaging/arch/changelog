@@ -2,7 +2,7 @@
   * Added drag-and-drop NVR recorder reordering in Settings with smooth push-apart layout animations and direct persistence.
   * Synchronized NVR recorder ordering with the viewport right-click "Add camera" context menu for instant camera grid access.
   * Added multi-camera selection checkboxes and batch addition actions (Add all / Add selected) in the NVR camera window with empty viewport priority.
-  * Added automatic background thumbnail generation upon recorder addition with real-time progress badges.
+  * Added automatic background thumbnail generation upon recorder addition with real-time thumbnail progress indicators.
   * Added complete cascading recorder deletion (disk/memory thumbnail cleanup, notification unmuting, playback cache invalidation, and custom viewport cleanup).
   * Fixed recorder drag reordering handle activation, status dialog order synchronization, and multi-window order sync.
   * Resolved QSettings race conditions in RootWindow.qml preventing newly added NVR recorders from being overwritten or lost on shutdown.

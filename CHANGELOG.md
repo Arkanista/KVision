@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file.
   * Added selection checkboxes to each camera tile in the NVR camera browser.
   * Added quick action buttons to batch add either all discovered channels or only selected channels to the active layout grid, prioritizing unfilled viewports.
 * **Thumbnail Generation Progress & Cascading Cleanup (`ThumbnailProvider`, `NvrSettingsPanel`, `NvrCamerasWindow`):**
-  * Added automatic background thumbnail generation upon adding a recorder, complete with live progress percentage badges on recorder cards.
+  * Added automatic background thumbnail generation upon adding a recorder, complete with live progress percentage indicators on recorder cards.
   * Added complete cascading recorder deletion that purges disk and memory thumbnails, un-mutes notification states, invalidates playback caches, and cleans custom viewports referencing the deleted IP.
 * **Persistence & Synchronization Fixes (`RootWindow`, `context.cpp`, `nvrstatusmanager.cpp`):**
   * Fixed NVR recorder order persistence and prevented order reversion when opening the NVR Status dialog.
