@@ -309,6 +309,16 @@ bool ThumbnailProvider::hasThumbnail(const QString &cacheKey) const
 
 void ThumbnailProvider::onFrameFetched(const QString &cacheKey, const QImage &image)
 {
+    m_fetching = false;
+
+    int lastIdx = cacheKey.lastIndexOf('_');
+    QString ip = (lastIdx > 0) ? cacheKey.left(lastIdx) : cacheKey;
+
+    if (m_deletedIps.contains(ip)) {
+        processQueue();
+        return;
+    }
+
     {
         QMutexLocker lock(&m_cacheMutex);
         m_cache[cacheKey] = image;
@@ -322,15 +332,47 @@ void ThumbnailProvider::onFrameFetched(const QString &cacheKey, const QImage &im
         image.save(outPath, "JPEG");
     }
 
-    m_fetching = false;
     emit thumbnailReady(cacheKey);
+
+    if (m_activeJobs.contains(ip)) {
+        m_activeJobs[ip].completed++;
+        int completed = m_activeJobs[ip].completed;
+        int total = m_activeJobs[ip].total;
+        emit thumbnailProgress(ip, completed, total);
+        if (completed >= total) {
+            m_activeJobs.remove(ip);
+            emit thumbnailFinished(ip);
+        }
+    }
+
     processQueue();
 }
 
 void ThumbnailProvider::onFetchFailed(const QString &cacheKey)
 {
     m_fetching = false;
+
+    int lastIdx = cacheKey.lastIndexOf('_');
+    QString ip = (lastIdx > 0) ? cacheKey.left(lastIdx) : cacheKey;
+
+    if (m_deletedIps.contains(ip)) {
+        processQueue();
+        return;
+    }
+
     emit thumbnailFailed(cacheKey);
+
+    if (m_activeJobs.contains(ip)) {
+        m_activeJobs[ip].completed++;
+        int completed = m_activeJobs[ip].completed;
+        int total = m_activeJobs[ip].total;
+        emit thumbnailProgress(ip, completed, total);
+        if (completed >= total) {
+            m_activeJobs.remove(ip);
+            emit thumbnailFinished(ip);
+        }
+    }
+
     processQueue();
 }
 
@@ -351,6 +393,7 @@ void ThumbnailProvider::processQueue()
 void ThumbnailProvider::generateSingleThumbnail(const QVariantMap &recorderInfo, int channelId)
 {
     QString ip = recorderInfo["ip"].toString();
+    m_deletedIps.remove(ip);
     QString username = recorderInfo["username"].toString();
     QString password = recorderInfo["password"].toString();
     int rtspPort = recorderInfo.contains("rtspPort") ? recorderInfo["rtspPort"].toInt() : 554;
@@ -415,6 +458,7 @@ QString ThumbnailProvider::thumbnailsDir() const
 void ThumbnailProvider::generateThumbnails(const QVariantMap &recorderInfo)
 {
     QString ip = recorderInfo["ip"].toString();
+    m_deletedIps.remove(ip);
     QString username = recorderInfo["username"].toString();
     QString password = recorderInfo["password"].toString();
     int rtspPort = recorderInfo.contains("rtspPort") ? recorderInfo["rtspPort"].toInt() : 554;
@@ -435,6 +479,15 @@ void ThumbnailProvider::generateThumbnails(const QVariantMap &recorderInfo)
     for (const QFileInfo &fi : oldFiles) {
         QFile::remove(fi.absoluteFilePath());
     }
+
+    if (cameras.isEmpty()) {
+        m_activeJobs.remove(ip);
+        emit thumbnailFinished(ip);
+        return;
+    }
+
+    m_activeJobs[ip] = { static_cast<int>(cameras.size()), 0 };
+    emit thumbnailProgress(ip, 0, cameras.size());
 
     QString creds;
     if (!username.isEmpty()) {
@@ -458,6 +511,64 @@ void ThumbnailProvider::generateThumbnails(const QVariantMap &recorderInfo)
         QString cacheKey = QString("%1_%2").arg(ip).arg(channelId);
         requestThumbnail(rtspUrl, cacheKey);
     }
+}
+
+void ThumbnailProvider::deleteRecorderThumbnails(const QString &ip)
+{
+    if (ip.isEmpty()) return;
+
+    m_deletedIps.insert(ip);
+
+    // 1. Remove queued requests for this IP
+    {
+        QMutexLocker lock(&m_queueMutex);
+        QString prefix = ip + "_";
+        QQueue<FetchRequest> newQueue;
+        while (!m_queue.isEmpty()) {
+            FetchRequest req = m_queue.dequeue();
+            if (!req.cacheKey.startsWith(prefix)) {
+                newQueue.enqueue(req);
+            }
+        }
+        m_queue = newQueue;
+    }
+
+    // 2. Remove files on disk
+    QString outDir = thumbnailsDir();
+    if (!outDir.isEmpty()) {
+        QDir dir(outDir);
+        QStringList filters;
+        filters << QString("%1_*.jpg").arg(ip);
+        QFileInfoList oldFiles = dir.entryInfoList(filters, QDir::Files);
+        for (const QFileInfo &fi : oldFiles) {
+            QFile::remove(fi.absoluteFilePath());
+        }
+    }
+
+    // 3. Remove from in-memory cache
+    {
+        QMutexLocker lock(&m_cacheMutex);
+        QString prefix = ip + "_";
+        auto it = m_cache.begin();
+        while (it != m_cache.end()) {
+            if (it.key().startsWith(prefix)) {
+                it = m_cache.erase(it);
+            } else {
+                ++it;
+            }
+        }
+    }
+
+    // 4. Cancel progress tracking
+    if (m_activeJobs.contains(ip)) {
+        m_activeJobs.remove(ip);
+        emit thumbnailFinished(ip);
+    }
+}
+
+bool ThumbnailProvider::isGenerating(const QString &ip) const
+{
+    return m_activeJobs.contains(ip);
 }
 
 // --------------- ThumbnailImageProvider ---------------

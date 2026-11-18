@@ -974,6 +974,7 @@ FocusScope {
                         onClosed: {
                             streamSubMenu.close();
                             mergeSubMenu.close();
+                            addCameraSubMenu.close();
                             d.previewTopLeftIndex = -1;
                             d.previewSpan = 1;
                         }
@@ -1025,12 +1026,79 @@ FocusScope {
                                 if (hovered) {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
+                                    addCameraSubMenu.close();
                                 }
                             }
                             
                             onTriggered: {
                                 console.log("[CCTV Viewer Debug] Triggered context menu Zamień miejscami on index =", model.index);
                                 root.pendingSwapSourceIndex = model.index;
+                            }
+                        }
+
+                        MenuItem {
+                            id: addCameraMenuItem
+                            text: qsTr("LNG_00642")
+                            visible: generalSettings.enableAddCamera
+                            readonly property var recordersList: {
+                                try {
+                                    return JSON.parse(rootWindow.hikvisionRecordersJson || "[]");
+                                } catch(e) {
+                                    return [];
+                                }
+                            }
+                            enabled: recordersList && recordersList.length > 0
+                            leftPadding: 12
+
+                            contentItem: RowLayout {
+                                spacing: 8
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: addCameraMenuItem.text
+                                    font {
+                                        pixelSize: 11
+                                        bold: true
+                                    }
+                                    color: addCameraMenuItem.enabled ? (addCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+                                Text {
+                                    text: "▶"
+                                    font {
+                                        pixelSize: 9
+                                        bold: true
+                                    }
+                                    color: addCameraMenuItem.enabled ? (addCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    horizontalAlignment: Text.AlignRight
+                                    verticalAlignment: Text.AlignVCenter
+                                    rightPadding: 8
+                                }
+                            }
+
+                            background: Rectangle {
+                                implicitWidth: 150
+                                implicitHeight: 32
+                                color: addCameraMenuItem.hovered ? "#2a3540" : "transparent"
+                                border.color: addCameraMenuItem.hovered ? "#00f5d4" : "transparent"
+                                border.width: 1
+                                radius: 4
+                            }
+
+                            onHoveredChanged: {
+                                if (hovered && enabled) {
+                                    streamSubMenu.close();
+                                    mergeSubMenu.close();
+                                    addCameraSubMenu.popup(addCameraMenuItem, addCameraMenuItem.width, 0);
+                                }
+                            }
+
+                            onTriggered: {
+                                if (enabled) {
+                                    streamSubMenu.close();
+                                    mergeSubMenu.close();
+                                    addCameraSubMenu.popup(addCameraMenuItem, addCameraMenuItem.width, 0);
+                                }
                             }
                         }
 
@@ -1079,6 +1147,7 @@ FocusScope {
                             onHoveredChanged: {
                                 if (hovered && enabled) {
                                     mergeSubMenu.close();
+                                    addCameraSubMenu.close();
                                     streamSubMenu.popup(streamSelectMenuItem, streamSelectMenuItem.width, 0);
                                 }
                             }
@@ -1119,6 +1188,7 @@ FocusScope {
                                 if (hovered) {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
+                                    addCameraSubMenu.close();
                                 }
                             }
                             
@@ -1159,6 +1229,7 @@ FocusScope {
                                 if (hovered) {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
+                                    addCameraSubMenu.close();
                                 }
                             }
                             
@@ -1194,6 +1265,7 @@ FocusScope {
                                 if (hovered) {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
+                                    addCameraSubMenu.close();
                                 }
                             }
                             
@@ -1230,6 +1302,7 @@ FocusScope {
                                 if (hovered) {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
+                                    addCameraSubMenu.close();
                                 }
                             }
                             
@@ -1268,6 +1341,7 @@ FocusScope {
                                 if (hovered) {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
+                                    addCameraSubMenu.close();
                                 }
                             }
                             
@@ -1333,6 +1407,7 @@ FocusScope {
                             onHoveredChanged: {
                                 if (hovered) {
                                     streamSubMenu.close();
+                                    addCameraSubMenu.close();
                                     if (enabled && hasSubMenuOptions) {
                                         mergeSubMenu.popup(mergeMenuItem, mergeMenuItem.width, 0);
                                     }
@@ -1600,6 +1675,98 @@ FocusScope {
                                     item.streamMode = 2;
                                 }
                             }
+                        }
+                    }
+
+                    Menu {
+                        id: addCameraSubMenu
+
+                        topPadding: 5
+                        bottomPadding: 5
+
+                        enter: Transition {
+                            NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: 150; easing.type: Easing.OutQuad }
+                            NumberAnimation { property: "scale"; from: 0.95; to: 1.0; duration: 150; easing.type: Easing.OutQuad }
+                        }
+                        exit: Transition {
+                            NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; duration: 100; easing.type: Easing.InQuad }
+                            NumberAnimation { property: "scale"; from: 1.0; to: 0.95; duration: 100; easing.type: Easing.InQuad }
+                        }
+
+                        readonly property real maxHeight: Math.max(120, (Overlay.overlay ? Overlay.overlay.height : (rootWindow ? rootWindow.height : 600)) - 60)
+                        readonly property real naturalHeight: contentItem ? (contentItem.contentHeight + topPadding + bottomPadding) : 0
+                        height: naturalHeight > maxHeight ? maxHeight : naturalHeight
+
+                        contentItem: ListView {
+                            implicitHeight: contentHeight
+                            model: addCameraSubMenu.contentModel
+                            interactive: true
+                            clip: true
+                            currentIndex: addCameraSubMenu.currentIndex
+                            boundsBehavior: Flickable.StopAtBounds
+
+                            ScrollIndicator.vertical: ScrollIndicator {
+                                active: addCameraSubMenu.contentItem.contentHeight > addCameraSubMenu.contentItem.height
+                            }
+                        }
+
+                        background: Rectangle {
+                            implicitWidth: 180
+                            color: "#151d24"
+                            border.color: "#ff7a00"
+                            border.width: 1
+                            radius: 6
+                        }
+
+                        Instantiator {
+                            model: addCameraMenuItem.recordersList
+                            delegate: MenuItem {
+                                id: recMenuItem
+                                readonly property var recorderData: modelData
+                                text: (modelData.name && String(modelData.name).trim() !== "") ? modelData.name : (modelData.ip || "")
+                                leftPadding: 12
+
+                                contentItem: RowLayout {
+                                    spacing: 6
+                                    Text {
+                                        Layout.fillWidth: true
+                                        text: recMenuItem.text
+                                        font {
+                                            pixelSize: 11
+                                            bold: true
+                                        }
+                                        color: recMenuItem.hovered ? "#00f5d4" : "#eeeeee"
+                                        elide: Text.ElideRight
+                                        horizontalAlignment: Text.AlignLeft
+                                        verticalAlignment: Text.AlignVCenter
+                                    }
+                                    Text {
+                                        text: (recorderData.cameras ? recorderData.cameras.length : 0) + " cam"
+                                        font.pixelSize: 9
+                                        color: "#8898a6"
+                                        horizontalAlignment: Text.AlignRight
+                                        verticalAlignment: Text.AlignVCenter
+                                        rightPadding: 8
+                                    }
+                                }
+
+                                background: Rectangle {
+                                    implicitWidth: 180
+                                    implicitHeight: 32
+                                    color: recMenuItem.hovered ? "#2a3540" : "transparent"
+                                    border.color: recMenuItem.hovered ? "#00f5d4" : "transparent"
+                                    border.width: 1
+                                    radius: 4
+                                }
+
+                                onTriggered: {
+                                    addCameraSubMenu.close();
+                                    contextMenu.close();
+                                    rootWindow.openNvrCamerasWindow(recorderData);
+                                }
+                            }
+                            onObjectAdded: addCameraSubMenu.insertItem(index, object)
+                            onObjectRemoved: addCameraSubMenu.removeItem(object)
                         }
                     }
 

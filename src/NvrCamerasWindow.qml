@@ -26,6 +26,93 @@ Window {
     // Track thumbnail refresh counters per cache key
     property var refreshCounters: ({})
 
+    // Track selected cameras: { "channelId": true }
+    property var selectedChannels: ({})
+
+    function isChannelSelected(channelId) {
+        return !!selectedChannels[String(channelId)];
+    }
+
+    function toggleChannelSelection(channelId) {
+        var s = Object.assign({}, selectedChannels);
+        var key = String(channelId);
+        if (s[key]) {
+            delete s[key];
+        } else {
+            s[key] = true;
+        }
+        selectedChannels = s;
+    }
+
+    function getSelectedCount() {
+        return Object.keys(selectedChannels).length;
+    }
+
+    function addAllChannelsToActiveLayout() {
+        addCamerasToActiveLayout(recorder.cameras || []);
+    }
+
+    function addSelectedChannelsToActiveLayout() {
+        var cams = recorder.cameras || [];
+        var selected = [];
+        for (var i = 0; i < cams.length; ++i) {
+            if (isChannelSelected(cams[i].channelId)) {
+                selected.push(cams[i]);
+            }
+        }
+        addCamerasToActiveLayout(selected);
+    }
+
+    function addCamerasToActiveLayout(camerasList) {
+        if (!camerasList || camerasList.length === 0) return;
+        var activeLayoutModel = Utils.currentModel();
+        if (!activeLayoutModel || activeLayoutModel.count === 0) return;
+
+        // Collect all unfilled viewports (where url is empty or whitespace)
+        var emptyIndices = [];
+        for (var i = 0; i < activeLayoutModel.count; ++i) {
+            var vp = activeLayoutModel.get(i);
+            if (!vp.url || String(vp.url).trim() === "") {
+                emptyIndices.push(i);
+            }
+        }
+
+        var addedCount = 0;
+        var camIdx = 0;
+
+        // 1. Fill empty viewports first
+        while (camIdx < camerasList.length && emptyIndices.length > 0) {
+            var targetIdx = emptyIndices.shift();
+            var cam = camerasList[camIdx++];
+            var targetVp = activeLayoutModel.get(targetIdx);
+            if (targetVp) {
+                var camUrl = "hikvision://" + recorder.ip + "/" + cam.channelId;
+                targetVp.url = camUrl;
+                targetVp.secondaryUrl = camUrl;
+                targetVp.streamMode = 0;
+                addedCount++;
+            }
+        }
+
+        // 2. If there are still cameras to add and no empty slots left, overwrite starting from 0
+        var overwriteIdx = 0;
+        while (camIdx < camerasList.length && overwriteIdx < activeLayoutModel.count) {
+            var cam2 = camerasList[camIdx++];
+            var targetVp2 = activeLayoutModel.get(overwriteIdx++);
+            if (targetVp2) {
+                var camUrl2 = "hikvision://" + recorder.ip + "/" + cam2.channelId;
+                targetVp2.url = camUrl2;
+                targetVp2.secondaryUrl = camUrl2;
+                targetVp2.streamMode = 0;
+                addedCount++;
+            }
+        }
+
+        if (addedCount > 0) {
+            Utils.log_info(qsTr("LNG_00648").arg(addedCount));
+        }
+    }
+
     // Helper to build the RTSP sub-stream URL for thumbnails
     function subStreamUrl(rec, cam) {
         var creds = "";
@@ -119,6 +206,72 @@ Window {
 
             Item { Layout.fillWidth: true }
 
+            // Add all channels to active layout
+            Button {
+                id: addAllChannelsBtn
+                implicitWidth: 38
+                implicitHeight: 38
+
+                background: Rectangle {
+                    color: addAllChannelsBtn.pressed ? "#00ccb0" : (addAllChannelsBtn.hovered ? "#33ffd2" : "#00f5d4")
+                    radius: 6
+                    border.color: addAllChannelsBtn.hovered ? "white" : "#00ccb0"
+                    border.width: 1
+
+                    Behavior on color { ColorAnimation { duration: 150 } }
+                }
+
+                contentItem: Image {
+                    anchors.centerIn: parent
+                    width: 22
+                    height: 22
+                    sourceSize: Qt.size(22, 22)
+                    source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f151b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='7' height='7'/><rect x='14' y='3' width='7' height='7'/><rect x='3' y='14' width='7' height='7'/><path d='M14 17.5h7M17.5 14v7'/></svg>"
+                }
+
+                onClicked: camerasWin.addAllChannelsToActiveLayout()
+
+                ToolTip.delay: Compact.toolTipDelay
+                ToolTip.timeout: Compact.toolTipTimeout
+                ToolTip.visible: addAllChannelsBtn.hovered
+                ToolTip.text: qsTr("LNG_00644")
+            }
+
+            // Add selected channels to active layout
+            Button {
+                id: addSelectedChannelsBtn
+                implicitWidth: 38
+                implicitHeight: 38
+                enabled: camerasWin.getSelectedCount() > 0
+                opacity: enabled ? 1.0 : 0.4
+
+                background: Rectangle {
+                    color: addSelectedChannelsBtn.pressed ? "#00ccb0" : (addSelectedChannelsBtn.hovered ? "#33ffd2" : "#00f5d4")
+                    radius: 6
+                    border.color: addSelectedChannelsBtn.hovered ? "white" : "#00ccb0"
+                    border.width: 1
+
+                    Behavior on color { ColorAnimation { duration: 150 } }
+                    Behavior on opacity { NumberAnimation { duration: 150 } }
+                }
+
+                contentItem: Image {
+                    anchors.centerIn: parent
+                    width: 22
+                    height: 22
+                    sourceSize: Qt.size(22, 22)
+                    source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f151b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M11 6h10M11 12h10M11 18h5'/><polyline points='3 5 5 7 8 4'/><polyline points='3 11 5 13 8 10'/><path d='M19 16v6M16 19h6'/></svg>"
+                }
+
+                onClicked: camerasWin.addSelectedChannelsToActiveLayout()
+
+                ToolTip.delay: Compact.toolTipDelay
+                ToolTip.timeout: Compact.toolTipTimeout
+                ToolTip.visible: addSelectedChannelsBtn.hovered
+                ToolTip.text: qsTr("LNG_00645")
+            }
+
+            // Generate thumbnails button
             Button {
                 id: generateThumbnailsBtn
                 implicitWidth: 38
@@ -230,14 +383,15 @@ Window {
 
                             // React to refresh counter changes
                             property int refreshCount: camerasWin.refreshCounters[thumbnailCacheKey] || 0
+                            property bool isSelected: camerasWin.isChannelSelected(modelData.channelId)
 
                             Rectangle {
                                 id: tile
                                 anchors.fill: parent
-                                color: tileMouseArea.containsMouse ? "#1500f5d4" : "#1c242c"
+                                color: tileWrapper.isSelected ? "#2200f5d4" : (tileMouseArea.containsMouse ? "#1500f5d4" : "#1c242c")
                                 radius: 8
-                                border.color: tileMouseArea.containsMouse ? "#00f5d4" : "#2a3540"
-                                border.width: 1
+                                border.color: tileWrapper.isSelected ? "#00f5d4" : (tileMouseArea.containsMouse ? "#00f5d4" : "#2a3540")
+                                border.width: tileWrapper.isSelected ? 2 : 1
                                 clip: true
 
                                 Behavior on color { ColorAnimation { duration: 120 } }
@@ -401,6 +555,42 @@ Window {
                                         dragDummy.y = 0
                                     }
                                 }
+                                // Checkbox for selecting camera
+                                Rectangle {
+                                    id: selectCheck
+                                    anchors.top: parent.top
+                                    anchors.left: parent.left
+                                    anchors.margins: 6
+                                    width: 22
+                                    height: 22
+                                    radius: 4
+                                    z: 12
+                                    color: tileWrapper.isSelected ? "#00f5d4" : (selectCheckMouse.containsMouse ? "#3a4550" : "#d51c242c")
+                                    border.color: tileWrapper.isSelected ? "#00f5d4" : (selectCheckMouse.containsMouse ? "#00f5d4" : "#4a5a6a")
+                                    border.width: 1.5
+
+                                    Image {
+                                        anchors.centerIn: parent
+                                        width: 13
+                                        height: 13
+                                        visible: tileWrapper.isSelected
+                                        source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f151b' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>"
+                                    }
+
+                                    MouseArea {
+                                        id: selectCheckMouse
+                                        anchors.fill: parent
+                                        hoverEnabled: true
+                                        cursorShape: Qt.PointingHandCursor
+                                        onClicked: camerasWin.toggleChannelSelection(modelData.channelId)
+                                    }
+
+                                    ToolTip.delay: Compact.toolTipDelay
+                                    ToolTip.timeout: Compact.toolTipTimeout
+                                    ToolTip.visible: selectCheckMouse.containsMouse
+                                    ToolTip.text: qsTr("LNG_00647")
+                                }
+
                                 // Action buttons overlay
                                 Row {
                                     anchors.top: parent.top

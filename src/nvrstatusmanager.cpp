@@ -51,6 +51,7 @@ bool NvrStatusManager::hasConfiguredRecorders() const
     }
     QString path = Context::config() ? Context::config()->fileName() : QSettings().fileName();
     QSettings settings(path, QSettings::IniFormat);
+    settings.sync();
     QString jsonStr = settings.value("Hikvision/recordersJson", "[]").toString();
     QJsonDocument doc = QJsonDocument::fromJson(jsonStr.toUtf8());
     return !doc.array().isEmpty();
@@ -183,6 +184,7 @@ void NvrStatusManager::startCheck()
     // Read latest recorders Json from local config
     QString path = Context::config() ? Context::config()->fileName() : QSettings().fileName();
     QSettings settings(path, QSettings::IniFormat);
+    settings.sync();
     QString jsonStr = settings.value("Hikvision/recordersJson", "[]").toString();
     QJsonDocument doc = QJsonDocument::fromJson(jsonStr.toUtf8());
     QJsonArray recorders = doc.array();
@@ -284,6 +286,7 @@ void NvrStatusManager::loadSettings()
 {
     QString path = Context::config() ? Context::config()->fileName() : QSettings().fileName();
     QSettings settings(path, QSettings::IniFormat);
+    settings.sync();
     settings.beginGroup("NvrMonitoring");
     m_monitoringEnabled = settings.value("enabled", true).toBool();
     m_checkOffline = settings.value("checkOffline", true).toBool();

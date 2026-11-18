@@ -20,6 +20,11 @@ ColumnLayout {
     // Map of active session IPs (IP -> bool)
     property var activeSessionIps: ({})
 
+    // Map of thumbnail generation progress per NVR IP: { "192.168.1.100": { completed: 2, total: 8, percent: 25 } }
+    property var thumbnailProgressMap: ({})
+
+    readonly property bool isDraggingRecorder: recorderDragState.sourceIdx !== -1
+
     function resetFormFields() {
         rootPanel.editingIndex = -1;
         nameField.text = "";
@@ -66,13 +71,25 @@ ColumnLayout {
         recorders = arr;
         saveRecorders();
 
+        var trimmedName = nameField.text.trim();
         if (oldRec.ip !== newIp) {
             for (var j = 0; j < layoutsCollectionModel.count; ++j) {
                 var l = layoutsCollectionModel.get(j);
                 if (l && l.isNvr && l.nvrIp === oldRec.ip) {
                     l.nvrIp = newIp;
+                    l.name = trimmedName || newIp;
                 }
             }
+        } else {
+            for (var k = 0; k < layoutsCollectionModel.count; ++k) {
+                var lk = layoutsCollectionModel.get(k);
+                if (lk && lk.isNvr && lk.nvrIp === oldRec.ip) {
+                    lk.name = trimmedName || newIp;
+                }
+            }
+        }
+        if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.flushSettingsToDisk) {
+            rootWindow.flushSettingsToDisk();
         }
         resetFormFields();
     }
@@ -110,13 +127,38 @@ ColumnLayout {
     }
 
     function openCamerasWindow(recorderData) {
-        var win = nvrCamerasWindowComponent.createObject(rootWindow);
-        win.recorder = JSON.parse(JSON.stringify(recorderData));
-        win.show();
+        if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.openNvrCamerasWindow) {
+            rootWindow.openNvrCamerasWindow(recorderData);
+        } else {
+            var win = nvrCamerasWindowComponent.createObject(rootWindow);
+            win.recorder = JSON.parse(JSON.stringify(recorderData));
+            win.show();
+        }
     }
 
     Component.onCompleted: {
         loadRecorders();
+    }
+
+    onVisibleChanged: {
+        if (visible) {
+            refreshRecorders();
+        }
+    }
+
+    Connections {
+        target: ThumbnailProvider
+        function onThumbnailProgress(ip, completed, total) {
+            var m = Object.assign({}, rootPanel.thumbnailProgressMap);
+            var pct = (total > 0) ? Math.round((completed * 100) / total) : 0;
+            m[ip] = { completed: completed, total: total, percent: pct };
+            rootPanel.thumbnailProgressMap = m;
+        }
+        function onThumbnailFinished(ip) {
+            var m = Object.assign({}, rootPanel.thumbnailProgressMap);
+            delete m[ip];
+            rootPanel.thumbnailProgressMap = m;
+        }
     }
 
     Connections {
@@ -199,18 +241,34 @@ ColumnLayout {
                 arr.push(newRecorder);
                 rootPanel.recorders = arr;
                 saveRecorders();
+                ThumbnailProvider.generateThumbnails(newRecorder);
 
                 // Generate a dynamic preset layout containing all discovered cameras
                 var numCams = cameras.length;
-                var gridSize = Math.ceil(Math.sqrt(numCams));
+                var gridSize = Math.max(1, Math.ceil(Math.sqrt(numCams)));
                 
-                var newLayout = layoutsCollectionModel.append();
-                newLayout.size = Qt.size(gridSize, gridSize);
-                newLayout.isNvr = true;
-                newLayout.nvrIp = ip;
+                var targetLayout = null;
+                var targetLayoutIndex = -1;
+                for (var li = 0; li < layoutsCollectionModel.count; ++li) {
+                    var l = layoutsCollectionModel.get(li);
+                    if (l && l.isNvr && l.nvrIp === ip) {
+                        targetLayout = l;
+                        targetLayoutIndex = li;
+                        break;
+                    }
+                }
+                if (!targetLayout) {
+                    targetLayout = layoutsCollectionModel.append();
+                    targetLayoutIndex = layoutsCollectionModel.count - 1;
+                }
+
+                targetLayout.size = Qt.size(gridSize, gridSize);
+                targetLayout.name = (newRecorder.name && newRecorder.name.trim() !== "") ? newRecorder.name.trim() : ip;
+                targetLayout.isNvr = true;
+                targetLayout.nvrIp = ip;
 
                 for (var i = 0; i < numCams; ++i) {
-                    var vp = newLayout.get(i);
+                    var vp = targetLayout.get(i);
                     if (vp) {
                         // Store Hikvision URI
                         vp.url = "hikvision://" + newRecorder.ip + "/" + cameras[i].channelId;
@@ -220,7 +278,11 @@ ColumnLayout {
                 }
 
                 // Force navigation to the newly created preset!
-                stackLayout.currentIndex = layoutsCollectionModel.count - 1;
+                stackLayout.currentIndex = targetLayoutIndex;
+
+                if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.flushSettingsToDisk) {
+                    rootWindow.flushSettingsToDisk();
+                }
 
             } else {
                 // EDIT MODE
@@ -235,8 +297,9 @@ ColumnLayout {
                     var l = layoutsCollectionModel.get(j);
                     if (l && l.isNvr && l.nvrIp === oldIp) {
                         l.nvrIp = newRecorder.ip;
+                        l.name = (newRecorder.name && newRecorder.name.trim() !== "") ? newRecorder.name.trim() : newRecorder.ip;
                         var numCams2 = cameras.length;
-                        var gridSize2 = Math.ceil(Math.sqrt(numCams2));
+                        var gridSize2 = Math.max(1, Math.ceil(Math.sqrt(numCams2)));
                         l.size = Qt.size(gridSize2, gridSize2);
 
                         for (var k = 0; k < numCams2; ++k) {
@@ -282,6 +345,10 @@ ColumnLayout {
                     }
                 }
                 rootPanel.editingIndex = -1;
+
+                if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.flushSettingsToDisk) {
+                    rootWindow.flushSettingsToDisk();
+                }
             }
 
             // Clear fields & status, then verify RTSP port reachability for live view diagnostics
@@ -303,8 +370,14 @@ ColumnLayout {
 
     function loadRecorders() {
         try {
-            var data = rootWindow.hikvisionRecordersJson;
-            if (data) {
+            var data = (typeof rootWindow !== "undefined" && rootWindow) ? rootWindow.hikvisionRecordersJson : "";
+            if (!data || data === "[]" || data.trim() === "") {
+                data = Context.readSetting("Hikvision", "recordersJson", "[]");
+                if (data && data !== "[]" && data.trim() !== "" && typeof rootWindow !== "undefined" && rootWindow) {
+                    rootWindow.hikvisionRecordersJson = data;
+                }
+            }
+            if (data && data.trim() !== "") {
                 recorders = JSON.parse(data);
             } else {
                 recorders = [];
@@ -316,12 +389,51 @@ ColumnLayout {
         }
     }
 
+    function refreshRecorders() {
+        if (rootPanel.isDraggingRecorder) return;
+        loadRecorders();
+        var arr = rootPanel.recorders.slice();
+        rootPanel.recorders = [];
+        rootPanel.recorders = arr;
+        saveRecorders();
+    }
+
     function saveRecorders() {
         try {
-            rootWindow.hikvisionRecordersJson = JSON.stringify(recorders);
+            var jsonStr = JSON.stringify(recorders);
+            if (typeof rootWindow !== "undefined" && rootWindow) {
+                rootWindow.lastSavedRecordersJson = jsonStr;
+                rootWindow.lastLoadedRecordersJson = jsonStr;
+                rootWindow.lastRecordersSaveTime = Date.now();
+                rootWindow.hikvisionRecordersJson = jsonStr;
+            }
+            Context.writeSetting("Hikvision", "recordersJson", jsonStr);
         } catch(e) {
             console.log("[Hikvision QML Error] Failed to save recorders:", e);
         }
+    }
+
+    function moveRecorderOrder(fromIdx, toIdx) {
+        if (fromIdx < 0 || toIdx < 0 || fromIdx === toIdx ||
+            fromIdx >= rootPanel.recorders.length || toIdx >= rootPanel.recorders.length) {
+            return;
+        }
+        var list = rootPanel.recorders.slice();
+        var moved = list.splice(fromIdx, 1)[0];
+        list.splice(toIdx, 0, moved);
+
+        if (rootPanel.editingIndex !== -1) {
+            if (rootPanel.editingIndex === fromIdx) {
+                rootPanel.editingIndex = toIdx;
+            } else if (fromIdx < toIdx && rootPanel.editingIndex > fromIdx && rootPanel.editingIndex <= toIdx) {
+                rootPanel.editingIndex--;
+            } else if (toIdx < fromIdx && rootPanel.editingIndex >= toIdx && rootPanel.editingIndex < fromIdx) {
+                rootPanel.editingIndex++;
+            }
+        }
+
+        rootPanel.recorders = list;
+        rootPanel.saveRecorders();
     }
 
     Text {
@@ -939,280 +1051,552 @@ ColumnLayout {
         visible: rootPanel.recorders.length > 0
     }
 
-    ColumnLayout {
-        id: recordersListColumn
+    Item {
+        id: recordersDragWrapper
         Layout.fillWidth: true
-        spacing: 6
+        implicitHeight: Math.max(recordersListColumn.implicitHeight, recordersListColumn.childrenRect.height)
+        Layout.preferredHeight: implicitHeight
+        height: implicitHeight
         visible: rootPanel.recorders.length > 0
 
-        Repeater {
-            model: rootPanel.recorders
-            delegate: Rectangle {
-                Layout.fillWidth: true
-                implicitHeight: Math.max(58, cardRow.implicitHeight + 16)
-                color: "#1c242c"
-                radius: 8
-                border.color: "#2a3540"
+        onVisibleChanged: {
+            if (visible) {
+                height = Qt.binding(function() {
+                    return Math.max(recordersListColumn.implicitHeight, recordersListColumn.childrenRect.height);
+                });
+            }
+        }
 
-                RowLayout {
-                    id: cardRow
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.margins: 10
-                    spacing: 12
+        QtObject {
+            id: recorderDragState
+            property int sourceIdx: -1
+            property int targetIdx: -1
+            property string previewName: ""
+            property string previewIp: ""
+            property int previewCamCount: 0
+            property real draggedHeight: 58
+            function reset() {
+                sourceIdx = -1;
+                targetIdx = -1;
+                previewName = "";
+                previewIp = "";
+                previewCamCount = 0;
+                draggedHeight = 58;
+            }
+        }
 
-                    ColumnLayout {
-                        spacing: 5
+        Rectangle {
+            id: recorderDragProxy
+            visible: recorderDragState.sourceIdx !== -1
+            enabled: false
+            z: 9999
+            width: recordersDragWrapper.width
+            height: recorderDragState.draggedHeight
+            radius: 8
+            color: "#1c242c"
+            border.color: "#00f5d4"
+            border.width: 1.5
+            opacity: 0.94
+
+            RowLayout {
+                anchors.fill: parent
+                anchors.margins: 10
+                spacing: 12
+
+                Item {
+                    width: 20
+                    height: 28
+                    Image {
+                        anchors.centerIn: parent
+                        width: 14
+                        height: 14
+                        sourceSize.width: 14
+                        sourceSize.height: 14
+                        source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f5d4'>" +
+                               "<circle cx='9' cy='5' r='1.8'/><circle cx='15' cy='5' r='1.8'/>" +
+                               "<circle cx='9' cy='12' r='1.8'/><circle cx='15' cy='12' r='1.8'/>" +
+                               "<circle cx='9' cy='19' r='1.8'/><circle cx='15' cy='19' r='1.8'/>" +
+                               "</svg>"
+                    }
+                }
+
+                ColumnLayout {
+                    spacing: 5
+                    Layout.fillWidth: true
+
+                    RowLayout {
+                        spacing: 8
                         Layout.fillWidth: true
 
-                        RowLayout {
-                            spacing: 8
+                        Text {
+                            text: recorderDragState.previewName
+                            color: "white"
+                            font.bold: true
+                            font.pixelSize: 12
+                            elide: Text.ElideRight
                             Layout.fillWidth: true
+                        }
 
-                            Text {
-                                text: modelData.name ? modelData.name + " (" + modelData.ip + ")" : modelData.ip
-                                color: "white"
-                                font.bold: true
-                                font.pixelSize: 12
-                                elide: Text.ElideRight
-                                Layout.fillWidth: true
+                        Text {
+                            text: qsTr("LNG_00086").arg(recorderDragState.previewCamCount)
+                            color: "#8898a6"
+                            font.pixelSize: 10
+                        }
+                    }
+                }
+            }
+        }
+
+        ColumnLayout {
+            id: recordersListColumn
+            width: parent.width
+            height: implicitHeight
+            spacing: 6
+
+            function updateRecorderDropTarget(pointerYInWrapper) {
+                var chs = recordersListColumn.children;
+                var bestIdx = recorderDragState.sourceIdx;
+                var bestDist = 1e9;
+                for (var i = 0; i < chs.length; ++i) {
+                    var ch = chs[i];
+                    if (!ch || !ch.visible || typeof ch.recorderIndex !== "number") continue;
+                    var topY = ch.mapToItem(recordersDragWrapper, 0, 0).y - (ch.pushOffsetY || 0);
+                    var bottomY = topY + ch.height;
+                    if (pointerYInWrapper >= topY - 4 && pointerYInWrapper <= bottomY + 4) {
+                        bestIdx = ch.recorderIndex;
+                        break;
+                    }
+                    var dist = Math.abs(pointerYInWrapper - (topY + bottomY) * 0.5);
+                    if (dist < bestDist) {
+                        bestDist = dist;
+                        bestIdx = ch.recorderIndex;
+                    }
+                }
+                recorderDragState.targetIdx = bestIdx;
+            }
+
+            Repeater {
+                model: rootPanel.recorders
+                delegate: Rectangle {
+                    id: card
+                    property int recorderIndex: index
+                    property var recorderData: modelData
+                    readonly property bool isBeingDragged: recorderDragState.sourceIdx === recorderIndex
+                    readonly property bool isDropTarget: recorderDragState.targetIdx === recorderIndex && recorderDragState.sourceIdx !== recorderIndex && recorderDragState.sourceIdx !== -1
+                    readonly property bool dropAbove: isDropTarget && recorderDragState.sourceIdx > recorderIndex
+                    readonly property bool dropBelow: isDropTarget && recorderDragState.sourceIdx < recorderIndex
+                    readonly property real pushOffsetY: {
+                        if (recorderDragState.sourceIdx === -1 || recorderDragState.targetIdx === -1 || recorderDragState.sourceIdx === recorderDragState.targetIdx)
+                            return 0;
+                        if (recorderDragState.sourceIdx === recorderIndex)
+                            return 0;
+                        if (recorderDragState.sourceIdx < recorderIndex && recorderIndex <= recorderDragState.targetIdx)
+                            return -12;
+                        if (recorderDragState.targetIdx <= recorderIndex && recorderIndex < recorderDragState.sourceIdx)
+                            return 12;
+                        return 0;
+                    }
+
+                    Layout.fillWidth: true
+                    implicitHeight: Math.max(58, cardRow.implicitHeight + 16)
+                    Layout.preferredHeight: implicitHeight
+                    height: implicitHeight
+                    color: isBeingDragged ? "#101820" : (isDropTarget ? "#172530" : "#1c242c")
+                    radius: 8
+                    border.color: isBeingDragged ? "#00f5d4" : (isDropTarget ? "#00f5d4" : "#2a3540")
+                    border.width: isBeingDragged ? 1.5 : 1
+                    opacity: isBeingDragged ? 0.35 : 1.0
+                    z: isBeingDragged ? 1 : 2
+
+                    transform: Translate {
+                        y: card.pushOffsetY
+                        Behavior on y {
+                            NumberAnimation { duration: 135; easing.type: Easing.OutCubic }
+                        }
+                    }
+
+                    Rectangle {
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.top: card.dropAbove ? parent.top : undefined
+                        anchors.bottom: card.dropBelow ? parent.bottom : undefined
+                        height: 3
+                        radius: 1.5
+                        color: "#00f5d4"
+                        visible: card.isDropTarget
+                        z: 5
+                    }
+
+                    RowLayout {
+                        id: cardRow
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.margins: 10
+                        spacing: 10
+
+                        // Drag grip handle (only interactive when more than 1 recorder)
+                        Item {
+                            id: grpGrip
+                            visible: rootPanel.recorders.length > 1
+                            width: visible ? 24 : 0
+                            height: 28
+                            Layout.alignment: Qt.AlignVCenter
+
+                            Image {
+                                anchors.centerIn: parent
+                                width: 14
+                                height: 14
+                                sourceSize.width: 14
+                                sourceSize.height: 14
+                                source: {
+                                    var c = (grpDragMouse.containsMouse || card.isBeingDragged) ? "%2300f5d4" : "%236b7c8a";
+                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='" + c + "'>" +
+                                           "<circle cx='9' cy='5' r='1.8'/><circle cx='15' cy='5' r='1.8'/>" +
+                                           "<circle cx='9' cy='12' r='1.8'/><circle cx='15' cy='12' r='1.8'/>" +
+                                           "<circle cx='9' cy='19' r='1.8'/><circle cx='15' cy='19' r='1.8'/>" +
+                                           "</svg>";
+                                }
                             }
 
-                            Text {
-                                text: qsTr("LNG_00086").arg(modelData.cameras ? modelData.cameras.length : 0)
-                                color: "#8898a6"
-                                font.pixelSize: 10
+                            MouseArea {
+                                id: grpDragMouse
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                preventStealing: true
+                                cursorShape: pressed ? Qt.ClosedHandCursor : Qt.OpenHandCursor
+
+                                onPressed: {
+                                    var pt = card.mapToItem(recordersDragWrapper, 0, 0);
+                                    recorderDragProxy.x = pt.x;
+                                    recorderDragProxy.y = pt.y;
+                                    recorderDragState.sourceIdx = card.recorderIndex;
+                                    recorderDragState.targetIdx = card.recorderIndex;
+                                    recorderDragState.previewName = card.recorderData ? ((card.recorderData.name ? card.recorderData.name + " (" + card.recorderData.ip + ")" : card.recorderData.ip)) : "";
+                                    recorderDragState.previewIp = card.recorderData ? card.recorderData.ip : "";
+                                    recorderDragState.previewCamCount = (card.recorderData && card.recorderData.cameras) ? card.recorderData.cameras.length : 0;
+                                    recorderDragState.draggedHeight = card.height;
+                                    var totalH = Math.max(recordersDragWrapper.height, recordersListColumn.implicitHeight, recordersListColumn.childrenRect.height);
+                                    if (recordersDragWrapper.height < totalH) {
+                                        recordersDragWrapper.height = totalH;
+                                    }
+                                }
+
+                                onPositionChanged: {
+                                    if (!pressed || recorderDragState.sourceIdx === -1) return;
+                                    var p = grpDragMouse.mapToItem(recordersDragWrapper, mouse.x, mouse.y);
+                                    var totalH = Math.max(recordersDragWrapper.height, recordersListColumn.implicitHeight, recordersListColumn.childrenRect.height);
+                                    var maxY = Math.max(0, totalH - recorderDragProxy.height);
+                                    recorderDragProxy.y = Math.max(0, Math.min(maxY, p.y - recorderDragProxy.height * 0.5));
+                                    recordersListColumn.updateRecorderDropTarget(p.y);
+                                }
+
+                                onReleased: {
+                                    var fromI = recorderDragState.sourceIdx;
+                                    var toI = recorderDragState.targetIdx;
+                                    recorderDragState.reset();
+                                    if (fromI !== -1 && toI !== -1 && fromI !== toI) {
+                                        rootPanel.moveRecorderOrder(fromI, toI);
+                                    }
+                                }
+
+                                onCanceled: recorderDragState.reset()
+
+                                ToolTip.delay: Compact.toolTipDelay
+                                ToolTip.timeout: Compact.toolTipTimeout
+                                ToolTip.visible: grpDragMouse.containsMouse && recorderDragState.sourceIdx === -1
+                                ToolTip.text: qsTr("LNG_00631")
                             }
                         }
 
-                        Flow {
+                        ColumnLayout {
+                            spacing: 5
                             Layout.fillWidth: true
-                            spacing: 6
 
-                            // SDK login status badge
-                            Rectangle {
-                                id: sdkStatusBadge
-                                readonly property bool loggedIn: !!(rootPanel.activeSessionIps[modelData.ip])
-                                implicitWidth: sdkStatusRow.implicitWidth + 14
-                                height: 22
-                                radius: 6
-                                color: loggedIn ? "#0e291d" : "#2c1418"
-                                border.color: loggedIn ? "#00cc55" : "#cc3344"
-                                border.width: 1
+                            RowLayout {
+                                spacing: 8
+                                Layout.fillWidth: true
 
-                                Row {
-                                    id: sdkStatusRow
-                                    anchors.centerIn: parent
-                                    spacing: 5
+                                Text {
+                                    text: modelData.name ? modelData.name + " (" + modelData.ip + ")" : modelData.ip
+                                    color: "white"
+                                    font.bold: true
+                                    font.pixelSize: 12
+                                    elide: Text.ElideRight
+                                    Layout.fillWidth: true
+                                }
 
-                                    Rectangle {
-                                        width: 7
-                                        height: 7
-                                        radius: 3.5
-                                        antialiasing: true
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        color: sdkStatusBadge.loggedIn ? "#00ff66" : "#ff4d5e"
+                                Text {
+                                    text: qsTr("LNG_00086").arg(modelData.cameras ? modelData.cameras.length : 0)
+                                    color: "#8898a6"
+                                    font.pixelSize: 10
+                                }
+                            }
+
+                            Flow {
+                                Layout.fillWidth: true
+                                spacing: 6
+
+                                // SDK login status badge
+                                Rectangle {
+                                    id: sdkStatusBadge
+                                    readonly property bool loggedIn: !!(rootPanel.activeSessionIps[modelData.ip])
+                                    implicitWidth: sdkStatusRow.implicitWidth + 14
+                                    height: 22
+                                    radius: 6
+                                    color: loggedIn ? "#0e291d" : "#2c1418"
+                                    border.color: loggedIn ? "#00cc55" : "#cc3344"
+                                    border.width: 1
+
+                                    Row {
+                                        id: sdkStatusRow
+                                        anchors.centerIn: parent
+                                        spacing: 5
+
+                                        Rectangle {
+                                            width: 7
+                                            height: 7
+                                            radius: 3.5
+                                            antialiasing: true
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            color: sdkStatusBadge.loggedIn ? "#00ff66" : "#ff4d5e"
+                                        }
+
+                                        Text {
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            text: sdkStatusBadge.loggedIn ? qsTr("LNG_00085") : qsTr("LNG_00084")
+                                            color: sdkStatusBadge.loggedIn ? "#6effb0" : "#ff8a95"
+                                            font.pixelSize: 10
+                                            font.bold: true
+                                        }
                                     }
 
+                                    MouseArea {
+                                        id: statusArea
+                                        anchors.fill: parent
+                                        hoverEnabled: true
+                                        enabled: recorderDragState.sourceIdx === -1
+                                    }
+
+                                    ToolTip.delay: Compact.toolTipDelay
+                                    ToolTip.timeout: Compact.toolTipTimeout
+                                    ToolTip.visible: statusArea.containsMouse
+                                    ToolTip.text: qsTr("LNG_00083")
+                                }
+
+                                // WAN badge
+                                Rectangle {
+                                    visible: !!modelData.remoteRecorder
+                                    implicitWidth: wanBadgeText.implicitWidth + 14
+                                    height: 22
+                                    radius: 6
+                                    color: "#122b2e"
+                                    border.color: "#00f5d4"
+                                    border.width: 1
+
                                     Text {
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        text: sdkStatusBadge.loggedIn ? qsTr("LNG_00085") : qsTr("LNG_00084")
-                                        color: sdkStatusBadge.loggedIn ? "#6effb0" : "#ff8a95"
+                                        id: wanBadgeText
+                                        anchors.centerIn: parent
+                                        text: "WAN"
+                                        color: "#00f5d4"
                                         font.pixelSize: 10
                                         font.bold: true
                                     }
                                 }
 
-                                MouseArea {
-                                    id: statusArea
-                                    anchors.fill: parent
-                                    hoverEnabled: true
+                                // Thumbnail generation progress badge
+                                Rectangle {
+                                    id: thumbProgressBadge
+                                    property var prog: rootPanel.thumbnailProgressMap[modelData.ip]
+                                    visible: !!prog
+                                    implicitWidth: thumbProgressRow.implicitWidth + 14
+                                    height: 22
+                                    radius: 6
+                                    color: "#132733"
+                                    border.color: "#00c8ff"
+                                    border.width: 1
+
+                                    Row {
+                                        id: thumbProgressRow
+                                        anchors.centerIn: parent
+                                        spacing: 5
+
+                                        BusyIndicator {
+                                            width: 14
+                                            height: 14
+                                            running: thumbProgressBadge.visible
+                                            anchors.verticalCenter: parent.verticalCenter
+                                        }
+
+                                        Text {
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            text: thumbProgressBadge.prog ? qsTr("LNG_00646").arg(thumbProgressBadge.prog.completed).arg(thumbProgressBadge.prog.total).arg(thumbProgressBadge.prog.percent) : ""
+                                            color: "#60d0ff"
+                                            font.pixelSize: 10
+                                            font.bold: true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // Right-aligned action buttons cluster
+                        RowLayout {
+                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                            spacing: 6
+                            enabled: recorderDragState.sourceIdx === -1
+
+                            Button {
+                                id: webBtn
+                                implicitWidth: 30
+                                implicitHeight: 30
+
+                                contentItem: Image {
+                                    anchors.centerIn: parent
+                                    width: 16
+                                    height: 16
+                                    source: {
+                                        var colorStr = webBtn.hovered ? "%2300f5d4" : "%238898a6";
+                                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'></path><polyline points='15 3 21 3 21 9'></polyline><line x1='10' y1='14' x2='21' y2='3'></line></svg>";
+                                    }
+                                }
+
+                                background: Rectangle {
+                                    color: webBtn.pressed ? "#cc121214" : (webBtn.hovered ? "#3a4550" : "#151d24")
+                                    radius: 6
+                                    border.color: webBtn.hovered ? "#00f5d4" : "#2a3540"
+                                    border.width: 1
+                                }
+
+                                onClicked: {
+                                    var hPort = modelData.httpPort || (modelData.port == 8000 ? 80 : modelData.port) || 80;
+                                    var url = "http://" + modelData.ip + (hPort == 80 ? "" : ":" + hPort);
+                                    Qt.openUrlExternally(url);
                                 }
 
                                 ToolTip.delay: Compact.toolTipDelay
                                 ToolTip.timeout: Compact.toolTipTimeout
-                                ToolTip.visible: statusArea.containsMouse
-                                ToolTip.text: qsTr("LNG_00083")
+                                ToolTip.visible: webBtn.hovered
+                                ToolTip.text: qsTr("LNG_00082")
                             }
 
-                            // WAN badge
-                            Rectangle {
-                                visible: !!modelData.remoteRecorder
-                                implicitWidth: wanBadgeText.implicitWidth + 14
-                                height: 22
-                                radius: 6
-                                color: "#122b2e"
-                                border.color: "#00f5d4"
-                                border.width: 1
+                            Button {
+                                id: listBtn
+                                implicitWidth: 30
+                                implicitHeight: 30
 
-                                Text {
-                                    id: wanBadgeText
+                                contentItem: Image {
                                     anchors.centerIn: parent
-                                    text: "WAN"
-                                    color: "#00f5d4"
-                                    font.pixelSize: 10
-                                    font.bold: true
+                                    width: 16
+                                    height: 16
+                                    source: {
+                                        var colorStr = listBtn.hovered ? "%2300f5d4" : "%238898a6";
+                                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='3' width='20' height='14' rx='2' ry='2'></rect><line x1='8' y1='21' x2='16' y2='21'></line><line x1='12' y1='17' x2='12' y2='21'></line></svg>";
+                                    }
                                 }
-                            }
-                        }
-                    }
 
-                    // Right-aligned action buttons cluster
-                    RowLayout {
-                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                        spacing: 6
-
-                        Button {
-                            id: webBtn
-                            implicitWidth: 30
-                            implicitHeight: 30
-
-                            contentItem: Image {
-                                anchors.centerIn: parent
-                                width: 16
-                                height: 16
-                                source: {
-                                    var colorStr = webBtn.hovered ? "%2300f5d4" : "%238898a6";
-                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'></path><polyline points='15 3 21 3 21 9'></polyline><line x1='10' y1='14' x2='21' y2='3'></line></svg>";
+                                background: Rectangle {
+                                    color: listBtn.pressed ? "#cc121214" : (listBtn.hovered ? "#3a4550" : "#151d24")
+                                    radius: 6
+                                    border.color: listBtn.hovered ? "#00f5d4" : "#2a3540"
+                                    border.width: 1
                                 }
-                            }
 
-                            background: Rectangle {
-                                color: webBtn.pressed ? "#cc121214" : (webBtn.hovered ? "#3a4550" : "#151d24")
-                                radius: 6
-                                border.color: webBtn.hovered ? "#00f5d4" : "#2a3540"
-                                border.width: 1
-                            }
-
-                            onClicked: {
-                                var hPort = modelData.httpPort || (modelData.port == 8000 ? 80 : modelData.port) || 80;
-                                var url = "http://" + modelData.ip + (hPort == 80 ? "" : ":" + hPort);
-                                Qt.openUrlExternally(url);
-                            }
-
-                            ToolTip.delay: Compact.toolTipDelay
-                            ToolTip.timeout: Compact.toolTipTimeout
-                            ToolTip.visible: webBtn.hovered
-                            ToolTip.text: qsTr("LNG_00082")
-                        }
-
-                        Button {
-                            id: listBtn
-                            implicitWidth: 30
-                            implicitHeight: 30
-
-                            contentItem: Image {
-                                anchors.centerIn: parent
-                                width: 16
-                                height: 16
-                                source: {
-                                    var colorStr = listBtn.hovered ? "%2300f5d4" : "%238898a6";
-                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='3' width='20' height='14' rx='2' ry='2'></rect><line x1='8' y1='21' x2='16' y2='21'></line><line x1='12' y1='17' x2='12' y2='21'></line></svg>";
+                                onClicked: {
+                                    rootPanel.openCamerasWindow(modelData);
                                 }
+
+                                ToolTip.delay: Compact.toolTipDelay
+                                ToolTip.timeout: Compact.toolTipTimeout
+                                ToolTip.visible: listBtn.hovered
+                                ToolTip.text: qsTr("LNG_00081")
                             }
 
-                            background: Rectangle {
-                                color: listBtn.pressed ? "#cc121214" : (listBtn.hovered ? "#3a4550" : "#151d24")
-                                radius: 6
-                                border.color: listBtn.hovered ? "#00f5d4" : "#2a3540"
-                                border.width: 1
-                            }
+                            Button {
+                                id: editBtn
+                                implicitWidth: 30
+                                implicitHeight: 30
 
-                            onClicked: {
-                                rootPanel.openCamerasWindow(modelData);
-                            }
-
-                            ToolTip.delay: Compact.toolTipDelay
-                            ToolTip.timeout: Compact.toolTipTimeout
-                            ToolTip.visible: listBtn.hovered
-                            ToolTip.text: qsTr("LNG_00081")
-                        }
-
-                        Button {
-                            id: editBtn
-                            implicitWidth: 30
-                            implicitHeight: 30
-
-                            contentItem: Image {
-                                anchors.centerIn: parent
-                                width: 16
-                                height: 16
-                                source: {
-                                    var colorStr = editBtn.hovered ? "%23ff7a00" : "%238898a6";
-                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='16 3 21 8 8 21 3 21 3 16 16 3'></polygon></svg>";
+                                contentItem: Image {
+                                    anchors.centerIn: parent
+                                    width: 16
+                                    height: 16
+                                    source: {
+                                        var colorStr = editBtn.hovered ? "%23ff7a00" : "%238898a6";
+                                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='16 3 21 8 8 21 3 21 3 16 16 3'></polygon></svg>";
+                                    }
                                 }
-                            }
 
-                            background: Rectangle {
-                                color: editBtn.pressed ? "#cc121214" : (editBtn.hovered ? "#3a4550" : "#151d24")
-                                radius: 6
-                                border.color: editBtn.hovered ? "#ff7a00" : "#2a3540"
-                                border.width: 1
-                            }
-
-                            onClicked: {
-                                // Populate input fields for editing
-                                nameField.text = modelData.name || "";
-                                ipField.text = modelData.ip;
-                                portField.text = modelData.sdkPort || modelData.port || "8000";
-                                httpPortField.text = modelData.httpPort || (modelData.port == 8000 ? "80" : modelData.port) || "80";
-                                rtspPortField.text = modelData.rtspPort || "554";
-                                userField.text = modelData.username;
-                                passField.text = modelData.password;
-
-                                if (modelData.rtspTransport === "tcp") {
-                                    rtspTransportField.currentIndex = 1;
-                                } else if (modelData.rtspTransport === "udp") {
-                                    rtspTransportField.currentIndex = 2;
-                                } else {
-                                    rtspTransportField.currentIndex = 0;
+                                background: Rectangle {
+                                    color: editBtn.pressed ? "#cc121214" : (editBtn.hovered ? "#3a4550" : "#151d24")
+                                    radius: 6
+                                    border.color: editBtn.hovered ? "#ff7a00" : "#2a3540"
+                                    border.width: 1
                                 }
-                                remoteRecorderCheckBox.checked = !!modelData.remoteRecorder;
-                                rootPanel.hasPortTestResult = false;
-                                rootPanel.statusMessage = "";
 
-                                rootPanel.editingIndex = index;
-                            }
+                                onClicked: {
+                                    // Populate input fields for editing
+                                    nameField.text = modelData.name || "";
+                                    ipField.text = modelData.ip;
+                                    portField.text = modelData.sdkPort || modelData.port || "8000";
+                                    httpPortField.text = modelData.httpPort || (modelData.port == 8000 ? "80" : modelData.port) || "80";
+                                    rtspPortField.text = modelData.rtspPort || "554";
+                                    userField.text = modelData.username;
+                                    passField.text = modelData.password;
 
-                            ToolTip.delay: Compact.toolTipDelay
-                            ToolTip.timeout: Compact.toolTipTimeout
-                            ToolTip.visible: editBtn.hovered
-                            ToolTip.text: qsTr("LNG_00080")
-                        }
+                                    if (modelData.rtspTransport === "tcp") {
+                                        rtspTransportField.currentIndex = 1;
+                                    } else if (modelData.rtspTransport === "udp") {
+                                        rtspTransportField.currentIndex = 2;
+                                    } else {
+                                        rtspTransportField.currentIndex = 0;
+                                    }
+                                    remoteRecorderCheckBox.checked = !!modelData.remoteRecorder;
+                                    rootPanel.hasPortTestResult = false;
+                                    rootPanel.statusMessage = "";
 
-                        Button {
-                            id: delBtn
-                            implicitWidth: 30
-                            implicitHeight: 30
-
-                            contentItem: Image {
-                                anchors.centerIn: parent
-                                width: 16
-                                height: 16
-                                source: {
-                                    var colorStr = delBtn.hovered ? "%23ff4d4d" : "%238898a6";
-                                    return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 6 5 6 21 6'></polyline><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path><line x1='10' y1='11' x2='10' y2='17'></line><line x1='14' y1='11' x2='14' y2='17'></line></svg>";
+                                    rootPanel.editingIndex = index;
                                 }
+
+                                ToolTip.delay: Compact.toolTipDelay
+                                ToolTip.timeout: Compact.toolTipTimeout
+                                ToolTip.visible: editBtn.hovered
+                                ToolTip.text: qsTr("LNG_00080")
                             }
 
-                            background: Rectangle {
-                                color: delBtn.pressed ? "#cc121214" : (delBtn.hovered ? "#3a4550" : "#151d24")
-                                radius: 6
-                                border.color: delBtn.hovered ? "#ff4d4d" : "#2a3540"
-                                border.width: 1
-                            }
+                            Button {
+                                id: delBtn
+                                implicitWidth: 30
+                                implicitHeight: 30
 
-                            onClicked: {
-                                deleteConfirmDialog1.targetIndex = index;
-                                deleteConfirmDialog1.targetIp = modelData.ip;
-                                deleteConfirmDialog1.open();
-                            }
+                                contentItem: Image {
+                                    anchors.centerIn: parent
+                                    width: 16
+                                    height: 16
+                                    source: {
+                                        var colorStr = delBtn.hovered ? "%23ff4d4d" : "%238898a6";
+                                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 6 5 6 21 6'></polyline><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path><line x1='10' y1='11' x2='10' y2='17'></line><line x1='14' y1='11' x2='14' y2='17'></line></svg>";
+                                    }
+                                }
 
-                            ToolTip.delay: Compact.toolTipDelay
-                            ToolTip.timeout: Compact.toolTipTimeout
-                            ToolTip.visible: delBtn.hovered
-                            ToolTip.text: qsTr("LNG_00079")
+                                background: Rectangle {
+                                    color: delBtn.pressed ? "#cc121214" : (delBtn.hovered ? "#3a4550" : "#151d24")
+                                    radius: 6
+                                    border.color: delBtn.hovered ? "#ff4d4d" : "#2a3540"
+                                    border.width: 1
+                                }
+
+                                onClicked: {
+                                    deleteConfirmDialog1.targetIndex = index;
+                                    deleteConfirmDialog1.targetIp = modelData.ip;
+                                    deleteConfirmDialog1.open();
+                                }
+
+                                ToolTip.delay: Compact.toolTipDelay
+                                ToolTip.timeout: Compact.toolTipTimeout
+                                ToolTip.visible: delBtn.hovered
+                                ToolTip.text: qsTr("LNG_00079")
+                            }
                         }
                     }
                 }
@@ -1244,21 +1628,98 @@ ColumnLayout {
         property string targetIp: ""
         
         onAccepted: {
-            if (targetIndex >= 0 && targetIndex < rootPanel.recorders.length) {
-                HikvisionManager.logout(targetIp);
-                
-                // Remove from active recorders list
+            var delIdx = -1;
+            for (var idx = 0; idx < rootPanel.recorders.length; ++idx) {
+                if (rootPanel.recorders[idx] && rootPanel.recorders[idx].ip === targetIp) {
+                    delIdx = idx;
+                    break;
+                }
+            }
+            if (delIdx === -1 && targetIndex >= 0 && targetIndex < rootPanel.recorders.length) {
+                delIdx = targetIndex;
+            }
+            if (delIdx >= 0 && delIdx < rootPanel.recorders.length) {
+                var deletedIp = targetIp || (rootPanel.recorders[delIdx] ? rootPanel.recorders[delIdx].ip : "");
+                var deletedName = (rootPanel.recorders[delIdx] && rootPanel.recorders[delIdx].name) ? rootPanel.recorders[delIdx].name : "";
+
+                HikvisionManager.logout(deletedIp);
+
+                // 1. Delete all disk and memory cached thumbnails for this NVR
+                ThumbnailProvider.deleteRecorderThumbnails(deletedIp);
+
+                // 2. Unmute recorder in NvrStatusManager
+                if (typeof NvrStatusManager !== "undefined" && NvrStatusManager) {
+                    if (deletedName) NvrStatusManager.setRecorderMuted(deletedName, false);
+                    NvrStatusManager.setRecorderMuted(deletedIp, false);
+                }
+
+                // 3. Clear playback caches for this deleted recorder
+                if (typeof rootWindow !== "undefined" && rootWindow) {
+                    if (rootWindow.monthAvailabilitiesCache) {
+                        var mCache = Object.assign({}, rootWindow.monthAvailabilitiesCache);
+                        for (var mk in mCache) {
+                            if (mk.indexOf(deletedIp) !== -1) {
+                                delete mCache[mk];
+                            }
+                        }
+                        rootWindow.monthAvailabilitiesCache = mCache;
+                    }
+                    if (rootWindow.playbackSegmentsCache) {
+                        var sCache = Object.assign({}, rootWindow.playbackSegmentsCache);
+                        for (var sk in sCache) {
+                            if (sk.indexOf(deletedIp) !== -1) {
+                                delete sCache[sk];
+                            }
+                        }
+                        rootWindow.playbackSegmentsCache = sCache;
+                    }
+                }
+
+                // 4. Remove from active recorders list
                 var arr = rootPanel.recorders.slice();
-                arr.splice(targetIndex, 1);
+                arr.splice(delIdx, 1);
                 rootPanel.recorders = arr;
                 rootPanel.saveRecorders();
 
-                // Automatically remove corresponding NVR view layout(s)
+                // 5. Automatically remove corresponding NVR view layout(s)
                 for (var j = layoutsCollectionModel.count - 1; j >= 0; --j) {
                     var l = layoutsCollectionModel.get(j);
-                    if (l && l.isNvr && l.nvrIp === targetIp) {
+                    if (l && l.isNvr && l.nvrIp === deletedIp) {
                         layoutsCollectionModel.remove(j);
                     }
+                }
+
+                // 6. Clean up any viewports in custom layouts that reference this NVR
+                for (var m = 0; m < layoutsCollectionModel.count; ++m) {
+                    var lay = layoutsCollectionModel.get(m);
+                    if (!lay || lay.isNvr) continue;
+                    for (var v = 0; v < lay.count; ++v) {
+                        var vp = lay.get(v);
+                        if (vp && vp.url) {
+                            var u = String(vp.url);
+                            if (u.indexOf("hikvision://" + deletedIp + "/") !== -1 ||
+                                u.indexOf("@" + deletedIp + ":") !== -1 ||
+                                u.indexOf("://" + deletedIp + ":") !== -1 ||
+                                u.indexOf("@" + deletedIp + "/") !== -1 ||
+                                u.indexOf("://" + deletedIp + "/") !== -1) {
+                                vp.url = "";
+                                vp.secondaryUrl = "";
+                                vp.streamMode = 0;
+                                vp.volume = 0;
+                                vp.avFormatOptions = {};
+                            }
+                        }
+                    }
+                }
+
+                // 7. Reset form fields if they match the deleted recorder
+                if (rootPanel.editingIndex === delIdx || ipField.text.trim() === deletedIp) {
+                    rootPanel.resetFormFields();
+                }
+
+                // 8. Flush settings to disk
+                if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.flushSettingsToDisk) {
+                    rootWindow.flushSettingsToDisk();
                 }
             }
         }

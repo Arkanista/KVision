@@ -163,6 +163,13 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.7.11",
+            date: "18.11.2026",
+            changes: [
+                qsTr("LNG_00649")
+            ]
+        },
+        {
             version: "v2.7.10",
             date: "18.11.2026",
             changes: [
@@ -793,6 +800,9 @@ FocusScope {
                         activeIndex = index;
                         pagesStack.currentIndex = index;
                         rootSideBar.resetPathChangesCheckbox();
+                        if (index === 2 && nvrSettingsPanel && typeof nvrSettingsPanel.refreshRecorders === "function") {
+                            nvrSettingsPanel.refreshRecorders();
+                        }
                     }
 
                     // Viewport Page Button
@@ -1375,6 +1385,9 @@ FocusScope {
 
             onCurrentIndexChanged: {
                 rootSideBar.resetPathChangesCheckbox();
+                if (currentIndex === 2 && nvrSettingsPanel && typeof nvrSettingsPanel.refreshRecorders === "function") {
+                    nvrSettingsPanel.refreshRecorders();
+                }
             }
 
             // PAGE 0: Viewport settings
@@ -1935,6 +1948,18 @@ FocusScope {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
+                onVisibleChanged: {
+                    if (visible && nvrSettingsPanel && typeof nvrSettingsPanel.refreshRecorders === "function") {
+                        nvrSettingsPanel.refreshRecorders();
+                    }
+                }
+
+                Binding {
+                    target: page2ScrollView.contentItem
+                    property: "interactive"
+                    value: !(nvrSettingsPanel && nvrSettingsPanel.isDraggingRecorder)
+                }
+
                 ScrollBar.vertical: StyledScrollBar {
                     id: page2ScrollBar
                     scrollView: page2ScrollView
@@ -1956,6 +1981,7 @@ FocusScope {
                     }
 
                     NvrSettingsPanel {
+                        id: nvrSettingsPanel
                         Layout.fillWidth: true
                     }
                 }
@@ -2492,6 +2518,17 @@ FocusScope {
                                 onToggled: {
                                     setPersistedSetting(generalSettings, "", "enableMergeViewports", checked);
                                     checked = Qt.binding(function() { return generalSettings.enableMergeViewports; });
+                                }
+                                Layout.fillWidth: true
+                            }
+
+                            CheckBox {
+                                text: qsTr("LNG_00643")
+                                checked: generalSettings.enableAddCamera
+                                enabled: generalSettings.enableContextMenu
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "enableAddCamera", checked);
+                                    checked = Qt.binding(function() { return generalSettings.enableAddCamera; });
                                 }
                                 Layout.fillWidth: true
                             }

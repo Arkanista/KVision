@@ -149,6 +149,13 @@ Window {
         }
     }
 
+    Connections {
+        target: rootWindow
+        function onHikvisionRecordersJsonChanged() {
+            loadRecordersList();
+        }
+    }
+
     function isCameraInGrid(ip, channelId) {
         for (var i = 0; i < activePlayersList.length; i++) {
             if (activePlayersList[i] && activePlayersList[i].ip === ip && activePlayersList[i].channelId === channelId) {

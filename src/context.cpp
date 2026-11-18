@@ -171,7 +171,7 @@ void Context::init()
         m_watcher->addPath(configPath);
         QObject::connect(m_watcher, &QFileSystemWatcher::fileChanged, [](const QString &path) {
             // Force reload settings file cache
-            QSettings settings;
+            QSettings settings(path, QSettings::IniFormat);
             settings.sync();
 
             // Re-add to watcher in case the file was recreated/replaced
@@ -253,12 +253,14 @@ void Context::writeSetting(const QString &category, const QString &key, const QV
     if (!category.isEmpty()) {
         settings.endGroup();
     }
+    settings.sync();
 }
 
 QVariant Context::readSetting(const QString &category, const QString &key, const QVariant &defaultValue) const
 {
     QString path = m_config ? m_config->fileName() : QSettings().fileName();
     QSettings settings(path, QSettings::IniFormat);
+    settings.sync();
     if (!category.isEmpty()) {
         settings.beginGroup(category);
     }

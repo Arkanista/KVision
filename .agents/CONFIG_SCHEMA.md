@@ -17,6 +17,7 @@ Configuration is stored in `~/.config/KVision/KVision.conf` (INI format).
 | `enableChangeViewportSettings`| `bool` | `true` | Allow per-viewport settings modal. |
 | `enableStreamSelection` | `bool` | `true` | Allow switching between Main and Sub streams. |
 | `enableMergeViewports` | `bool` | `true` | Allow merging and splitting viewports from the right-click context menu. |
+| `enableAddCamera` | `bool` | `true` | Show "Add camera" item in the viewport right-click context menu to browse recorders and open their camera lists. |
 | `lockGridSize` | `bool` | `true` | Lock matrix grid dimensions when switching views. |
 | `snapshotPath` | `string` | `""` | Destination directory for PNG/JPG screenshots (empty = default Pictures). |
 | `videoPath` | `string` | `""` | Destination directory for MP4 export clips (empty = default Videos). |

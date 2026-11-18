@@ -26,6 +26,9 @@ ApplicationWindow {
     property bool closeAccepted: false
     property string lastLoadedModelsJson: ""
     property string lastSavedModelsJson: ""
+    property string lastLoadedRecordersJson: Context.readSetting("Hikvision", "recordersJson", "[]")
+    property string lastSavedRecordersJson: Context.readSetting("Hikvision", "recordersJson", "[]")
+    property double lastRecordersSaveTime: 0
     property bool isSyncing: false
     property bool topBarAutoCollapse: !viewSettings.showTopBarByDefault
     readonly property bool isPlaybackWindowOpen: playbackWindowLoader.active && playbackWindowLoader.item && playbackWindowLoader.item.visible
@@ -66,6 +69,7 @@ ApplicationWindow {
             var json = JSON.stringify(layoutsCollectionModel.toJSValue());
             rootWindow.lastSavedModelsJson = json;
             layoutsCollectionSettings.models = json;
+            Context.writeSetting("ViewportsLayoutsCollection", "models", json);
             console.log("[Sync] Debounced layouts save completed.");
         }
     }
@@ -133,7 +137,17 @@ ApplicationWindow {
         when: !Context.config.fullScreen
     }
 
-    property alias hikvisionRecordersJson: hikvisionSettings.recordersJson
+    property string hikvisionRecordersJson: Context.readSetting("Hikvision", "recordersJson", "[]")
+    onHikvisionRecordersJsonChanged: {
+        if (hikvisionRecordersJson !== lastSavedRecordersJson) {
+            lastSavedRecordersJson = hikvisionRecordersJson;
+            lastLoadedRecordersJson = hikvisionRecordersJson;
+            lastRecordersSaveTime = Date.now();
+            Context.writeSetting("Hikvision", "recordersJson", hikvisionRecordersJson);
+        }
+        NvrStatusManager.onRecordersChanged();
+        Qt.callLater(rootWindow.rebuildTopBarEntries);
+    }
     property alias viewGroupOrderJson: layoutsCollectionSettings.groupOrder
     property alias viewGroupMetaJson: layoutsCollectionSettings.groupMeta
     property alias layoutRepeater: layoutRepeater
@@ -210,6 +224,7 @@ ApplicationWindow {
         property bool enableChangeViewportSettings: true
         property bool enableStreamSelection: true
         property bool enableMergeViewports: true
+        property bool enableAddCamera: true
         property bool lockGridSize: true
         property string snapshotPath: ""
         property string videoPath: ""
@@ -220,16 +235,6 @@ ApplicationWindow {
         property bool enableDiagnosticLogs: false
     }
 
-    Settings {
-        id: hikvisionSettings
-        fileName: Context.config.fileName
-        category: "Hikvision"
-        property string recordersJson: "[]"
-        onRecordersJsonChanged: {
-            NvrStatusManager.onRecordersChanged();
-            Qt.callLater(rootWindow.rebuildTopBarEntries);
-        }
-    }
 
     readonly property string ungroupedOrderKey: "__UNGROUPED__"
     property var topBarSections: []
@@ -327,7 +332,7 @@ ApplicationWindow {
         var needle = String(ip || "").trim();
         if (needle === "") return null;
         try {
-            var list = JSON.parse(hikvisionSettings.recordersJson);
+            var list = JSON.parse(rootWindow.hikvisionRecordersJson);
             for (var i = 0; i < list.length; ++i) {
                 if (String(list[i].ip || "").trim() === needle) {
                     return list[i];
@@ -401,11 +406,19 @@ ApplicationWindow {
 
     function formatLayoutViewLabel(layoutIndex, layout) {
         if (layout) {
+            if (layout.isNvr) {
+                var nvrIp = resolveLayoutNvrIp(layout);
+                var recName = getRecorderName(nvrIp);
+                if (recName && recName !== nvrIp) {
+                    return recName;
+                }
+                if (layout.name && layout.name.trim() !== "" && layout.name.trim() !== nvrIp) {
+                    return layout.name;
+                }
+                return recName;
+            }
             if (layout.name && layout.name.trim() !== "") {
                 return layout.name;
-            }
-            if (layout.isNvr) {
-                return getRecorderName(resolveLayoutNvrIp(layout));
             }
             var count = 1;
             for (var i = 0; i < layoutIndex; ++i) {
@@ -504,7 +517,7 @@ ApplicationWindow {
             if (uid === "") {
                 uid = "idx_" + i;
             }
-            var showNvrIcon = !!(layout.isNvr && (!layout.name || layout.name.trim() === ""));
+            var showNvrIcon = !!layout.isNvr;
             var label = formatLayoutViewLabel(i, layout);
             var rawGroups = layout.groups ? layout.groups : [];
             for (var gIdx = 0; gIdx < rawGroups.length; ++gIdx) {
@@ -690,9 +703,27 @@ ApplicationWindow {
         function onConfigFileChanged() {
             // 1. Check and live-reload Hikvision NVR/Cameras recorders list
             var diskRecorders = Context.readSetting("Hikvision", "recordersJson", "[]");
-            if (diskRecorders !== hikvisionSettings.recordersJson) {
-                console.log("[Sync] Live-reloading NVR Recorders list...");
-                hikvisionSettings.recordersJson = diskRecorders;
+            if (diskRecorders !== "") {
+                if (diskRecorders === rootWindow.lastSavedRecordersJson) {
+                    // Disk has caught up to our latest save, or we are in sync.
+                    rootWindow.lastLoadedRecordersJson = diskRecorders;
+                } else if (diskRecorders === rootWindow.lastLoadedRecordersJson) {
+                    // Disk is still showing the old state before our latest save. Ignore it.
+                } else if (Date.now() - rootWindow.lastRecordersSaveTime < 2500) {
+                    console.log("[Sync] Ignoring disk recorders echo right after local save (within grace period).");
+                } else {
+                    try {
+                        var parsedDisk = JSON.parse(diskRecorders);
+                        if (Array.isArray(parsedDisk)) {
+                            console.log("[Sync] Live-reloading NVR Recorders list due to external change (" + parsedDisk.length + " recorders)...");
+                            rootWindow.lastLoadedRecordersJson = diskRecorders;
+                            rootWindow.lastSavedRecordersJson = diskRecorders;
+                            rootWindow.hikvisionRecordersJson = diskRecorders;
+                        }
+                    } catch(e) {
+                        console.log("[Sync] Ignoring malformed disk recorders JSON:", e);
+                    }
+                }
             }
 
             // 2. Check and live-reload Viewport Layouts definitions
@@ -741,6 +772,10 @@ ApplicationWindow {
             var diskEnableMergeViewports = Context.readSetting("", "enableMergeViewports", true);
             if (generalSettings.enableMergeViewports !== diskEnableMergeViewports) {
                 generalSettings.enableMergeViewports = diskEnableMergeViewports;
+            }
+            var diskEnableAddCamera = Context.readSetting("", "enableAddCamera", true);
+            if (generalSettings.enableAddCamera !== diskEnableAddCamera) {
+                generalSettings.enableAddCamera = diskEnableAddCamera;
             }
             var rawSnapshotPath = Context.readSetting("", "snapshotPath", "");
             var diskSnapshotPath = Context.sanitizePlatformPath(rawSnapshotPath, Context.defaultPicturesPath());
@@ -1135,6 +1170,22 @@ ApplicationWindow {
         openPlaybackWindow(null, -1, "");
     }
 
+    Component {
+        id: nvrCamerasWindowComponent
+        NvrCamerasWindow {}
+    }
+
+    function openNvrCamerasWindow(recorderData) {
+        if (!recorderData) return null;
+        var win = nvrCamerasWindowComponent.createObject(rootWindow);
+        if (win) {
+            win.recorder = JSON.parse(JSON.stringify(recorderData));
+            win.show();
+            win.raise();
+        }
+        return win;
+    }
+
 
 
     ViewportsLayoutsCollectionModel {
@@ -1210,6 +1261,9 @@ ApplicationWindow {
             }
             rootWindow.lastLoadedModelsJson = initialModels;
             rootWindow.lastSavedModelsJson = initialModels;
+            var initialRecorders = Context.readSetting("Hikvision", "recordersJson", "[]");
+            rootWindow.lastLoadedRecordersJson = initialRecorders;
+            rootWindow.lastSavedRecordersJson = initialRecorders;
 
             layoutsCollectionModel.changed.connect(function () {
                 Qt.callLater(rootWindow.rebuildTopBarEntries);
@@ -2472,6 +2526,7 @@ ApplicationWindow {
         Context.writeSetting("", "enableChangeViewportSettings", generalSettings.enableChangeViewportSettings);
         Context.writeSetting("", "enableStreamSelection", generalSettings.enableStreamSelection);
         Context.writeSetting("", "enableMergeViewports", generalSettings.enableMergeViewports);
+        Context.writeSetting("", "enableAddCamera", generalSettings.enableAddCamera);
         Context.writeSetting("", "lockGridSize", generalSettings.lockGridSize);
         Context.writeSetting("", "snapshotPath", generalSettings.snapshotPath);
         Context.writeSetting("", "videoPath", generalSettings.videoPath);
@@ -2482,7 +2537,10 @@ ApplicationWindow {
         Context.writeSetting("", "enableDiagnosticLogs", generalSettings.enableDiagnosticLogs);
         Context.writeSetting("", "language", Context.getLanguage());
 
-        Context.writeSetting("Hikvision", "recordersJson", hikvisionSettings.recordersJson);
+        Context.writeSetting("Hikvision", "recordersJson", rootWindow.hikvisionRecordersJson);
+        rootWindow.lastSavedRecordersJson = rootWindow.hikvisionRecordersJson;
+        rootWindow.lastLoadedRecordersJson = rootWindow.hikvisionRecordersJson;
+        rootWindow.lastRecordersSaveTime = Date.now();
 
         Context.writeSetting("ViewportsLayoutsCollection", "models", modelsJson);
         Context.writeSetting("ViewportsLayoutsCollection", "groupOrder", layoutsCollectionSettings.groupOrder);

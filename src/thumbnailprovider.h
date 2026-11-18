@@ -4,14 +4,12 @@
 #include <QObject>
 #include <QImage>
 #include <QHash>
+#include <QSet>
 #include <QQueue>
 #include <QMutex>
 #include <QThread>
 #include <QTimer>
 #include <QVariantMap>
-#include <QMutex>
-#include <QThread>
-#include <QTimer>
 #include <QQuickImageProvider>
 
 // Forward declarations
@@ -50,6 +48,8 @@ public:
     
     Q_INVOKABLE void generateThumbnails(const QVariantMap &recorderInfo);
     Q_INVOKABLE void generateSingleThumbnail(const QVariantMap &recorderInfo, int channelId);
+    Q_INVOKABLE void deleteRecorderThumbnails(const QString &ip);
+    Q_INVOKABLE bool isGenerating(const QString &ip) const;
     Q_INVOKABLE QString thumbnailsDir() const;
 
     QImage thumbnail(const QString &cacheKey) const;
@@ -58,6 +58,8 @@ public:
 signals:
     void thumbnailReady(const QString &cacheKey);
     void thumbnailFailed(const QString &cacheKey);
+    void thumbnailProgress(const QString &ip, int completed, int total);
+    void thumbnailFinished(const QString &ip);
 
     // Internal signal to dispatch work to the worker thread
     void startFetch(const QString &rtspUrl, const QString &cacheKey, int timeoutMs);
@@ -73,6 +75,14 @@ private:
         QString cacheKey;
         int timeoutMs;
     };
+
+    struct JobProgress {
+        int total = 0;
+        int completed = 0;
+    };
+
+    QHash<QString, JobProgress> m_activeJobs;
+    QSet<QString> m_deletedIps;
 
     mutable QMutex m_cacheMutex;
     QHash<QString, QImage> m_cache;

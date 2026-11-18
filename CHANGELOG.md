@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.11] - 2026-11-18
+
+### Features & Improvements
+* **NVR Recorder Drag-and-Drop Reordering (`NvrSettingsPanel`, `ViewportsLayout`):**
+  * Added animated drag-and-drop reordering for configured NVR recorders in *Settings → NVR Recorders* with live push-apart spacing and drop target boundaries.
+  * Synchronized recorder order with the viewport right-click context menu under the **Add camera** submenu for immediate access to camera grids.
+* **Camera Grid Multi-Selection & Batch Adding (`NvrCamerasWindow`):**
+  * Added selection checkboxes to each camera tile in the NVR camera browser.
+  * Added quick action buttons to batch add either all discovered channels or only selected channels to the active layout grid, prioritizing unfilled viewports.
+* **Thumbnail Generation Progress & Cascading Cleanup (`ThumbnailProvider`, `NvrSettingsPanel`, `NvrCamerasWindow`):**
+  * Added automatic background thumbnail generation upon adding a recorder, complete with live progress percentage badges on recorder cards.
+  * Added complete cascading recorder deletion that purges disk and memory thumbnails, un-mutes notification states, invalidates playback caches, and cleans custom viewports referencing the deleted IP.
+* **Persistence & Synchronization Fixes (`RootWindow`, `context.cpp`, `nvrstatusmanager.cpp`):**
+  * Eliminated conflicting `QML Settings` bindings that could overwrite `Hikvision/recordersJson` during application shutdown or settings sync.
+  * Added deduplication when adding or modifying NVR recorders to reuse existing view layouts without creating duplicate tabs.
+
 ## [2.7.10] - 2026-11-18
 
 ### Bug Fixes & Versioning
