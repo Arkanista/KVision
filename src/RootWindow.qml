@@ -76,6 +76,7 @@ ApplicationWindow {
         repeat: false
         onTriggered: {
             rootWindow.isSyncing = false;
+            rootWindow.ensureActiveLayoutIsVisible();
             console.log("[Sync] isSyncing set to false after safety delay.");
         }
     }
@@ -255,7 +256,7 @@ ApplicationWindow {
                 return i;
             }
         }
-        return 0;
+        return -1;
     }
 
     function getVisibleLayoutIndices() {
@@ -390,6 +391,7 @@ ApplicationWindow {
         }
         if (ok && !Context.isAuxiliary) {
             lastSavedCurrentIndex = stackLayout.currentIndex;
+            windowLayoutSettings.currentIndex = stackLayout.currentIndex;
             Context.writeSetting("MainLayout", "currentIndex", stackLayout.currentIndex);
         }
         isMovingLayout = false;
@@ -1026,11 +1028,13 @@ ApplicationWindow {
     Shortcut {
         sequence: "M"
         onActivated: {
-            if (Utils.currentLayout().focusIndex >= 0) {
-                var item = Utils.currentModel().get(Utils.currentLayout().focusIndex);
-                var viewport = Utils.currentLayout().get(Utils.currentLayout().focusIndex);
+            var activeLayout = Utils.currentLayout();
+            var activeModel = Utils.currentModel();
+            if (activeLayout && activeModel && activeLayout.focusIndex >= 0) {
+                var item = activeModel.get(activeLayout.focusIndex);
+                var viewport = activeLayout.get(activeLayout.focusIndex);
 
-                if (viewport.hasAudio) {
+                if (viewport && viewport.hasAudio) {
                     if (item.volume > 0) {
                         item.volume = 0;
                     } else {
@@ -1089,8 +1093,10 @@ ApplicationWindow {
     }
 
     function setRootWindowRatio(ratio) {
-        var horzRatio = Utils.currentModel().size.width * ratio.width;
-        var vertRatio = Utils.currentModel().size.height * ratio.height;
+        var model = Utils.currentModel();
+        if (!model) return;
+        var horzRatio = model.size.width * ratio.width;
+        var vertRatio = model.size.height * ratio.height;
         var pixels = Math.round(rootWindow.width / horzRatio);
 
         if (!Context.config.fullScreen) {
@@ -2269,6 +2275,13 @@ ApplicationWindow {
 
     Item {
         anchors.fill: parent
+
+        // Dark fallback canvas when no visible view is active in main window
+        Rectangle {
+            anchors.fill: parent
+            color: "#0f151b"
+            visible: !Context.isAuxiliary && stackLayout.currentIndex === -1
+        }
 
         // Placeholder when no view is selected in auxiliary window
         Rectangle {

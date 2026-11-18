@@ -1,7 +1,8 @@
-2.7.9-2
-  * Fixed active view restoration on application startup: prevented premature layout clamping and settings overwrite in RootWindow.qml during initial model construction.
-  * Enforced strict layout visibility checks across startup restoration, top bar switching, and Alt+Left / Alt+Right / Alt+1..9 navigation shortcuts: views marked as hidden (visible: false) are never activated or proposed, automatically falling back to the first visible view.
-  * Disabled activation button and added automatic active view fallback when toggling layout visibility off in the SideBar and View Groups panel.
+2.7.10
+  * Fixed active view restoration on application startup: prevented premature layout clamping and settings overwrite during initial model construction in RootWindow.qml, and synchronized windowLayoutSettings.currentIndex during drag-and-drop moveLayout() reordering.
+  * Enforced strict layout visibility rules everywhere (startup restoration, top bar, SideBar, AuxiliaryWindow, config sync in main and auxiliary windows, and Alt+Left / Alt+Right / Alt+1..9 shortcuts): hidden views (visible: false) are never activated or proposed, falling back to the first visible view (or -1 when all views are hidden, with null-safe shortcut/ratio guards).
+  * Disabled the activation button and triggered automatic fallback to the first visible view when turning off visibility of the active view in SideBar and Layout Groups.
+  * Switched application versioning to pure major.minor.patch numbering (dropped -X release suffix from CMake APP_VERSION).
 
 2.7.9-1
   * Added the View Groups system with collapsible/expandable framed group boxes on the top bar, an NVR network group icon, active-view subtitles on collapsed group buttons, title-bar Pin toggles synced with "Collapsed by default", automatic collapse on outside click or leaving/collapsing the top bar, persistent empty groups until explicitly deleted, and inline line-break separators synced across main and auxiliary windows.

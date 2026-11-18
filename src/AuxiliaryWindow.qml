@@ -65,7 +65,7 @@ Window {
 
     Component.onCompleted: {
         visibility = initialVisibility;
-        if (initialLayoutIndex >= 0 && initialLayoutIndex < layoutsModel.count) {
+        if (initialLayoutIndex >= 0 && initialLayoutIndex < layoutsModel.count && (!rootWindow || rootWindow.isLayoutIndexVisible(initialLayoutIndex))) {
             layoutIndex = initialLayoutIndex;
         } else {
             layoutIndex = -1;
@@ -676,6 +676,7 @@ Window {
                         alignRight: true
                         barVisible: topToolBar.isShown
                         onActivateLayout: function(layoutIndex) {
+                            if (rootWindow && !rootWindow.isLayoutIndexVisible(layoutIndex)) return;
                             auxWindow.layoutIndex = layoutIndex;
                         }
                         onSetGroupCollapsedByDefault: function(groupName, collapsed) {

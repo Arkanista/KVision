@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.14)
 
 set(VER_MAJ 2)
 set(VER_MIN 7)
-set(VER_PAT 9)
+set(VER_PAT 10)
 if(NOT DEFINED VER_REL)
-    set(VER_REL 1)
+    set(VER_REL 0)
 endif()
 # set(REL_STATUS "rc5")
 

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.10] - 2026-11-18
+
+### Bug Fixes & Versioning
+* **Startup View Restoration & Strict Hidden-View Exclusion (`RootWindow`, `SideBar`, `ReorderableViewRow`, `ViewGroupsPanel`, `AuxiliaryWindow`):**
+  * Fixed active layout restoration on application startup so KVision reliably opens the last active view instead of resetting to index `0`: guarded `onCountChanged`, `stackLayout.onCurrentIndexChanged`, `saveTimer`, and `flushSettingsToDisk()` behind `isStartupComplete`, read the persisted `MainLayout/currentIndex` directly before completion, and kept `windowLayoutSettings.currentIndex` synchronized during drag-and-drop `moveLayout()` reordering.
+  * Enforced strict layout visibility rules across startup restoration, CLI `-p` selection, top-bar buttons, `SideBar` preset rows, `AuxiliaryWindow`, external config file synchronization (including `--auxiliary` windows via `syncEndTimer`), and `Alt+Left` / `Alt+Right` / `Alt+1..9` shortcuts: layouts marked with `visible: false` are never activated or proposed, falling back automatically to the first visible layout (or `-1` with dark canvas & null-safe `Utils.currentLayout()` / `Utils.currentModel()` guards if all layouts are hidden).
+  * Disabled and dimmed the activate button (with hidden tooltip) for invisible layouts in `ReorderableViewRow` and immediately switched to the first visible layout when turning off visibility of the active view in `SideBar` or `ViewGroupsPanel`.
+* **Patch Versioning Convention (`CMakeLists.txt`, `packaging/arch/PKGBUILD`):**
+  * Dropped the `-X` release suffix from application versioning (`VER_REL=0` by default in `CMakeLists.txt` and removed `-DVER_REL` from `PKGBUILD`); all patch releases increment the third version number (`2.7.10`).
+
 ## [2.7.9] - 2026-11-17
 
 ### Features, UI & Documentation

@@ -1,3 +1,12 @@
+kvision (2.7.10-1) unstable; urgency=medium
+
+  * Fixed active view restoration on application startup: prevented premature layout clamping and MainLayout/currentIndex overwrite during initial model loading in RootWindow.qml, and kept windowLayoutSettings.currentIndex synchronized during drag-and-drop moveLayout() reordering.
+  * Enforced strict layout visibility checks across startup restoration, top bar switching, SideBar presets, AuxiliaryWindow, external config sync (including auxiliary windows), and Alt+Left / Alt+Right / Alt+1..9 shortcuts: hidden views (visible: false) are never activated or proposed, falling back to the first visible view (or -1 when all views are hidden, with null-safe guards).
+  * Disabled the activation button and added automatic active view fallback when hiding the active view in SideBar and ViewGroupsPanel.
+  * Switched application versioning to pure major.minor.patch numbering (VER_REL=0 by default in CMakeLists.txt).
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Wed, 18 Nov 2026 01:14:00 +0100
+
 kvision (2.7.9-1) unstable; urgency=medium
 
   * Added the View Groups system with framed expandable/collapsible top-bar groups, NVR network group icon, active-view subtitles on collapsed group pills, title-bar Pin buttons synced with "Collapsed by default", auto-collapse on outside click or leaving/collapsing the top bar, persistent empty groups until explicitly deleted, and inline line-break separators synced with auxiliary windows.
