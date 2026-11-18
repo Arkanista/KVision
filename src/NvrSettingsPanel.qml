@@ -165,7 +165,10 @@ ColumnLayout {
         target: (typeof rootWindow !== "undefined" && rootWindow) ? rootWindow : null
         function onHikvisionRecordersJsonChanged() {
             if (!rootPanel.isDraggingRecorder) {
-                rootPanel.loadRecorders();
+                var cur = JSON.stringify(rootPanel.recorders);
+                if (cur !== rootWindow.hikvisionRecordersJson) {
+                    rootPanel.loadRecorders();
+                }
             }
         }
     }
@@ -400,14 +403,14 @@ ColumnLayout {
 
     function saveRecorders() {
         try {
-            var jsonStr = JSON.stringify(recorders);
-            Context.writeSetting("Hikvision", "recordersJson", jsonStr);
+            var jsonStr = JSON.stringify(rootPanel.recorders);
             if (typeof rootWindow !== "undefined" && rootWindow) {
                 rootWindow.lastSavedRecordersJson = jsonStr;
                 rootWindow.lastLoadedRecordersJson = jsonStr;
                 rootWindow.lastRecordersSaveTime = Date.now();
                 rootWindow.hikvisionRecordersJson = jsonStr;
             }
+            Context.writeSetting("Hikvision", "recordersJson", jsonStr);
         } catch(e) {
             console.log("[Hikvision QML Error] Failed to save recorders:", e);
         }
@@ -1058,7 +1061,7 @@ ColumnLayout {
     Item {
         id: recordersDragWrapper
         Layout.fillWidth: true
-        implicitHeight: recordersListColumn.implicitHeight
+        implicitHeight: Math.max(recordersListColumn.implicitHeight, recordersListColumn.childrenRect.height)
         Layout.preferredHeight: implicitHeight
         height: implicitHeight
         visible: rootPanel.recorders.length > 0
@@ -1236,8 +1239,12 @@ ColumnLayout {
                         Item {
                             id: grpGrip
                             visible: rootPanel.recorders.length > 1
-                            Layout.preferredWidth: visible ? 32 : 0
-                            Layout.preferredHeight: 32
+                            width: visible ? 32 : 0
+                            height: 32
+                            implicitWidth: width
+                            implicitHeight: height
+                            Layout.preferredWidth: width
+                            Layout.preferredHeight: height
                             Layout.alignment: Qt.AlignVCenter
 
                             Image {
@@ -1262,10 +1269,6 @@ ColumnLayout {
                                 hoverEnabled: true
                                 preventStealing: true
                                 cursorShape: pressed ? Qt.ClosedHandCursor : Qt.OpenHandCursor
-                                drag.target: recorderDragProxy
-                                drag.axis: Drag.YAxis
-                                drag.minimumY: 0
-                                drag.maximumY: Math.max(0, recordersDragWrapper.height - recorderDragProxy.height)
 
                                 onPressed: {
                                     var pt = card.mapToItem(recordersDragWrapper, 0, 0);
@@ -1281,8 +1284,11 @@ ColumnLayout {
 
                                 onPositionChanged: {
                                     if (!pressed || recorderDragState.sourceIdx === -1) return;
-                                    var midY = recorderDragProxy.y + recorderDragProxy.height * 0.5;
-                                    recordersListColumn.updateRecorderDropTarget(midY);
+                                    var p = grpDragMouse.mapToItem(recordersDragWrapper, mouse.x, mouse.y);
+                                    var totalH = Math.max(recordersDragWrapper.height, recordersListColumn.implicitHeight, recordersListColumn.childrenRect.height);
+                                    var maxY = Math.max(0, totalH - recorderDragProxy.height);
+                                    recorderDragProxy.y = Math.max(0, Math.min(maxY, p.y - recorderDragProxy.height * 0.5));
+                                    recordersListColumn.updateRecorderDropTarget(p.y);
                                 }
 
                                 onReleased: {

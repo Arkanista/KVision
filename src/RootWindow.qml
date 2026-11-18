@@ -1264,6 +1264,7 @@ ApplicationWindow {
             var initialRecorders = Context.readSetting("Hikvision", "recordersJson", "[]");
             rootWindow.lastLoadedRecordersJson = initialRecorders;
             rootWindow.lastSavedRecordersJson = initialRecorders;
+            NvrStatusManager.onRecordersChanged(rootWindow.hikvisionRecordersJson);
 
             layoutsCollectionModel.changed.connect(function () {
                 Qt.callLater(rootWindow.rebuildTopBarEntries);

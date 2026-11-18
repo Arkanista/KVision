@@ -18,6 +18,7 @@ Dialog {
     bottomPadding: 16
 
     onAboutToShow: {
+        NvrStatusManager.reorderCheckedRecorders();
         if (!NvrStatusManager.isChecking && NvrStatusManager.monitoringEnabled && NvrStatusManager.hasConfiguredRecorders) {
             NvrStatusManager.checkNow();
         }

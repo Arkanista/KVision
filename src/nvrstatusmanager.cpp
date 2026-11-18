@@ -152,29 +152,51 @@ void NvrStatusManager::reorderCheckedRecorders()
     }
 
     QVariantList reordered;
-    QSet<QString> placedIps;
+    QSet<int> matchedIndices;
 
     for (const QJsonValue &val : recorders) {
-        QString ip = val.toObject().value("ip").toString();
-        for (const QVariant &curVar : m_rawCheckedRecorders) {
-            QVariantMap curMap = curVar.toMap();
-            if (curMap.value("ip").toString() == ip) {
-                reordered.append(curVar);
-                placedIps.insert(ip);
+        QJsonObject rObj = val.toObject();
+        QString ip = rObj.value("ip").toString();
+        QString name = rObj.value("name").toString();
+        if (name.isEmpty()) name = ip;
+
+        // Match first on both IP and Name
+        for (int i = 0; i < m_rawCheckedRecorders.size(); ++i) {
+            if (matchedIndices.contains(i)) continue;
+            QVariantMap curMap = m_rawCheckedRecorders[i].toMap();
+            QString curIp = curMap.value("ip").toString();
+            QString curName = curMap.value("name").toString();
+
+            if (curIp == ip && curName == name) {
+                reordered.append(m_rawCheckedRecorders[i]);
+                matchedIndices.insert(i);
+                break;
+            }
+        }
+
+        // Fallback match on IP only if name differed
+        for (int i = 0; i < m_rawCheckedRecorders.size(); ++i) {
+            if (matchedIndices.contains(i)) continue;
+            QVariantMap curMap = m_rawCheckedRecorders[i].toMap();
+            QString curIp = curMap.value("ip").toString();
+
+            if (curIp == ip) {
+                reordered.append(m_rawCheckedRecorders[i]);
+                matchedIndices.insert(i);
                 break;
             }
         }
     }
 
-    for (const QVariant &curVar : m_rawCheckedRecorders) {
-        QString ip = curVar.toMap().value("ip").toString();
-        if (!placedIps.contains(ip)) {
-            reordered.append(curVar);
+    for (int i = 0; i < m_rawCheckedRecorders.size(); ++i) {
+        if (!matchedIndices.contains(i)) {
+            reordered.append(m_rawCheckedRecorders[i]);
         }
     }
 
     m_rawCheckedRecorders = reordered;
     applyMuting();
+    emit checkedRecordersChanged();
 }
 
 void NvrStatusManager::onRecordersChanged(const QString &jsonStr)

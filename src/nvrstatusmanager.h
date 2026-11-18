@@ -62,6 +62,7 @@ public:
     Q_INVOKABLE void checkNow();
     Q_INVOKABLE void onRecordersChanged(const QString &jsonStr = QString());
     Q_INVOKABLE void reloadSettings();
+    Q_INVOKABLE void reorderCheckedRecorders();
 
     Q_INVOKABLE bool isRecorderMuted(const QString &name) const;
     Q_INVOKABLE void setRecorderMuted(const QString &name, bool muted);
@@ -90,7 +91,6 @@ private:
     void loadSettings();
     void saveSettings();
     void applyMuting();
-    void reorderCheckedRecorders();
 
     static NvrStatusManager *m_instance;
     QTimer *m_timer;
