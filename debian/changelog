@@ -5,6 +5,7 @@ kvision (2.7.11-1) unstable; urgency=medium
   * Added multi-camera selection checkboxes and batch addition actions (Add all / Add selected) in the NVR camera window with empty viewport priority.
   * Added automatic background thumbnail generation upon recorder addition with real-time progress badges.
   * Added complete cascading recorder deletion (disk/memory thumbnail cleanup, notification unmuting, playback cache invalidation, and custom viewport cleanup).
+  * Fixed recorder drag reordering handle activation, status dialog order synchronization, and multi-window order sync.
   * Resolved QSettings race conditions in RootWindow.qml preventing newly added NVR recorders from being overwritten or lost on shutdown.
 
  -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Wed, 18 Nov 2026 18:40:00 +0100
