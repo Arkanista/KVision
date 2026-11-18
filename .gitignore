@@ -67,6 +67,7 @@ walkthrough.md
 
 # Package build files
 *.pkg.tar.zst
+dist/
 /packaging/arch/kvision/
 headless_app.log
 /packaging/arch/pkg/

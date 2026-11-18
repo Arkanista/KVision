@@ -87,7 +87,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: linux-latest
-          name: Linux DEB & AppImage (x64)
+          name: Linux Packages (DEB, AppImage, Arch x64)
           prerelease: true
           fail_on_unmatched_files: true
           files: release-assets/*.AppImage

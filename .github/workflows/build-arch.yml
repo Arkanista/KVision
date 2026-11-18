@@ -1,0 +1,104 @@
+name: Arch Linux Package
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      publish:
+        description: "Publish release assets from this workflow"
+        type: boolean
+        required: false
+        default: true
+  push:
+    branches: [master]
+    paths:
+      - "src/**"
+      - "images/**"
+      - "translations/**"
+      - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.desktop"
+      - "packaging/arch/**"
+      - "tools/build_arch.sh"
+      - ".github/workflows/build-arch.yml"
+  pull_request:
+    paths:
+      - "src/**"
+      - "images/**"
+      - "translations/**"
+      - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.desktop"
+      - "packaging/arch/**"
+      - "tools/build_arch.sh"
+      - ".github/workflows/build-arch.yml"
+
+jobs:
+  build-arch:
+    name: Arch Linux (x86_64)
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Build .pkg.tar.zst inside archlinux:latest
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/work" \
+            -w /work \
+            archlinux:latest \
+            ./tools/build_arch.sh
+
+      - name: Upload Arch Linux artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kvision-arch-x86_64
+          path: dist/*.pkg.tar.zst
+
+  publish-arch:
+    name: Publish Arch Linux package
+    needs: [build-arch]
+    if: (github.event_name != 'workflow_call' || inputs.publish) && (github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' || (github.event_name == 'push' && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v'))))
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download Arch Linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          pattern: kvision-arch-*
+          merge-multiple: true
+
+      - name: Prune stale .pkg.tar.zst assets from linux-latest
+        if: "!startsWith(github.ref, 'refs/tags/v')"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view linux-latest --repo "${{ github.repository }}" >/dev/null 2>&1; then
+            for asset in $(gh release view linux-latest --repo "${{ github.repository }}" --json assets --jq '.assets[].name | select(endswith(".pkg.tar.zst"))'); do
+              echo "Deleting stale .pkg.tar.zst asset: $asset"
+              gh release delete-asset linux-latest "$asset" --repo "${{ github.repository }}" --yes || true
+            done
+          fi
+
+      - name: Publish to rolling linux-latest pre-release
+        if: "!startsWith(github.ref, 'refs/tags/v')"
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: linux-latest
+          name: Linux Packages (DEB, AppImage, Arch x64)
+          prerelease: true
+          fail_on_unmatched_files: true
+          files: release-assets/*.pkg.tar.zst
+
+      - name: Attach Arch package to version release tag
+        if: "startsWith(github.ref, 'refs/tags/v')"
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          fail_on_unmatched_files: true
+          files: release-assets/*.pkg.tar.zst

@@ -250,7 +250,7 @@ sudo pacman -U kvision-2.7.10-1-x86_64.pkg.tar.zst
 ```
 
 > [!NOTE]
-> The Arch Linux package is built and tested with modern system libraries including FFmpeg 9 (`libavutil.so.61` / `libavformat.so.63`) on Arch Linux / CachyOS.
+> The Arch Linux package is built automatically in CI using `archlinux:latest` (and `./tools/build_arch.sh`) with modern system libraries including FFmpeg 9 (`libavutil.so.61` / `libavformat.so.63`) on Arch Linux / CachyOS.
 
 #### 4. Windows 10 / 11 (x64 Portable ZIP)
 * **[Download KVision-windows-x64.zip (v2.7.10)](https://github.com/Arkanista/KVision/releases/download/v2.7.10/KVision-windows-x64.zip)** (compiled with MSVC 2022, Qt 5.15.2, FFmpeg 8.1 shared, and Hikvision SDK). Extract anywhere and run `kvision.exe`.
