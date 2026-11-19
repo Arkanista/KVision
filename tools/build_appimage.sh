@@ -146,6 +146,7 @@ fi
 export QML_SOURCES_PATHS="$(pwd)/src"
 export VERSION="$APP_VERSION"
 export OUTPUT="KVision-${APP_VERSION}-${ARCH}.AppImage"
+export UPDATE_INFORMATION="${UPDATE_INFORMATION:-gh-releases-zsync|Arkanista|KVision|latest|KVision-*-${ARCH}.AppImage.zsync}"
 
 DESKTOP_FILE="$APPDIR/usr/share/applications/kvision.desktop"
 ICON_FILE="$APPDIR/usr/share/icons/hicolor/256x256/apps/kvision.png"
@@ -175,4 +176,8 @@ if [ -z "$BUILT_APPIMAGE" ] || [ ! -f "$BUILT_APPIMAGE" ]; then
 fi
 
 mv -f "$BUILT_APPIMAGE" "dist/${OUTPUT}"
+if [ -f "${BUILT_APPIMAGE}.zsync" ]; then
+    mv -f "${BUILT_APPIMAGE}.zsync" "dist/${OUTPUT}.zsync"
+    echo "[+] Created zsync update file: dist/${OUTPUT}.zsync"
+fi
 echo "[+] Created AppImage: dist/${OUTPUT} ($(du -h "dist/${OUTPUT}" | cut -f1))"

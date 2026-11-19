@@ -53,7 +53,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: kvision-appimage-x86_64
-          path: dist/*.AppImage
+          path: |
+            dist/*.AppImage
+            dist/*.AppImage.zsync
 
   publish-appimage:
     name: Publish AppImage package
@@ -76,7 +78,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           if gh release view linux-latest --repo "${{ github.repository }}" >/dev/null 2>&1; then
-            for asset in $(gh release view linux-latest --repo "${{ github.repository }}" --json assets --jq '.assets[].name | select(endswith(".AppImage"))'); do
+            for asset in $(gh release view linux-latest --repo "${{ github.repository }}" --json assets --jq '.assets[].name | select(endswith(".AppImage") or endswith(".AppImage.zsync"))'); do
               echo "Deleting stale .AppImage asset: $asset"
               gh release delete-asset linux-latest "$asset" --repo "${{ github.repository }}" --yes || true
             done
@@ -90,7 +92,9 @@ jobs:
           name: Linux Packages (DEB, AppImage, Arch x64)
           prerelease: true
           fail_on_unmatched_files: true
-          files: release-assets/*.AppImage
+          files: |
+            release-assets/*.AppImage
+            release-assets/*.AppImage.zsync
 
       - name: Attach AppImage to version release tag
         if: "startsWith(github.ref, 'refs/tags/v')"
@@ -98,4 +102,6 @@ jobs:
         with:
           tag_name: ${{ github.ref_name }}
           fail_on_unmatched_files: true
-          files: release-assets/*.AppImage
+          files: |
+            release-assets/*.AppImage
+            release-assets/*.AppImage.zsync
