@@ -36,7 +36,7 @@ if [ "${SKIP_APT_DEPS:-0}" != "1" ]; then
         qttools5-dev qttools5-dev-tools libgtest-dev \
         libva-dev libgl-dev libglx-dev libx11-dev \
         libavcodec-dev libavformat-dev libavutil-dev \
-        libswscale-dev libswresample-dev libavdevice-dev \
+        libswscale-dev libswresample-dev \
         qml-module-qtgraphicaleffects \
         qml-module-qtquick2 \
         qml-module-qtquick-controls \

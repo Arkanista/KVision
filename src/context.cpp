@@ -11,6 +11,7 @@
 #include <QDesktopServices>
 #include <QApplication>
 #include <QWidget>
+#include <QTimer>
 #include "context.h"
 
 Context::Context(QObject *parent) : QObject(parent)
@@ -174,24 +175,13 @@ void Context::init()
             m_watcher->addPath(configDir);
         }
 
-        auto handleConfigChanged = [configPath, configDir](const QString &path) {
+        auto handleConfigChanged = [configPath](const QString &path) {
             Q_UNUSED(path);
-            // Re-add to watcher in case the file was recreated/replaced
-            if (m_watcher && !m_watcher->files().contains(configPath) && QFile::exists(configPath)) {
-                m_watcher->addPath(configPath);
-            }
-            if (m_watcher && !m_watcher->directories().contains(configDir) && QDir(configDir).exists()) {
-                m_watcher->addPath(configDir);
-            }
-
             // Force reload settings file cache
             QSettings settings(configPath, QSettings::IniFormat);
             settings.sync();
 
-            // Emit signal on all active Context instances
-            for (Context *instance : m_instances) {
-                emit instance->configFileChanged();
-            }
+            scheduleConfigFileChanged(configPath);
         };
 
         QObject::connect(m_watcher, &QFileSystemWatcher::fileChanged, handleConfigChanged);
@@ -254,6 +244,41 @@ void Context::startAuxiliaryProcess()
     process->start(exePath, arguments);
 }
 
+void Context::scheduleConfigFileChanged(const QString &configPath)
+{
+    if (m_watcher && !configPath.isEmpty()) {
+        if (!m_watcher->files().contains(configPath) && QFile::exists(configPath)) {
+            m_watcher->addPath(configPath);
+        }
+        const QString configDir = QFileInfo(configPath).absolutePath();
+        if (!m_watcher->directories().contains(configDir) && QDir(configDir).exists()) {
+            m_watcher->addPath(configDir);
+        }
+    }
+
+    if (m_configNotifyPending) {
+        return;
+    }
+
+    QCoreApplication *app = QCoreApplication::instance();
+    if (!app) {
+        return;
+    }
+
+    // Defer and coalesce config change notifications onto the event loop so
+    // callers and QML handlers cannot trigger synchronous recursion.
+    m_configNotifyPending = true;
+    QTimer::singleShot(0, app, []() {
+        m_configNotifyPending = false;
+        const QList<Context *> instances = m_instances;
+        for (Context *instance : instances) {
+            if (m_instances.contains(instance)) {
+                emit instance->configFileChanged();
+            }
+        }
+    });
+}
+
 void Context::writeSetting(const QString &category, const QString &key, const QVariant &value)
 {
     QString path = m_config ? m_config->fileName() : QSettings().fileName();
@@ -267,13 +292,7 @@ void Context::writeSetting(const QString &category, const QString &key, const QV
     }
     settings.sync();
 
-    if (m_watcher && !m_watcher->files().contains(path) && QFile::exists(path)) {
-        m_watcher->addPath(path);
-    }
-
-    for (Context *instance : m_instances) {
-        emit instance->configFileChanged();
-    }
+    scheduleConfigFileChanged(path);
 }
 
 QVariant Context::readSetting(const QString &category, const QString &key, const QVariant &defaultValue) const
@@ -673,13 +692,7 @@ bool Context::importSettings(const QString &sourceFilePath)
     if (dst.status() != QSettings::NoError)
         return false;
 
-    if (m_watcher && !m_watcher->files().contains(dstPath)) {
-        m_watcher->addPath(dstPath);
-    }
-
-    for (Context *instance : m_instances) {
-        emit instance->configFileChanged();
-    }
+    scheduleConfigFileChanged(dstPath);
 
     return true;
 }

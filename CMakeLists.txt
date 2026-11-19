@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 
 set(VER_MAJ 2)
 set(VER_MIN 7)
-set(VER_PAT 11)
+set(VER_PAT 12)
 if(NOT DEFINED VER_REL)
     set(VER_REL 0)
 endif()
@@ -140,7 +140,6 @@ if (ANDROID)
         "${CMAKE_SOURCE_DIR}/src/qmlav/3rd/FFmpeg/ffbuild/${ANDROID_ABI}/lib/libavutil.so"
         "${CMAKE_SOURCE_DIR}/src/qmlav/3rd/FFmpeg/ffbuild/${ANDROID_ABI}/lib/libswscale.so"
         "${CMAKE_SOURCE_DIR}/src/qmlav/3rd/FFmpeg/ffbuild/${ANDROID_ABI}/lib/libswresample.so"
-        "${CMAKE_SOURCE_DIR}/src/qmlav/3rd/FFmpeg/ffbuild/${ANDROID_ABI}/lib/libavdevice.so"
         "${CMAKE_SOURCE_DIR}/src/qmlav/3rd/FFmpeg/ffbuild/${ANDROID_ABI}/lib/libavfilter.so"
         )
 else()
@@ -155,7 +154,6 @@ else()
             libavutil
             libswscale
             libswresample
-            libavdevice
         )
         include_directories(${LIBAV_INCLUDE_DIRS})
     endif()

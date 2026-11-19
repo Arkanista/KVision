@@ -49,7 +49,6 @@ sudo apt install -y \
     libavformat-dev \
     libavutil-dev \
     libswscale-dev \
-    libavdevice-dev \
     qml-module-qtgraphicaleffects \
     qml-module-qtquick-controls2 \
     qml-module-qtquick-layouts \

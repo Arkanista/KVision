@@ -2,7 +2,6 @@
 
 extern "C" {
 #include <libavcodec/avcodec.h>
-#include <libavdevice/avdevice.h>
 }
 
 std::atomic<qint64> g_networkBytesAccumulator{0};
@@ -34,9 +33,7 @@ void QmlAVDemuxer::load(const QUrl &url, const QmlAVOptions &avOptions)
         return;
     }
 
-    // TODO: Only Unix systems are supported
     if (url.isLocalFile()) {
-        avdevice_register_all();
         source = url.toLocalFile();
     } else {
         source = url.toString(QUrl::FullyEncoded);

@@ -71,6 +71,7 @@ signals:
 
 private:
     static void parseCommandLineOptions(const QList<QCommandLineOption> &options);
+    static void scheduleConfigFileChanged(const QString &configPath = QString());
 
 private:
     inline static Config *m_config = nullptr;
@@ -80,6 +81,7 @@ private:
     inline static bool m_enableLogs = false;
     inline static bool m_isFirstRun = false;
     inline static bool m_mockNewVersion = false;
+    inline static bool m_configNotifyPending = false;
     inline static QList<QProcess*> m_childProcesses;
     inline static QMap<QProcess*, int> m_childIds; // Track active child process IDs
     inline static QQmlEngine *m_engine = nullptr;

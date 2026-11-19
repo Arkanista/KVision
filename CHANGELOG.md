@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.12] - 2026-11-19
+
+### Bug Fixes & Portability
+* **Clean-Install Startup Crash (`RootWindow`, `Context`):**
+  * Fixed a critical crash (`SIGSEGV` stack overflow) when launching KVision on a clean system or fresh user profile without an existing `KVision.conf` file (which also caused the `v2.7.11` AppImage verification to exit immediately before showing a window).
+  * Deferred and coalesced `configFileChanged` notifications in `Context::scheduleConfigFileChanged()` onto the event loop instead of emitting synchronously inside `Context::writeSetting()`, added a re-entrancy guard in `RootWindow.qml`'s `onConfigFileChanged()`, and consolidated AV format option migrations so migration flags are persisted before updating `defaultAVFormatOptions`.
+* **Linux & AppImage Portability (`CMakeLists.txt`, `qmlav`):**
+  * Removed the unused `libavdevice` linkage (`avdevice_register_all()` on local files) from `QmlAVDemuxer`, CMake targets, and Debian/Ubuntu/AppImage dependency lists so `kvision` no longer pulls in `libjack.so.0` on minimal Linux installations or AppImage environments.
+
 ## [2.7.11] - 2026-11-18
 
 ### Features & Improvements

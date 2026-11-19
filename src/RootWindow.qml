@@ -700,7 +700,13 @@ ApplicationWindow {
 
     Connections {
         target: Context
+        property bool isHandlingConfigChange: false
         function onConfigFileChanged() {
+            if (isHandlingConfigChange) {
+                return;
+            }
+            isHandlingConfigChange = true;
+            try {
             // 1. Check and live-reload Hikvision NVR/Cameras recorders list
             var diskRecorders = Context.readSetting("Hikvision", "recordersJson", "[]");
             if (diskRecorders !== "") {
@@ -895,83 +901,58 @@ ApplicationWindow {
             if (viewportSettings.noUnmuteWhenFullScreen !== diskNoUnmuteWhenFullScreen) {
                 viewportSettings.noUnmuteWhenFullScreen = diskNoUnmuteWhenFullScreen;
             }
-            var hasMigrated = Context.readSetting("ViewportsLayoutsCollection", "migratedLowLatencyFlags", false);
-            var diskDefaultAVFormatOptions;
-            
-            if (!hasMigrated) {
-                diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", "{\"analyzeduration\":100000,\"probesize\":500000}");
+            var defaultStr = "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\",\"stimeout\":5000000,\"rtsp_transport\":\"tcp\"}";
+            var hasMigratedLowLatency = Context.readSetting("ViewportsLayoutsCollection", "migratedLowLatencyFlags", false);
+            var hasMigratedAnalyzeduration = Context.readSetting("ViewportsLayoutsCollection", "migratedAnalyzeduration100ms", false);
+            var hasMigratedSTimeout = Context.readSetting("ViewportsLayoutsCollection", "migratedTimeout5s_v2", false);
+            var hasMigratedRtspTcp = Context.readSetting("ViewportsLayoutsCollection", "migratedRtspTcp", false);
+            var diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", defaultStr);
+
+            if (!hasMigratedLowLatency || !hasMigratedAnalyzeduration || !hasMigratedSTimeout || !hasMigratedRtspTcp) {
+                var optionsUpdated = false;
                 try {
                     var opts = JSON.parse(diskDefaultAVFormatOptions);
-                    var needsMigration = false;
-                    if (opts["fflags"] === undefined) {
-                        opts["fflags"] = "nobuffer";
-                        needsMigration = true;
+                    if (!hasMigratedLowLatency) {
+                        if (opts["fflags"] === undefined) {
+                            opts["fflags"] = "nobuffer";
+                            optionsUpdated = true;
+                        }
+                        if (opts["flags"] === undefined) {
+                            opts["flags"] = "low_delay";
+                            optionsUpdated = true;
+                        }
                     }
-                    if (opts["flags"] === undefined) {
-                        opts["flags"] = "low_delay";
-                        needsMigration = true;
+                    if (!hasMigratedAnalyzeduration && opts["analyzeduration"] == 0) {
+                        opts["analyzeduration"] = 100000;
+                        optionsUpdated = true;
                     }
-                    if (needsMigration) {
+                    if (!hasMigratedSTimeout) {
+                        ["stimeout", "timeout", "rw_timeout"].forEach(function(key) {
+                            if (opts[key] === undefined) {
+                                opts[key] = 5000000;
+                                optionsUpdated = true;
+                            }
+                        });
+                    }
+                    if (!hasMigratedRtspTcp && opts["rtsp_transport"] === undefined) {
+                        opts["rtsp_transport"] = "tcp";
+                        optionsUpdated = true;
+                    }
+                    if (optionsUpdated) {
                         diskDefaultAVFormatOptions = JSON.stringify(opts);
                     }
                 } catch(err) {
                     console.warn("Failed to migrate AV format options");
                 }
-                Context.writeSetting("ViewportsLayoutsCollection", "migratedLowLatencyFlags", true);
-            } else {
-                var defaultStr = "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\",\"stimeout\":5000000,\"rtsp_transport\":\"tcp\"}";
-                diskDefaultAVFormatOptions = Context.readSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", defaultStr);
-            }
-            
-            var hasMigratedAnalyzeduration = Context.readSetting("ViewportsLayoutsCollection", "migratedAnalyzeduration100ms", false);
-            if (!hasMigratedAnalyzeduration) {
-                try {
-                    var opts2 = JSON.parse(diskDefaultAVFormatOptions);
-                    if (opts2["analyzeduration"] == 0) {
-                        opts2["analyzeduration"] = 100000;
-                        diskDefaultAVFormatOptions = JSON.stringify(opts2);
-                        Context.writeSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", diskDefaultAVFormatOptions);
-                    }
-                } catch(err) {
-                    console.warn("Failed to migrate analyzeduration");
-                }
-                Context.writeSetting("ViewportsLayoutsCollection", "migratedAnalyzeduration100ms", true);
-            }
 
-            var hasMigratedSTimeout = Context.readSetting("ViewportsLayoutsCollection", "migratedTimeout5s_v2", false);
-            if (!hasMigratedSTimeout) {
-                try {
-                    var opts3 = JSON.parse(diskDefaultAVFormatOptions);
-                    if (opts3["stimeout"] === undefined) {
-                        opts3["stimeout"] = 5000000;
-                    }
-                    if (opts3["timeout"] === undefined) {
-                        opts3["timeout"] = 5000000;
-                    }
-                    if (opts3["rw_timeout"] === undefined) {
-                        opts3["rw_timeout"] = 5000000;
-                    }
-                    diskDefaultAVFormatOptions = JSON.stringify(opts3);
+                // Persist migration flags before writing defaultAVFormatOptions to prevent any re-entrant loop
+                if (!hasMigratedLowLatency) Context.writeSetting("ViewportsLayoutsCollection", "migratedLowLatencyFlags", true);
+                if (!hasMigratedAnalyzeduration) Context.writeSetting("ViewportsLayoutsCollection", "migratedAnalyzeduration100ms", true);
+                if (!hasMigratedSTimeout) Context.writeSetting("ViewportsLayoutsCollection", "migratedTimeout5s_v2", true);
+                if (!hasMigratedRtspTcp) Context.writeSetting("ViewportsLayoutsCollection", "migratedRtspTcp", true);
+                if (optionsUpdated) {
                     Context.writeSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", diskDefaultAVFormatOptions);
-                } catch(err) {
-                    console.warn("Failed to migrate stimeout");
                 }
-                Context.writeSetting("ViewportsLayoutsCollection", "migratedTimeout5s_v2", true);
-            }
-
-            var hasMigratedRtspTcp = Context.readSetting("ViewportsLayoutsCollection", "migratedRtspTcp", false);
-            if (!hasMigratedRtspTcp) {
-                try {
-                    var opts4 = JSON.parse(diskDefaultAVFormatOptions);
-                    if (opts4["rtsp_transport"] === undefined) {
-                        opts4["rtsp_transport"] = "tcp";
-                    }
-                    diskDefaultAVFormatOptions = JSON.stringify(opts4);
-                    Context.writeSetting("ViewportsLayoutsCollection", "defaultAVFormatOptions", diskDefaultAVFormatOptions);
-                } catch(err) {
-                    console.warn("Failed to migrate rtsp_transport");
-                }
-                Context.writeSetting("ViewportsLayoutsCollection", "migratedRtspTcp", true);
             }
 
             if (layoutsCollectionSettings.defaultAVFormatOptions !== diskDefaultAVFormatOptions) {
@@ -1000,6 +981,9 @@ ApplicationWindow {
 
             // 7. Live-reload NVR Status Manager settings
             NvrStatusManager.reloadSettings();
+            } finally {
+                isHandlingConfigChange = false;
+            }
         }
     }
 

@@ -1,3 +1,11 @@
+kvision (2.7.12-1) unstable; urgency=medium
+
+  * Fixed a critical startup crash (SIGSEGV stack overflow) on clean installations without an existing configuration file caused by synchronous configFileChanged() recursion during AV format options migration.
+  * Deferred and coalesced configFileChanged() notifications onto the Qt event loop in Context::scheduleConfigFileChanged(), added a re-entrancy guard in RootWindow.qml, and persisted migration flags before updating defaultAVFormatOptions.
+  * Removed the unused libavdevice dependency (and libavdevice-dev build requirement) so KVision runs cleanly in AppImage and minimal Linux environments without libjack.so.0.
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Thu, 19 Nov 2026 10:25:00 +0100
+
 kvision (2.7.11-1) unstable; urgency=medium
 
   * Added animated drag-and-drop NVR recorder reordering in Settings with push-apart layout animations and direct persistence.
