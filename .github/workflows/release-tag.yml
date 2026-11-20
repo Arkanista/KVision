@@ -30,11 +30,15 @@ jobs:
     uses: ./.github/workflows/build-rpm.yml
     with:
       publish: false
+  flatpak:
+    uses: ./.github/workflows/build-flatpak.yml
+    with:
+      publish: false
 
   publish-release:
     name: Publish all packages to tag release
-    needs: [deb, appimage, windows, arch, rpm]
-    if: startsWith(github.ref, 'refs/tags/v') && needs.deb.result == 'success' && needs.appimage.result == 'success' && needs.windows.result == 'success' && needs.arch.result == 'success' && needs.rpm.result == 'success'
+    needs: [deb, appimage, windows, arch, rpm, flatpak]
+    if: startsWith(github.ref, 'refs/tags/v') && needs.deb.result == 'success' && needs.appimage.result == 'success' && needs.windows.result == 'success' && needs.arch.result == 'success' && needs.rpm.result == 'success' && needs.flatpak.result == 'success'
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -57,3 +61,4 @@ jobs:
             release-assets/*.zip
             release-assets/*.pkg.tar.zst
             release-assets/*.rpm
+            release-assets/*.flatpak
