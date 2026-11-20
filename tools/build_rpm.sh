@@ -66,6 +66,7 @@ if [ "${SKIP_DNF_DEPS:-0}" != "1" ]; then
         qt5-qtquickcontrols2-devel \
         qt5-qtsvg-devel \
         qt5-qttools-devel \
+        gtest-devel \
         "$FFMPEG_DEV_PKG"
 fi
 
