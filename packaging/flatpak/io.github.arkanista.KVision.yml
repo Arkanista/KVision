@@ -28,7 +28,7 @@ modules:
   - name: kvision
     buildsystem: simple
     build-commands:
-      - cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_INSTALL_LIBDIR=/app/lib -DBUILD_TESTING=OFF
+      - cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_INSTALL_BINDIR=/app/bin -DCMAKE_INSTALL_LIBDIR=/app/lib -DBUILD_TESTING=OFF
       - cmake --build build -j$(nproc)
       - DESTDIR=stage cmake --install build
       - cp -a stage/app/. /app/
