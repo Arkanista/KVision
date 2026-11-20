@@ -26,11 +26,15 @@ jobs:
     uses: ./.github/workflows/build-arch.yml
     with:
       publish: false
+  rpm:
+    uses: ./.github/workflows/build-rpm.yml
+    with:
+      publish: false
 
   publish-release:
     name: Publish all packages to tag release
-    needs: [deb, appimage, windows, arch]
-    if: startsWith(github.ref, 'refs/tags/v') && needs.deb.result == 'success' && needs.appimage.result == 'success' && needs.windows.result == 'success' && needs.arch.result == 'success'
+    needs: [deb, appimage, windows, arch, rpm]
+    if: startsWith(github.ref, 'refs/tags/v') && needs.deb.result == 'success' && needs.appimage.result == 'success' && needs.windows.result == 'success' && needs.arch.result == 'success' && needs.rpm.result == 'success'
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -52,3 +56,4 @@ jobs:
             release-assets/*.AppImage.zsync
             release-assets/*.zip
             release-assets/*.pkg.tar.zst
+            release-assets/*.rpm

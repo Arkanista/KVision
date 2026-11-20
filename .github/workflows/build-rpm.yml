@@ -1,0 +1,113 @@
+name: RPM Packages
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      publish:
+        description: "Publish release assets from this workflow"
+        type: boolean
+        required: false
+        default: true
+  push:
+    branches: [master]
+    paths:
+      - "src/**"
+      - "images/**"
+      - "translations/**"
+      - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.desktop"
+      - "packaging/rpm/**"
+      - "tools/build_rpm.sh"
+      - ".github/workflows/build-rpm.yml"
+  pull_request:
+    paths:
+      - "src/**"
+      - "images/**"
+      - "translations/**"
+      - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.desktop"
+      - "packaging/rpm/**"
+      - "tools/build_rpm.sh"
+      - ".github/workflows/build-rpm.yml"
+
+jobs:
+  build-rpm:
+    name: RPM (${{ matrix.label }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - image: fedora:41
+            label: fc41
+          - image: fedora:42
+            label: fc42
+          - image: rockylinux:9
+            label: el9
+    steps:
+      - name: Checkout repository with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build .rpm inside ${{ matrix.image }}
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/work" \
+            -w /work \
+            "${{ matrix.image }}" \
+            ./tools/build_rpm.sh "${{ matrix.label }}"
+
+      - name: Upload .rpm artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kvision-rpm-${{ matrix.label }}
+          path: dist/*.rpm
+
+  publish-rpm:
+    name: Publish RPM packages
+    needs: [build-rpm]
+    if: (github.event_name != 'workflow_call' || inputs.publish) && (github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' || (github.event_name == 'push' && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v'))))
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download .rpm artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          pattern: kvision-rpm-*
+          merge-multiple: true
+
+      - name: Prune stale .rpm assets from linux-latest
+        if: "!startsWith(github.ref, 'refs/tags/v')"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view linux-latest --repo "${{ github.repository }}" >/dev/null 2>&1; then
+            for asset in $(gh release view linux-latest --repo "${{ github.repository }}" --json assets --jq '.assets[].name | select(endswith(".rpm"))'); do
+              echo "Deleting stale .rpm asset: $asset"
+              gh release delete-asset linux-latest "$asset" --repo "${{ github.repository }}" --yes || true
+            done
+          fi
+
+      - name: Publish to rolling linux-latest pre-release
+        if: "!startsWith(github.ref, 'refs/tags/v')"
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: linux-latest
+          name: Linux Packages (DEB, RPM, AppImage, Arch x64)
+          prerelease: true
+          fail_on_unmatched_files: true
+          files: release-assets/*.rpm
+
+      - name: Attach .rpm packages to version release tag
+        if: "startsWith(github.ref, 'refs/tags/v')"
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          fail_on_unmatched_files: true
+          files: release-assets/*.rpm
