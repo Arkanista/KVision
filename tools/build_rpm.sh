@@ -88,6 +88,7 @@ tar --exclude='.git' --exclude='build*' --exclude='dist' \
 cp packaging/rpm/kvision.spec "${RPM_TOPDIR}/SPECS/kvision.spec"
 
 echo "[*] Building .rpm package: kvision ${PKG_VERSION} (${DISTRO_LABEL}, ${RPM_ARCH})..."
+export QA_RPATHS=$(( 0x0002 | 0x0004 ))
 rpmbuild -bb "${RPM_TOPDIR}/SPECS/kvision.spec" \
     --define "_topdir ${RPM_TOPDIR}" \
     --define "pkg_version ${PKG_VERSION}" \
