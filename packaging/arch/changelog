@@ -1,3 +1,7 @@
+2.7.14
+  * Fixed mixed-language Stream labels, missing weekday abbreviations, and spaced Qt placeholders (% 1) across all 23 translation catalogs (#15).
+  * Translated remaining untranslated settings, menu, and changelog strings.
+
 2.7.13
   * Backported RFC 7616 SHA-256 RTSP Digest authentication support to the bundled FFmpeg 4.4 libavformat library in AppImage builds (#14).
   * Added automated CI verification for MD5, SHA-256, and mixed RTSP Digest challenges in AppImage builds.

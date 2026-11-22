@@ -163,6 +163,13 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.7.14",
+            date: "22.11.2026",
+            changes: [
+                qsTr("LNG_00652")
+            ]
+        },
+        {
             version: "v2.7.13",
             date: "22.11.2026",
             changes: [

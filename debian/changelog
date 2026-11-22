@@ -1,3 +1,9 @@
+kvision (2.7.14-1) unstable; urgency=medium
+
+  * Fix missing, mixed-language, and broken placeholder translation entries across all 23 language catalogs (#15).
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Sun, 22 Nov 2026 18:35:00 +0100
+
 kvision (2.7.13-1) unstable; urgency=medium
 
   * AppImage: backport RFC 7616 SHA-256 RTSP Digest authentication to bundled FFmpeg 4.4 libavformat (#14).

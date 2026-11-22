@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           kvision
-Version:        %{?pkg_version:%{pkg_version}}%{!?pkg_version:2.7.13}
+Version:        %{?pkg_version:%{pkg_version}}%{!?pkg_version:2.7.14}
 Release:        1%{?dist}
 Summary:        KVision - NVR and IP camera viewing application
 

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.14] - 2026-11-22
+
+### Localization & Bug Fixes
+* **Translation Catalogs (`translations/*.ts`, `translations/*.qm`):**
+  * Fixed camera viewport Stream selection labels where Polish text had leaked into non-Polish catalogs (#15).
+  * Restored missing weekday abbreviations (`LNG_00166`–`LNG_00172`) in `DownloadDialog` and the recorder reorder tooltip (`LNG_00631`) in `NvrSettingsPanel`.
+  * Repaired spaced Qt placeholders (such as `% 1`) so download progress, camera counts, and other dynamic values substitute properly.
+  * Translated remaining untranslated English strings and improved Czech CCTV terminology across all 23 language catalogs.
+
 ## [2.7.13] - 2026-11-22
 
 ### Bug Fixes & Portability
