@@ -1,3 +1,9 @@
+kvision (2.7.13-1) unstable; urgency=medium
+
+  * AppImage: backport RFC 7616 SHA-256 RTSP Digest authentication to bundled FFmpeg 4.4 libavformat (#14).
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Sun, 22 Nov 2026 12:20:00 +0100
+
 kvision (2.7.12-1) unstable; urgency=medium
 
   * Fixed a critical startup crash (SIGSEGV stack overflow) on clean installations without an existing configuration file caused by synchronous configFileChanged() recursion during AV format options migration.

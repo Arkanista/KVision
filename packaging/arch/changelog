@@ -1,3 +1,7 @@
+2.7.13
+  * Backported RFC 7616 SHA-256 RTSP Digest authentication support to the bundled FFmpeg 4.4 libavformat library in AppImage builds (#14).
+  * Added automated CI verification for MD5, SHA-256, and mixed RTSP Digest challenges in AppImage builds.
+
 2.7.12
   * Fixed a critical startup crash (SIGSEGV stack overflow) on clean installations without an existing configuration file caused by synchronous configFileChanged() recursion during AV format options migration.
   * Deferred and coalesced configFileChanged() notifications onto the Qt event loop in Context::scheduleConfigFileChanged(), added a re-entrancy guard in RootWindow.qml, and persisted migration flags before updating defaultAVFormatOptions.

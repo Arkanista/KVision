@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.13] - 2026-11-22
+
+### Bug Fixes & Portability
+* **AppImage RTSP SHA-256 Digest Authentication (`tools/build_appimage.sh`, `tools/patches/ffmpeg-4.4.6-digest.diff`):**
+  * Backported RFC 7616 SHA-256 RTSP Digest authentication support to the bundled FFmpeg 4.4 `libavformat` library in AppImage builds, fixing `401 Unauthorized` ("No data to display") errors on Hikvision NVRs configured with SHA-256 or mixed MD5/SHA-256 Digest challenges (#14).
+  * Added automated CI verification (`tools/test_rtsp_digest.py`) in `.github/workflows/build-appimage.yml` testing the extracted AppImage's bundled `ffmpeg` against MD5-only, SHA-256-only, and mixed Digest challenges.
+
 ## [2.7.12] - 2026-11-19
 
 ### Bug Fixes & Portability

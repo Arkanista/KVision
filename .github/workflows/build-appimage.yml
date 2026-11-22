@@ -19,6 +19,8 @@ on:
       - "kvision.qrc"
       - "kvision.desktop"
       - "tools/build_appimage.sh"
+      - "tools/patches/ffmpeg-4.4.6-digest.diff"
+      - "tools/test_rtsp_digest.py"
       - ".github/workflows/build-appimage.yml"
   pull_request:
     paths:
@@ -29,6 +31,8 @@ on:
       - "kvision.qrc"
       - "kvision.desktop"
       - "tools/build_appimage.sh"
+      - "tools/patches/ffmpeg-4.4.6-digest.diff"
+      - "tools/test_rtsp_digest.py"
       - ".github/workflows/build-appimage.yml"
 
 jobs:
@@ -48,6 +52,17 @@ jobs:
             -w /work \
             ubuntu:22.04 \
             ./tools/build_appimage.sh
+
+      - name: Verify bundled FFmpeg RTSP authentication
+        run: |
+          test_script="$PWD/tools/test_rtsp_digest.py"
+          appimage=("$PWD"/dist/*.AppImage)
+          test "${#appimage[@]}" -eq 1
+          verification_dir="$(mktemp -d)"
+          trap 'rm -rf "$verification_dir"' EXIT
+          cd "$verification_dir"
+          "${appimage[0]}" --appimage-extract >/dev/null
+          python3 "$test_script" "$PWD/squashfs-root/usr/bin/ffmpeg"
 
       - name: Upload AppImage artifact
         uses: actions/upload-artifact@v4
