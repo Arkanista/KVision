@@ -114,6 +114,8 @@ def google_translate(text: str, target_lang: str, source_lang: str = "en") -> st
                 with urllib.request.urlopen(req, timeout=15) as resp:
                     data = json.loads(resp.read().decode("utf-8"))
                 result = parser(data).strip()
+                # Google Translate often inserts a space in Qt placeholders ("%1" -> "% 1")
+                result = re.sub(r"%\s+(\d+)", r"%\1", result)
                 if result:
                     with _ENDPOINT_LOCK:
                         _PREFERRED_ENDPOINT_IDX = actual_idx
