@@ -53,6 +53,14 @@ if [ "${SKIP_APT_DEPS:-0}" != "1" ]; then
         qtwayland5
 fi
 
+LIBAVFORMAT_VERSION="$(pkg-config --modversion libavformat)"
+if [ "$LIBAVFORMAT_VERSION" = "58.76.100" ] && [ "${SKIP_APT_DEPS:-0}" != "1" ]; then
+    $SUDO apt-get install -y --no-install-recommends \
+        nasm patch libbz2-dev zlib1g-dev libgnutls28-dev libxml2-dev \
+        libgme-dev libopenmpt-dev libchromaprint-dev libbluray-dev \
+        librabbitmq-dev libsrt-gnutls-dev libssh-gcrypt-dev libzmq3-dev
+fi
+
 VER_MAJ="$(sed -n 's/^set(VER_MAJ \([0-9]*\))/\1/p' CMakeLists.txt | head -n1)"
 VER_MIN="$(sed -n 's/^set(VER_MIN \([0-9]*\))/\1/p' CMakeLists.txt | head -n1)"
 VER_PAT="$(sed -n 's/^set(VER_PAT \([0-9]*\))/\1/p' CMakeLists.txt | head -n1)"
@@ -62,14 +70,46 @@ ARCH="$(uname -m)"
 BUILD_DIR="${BUILD_DIR:-build-appimage}"
 APPDIR="$(pwd)/AppDir"
 TOOLS_DIR="$(pwd)/appimage-tools"
+BUILD_JOBS="${BUILD_JOBS:-$(nproc)}"
 
 rm -rf "$BUILD_DIR" "$APPDIR"
 mkdir -p "$TOOLS_DIR" dist
 
 echo "[*] Configuring and building KVision ${APP_VERSION}..."
 cmake -B "$BUILD_DIR" -S . -DCMAKE_BUILD_TYPE=Release -DPACKAGER=APPIMAGE
-cmake --build "$BUILD_DIR" -j"$(nproc)"
+cmake --build "$BUILD_DIR" -j"$BUILD_JOBS"
 DESTDIR="$APPDIR" cmake --install "$BUILD_DIR"
+
+# Ubuntu 22.04 ships FFmpeg 4.4. Keep its ABI for the rest of the bundle
+# and build only libavformat with the upstream Digest authentication backport.
+if [ "$LIBAVFORMAT_VERSION" = "58.76.100" ]; then
+    echo "[*] Building AppImage libavformat with SHA-256 Digest support..."
+    FFMPEG_ARCHIVE="$TOOLS_DIR/ffmpeg-4.4.6.tar.xz"
+    if [ ! -f "$FFMPEG_ARCHIVE" ]; then
+        curl -fsSL --retry 3 -o "$FFMPEG_ARCHIVE.part" https://ffmpeg.org/releases/ffmpeg-4.4.6.tar.xz
+        mv "$FFMPEG_ARCHIVE.part" "$FFMPEG_ARCHIVE"
+    fi
+    printf '%s  %s\n' 2290461f467c08ab801731ed412d8e724a5511d6c33173654bd9c1d2e25d0617 "$FFMPEG_ARCHIVE" | sha256sum --check
+
+    FFMPEG_SOURCE="$BUILD_DIR/ffmpeg-4.4.6"
+    tar -xJf "$FFMPEG_ARCHIVE" -C "$BUILD_DIR"
+    patch --batch -d "$FFMPEG_SOURCE" -p1 < tools/patches/ffmpeg-4.4.6-digest.diff
+    (
+        cd "$FFMPEG_SOURCE"
+        ./configure --enable-shared --disable-static --disable-programs --disable-doc \
+            --disable-avdevice --disable-avfilter --disable-postproc --disable-swscale \
+            --disable-swresample --disable-autodetect --enable-gpl --enable-zlib \
+            --enable-bzlib --enable-gnutls --enable-libxml2 --enable-libgme \
+            --enable-libopenmpt --enable-chromaprint --enable-libbluray \
+            --enable-librabbitmq --enable-libsrt --enable-libssh --enable-libzmq
+        ln -s "$(pkg-config --variable=libdir libavcodec)/libavcodec.so" libavcodec/libavcodec.so
+        ln -s "$(pkg-config --variable=libdir libavutil)/libavutil.so" libavutil/libavutil.so
+        make -j"$BUILD_JOBS" -o libavcodec/libavcodec.so -o libavutil/libavutil.so libavformat/libavformat.so
+    )
+    install -Dm755 "$FFMPEG_SOURCE/libavformat/libavformat.so.58" "$APPDIR/usr/lib/libavformat.so.58"
+    strip --strip-unneeded "$APPDIR/usr/lib/libavformat.so.58"
+    patchelf --set-rpath "\$ORIGIN" "$APPDIR/usr/lib/libavformat.so.58"
+fi
 
 # Bundle ffmpeg CLI alongside kvision binary so HikvisionDownloader resolves it locally
 FFMPEG_BIN="$(command -v ffmpeg || true)"
@@ -115,8 +155,8 @@ HIK_SDK_APPDIR="$(find "$APPDIR/usr" -type d -name kvision -print -quit || true)
 if [ -n "$HIK_SDK_APPDIR" ]; then
     # Mirror SDK libs & HCNetSDKCom into usr/lib so bundled RPATH '$ORIGIN/../lib' works directly
     cp -a "$HIK_SDK_APPDIR/"* "$APPDIR/usr/lib/" 2>/dev/null || true
-    export LD_LIBRARY_PATH="$APPDIR/usr/lib:$HIK_SDK_APPDIR:${LD_LIBRARY_PATH:-}"
 fi
+export LD_LIBRARY_PATH="$APPDIR/usr/lib${HIK_SDK_APPDIR:+:$HIK_SDK_APPDIR}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 
 # Deploy extra Qt modules (Wayland client plugins) and additional platform plugins
 QT_PLUGIN_ROOT="$("$QMAKE" -query QT_INSTALL_PLUGINS)"
