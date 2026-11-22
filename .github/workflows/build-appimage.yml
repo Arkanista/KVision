@@ -55,6 +55,7 @@ jobs:
 
       - name: Verify bundled FFmpeg RTSP authentication
         run: |
+          sudo apt-get update && sudo apt-get install -y --no-install-recommends libjack-jackd2-0
           test_script="$PWD/tools/test_rtsp_digest.py"
           appimage=("$PWD"/dist/*.AppImage)
           test "${#appimage[@]}" -eq 1
@@ -62,7 +63,8 @@ jobs:
           trap 'rm -rf "$verification_dir"' EXIT
           cd "$verification_dir"
           "${appimage[0]}" --appimage-extract >/dev/null
-          python3 "$test_script" "$PWD/squashfs-root/usr/bin/ffmpeg"
+          LD_LIBRARY_PATH="$PWD/squashfs-root/usr/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+            python3 "$test_script" "$PWD/squashfs-root/usr/bin/ffmpeg"
 
       - name: Upload AppImage artifact
         uses: actions/upload-artifact@v4
