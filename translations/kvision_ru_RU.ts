@@ -433,6 +433,10 @@
     <context>
         <name>NvrSettingsPanel</name>
         <message>
+            <source>LNG_00631</source>
+            <translation>Перетащите, чтобы изменить порядок</translation>
+        </message>
+        <message>
             <source>LNG_00099</source>
             <translation>Не удалось войти в систему или камеры не обнаружены.</translation>
         </message>
@@ -2523,11 +2527,11 @@
         </message>
         <message>
             <source>LNG_00467</source>
-            <translation>Только MAIN</translation>
+            <translation>Только основной поток</translation>
         </message>
         <message>
             <source>LNG_00466</source>
-            <translation>Только SUB</translation>
+            <translation>Только дополнительный поток</translation>
         </message>
         <message>
             <source>LNG_00465</source>

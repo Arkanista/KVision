@@ -276,6 +276,34 @@
     <context>
         <name>DownloadDialog</name>
         <message>
+            <source>LNG_00172</source>
+            <translation>一</translation>
+        </message>
+        <message>
+            <source>LNG_00171</source>
+            <translation>二</translation>
+        </message>
+        <message>
+            <source>LNG_00170</source>
+            <translation>三</translation>
+        </message>
+        <message>
+            <source>LNG_00169</source>
+            <translation>四</translation>
+        </message>
+        <message>
+            <source>LNG_00168</source>
+            <translation>五</translation>
+        </message>
+        <message>
+            <source>LNG_00167</source>
+            <translation>六</translation>
+        </message>
+        <message>
+            <source>LNG_00166</source>
+            <translation>日</translation>
+        </message>
+        <message>
             <source>Styczeń</source>
             <translation type="vanished">January</translation>
         </message>
@@ -872,6 +900,10 @@
     <message><source>LNG_00644</source><translation>将所有通道添加到活动布局</translation></message><message><source>LNG_00645</source><translation>将选定的通道添加到活动布局</translation></message><message><source>LNG_00647</source><translation>选择相机</translation></message><message><source>LNG_00648</source><translation>已将 %1 个摄像机添加到活动布局</translation></message></context>
     <context>
         <name>NvrSettingsPanel</name>
+        <message>
+            <source>LNG_00631</source>
+            <translation>拖动以重新排序</translation>
+        </message>
         <message>
             <source>Add Hikvision Recorder</source>
             <translation type="vanished">Add Hikvision Recorder</translation>

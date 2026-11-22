@@ -169,6 +169,34 @@
     <context>
         <name>DownloadDialog</name>
         <message>
+            <source>LNG_00172</source>
+            <translation>Mo</translation>
+        </message>
+        <message>
+            <source>LNG_00171</source>
+            <translation>Tu</translation>
+        </message>
+        <message>
+            <source>LNG_00170</source>
+            <translation>We</translation>
+        </message>
+        <message>
+            <source>LNG_00169</source>
+            <translation>Th</translation>
+        </message>
+        <message>
+            <source>LNG_00168</source>
+            <translation>Fr</translation>
+        </message>
+        <message>
+            <source>LNG_00167</source>
+            <translation>Sa</translation>
+        </message>
+        <message>
+            <source>LNG_00166</source>
+            <translation>Su</translation>
+        </message>
+        <message>
             <source>Błędny format daty! Wymagany format: DD.MM.RRRR (np. 26.06.2026)</source>
             <translation type="vanished">Incorrect date format! Required format: DD.MM.YYYY (e.g. 26.06.2026)</translation>
         </message>
@@ -561,6 +589,10 @@
     <message><source>LNG_00644</source><translation>Add all channels to active layout</translation></message><message><source>LNG_00645</source><translation>Add selected channels to active layout</translation></message><message><source>LNG_00647</source><translation>Select camera</translation></message><message><source>LNG_00648</source><translation>Added %1 cameras to active layout</translation></message></context>
     <context>
         <name>NvrSettingsPanel</name>
+        <message>
+            <source>LNG_00631</source>
+            <translation>Drag to reorder</translation>
+        </message>
         <message>
             <source>Otwórz stronę logowania rejestratora w przeglądarce</source>
             <translation type="vanished">Open NVR login page in browser</translation>
@@ -2096,7 +2128,7 @@
         <message>
             <location filename="../src/SideBar.qml" line="310" />
             <source>LNG_00398</source>
-            <translation>Introduced interactive validation when clicking the 'Pobierz' (Download) button in the download window: automatic format and chronological date checks, displaying a red warning tooltip and focusing the first invalid field.</translation>
+            <translation>Introduced interactive validation when clicking the 'Download' button in the download window: automatic format and chronological date checks, displaying a red warning tooltip and focusing the first invalid field.</translation>
         </message>
         <message>
             <location filename="../src/SideBar.qml" line="311" />
@@ -3257,17 +3289,17 @@
         <message>
             <location filename="../src/ViewportsLayout.qml" line="1220" />
             <source>LNG_00468</source>
-            <translation>Automatycznie</translation>
+            <translation>Automatic</translation>
         </message>
         <message>
             <location filename="../src/ViewportsLayout.qml" line="1269" />
             <source>LNG_00467</source>
-            <translation>Tylko MAIN</translation>
+            <translation>Main stream only</translation>
         </message>
         <message>
             <location filename="../src/ViewportsLayout.qml" line="1318" />
             <source>LNG_00466</source>
-            <translation>Tylko SUB</translation>
+            <translation>Sub stream only</translation>
         </message>
         <message>
             <location filename="../src/ViewportsLayout.qml" line="1553" />

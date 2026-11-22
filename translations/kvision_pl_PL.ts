@@ -282,11 +282,39 @@
         </message>
         <message>
             <source>LNG_00476</source>
-            <translation>KVision - viewer and mounter video streams.</translation>
+            <translation>KVision - przeglądarka i monter strumieni wideo.</translation>
         </message>
     </context>
     <context>
         <name>DownloadDialog</name>
+        <message>
+            <source>LNG_00172</source>
+            <translation>Pn</translation>
+        </message>
+        <message>
+            <source>LNG_00171</source>
+            <translation>Wt</translation>
+        </message>
+        <message>
+            <source>LNG_00170</source>
+            <translation>Śr</translation>
+        </message>
+        <message>
+            <source>LNG_00169</source>
+            <translation>Czw</translation>
+        </message>
+        <message>
+            <source>LNG_00168</source>
+            <translation>Pt</translation>
+        </message>
+        <message>
+            <source>LNG_00167</source>
+            <translation>Sob</translation>
+        </message>
+        <message>
+            <source>LNG_00166</source>
+            <translation>Nd</translation>
+        </message>
         <message>
             <source>Styczeń</source>
             <translation type="vanished">Styczeń</translation>
@@ -821,7 +849,7 @@
         </message>
         <message>
             <source>LNG_00073</source>
-            <translation>Cameras</translation>
+            <translation>Kamery wideo</translation>
         </message>
         <message>
             <source>LNG_00072</source>
@@ -886,6 +914,10 @@
     <message><source>LNG_00644</source><translation>Dodaj wszystkie kanały do aktywnego widoku</translation></message><message><source>LNG_00645</source><translation>Dodaj wybrane kanały do aktywnego widoku</translation></message><message><source>LNG_00647</source><translation>Zaznacz kamerę</translation></message><message><source>LNG_00648</source><translation>Dodano %1 kamer do aktywnego widoku</translation></message></context>
     <context>
         <name>NvrSettingsPanel</name>
+        <message>
+            <source>LNG_00631</source>
+            <translation>Przeciągnij, aby zmienić kolejność</translation>
+        </message>
         <message>
             <source>Add Hikvision Recorder</source>
             <translation type="vanished">Dodaj rejestrator Hikvision</translation>
@@ -2060,7 +2092,7 @@
         </message>
         <message>
             <source>LNG_00196</source>
-            <translation>Buffering %1\%</translation>
+            <translation>Buforowanie %1\%</translation>
         </message>
         <message>
             <source>LNG_00195</source>
@@ -4113,7 +4145,7 @@
         </message>
         <message>
             <source>LNG_00310</source>
-            <translation>Changelog</translation>
+            <translation>Lista zmian</translation>
         </message>
         <message>
             <source>LNG_00309</source>
@@ -4457,7 +4489,7 @@
         </message>
         <message>
             <source>LNG_00226</source>
-            <translation>Are you sure you want to delete preset \"%1\"? This action is completely irreversible.</translation>
+            <translation>Czy na pewno chcesz usunąć ustawienie wstępne \"%1\"? Działanie to jest całkowicie nieodwracalne.</translation>
         </message>
         <message>
             <source>LNG_00225</source>
@@ -4465,7 +4497,7 @@
         </message>
         <message>
             <source>LNG_00224</source>
-            <translation>Are you sure you want to delete NVR view \"%1\"? This action is completely irreversible.</translation>
+            <translation>Czy na pewno chcesz usunąć widok NVR \"%1\"? Działanie to jest całkowicie nieodwracalne.</translation>
         </message>
         <message>
             <source>LNG_00223</source>
@@ -4473,7 +4505,7 @@
         </message>
         <message>
             <source>LNG_00221</source>
-            <translation>Are you sure you want to delete NVR Preset \"%1\"? This action is completely irreversible.</translation>
+            <translation>Czy na pewno chcesz usunąć ustawienie wstępne NVR \"%1\"? Działanie to jest całkowicie nieodwracalne.</translation>
         </message>
         <message>
             <source>LNG_00220</source>

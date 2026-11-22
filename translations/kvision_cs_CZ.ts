@@ -276,6 +276,34 @@
     <context>
         <name>DownloadDialog</name>
         <message>
+            <source>LNG_00172</source>
+            <translation>Po</translation>
+        </message>
+        <message>
+            <source>LNG_00171</source>
+            <translation>Út</translation>
+        </message>
+        <message>
+            <source>LNG_00170</source>
+            <translation>St</translation>
+        </message>
+        <message>
+            <source>LNG_00169</source>
+            <translation>Čt</translation>
+        </message>
+        <message>
+            <source>LNG_00168</source>
+            <translation>Pá</translation>
+        </message>
+        <message>
+            <source>LNG_00167</source>
+            <translation>So</translation>
+        </message>
+        <message>
+            <source>LNG_00166</source>
+            <translation>Ne</translation>
+        </message>
+        <message>
             <source>Styczeń</source>
             <translation type="vanished">January</translation>
         </message>
@@ -477,15 +505,15 @@
         </message>
         <message>
             <source>LNG_00038</source>
-            <translation>Hr</translation>
+            <translation>Hod.</translation>
         </message>
         <message>
             <source>LNG_00037</source>
-            <translation>Min</translation>
+            <translation>Min.</translation>
         </message>
         <message>
             <source>LNG_00036</source>
-            <translation>Sek</translation>
+            <translation>Sek.</translation>
         </message>
         <message>
             <source>LNG_00023</source>
@@ -815,11 +843,11 @@
         </message>
         <message>
             <source>LNG_00071</source>
-            <translation>Generujte miniatury pro všechny fotoaparáty</translation>
+            <translation>Vygenerovat miniatury všech kamer</translation>
         </message>
         <message>
             <source>LNG_00070</source>
-            <translation>Fotoaparát %1</translation>
+            <translation>Kamera %1</translation>
         </message>
         <message>
             <source>LNG_00069</source>
@@ -831,11 +859,11 @@
         </message>
         <message>
             <source>LNG_00067</source>
-            <translation>Přejmenovat fotoaparát</translation>
+            <translation>Přejmenovat kameru</translation>
         </message>
         <message>
             <source>LNG_00066</source>
-            <translation>Obnovit miniaturu fotoaparátu</translation>
+            <translation>Obnovit miniaturu kamery</translation>
         </message>
         <message>
             <source>LNG_00065</source>
@@ -869,9 +897,13 @@
             <source>LNG_00058</source>
             <translation>Uložit</translation>
         </message>
-    <message><source>LNG_00644</source><translation>Přidejte všechny kanály do aktivního rozvržení</translation></message><message><source>LNG_00645</source><translation>Přidat vybrané kanály do aktivního rozvržení</translation></message><message><source>LNG_00647</source><translation>Vyberte fotoaparát</translation></message><message><source>LNG_00648</source><translation>Do aktivního rozvržení bylo přidáno %1 kamer</translation></message></context>
+    <message><source>LNG_00644</source><translation>Přidejte všechny kanály do aktivního rozvržení</translation></message><message><source>LNG_00645</source><translation>Přidat vybrané kanály do aktivního rozvržení</translation></message><message><source>LNG_00647</source><translation>Vybrat kameru</translation></message><message><source>LNG_00648</source><translation>Do aktivního rozvržení bylo přidáno %1 kamer</translation></message></context>
     <context>
         <name>NvrSettingsPanel</name>
+        <message>
+            <source>LNG_00631</source>
+            <translation>Přetažením změníte pořadí</translation>
+        </message>
         <message>
             <source>Add Hikvision Recorder</source>
             <translation type="vanished">Add Hikvision Recorder</translation>
@@ -2090,7 +2122,7 @@
         </message>
         <message>
             <source>LNG_00190</source>
-            <translation>Kliknutím a přetažením na zdroj fotoaparátu přiblížíte</translation>
+            <translation>Kliknutím a tažením v obrazu kamery přiblížíte vybranou oblast</translation>
         </message>
         <message>
             <source>LNG_00189</source>
@@ -3572,7 +3604,7 @@
         </message>
         <message>
             <source>LNG_00398</source>
-            <translation>Zavedena interaktivní validace po kliknutí na tlačítko 'Pobierz' (Stáhnout) v okně stahování: automatická kontrola formátu a chronologického data, zobrazení červeného upozornění a zaměření prvního neplatné pole.</translation>
+            <translation>Při kliknutí na tlačítko „Stáhnout“ se automaticky ověřuje formát polí a chronologické pořadí dat. Při chybě se zobrazí červené upozornění a aktivuje se první neplatné pole.</translation>
         </message>
         <message>
             <source>LNG_00397</source>
@@ -3736,7 +3768,7 @@
         </message>
         <message>
             <source>LNG_00357</source>
-            <translation>Zvětšené a převrácené barvy tlačítka plus (+) na dlaždicích fotoaparátu (mátové pozadí) pro lepší viditelnost, s jasnými stavy visení/stisknutí.</translation>
+            <translation>Zvětšeno tlačítko plus (+) na dlaždicích kamer a převráceny jeho barvy (mátové pozadí) pro lepší viditelnost. Tlačítko má zřetelné stavy při najetí a stisku.</translation>
         </message>
         <message>
             <source>LNG_00356</source>
@@ -4004,7 +4036,7 @@
         </message>
         <message>
             <source>LNG_00293</source>
-            <translation>Grid Operations</translation>
+            <translation>Operace s mřížkou</translation>
         </message>
         <message>
             <source>LNG_00292</source>
@@ -4104,7 +4136,7 @@
         </message>
         <message>
             <source>LNG_00267</source>
-            <translation>Maximalizace fotoaparátu na celou obrazovku se nezapne</translation>
+            <translation>Při zobrazení kamery na celou obrazovku nezapínat zvuk</translation>
         </message>
         <message>
             <source>LNG_00266</source>
@@ -4120,7 +4152,7 @@
         </message>
         <message>
             <source>LNG_00263</source>
-            <translation>Povolte možnost „Odebrat fotoaparát“.</translation>
+            <translation>Povolit možnost „Odebrat kameru“</translation>
         </message>
         <message>
             <source>LNG_00262</source>
@@ -4376,35 +4408,35 @@
         </message>
         <message>
             <source>LNG_00527</source>
-            <translation>Reduced log spam: Suppressed repetitive QML/JS warnings, TypeErrors, and video packet decoding errors from default output.</translation>
+            <translation>Méně hlášení v protokolu. Výchozí výstup potlačuje opakovaná upozornění QML/JS, výjimky TypeError a chyby při dekódování paketů videa.</translation>
         </message>
         <message>
             <source>LNG_00528</source>
-            <translation>Translation Polish: Corrected the Polish translation of the archive player window title from 'Archive' to 'Archiwum'.</translation>
+            <translation>Polský překlad. Název okna přehrávače archivu byl opraven z „Archive“ na „Archiwum“.</translation>
         </message>
         <message>
             <source>LNG_00529</source>
-            <translation>Fixed GPU Driver Memory Leak: Resolved critical NVIDIA/GLX driver memory leak.</translation>
+            <translation>Opraven kritický únik paměti v ovladači NVIDIA/GLX.</translation>
         </message>
         <message>
             <source>LNG_00530</source>
-            <translation>Thread Count Optimization: Restricted FFmpeg decoding to a single thread per stream, drastically reducing RAM usage.</translation>
+            <translation>Optimalizace počtu vláken. Dekódování FFmpeg nyní používá jedno vlákno na stream, čímž se výrazně snižuje spotřeba paměti RAM.</translation>
         </message>
         <message>
             <source>LNG_00531</source>
-            <translation>Periodic Memory Reclaiming: Added a background timer that runs once every hour to perform garbage collection and malloc_trim(0) to release unused heap memory to the OS.</translation>
+            <translation>Pravidelné uvolňování paměti. Jednou za hodinu se na pozadí spustí úklid paměti a volání malloc_trim(0), které vrátí nevyužitou paměť operačnímu systému.</translation>
         </message>
         <message>
             <source>LNG_00535</source>
-            <translation>Hikvision Multi-Port Support: Independent configuration of SDK, HTTP, and RTSP ports.</translation>
+            <translation>Podpora více portů Hikvision: Nezávislá konfigurace portů SDK, HTTP a RTSP.</translation>
         </message>
         <message>
             <source>LNG_00536</source>
-            <translation>NVR Settings UI Improvements: Permanent field labels for port configurations.</translation>
+            <translation>Vylepšené nastavení NVR. Pole pro nastavení portů mají trvale zobrazené popisky.</translation>
         </message>
         <message>
             <source>LNG_00537</source>
-            <translation>Language &amp; Localization: Complete multi-language support for new port options.</translation>
+            <translation>Nové možnosti nastavení portů jsou přeložené do všech podporovaných jazyků.</translation>
         </message>
             <message>
             <source>LNG_00538</source>
@@ -4414,7 +4446,7 @@
             <source>LNG_00539</source>
             <translation>Synchronizace UI: Dialog nastavení viewportu nyní odráží konkrétní přepsání transportu RTSP z rekordéru.</translation>
         </message>
-<message><source>LNG_00540</source><translation>Zjednodušené interní URI: Vyčištěny interní adresy hikvision:// odstraněním nadbytečných portů a přihlašovacích údajů.</translation></message><message><source>LNG_00541</source><translation>Zpracování vlastních portů: Opraveno vyhledávání záznamů HTTP ISAPI na vlastních portech.</translation></message><message><source>LNG_00542</source><translation>Migrace URI: Přidána automatická migrace při spuštění pro vyčištění starých adres hikvision://, čímž se odstraní údaje a porty z rozhraní.</translation></message><message><source>LNG_00543</source><translation>Diagnostické protokoly: Přidána možnost v nastavení zapisovat podrobné diagnostické protokoly FFmpeg a QML do souboru kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Oprava živého vysílání na vlastních portech: Opraveno streamování živého videa při použití vlastních portů HTTP/RTSP, přidána reaktivní aktualizace zobrazení a kódování přihlašovacích údajů v URL.</translation></message><message><source>LNG_00545</source><translation>Architektura zjišťování ISAPI: Přepracováno zjišťování kamer pro nezávislé skenování IP Proxy, analogových a streamovacích kanálů s automatickým vyjednáváním Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Hlášení paměti v konzoli: Zaznamenává přesné množství paměti RAM vrácené jádru systému po každém periodickém uvolnění paměti.</translation></message><message><source>LNG_00547</source><translation>Přepracování čínské (zh_CN) lokalizace: Všechny texty rozhraní v čínštině byly přepsány s využitím odborné terminologie kamerových systémů (PR #6 od @kunxiang1).</translation></message><message><source>LNG_00548</source><translation>Instalátor pro Ubuntu/Debian a řešení problémů: Přidán automatický instalační skript (tools/install_ubuntu.sh) a průvodce řešením problémů RTSP/QtMultimedia ve všech 22 příručkách.</translation></message><message><source>LNG_00549</source><translation>Generovat úplné diagnostické protokoly (vyžaduje restart)</translation></message><message><source>LNG_00550</source><translation>Opravy stability a streamů: Automatické přepnutí na softwarové dekódování při selhání hardwarové akcelerace, opraveno přepínání Auto/Sub streamu pro kanály hikvision:// bez sekundární URL, lokalizována volba diagnostických protokolů, zachovány kritické chyby spuštění QML na stderr a explicitní typování deleteru AVDictionary v C++17.</translation></message><message><source>LNG_00551</source><translation>Import / Export</translation></message><message><source>LNG_00552</source><translation>Back up and transfer your recorders, camera layouts, and application settings seamlessly between Linux and Windows.</translation></message><message><source>LNG_00553</source><translation>Export Configuration</translation></message><message><source>LNG_00554</source><translation>Save current settings (recorders, camera layouts, preferences) to a configuration file compatible with both Linux and Windows.</translation></message><message><source>LNG_00555</source><translation>Export settings to file...</translation></message><message><source>LNG_00556</source><translation>Import Configuration</translation></message><message><source>LNG_00557</source><translation>Load settings from a configuration file (.conf / .ini). Snapshot and video recording paths are automatically adapted to the current operating system.</translation></message><message><source>LNG_00558</source><translation>Import settings from file...</translation></message><message><source>LNG_00559</source><translation>Active Configuration File</translation></message><message><source>LNG_00560</source><translation>Open configuration folder</translation></message><message><source>LNG_00561</source><translation>Settings successfully exported to: %1</translation></message><message><source>LNG_00562</source><translation>Settings successfully imported from: %1</translation></message><message><source>LNG_00563</source><translation>An error occurred while reading or writing the configuration file.</translation></message><message><source>LNG_00564</source><translation>Cross-Platform (Linux / Windows) &amp; Settings Import / Export: Added Windows x64 build support (PR #7 by @kunxiang1), a new 'Import / Export' tab for migrating configuration files (.conf / .ini) between Linux and Windows with automatic path adaptation, enforced INI configuration format (%APPDATA%\KVision\KVision.ini) on Windows, and fixed leading slash (/) issues in Windows snapshot and video directory paths.</translation></message><message><source>LNG_00565</source><translation>Oprava stahování a konverze archivu: Vyřešeno selhávání převodu .pspart na .mp4 ve Windows přibalením ffmpeg.exe, 3úrovňovou konverzí (ffmpeg CLI s AAC, opakování bez zvuku -an a interní remuxer libavformat), přímým čtením velikosti souboru NTFS a čistým dokončením před vypršením limitu SDK.</translation></message><message><source>LNG_00566</source><translation>Oprava procházení složky snímků: Opraveno tlačítko „Procházet“ v dialogu rychlého snímku (SnapshotSavedDialog) a v oknech stahování/nastavení ve Windows pomocí Context.openLocalFolder() s podporou explorer.exe.</translation></message><message><source>LNG_00567</source><translation>Ikona programu pro Windows (.exe) a vizuální úpravy: Vložena ikona (kvision.ico) a metadata verze (kvision.rc) přímo do souboru kvision.exe a vylepšen tmavý motiv Compact pro zaškrtávací políčka CheckBox.</translation></message><message><source>LNG_00568</source><translation>Oprava panelu systémových statistik ve Windows: přidáno nativní měření využití CPU a RAM (Win32 API), detekce podřízených procesů přes Toolhelp32, sledování GPU a VRAM přes nvml.dll a univerzální čítače Windows PDH (NVIDIA, AMD, Intel) a stabilizováno 1sekundové vzorkování sítě (Mbps).</translation></message><message><source>LNG_00582</source><translation>Režim „Vzdálený rekordér (WAN / NAT)“ a kontrola otevřenosti portů: Přidán vestavěný tester TCP portů (SDK, RTSP, HTTP) a profil optimalizace WAN/NAT (rozšířené vyrovnávací paměti a časové limity FFmpeg, automatické TCP, tok Sub v mřížce s přepnutím na Main při zvětšení, postupné spouštění kamer a exponenciální opakování připojení) včetně upozornění v obraze při nedostupném portu RTSP.</translation></message><message><source>LNG_00583</source><translation>Opravy detekce kamer a vzdáleného streamování (Issue #9): Opravena detekce analogových (BNC/koax) a IP kanálů na hybridních DVR a NVR při uzavřeném portu HTTP (přesné mapování kanálů RTSP, čtení OSD názvů přes SDK a záložní vyhledávání časové osy archivu přes SDK NET_DVR_FindFile_V40), nahrazen externí curl nativní sítí Qt, vyřešena kompatibilita timeout/stimeout mezi FFmpeg 4.x a 5.0+, přidán MakeKeyFrameSub a opraven automatický přechod ze Sub na Main.</translation></message><message><source>LNG_00584</source><translation>Parametry FFmpeg jsou spravovány automaticky režimem „Vzdálený rekordér (WAN / NAT)“.</translation></message><message><source>LNG_00587</source><translation>Výška aktivační zóny horní lišty (px)</translation></message><message><source>LNG_00585</source><translation>Dynamické zalamování pohledů v horní liště: Horní lišta byla přepracována pro dynamické zalamování tlačítek pohledů a rekordérů do více řádků (Flow) podle šířky okna a délky názvů, se svislou hranou, jednotně zaoblenými rohy pouze pod sekcí pohledů a sledováním kurzoru v celém okně proti předčasnému automatickému skrytí.</translation></message><message><source>LNG_00586</source><translation>Vysoce kontrastní svislé posuvníky: Přidán výrazný svislý posuvník do seznamu rekordérů v dialogu stavu NVR a opraveno umístění i viditelnost svislých posuvníků na všech kartách nastavení v postranním panelu s výrazným orámováním dráhy a azurovým zvýrazněním.</translation></message><message><source>LNG_00590</source><translation>Doba trvání horního pruhu (ms)</translation></message><message><source>LNG_00591</source><translation>Povolit sloučení a rozdělení výřezů</translation></message><message><source>LNG_00595</source><translation>Rozšiřovač mřížky horní lišty a ladění automatického skrývání: Nahrazení přepínače uzamčení mřížky kompaktním rozšiřovačem ve tvaru šipky s nápovědou pro dynamické zamykání/odemykání, uspořádaná tlačítka velikosti mřížky v matici 3x3 uvnitř 4řádkového výčnělku s tlačítkem voleb v řadě 1, vpravo zarovnaná tlačítka přednastaveného zobrazení a přidaná konfigurovatelná výška spouštěcí zóny na horní liště (px) a výchozí nastavení synchronizace 50 m.</translation></message><message><source>LNG_00596</source><translation>Trvalé sloučené výřezy a sloučení/rozdělení kontextové nabídky: Zachovány rozpětí sloučených výřezů (savedColumnSpan/savedRowSpan) při přepínání mezi většími a menšími mřížkami (např. 4x4 -&gt; 2x2 -&gt; 4x4), opravena chyba při alokaci změny velikosti v kontextové nabídce ViewportsLayoutModel+2, přidána podpora pro živé sloučení pravého tlačítka a cx náhled a ukotvení inteligentních okrajů) a rozdělení na jedno kliknutí a navíc přepínač Nastavení pro jeho zapnutí/vypnutí.</translation></message><message><source>LNG_00597</source><translation>Kontexty lokalizace a automatizace vydávání značek: Upgradovaný translate_ts.py pro automatické umístění překladových klíčů do jejich přesných kontextů QML, přemístění posledních klíčů (LNG_00585–LNG_00594) ve všech 23 jazycích a sjednocené pracovní postupy vydávání značek, takže vydání v* čekají na Debian/Ubuntu, AppImage a Windows atomicky sestavují a publikují všechna aktiva.</translation></message><message><source>LNG_00598</source><translation>Okamžitá oprava trvalého nastavení: Vyřešen spor mezi nastavením QML (časovač 500 ms) a opětovným načtením hlídače konfiguračního souboru, který mohl vrátit "Zakázat animaci přiblížení výřezu" a další možnosti zaškrtávacího políčka zpět do předchozího stavu disku; okamžitě uchovala všechna zaškrtávací políčka postranního panelu a lockGridSize pomocí Context.writeSetting(), obnovila reaktivní vazby CheckBox a vyprázdnila nastavení při ukončení aplikace.</translation></message><message><source>LNG_00599</source><translation>Ruská lokalizace (PR #10): Přidán ruský překladový katalog uživatelského rozhraní (Русский (ИИ)) v PR #10 od @demon-5656, registrován v Context, SideBar a translate_ts.py a přeložil všech 30 novějších post-PR řetězců (LNG_00569–LNG_00598).</translation></message><message><source>LNG_00600</source><translation>Skupiny rozložení</translation></message><message><source>LNG_00621</source><translation>Průhlednost pozadí horní lišty</translation></message><message><source>LNG_00622</source><translation>0 % = neprůhledné pozadí, 100 % = plně průhledné</translation></message><message><source>LNG_00635</source><translation>Zobrazit skupiny a rámečky skládací horní lišty: Přidána karta Skupiny rozvržení pro seskupení vlastních pohledů, zobrazení NVR a mřížek NVR do orámovaných dockových boxů s ikonou sítě, trvalé prázdné skupiny až do odstranění, aktivní zobrazení titulků na tlačítkách sbalených skupin, přepínání špendlíku na titulní liště synchronizované s „Sbaleno ve výchozím nastavení“, automatické sbalení při kliknutí na horní lištu nebo opuštění řádku/zalomení.</translation></message><message><source>LNG_00636</source><translation>Změna pořadí přetažením bez přerušení streamu: Přidána změna pořadí přetažením přes předvolby a skupiny rozvržení (hlavní sekvence v horní liště, pořadí skupin a členové skupiny) plus přepínání „Zobrazit také jako neseskupené“ při zachování čistého chodu aktivních živých toků z kamery a synchronizace napříč pomocnými okny.</translation></message><message><source>LNG_00637</source><translation>Průhlednost horní lišty a nastavení / Uživatelské rozhraní seznamu kamer NVR Polish: Přidán živý posuvník průhlednosti pozadí horní lišty (0 %-100 %) synchronizovaný napříč okny, přímá akce „Uložit změny“ při úpravách NVR bez nutnosti opětovného zjišťování, sjednocené poloměry rohů na všech kartách Nastavení a okno seznamu kamer NVR (včetně tlačítek dlaždic a generátoru miniatur), ikona záhlaví vektorové dokumentace a záznamů skupiny záznamů NVR</translation></message><message><source>LNG_00638</source><translation>Ověření zdrojů a stability: Auditované cesty rozšiřování/sbalování dynamických skupin, změny pořadí zobrazení a úprav NVR, aby bylo zajištěno správné sdružování hráčů a nulový nárůst paměti.</translation></message><message><source>LNG_00641</source><translation>Obnovení zobrazení při spuštění a oprava skrytých zobrazení: Vždy obnoví poslední aktivní zobrazení při spuštění bez přepsání uloženého výběru, přísně zabraňuje aktivaci nebo navrhování skrytých zobrazení (návrat k prvnímu viditelnému zobrazení nebo žádnému, pokud jsou všechny skryté) a přepne na verzi opravy (v2.7.10).</translation></message><message><source>LNG_00643</source><translation>V kontextové nabídce povolte 'Přidat fotoaparát'</translation></message><message><source>LNG_00649</source><translation>Změna pořadí přetažením rekordéru NVR, kontextové menu Přidat kameru a dávkový výběr rozvržení: Přidáno animované přeuspořádání přetažením pro NVR rekordéry v Nastavení s živým rozestupem push-apart, synchronizované s podnabídkou „Přidat kameru“ kliknutím pravým tlačítkem na výřez. Přidán vícenásobný výběr mřížky kamery a dávkové přidávání do aktivních rozvržení s prioritou prázdného slotu, automatické generování miniatur s odznaky průběhu v reálném čase, kaskádové čištění mazání rekordéru a vyřešené závody perzistence nastavení NVR a vytváření duplicitních rozvržení.</translation></message><message><source>LNG_00650</source><translation>Clean Install Startup Crash &amp; Portability Fix: Opravena infinite configuration sync recursion crash (SIGSEGV) u čerstvých instalací bez existujícího konfiguračního souboru odložením upozornění configFileChanged a přetrvávajícími příznaky migrace formátu AV před zápisem možností a odstraněna nepoužívaná závislost na libavdevice, takže KVision běží čistě na minimálních distribucích Linuxu a prostředích AppjackImage bez libjack.Image</translation></message><message><source>LNG_00651</source><translation>AppImage: Opravené ověřování RTSP SHA-256 Digest s Hikvision NVR (401 neoprávněných)</translation></message></context>
+<message><source>LNG_00540</source><translation>Zjednodušené interní URI: Vyčištěny interní adresy hikvision:// odstraněním nadbytečných portů a přihlašovacích údajů.</translation></message><message><source>LNG_00541</source><translation>Zpracování vlastních portů: Opraveno vyhledávání záznamů HTTP ISAPI na vlastních portech.</translation></message><message><source>LNG_00542</source><translation>Migrace URI: Přidána automatická migrace při spuštění pro vyčištění starých adres hikvision://, čímž se odstraní údaje a porty z rozhraní.</translation></message><message><source>LNG_00543</source><translation>Diagnostické protokoly: Přidána možnost v nastavení zapisovat podrobné diagnostické protokoly FFmpeg a QML do souboru kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Oprava živého vysílání na vlastních portech: Opraveno streamování živého videa při použití vlastních portů HTTP/RTSP, přidána reaktivní aktualizace zobrazení a kódování přihlašovacích údajů v URL.</translation></message><message><source>LNG_00545</source><translation>Architektura zjišťování ISAPI: Přepracováno zjišťování kamer pro nezávislé skenování IP Proxy, analogových a streamovacích kanálů s automatickým vyjednáváním Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Hlášení paměti v konzoli: Zaznamenává přesné množství paměti RAM vrácené jádru systému po každém periodickém uvolnění paměti.</translation></message><message><source>LNG_00547</source><translation>Přepracování čínské (zh_CN) lokalizace: Všechny texty rozhraní v čínštině byly přepsány s využitím odborné terminologie kamerových systémů (PR #6 od @kunxiang1).</translation></message><message><source>LNG_00548</source><translation>Instalátor pro Ubuntu/Debian a řešení problémů: Přidán automatický instalační skript (tools/install_ubuntu.sh) a průvodce řešením problémů RTSP/QtMultimedia ve všech 22 příručkách.</translation></message><message><source>LNG_00549</source><translation>Generovat úplné diagnostické protokoly (vyžaduje restart)</translation></message><message><source>LNG_00550</source><translation>Opravy stability a streamů: Automatické přepnutí na softwarové dekódování při selhání hardwarové akcelerace, opraveno přepínání Auto/Sub streamu pro kanály hikvision:// bez sekundární URL, lokalizována volba diagnostických protokolů, zachovány kritické chyby spuštění QML na stderr a explicitní typování deleteru AVDictionary v C++17.</translation></message><message><source>LNG_00551</source><translation>Import a export</translation></message><message><source>LNG_00552</source><translation>Zálohujte a přenášejte rekordéry, rozvržení kamer a nastavení aplikace mezi Linuxem a Windows.</translation></message><message><source>LNG_00553</source><translation>Export konfigurace</translation></message><message><source>LNG_00554</source><translation>Uložte aktuální nastavení rekordérů, rozvržení kamer a předvolby do konfiguračního souboru kompatibilního s Linuxem i Windows.</translation></message><message><source>LNG_00555</source><translation>Exportovat nastavení do souboru...</translation></message><message><source>LNG_00556</source><translation>Import konfigurace</translation></message><message><source>LNG_00557</source><translation>Načtěte nastavení z konfiguračního souboru (.conf nebo .ini). Cesty ke snímkům a záznamům se automaticky přizpůsobí aktuálnímu operačnímu systému.</translation></message><message><source>LNG_00558</source><translation>Importovat nastavení ze souboru...</translation></message><message><source>LNG_00559</source><translation>Aktivní konfigurační soubor</translation></message><message><source>LNG_00560</source><translation>Otevřít složku s konfigurací</translation></message><message><source>LNG_00561</source><translation>Nastavení bylo exportováno do souboru %1</translation></message><message><source>LNG_00562</source><translation>Nastavení bylo importováno ze souboru %1</translation></message><message><source>LNG_00563</source><translation>Při čtení nebo zápisu konfiguračního souboru došlo k chybě.</translation></message><message><source>LNG_00564</source><translation>Podpora Linuxu a Windows a import a export nastavení. Přidána podpora sestavení pro Windows x64 (PR #7 od @kunxiang1) a karta „Import a export“ pro přenos konfiguračních souborů (.conf a .ini) mezi oběma systémy s automatickou úpravou cest. Ve Windows se konfigurace ukládá ve formátu INI (%APPDATA%\KVision\KVision.ini). Opraveno úvodní lomítko v cestách ke složkám se snímky a videi ve Windows.</translation></message><message><source>LNG_00565</source><translation>Oprava stahování a konverze archivu: Vyřešeno selhávání převodu .pspart na .mp4 ve Windows přibalením ffmpeg.exe, 3úrovňovou konverzí (ffmpeg CLI s AAC, opakování bez zvuku -an a interní remuxer libavformat), přímým čtením velikosti souboru NTFS a čistým dokončením před vypršením limitu SDK.</translation></message><message><source>LNG_00566</source><translation>Oprava procházení složky snímků: Opraveno tlačítko „Procházet“ v dialogu rychlého snímku (SnapshotSavedDialog) a v oknech stahování/nastavení ve Windows pomocí Context.openLocalFolder() s podporou explorer.exe.</translation></message><message><source>LNG_00567</source><translation>Ikona programu pro Windows (.exe) a vizuální úpravy: Vložena ikona (kvision.ico) a metadata verze (kvision.rc) přímo do souboru kvision.exe a vylepšen tmavý motiv Compact pro zaškrtávací políčka CheckBox.</translation></message><message><source>LNG_00568</source><translation>Oprava panelu systémových statistik ve Windows: přidáno nativní měření využití CPU a RAM (Win32 API), detekce podřízených procesů přes Toolhelp32, sledování GPU a VRAM přes nvml.dll a univerzální čítače Windows PDH (NVIDIA, AMD, Intel) a stabilizováno 1sekundové vzorkování sítě (Mbps).</translation></message><message><source>LNG_00582</source><translation>Režim „Vzdálený rekordér (WAN / NAT)“ a kontrola otevřenosti portů: Přidán vestavěný tester TCP portů (SDK, RTSP, HTTP) a profil optimalizace WAN/NAT (rozšířené vyrovnávací paměti a časové limity FFmpeg, automatické TCP, tok Sub v mřížce s přepnutím na Main při zvětšení, postupné spouštění kamer a exponenciální opakování připojení) včetně upozornění v obraze při nedostupném portu RTSP.</translation></message><message><source>LNG_00583</source><translation>Opravy detekce kamer a vzdáleného streamování (Issue #9): Opravena detekce analogových (BNC/koax) a IP kanálů na hybridních DVR a NVR při uzavřeném portu HTTP (přesné mapování kanálů RTSP, čtení OSD názvů přes SDK a záložní vyhledávání časové osy archivu přes SDK NET_DVR_FindFile_V40), nahrazen externí curl nativní sítí Qt, vyřešena kompatibilita timeout/stimeout mezi FFmpeg 4.x a 5.0+, přidán MakeKeyFrameSub a opraven automatický přechod ze Sub na Main.</translation></message><message><source>LNG_00584</source><translation>Parametry FFmpeg jsou spravovány automaticky režimem „Vzdálený rekordér (WAN / NAT)“.</translation></message><message><source>LNG_00587</source><translation>Výška aktivační zóny horní lišty (px)</translation></message><message><source>LNG_00585</source><translation>Dynamické zalamování pohledů v horní liště: Horní lišta byla přepracována pro dynamické zalamování tlačítek pohledů a rekordérů do více řádků (Flow) podle šířky okna a délky názvů, se svislou hranou, jednotně zaoblenými rohy pouze pod sekcí pohledů a sledováním kurzoru v celém okně proti předčasnému automatickému skrytí.</translation></message><message><source>LNG_00586</source><translation>Vysoce kontrastní svislé posuvníky: Přidán výrazný svislý posuvník do seznamu rekordérů v dialogu stavu NVR a opraveno umístění i viditelnost svislých posuvníků na všech kartách nastavení v postranním panelu s výrazným orámováním dráhy a azurovým zvýrazněním.</translation></message><message><source>LNG_00590</source><translation>Doba trvání horního pruhu (ms)</translation></message><message><source>LNG_00591</source><translation>Povolit sloučení a rozdělení výřezů</translation></message><message><source>LNG_00595</source><translation>Rozšiřovač mřížky horní lišty a ladění automatického skrývání: Nahrazení přepínače uzamčení mřížky kompaktním rozšiřovačem ve tvaru šipky s nápovědou pro dynamické zamykání/odemykání, uspořádaná tlačítka velikosti mřížky v matici 3x3 uvnitř 4řádkového výčnělku s tlačítkem voleb v řadě 1, vpravo zarovnaná tlačítka přednastaveného zobrazení a přidaná konfigurovatelná výška spouštěcí zóny na horní liště (px) a výchozí nastavení synchronizace 50 m.</translation></message><message><source>LNG_00596</source><translation>Trvalé sloučené výřezy a sloučení/rozdělení kontextové nabídky: Zachovány rozpětí sloučených výřezů (savedColumnSpan/savedRowSpan) při přepínání mezi většími a menšími mřížkami (např. 4x4 -&gt; 2x2 -&gt; 4x4), opravena chyba při alokaci změny velikosti v kontextové nabídce ViewportsLayoutModel+2, přidána podpora pro živé sloučení pravého tlačítka a cx náhled a ukotvení inteligentních okrajů) a rozdělení na jedno kliknutí a navíc přepínač Nastavení pro jeho zapnutí/vypnutí.</translation></message><message><source>LNG_00597</source><translation>Kontexty lokalizace a automatizace vydávání značek: Upgradovaný translate_ts.py pro automatické umístění překladových klíčů do jejich přesných kontextů QML, přemístění posledních klíčů (LNG_00585–LNG_00594) ve všech 23 jazycích a sjednocené pracovní postupy vydávání značek, takže vydání v* čekají na Debian/Ubuntu, AppImage a Windows atomicky sestavují a publikují všechna aktiva.</translation></message><message><source>LNG_00598</source><translation>Okamžitá oprava trvalého nastavení: Vyřešen spor mezi nastavením QML (časovač 500 ms) a opětovným načtením hlídače konfiguračního souboru, který mohl vrátit "Zakázat animaci přiblížení výřezu" a další možnosti zaškrtávacího políčka zpět do předchozího stavu disku; okamžitě uchovala všechna zaškrtávací políčka postranního panelu a lockGridSize pomocí Context.writeSetting(), obnovila reaktivní vazby CheckBox a vyprázdnila nastavení při ukončení aplikace.</translation></message><message><source>LNG_00599</source><translation>Ruská lokalizace (PR #10): Přidán ruský překladový katalog uživatelského rozhraní (Русский (ИИ)) v PR #10 od @demon-5656, registrován v Context, SideBar a translate_ts.py a přeložil všech 30 novějších post-PR řetězců (LNG_00569–LNG_00598).</translation></message><message><source>LNG_00600</source><translation>Skupiny rozložení</translation></message><message><source>LNG_00621</source><translation>Průhlednost pozadí horní lišty</translation></message><message><source>LNG_00622</source><translation>0 % = neprůhledné pozadí, 100 % = plně průhledné</translation></message><message><source>LNG_00635</source><translation>Zobrazit skupiny a rámečky skládací horní lišty: Přidána karta Skupiny rozvržení pro seskupení vlastních pohledů, zobrazení NVR a mřížek NVR do orámovaných dockových boxů s ikonou sítě, trvalé prázdné skupiny až do odstranění, aktivní zobrazení titulků na tlačítkách sbalených skupin, přepínání špendlíku na titulní liště synchronizované s „Sbaleno ve výchozím nastavení“, automatické sbalení při kliknutí na horní lištu nebo opuštění řádku/zalomení.</translation></message><message><source>LNG_00636</source><translation>Změna pořadí přetažením bez přerušení streamu: Přidána změna pořadí přetažením přes předvolby a skupiny rozvržení (hlavní sekvence v horní liště, pořadí skupin a členové skupiny) plus přepínání „Zobrazit také jako neseskupené“ při zachování čistého chodu aktivních živých toků z kamery a synchronizace napříč pomocnými okny.</translation></message><message><source>LNG_00637</source><translation>Průhlednost horní lišty a nastavení / Uživatelské rozhraní seznamu kamer NVR Polish: Přidán živý posuvník průhlednosti pozadí horní lišty (0 %-100 %) synchronizovaný napříč okny, přímá akce „Uložit změny“ při úpravách NVR bez nutnosti opětovného zjišťování, sjednocené poloměry rohů na všech kartách Nastavení a okno seznamu kamer NVR (včetně tlačítek dlaždic a generátoru miniatur), ikona záhlaví vektorové dokumentace a záznamů skupiny záznamů NVR</translation></message><message><source>LNG_00638</source><translation>Ověření zdrojů a stability: Auditované cesty rozšiřování/sbalování dynamických skupin, změny pořadí zobrazení a úprav NVR, aby bylo zajištěno správné sdružování hráčů a nulový nárůst paměti.</translation></message><message><source>LNG_00641</source><translation>Obnovení zobrazení při spuštění a oprava skrytých zobrazení: Vždy obnoví poslední aktivní zobrazení při spuštění bez přepsání uloženého výběru, přísně zabraňuje aktivaci nebo navrhování skrytých zobrazení (návrat k prvnímu viditelnému zobrazení nebo žádnému, pokud jsou všechny skryté) a přepne na verzi opravy (v2.7.10).</translation></message><message><source>LNG_00643</source><translation>Povolit možnost „Přidat kameru“ v kontextové nabídce</translation></message><message><source>LNG_00649</source><translation>Změna pořadí přetažením rekordéru NVR, kontextové menu Přidat kameru a dávkový výběr rozvržení: Přidáno animované přeuspořádání přetažením pro NVR rekordéry v Nastavení s živým rozestupem push-apart, synchronizované s podnabídkou „Přidat kameru“ kliknutím pravým tlačítkem na výřez. Přidán vícenásobný výběr mřížky kamery a dávkové přidávání do aktivních rozvržení s prioritou prázdného slotu, automatické generování miniatur s odznaky průběhu v reálném čase, kaskádové čištění mazání rekordéru a vyřešené závody perzistence nastavení NVR a vytváření duplicitních rozvržení.</translation></message><message><source>LNG_00650</source><translation>Clean Install Startup Crash &amp; Portability Fix: Opravena infinite configuration sync recursion crash (SIGSEGV) u čerstvých instalací bez existujícího konfiguračního souboru odložením upozornění configFileChanged a přetrvávajícími příznaky migrace formátu AV před zápisem možností a odstraněna nepoužívaná závislost na libavdevice, takže KVision běží čistě na minimálních distribucích Linuxu a prostředích AppjackImage bez libjack.Image</translation></message><message><source>LNG_00651</source><translation>AppImage: Opravené ověřování RTSP SHA-256 Digest s Hikvision NVR (401 neoprávněných)</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>
@@ -4580,7 +4612,7 @@
         </message>
         <message>
             <source>LNG_00293</source>
-            <translation>Grid Operations</translation>
+            <translation>Operace s mřížkou</translation>
         </message>
         <message>
             <source>LNG_00292</source>
@@ -4727,7 +4759,7 @@
         </message>
         <message>
             <source>LNG_00473</source>
-            <translation>Odstraňte fotoaparát</translation>
+            <translation>Odebrat kameru</translation>
         </message>
         <message>
             <source>LNG_00472</source>
@@ -4747,23 +4779,23 @@
         </message>
         <message>
             <source>LNG_00468</source>
-            <translation>Automatycznie</translation>
+            <translation>Automaticky</translation>
         </message>
         <message>
             <source>LNG_00467</source>
-            <translation>Tylko HLAVNÍ</translation>
+            <translation>Pouze hlavní stream</translation>
         </message>
         <message>
             <source>LNG_00466</source>
-            <translation>Tylko SUB</translation>
+            <translation>Pouze vedlejší stream</translation>
         </message>
         <message>
             <source>LNG_00465</source>
-            <translation>Potvrďte odebrání fotoaparátu</translation>
+            <translation>Potvrdit odebrání kamery</translation>
         </message>
         <message>
             <source>LNG_00464</source>
-            <translation>Opravdu chcete odstranit kameru z tohoto výřezu?</translation>
+            <translation>Opravdu chcete odebrat kameru z tohoto pole náhledu?</translation>
         </message>
     <message><source>LNG_00592</source><translation>Sloučit výřezy</translation></message><message><source>LNG_00593</source><translation>Vybráno sloučení (%1×%1)</translation></message><message><source>LNG_00594</source><translation>Rozdělit zobrazované oblasti (%1×%1)</translation></message><message><source>LNG_00642</source><translation>Přidat kameru</translation></message></context>
 <context><name>ReorderableViewRow</name><message><source>LNG_00278</source><translation>Viditelné</translation></message><message><source>LNG_00631</source><translation>Přetažením změníte pořadí</translation></message></context><context><name>RecorderGroupsPanel</name></context><context><name>ViewGroupsPanel</name><message><source>LNG_00601</source><translation>Seskupte libovolná rozvržení (vlastní rozvržení, pohledy NVR, mřížky NVR), abyste je orámovali a označte společně v horní liště, a zvolte pořadí přetažením.</translation></message><message><source>LNG_00607</source><translation>Všechna rozložení</translation></message><message><source>LNG_00608</source><translation>Zatím nejsou nakonfigurována žádná rozvržení.</translation></message><message><source>LNG_00609</source><translation>K této skupině zatím nejsou přiřazena žádná rozvržení.</translation></message><message><source>LNG_00610</source><translation>Přesunout skupinu nahoru</translation></message><message><source>LNG_00611</source><translation>Přesunout skupinu dolů</translation></message><message><source>LNG_00612</source><translation>Rozložení</translation></message><message><source>LNG_00613</source><translation>NVR mřížka</translation></message><message><source>LNG_00614</source><translation>Přiřazeno do skupin:</translation></message><message><source>LNG_00615</source><translation>Přiřadit do skupin:</translation></message><message><source>LNG_00616</source><translation>Pořadí zobrazení horní lišty (přetažením změníte pořadí skupin a neseskupených rozvržení)</translation></message><message><source>LNG_00617</source><translation>Zobrazit také jako neseskupené</translation></message><message><source>LNG_00618</source><translation>Žádná rozvržení se nezobrazují jako neseskupená.</translation></message><message><source>LNG_00278</source><translation>Viditelné</translation></message><message><source>LNG_00602</source><translation>Nový název skupiny...</translation></message><message><source>LNG_00603</source><translation>Vytvořit skupinu</translation></message><message><source>LNG_00604</source><translation>Neseskupeno</translation></message><message><source>LNG_00605</source><translation>Oddělit všechny</translation></message><message><source>LNG_00606</source><translation>Odebrat ze skupiny</translation></message><message><source>LNG_00619</source><translation>Zobrazení NVR</translation></message><message><source>LNG_00620</source><translation>Kliknutím rozbalíte/sbalíte rozvržení skupiny pro změnu pořadí přetažením</translation></message><message><source>LNG_00623</source><translation>Ve výchozím nastavení sbaleno</translation></message><message><source>LNG_00626</source><translation>Opravdu chcete smazat skupinu "%1"? Rozvržení zůstanou nedotčena.</translation></message><message><source>LNG_00627</source><translation>Sekvence hlavní horní lišty (neseskupené pohledy a skupiny – přetažením změníte pořadí)</translation></message><message><source>LNG_00628</source><translation>Skupiny (přetažením svisle změníte pořadí, rozbalením změníte pořadí rozvržení uvnitř)</translation></message><message><source>LNG_00629</source><translation>Přidejte oddělovač</translation></message><message><source>LNG_00630</source><translation>Zalomení řádku</translation></message><message><source>LNG_00631</source><translation>Přetažením změníte pořadí</translation></message><message><source>LNG_00639</source><translation>Skrytá rozložení</translation></message><message><source>LNG_00640</source><translation>Žádné skryté rozvržení.</translation></message></context><context><name>TopBarViewDelegate</name><message><source>LNG_00624</source><translation>Kliknutím sbalíte skupinu</translation></message><message><source>LNG_00633</source><translation>Otevřená skupina připnutí</translation></message><message><source>LNG_00634</source><translation>Odepnout skupinu (ve výchozím nastavení sbalit)</translation></message><message><source>LNG_00625</source><translation>Kliknutím rozbalíte skupinu</translation></message></context><context><name>TopBarViewsArea</name></context></TS>

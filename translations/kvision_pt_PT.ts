@@ -276,6 +276,34 @@
     <context>
         <name>DownloadDialog</name>
         <message>
+            <source>LNG_00172</source>
+            <translation>Se</translation>
+        </message>
+        <message>
+            <source>LNG_00171</source>
+            <translation>Te</translation>
+        </message>
+        <message>
+            <source>LNG_00170</source>
+            <translation>Qu</translation>
+        </message>
+        <message>
+            <source>LNG_00169</source>
+            <translation>Qu</translation>
+        </message>
+        <message>
+            <source>LNG_00168</source>
+            <translation>Se</translation>
+        </message>
+        <message>
+            <source>LNG_00167</source>
+            <translation>Sá</translation>
+        </message>
+        <message>
+            <source>LNG_00166</source>
+            <translation>Do</translation>
+        </message>
+        <message>
             <source>Styczeń</source>
             <translation type="vanished">January</translation>
         </message>
@@ -645,20 +673,20 @@
         <message>
             <source>LNG_00499</source>
             <translation>O caminho de salvamento especificado é inválido ou o acesso de gravação foi negado:
-% 1</translation>
+%1</translation>
         </message>
         <message>
             <source>LNG_00498</source>
             <translation>Sem permissão de gravação no diretório:
-% 1</translation>
+%1</translation>
         </message>
         <message>
             <source>LNG_00497</source>
-            <translation>Erro ao inicializar o download da parte % 1: % 2</translation>
+            <translation>Erro ao inicializar o download da parte %1: %2</translation>
         </message>
         <message>
             <source>LNG_00496</source>
-            <translation>Erro ao iniciar o download da parte % 1: % 2</translation>
+            <translation>Erro ao iniciar o download da parte %1: %2</translation>
         </message>
         <message>
             <source>LNG_00495</source>
@@ -803,7 +831,7 @@
         </message>
         <message>
             <source>LNG_00074</source>
-            <translation>Câmeras em % 1</translation>
+            <translation>Câmeras em %1</translation>
         </message>
         <message>
             <source>LNG_00073</source>
@@ -819,11 +847,11 @@
         </message>
         <message>
             <source>LNG_00070</source>
-            <translation>Câmara % 1</translation>
+            <translation>Câmara %1</translation>
         </message>
         <message>
             <source>LNG_00069</source>
-            <translation>Câmera atribuída %1 canal. % 2 para a janela de visualização % 3</translation>
+            <translation>Câmera atribuída %1 canal. %2 para a janela de visualização %3</translation>
         </message>
         <message>
             <source>LNG_00068</source>
@@ -847,7 +875,7 @@
         </message>
         <message>
             <source>LNG_00063</source>
-            <translation>Nome original:% 1</translation>
+            <translation>Nome original:%1</translation>
         </message>
         <message>
             <source>LNG_00062</source>
@@ -872,6 +900,10 @@
     <message><source>LNG_00644</source><translation>Adicione todos os canais ao layout ativo</translation></message><message><source>LNG_00645</source><translation>Adicione canais selecionados ao layout ativo</translation></message><message><source>LNG_00647</source><translation>Selecione a câmera</translation></message><message><source>LNG_00648</source><translation>Adicionadas %1 câmeras ao layout ativo</translation></message></context>
     <context>
         <name>NvrSettingsPanel</name>
+        <message>
+            <source>LNG_00631</source>
+            <translation>Arraste para reordenar</translation>
+        </message>
         <message>
             <source>Add Hikvision Recorder</source>
             <translation type="vanished">Add Hikvision Recorder</translation>
@@ -1268,7 +1300,7 @@
         </message>
         <message>
             <source>LNG_00508</source>
-            <translation>Disco % 1</translation>
+            <translation>Disco %1</translation>
         </message>
         <message>
             <source>LNG_00507</source>
@@ -3892,7 +3924,7 @@
         </message>
         <message>
             <source>LNG_00319</source>
-            <translation>Versão % 1</translation>
+            <translation>Versão %1</translation>
         </message>
         <message>
             <source>LNG_00318</source>
@@ -3904,7 +3936,7 @@
         </message>
         <message>
             <source>LNG_00316</source>
-            <translation>Janela de visualização% 1</translation>
+            <translation>Janela de visualização%1</translation>
         </message>
         <message>
             <source>LNG_00315</source>
@@ -4024,7 +4056,7 @@
         </message>
         <message>
             <source>LNG_00288</source>
-            <translation>Disposição % 1</translation>
+            <translation>Disposição %1</translation>
         </message>
         <message>
             <source>LNG_00287</source>
@@ -4376,35 +4408,35 @@
         </message>
         <message>
             <source>LNG_00527</source>
-            <translation>Reduced log spam: Suppressed repetitive QML/JS warnings, TypeErrors, and video packet decoding errors from default output.</translation>
+            <translation>Spam de log reduzido: avisos QML/JS repetitivos suprimidos, TypeErrors e erros de decodificação de pacotes de vídeo da saída padrão.</translation>
         </message>
         <message>
             <source>LNG_00528</source>
-            <translation>Translation Polish: Corrected the Polish translation of the archive player window title from 'Archive' to 'Archiwum'.</translation>
+            <translation>Corrigido o título em polonês da janela do reprodutor de arquivos. “Archive” → “Archiwum”.</translation>
         </message>
         <message>
             <source>LNG_00529</source>
-            <translation>Fixed GPU Driver Memory Leak: Resolved critical NVIDIA/GLX driver memory leak.</translation>
+            <translation>Corrigido vazamento de memória do driver de GPU: Resolvido vazamento crítico de memória do driver NVIDIA/GLX.</translation>
         </message>
         <message>
             <source>LNG_00530</source>
-            <translation>Thread Count Optimization: Restricted FFmpeg decoding to a single thread per stream, drastically reducing RAM usage.</translation>
+            <translation>Otimização da contagem de threads: Decodificação FFmpeg restrita a um único thread por stream, reduzindo drasticamente o uso de RAM.</translation>
         </message>
         <message>
             <source>LNG_00531</source>
-            <translation>Periodic Memory Reclaiming: Added a background timer that runs once every hour to perform garbage collection and malloc_trim(0) to release unused heap memory to the OS.</translation>
+            <translation>Recuperação periódica de memória: adicionado um cronômetro em segundo plano que é executado uma vez a cada hora para realizar a coleta de lixo e malloc_trim(0) para liberar memória heap não utilizada para o sistema operacional.</translation>
         </message>
         <message>
             <source>LNG_00535</source>
-            <translation>Hikvision Multi-Port Support: Independent configuration of SDK, HTTP, and RTSP ports.</translation>
+            <translation>Suporte Hikvision Multi-Port: Configuração independente de portas SDK, HTTP e RTSP.</translation>
         </message>
         <message>
             <source>LNG_00536</source>
-            <translation>NVR Settings UI Improvements: Permanent field labels for port configurations.</translation>
+            <translation>Melhorias na interface de configurações do NVR: rótulos de campo permanentes para configurações de porta.</translation>
         </message>
         <message>
             <source>LNG_00537</source>
-            <translation>Language &amp; Localization: Complete multi-language support for new port options.</translation>
+            <translation>Idioma e localização: suporte multilíngue completo para novas opções de porta.</translation>
         </message>
             <message>
             <source>LNG_00538</source>
@@ -4414,7 +4446,7 @@
             <source>LNG_00539</source>
             <translation>Sincronização da interface: A caixa de diálogo de configurações de exibição agora reflete as sobreposições de transporte RTSP específicas do gravador.</translation>
         </message>
-<message><source>LNG_00540</source><translation>URIs internos simplificados: Limpeza dos URIs internos hikvision:// removendo parâmetros desnecessários de porta e credenciais.</translation></message><message><source>LNG_00541</source><translation>Gestão de portas personalizadas: Corrigida a pesquisa de gravações HTTP ISAPI em portas personalizadas.</translation></message><message><source>LNG_00542</source><translation>Migração de URI: Adicionada migração automática na inicialização para limpar URIs hikvision:// antigos, removendo credenciais e portas da interface.</translation></message><message><source>LNG_00543</source><translation>Registos de diagnóstico: Adicionada opção nas configurações para gravar registos de diagnóstico detalhados do FFmpeg e QML em kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Correção de transmissão em direto em portas personalizadas: Corrigida a transmissão de vídeo em direto ao usar portas HTTP/RTSP personalizadas, adicionadas atualizações reativas de visualização e codificação de credenciais em URL.</translation></message><message><source>LNG_00545</source><translation>Arquitetura de descoberta ISAPI: Reformulação da descoberta de câmaras para verificar independentemente canais de IP Proxy, analógicos e de transmissão com negociação automática Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Relatório de memória na consola: Regista a quantidade exata de RAM devolvida ao kernel do sistema após cada libertação periódica de memória.</translation></message><message><source>LNG_00547</source><translation>Reformulação da tradução chinesa (zh_CN): Todas as mensagens da interface em chinês foram reescritas com terminologia profissional de videovigilância (PR #6 por @kunxiang1).</translation></message><message><source>LNG_00548</source><translation>Instalador Ubuntu/Debian e resolução de problemas: Adicionado script de instalação automática (tools/install_ubuntu.sh) e guia RTSP/QtMultimedia nos 22 manuais.</translation></message><message><source>LNG_00549</source><translation>Gerar registos de diagnóstico completos (requer reinício)</translation></message><message><source>LNG_00550</source><translation>Correções de estabilidade e transmissão: Alternância automática para descodificação por software quando a aceleração por hardware falha, correção da mudança de fluxo Auto/Sub para canais hikvision:// sem URL secundário, localização da opção de registos de diagnóstico, preservação de erros críticos QML no stderr e tipagem explícita do deleter AVDictionary em C++17.</translation></message><message><source>LNG_00551</source><translation>Import / Export</translation></message><message><source>LNG_00552</source><translation>Back up and transfer your recorders, camera layouts, and application settings seamlessly between Linux and Windows.</translation></message><message><source>LNG_00553</source><translation>Export Configuration</translation></message><message><source>LNG_00554</source><translation>Save current settings (recorders, camera layouts, preferences) to a configuration file compatible with both Linux and Windows.</translation></message><message><source>LNG_00555</source><translation>Export settings to file...</translation></message><message><source>LNG_00556</source><translation>Import Configuration</translation></message><message><source>LNG_00557</source><translation>Load settings from a configuration file (.conf / .ini). Snapshot and video recording paths are automatically adapted to the current operating system.</translation></message><message><source>LNG_00558</source><translation>Import settings from file...</translation></message><message><source>LNG_00559</source><translation>Active Configuration File</translation></message><message><source>LNG_00560</source><translation>Open configuration folder</translation></message><message><source>LNG_00561</source><translation>Settings successfully exported to: %1</translation></message><message><source>LNG_00562</source><translation>Settings successfully imported from: %1</translation></message><message><source>LNG_00563</source><translation>An error occurred while reading or writing the configuration file.</translation></message><message><source>LNG_00564</source><translation>Cross-Platform (Linux / Windows) &amp; Settings Import / Export: Added Windows x64 build support (PR #7 by @kunxiang1), a new 'Import / Export' tab for migrating configuration files (.conf / .ini) between Linux and Windows with automatic path adaptation, enforced INI configuration format (%APPDATA%\KVision\KVision.ini) on Windows, and fixed leading slash (/) issues in Windows snapshot and video directory paths.</translation></message><message><source>LNG_00565</source><translation>Correção de transferência e conversão de arquivo: Resolvidas as falhas de conversão de .pspart para .mp4 no Windows incluindo o ffmpeg.exe no pacote, pipeline de conversão em 3 níveis (ffmpeg CLI com AAC, nova tentativa sem áudio -an e remuxer interno libavformat), leitura direta do tamanho NTFS e conclusão limpa antes do tempo limite do SDK.</translation></message><message><source>LNG_00566</source><translation>Correção da abertura de pastas de capturas: Corrigido o botão 'Procurar' no diálogo de captura rápida (SnapshotSavedDialog) e nas janelas de transferência/definições no Windows através de Context.openLocalFolder() com suporte nativo ao explorer.exe.</translation></message><message><source>LNG_00567</source><translation>Ícone do executável Windows e melhorias visuais: Incorporado o ícone multirresolução (kvision.ico) e metadados de versão (kvision.rc) no kvision.exe, e aperfeiçoado o estilo escuro Compact das caixas de seleção CheckBox.</translation></message><message><source>LNG_00568</source><translation>Correção do painel de estatísticas do sistema no Windows: adicionada monitorização nativa de CPU e RAM (Win32), deteção de janelas auxiliares e processos filhos via Toolhelp32, monitorização de GPU e VRAM via nvml.dll e contadores universais Windows PDH (NVIDIA, AMD, Intel) e estabilização da amostragem de rede (Mbps).</translation></message><message><source>LNG_00582</source><translation>Modo «Gravador remoto (WAN / NAT)» e verificador de portas: Adicionado teste integrado de portas TCP (SDK, RTSP, HTTP) e perfil de otimização WAN/NAT por gravador (buffers e tempos limite FFmpeg alargados, transporte TCP automático, fluxo Sub em grelha com mudança para Main ao ampliar, arranque escalonado e reconexão exponencial), além de diagnóstico OSD quando a porta RTSP está inacessível.</translation></message><message><source>LNG_00583</source><translation>Correções na deteção de câmaras e transmissão remota (Issue #9): Corrigida a deteção de canais analógicos (BNC/coaxial) e IP em DVRs híbridos e NVRs com porta HTTP fechada (mapeamento RTSP exato, nomes OSD via SDK e pesquisa de arquivo de recurso via SDK NET_DVR_FindFile_V40), substituição do curl externo por rede nativa Qt, compatibilidade timeout/stimeout entre FFmpeg 4.x e 5.0+, suporte MakeKeyFrameSub e correção da transição automática de Sub para Main.</translation></message><message><source>LNG_00584</source><translation>Os parâmetros do FFmpeg são geridos automaticamente pelo modo «Gravador remoto (WAN / NAT)».</translation></message><message><source>LNG_00587</source><translation>Altura da zona de ativação da barra superior (px)</translation></message><message><source>LNG_00585</source><translation>Quebra dinâmica de vistas em várias linhas na barra superior: A barra superior foi reconstruída para distribuir dinamicamente os botões de vistas e gravadores em várias linhas (layout Flow) consoante a largura da janela, com margem vertical, cantos arredondados uniformes sob a secção de vistas e rastreamento do ponteiro ao nível da janela.</translation></message><message><source>LNG_00586</source><translation>Barras de deslocamento verticais de alto contraste: Adicionada uma barra de deslocamento vertical bem visível à lista de gravadores no diálogo de estado do NVR e corrigido o posicionamento e visibilidade em todos os separadores de definições da barra lateral com contornos nítidos e destaque ciano.</translation></message><message><source>LNG_00590</source><translation>Tempo de persistência da barra superior (ms)</translation></message><message><source>LNG_00591</source><translation>Habilitar mesclagem e divisão de viewports</translation></message><message><source>LNG_00595</source><translation>Expansor de grade da barra superior e ajuste de ocultação automática: Substituído o interruptor de bloqueio de grade por um expansor chevron compacto com dicas de ferramentas de bloqueio/desbloqueio dinâmico, botões de tamanho de grade organizados em uma matriz 3x3 dentro de uma saliência de 4 linhas com o botão de opções na linha 1, botões de visualização predefinidos alinhados à direita e adição de altura da zona de acionamento da barra superior configurável (px) e atraso de persistência (ms, padrão 500 ms) sincronizados ao vivo entre janelas.</translation></message><message><source>LNG_00596</source><translation>Viewports mescladas persistentes e mesclagem/divisão de menu de contexto: intervalos de viewport mesclados preservados (savedColumnSpan/savedRowSpan) ao alternar entre grades maiores e menores (por exemplo, 4x4 -&gt; 2x2 -&gt; 4x4), corrigido um segfault de alocação de redimensionamento em ViewportsLayoutModel, adicionado suporte ergonômico de menu de contexto de clique com o botão direito para mesclagem (2x2 + submenu com visualização de célula ciano ao vivo e borda inteligente ancoragem) e divisão com um clique, além de um botão de alternância de configurações para ativá-lo/desativá-lo.</translation></message><message><source>LNG_00597</source><translation>Contextos de localização e automação de liberação de tags: Translate_ts.py atualizado para colocar automaticamente as chaves de tradução em seus contextos QML exatos, chaves recentes realocadas (LNG_00585 – LNG_00594) em todos os 23 idiomas e fluxos de trabalho de liberação de tags unificados para que versões v* aguardem as compilações do Debian/Ubuntu, AppImage e Windows e publiquem todos os ativos atomicamente.</translation></message><message><source>LNG_00598</source><translation>Correção imediata de persistência de configurações: Resolvida uma condição de corrida entre as configurações de QML (temporizador de 500 ms) e recarregamentos do inspetor de arquivo de configuração que poderia reverter "Desativar animação de zoom da janela de visualização" e outras opções de caixa de seleção de volta ao estado anterior do disco; persistiu todas as caixas de seleção da barra lateral e lockGridSize imediatamente por meio de Context.writeSetting(), restaurou as ligações reativas de CheckBox e liberou as configurações ao encerrar o aplicativo.</translation></message><message><source>LNG_00599</source><translation>Localização russa (PR #10): Adicionado catálogo de tradução de UI em russo (Русский (ИИ)) contribuído no PR #10 por @demon-5656, registrou-o em Context, SideBar e translate_ts.py, e traduziu todas as 30 strings pós-PR mais recentes (LNG_00569 – LNG_00598).</translation></message><message><source>LNG_00600</source><translation>Grupos de layouts</translation></message><message><source>LNG_00621</source><translation>Transparência do fundo da barra superior</translation></message><message><source>LNG_00622</source><translation>0% = fundo opaco, 100% = totalmente transparente</translation></message><message><source>LNG_00635</source><translation>Grupos de visualização e caixas da barra superior recolhíveis: Adicionada uma guia Grupos de layout para agrupar visualizações personalizadas, visualizações NVR e grades NVR em caixas de encaixe emolduradas com um ícone de rede, grupos vazios persistentes até serem excluídos, legendas de visualização ativa em botões de grupo recolhidos, alternadores de pinos da barra de título sincronizados com 'Recolhido por padrão', recolhimento automático ao clicar fora ou sair/recolher a barra superior e separadores de quebra de linha embutidos.</translation></message><message><source>LNG_00636</source><translation>Reordenação de arrastar e soltar sem interrupção de transmissão: Adicionada reordenação de arrastar e soltar ao vivo em predefinições e grupos de layout (sequência mestre da barra superior, ordem de grupo e membros do grupo), além de alternâncias 'Mostrar também como desagrupados', mantendo os fluxos de câmera ao vivo ativos funcionando de forma limpa e sincronizando em janelas auxiliares.</translation></message><message><source>LNG_00637</source><translation>Transparência e configurações da barra superior / UI da lista de câmeras NVR polonês: Adicionado um controle deslizante de transparência de fundo da barra superior ao vivo (0% -100%) sincronizado entre janelas, uma ação direta 'Salvar alterações' na edição NVR sem redescoberta obrigatória, raios de canto unificados em todas as guias Configurações e na janela da lista de câmeras NVR (incluindo botões de bloco e gerador de miniaturas), um ícone de cabeçalho de gravador NVR vetorial e documentação detalhada de grupos de visualização.</translation></message><message><source>LNG_00638</source><translation>Verificação de recursos e estabilidade: expansão/recolhimento de grupo dinâmico auditado, reordenação de visualização e caminhos de edição NVR para garantir pool de jogadores adequado e crescimento zero de memória.</translation></message><message><source>LNG_00641</source><translation>Restauração da visualização de inicialização e correção de visualizações ocultas: sempre restaura a última visualização ativa na inicialização sem substituir a seleção salva, evita estritamente a ativação ou proposta de visualizações ocultas (voltando para a primeira visualização visível ou nenhuma se todas estiverem ocultas) e muda para o controle de versão de patch (v2.7.10).</translation></message><message><source>LNG_00643</source><translation>Ative 'Adicionar câmera' no menu de contexto</translation></message><message><source>LNG_00649</source><translation>Reordenação de arrastar e soltar do gravador NVR, adicionar menu de contexto de câmera e seleção de layout em lote: Adicionada reordenação animada de arrastar e soltar para gravadores NVR em Configurações com espaçamento de separação ao vivo, sincronizado com o submenu 'Adicionar câmera' do botão direito do mouse na janela de visualização. Adicionada seleção múltipla de grade de câmera e adição em lote a layouts ativos com prioridade de slot vazio, geração automática de miniaturas com emblemas de progresso ao vivo, limpeza de exclusão de gravador em cascata e corridas de persistência de configurações de NVR resolvidas e criação de layout duplicado.</translation></message><message><source>LNG_00650</source><translation>Correção de travamento e portabilidade de inicialização de instalação limpa: corrigido um travamento de recursão de sincronização de configuração infinita (SIGSEGV) em novas instalações sem um arquivo de configuração existente, adiando notificações configFileChanged e sinalizadores de migração de formato AV persistentes antes de escrever opções, e removeu a dependência libavdevice não utilizada para que o KVision seja executado de forma limpa em distribuições Linux mínimas e ambientes AppImage sem libjack.</translation></message><message><source>LNG_00651</source><translation>AppImage: Corrigida a autenticação RTSP SHA-256 Digest com Hikvision NVRs (401 não autorizado)</translation></message></context>
+<message><source>LNG_00540</source><translation>URIs internos simplificados: Limpeza dos URIs internos hikvision:// removendo parâmetros desnecessários de porta e credenciais.</translation></message><message><source>LNG_00541</source><translation>Gestão de portas personalizadas: Corrigida a pesquisa de gravações HTTP ISAPI em portas personalizadas.</translation></message><message><source>LNG_00542</source><translation>Migração de URI: Adicionada migração automática na inicialização para limpar URIs hikvision:// antigos, removendo credenciais e portas da interface.</translation></message><message><source>LNG_00543</source><translation>Registos de diagnóstico: Adicionada opção nas configurações para gravar registos de diagnóstico detalhados do FFmpeg e QML em kvision_diagnostic.log.</translation></message><message><source>LNG_00544</source><translation>Correção de transmissão em direto em portas personalizadas: Corrigida a transmissão de vídeo em direto ao usar portas HTTP/RTSP personalizadas, adicionadas atualizações reativas de visualização e codificação de credenciais em URL.</translation></message><message><source>LNG_00545</source><translation>Arquitetura de descoberta ISAPI: Reformulação da descoberta de câmaras para verificar independentemente canais de IP Proxy, analógicos e de transmissão com negociação automática Digest/Basic.</translation></message><message><source>LNG_00546</source><translation>Relatório de memória na consola: Regista a quantidade exata de RAM devolvida ao kernel do sistema após cada libertação periódica de memória.</translation></message><message><source>LNG_00547</source><translation>Reformulação da tradução chinesa (zh_CN): Todas as mensagens da interface em chinês foram reescritas com terminologia profissional de videovigilância (PR #6 por @kunxiang1).</translation></message><message><source>LNG_00548</source><translation>Instalador Ubuntu/Debian e resolução de problemas: Adicionado script de instalação automática (tools/install_ubuntu.sh) e guia RTSP/QtMultimedia nos 22 manuais.</translation></message><message><source>LNG_00549</source><translation>Gerar registos de diagnóstico completos (requer reinício)</translation></message><message><source>LNG_00550</source><translation>Correções de estabilidade e transmissão: Alternância automática para descodificação por software quando a aceleração por hardware falha, correção da mudança de fluxo Auto/Sub para canais hikvision:// sem URL secundário, localização da opção de registos de diagnóstico, preservação de erros críticos QML no stderr e tipagem explícita do deleter AVDictionary em C++17.</translation></message><message><source>LNG_00551</source><translation>Importar/Exportar</translation></message><message><source>LNG_00552</source><translation>Faça backup e transfira seus gravadores, layouts de câmera e configurações de aplicativos perfeitamente entre Linux e Windows.</translation></message><message><source>LNG_00553</source><translation>Exportar configuração</translation></message><message><source>LNG_00554</source><translation>Salve as configurações atuais (gravadores, layouts de câmera, preferências) em um arquivo de configuração compatível com Linux e Windows.</translation></message><message><source>LNG_00555</source><translation>Exportar configurações para arquivo...</translation></message><message><source>LNG_00556</source><translation>Configuração de importação</translation></message><message><source>LNG_00557</source><translation>Carregue as configurações de um arquivo de configuração (.conf/.ini). Os caminhos de gravação de instantâneos e vídeos são automaticamente adaptados ao sistema operacional atual.</translation></message><message><source>LNG_00558</source><translation>Importar configurações do arquivo...</translation></message><message><source>LNG_00559</source><translation>Arquivo de configuração ativa</translation></message><message><source>LNG_00560</source><translation>Abra a pasta de configuração</translation></message><message><source>LNG_00561</source><translation>Configurações exportadas com sucesso para: %1</translation></message><message><source>LNG_00562</source><translation>Configurações importadas com sucesso de: %1</translation></message><message><source>LNG_00563</source><translation>Ocorreu um erro ao ler ou gravar o arquivo de configuração.</translation></message><message><source>LNG_00564</source><translation>Adicionado suporte para construção do aplicativo para Windows de 64 bits (PR #7, @kunxiang1). A nova guia de importação e exportação de configuração transfere arquivos de configuração entre Linux e Windows e ajusta os caminhos automaticamente (.conf / .ini). No Windows, a configuração é armazenada no formato INI (%APPDATA%\KVision\KVision.ini). Corrigida a barra inicial nos caminhos para as pastas de instantâneos e vídeos no Windows.</translation></message><message><source>LNG_00565</source><translation>Correção de transferência e conversão de arquivo: Resolvidas as falhas de conversão de .pspart para .mp4 no Windows incluindo o ffmpeg.exe no pacote, pipeline de conversão em 3 níveis (ffmpeg CLI com AAC, nova tentativa sem áudio -an e remuxer interno libavformat), leitura direta do tamanho NTFS e conclusão limpa antes do tempo limite do SDK.</translation></message><message><source>LNG_00566</source><translation>Correção da abertura de pastas de capturas: Corrigido o botão 'Procurar' no diálogo de captura rápida (SnapshotSavedDialog) e nas janelas de transferência/definições no Windows através de Context.openLocalFolder() com suporte nativo ao explorer.exe.</translation></message><message><source>LNG_00567</source><translation>Ícone do executável Windows e melhorias visuais: Incorporado o ícone multirresolução (kvision.ico) e metadados de versão (kvision.rc) no kvision.exe, e aperfeiçoado o estilo escuro Compact das caixas de seleção CheckBox.</translation></message><message><source>LNG_00568</source><translation>Correção do painel de estatísticas do sistema no Windows: adicionada monitorização nativa de CPU e RAM (Win32), deteção de janelas auxiliares e processos filhos via Toolhelp32, monitorização de GPU e VRAM via nvml.dll e contadores universais Windows PDH (NVIDIA, AMD, Intel) e estabilização da amostragem de rede (Mbps).</translation></message><message><source>LNG_00582</source><translation>Modo «Gravador remoto (WAN / NAT)» e verificador de portas: Adicionado teste integrado de portas TCP (SDK, RTSP, HTTP) e perfil de otimização WAN/NAT por gravador (buffers e tempos limite FFmpeg alargados, transporte TCP automático, fluxo Sub em grelha com mudança para Main ao ampliar, arranque escalonado e reconexão exponencial), além de diagnóstico OSD quando a porta RTSP está inacessível.</translation></message><message><source>LNG_00583</source><translation>Correções na deteção de câmaras e transmissão remota (Issue #9): Corrigida a deteção de canais analógicos (BNC/coaxial) e IP em DVRs híbridos e NVRs com porta HTTP fechada (mapeamento RTSP exato, nomes OSD via SDK e pesquisa de arquivo de recurso via SDK NET_DVR_FindFile_V40), substituição do curl externo por rede nativa Qt, compatibilidade timeout/stimeout entre FFmpeg 4.x e 5.0+, suporte MakeKeyFrameSub e correção da transição automática de Sub para Main.</translation></message><message><source>LNG_00584</source><translation>Os parâmetros do FFmpeg são geridos automaticamente pelo modo «Gravador remoto (WAN / NAT)».</translation></message><message><source>LNG_00587</source><translation>Altura da zona de ativação da barra superior (px)</translation></message><message><source>LNG_00585</source><translation>Quebra dinâmica de vistas em várias linhas na barra superior: A barra superior foi reconstruída para distribuir dinamicamente os botões de vistas e gravadores em várias linhas (layout Flow) consoante a largura da janela, com margem vertical, cantos arredondados uniformes sob a secção de vistas e rastreamento do ponteiro ao nível da janela.</translation></message><message><source>LNG_00586</source><translation>Barras de deslocamento verticais de alto contraste: Adicionada uma barra de deslocamento vertical bem visível à lista de gravadores no diálogo de estado do NVR e corrigido o posicionamento e visibilidade em todos os separadores de definições da barra lateral com contornos nítidos e destaque ciano.</translation></message><message><source>LNG_00590</source><translation>Tempo de persistência da barra superior (ms)</translation></message><message><source>LNG_00591</source><translation>Habilitar mesclagem e divisão de viewports</translation></message><message><source>LNG_00595</source><translation>Expansor de grade da barra superior e ajuste de ocultação automática: Substituído o interruptor de bloqueio de grade por um expansor chevron compacto com dicas de ferramentas de bloqueio/desbloqueio dinâmico, botões de tamanho de grade organizados em uma matriz 3x3 dentro de uma saliência de 4 linhas com o botão de opções na linha 1, botões de visualização predefinidos alinhados à direita e adição de altura da zona de acionamento da barra superior configurável (px) e atraso de persistência (ms, padrão 500 ms) sincronizados ao vivo entre janelas.</translation></message><message><source>LNG_00596</source><translation>Viewports mescladas persistentes e mesclagem/divisão de menu de contexto: intervalos de viewport mesclados preservados (savedColumnSpan/savedRowSpan) ao alternar entre grades maiores e menores (por exemplo, 4x4 -&gt; 2x2 -&gt; 4x4), corrigido um segfault de alocação de redimensionamento em ViewportsLayoutModel, adicionado suporte ergonômico de menu de contexto de clique com o botão direito para mesclagem (2x2 + submenu com visualização de célula ciano ao vivo e borda inteligente ancoragem) e divisão com um clique, além de um botão de alternância de configurações para ativá-lo/desativá-lo.</translation></message><message><source>LNG_00597</source><translation>Contextos de localização e automação de liberação de tags: Translate_ts.py atualizado para colocar automaticamente as chaves de tradução em seus contextos QML exatos, chaves recentes realocadas (LNG_00585 – LNG_00594) em todos os 23 idiomas e fluxos de trabalho de liberação de tags unificados para que versões v* aguardem as compilações do Debian/Ubuntu, AppImage e Windows e publiquem todos os ativos atomicamente.</translation></message><message><source>LNG_00598</source><translation>Correção imediata de persistência de configurações: Resolvida uma condição de corrida entre as configurações de QML (temporizador de 500 ms) e recarregamentos do inspetor de arquivo de configuração que poderia reverter "Desativar animação de zoom da janela de visualização" e outras opções de caixa de seleção de volta ao estado anterior do disco; persistiu todas as caixas de seleção da barra lateral e lockGridSize imediatamente por meio de Context.writeSetting(), restaurou as ligações reativas de CheckBox e liberou as configurações ao encerrar o aplicativo.</translation></message><message><source>LNG_00599</source><translation>Localização russa (PR #10): Adicionado catálogo de tradução de UI em russo (Русский (ИИ)) contribuído no PR #10 por @demon-5656, registrou-o em Context, SideBar e translate_ts.py, e traduziu todas as 30 strings pós-PR mais recentes (LNG_00569 – LNG_00598).</translation></message><message><source>LNG_00600</source><translation>Grupos de layouts</translation></message><message><source>LNG_00621</source><translation>Transparência do fundo da barra superior</translation></message><message><source>LNG_00622</source><translation>0% = fundo opaco, 100% = totalmente transparente</translation></message><message><source>LNG_00635</source><translation>Grupos de visualização e caixas da barra superior recolhíveis: Adicionada uma guia Grupos de layout para agrupar visualizações personalizadas, visualizações NVR e grades NVR em caixas de encaixe emolduradas com um ícone de rede, grupos vazios persistentes até serem excluídos, legendas de visualização ativa em botões de grupo recolhidos, alternadores de pinos da barra de título sincronizados com 'Recolhido por padrão', recolhimento automático ao clicar fora ou sair/recolher a barra superior e separadores de quebra de linha embutidos.</translation></message><message><source>LNG_00636</source><translation>Reordenação de arrastar e soltar sem interrupção de transmissão: Adicionada reordenação de arrastar e soltar ao vivo em predefinições e grupos de layout (sequência mestre da barra superior, ordem de grupo e membros do grupo), além de alternâncias 'Mostrar também como desagrupados', mantendo os fluxos de câmera ao vivo ativos funcionando de forma limpa e sincronizando em janelas auxiliares.</translation></message><message><source>LNG_00637</source><translation>Transparência e configurações da barra superior / UI da lista de câmeras NVR polonês: Adicionado um controle deslizante de transparência de fundo da barra superior ao vivo (0% -100%) sincronizado entre janelas, uma ação direta 'Salvar alterações' na edição NVR sem redescoberta obrigatória, raios de canto unificados em todas as guias Configurações e na janela da lista de câmeras NVR (incluindo botões de bloco e gerador de miniaturas), um ícone de cabeçalho de gravador NVR vetorial e documentação detalhada de grupos de visualização.</translation></message><message><source>LNG_00638</source><translation>Verificação de recursos e estabilidade: expansão/recolhimento de grupo dinâmico auditado, reordenação de visualização e caminhos de edição NVR para garantir pool de jogadores adequado e crescimento zero de memória.</translation></message><message><source>LNG_00641</source><translation>Restauração da visualização de inicialização e correção de visualizações ocultas: sempre restaura a última visualização ativa na inicialização sem substituir a seleção salva, evita estritamente a ativação ou proposta de visualizações ocultas (voltando para a primeira visualização visível ou nenhuma se todas estiverem ocultas) e muda para o controle de versão de patch (v2.7.10).</translation></message><message><source>LNG_00643</source><translation>Ative 'Adicionar câmera' no menu de contexto</translation></message><message><source>LNG_00649</source><translation>Reordenação de arrastar e soltar do gravador NVR, adicionar menu de contexto de câmera e seleção de layout em lote: Adicionada reordenação animada de arrastar e soltar para gravadores NVR em Configurações com espaçamento de separação ao vivo, sincronizado com o submenu 'Adicionar câmera' do botão direito do mouse na janela de visualização. Adicionada seleção múltipla de grade de câmera e adição em lote a layouts ativos com prioridade de slot vazio, geração automática de miniaturas com emblemas de progresso ao vivo, limpeza de exclusão de gravador em cascata e corridas de persistência de configurações de NVR resolvidas e criação de layout duplicado.</translation></message><message><source>LNG_00650</source><translation>Correção de travamento e portabilidade de inicialização de instalação limpa: corrigido um travamento de recursão de sincronização de configuração infinita (SIGSEGV) em novas instalações sem um arquivo de configuração existente, adiando notificações configFileChanged e sinalizadores de migração de formato AV persistentes antes de escrever opções, e removeu a dependência libavdevice não utilizada para que o KVision seja executado de forma limpa em distribuições Linux mínimas e ambientes AppImage sem libjack.</translation></message><message><source>LNG_00651</source><translation>AppImage: Corrigida a autenticação RTSP SHA-256 Digest com Hikvision NVRs (401 não autorizado)</translation></message></context>
     <context>
         <name>SideBarItem</name>
         <message>
@@ -4747,15 +4779,15 @@
         </message>
         <message>
             <source>LNG_00468</source>
-            <translation>Automático</translation>
+            <translation>Modo automático</translation>
         </message>
         <message>
             <source>LNG_00467</source>
-            <translation>Tylko PRINCIPAL</translation>
+            <translation>Apenas fluxo principal</translation>
         </message>
         <message>
             <source>LNG_00466</source>
-            <translation>Tylko SUB</translation>
+            <translation>Apenas subtransmissão</translation>
         </message>
         <message>
             <source>LNG_00465</source>
