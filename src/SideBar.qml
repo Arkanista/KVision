@@ -2175,6 +2175,14 @@ FocusScope {
                             anchors.margins: 4
                             spacing: 8
 
+                            Text {
+                                text: qsTr("LNG_00670")
+                                color: "#8898a6"
+                                font.pixelSize: 11
+                                wrapMode: Text.WordWrap
+                                Layout.fillWidth: true
+                            }
+
                             Repeater {
                                 model: rootSideBar.regularIndices
                                 delegate: ReorderableViewRow {
@@ -2250,6 +2258,14 @@ FocusScope {
                             anchors.margins: 4
                             spacing: 8
 
+                            Text {
+                                text: qsTr("LNG_00671")
+                                color: "#8898a6"
+                                font.pixelSize: 11
+                                wrapMode: Text.WordWrap
+                                Layout.fillWidth: true
+                            }
+
                             Repeater {
                                 model: rootSideBar.nvrIndices
                                 delegate: ReorderableViewRow {
@@ -2298,6 +2314,37 @@ FocusScope {
                             anchors.fill: parent
                             anchors.margins: 4
                             spacing: 8
+
+                            RowLayout {
+                                Layout.fillWidth: true
+                                spacing: 8
+
+                                Rectangle {
+                                    implicitWidth: recBadgeTxt.implicitWidth + 12
+                                    implicitHeight: 18
+                                    radius: 4
+                                    color: "#2e2214"
+                                    border.color: "#ff7a00"
+                                    border.width: 1
+
+                                    Text {
+                                        id: recBadgeTxt
+                                        anchors.centerIn: parent
+                                        text: qsTr("LNG_00672")
+                                        color: "#ff7a00"
+                                        font.pixelSize: 10
+                                        font.bold: true
+                                    }
+                                }
+
+                                Text {
+                                    text: qsTr("LNG_00673")
+                                    color: "#8898a6"
+                                    font.pixelSize: 11
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+                            }
 
                             Repeater {
                                 model: rootSideBar.nvrPresetIndices
