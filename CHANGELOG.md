@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.0] - 2026-11-23
+
+### New Features & Improvements
+* **Quick Camera Search (`Ctrl+F` / `Ctrl+S`):** Added a floating camera search window accessible from the top toolbar, the viewport context menu (*Add camera → Search...*), and `Ctrl+F` / `Ctrl+S`. Supports live filtering by camera name (custom or system), recorder name, and IP, showing thumbnails, assigned view names, and one-click actions to highlight the camera on layouts, open 1×1 archive playback, or assign it to the selected viewport.
+* **Custom Layout Badge Colors:** Added a *Color* picker in *Layouts* allowing each layout button on the top bar (as well as badges in *Layout Groups* and search results) to use a custom accent color.
+* **User Interface Sub-Tab & Badge Font Size:** Moved *Context Menu Settings* and *User Interface Settings* into a dedicated *User Interface* sub-tab under *Settings*, added a *Viewport info badge font size* (`1–72 px`) option applied to both live and archive viewports, and unified option label font sizes.
+* **Archive & Context Menu Polish:** Updated the archive window top bar to respect the *Top bar background transparency* setting, modernized the `+` button in the archive camera list, and added icons to all items in the viewport right-click menu.
+
 ## [2.7.14] - 2026-11-22
 
 ### Localization & Bug Fixes

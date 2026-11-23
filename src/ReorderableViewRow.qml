@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
+import QtQuick.Dialogs 1.3 as QuickDialogs
 import CCTV_Viewer.Themes 1.0
 
 Item {
@@ -218,6 +219,185 @@ Item {
                 font.bold: true
                 elide: Text.ElideRight
                 horizontalAlignment: Text.AlignHCenter
+            }
+        }
+
+        // Color button
+        Button {
+            id: colorBtn
+            implicitHeight: 28
+            implicitWidth: colorBtnRow.implicitWidth + 16
+            onClicked: {
+                if (colorPopup.opened) {
+                    colorPopup.close();
+                } else {
+                    colorPopup.open();
+                }
+            }
+            contentItem: Row {
+                id: colorBtnRow
+                spacing: 6
+                anchors.centerIn: parent
+                Rectangle {
+                    width: 12
+                    height: 12
+                    radius: 3
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: (root.layout && root.layout.badgeColor && root.layout.badgeColor !== "") ? root.layout.badgeColor : "#00f5d4"
+                    border.color: "#ffffff"
+                    border.width: (root.layout && root.layout.badgeColor && root.layout.badgeColor !== "") ? 1 : 0
+                    opacity: (root.layout && root.layout.badgeColor && root.layout.badgeColor !== "") ? 1.0 : 0.45
+                }
+                Text {
+                    text: qsTr("LNG_00660")
+                    font.pixelSize: 10
+                    font.bold: true
+                    color: colorBtn.hovered ? "#00f5d4" : "#cfd8dc"
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
+            background: Rectangle {
+                color: colorBtn.pressed ? "#cc121214" : (colorBtn.hovered ? "#2a3540" : "#1c242c")
+                radius: 6
+                border.color: (root.layout && root.layout.badgeColor && root.layout.badgeColor !== "") ? root.layout.badgeColor : (colorBtn.hovered ? "#00f5d4" : "#2a3540")
+                border.width: 1
+            }
+
+            Popup {
+                id: colorPopup
+                parent: Overlay.overlay
+                anchors.centerIn: parent
+                modal: true
+                focus: true
+                padding: 12
+                closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+
+                background: Rectangle {
+                    color: "#151d24"
+                    border.color: "#2a3540"
+                    border.width: 1
+                    radius: 8
+                }
+
+                contentItem: ColumnLayout {
+                    spacing: 10
+
+                    Text {
+                        text: qsTr("LNG_00660")
+                        color: "#00f5d4"
+                        font.pixelSize: 12
+                        font.bold: true
+                    }
+
+                    GridLayout {
+                        columns: 6
+                        rowSpacing: 8
+                        columnSpacing: 8
+
+                        Repeater {
+                            model: [
+                                "#00f5d4", "#ff7a00", "#2ecc71", "#3498db", "#9b59b6", "#e74c3c",
+                                "#f1c40f", "#e91e63", "#1abc9c", "#ff5252", "#7f8c8d", "#ffffff"
+                            ]
+                            delegate: Rectangle {
+                                width: 28
+                                height: 28
+                                radius: 6
+                                color: modelData
+                                border.color: (root.layout && root.layout.badgeColor === modelData) ? "#ffffff" : (swatchMouse.containsMouse ? "#00f5d4" : "#2a3540")
+                                border.width: (root.layout && root.layout.badgeColor === modelData) ? 2 : 1
+
+                                MouseArea {
+                                    id: swatchMouse
+                                    anchors.fill: parent
+                                    hoverEnabled: true
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: {
+                                        if (root.layout) {
+                                            root.layout.badgeColor = modelData;
+                                            if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.rebuildTopBarEntries) {
+                                                rootWindow.rebuildTopBarEntries();
+                                            }
+                                        }
+                                        colorPopup.close();
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: 8
+
+                        Button {
+                            Layout.fillWidth: true
+                            implicitHeight: 28
+                            text: qsTr("LNG_00661")
+                            contentItem: Text {
+                                text: parent.text
+                                color: "#cfd8dc"
+                                font.pixelSize: 11
+                                font.bold: true
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            background: Rectangle {
+                                color: parent.hovered ? "#2a3540" : "#1c242c"
+                                border.color: "#2a3540"
+                                border.width: 1
+                                radius: 4
+                            }
+                            onClicked: {
+                                if (root.layout) {
+                                    root.layout.badgeColor = "";
+                                    if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.rebuildTopBarEntries) {
+                                        rootWindow.rebuildTopBarEntries();
+                                    }
+                                }
+                                colorPopup.close();
+                            }
+                        }
+
+                        Button {
+                            Layout.fillWidth: true
+                            implicitHeight: 28
+                            text: qsTr("LNG_00662")
+                            contentItem: Text {
+                                text: parent.text
+                                color: "#00f5d4"
+                                font.pixelSize: 11
+                                font.bold: true
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            background: Rectangle {
+                                color: parent.hovered ? "#2a3540" : "#1c242c"
+                                border.color: "#00f5d4"
+                                border.width: 1
+                                radius: 4
+                            }
+                            onClicked: {
+                                customColorDialog.color = (root.layout && root.layout.badgeColor && root.layout.badgeColor !== "") ? root.layout.badgeColor : "#00f5d4";
+                                colorPopup.close();
+                                customColorDialog.open();
+                            }
+                        }
+                    }
+                }
+            }
+
+            QuickDialogs.ColorDialog {
+                id: customColorDialog
+                title: qsTr("LNG_00660")
+                onAccepted: {
+                    if (root.layout) {
+                        root.layout.badgeColor = String(customColorDialog.color);
+                        if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.rebuildTopBarEntries) {
+                            rootWindow.rebuildTopBarEntries();
+                        }
+                    }
+                }
             }
         }
 

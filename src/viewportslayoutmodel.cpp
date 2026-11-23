@@ -293,6 +293,11 @@ void ViewportsLayoutModel::fromJSValue(const QVariantMap &model)
     if (model.contains("visible")) {
         setVisible(model.value("visible").toBool());
     }
+    if (model.contains("badgeColor")) {
+        setBadgeColor(model.value("badgeColor").toString().trimmed());
+    } else {
+        setBadgeColor(QString());
+    }
 
     if (model.contains("size")) {
         val = model.value("size");
@@ -376,6 +381,7 @@ QVariantMap ViewportsLayoutModel::toJSValue() const
     model["groups"] = groups();
     model["showUngrouped"] = showUngrouped();
     model["visible"] = visible();
+    model["badgeColor"] = badgeColor();
     model["items"] = items;
 
     return model;

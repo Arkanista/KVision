@@ -87,6 +87,8 @@ Item {
         visible: !root.isGroup
         layoutIndex: (!root.isGroup && root.entry) ? root.entry.layoutIndex : -1
         showNvrIcon: (!root.isGroup && root.entry) ? !!root.entry.showNvrIcon : false
+        badgeColor: (!root.isGroup && root.entry && root.entry.badgeColor) ? String(root.entry.badgeColor) : ""
+        isSearchHighlighted: (typeof rootWindow !== "undefined" && rootWindow && rootWindow.highlightedLayoutIndices) ? (rootWindow.highlightedLayoutIndices.indexOf(layoutIndex) !== -1) : false
         isActive: root.currentLayoutIndex === layoutIndex
         text: (!root.isGroup && root.entry) ? root.entry.label : ""
         buttonHeight: 30
@@ -140,13 +142,42 @@ Item {
             }
         }
 
+        readonly property bool groupHasSearchHighlight: {
+            if (!root.isGroup || typeof rootWindow === "undefined" || !rootWindow || !rootWindow.highlightedLayoutIndices || rootWindow.highlightedLayoutIndices.length === 0) {
+                return false;
+            }
+            for (var i = 0; i < root.groupItems.length; ++i) {
+                if (rootWindow.highlightedLayoutIndices.indexOf(root.groupItems[i].layoutIndex) !== -1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         background: Rectangle {
             radius: 15
             color: groupBoxFrame.groupHasActive
                    ? (collapsedPill.hovered ? "#1b3a44" : "#152d36")
                    : (collapsedPill.hovered ? "#2a3846" : "#172028")
-            border.color: groupBoxFrame.groupHasActive ? "#00f5d4" : (collapsedPill.hovered ? "#ff9e00" : "#5e7f99")
-            border.width: 1
+            border.color: collapsedPill.groupHasSearchHighlight ? "#00f5d4" : (groupBoxFrame.groupHasActive ? "#00f5d4" : (collapsedPill.hovered ? "#ff9e00" : "#5e7f99"))
+            border.width: collapsedPill.groupHasSearchHighlight ? 2 : 1
+
+            Rectangle {
+                visible: collapsedPill.groupHasSearchHighlight
+                anchors.fill: parent
+                anchors.margins: -4
+                radius: 19
+                color: "transparent"
+                border.color: "#00f5d4"
+                border.width: 2
+
+                SequentialAnimation on opacity {
+                    running: collapsedPill.groupHasSearchHighlight
+                    loops: Animation.Infinite
+                    NumberAnimation { from: 0.95; to: 0.20; duration: 420; easing.type: Easing.InOutQuad }
+                    NumberAnimation { from: 0.20; to: 0.95; duration: 420; easing.type: Easing.InOutQuad }
+                }
+            }
         }
 
         onClicked: {
@@ -420,6 +451,8 @@ Item {
                 delegate: TopBarViewButton {
                     layoutIndex: modelData.layoutIndex
                     showNvrIcon: !!modelData.showNvrIcon
+                    badgeColor: modelData.badgeColor ? String(modelData.badgeColor) : ""
+                    isSearchHighlighted: (typeof rootWindow !== "undefined" && rootWindow && rootWindow.highlightedLayoutIndices) ? (rootWindow.highlightedLayoutIndices.indexOf(layoutIndex) !== -1) : false
                     isActive: root.currentLayoutIndex === layoutIndex
                     text: modelData.label
                     buttonHeight: 30

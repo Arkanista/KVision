@@ -113,6 +113,11 @@ Window {
         onActivated: rootWindow.openAuxiliaryWindow()
     }
 
+    Shortcut {
+        sequences: ["Ctrl+F", "Ctrl+S"]
+        onActivated: rootWindow.toggleCameraSearchWindow()
+    }
+
     // Viewports Grid or Placeholder (fills the window)
     Item {
         anchors.fill: parent

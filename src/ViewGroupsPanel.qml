@@ -122,7 +122,8 @@ ColumnLayout {
                     layout: layout,
                     label: layoutLabelFor(i, layout),
                     kind: layoutCategoryKind(layout),
-                    isVisibleInBar: !!layout.visible
+                    isVisibleInBar: !!layout.visible,
+                    badgeColor: layout.badgeColor ? String(layout.badgeColor) : ""
                 });
             }
         }
@@ -161,7 +162,8 @@ ColumnLayout {
                         uid: uid,
                         layoutIndex: i,
                         label: layoutLabelFor(i, layout),
-                        kind: layoutCategoryKind(layout)
+                        kind: layoutCategoryKind(layout),
+                        badgeColor: layout.badgeColor ? String(layout.badgeColor) : ""
                     };
                     ungroupedMap[tok] = uObj;
                     ungroupedList.push(uObj);
@@ -888,10 +890,12 @@ ColumnLayout {
                             height: 28
                             radius: 6
                             opacity: isBeingDragged ? 0.35 : 1.0
+                            readonly property bool hasCustomBadgeColor: !isGroupToken && !isSeparatorToken && entryData && entryData.badgeColor && entryData.badgeColor !== ""
+                            readonly property color customBadgeQColor: hasCustomBadgeColor ? entryData.badgeColor : "#00f5d4"
                             color: isDropTarget
                                    ? (isSeparatorToken ? "#3e2759" : (isGroupToken ? "#332517" : "#1d3340"))
-                                   : (isSeparatorToken ? "#221a30" : (isGroupToken ? "#211c17" : "#1b2834"))
-                            border.color: isDropTarget ? "#ffffff" : (isSeparatorToken ? "#c084fc" : (isGroupToken ? "#ff7a00" : "#4f738e"))
+                                   : (isSeparatorToken ? "#221a30" : (isGroupToken ? "#211c17" : (hasCustomBadgeColor ? Qt.tint("#1b2834", Qt.rgba(customBadgeQColor.r, customBadgeQColor.g, customBadgeQColor.b, 0.24)) : "#1b2834")))
+                            border.color: isDropTarget ? "#ffffff" : (isSeparatorToken ? "#c084fc" : (isGroupToken ? "#ff7a00" : (hasCustomBadgeColor ? entryData.badgeColor : "#4f738e")))
                             border.width: 1
 
                             transform: Translate {
@@ -1514,6 +1518,9 @@ ColumnLayout {
                                         property string kind: modelData.kind
                                         property int chipListIdx: index
                                         property int layoutIdx: modelData.layoutIndex
+                                        property string badgeColor: modelData.badgeColor ? String(modelData.badgeColor) : ""
+                                        readonly property bool hasCustomBadgeColor: badgeColor !== ""
+                                        readonly property color customBadgeQColor: hasCustomBadgeColor ? badgeColor : "#00f5d4"
                                         readonly property bool isBeingDragged: chipDragState.sourceListIdx === chipListIdx
                                         readonly property bool isDropTarget: chipDragState.targetListIdx === chipListIdx && chipDragState.sourceListIdx !== chipListIdx && chipDragState.sourceListIdx !== -1
                                         readonly property bool dropLeft: isDropTarget && chipDragState.sourceListIdx > chipListIdx
@@ -1534,8 +1541,8 @@ ColumnLayout {
                                         height: 28
                                         radius: 6
                                         opacity: isBeingDragged ? 0.35 : 1.0
-                                        color: isDropTarget ? "#1d3340" : "#1b2834"
-                                        border.color: isDropTarget ? "#ffffff" : "#00f5d4"
+                                        color: isDropTarget ? "#1d3340" : (hasCustomBadgeColor ? Qt.tint("#1b2834", Qt.rgba(customBadgeQColor.r, customBadgeQColor.g, customBadgeQColor.b, 0.24)) : "#1b2834")
+                                        border.color: isDropTarget ? "#ffffff" : (hasCustomBadgeColor ? badgeColor : "#00f5d4")
                                         border.width: 1
 
                                         transform: Translate {

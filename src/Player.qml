@@ -1189,14 +1189,14 @@ FocusScope {
                     }
                     color: root.activeIsSubStream && !root.isQuickPlayback ? "#ff7a00" : "#00f5d4"
                     font {
-                        pixelSize: 8
+                        pixelSize: typeof viewSettings !== "undefined" ? viewSettings.viewportBadgeFontSize : 8
                         bold: true
                     }
                 }
                 
                 Rectangle {
                     width: 1
-                    height: 7
+                    height: Math.max(7, (typeof viewSettings !== "undefined" ? viewSettings.viewportBadgeFontSize : 8) - 1)
                     color: root.activeIsSubStream && !root.isQuickPlayback ? "#44ff7a00" : "#4400f5d4"
                     anchors.verticalCenter: parent.verticalCenter
                 }
@@ -1206,7 +1206,7 @@ FocusScope {
                     text: root.quickPlaybackSpeed + "x"
                     color: "#ff7a00"
                     font {
-                        pixelSize: 8
+                        pixelSize: typeof viewSettings !== "undefined" ? viewSettings.viewportBadgeFontSize : 8
                         bold: true
                     }
                 }
@@ -1214,7 +1214,7 @@ FocusScope {
                 Rectangle {
                     visible: root.isQuickPlayback
                     width: 1
-                    height: 7
+                    height: Math.max(7, (typeof viewSettings !== "undefined" ? viewSettings.viewportBadgeFontSize : 8) - 1)
                     color: "#44ff7a00"
                     anchors.verticalCenter: parent.verticalCenter
                 }
@@ -1237,14 +1237,14 @@ FocusScope {
                     }
                     color: "#eeeeee"
                     font {
-                        pixelSize: 8
+                        pixelSize: typeof viewSettings !== "undefined" ? viewSettings.viewportBadgeFontSize : 8
                         bold: true
                     }
                 }
                 
                 Rectangle {
                     width: 1
-                    height: 7
+                    height: Math.max(7, (typeof viewSettings !== "undefined" ? viewSettings.viewportBadgeFontSize : 8) - 1)
                     color: root.activeIsSubStream && !root.isQuickPlayback ? "#44ff7a00" : "#4400f5d4"
                     anchors.verticalCenter: parent.verticalCenter
                     visible: root.isQuickPlayback ? false : (!root.isHikvision || hikPlayerSettings.useRealStreams)
@@ -1254,7 +1254,7 @@ FocusScope {
                     text: bitrateTimer.bitrateText
                     color: "#eeeeee"
                     font {
-                        pixelSize: 8
+                        pixelSize: typeof viewSettings !== "undefined" ? viewSettings.viewportBadgeFontSize : 8
                     }
                     visible: root.isQuickPlayback ? false : (!root.isHikvision || hikPlayerSettings.useRealStreams)
                 }
@@ -1291,7 +1291,7 @@ FocusScope {
                 text: root.cameraNameInfo
                 color: "#eeeeee"
                 font {
-                    pixelSize: 8
+                    pixelSize: typeof viewSettings !== "undefined" ? viewSettings.viewportBadgeFontSize : 8
                     bold: true
                 }
             }

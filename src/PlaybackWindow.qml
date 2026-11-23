@@ -603,42 +603,49 @@ Window {
         loadRecordersList();
         
         if (recorderInfo) {
-            var recName = recorderInfo.name || recorderInfo.ip;
-            
-            // Register to pendingInitialSeek
-            var initialSeekKey = recorderInfo.ip + "_" + playbackWindow.channelId;
-            var tempSeek = {};
-            tempSeek[initialSeekKey] = true;
-            pendingInitialSeek = tempSeek;
-
-            var camItem = {
-                "ip": recorderInfo.ip,
-                "port": recorderInfo.sdkPort || recorderInfo.port || 8000,
-                "sdkPort": recorderInfo.sdkPort || recorderInfo.port || 8000,
-                "httpPort": recorderInfo.httpPort || (recorderInfo.port == 8000 ? 80 : recorderInfo.port) || 80,
-                "rtspPort": recorderInfo.rtspPort || 554,
-                "username": recorderInfo.username,
-                "password": recorderInfo.password,
-                "channelId": playbackWindow.channelId,
-                "cameraName": playbackWindow.cameraName,
-                "recorderName": recName
-            };
-
-            activePlayersList = [camItem];
-            // Single-camera open: force 1×1 layout so the grid button matches reality
-            gridLayoutColumns = 1;
-            gridLayoutRows = 1;
-            
-            playbackWindow.isPlaying = true
-            
-            startFastSeekSearch(camItem);
-            searchRecordingsForDate(currentDate)
+            loadSingleCamera(recorderInfo, playbackWindow.channelId, playbackWindow.cameraName);
         } else {
             // When opened empty, pad the active players list to grid size with nulls
             resizeActivePlayersList(gridLayoutColumns * gridLayoutRows);
             // Auto-start playing so newly added cameras play instantly
             playbackWindow.isPlaying = true
         }
+    }
+
+    function loadSingleCamera(recInfo, chId, camName) {
+        if (!recInfo) return;
+        stopAllPlayers();
+        playbackWindow.recorderInfo = recInfo;
+        playbackWindow.channelId = chId;
+        playbackWindow.cameraName = camName;
+
+        var recName = recInfo.name || recInfo.ip;
+        var initialSeekKey = recInfo.ip + "_" + chId;
+        var tempSeek = {};
+        tempSeek[initialSeekKey] = true;
+        pendingInitialSeek = tempSeek;
+
+        var camItem = {
+            "ip": recInfo.ip,
+            "port": recInfo.sdkPort || recInfo.port || 8000,
+            "sdkPort": recInfo.sdkPort || recInfo.port || 8000,
+            "httpPort": recInfo.httpPort || (recInfo.port == 8000 ? 80 : recInfo.port) || 80,
+            "rtspPort": recInfo.rtspPort || 554,
+            "username": recInfo.username,
+            "password": recInfo.password,
+            "channelId": chId,
+            "cameraName": camName,
+            "recorderName": recName
+        };
+
+        selectedPlayerIndex = 0;
+        gridLayoutColumns = 1;
+        gridLayoutRows = 1;
+        activePlayersList = [camItem];
+        playbackWindow.isPlaying = true;
+
+        startFastSeekSearch(camItem);
+        searchRecordingsForDate(currentDate);
     }
 
     onClosing: {
@@ -1703,36 +1710,39 @@ Window {
                                              }
 
                                              // Dedicated "+" button to add camera to selected viewport in the grid
-                                             Rectangle {
+                                             Button {
                                                  id: addButton
-                                                 width: 24
-                                                 height: 24
-                                                 radius: 12
-                                                 color: addButtonMouseArea.pressed ? "#00806f" : (addButtonMouseArea.containsMouse ? "#00bfa5" : "#00f5d4")
-                                                 border.color: color
-                                                 border.width: 1
+                                                 Layout.preferredWidth: 28
+                                                 Layout.preferredHeight: 28
                                                  Layout.alignment: Qt.AlignVCenter
                                                  Layout.rightMargin: 6
 
-                                                 Text {
-                                                     text: "+"
-                                                     color: "#121214"
-                                                     font.pixelSize: 14
-                                                     font.bold: true
+                                                 contentItem: Image {
                                                      anchors.centerIn: parent
-                                                     anchors.verticalCenterOffset: -1 // Visually center the plus character
+                                                     width: 15
+                                                     height: 15
+                                                     source: {
+                                                         var colorStr = addButton.hovered ? "%2300ff66" : "%238898a6";
+                                                         return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='12' y1='5' x2='12' y2='19'></line><line x1='5' y1='12' x2='19' y2='12'></line></svg>";
+                                                     }
                                                  }
 
-                                                 MouseArea {
-                                                     id: addButtonMouseArea
-                                                     anchors.fill: parent
-                                                     hoverEnabled: true
-                                                     cursorShape: Qt.PointingHandCursor
-                                                     onClicked: {
-                                                         addCameraToGrid(parentRecorder, modelData);
-                                                     }
-                                                 }               
-                                            }
+                                                 background: Rectangle {
+                                                     color: addButton.pressed ? "#cc121214" : (addButton.hovered ? "#3a4550" : "#d51c242c")
+                                                     radius: 6
+                                                     border.color: addButton.hovered ? "#00ff66" : "#2a3540"
+                                                     border.width: 1
+                                                 }
+
+                                                 onClicked: {
+                                                     addCameraToGrid(parentRecorder, modelData);
+                                                 }
+
+                                                 ToolTip.delay: Compact.toolTipDelay
+                                                 ToolTip.timeout: Compact.toolTipTimeout
+                                                 ToolTip.visible: addButton.hovered
+                                                 ToolTip.text: qsTr("LNG_00068")
+                                             }
                                         }
                                     }
                                 }
@@ -2715,14 +2725,14 @@ Window {
                                             text: modelData ? (modelData.cameraName + " (" + modelData.recorderName + " CH " + (modelData.channelId < 10 ? "0" + modelData.channelId : modelData.channelId) + ")") : ""
                                             color: (index === selectedPlayerIndex) ? "#00f5d4" : "#eeeeee"
                                             font {
-                                                pixelSize: 8
+                                                pixelSize: (typeof rootWindow !== "undefined" && rootWindow && rootWindow.viewSettings) ? rootWindow.viewSettings.viewportBadgeFontSize : 8
                                                 bold: true
                                             }
                                         }
                                         
                                         Rectangle {
                                             width: 1
-                                            height: 7
+                                            height: Math.max(7, ((typeof rootWindow !== "undefined" && rootWindow && rootWindow.viewSettings) ? rootWindow.viewSettings.viewportBadgeFontSize : 8) - 1)
                                             color: (index === selectedPlayerIndex) ? "#4400f5d4" : "#448898a6"
                                             Layout.alignment: Qt.AlignVCenter
                                         }
@@ -2731,7 +2741,7 @@ Window {
                                             text: (playerItem ? playerItem.fps : 0) + " FPS | HikSDK"
                                             color: "#eeeeee"
                                             font {
-                                                pixelSize: 8
+                                                pixelSize: (typeof rootWindow !== "undefined" && rootWindow && rootWindow.viewSettings) ? rootWindow.viewSettings.viewportBadgeFontSize : 8
                                                 bold: true
                                             }
                                         }
@@ -2770,7 +2780,7 @@ Window {
                                         }
                                         color: "#00ff66"
                                         font {
-                                            pixelSize: 11
+                                            pixelSize: (typeof rootWindow !== "undefined" && rootWindow && rootWindow.viewSettings) ? rootWindow.viewSettings.viewportBadgeFontSize : 11
                                             bold: true
                                         }
                                     }
@@ -3623,7 +3633,7 @@ Window {
         height: 56
         width: topRowLayout.implicitWidth + 24
         anchors.horizontalCenter: parent.horizontalCenter
-        color: (playbackWindow.visibility === Window.FullScreen) ? "#44121214" : "#99121214"
+        color: Qt.rgba(0x12 / 255.0, 0x12 / 255.0, 0x14 / 255.0, Math.max(0.0, Math.min(1.0, (100 - ((typeof rootWindow !== "undefined" && rootWindow) ? rootWindow.liveTopBarBgTransparency : 40)) / 100.0)))
         z: 9999
         radius: 12
 

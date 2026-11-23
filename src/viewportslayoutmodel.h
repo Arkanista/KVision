@@ -59,6 +59,7 @@ class ViewportsLayoutModel : public QAbstractListModel
     QMLAV_PROPERTY(QStringList, groups, setGroups, groupsChanged) = {};
     QMLAV_PROPERTY(bool, showUngrouped, setShowUngrouped, showUngroupedChanged) = true;
     QMLAV_PROPERTY(bool, visible, setVisible, visibleChanged) = true;
+    QMLAV_PROPERTY(QString, badgeColor, setBadgeColor, badgeColorChanged) = "";
 
 public:
     explicit ViewportsLayoutModel(QObject *parent = nullptr);

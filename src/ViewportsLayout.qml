@@ -828,6 +828,26 @@ FocusScope {
                         ]
                     }
 
+                    // Search highlight frame (pulsing glowing border when located from CameraSearchWindow)
+                    Rectangle {
+                        id: searchHighlightFrame
+                        anchors.fill: parent
+                        z: 25
+                        readonly property bool isHighlighted: (typeof rootWindow !== "undefined" && rootWindow && rootWindow.highlightedCameraUrl !== "")
+                                                              && (String(model.url || "").trim() === rootWindow.highlightedCameraUrl || String(model.secondaryUrl || "").trim() === rootWindow.highlightedCameraUrl)
+                        visible: isHighlighted
+                        color: "#1800f5d4"
+                        border.color: "#00f5d4"
+                        border.width: 3
+
+                        SequentialAnimation on opacity {
+                            running: searchHighlightFrame.visible
+                            loops: Animation.Infinite
+                            NumberAnimation { from: 1.0; to: 0.35; duration: 420; easing.type: Easing.InOutQuad }
+                            NumberAnimation { from: 0.35; to: 1.0; duration: 420; easing.type: Easing.InOutQuad }
+                        }
+                    }
+
                     Item {
                         id: dragDummyViewport
                         width: 1; height: 1
@@ -989,32 +1009,47 @@ FocusScope {
                         }
                         
                         background: Rectangle {
-                            implicitWidth: 160
+                            id: contextMenuBg
+                            implicitWidth: 165
                             color: "#151d24"
                             border.color: "#ff7a00"
                             border.width: 1
                             radius: 6
                         }
+
+                        function menuIconSvg(svgBody, colorHex) {
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + encodeURIComponent(colorHex) + "' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'>" + svgBody + "</svg>";
+                        }
                         
                         MenuItem {
+                            id: swapMenuItem
                             text: qsTr("LNG_00475")
                             visible: generalSettings.allowSwappingViewports
                             enabled: model.url !== ""
                             leftPadding: 12
                             
-                            contentItem: Text {
-                                text: parent.text
-                                font {
-                                    pixelSize: 11
-                                    bold: true
+                            contentItem: RowLayout {
+                                spacing: 8
+                                Image {
+                                    Layout.preferredWidth: 13
+                                    Layout.preferredHeight: 13
+                                    source: contextMenu.menuIconSvg("<polyline points='16 3 21 3 21 8'/><line x1='4' y1='20' x2='21' y2='3'/><polyline points='21 16 21 21 16 21'/><line x1='15' y1='15' x2='21' y2='21'/><line x1='4' y1='4' x2='9' y2='9'/>", swapMenuItem.enabled ? (swapMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
                                 }
-                                color: parent.enabled ? (parent.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
-                                horizontalAlignment: Text.AlignLeft
-                                verticalAlignment: Text.AlignVCenter
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: swapMenuItem.text
+                                    font {
+                                        pixelSize: 11
+                                        bold: true
+                                    }
+                                    color: swapMenuItem.enabled ? (swapMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
                             }
                             
                             background: Rectangle {
-                                implicitWidth: 150
+                                implicitWidth: 165
                                 implicitHeight: 32
                                 color: parent.hovered ? "#2a3540" : "transparent"
                                 border.color: parent.hovered ? "#00f5d4" : "transparent"
@@ -1052,6 +1087,11 @@ FocusScope {
 
                             contentItem: RowLayout {
                                 spacing: 8
+                                Image {
+                                    Layout.preferredWidth: 13
+                                    Layout.preferredHeight: 13
+                                    source: contextMenu.menuIconSvg("<path d='M23 7l-7 5 7 5V7z'/><rect x='1' y='5' width='15' height='14' rx='2' ry='2'/><line x1='8.5' y1='9' x2='8.5' y2='15'/><line x1='5.5' y1='12' x2='11.5' y2='12'/>", addCameraMenuItem.enabled ? (addCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                }
                                 Text {
                                     Layout.fillWidth: true
                                     text: addCameraMenuItem.text
@@ -1077,7 +1117,7 @@ FocusScope {
                             }
 
                             background: Rectangle {
-                                implicitWidth: 150
+                                implicitWidth: 165
                                 implicitHeight: 32
                                 color: addCameraMenuItem.hovered ? "#2a3540" : "transparent"
                                 border.color: addCameraMenuItem.hovered ? "#00f5d4" : "transparent"
@@ -1111,6 +1151,11 @@ FocusScope {
                             
                             contentItem: RowLayout {
                                 spacing: 8
+                                Image {
+                                    Layout.preferredWidth: 13
+                                    Layout.preferredHeight: 13
+                                    source: contextMenu.menuIconSvg("<polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/>", streamSelectMenuItem.enabled ? (streamSelectMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                }
                                 Text {
                                     Layout.fillWidth: true
                                     text: streamSelectMenuItem.text
@@ -1136,7 +1181,7 @@ FocusScope {
                             }
                             
                             background: Rectangle {
-                                implicitWidth: 150
+                                implicitWidth: 165
                                 implicitHeight: 32
                                 color: streamSelectMenuItem.hovered ? "#2a3540" : "transparent"
                                 border.color: streamSelectMenuItem.hovered ? "#00f5d4" : "transparent"
@@ -1164,19 +1209,28 @@ FocusScope {
                             enabled: model.url !== ""
                             leftPadding: 12
                             
-                            contentItem: Text {
-                                text: removeCameraMenuItem.text
-                                font {
-                                    pixelSize: 11
-                                    bold: true
+                            contentItem: RowLayout {
+                                spacing: 8
+                                Image {
+                                    Layout.preferredWidth: 13
+                                    Layout.preferredHeight: 13
+                                    source: contextMenu.menuIconSvg("<polyline points='3 6 5 6 21 6'/><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'/>", removeCameraMenuItem.enabled ? (removeCameraMenuItem.hovered ? "#ff3333" : "#eeeeee") : "#555555")
                                 }
-                                color: removeCameraMenuItem.enabled ? (removeCameraMenuItem.hovered ? "#ff3333" : "#eeeeee") : "#555555"
-                                horizontalAlignment: Text.AlignLeft
-                                verticalAlignment: Text.AlignVCenter
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: removeCameraMenuItem.text
+                                    font {
+                                        pixelSize: 11
+                                        bold: true
+                                    }
+                                    color: removeCameraMenuItem.enabled ? (removeCameraMenuItem.hovered ? "#ff3333" : "#eeeeee") : "#555555"
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
                             }
                             
                             background: Rectangle {
-                                implicitWidth: 150
+                                implicitWidth: 165
                                 implicitHeight: 32
                                 color: removeCameraMenuItem.hovered ? "#2a3540" : "transparent"
                                 border.color: removeCameraMenuItem.hovered ? "#ff3333" : "transparent"
@@ -1205,19 +1259,28 @@ FocusScope {
                             enabled: model.url !== ""
                             leftPadding: 12
                             
-                            contentItem: Text {
-                                text: changeSettingsMenuItem.text
-                                font {
-                                    pixelSize: 11
-                                    bold: true
+                            contentItem: RowLayout {
+                                spacing: 8
+                                Image {
+                                    Layout.preferredWidth: 13
+                                    Layout.preferredHeight: 13
+                                    source: contextMenu.menuIconSvg("<circle cx='12' cy='12' r='3'/><path d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z'/>", changeSettingsMenuItem.enabled ? (changeSettingsMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
                                 }
-                                color: changeSettingsMenuItem.enabled ? (changeSettingsMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
-                                horizontalAlignment: Text.AlignLeft
-                                verticalAlignment: Text.AlignVCenter
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: changeSettingsMenuItem.text
+                                    font {
+                                        pixelSize: 11
+                                        bold: true
+                                    }
+                                    color: changeSettingsMenuItem.enabled ? (changeSettingsMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
                             }
                             
                             background: Rectangle {
-                                implicitWidth: 150
+                                implicitWidth: 165
                                 implicitHeight: 32
                                 color: changeSettingsMenuItem.hovered ? "#2a3540" : "transparent"
                                 border.color: changeSettingsMenuItem.hovered ? "#00f5d4" : "transparent"
@@ -1245,15 +1308,24 @@ FocusScope {
                             enabled: model.url !== "" && (playerPool.activePlayersMap[model.index] ? !playerPool.activePlayersMap[model.index].isQuickPlayback : true)
                             leftPadding: 12
                             
-                            contentItem: Text {
-                                text: reloadMenuItem.text
-                                font { pixelSize: 11; bold: true }
-                                color: reloadMenuItem.enabled ? (reloadMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
-                                horizontalAlignment: Text.AlignLeft
-                                verticalAlignment: Text.AlignVCenter
+                            contentItem: RowLayout {
+                                spacing: 8
+                                Image {
+                                    Layout.preferredWidth: 13
+                                    Layout.preferredHeight: 13
+                                    source: contextMenu.menuIconSvg("<polyline points='23 4 23 10 17 10'/><path d='M20.49 15a9 9 0 1 1-2.12-9.36L23 10'/>", reloadMenuItem.enabled ? (reloadMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: reloadMenuItem.text
+                                    font { pixelSize: 11; bold: true }
+                                    color: reloadMenuItem.enabled ? (reloadMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
                             }
                             background: Rectangle {
-                                implicitWidth: 150
+                                implicitWidth: 165
                                 implicitHeight: 32
                                 color: reloadMenuItem.hovered ? "#2a3540" : "transparent"
                                 border.color: reloadMenuItem.hovered ? "#00f5d4" : "transparent"
@@ -1282,15 +1354,24 @@ FocusScope {
                             enabled: model.url !== ""
                             leftPadding: 12
                             
-                            contentItem: Text {
-                                text: snapshotMenuItem.text
-                                font { pixelSize: 11; bold: true }
-                                color: snapshotMenuItem.enabled ? (snapshotMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
-                                horizontalAlignment: Text.AlignLeft
-                                verticalAlignment: Text.AlignVCenter
+                            contentItem: RowLayout {
+                                spacing: 8
+                                Image {
+                                    Layout.preferredWidth: 13
+                                    Layout.preferredHeight: 13
+                                    source: contextMenu.menuIconSvg("<path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/><circle cx='12' cy='13' r='4'/>", snapshotMenuItem.enabled ? (snapshotMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: snapshotMenuItem.text
+                                    font { pixelSize: 11; bold: true }
+                                    color: snapshotMenuItem.enabled ? (snapshotMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
                             }
                             background: Rectangle {
-                                implicitWidth: 150
+                                implicitWidth: 165
                                 implicitHeight: 32
                                 color: snapshotMenuItem.hovered ? "#2a3540" : "transparent"
                                 border.color: snapshotMenuItem.hovered ? "#00f5d4" : "transparent"
@@ -1321,15 +1402,24 @@ FocusScope {
                             enabled: model.url !== ""
                             leftPadding: 12
                             
-                            contentItem: Text {
-                                text: playMenuItem.text
-                                font { pixelSize: 11; bold: true }
-                                color: playMenuItem.enabled ? (playMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
-                                horizontalAlignment: Text.AlignLeft
-                                verticalAlignment: Text.AlignVCenter
+                            contentItem: RowLayout {
+                                spacing: 8
+                                Image {
+                                    Layout.preferredWidth: 13
+                                    Layout.preferredHeight: 13
+                                    source: contextMenu.menuIconSvg("<circle cx='12' cy='12' r='10'/><polygon points='10 8 16 12 10 16 10 8'/>", playMenuItem.enabled ? (playMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: playMenuItem.text
+                                    font { pixelSize: 11; bold: true }
+                                    color: playMenuItem.enabled ? (playMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
                             }
                             background: Rectangle {
-                                implicitWidth: 150
+                                implicitWidth: 165
                                 implicitHeight: 32
                                 color: playMenuItem.hovered ? "#2a3540" : "transparent"
                                 border.color: playMenuItem.hovered ? "#00f5d4" : "transparent"
@@ -1370,6 +1460,11 @@ FocusScope {
 
                             contentItem: RowLayout {
                                 spacing: 8
+                                Image {
+                                    Layout.preferredWidth: 13
+                                    Layout.preferredHeight: 13
+                                    source: contextMenu.menuIconSvg(mergeMenuItem.isMergedCell ? "<rect x='3' y='3' width='8' height='8' rx='1'/><rect x='13' y='3' width='8' height='8' rx='1'/><rect x='3' y='13' width='8' height='8' rx='1'/><rect x='13' y='13' width='8' height='8' rx='1'/>" : "<rect x='3' y='3' width='18' height='18' rx='2'/><polyline points='9 12 12 12 12 9'/><polyline points='15 12 12 12 12 15'/>", mergeMenuItem.enabled ? (mergeMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                }
                                 Text {
                                     Layout.fillWidth: true
                                     text: mergeMenuItem.text
@@ -1718,6 +1813,51 @@ FocusScope {
                             radius: 6
                         }
 
+                        MenuItem {
+                            id: searchCameraMenuItem
+                            text: qsTr("LNG_00655")
+                            leftPadding: 12
+
+                            contentItem: RowLayout {
+                                spacing: 8
+                                Image {
+                                    Layout.preferredWidth: 13
+                                    Layout.preferredHeight: 13
+                                    source: {
+                                        var colorStr = searchCameraMenuItem.hovered ? "%2300f5d4" : "%23eeeeee";
+                                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>";
+                                    }
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: searchCameraMenuItem.text
+                                    font {
+                                        pixelSize: 11
+                                        bold: true
+                                    }
+                                    color: searchCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee"
+                                    elide: Text.ElideRight
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+                            }
+
+                            background: Rectangle {
+                                implicitWidth: 180
+                                implicitHeight: 32
+                                color: searchCameraMenuItem.hovered ? "#2a3540" : "transparent"
+                                border.color: searchCameraMenuItem.hovered ? "#00f5d4" : "transparent"
+                                border.width: 1
+                                radius: 4
+                            }
+
+                            onTriggered: {
+                                addCameraSubMenu.close();
+                                contextMenu.close();
+                                rootWindow.openCameraSearchWindow();
+                            }
+                        }
+
                         Instantiator {
                             model: addCameraMenuItem.recordersList
                             delegate: MenuItem {
@@ -1765,7 +1905,7 @@ FocusScope {
                                     rootWindow.openNvrCamerasWindow(recorderData);
                                 }
                             }
-                            onObjectAdded: addCameraSubMenu.insertItem(index, object)
+                            onObjectAdded: addCameraSubMenu.insertItem(index + 1, object)
                             onObjectRemoved: addCameraSubMenu.removeItem(object)
                         }
                     }

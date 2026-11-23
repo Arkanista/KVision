@@ -163,6 +163,16 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.8.0",
+            date: "23.11.2026",
+            changes: [
+                qsTr("LNG_00666"),
+                qsTr("LNG_00667"),
+                qsTr("LNG_00668"),
+                qsTr("LNG_00669")
+            ]
+        },
+        {
             version: "v2.7.14",
             date: "22.11.2026",
             changes: [
@@ -1183,15 +1193,16 @@ FocusScope {
                         onClicked: tabsColumn.selectTab(5)
                     }
 
-                    // Import / Export Settings Page Button
+                    // User Interface Sub-tab Button (under Settings)
                     Button {
-                        id: btnImportExport
+                        id: btnUiSettings
                         Layout.fillWidth: true
-                        height: 40
+                        Layout.leftMargin: 14
+                        height: 34
                         hoverEnabled: true
 
                         background: Rectangle {
-                            color: tabsColumn.activeIndex === 6 ? "#1c242c" : (btnImportExport.hovered ? "#141a21" : "transparent")
+                            color: tabsColumn.activeIndex === 6 ? "#1c242c" : (btnUiSettings.hovered ? "#141a21" : "transparent")
                             radius: 6
 
                             Rectangle {
@@ -1200,6 +1211,66 @@ FocusScope {
                                 height: parent.height
                                 color: "#00f5d4"
                                 visible: tabsColumn.activeIndex === 6
+                            }
+                        }
+
+                        contentItem: RowLayout {
+                            anchors.fill: parent
+                            anchors.leftMargin: 10
+                            spacing: 10
+
+                            Item {
+                                implicitWidth: 13
+                                implicitHeight: 13
+
+                                Image {
+                                    id: imgUiSettings
+                                    source: "qrc:/images/menu-ui.svg"
+                                    anchors.fill: parent
+                                    fillMode: Image.PreserveAspectFit
+                                    layer.enabled: true
+                                }
+
+                                ColorOverlay {
+                                    anchors.fill: imgUiSettings
+                                    source: imgUiSettings
+                                    color: tabsColumn.activeIndex === 6 ? "#00f5d4" : (btnUiSettings.hovered ? "white" : "#8898a6")
+                                    cached: true
+                                }
+                            }
+
+                            Text {
+                                text: qsTr("LNG_00653")
+                                color: tabsColumn.activeIndex === 6 ? "#00f5d4" : (btnUiSettings.hovered ? "white" : "#8898a6")
+                                font {
+                                    pixelSize: 11
+                                    bold: tabsColumn.activeIndex === 6
+                                }
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                            }
+                        }
+
+                        onClicked: tabsColumn.selectTab(6)
+                    }
+
+                    // Import / Export Settings Page Button
+                    Button {
+                        id: btnImportExport
+                        Layout.fillWidth: true
+                        height: 40
+                        hoverEnabled: true
+
+                        background: Rectangle {
+                            color: tabsColumn.activeIndex === 7 ? "#1c242c" : (btnImportExport.hovered ? "#141a21" : "transparent")
+                            radius: 6
+
+                            Rectangle {
+                                anchors.left: parent.left
+                                width: 3
+                                height: parent.height
+                                color: "#00f5d4"
+                                visible: tabsColumn.activeIndex === 7
                             }
                         }
 
@@ -1223,23 +1294,23 @@ FocusScope {
                                 ColorOverlay {
                                     anchors.fill: imgImportExport
                                     source: imgImportExport
-                                    color: tabsColumn.activeIndex === 6 ? "#00f5d4" : (btnImportExport.hovered ? "white" : "#8898a6")
+                                    color: tabsColumn.activeIndex === 7 ? "#00f5d4" : (btnImportExport.hovered ? "white" : "#8898a6")
                                     cached: true
                                 }
                             }
 
                             Text {
                                 text: qsTr("LNG_00551")
-                                color: tabsColumn.activeIndex === 6 ? "#00f5d4" : (btnImportExport.hovered ? "white" : "#8898a6")
+                                color: tabsColumn.activeIndex === 7 ? "#00f5d4" : (btnImportExport.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
-                                    bold: tabsColumn.activeIndex === 6
+                                    bold: tabsColumn.activeIndex === 7
                                 }
                                 Layout.fillWidth: true
                             }
                         }
 
-                        onClicked: tabsColumn.selectTab(6)
+                        onClicked: tabsColumn.selectTab(7)
                     }
 
                     // Changelog Page Button
@@ -1250,7 +1321,7 @@ FocusScope {
                         hoverEnabled: true
 
                         background: Rectangle {
-                            color: tabsColumn.activeIndex === 7 ? "#1c242c" : (btnChangelog.hovered ? "#141a21" : "transparent")
+                            color: tabsColumn.activeIndex === 8 ? "#1c242c" : (btnChangelog.hovered ? "#141a21" : "transparent")
                             radius: 6
 
                             Rectangle {
@@ -1258,7 +1329,7 @@ FocusScope {
                                 width: 3
                                 height: parent.height
                                 color: "#00f5d4"
-                                visible: tabsColumn.activeIndex === 7
+                                visible: tabsColumn.activeIndex === 8
                             }
                         }
 
@@ -1282,23 +1353,23 @@ FocusScope {
                                 ColorOverlay {
                                     anchors.fill: imgChangelog
                                     source: imgChangelog
-                                    color: tabsColumn.activeIndex === 7 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
+                                    color: tabsColumn.activeIndex === 8 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
                                     cached: true
                                 }
                             }
 
                             Text {
                                 text: qsTr("LNG_00310")
-                                color: tabsColumn.activeIndex === 7 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
+                                color: tabsColumn.activeIndex === 8 ? "#00f5d4" : (btnChangelog.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
-                                    bold: tabsColumn.activeIndex === 7
+                                    bold: tabsColumn.activeIndex === 8
                                 }
                                 Layout.fillWidth: true
                             }
                         }
 
-                        onClicked: tabsColumn.selectTab(7)
+                        onClicked: tabsColumn.selectTab(8)
                     }
                 }
 
@@ -2458,6 +2529,499 @@ FocusScope {
                     }
 
                     GroupBox {
+                        title: qsTr("LNG_00249")
+                        Layout.fillWidth: true
+
+                        background: Rectangle {
+                            color: "#141a21"
+                            border.color: "#2a3540"
+                            border.width: 1
+                            radius: 8
+                        }
+                        label: Text {
+                            text: parent.title
+                            color: "#00f5d4"
+                            font.bold: true
+                            font.pixelSize: 12
+                        }
+
+                        ColumnLayout {
+                            anchors.fill: parent
+                            spacing: 8
+
+                            CheckBox {
+                                text: qsTr("LNG_00248")
+                                checked: NvrStatusManager.checkOffline
+                                onCheckedChanged: NvrStatusManager.checkOffline = checked
+                                Layout.fillWidth: true
+                            }
+
+                            CheckBox {
+                                text: qsTr("LNG_00247")
+                                checked: NvrStatusManager.checkCpu
+                                onCheckedChanged: NvrStatusManager.checkCpu = checked
+                                Layout.fillWidth: true
+                            }
+
+                            CheckBox {
+                                text: qsTr("LNG_00246")
+                                checked: NvrStatusManager.checkHw
+                                onCheckedChanged: NvrStatusManager.checkHw = checked
+                                Layout.fillWidth: true
+                            }
+
+                            CheckBox {
+                                text: qsTr("LNG_00245")
+                                checked: NvrStatusManager.checkHdd
+                                onCheckedChanged: NvrStatusManager.checkHdd = checked
+                                Layout.fillWidth: true
+                            }
+
+                            CheckBox {
+                                text: qsTr("LNG_00244")
+                                checked: NvrStatusManager.checkUnformatted
+                                onCheckedChanged: NvrStatusManager.checkUnformatted = checked
+                                Layout.fillWidth: true
+                            }
+
+                            CheckBox {
+                                text: qsTr("LNG_00243")
+                                checked: NvrStatusManager.checkFull
+                                onCheckedChanged: NvrStatusManager.checkFull = checked
+                                Layout.fillWidth: true
+                            }
+                        }
+                    }
+
+                    GroupBox {
+                        title: qsTr("LNG_00242")
+                        Layout.fillWidth: true
+
+                        background: Rectangle {
+                            color: "#141a21"
+                            border.color: "#2a3540"
+                            border.width: 1
+                            radius: 8
+                        }
+                        label: Text {
+                            text: parent.title
+                            color: "#00f5d4"
+                            font.bold: true
+                            font.pixelSize: 12
+                        }
+
+                        ColumnLayout {
+                            anchors.fill: parent
+                            spacing: 8
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 4
+
+                                Label {
+                                    text: qsTr("LNG_00241")
+                                    color: "white"
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 8
+
+                                    TextField {
+                                        id: playbackOffsetSecondsField
+                                        Layout.preferredWidth: 100
+                                        Layout.preferredHeight: 30
+                                        selectByMouse: true
+                                        text: generalSettings.playbackOffsetSeconds.toString()
+                                        color: "white"
+                                        font.pixelSize: 12
+                                        maximumLength: 7
+                                        validator: IntValidator { bottom: 0; top: 9999999 }
+                                        background: Rectangle {
+                                            color: "#0f151b"
+                                            radius: 4
+                                            border.color: playbackOffsetSecondsField.activeFocus ? "#ff7a00" : "#2a3540"
+                                        }
+                                        onEditingFinished: {
+                                            var val = parseInt(text)
+                                            if (!isNaN(val) && val >= 0) {
+                                                generalSettings.playbackOffsetSeconds = val
+                                            } else {
+                                                text = generalSettings.playbackOffsetSeconds.toString()
+                                            }
+                                        }
+                                    }
+
+                                    Item {
+                                        Layout.fillWidth: true
+                                    }
+                                }
+                            }
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 4
+
+                                Label {
+                                    text: qsTr("LNG_00240")
+                                    color: "white"
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 8
+
+                                    TextField {
+                                        id: playbackTimelineHoursField
+                                        Layout.preferredWidth: 60
+                                        Layout.preferredHeight: 30
+                                        selectByMouse: true
+                                        text: generalSettings.playbackTimelineHours.toString()
+                                        color: "white"
+                                        font.pixelSize: 12
+                                        maximumLength: 2
+                                        validator: IntValidator { bottom: 1; top: 24 }
+                                        background: Rectangle {
+                                            color: "#0f151b"
+                                            radius: 4
+                                            border.color: playbackTimelineHoursField.activeFocus ? "#ff7a00" : "#2a3540"
+                                        }
+                                        onEditingFinished: {
+                                            var val = parseInt(text)
+                                            if (!isNaN(val) && val >= 1 && val <= 24) {
+                                                generalSettings.playbackTimelineHours = val
+                                            } else {
+                                                text = generalSettings.playbackTimelineHours.toString()
+                                            }
+                                        }
+                                    }
+
+                                    Item {
+                                        Layout.fillWidth: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    GroupBox {
+                        title: qsTr("LNG_00239")
+                        Layout.fillWidth: true
+
+                        background: Rectangle {
+                            color: "#141a21"
+                            border.color: "#2a3540"
+                            border.width: 1
+                            radius: 8
+                        }
+                        label: Text {
+                            text: parent.title
+                            color: "#00f5d4"
+                            font.bold: true
+                            font.pixelSize: 12
+                        }
+
+                        ColumnLayout {
+                            anchors.fill: parent
+                            spacing: 12
+
+                            CheckBox {
+                                id: activatePathChangesCheckbox
+                                text: qsTr("LNG_00231")
+                                checked: false
+                                Layout.fillWidth: true
+                            }
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 12
+                                enabled: activatePathChangesCheckbox.checked
+                                opacity: activatePathChangesCheckbox.checked ? 1.0 : 0.5
+
+                                ColumnLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 4
+
+                                    Label {
+                                        text: qsTr("LNG_00238")
+                                        color: "white"
+                                    }
+
+                                    RowLayout {
+                                        Layout.fillWidth: true
+                                        spacing: 8
+
+                                        TextField {
+                                            id: snapshotPathField
+                                            Layout.fillWidth: true
+                                            selectByMouse: true
+                                            text: generalSettings.snapshotPath
+                                            color: "white"
+                                            font.pixelSize: 12
+                                            background: Rectangle {
+                                                color: "#0f151b"
+                                                radius: 4
+                                                border.color: snapshotPathField.activeFocus ? "#ff7a00" : "#2a3540"
+                                            }
+                                            onEditingFinished: {
+                                                generalSettings.snapshotPath = text
+                                                Context.mkpath(text)
+                                            }
+                                        }
+
+                                        Button {
+                                            id: btnBrowseSnapshot
+                                            text: "..."
+                                            Layout.preferredWidth: 32
+                                            Layout.preferredHeight: 30
+                                            contentItem: Text {
+                                                text: btnBrowseSnapshot.text
+                                                font.bold: true
+                                                color: "white"
+                                                horizontalAlignment: Text.AlignHCenter
+                                                verticalAlignment: Text.AlignVCenter
+                                            }
+                                            background: Rectangle {
+                                                color: btnBrowseSnapshot.pressed ? "#2a3540" : (btnBrowseSnapshot.hovered ? "#3a4550" : "#222c36")
+                                                radius: 6
+                                                border.color: "#2a3540"
+                                            }
+                                            onClicked: {
+                                                 var initial = snapshotPathField.text;
+                                                 if (!Context.dirExists(initial)) {
+                                                     initial = Context.homePath();
+                                                 }
+                                                 var selected = Context.selectFolder(qsTr("LNG_00237"), initial);
+                                                 if (selected && selected !== "") {
+                                                     generalSettings.snapshotPath = selected;
+                                                     Context.mkpath(selected);
+                                                 }
+                                             }
+                                        }
+                                    }
+                                }
+
+                                ColumnLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 4
+
+                                    Label {
+                                        text: qsTr("LNG_00236")
+                                        color: "white"
+                                    }
+
+                                    RowLayout {
+                                        Layout.fillWidth: true
+                                        spacing: 8
+
+                                        TextField {
+                                            id: videoPathField
+                                            Layout.fillWidth: true
+                                            selectByMouse: true
+                                            text: generalSettings.videoPath
+                                            color: "white"
+                                            font.pixelSize: 12
+                                            background: Rectangle {
+                                                color: "#0f151b"
+                                                radius: 4
+                                                border.color: videoPathField.activeFocus ? "#ff7a00" : "#2a3540"
+                                            }
+                                            onEditingFinished: {
+                                                generalSettings.videoPath = text
+                                                Context.mkpath(text)
+                                            }
+                                        }
+
+                                        Button {
+                                            id: btnBrowseVideo
+                                            text: "..."
+                                            Layout.preferredWidth: 32
+                                            Layout.preferredHeight: 30
+                                            contentItem: Text {
+                                                text: btnBrowseVideo.text
+                                                font.bold: true
+                                                color: "white"
+                                                horizontalAlignment: Text.AlignHCenter
+                                                verticalAlignment: Text.AlignVCenter
+                                            }
+                                            background: Rectangle {
+                                                color: btnBrowseVideo.pressed ? "#2a3540" : (btnBrowseVideo.hovered ? "#3a4550" : "#222c36")
+                                                radius: 6
+                                                border.color: "#2a3540"
+                                            }
+                                            onClicked: {
+                                                 var initial = videoPathField.text;
+                                                 if (!Context.dirExists(initial)) {
+                                                     initial = Context.homePath();
+                                                 }
+                                                 var selected = Context.selectFolder(qsTr("LNG_00235"), initial);
+                                                 if (selected && selected !== "") {
+                                                     generalSettings.videoPath = selected;
+                                                     Context.mkpath(selected);
+                                                 }
+                                             }
+                                        }
+                                    }
+                                }
+                            }
+
+                            RowLayout {
+                                Layout.fillWidth: true
+                                spacing: 8
+
+                                CctvButton {
+                                    text: qsTr("LNG_00234")
+                                    isCeladon: true
+                                    cornerRadius: 6
+                                    Layout.fillWidth: true
+                                    onClicked: {
+                                        var path = Context.sanitizePlatformPath(generalSettings.snapshotPath, Context.defaultPicturesPath());
+                                        Context.openLocalFolder(path);
+                                    }
+                                }
+
+                                CctvButton {
+                                    text: qsTr("LNG_00233")
+                                    isCeladon: true
+                                    cornerRadius: 6
+                                    Layout.fillWidth: true
+                                    onClicked: {
+                                        var path = Context.sanitizePlatformPath(generalSettings.videoPath, Context.defaultMoviesPath());
+                                        Context.openLocalFolder(path);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    GroupBox {
+                        title: qsTr("LNG_00232")
+                        Layout.fillWidth: true
+
+                        background: Rectangle {
+                            color: "#141a21"
+                            border.color: "#2a3540"
+                            border.width: 1
+                            radius: 8
+                        }
+                        label: Text {
+                            text: parent.title
+                            color: "#00f5d4"
+                            font.bold: true
+                            font.pixelSize: 12
+                        }
+
+                        ColumnLayout {
+                            anchors.fill: parent
+                            spacing: 12
+
+                            CheckBox {
+                                id: activateMediaChangesCheckbox
+                                text: qsTr("LNG_00231")
+                                checked: false
+                                Layout.fillWidth: true
+                            }
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 12
+                                enabled: activateMediaChangesCheckbox.checked
+                                opacity: activateMediaChangesCheckbox.checked ? 1.0 : 0.5
+
+                                ColumnLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 4
+
+                                    Label {
+                                        text: qsTr("LNG_00230")
+                                        color: "white"
+                                    }
+
+                                    TextField {
+                                        id: defaultAVFormatOptionsField
+                                        selectByMouse: true
+                                        Layout.fillWidth: true
+                                        color: "white"
+                                        font.pixelSize: 12
+                                        background: Rectangle {
+                                            color: "#0f151b"
+                                            radius: 4
+                                            border.color: defaultAVFormatOptionsField.activeFocus ? "#ff7a00" : "#2a3540"
+                                        }
+                                        text: {
+                                            var opts = "";
+                                            var options = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
+                                            for (var key in options) {
+                                                if (typeof options[key] === "string" || typeof options[key] === "number") {
+                                                    opts += "-%1 %2 ".arg(key).arg(options[key]);
+                                                }
+                                            }
+                                            return opts.trim();
+                                        }
+                                        onEditingFinished: {
+                                            layoutsCollectionSettings.defaultAVFormatOptions = JSON.stringify(Utils.parseOptions(text));
+                                        }
+                                    }
+
+                                    CctvButton {
+                                        Layout.fillWidth: true
+                                        isCeladon: true
+                                        cornerRadius: 6
+                                        text: qsTr("LNG_00229")
+                                        onClicked: {
+                                            var opts = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
+                                            for (var i = 0; i < layoutsCollectionModel.count; ++i) {
+                                                var layoutModel = layoutsCollectionModel.get(i);
+                                                for (var j = 0; j < layoutModel.count; ++j) {
+                                                    var item = layoutModel.get(j);
+                                                    if (rootSideBar.isViewportUrlRemoteRecorder(item.url)) {
+                                                        item.avFormatOptions = {};
+                                                    } else if (!item.ignoreGlobalAVFormatOptions) {
+                                                        item.avFormatOptions = opts;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // PAGE 6: User Interface Settings
+            ScrollView {
+                id: pageUiSettingsScrollView
+                clip: true
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                ScrollBar.vertical: StyledScrollBar {
+                    id: pageUiSettingsScrollBar
+                    scrollView: pageUiSettingsScrollView
+                }
+
+                ColumnLayout {
+                    id: pageUiSettingsLayout
+                    x: 24
+                    width: pageUiSettingsScrollView.width - 48
+                    spacing: 20
+
+                    Text {
+                        text: qsTr("LNG_00653")
+                        color: "#00f5d4"
+                        font {
+                            pixelSize: 16
+                            bold: true
+                        }
+                    }
+
+                    GroupBox {
                         title: qsTr("LNG_00266")
                         Layout.fillWidth: true
 
@@ -2617,6 +3181,133 @@ FocusScope {
                                 Layout.fillWidth: true
                             }
 
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 4
+
+                                Label {
+                                    text: qsTr("LNG_00654")
+                                    color: "white"
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 8
+
+                                    SpinBox {
+                                        id: viewportBadgeFontSizeSpin
+                                        from: 1
+                                        to: 72
+                                        stepSize: 1
+                                        editable: true
+                                        value: viewSettings.viewportBadgeFontSize
+                                        implicitWidth: 96
+                                        implicitHeight: 30
+
+                                        onValueModified: {
+                                            setPersistedSetting(viewSettings, "View", "viewportBadgeFontSize", value);
+                                        }
+
+                                        Connections {
+                                            target: viewSettings
+                                            function onViewportBadgeFontSizeChanged() {
+                                                if (viewportBadgeFontSizeSpin.value !== viewSettings.viewportBadgeFontSize) {
+                                                    viewportBadgeFontSizeSpin.value = viewSettings.viewportBadgeFontSize;
+                                                }
+                                            }
+                                        }
+
+                                        background: Rectangle {
+                                            color: "#0f151b"
+                                            radius: 4
+                                            border.color: viewportBadgeFontSizeSpin.activeFocus ? "#ff7a00" : "#2a3540"
+                                            border.width: 1
+                                        }
+
+                                        contentItem: TextInput {
+                                            text: viewportBadgeFontSizeSpin.textFromValue(viewportBadgeFontSizeSpin.value, viewportBadgeFontSizeSpin.locale)
+                                            font.pixelSize: 12
+                                            color: "white"
+                                            selectionColor: "#ff7a00"
+                                            selectedTextColor: "white"
+                                            horizontalAlignment: Qt.AlignHCenter
+                                            verticalAlignment: Qt.AlignVCenter
+                                            readOnly: !viewportBadgeFontSizeSpin.editable
+                                            validator: viewportBadgeFontSizeSpin.validator
+                                            inputMethodHints: Qt.ImhFormattedNumbersOnly
+                                        }
+
+                                        up.indicator: Rectangle {
+                                            x: parent.width - width
+                                            y: 0
+                                            width: 24
+                                            height: parent.height / 2
+                                            color: viewportBadgeFontSizeSpin.up.pressed ? "#2a3540" : (viewportBadgeFontSizeSpin.up.hovered ? "#1c242c" : "#141a21")
+                                            border.color: "#2a3540"
+                                            border.width: 1
+                                            radius: 2
+
+                                            Canvas {
+                                                anchors.centerIn: parent
+                                                width: 8
+                                                height: 5
+                                                onPaint: {
+                                                    var ctx = getContext("2d");
+                                                    ctx.clearRect(0, 0, width, height);
+                                                    ctx.fillStyle = viewportBadgeFontSizeSpin.up.pressed ? "#00f5d4" : "#cfd8dc";
+                                                    ctx.beginPath();
+                                                    ctx.moveTo(width / 2, 0);
+                                                    ctx.lineTo(width, height);
+                                                    ctx.lineTo(0, height);
+                                                    ctx.closePath();
+                                                    ctx.fill();
+                                                }
+                                            }
+                                        }
+
+                                        down.indicator: Rectangle {
+                                            x: parent.width - width
+                                            y: parent.height / 2
+                                            width: 24
+                                            height: parent.height / 2
+                                            color: viewportBadgeFontSizeSpin.down.pressed ? "#2a3540" : (viewportBadgeFontSizeSpin.down.hovered ? "#1c242c" : "#141a21")
+                                            border.color: "#2a3540"
+                                            border.width: 1
+                                            radius: 2
+
+                                            Canvas {
+                                                anchors.centerIn: parent
+                                                width: 8
+                                                height: 5
+                                                onPaint: {
+                                                    var ctx = getContext("2d");
+                                                    ctx.clearRect(0, 0, width, height);
+                                                    ctx.fillStyle = viewportBadgeFontSizeSpin.down.pressed ? "#00f5d4" : "#cfd8dc";
+                                                    ctx.beginPath();
+                                                    ctx.moveTo(0, 0);
+                                                    ctx.lineTo(width, 0);
+                                                    ctx.lineTo(width / 2, height);
+                                                    ctx.closePath();
+                                                    ctx.fill();
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    Text {
+                                        text: "px"
+                                        color: "#8898a6"
+                                        font.pixelSize: 12
+                                    }
+
+                                    Item {
+                                        Layout.fillWidth: true
+                                    }
+                                }
+                            }
+
                             CheckBox {
                                 text: qsTr("LNG_00255")
                                 checked: viewSettings.showTopBarByDefault
@@ -2631,10 +3322,9 @@ FocusScope {
                                 Layout.fillWidth: true
                                 spacing: 4
 
-                                Text {
+                                Label {
                                     text: qsTr("LNG_00587")
                                     color: "white"
-                                    font.pixelSize: 11
                                     wrapMode: Text.WordWrap
                                     Layout.fillWidth: true
                                 }
@@ -2708,10 +3398,9 @@ FocusScope {
                                 Layout.fillWidth: true
                                 spacing: 4
 
-                                Text {
+                                Label {
                                     text: qsTr("LNG_00590")
                                     color: "white"
-                                    font.pixelSize: 11
                                     wrapMode: Text.WordWrap
                                     Layout.fillWidth: true
                                 }
@@ -2789,10 +3478,9 @@ FocusScope {
                                     Layout.fillWidth: true
                                     spacing: 8
 
-                                    Text {
+                                    Label {
                                         text: qsTr("LNG_00621")
                                         color: "white"
-                                        font.pixelSize: 11
                                         wrapMode: Text.WordWrap
                                         Layout.fillWidth: true
                                     }
@@ -2930,10 +3618,9 @@ FocusScope {
                                 Layout.fillWidth: true
                                 spacing: 4
 
-                                Text {
+                                Label {
                                     text: qsTr("LNG_00252")
                                     color: "white"
-                                    font.pixelSize: 11
                                 }
 
                                 ComboBox {
@@ -3123,474 +3810,6 @@ FocusScope {
                         }
                     }
 
-                    GroupBox {
-                        title: qsTr("LNG_00249")
-                        Layout.fillWidth: true
-
-                        background: Rectangle {
-                            color: "#141a21"
-                            border.color: "#2a3540"
-                            border.width: 1
-                            radius: 8
-                        }
-                        label: Text {
-                            text: parent.title
-                            color: "#00f5d4"
-                            font.bold: true
-                            font.pixelSize: 12
-                        }
-
-                        ColumnLayout {
-                            anchors.fill: parent
-                            spacing: 8
-
-                            CheckBox {
-                                text: qsTr("LNG_00248")
-                                checked: NvrStatusManager.checkOffline
-                                onCheckedChanged: NvrStatusManager.checkOffline = checked
-                                Layout.fillWidth: true
-                            }
-
-                            CheckBox {
-                                text: qsTr("LNG_00247")
-                                checked: NvrStatusManager.checkCpu
-                                onCheckedChanged: NvrStatusManager.checkCpu = checked
-                                Layout.fillWidth: true
-                            }
-
-                            CheckBox {
-                                text: qsTr("LNG_00246")
-                                checked: NvrStatusManager.checkHw
-                                onCheckedChanged: NvrStatusManager.checkHw = checked
-                                Layout.fillWidth: true
-                            }
-
-                            CheckBox {
-                                text: qsTr("LNG_00245")
-                                checked: NvrStatusManager.checkHdd
-                                onCheckedChanged: NvrStatusManager.checkHdd = checked
-                                Layout.fillWidth: true
-                            }
-
-                            CheckBox {
-                                text: qsTr("LNG_00244")
-                                checked: NvrStatusManager.checkUnformatted
-                                onCheckedChanged: NvrStatusManager.checkUnformatted = checked
-                                Layout.fillWidth: true
-                            }
-
-                            CheckBox {
-                                text: qsTr("LNG_00243")
-                                checked: NvrStatusManager.checkFull
-                                onCheckedChanged: NvrStatusManager.checkFull = checked
-                                Layout.fillWidth: true
-                            }
-                        }
-                    }
-
-                    GroupBox {
-                        title: qsTr("LNG_00242")
-                        Layout.fillWidth: true
-
-                        background: Rectangle {
-                            color: "#141a21"
-                            border.color: "#2a3540"
-                            border.width: 1
-                            radius: 8
-                        }
-                        label: Text {
-                            text: parent.title
-                            color: "#00f5d4"
-                            font.bold: true
-                            font.pixelSize: 12
-                        }
-
-                        ColumnLayout {
-                            anchors.fill: parent
-                            spacing: 8
-
-                            ColumnLayout {
-                                Layout.fillWidth: true
-                                spacing: 4
-
-                                Text {
-                                    text: qsTr("LNG_00241")
-                                    color: "white"
-                                    font.pixelSize: 11
-                                    wrapMode: Text.WordWrap
-                                    Layout.fillWidth: true
-                                }
-
-                                RowLayout {
-                                    Layout.fillWidth: true
-                                    spacing: 8
-
-                                    TextField {
-                                        id: playbackOffsetSecondsField
-                                        Layout.preferredWidth: 100
-                                        Layout.preferredHeight: 30
-                                        selectByMouse: true
-                                        text: generalSettings.playbackOffsetSeconds.toString()
-                                        color: "white"
-                                        font.pixelSize: 12
-                                        maximumLength: 7
-                                        validator: IntValidator { bottom: 0; top: 9999999 }
-                                        background: Rectangle {
-                                            color: "#0f151b"
-                                            radius: 4
-                                            border.color: playbackOffsetSecondsField.activeFocus ? "#ff7a00" : "#2a3540"
-                                        }
-                                        onEditingFinished: {
-                                            var val = parseInt(text)
-                                            if (!isNaN(val) && val >= 0) {
-                                                generalSettings.playbackOffsetSeconds = val
-                                            } else {
-                                                text = generalSettings.playbackOffsetSeconds.toString()
-                                            }
-                                        }
-                                    }
-
-                                    Item {
-                                        Layout.fillWidth: true
-                                    }
-                                }
-                            }
-
-                            ColumnLayout {
-                                Layout.fillWidth: true
-                                spacing: 4
-
-                                Text {
-                                    text: qsTr("LNG_00240")
-                                    color: "white"
-                                    font.pixelSize: 11
-                                    wrapMode: Text.WordWrap
-                                    Layout.fillWidth: true
-                                }
-
-                                RowLayout {
-                                    Layout.fillWidth: true
-                                    spacing: 8
-
-                                    TextField {
-                                        id: playbackTimelineHoursField
-                                        Layout.preferredWidth: 60
-                                        Layout.preferredHeight: 30
-                                        selectByMouse: true
-                                        text: generalSettings.playbackTimelineHours.toString()
-                                        color: "white"
-                                        font.pixelSize: 12
-                                        maximumLength: 2
-                                        validator: IntValidator { bottom: 1; top: 24 }
-                                        background: Rectangle {
-                                            color: "#0f151b"
-                                            radius: 4
-                                            border.color: playbackTimelineHoursField.activeFocus ? "#ff7a00" : "#2a3540"
-                                        }
-                                        onEditingFinished: {
-                                            var val = parseInt(text)
-                                            if (!isNaN(val) && val >= 1 && val <= 24) {
-                                                generalSettings.playbackTimelineHours = val
-                                            } else {
-                                                text = generalSettings.playbackTimelineHours.toString()
-                                            }
-                                        }
-                                    }
-
-                                    Item {
-                                        Layout.fillWidth: true
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    GroupBox {
-                        title: qsTr("LNG_00239")
-                        Layout.fillWidth: true
-
-                        background: Rectangle {
-                            color: "#141a21"
-                            border.color: "#2a3540"
-                            border.width: 1
-                            radius: 8
-                        }
-                        label: Text {
-                            text: parent.title
-                            color: "#00f5d4"
-                            font.bold: true
-                            font.pixelSize: 12
-                        }
-
-                        ColumnLayout {
-                            anchors.fill: parent
-                            spacing: 12
-
-                            CheckBox {
-                                id: activatePathChangesCheckbox
-                                text: qsTr("LNG_00231")
-                                checked: false
-                                Layout.fillWidth: true
-                            }
-
-                            ColumnLayout {
-                                Layout.fillWidth: true
-                                spacing: 12
-                                enabled: activatePathChangesCheckbox.checked
-                                opacity: activatePathChangesCheckbox.checked ? 1.0 : 0.5
-
-                                ColumnLayout {
-                                    Layout.fillWidth: true
-                                    spacing: 4
-
-                                    Text {
-                                        text: qsTr("LNG_00238")
-                                        color: "white"
-                                        font.pixelSize: 11
-                                    }
-
-                                    RowLayout {
-                                        Layout.fillWidth: true
-                                        spacing: 8
-
-                                        TextField {
-                                            id: snapshotPathField
-                                            Layout.fillWidth: true
-                                            selectByMouse: true
-                                            text: generalSettings.snapshotPath
-                                            color: "white"
-                                            font.pixelSize: 12
-                                            background: Rectangle {
-                                                color: "#0f151b"
-                                                radius: 4
-                                                border.color: snapshotPathField.activeFocus ? "#ff7a00" : "#2a3540"
-                                            }
-                                            onEditingFinished: {
-                                                generalSettings.snapshotPath = text
-                                                Context.mkpath(text)
-                                            }
-                                        }
-
-                                        Button {
-                                            id: btnBrowseSnapshot
-                                            text: "..."
-                                            Layout.preferredWidth: 32
-                                            Layout.preferredHeight: 30
-                                            contentItem: Text {
-                                                text: btnBrowseSnapshot.text
-                                                font.bold: true
-                                                color: "white"
-                                                horizontalAlignment: Text.AlignHCenter
-                                                verticalAlignment: Text.AlignVCenter
-                                            }
-                                            background: Rectangle {
-                                                color: btnBrowseSnapshot.pressed ? "#2a3540" : (btnBrowseSnapshot.hovered ? "#3a4550" : "#222c36")
-                                                radius: 6
-                                                border.color: "#2a3540"
-                                            }
-                                            onClicked: {
-                                                 var initial = snapshotPathField.text;
-                                                 if (!Context.dirExists(initial)) {
-                                                     initial = Context.homePath();
-                                                 }
-                                                 var selected = Context.selectFolder(qsTr("LNG_00237"), initial);
-                                                 if (selected && selected !== "") {
-                                                     generalSettings.snapshotPath = selected;
-                                                     Context.mkpath(selected);
-                                                 }
-                                             }
-                                        }
-                                    }
-                                }
-
-                                ColumnLayout {
-                                    Layout.fillWidth: true
-                                    spacing: 4
-
-                                    Text {
-                                        text: qsTr("LNG_00236")
-                                        color: "white"
-                                        font.pixelSize: 11
-                                    }
-
-                                    RowLayout {
-                                        Layout.fillWidth: true
-                                        spacing: 8
-
-                                        TextField {
-                                            id: videoPathField
-                                            Layout.fillWidth: true
-                                            selectByMouse: true
-                                            text: generalSettings.videoPath
-                                            color: "white"
-                                            font.pixelSize: 12
-                                            background: Rectangle {
-                                                color: "#0f151b"
-                                                radius: 4
-                                                border.color: videoPathField.activeFocus ? "#ff7a00" : "#2a3540"
-                                            }
-                                            onEditingFinished: {
-                                                generalSettings.videoPath = text
-                                                Context.mkpath(text)
-                                            }
-                                        }
-
-                                        Button {
-                                            id: btnBrowseVideo
-                                            text: "..."
-                                            Layout.preferredWidth: 32
-                                            Layout.preferredHeight: 30
-                                            contentItem: Text {
-                                                text: btnBrowseVideo.text
-                                                font.bold: true
-                                                color: "white"
-                                                horizontalAlignment: Text.AlignHCenter
-                                                verticalAlignment: Text.AlignVCenter
-                                            }
-                                            background: Rectangle {
-                                                color: btnBrowseVideo.pressed ? "#2a3540" : (btnBrowseVideo.hovered ? "#3a4550" : "#222c36")
-                                                radius: 6
-                                                border.color: "#2a3540"
-                                            }
-                                            onClicked: {
-                                                 var initial = videoPathField.text;
-                                                 if (!Context.dirExists(initial)) {
-                                                     initial = Context.homePath();
-                                                 }
-                                                 var selected = Context.selectFolder(qsTr("LNG_00235"), initial);
-                                                 if (selected && selected !== "") {
-                                                     generalSettings.videoPath = selected;
-                                                     Context.mkpath(selected);
-                                                 }
-                                             }
-                                        }
-                                    }
-                                }
-                            }
-
-                            RowLayout {
-                                Layout.fillWidth: true
-                                spacing: 8
-
-                                CctvButton {
-                                    text: qsTr("LNG_00234")
-                                    isCeladon: true
-                                    cornerRadius: 6
-                                    Layout.fillWidth: true
-                                    onClicked: {
-                                        var path = Context.sanitizePlatformPath(generalSettings.snapshotPath, Context.defaultPicturesPath());
-                                        Context.openLocalFolder(path);
-                                    }
-                                }
-
-                                CctvButton {
-                                    text: qsTr("LNG_00233")
-                                    isCeladon: true
-                                    cornerRadius: 6
-                                    Layout.fillWidth: true
-                                    onClicked: {
-                                        var path = Context.sanitizePlatformPath(generalSettings.videoPath, Context.defaultMoviesPath());
-                                        Context.openLocalFolder(path);
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    GroupBox {
-                        title: qsTr("LNG_00232")
-                        Layout.fillWidth: true
-
-                        background: Rectangle {
-                            color: "#141a21"
-                            border.color: "#2a3540"
-                            border.width: 1
-                            radius: 8
-                        }
-                        label: Text {
-                            text: parent.title
-                            color: "#00f5d4"
-                            font.bold: true
-                            font.pixelSize: 12
-                        }
-
-                        ColumnLayout {
-                            anchors.fill: parent
-                            spacing: 12
-
-                            CheckBox {
-                                id: activateMediaChangesCheckbox
-                                text: qsTr("LNG_00231")
-                                checked: false
-                                Layout.fillWidth: true
-                            }
-
-                            ColumnLayout {
-                                Layout.fillWidth: true
-                                spacing: 12
-                                enabled: activateMediaChangesCheckbox.checked
-                                opacity: activateMediaChangesCheckbox.checked ? 1.0 : 0.5
-
-                                ColumnLayout {
-                                    Layout.fillWidth: true
-                                    spacing: 4
-
-                                    Text {
-                                        text: qsTr("LNG_00230")
-                                        color: "white"
-                                        font.pixelSize: 11
-                                    }
-
-                                    TextField {
-                                        id: defaultAVFormatOptionsField
-                                        selectByMouse: true
-                                        Layout.fillWidth: true
-                                        color: "white"
-                                        font.pixelSize: 12
-                                        background: Rectangle {
-                                            color: "#0f151b"
-                                            radius: 4
-                                            border.color: defaultAVFormatOptionsField.activeFocus ? "#ff7a00" : "#2a3540"
-                                        }
-                                        text: {
-                                            var opts = "";
-                                            var options = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
-                                            for (var key in options) {
-                                                if (typeof options[key] === "string" || typeof options[key] === "number") {
-                                                    opts += "-%1 %2 ".arg(key).arg(options[key]);
-                                                }
-                                            }
-                                            return opts.trim();
-                                        }
-                                        onEditingFinished: {
-                                            layoutsCollectionSettings.defaultAVFormatOptions = JSON.stringify(Utils.parseOptions(text));
-                                        }
-                                    }
-
-                                    CctvButton {
-                                        Layout.fillWidth: true
-                                        isCeladon: true
-                                        cornerRadius: 6
-                                        text: qsTr("LNG_00229")
-                                        onClicked: {
-                                            var opts = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
-                                            for (var i = 0; i < layoutsCollectionModel.count; ++i) {
-                                                var layoutModel = layoutsCollectionModel.get(i);
-                                                for (var j = 0; j < layoutModel.count; ++j) {
-                                                    var item = layoutModel.get(j);
-                                                    if (rootSideBar.isViewportUrlRemoteRecorder(item.url)) {
-                                                        item.avFormatOptions = {};
-                                                    } else if (!item.ignoreGlobalAVFormatOptions) {
-                                                        item.avFormatOptions = opts;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
             }
 

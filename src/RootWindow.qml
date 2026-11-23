@@ -154,6 +154,7 @@ ApplicationWindow {
     property alias layoutIndex: stackLayout.currentIndex
     property alias generalSettings: generalSettings
     property alias viewSettings: viewSettings
+    property alias layoutsCollectionModel: layoutsCollectionModel
     property var auxWindowsList: []
     property var activeLayoutWindow: rootWindow
     
@@ -518,6 +519,7 @@ ApplicationWindow {
                 uid = "idx_" + i;
             }
             var showNvrIcon = !!layout.isNvr;
+            var badgeColor = layout.badgeColor ? String(layout.badgeColor) : "";
             var label = formatLayoutViewLabel(i, layout);
             var rawGroups = layout.groups ? layout.groups : [];
             for (var gIdx = 0; gIdx < rawGroups.length; ++gIdx) {
@@ -530,7 +532,8 @@ ApplicationWindow {
                 groupMap[grp].push({
                     layoutIndex: i,
                     label: label,
-                    showNvrIcon: showNvrIcon
+                    showNvrIcon: showNvrIcon,
+                    badgeColor: badgeColor
                 });
             }
             if (layout.showUngrouped !== false) {
@@ -540,7 +543,8 @@ ApplicationWindow {
                     uid: uid,
                     layoutIndex: i,
                     label: label,
-                    showNvrIcon: showNvrIcon
+                    showNvrIcon: showNvrIcon,
+                    badgeColor: badgeColor
                 };
                 ungroupedMap[layoutTok] = lObj;
                 ungroupedList.push(lObj);
@@ -601,7 +605,8 @@ ApplicationWindow {
                 isGroup: false,
                 layoutIndex: uObj.layoutIndex,
                 label: uObj.label,
-                showNvrIcon: uObj.showNvrIcon
+                showNvrIcon: uObj.showNvrIcon,
+                badgeColor: uObj.badgeColor
             });
         }
 
@@ -897,6 +902,12 @@ ApplicationWindow {
             if (viewSettings.disableViewportZoomAnimation !== diskDisableViewportZoomAnimation) {
                 viewSettings.disableViewportZoomAnimation = diskDisableViewportZoomAnimation;
             }
+            var diskViewportBadgeFontSize = parseInt(Context.readSetting("View", "viewportBadgeFontSize", 8));
+            if (isNaN(diskViewportBadgeFontSize) || diskViewportBadgeFontSize < 1) diskViewportBadgeFontSize = 8;
+            if (diskViewportBadgeFontSize > 72) diskViewportBadgeFontSize = 72;
+            if (viewSettings.viewportBadgeFontSize !== diskViewportBadgeFontSize) {
+                viewSettings.viewportBadgeFontSize = diskViewportBadgeFontSize;
+            }
             var diskNoUnmuteWhenFullScreen = Context.readSetting("Viewport", "noUnmuteWhenFullScreen", false);
             if (viewportSettings.noUnmuteWhenFullScreen !== diskNoUnmuteWhenFullScreen) {
                 viewportSettings.noUnmuteWhenFullScreen = diskNoUnmuteWhenFullScreen;
@@ -1031,6 +1042,7 @@ ApplicationWindow {
         property int topBarPersistenceMs: 500
         property int topBarBgTransparency: 40
         property bool disableViewportZoomAnimation: false
+        property int viewportBadgeFontSize: 8
         onTopBarBgTransparencyChanged: rootWindow.liveTopBarBgTransparency = topBarBgTransparency
         Component.onCompleted: rootWindow.liveTopBarBgTransparency = topBarBgTransparency
     }
@@ -1097,6 +1109,10 @@ ApplicationWindow {
         }
     }
     Shortcut {
+        sequences: ["Ctrl+F", "Ctrl+S"]
+        onActivated: rootWindow.toggleCameraSearchWindow()
+    }
+    Shortcut {
         sequence: StandardKey.Quit
         onActivated: {
             if (!Context.isAuxiliary && !rootWindow.isSyncing) {
@@ -1132,9 +1148,7 @@ ApplicationWindow {
     function openPlaybackWindow(recInfo, channelId, cameraName) {
         if (playbackWindowLoader.active) {
             if (playbackWindowLoader.item) {
-                playbackWindowLoader.item.recorderInfo = recInfo;
-                playbackWindowLoader.item.channelId = channelId;
-                playbackWindowLoader.item.cameraName = cameraName;
+                playbackWindowLoader.item.loadSingleCamera(recInfo, channelId, cameraName);
                 playbackWindowLoader.item.show();
                 playbackWindowLoader.item.raise();
             }
@@ -1166,6 +1180,82 @@ ApplicationWindow {
             win.recorder = JSON.parse(JSON.stringify(recorderData));
             win.show();
             win.raise();
+        }
+        return win;
+    }
+
+    property var cameraSearchWindowInstance: null
+    property string highlightedCameraUrl: ""
+    property var highlightedLayoutIndices: ([])
+
+    Timer {
+        id: searchHighlightTimer
+        interval: 5000
+        repeat: false
+        onTriggered: {
+            rootWindow.highlightedCameraUrl = "";
+            rootWindow.highlightedLayoutIndices = [];
+        }
+    }
+
+    function clearCameraSearchHighlight() {
+        searchHighlightTimer.stop();
+        highlightedCameraUrl = "";
+        highlightedLayoutIndices = [];
+    }
+
+    function highlightCameraInLayouts(cameraUrl) {
+        var u = String(cameraUrl || "").trim();
+        if (u === "") return;
+        highlightedCameraUrl = u;
+
+        var otherIndices = [];
+        for (var li = 0; li < layoutsCollectionModel.count; ++li) {
+            if (li === stackLayout.currentIndex) continue;
+            var layout = layoutsCollectionModel.get(li);
+            if (!layout || layout.visible === false) continue;
+            var vpCount = typeof layout.count === "function" ? layout.count() : (layout.count || 0);
+            for (var vi = 0; vi < vpCount; ++vi) {
+                var vp = layout.get(vi);
+                if (vp && (String(vp.url || "").trim() === u || String(vp.secondaryUrl || "").trim() === u)) {
+                    otherIndices.push(li);
+                    break;
+                }
+            }
+        }
+        highlightedLayoutIndices = otherIndices;
+        if (otherIndices.length > 0 && topBarAutoCollapse) {
+            keepVisibleTimer.restart();
+        }
+        searchHighlightTimer.restart();
+    }
+
+    Component {
+        id: cameraSearchWindowComponent
+        CameraSearchWindow {}
+    }
+
+    function toggleCameraSearchWindow() {
+        if (cameraSearchWindowInstance) {
+            cameraSearchWindowInstance.close();
+        } else {
+            openCameraSearchWindow();
+        }
+    }
+
+    function openCameraSearchWindow() {
+        if (cameraSearchWindowInstance) {
+            cameraSearchWindowInstance.show();
+            cameraSearchWindowInstance.raise();
+            cameraSearchWindowInstance.requestActivate();
+            return cameraSearchWindowInstance;
+        }
+        var win = cameraSearchWindowComponent.createObject(rootWindow);
+        if (win) {
+            cameraSearchWindowInstance = win;
+            win.show();
+            win.raise();
+            win.requestActivate();
         }
         return win;
     }
@@ -2003,6 +2093,46 @@ ApplicationWindow {
                 ToolTip.text: NvrStatusManager.hasErrors ? qsTr("LNG_00214") : qsTr("LNG_00213")
             }
 
+            Button {
+                id: topBarSearchBtn
+                padding: 0
+                Layout.preferredWidth: 30
+                Layout.preferredHeight: 30
+                Layout.alignment: Qt.AlignVCenter
+                readonly property bool isActive: rootWindow.cameraSearchWindowInstance !== null
+
+                contentItem: Item {
+                    implicitWidth: 30
+                    implicitHeight: 30
+
+                    Image {
+                        anchors.centerIn: parent
+                        width: 15
+                        height: 15
+                        sourceSize: Qt.size(30, 30)
+                        fillMode: Image.PreserveAspectFit
+                        source: {
+                            var colorStr = (topBarSearchBtn.isActive || topBarSearchBtn.hovered) ? "%2300f5d4" : "%238898a6";
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>";
+                        }
+                    }
+                }
+
+                background: Rectangle {
+                    color: topBarSearchBtn.pressed ? "#cc121214" : (topBarSearchBtn.isActive ? "#102a2a" : (topBarSearchBtn.hovered ? "#3a4550" : "#1c242c"))
+                    radius: 15
+                    border.color: (topBarSearchBtn.isActive || topBarSearchBtn.hovered) ? "#00f5d4" : "#2a3540"
+                    border.width: 1
+                }
+
+                onClicked: rootWindow.toggleCameraSearchWindow()
+
+                ToolTip.delay: Compact.toolTipDelay
+                ToolTip.timeout: Compact.toolTipTimeout
+                ToolTip.visible: topBarSearchBtn.hovered
+                ToolTip.text: qsTr("LNG_00656") + " (Ctrl+F / Ctrl+S)"
+            }
+
             Rectangle {
                 width: 1
                 height: 20
@@ -2542,6 +2672,7 @@ ApplicationWindow {
         Context.writeSetting("View", "topBarPersistenceMs", viewSettings.topBarPersistenceMs);
         Context.writeSetting("View", "topBarBgTransparency", viewSettings.topBarBgTransparency);
         Context.writeSetting("View", "disableViewportZoomAnimation", viewSettings.disableViewportZoomAnimation);
+        Context.writeSetting("View", "viewportBadgeFontSize", viewSettings.viewportBadgeFontSize);
 
         Context.writeSetting("Viewport", "noUnmuteWhenFullScreen", viewportSettings.noUnmuteWhenFullScreen);
 

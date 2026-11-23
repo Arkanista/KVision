@@ -6,6 +6,8 @@ Button {
     property int layoutIndex: -1
     property bool isActive: false
     property bool showNvrIcon: false
+    property string badgeColor: ""
+    property bool isSearchHighlighted: false
     property int buttonHeight: 30
     property int horizontalPad: 12
 
@@ -16,8 +18,14 @@ Button {
     leftPadding: horizontalPad
     rightPadding: horizontalPad
 
-    readonly property string iconColorStr: control.isActive ? "%23121214" : (control.hovered ? "%23ffffff" : "%238898a6")
-    readonly property string iconLedStr: control.isActive ? "%23121214" : "%2300f5d4"
+    readonly property bool hasCustomColor: badgeColor !== ""
+    readonly property color customQColor: hasCustomColor ? badgeColor : "#00f5d4"
+    readonly property bool customIsLight: hasCustomColor && (0.299 * customQColor.r + 0.587 * customQColor.g + 0.114 * customQColor.b) > 0.55
+    readonly property string activeTextColor: hasCustomColor ? (customIsLight ? "#121214" : "#ffffff") : "#121214"
+    readonly property string activeIconColorStr: hasCustomColor ? (customIsLight ? "%23121214" : "%23ffffff") : "%23121214"
+
+    readonly property string iconColorStr: control.isActive ? activeIconColorStr : (control.hovered ? "%23ffffff" : (hasCustomColor ? "%23cfd8dc" : "%238898a6"))
+    readonly property string iconLedStr: control.isActive ? activeIconColorStr : (hasCustomColor ? badgeColor.replace("#", "%23") : "%2300f5d4")
 
     contentItem: Row {
         spacing: 6
@@ -45,7 +53,7 @@ Button {
             text: control.text.toUpperCase()
             font.bold: true
             font.pixelSize: 10
-            color: control.isActive ? "#121214" : (control.hovered ? "#ffffff" : "#8898a6")
+            color: control.isActive ? control.activeTextColor : (control.hovered ? "#ffffff" : (control.hasCustomColor ? "#e0e6ed" : "#8898a6"))
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             anchors.verticalCenter: parent.verticalCenter
@@ -53,9 +61,47 @@ Button {
     }
 
     background: Rectangle {
-        color: control.isActive ? "#00f5d4" : (control.pressed ? "#cc121214" : (control.hovered ? "#3a4550" : "#1c242c"))
+        color: {
+            if (control.isActive) {
+                return control.hasCustomColor ? control.badgeColor : "#00f5d4";
+            }
+            if (control.pressed) return "#cc121214";
+            if (control.hasCustomColor) {
+                return Qt.tint("#1c242c", Qt.rgba(control.customQColor.r, control.customQColor.g, control.customQColor.b, control.hovered ? 0.36 : 0.22));
+            }
+            return control.hovered ? "#3a4550" : "#1c242c";
+        }
         radius: control.buttonHeight / 2
-        border.color: control.isActive ? "#00f5d4" : (control.hovered ? "#8898a6" : "#2a3540")
-        border.width: 1
+        border.color: {
+            if (control.isSearchHighlighted) {
+                return "#00f5d4";
+            }
+            if (control.isActive) {
+                return control.hasCustomColor ? control.badgeColor : "#00f5d4";
+            }
+            if (control.hasCustomColor) {
+                return control.badgeColor;
+            }
+            return control.hovered ? "#8898a6" : "#2a3540";
+        }
+        border.width: control.isSearchHighlighted ? 2 : 1
+
+        // Pulsing aura ring when highlighted from camera search
+        Rectangle {
+            visible: control.isSearchHighlighted
+            anchors.fill: parent
+            anchors.margins: -4
+            radius: (control.buttonHeight / 2) + 4
+            color: "transparent"
+            border.color: "#00f5d4"
+            border.width: 2
+
+            SequentialAnimation on opacity {
+                running: control.isSearchHighlighted
+                loops: Animation.Infinite
+                NumberAnimation { from: 0.95; to: 0.20; duration: 420; easing.type: Easing.InOutQuad }
+                NumberAnimation { from: 0.20; to: 0.95; duration: 420; easing.type: Easing.InOutQuad }
+            }
+        }
     }
 }
