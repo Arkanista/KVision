@@ -2482,6 +2482,53 @@ FocusScope {
                                 onCheckedChanged: NvrStatusManager.monitoringEnabled = checked
                                 Layout.fillWidth: true
                             }
+
+                            RowLayout {
+                                Layout.fillWidth: true
+                                spacing: 8
+
+                                Text {
+                                    text: qsTr("LNG_00250")
+                                    color: "white"
+                                    font.pixelSize: 13
+                                }
+
+                                TextField {
+                                    id: auxiliaryLimitField
+                                    Layout.preferredWidth: 40
+                                    Layout.preferredHeight: 30
+                                    horizontalAlignment: TextInput.AlignHCenter
+                                    selectByMouse: true
+                                    text: generalSettings.auxiliaryLimit.toString()
+                                    color: "white"
+                                    font.pixelSize: 12
+                                    maximumLength: 1
+                                    validator: IntValidator { bottom: 0; top: 3 }
+                                    background: Rectangle {
+                                        color: "#0f151b"
+                                        radius: 4
+                                        border.color: auxiliaryLimitField.activeFocus ? "#ff7a00" : "#2a3540"
+                                    }
+                                    onTextChanged: {
+                                        var val = parseInt(text);
+                                        if (!isNaN(val) && val > 3) {
+                                            text = "3";
+                                        }
+                                    }
+                                    onEditingFinished: {
+                                        var val = parseInt(text);
+                                        if (!isNaN(val) && val >= 0 && val <= 3) {
+                                            generalSettings.auxiliaryLimit = val;
+                                        } else {
+                                            text = generalSettings.auxiliaryLimit.toString();
+                                        }
+                                    }
+                                }
+
+                                Item {
+                                    Layout.fillWidth: true
+                                }
+                            }
                         }
                     }
 
@@ -3761,52 +3808,6 @@ FocusScope {
                                 }
                             }
 
-                            RowLayout {
-                                Layout.fillWidth: true
-                                spacing: 8
-
-                                Text {
-                                    text: qsTr("LNG_00250")
-                                    color: "white"
-                                    font.pixelSize: 13
-                                }
-
-                                TextField {
-                                    id: auxiliaryLimitField
-                                    Layout.preferredWidth: 40
-                                    Layout.preferredHeight: 30
-                                    horizontalAlignment: TextInput.AlignHCenter
-                                    selectByMouse: true
-                                    text: generalSettings.auxiliaryLimit.toString()
-                                    color: "white"
-                                    font.pixelSize: 12
-                                    maximumLength: 1
-                                    validator: IntValidator { bottom: 0; top: 3 }
-                                    background: Rectangle {
-                                        color: "#0f151b"
-                                        radius: 4
-                                        border.color: auxiliaryLimitField.activeFocus ? "#ff7a00" : "#2a3540"
-                                    }
-                                    onTextChanged: {
-                                        var val = parseInt(text);
-                                        if (!isNaN(val) && val > 3) {
-                                            text = "3";
-                                        }
-                                    }
-                                    onEditingFinished: {
-                                        var val = parseInt(text);
-                                        if (!isNaN(val) && val >= 0 && val <= 3) {
-                                            generalSettings.auxiliaryLimit = val;
-                                        } else {
-                                            text = generalSettings.auxiliaryLimit.toString();
-                                        }
-                                    }
-                                }
-
-                                Item {
-                                    Layout.fillWidth: true
-                                }
-                            }
                         }
                     }
 
