@@ -1,3 +1,7 @@
+2.8.2
+  * Bug Fixes:
+  * Fixed settings persistence so options like Disable audio handling completely and Disable viewport zoom animation no longer revert when closing auxiliary windows or updating, while preserving live sync across all windows.
+
 2.8.1
   * Minor Enhancements:
   * Added a Rename option to the camera right-click menu with a popup dialog and a toggle in Context Menu Settings.

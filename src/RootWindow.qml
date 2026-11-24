@@ -214,10 +214,9 @@ ApplicationWindow {
         }
     }
 
-    Settings {
+    QtObject {
         id: generalSettings
 
-        fileName: Context.config.fileName
         property bool singleApplication: true
         property bool allowSwappingViewports: true
         property bool enableContextMenu: true
@@ -235,6 +234,150 @@ ApplicationWindow {
         property int playbackOffsetSeconds: 120
         property int playbackTimelineHours: 2
         property bool enableDiagnosticLogs: false
+
+        Component.onCompleted: rootWindow.loadGeneralSettings()
+    }
+
+    function loadGeneralSettings() {
+        var diskSingleApp = Context.readSetting("", "singleApplication", true);
+        if (generalSettings.singleApplication !== diskSingleApp) {
+            generalSettings.singleApplication = diskSingleApp;
+        }
+        var diskAllowSwapping = Context.readSetting("", "allowSwappingViewports", true);
+        if (generalSettings.allowSwappingViewports !== diskAllowSwapping) {
+            generalSettings.allowSwappingViewports = diskAllowSwapping;
+        }
+        var diskEnableChangeViewport = Context.readSetting("", "enableChangeViewportSettings", true);
+        if (generalSettings.enableChangeViewportSettings !== diskEnableChangeViewport) {
+            generalSettings.enableChangeViewportSettings = diskEnableChangeViewport;
+        }
+        var diskEnableRenameCamera = Context.readSetting("", "enableRenameCamera", true);
+        if (generalSettings.enableRenameCamera !== diskEnableRenameCamera) {
+            generalSettings.enableRenameCamera = diskEnableRenameCamera;
+        }
+        var diskEnableStreamSel = Context.readSetting("", "enableStreamSelection", true);
+        if (generalSettings.enableStreamSelection !== diskEnableStreamSel) {
+            generalSettings.enableStreamSelection = diskEnableStreamSel;
+        }
+        var diskEnableMergeViewports = Context.readSetting("", "enableMergeViewports", true);
+        if (generalSettings.enableMergeViewports !== diskEnableMergeViewports) {
+            generalSettings.enableMergeViewports = diskEnableMergeViewports;
+        }
+        var diskEnableAddCamera = Context.readSetting("", "enableAddCamera", true);
+        if (generalSettings.enableAddCamera !== diskEnableAddCamera) {
+            generalSettings.enableAddCamera = diskEnableAddCamera;
+        }
+        var rawSnapshotPath = Context.readSetting("", "snapshotPath", "");
+        var diskSnapshotPath = Context.sanitizePlatformPath(rawSnapshotPath, Context.defaultPicturesPath());
+        if (generalSettings.snapshotPath !== diskSnapshotPath) {
+            generalSettings.snapshotPath = diskSnapshotPath;
+        }
+        var rawVideoPath = Context.readSetting("", "videoPath", "");
+        var diskVideoPath = Context.sanitizePlatformPath(rawVideoPath, Context.defaultMoviesPath());
+        if (generalSettings.videoPath !== diskVideoPath) {
+            generalSettings.videoPath = diskVideoPath;
+        }
+        var diskEnableContextMenu = Context.readSetting("", "enableContextMenu", true);
+        if (generalSettings.enableContextMenu !== diskEnableContextMenu) {
+            generalSettings.enableContextMenu = diskEnableContextMenu;
+        }
+        var diskEnableRemoveCamera = Context.readSetting("", "enableRemoveCamera", true);
+        if (generalSettings.enableRemoveCamera !== diskEnableRemoveCamera) {
+            generalSettings.enableRemoveCamera = diskEnableRemoveCamera;
+        }
+        var diskLockGridSize = Context.readSetting("", "lockGridSize", true);
+        if (generalSettings.lockGridSize !== diskLockGridSize) {
+            generalSettings.lockGridSize = diskLockGridSize;
+        }
+        var diskAuxiliaryLimit = Context.readSetting("", "auxiliaryLimit", 1);
+        if (diskAuxiliaryLimit < 0) diskAuxiliaryLimit = 0;
+        if (diskAuxiliaryLimit > 3) diskAuxiliaryLimit = 3;
+        if (generalSettings.auxiliaryLimit !== diskAuxiliaryLimit) {
+            generalSettings.auxiliaryLimit = diskAuxiliaryLimit;
+        }
+        var diskPlaybackOffsetSeconds = Context.readSetting("", "playbackOffsetSeconds", 120);
+        if (generalSettings.playbackOffsetSeconds !== diskPlaybackOffsetSeconds) {
+            generalSettings.playbackOffsetSeconds = diskPlaybackOffsetSeconds;
+        }
+        var diskPlaybackTimelineHours = Context.readSetting("", "playbackTimelineHours", 2);
+        if (diskPlaybackTimelineHours < 1) diskPlaybackTimelineHours = 1;
+        if (diskPlaybackTimelineHours > 24) diskPlaybackTimelineHours = 24;
+        if (generalSettings.playbackTimelineHours !== diskPlaybackTimelineHours) {
+            generalSettings.playbackTimelineHours = diskPlaybackTimelineHours;
+        }
+        var diskDisableAudio = Context.readSetting("", "disableAudio", false);
+        if (generalSettings.disableAudio !== diskDisableAudio) {
+            generalSettings.disableAudio = diskDisableAudio;
+        }
+        var diskEnableDiagnosticLogs = Context.readSetting("", "enableDiagnosticLogs", false);
+        if (generalSettings.enableDiagnosticLogs !== diskEnableDiagnosticLogs) {
+            generalSettings.enableDiagnosticLogs = diskEnableDiagnosticLogs;
+        }
+    }
+
+    function loadViewSettings() {
+        var diskHideCursor = Context.readSetting("View", "hideCursorWhenFullScreen", true);
+        if (viewSettings.hideCursorWhenFullScreen !== diskHideCursor) {
+            viewSettings.hideCursorWhenFullScreen = diskHideCursor;
+        }
+        var diskShowChannelStatus = Context.readSetting("View", "showChannelStatus", true);
+        if (viewSettings.showChannelStatus !== diskShowChannelStatus) {
+            viewSettings.showChannelStatus = diskShowChannelStatus;
+        }
+        var diskShowCameraInfo = Context.readSetting("View", "showCameraInfo", true);
+        if (viewSettings.showCameraInfo !== diskShowCameraInfo) {
+            viewSettings.showCameraInfo = diskShowCameraInfo;
+        }
+        var diskHoverControlIcons = Context.readSetting("View", "hoverControlIcons", true);
+        if (viewSettings.hoverControlIcons !== diskHoverControlIcons) {
+            viewSettings.hoverControlIcons = diskHoverControlIcons;
+        }
+        var diskShowInfoOnHoverOnly = Context.readSetting("View", "showInfoOnHoverOnly", false);
+        if (viewSettings.showInfoOnHoverOnly !== diskShowInfoOnHoverOnly) {
+            viewSettings.showInfoOnHoverOnly = diskShowInfoOnHoverOnly;
+        }
+        var diskShowTopBarByDefault = Context.readSetting("View", "showTopBarByDefault", true);
+        if (viewSettings.showTopBarByDefault !== diskShowTopBarByDefault) {
+            viewSettings.showTopBarByDefault = diskShowTopBarByDefault;
+        }
+        var diskTopBarTriggerHeight = parseInt(Context.readSetting("View", "topBarTriggerHeight", 12));
+        if (isNaN(diskTopBarTriggerHeight) || diskTopBarTriggerHeight < 1) diskTopBarTriggerHeight = 12;
+        if (diskTopBarTriggerHeight > 200) diskTopBarTriggerHeight = 200;
+        if (viewSettings.topBarTriggerHeight !== diskTopBarTriggerHeight) {
+            viewSettings.topBarTriggerHeight = diskTopBarTriggerHeight;
+        }
+        var diskTopBarPersistenceMs = parseInt(Context.readSetting("View", "topBarPersistenceMs", 500));
+        if (isNaN(diskTopBarPersistenceMs) || diskTopBarPersistenceMs < 0) diskTopBarPersistenceMs = 500;
+        if (diskTopBarPersistenceMs > 10000) diskTopBarPersistenceMs = 10000;
+        if (viewSettings.topBarPersistenceMs !== diskTopBarPersistenceMs) {
+            viewSettings.topBarPersistenceMs = diskTopBarPersistenceMs;
+        }
+        var diskTopBarBgTransparency = parseInt(Context.readSetting("View", "topBarBgTransparency", 40));
+        if (isNaN(diskTopBarBgTransparency) || diskTopBarBgTransparency < 0) diskTopBarBgTransparency = 0;
+        if (diskTopBarBgTransparency > 100) diskTopBarBgTransparency = 100;
+        if (viewSettings.topBarBgTransparency !== diskTopBarBgTransparency) {
+            viewSettings.topBarBgTransparency = diskTopBarBgTransparency;
+        }
+        if (rootWindow.liveTopBarBgTransparency !== diskTopBarBgTransparency) {
+            rootWindow.liveTopBarBgTransparency = diskTopBarBgTransparency;
+        }
+        var diskDisableViewportZoomAnimation = Context.readSetting("View", "disableViewportZoomAnimation", false);
+        if (viewSettings.disableViewportZoomAnimation !== diskDisableViewportZoomAnimation) {
+            viewSettings.disableViewportZoomAnimation = diskDisableViewportZoomAnimation;
+        }
+        var diskViewportBadgeFontSize = parseInt(Context.readSetting("View", "viewportBadgeFontSize", 8));
+        if (isNaN(diskViewportBadgeFontSize) || diskViewportBadgeFontSize < 1) diskViewportBadgeFontSize = 8;
+        if (diskViewportBadgeFontSize > 72) diskViewportBadgeFontSize = 72;
+        if (viewSettings.viewportBadgeFontSize !== diskViewportBadgeFontSize) {
+            viewSettings.viewportBadgeFontSize = diskViewportBadgeFontSize;
+        }
+    }
+
+    function loadViewportSettings() {
+        var diskNoUnmuteWhenFullScreen = Context.readSetting("Viewport", "noUnmuteWhenFullScreen", false);
+        if (viewportSettings.noUnmuteWhenFullScreen !== diskNoUnmuteWhenFullScreen) {
+            viewportSettings.noUnmuteWhenFullScreen = diskNoUnmuteWhenFullScreen;
+        }
     }
 
 
@@ -765,80 +908,7 @@ ApplicationWindow {
             }
 
             // 3. Check and live-reload General Settings
-            var diskSingleApp = Context.readSetting("", "singleApplication", true);
-            if (generalSettings.singleApplication !== diskSingleApp) {
-                generalSettings.singleApplication = diskSingleApp;
-            }
-            var diskAllowSwapping = Context.readSetting("", "allowSwappingViewports", true);
-            if (generalSettings.allowSwappingViewports !== diskAllowSwapping) {
-                generalSettings.allowSwappingViewports = diskAllowSwapping;
-            }
-            var diskEnableChangeViewport = Context.readSetting("", "enableChangeViewportSettings", true);
-            if (generalSettings.enableChangeViewportSettings !== diskEnableChangeViewport) {
-                generalSettings.enableChangeViewportSettings = diskEnableChangeViewport;
-            }
-            var diskEnableRenameCamera = Context.readSetting("", "enableRenameCamera", true);
-            if (generalSettings.enableRenameCamera !== diskEnableRenameCamera) {
-                generalSettings.enableRenameCamera = diskEnableRenameCamera;
-            }
-            var diskEnableStreamSel = Context.readSetting("", "enableStreamSelection", true);
-            if (generalSettings.enableStreamSelection !== diskEnableStreamSel) {
-                generalSettings.enableStreamSelection = diskEnableStreamSel;
-            }
-            var diskEnableMergeViewports = Context.readSetting("", "enableMergeViewports", true);
-            if (generalSettings.enableMergeViewports !== diskEnableMergeViewports) {
-                generalSettings.enableMergeViewports = diskEnableMergeViewports;
-            }
-            var diskEnableAddCamera = Context.readSetting("", "enableAddCamera", true);
-            if (generalSettings.enableAddCamera !== diskEnableAddCamera) {
-                generalSettings.enableAddCamera = diskEnableAddCamera;
-            }
-            var rawSnapshotPath = Context.readSetting("", "snapshotPath", "");
-            var diskSnapshotPath = Context.sanitizePlatformPath(rawSnapshotPath, Context.defaultPicturesPath());
-            if (generalSettings.snapshotPath !== diskSnapshotPath) {
-                generalSettings.snapshotPath = diskSnapshotPath;
-            }
-            var rawVideoPath = Context.readSetting("", "videoPath", "");
-            var diskVideoPath = Context.sanitizePlatformPath(rawVideoPath, Context.defaultMoviesPath());
-            if (generalSettings.videoPath !== diskVideoPath) {
-                generalSettings.videoPath = diskVideoPath;
-            }
-            var diskEnableContextMenu = Context.readSetting("", "enableContextMenu", true);
-            if (generalSettings.enableContextMenu !== diskEnableContextMenu) {
-                generalSettings.enableContextMenu = diskEnableContextMenu;
-            }
-            var diskEnableRemoveCamera = Context.readSetting("", "enableRemoveCamera", true);
-            if (generalSettings.enableRemoveCamera !== diskEnableRemoveCamera) {
-                generalSettings.enableRemoveCamera = diskEnableRemoveCamera;
-            }
-            var diskLockGridSize = Context.readSetting("", "lockGridSize", true);
-            if (generalSettings.lockGridSize !== diskLockGridSize) {
-                generalSettings.lockGridSize = diskLockGridSize;
-            }
-            var diskAuxiliaryLimit = Context.readSetting("", "auxiliaryLimit", 1);
-            if (diskAuxiliaryLimit < 0) diskAuxiliaryLimit = 0;
-            if (diskAuxiliaryLimit > 3) diskAuxiliaryLimit = 3;
-            if (generalSettings.auxiliaryLimit !== diskAuxiliaryLimit) {
-                generalSettings.auxiliaryLimit = diskAuxiliaryLimit;
-            }
-            var diskPlaybackOffsetSeconds = Context.readSetting("", "playbackOffsetSeconds", 120);
-            if (generalSettings.playbackOffsetSeconds !== diskPlaybackOffsetSeconds) {
-                generalSettings.playbackOffsetSeconds = diskPlaybackOffsetSeconds;
-            }
-            var diskPlaybackTimelineHours = Context.readSetting("", "playbackTimelineHours", 2);
-            if (diskPlaybackTimelineHours < 1) diskPlaybackTimelineHours = 1;
-            if (diskPlaybackTimelineHours > 24) diskPlaybackTimelineHours = 24;
-            if (generalSettings.playbackTimelineHours !== diskPlaybackTimelineHours) {
-                generalSettings.playbackTimelineHours = diskPlaybackTimelineHours;
-            }
-            var diskDisableAudio = Context.readSetting("", "disableAudio", false);
-            if (generalSettings.disableAudio !== diskDisableAudio) {
-                generalSettings.disableAudio = diskDisableAudio;
-            }
-            var diskEnableDiagnosticLogs = Context.readSetting("", "enableDiagnosticLogs", false);
-            if (generalSettings.enableDiagnosticLogs !== diskEnableDiagnosticLogs) {
-                generalSettings.enableDiagnosticLogs = diskEnableDiagnosticLogs;
-            }
+            rootWindow.loadGeneralSettings();
             if (!Context.isAuxiliary) {
                 var diskCurrentIndex = parseInt(Context.readSetting("MainLayout", "currentIndex", windowLayoutSettings.currentIndex), 10);
                 if (!isNaN(diskCurrentIndex) && layoutsCollectionModel.count > 0) {
@@ -858,65 +928,8 @@ ApplicationWindow {
             }
 
             // 4. Check and live-reload View Settings
-            var diskHideCursor = Context.readSetting("View", "hideCursorWhenFullScreen", true);
-            if (viewSettings.hideCursorWhenFullScreen !== diskHideCursor) {
-                viewSettings.hideCursorWhenFullScreen = diskHideCursor;
-            }
-            var diskShowChannelStatus = Context.readSetting("View", "showChannelStatus", true);
-            if (viewSettings.showChannelStatus !== diskShowChannelStatus) {
-                viewSettings.showChannelStatus = diskShowChannelStatus;
-            }
-            var diskShowCameraInfo = Context.readSetting("View", "showCameraInfo", true);
-            if (viewSettings.showCameraInfo !== diskShowCameraInfo) {
-                viewSettings.showCameraInfo = diskShowCameraInfo;
-            }
-            var diskHoverControlIcons = Context.readSetting("View", "hoverControlIcons", true);
-            if (viewSettings.hoverControlIcons !== diskHoverControlIcons) {
-                viewSettings.hoverControlIcons = diskHoverControlIcons;
-            }
-            var diskShowInfoOnHoverOnly = Context.readSetting("View", "showInfoOnHoverOnly", false);
-            if (viewSettings.showInfoOnHoverOnly !== diskShowInfoOnHoverOnly) {
-                viewSettings.showInfoOnHoverOnly = diskShowInfoOnHoverOnly;
-            }
-            var diskShowTopBarByDefault = Context.readSetting("View", "showTopBarByDefault", true);
-            if (viewSettings.showTopBarByDefault !== diskShowTopBarByDefault) {
-                viewSettings.showTopBarByDefault = diskShowTopBarByDefault;
-            }
-            var diskTopBarTriggerHeight = parseInt(Context.readSetting("View", "topBarTriggerHeight", 12));
-            if (isNaN(diskTopBarTriggerHeight) || diskTopBarTriggerHeight < 1) diskTopBarTriggerHeight = 12;
-            if (diskTopBarTriggerHeight > 200) diskTopBarTriggerHeight = 200;
-            if (viewSettings.topBarTriggerHeight !== diskTopBarTriggerHeight) {
-                viewSettings.topBarTriggerHeight = diskTopBarTriggerHeight;
-            }
-            var diskTopBarPersistenceMs = parseInt(Context.readSetting("View", "topBarPersistenceMs", 500));
-            if (isNaN(diskTopBarPersistenceMs) || diskTopBarPersistenceMs < 0) diskTopBarPersistenceMs = 500;
-            if (diskTopBarPersistenceMs > 10000) diskTopBarPersistenceMs = 10000;
-            if (viewSettings.topBarPersistenceMs !== diskTopBarPersistenceMs) {
-                viewSettings.topBarPersistenceMs = diskTopBarPersistenceMs;
-            }
-            var diskTopBarBgTransparency = parseInt(Context.readSetting("View", "topBarBgTransparency", 40));
-            if (isNaN(diskTopBarBgTransparency) || diskTopBarBgTransparency < 0) diskTopBarBgTransparency = 0;
-            if (diskTopBarBgTransparency > 100) diskTopBarBgTransparency = 100;
-            if (viewSettings.topBarBgTransparency !== diskTopBarBgTransparency) {
-                viewSettings.topBarBgTransparency = diskTopBarBgTransparency;
-            }
-            if (rootWindow.liveTopBarBgTransparency !== diskTopBarBgTransparency) {
-                rootWindow.liveTopBarBgTransparency = diskTopBarBgTransparency;
-            }
-            var diskDisableViewportZoomAnimation = Context.readSetting("View", "disableViewportZoomAnimation", false);
-            if (viewSettings.disableViewportZoomAnimation !== diskDisableViewportZoomAnimation) {
-                viewSettings.disableViewportZoomAnimation = diskDisableViewportZoomAnimation;
-            }
-            var diskViewportBadgeFontSize = parseInt(Context.readSetting("View", "viewportBadgeFontSize", 8));
-            if (isNaN(diskViewportBadgeFontSize) || diskViewportBadgeFontSize < 1) diskViewportBadgeFontSize = 8;
-            if (diskViewportBadgeFontSize > 72) diskViewportBadgeFontSize = 72;
-            if (viewSettings.viewportBadgeFontSize !== diskViewportBadgeFontSize) {
-                viewSettings.viewportBadgeFontSize = diskViewportBadgeFontSize;
-            }
-            var diskNoUnmuteWhenFullScreen = Context.readSetting("Viewport", "noUnmuteWhenFullScreen", false);
-            if (viewportSettings.noUnmuteWhenFullScreen !== diskNoUnmuteWhenFullScreen) {
-                viewportSettings.noUnmuteWhenFullScreen = diskNoUnmuteWhenFullScreen;
-            }
+            rootWindow.loadViewSettings();
+            rootWindow.loadViewportSettings();
             var defaultStr = "{\"analyzeduration\":100000,\"probesize\":500000,\"fflags\":\"nobuffer\",\"flags\":\"low_delay\",\"stimeout\":5000000,\"rtsp_transport\":\"tcp\"}";
             var hasMigratedLowLatency = Context.readSetting("ViewportsLayoutsCollection", "migratedLowLatencyFlags", false);
             var hasMigratedAnalyzeduration = Context.readSetting("ViewportsLayoutsCollection", "migratedAnalyzeduration100ms", false);
@@ -1031,11 +1044,8 @@ ApplicationWindow {
 
     property int liveTopBarBgTransparency: 40
 
-    Settings {
+    QtObject {
         id: viewSettings
-
-        fileName: Context.config.fileName
-        category: "View"
 
         property bool hideCursorWhenFullScreen: true
         property bool showChannelStatus: true
@@ -1049,16 +1059,17 @@ ApplicationWindow {
         property bool disableViewportZoomAnimation: false
         property int viewportBadgeFontSize: 8
         onTopBarBgTransparencyChanged: rootWindow.liveTopBarBgTransparency = topBarBgTransparency
-        Component.onCompleted: rootWindow.liveTopBarBgTransparency = topBarBgTransparency
+        Component.onCompleted: {
+            rootWindow.loadViewSettings();
+            rootWindow.liveTopBarBgTransparency = topBarBgTransparency;
+        }
     }
 
-    Settings {
+    QtObject {
         id: viewportSettings
 
-        fileName: Context.config.fileName
-        category: "Viewport"
-
         property bool noUnmuteWhenFullScreen: false
+        Component.onCompleted: rootWindow.loadViewportSettings()
     }
 
     Shortcut {

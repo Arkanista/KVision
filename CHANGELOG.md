@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.2] - 2026-11-24
+
+### Bug Fixes
+* **Reliable Settings Persistence & Multi-Window Sync:** Fixed an issue where settings such as *Disable audio handling completely* and *Disable viewport zoom animation* could revert to their default unchecked state when closing auxiliary windows or restarting after an update. Settings changed in any window now save directly and stay synchronized across all open windows.
+
 ## [2.8.1] - 2026-11-24
 
 ### Minor Enhancements

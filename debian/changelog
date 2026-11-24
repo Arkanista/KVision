@@ -1,3 +1,9 @@
+kvision (2.8.2-1) unstable; urgency=medium
+
+  * Fix settings persistence so options such as Disable audio handling completely and Disable viewport zoom animation are never overwritten on exit while keeping multi-window synchronization.
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Tue, 24 Nov 2026 17:00:00 +0100
+
 kvision (2.8.1-1) unstable; urgency=medium
 
   * Minor Enhancements: add camera Rename option in viewport context menu, improve disabled menu item readability, reorganize Layouts and Layout Groups tabs, localize Add camera count label, and unify dialog footer bars with adaptive button widths.
