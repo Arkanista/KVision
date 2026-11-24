@@ -872,7 +872,7 @@ FocusScope {
                                         viewport.forceActiveFocus();
                                         d.selectionReset();
                                     }
-                                    contextMenu.popup();
+                                    contextMenu.popupAt(viewportMouseArea, mouse.x, mouse.y);
                                 }
                                 return;
                             }
@@ -985,11 +985,28 @@ FocusScope {
                         }
                     }
 
-                    Menu {
+                    Popup {
                         id: contextMenu
-                        
+                        parent: Overlay.overlay
+                        modal: false
+                        focus: true
+                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+                        padding: 0
                         topPadding: 5
                         bottomPadding: 5
+                        leftPadding: 1
+                        rightPadding: 1
+
+                        function popupAt(sourceItem, mx, my) {
+                            var pt = sourceItem.mapToItem(Overlay.overlay, mx, my);
+                            var menuW = Math.max(implicitWidth, 167);
+                            var menuH = Math.max(implicitHeight, contextMenuColumn.implicitHeight + topPadding + bottomPadding);
+                            var maxX = Overlay.overlay ? Math.max(0, Overlay.overlay.width - menuW) : pt.x;
+                            var maxY = Overlay.overlay ? Math.max(0, Overlay.overlay.height - menuH) : pt.y;
+                            x = Math.max(0, Math.min(pt.x, maxX));
+                            y = Math.max(0, Math.min(pt.y, maxY));
+                            open();
+                        }
                         
                         onClosed: {
                             streamSubMenu.close();
@@ -1010,7 +1027,7 @@ FocusScope {
                         
                         background: Rectangle {
                             id: contextMenuBg
-                            implicitWidth: 165
+                            implicitWidth: 167
                             color: "#151d24"
                             border.color: "#ff7a00"
                             border.width: 1
@@ -1020,60 +1037,66 @@ FocusScope {
                         function menuIconSvg(svgBody, colorHex) {
                             return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + encodeURIComponent(colorHex) + "' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'>" + svgBody + "</svg>";
                         }
+
+                        contentItem: Column {
+                            id: contextMenuColumn
+                            width: 165
+                            spacing: 0
                         
-                        MenuItem {
+                        Rectangle {
                             id: swapMenuItem
-                            text: qsTr("LNG_00475")
+                            width: 165
+                            height: 32
+                            radius: 4
                             visible: generalSettings.allowSwappingViewports
-                            enabled: model.url !== ""
-                            leftPadding: 12
-                            
-                            contentItem: RowLayout {
+                            readonly property bool itemEnabled: model.url !== ""
+                            readonly property bool hovered: swapMouseArea.containsMouse
+                            color: (itemEnabled && hovered) ? "#2a3540" : "transparent"
+                            border.color: (itemEnabled && hovered) ? "#00f5d4" : "transparent"
+                            border.width: 1
+
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.leftMargin: 12
+                                anchors.rightMargin: 8
                                 spacing: 8
                                 Image {
                                     Layout.preferredWidth: 13
                                     Layout.preferredHeight: 13
-                                    source: contextMenu.menuIconSvg("<polyline points='16 3 21 3 21 8'/><line x1='4' y1='20' x2='21' y2='3'/><polyline points='21 16 21 21 16 21'/><line x1='15' y1='15' x2='21' y2='21'/><line x1='4' y1='4' x2='9' y2='9'/>", swapMenuItem.enabled ? (swapMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                    source: contextMenu.menuIconSvg("<polyline points='16 3 21 3 21 8'/><line x1='4' y1='20' x2='21' y2='3'/><polyline points='21 16 21 21 16 21'/><line x1='15' y1='15' x2='21' y2='21'/><line x1='4' y1='4' x2='9' y2='9'/>", swapMenuItem.itemEnabled ? (swapMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896")
                                 }
                                 Text {
                                     Layout.fillWidth: true
-                                    text: swapMenuItem.text
-                                    font {
-                                        pixelSize: 11
-                                        bold: true
-                                    }
-                                    color: swapMenuItem.enabled ? (swapMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    text: qsTr("LNG_00475")
+                                    font { pixelSize: 11; bold: true }
+                                    color: swapMenuItem.itemEnabled ? (swapMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignLeft
                                     verticalAlignment: Text.AlignVCenter
                                 }
                             }
-                            
-                            background: Rectangle {
-                                implicitWidth: 165
-                                implicitHeight: 32
-                                color: parent.hovered ? "#2a3540" : "transparent"
-                                border.color: parent.hovered ? "#00f5d4" : "transparent"
-                                border.width: 1
-                                radius: 4
-                            }
-                            
-                            onHoveredChanged: {
-                                if (hovered) {
+
+                            MouseArea {
+                                id: swapMouseArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
                                     addCameraSubMenu.close();
                                 }
-                            }
-                            
-                            onTriggered: {
-                                console.log("[CCTV Viewer Debug] Triggered context menu Zamień miejscami on index =", model.index);
-                                root.pendingSwapSourceIndex = model.index;
+                                onClicked: {
+                                    if (!swapMenuItem.itemEnabled) return;
+                                    contextMenu.close();
+                                    root.pendingSwapSourceIndex = model.index;
+                                }
                             }
                         }
 
-                        MenuItem {
+                        Rectangle {
                             id: addCameraMenuItem
-                            text: qsTr("LNG_00642")
+                            width: 165
+                            height: 32
+                            radius: 4
                             visible: generalSettings.enableAddCamera
                             readonly property var recordersList: {
                                 try {
@@ -1082,59 +1105,52 @@ FocusScope {
                                     return [];
                                 }
                             }
-                            enabled: recordersList && recordersList.length > 0
-                            leftPadding: 12
+                            readonly property bool itemEnabled: recordersList && recordersList.length > 0
+                            readonly property bool hovered: addCameraMouseArea.containsMouse
+                            color: (itemEnabled && hovered) ? "#2a3540" : "transparent"
+                            border.color: (itemEnabled && hovered) ? "#00f5d4" : "transparent"
+                            border.width: 1
 
-                            contentItem: RowLayout {
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.leftMargin: 12
+                                anchors.rightMargin: 8
                                 spacing: 8
                                 Image {
                                     Layout.preferredWidth: 13
                                     Layout.preferredHeight: 13
-                                    source: contextMenu.menuIconSvg("<path d='M23 7l-7 5 7 5V7z'/><rect x='1' y='5' width='15' height='14' rx='2' ry='2'/><line x1='8.5' y1='9' x2='8.5' y2='15'/><line x1='5.5' y1='12' x2='11.5' y2='12'/>", addCameraMenuItem.enabled ? (addCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                    source: contextMenu.menuIconSvg("<path d='M23 7l-7 5 7 5V7z'/><rect x='1' y='5' width='15' height='14' rx='2' ry='2'/><line x1='8.5' y1='9' x2='8.5' y2='15'/><line x1='5.5' y1='12' x2='11.5' y2='12'/>", addCameraMenuItem.itemEnabled ? (addCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896")
                                 }
                                 Text {
                                     Layout.fillWidth: true
-                                    text: addCameraMenuItem.text
-                                    font {
-                                        pixelSize: 11
-                                        bold: true
-                                    }
-                                    color: addCameraMenuItem.enabled ? (addCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    text: qsTr("LNG_00642")
+                                    font { pixelSize: 11; bold: true }
+                                    color: addCameraMenuItem.itemEnabled ? (addCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignLeft
                                     verticalAlignment: Text.AlignVCenter
                                 }
                                 Text {
                                     text: "▶"
-                                    font {
-                                        pixelSize: 9
-                                        bold: true
-                                    }
-                                    color: addCameraMenuItem.enabled ? (addCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    font { pixelSize: 9; bold: true }
+                                    color: addCameraMenuItem.itemEnabled ? (addCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignRight
                                     verticalAlignment: Text.AlignVCenter
-                                    rightPadding: 8
                                 }
                             }
 
-                            background: Rectangle {
-                                implicitWidth: 165
-                                implicitHeight: 32
-                                color: addCameraMenuItem.hovered ? "#2a3540" : "transparent"
-                                border.color: addCameraMenuItem.hovered ? "#00f5d4" : "transparent"
-                                border.width: 1
-                                radius: 4
-                            }
-
-                            onHoveredChanged: {
-                                if (hovered && enabled) {
+                            MouseArea {
+                                id: addCameraMouseArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
-                                    addCameraSubMenu.popup(addCameraMenuItem, addCameraMenuItem.width, 0);
+                                    if (addCameraMenuItem.itemEnabled) {
+                                        addCameraSubMenu.popup(addCameraMenuItem, addCameraMenuItem.width, 0);
+                                    }
                                 }
-                            }
-
-                            onTriggered: {
-                                if (enabled) {
+                                onClicked: {
+                                    if (!addCameraMenuItem.itemEnabled) return;
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
                                     addCameraSubMenu.popup(addCameraMenuItem, addCameraMenuItem.width, 0);
@@ -1142,382 +1158,437 @@ FocusScope {
                             }
                         }
 
-                        MenuItem {
+                        Rectangle {
                             id: streamSelectMenuItem
-                            text: qsTr("LNG_00474")
+                            width: 165
+                            height: 32
+                            radius: 4
                             visible: generalSettings.enableStreamSelection
-                            enabled: model.url !== ""
-                            leftPadding: 12
-                            
-                            contentItem: RowLayout {
+                            readonly property bool itemEnabled: model.url !== ""
+                            readonly property bool hovered: streamSelectMouseArea.containsMouse
+                            color: (itemEnabled && hovered) ? "#2a3540" : "transparent"
+                            border.color: (itemEnabled && hovered) ? "#00f5d4" : "transparent"
+                            border.width: 1
+
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.leftMargin: 12
+                                anchors.rightMargin: 8
                                 spacing: 8
                                 Image {
                                     Layout.preferredWidth: 13
                                     Layout.preferredHeight: 13
-                                    source: contextMenu.menuIconSvg("<polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/>", streamSelectMenuItem.enabled ? (streamSelectMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                    source: contextMenu.menuIconSvg("<polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/>", streamSelectMenuItem.itemEnabled ? (streamSelectMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896")
                                 }
                                 Text {
                                     Layout.fillWidth: true
-                                    text: streamSelectMenuItem.text
-                                    font {
-                                        pixelSize: 11
-                                        bold: true
-                                    }
-                                    color: streamSelectMenuItem.enabled ? (streamSelectMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    text: qsTr("LNG_00474")
+                                    font { pixelSize: 11; bold: true }
+                                    color: streamSelectMenuItem.itemEnabled ? (streamSelectMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignLeft
                                     verticalAlignment: Text.AlignVCenter
                                 }
                                 Text {
                                     text: "▶"
-                                    font {
-                                        pixelSize: 9
-                                        bold: true
-                                    }
-                                    color: streamSelectMenuItem.enabled ? (streamSelectMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    font { pixelSize: 9; bold: true }
+                                    color: streamSelectMenuItem.itemEnabled ? (streamSelectMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignRight
                                     verticalAlignment: Text.AlignVCenter
-                                    rightPadding: 8
                                 }
                             }
-                            
-                            background: Rectangle {
-                                implicitWidth: 165
-                                implicitHeight: 32
-                                color: streamSelectMenuItem.hovered ? "#2a3540" : "transparent"
-                                border.color: streamSelectMenuItem.hovered ? "#00f5d4" : "transparent"
-                                border.width: 1
-                                radius: 4
-                            }
-                            
-                            onHoveredChanged: {
-                                if (hovered && enabled) {
+
+                            MouseArea {
+                                id: streamSelectMouseArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: {
                                     mergeSubMenu.close();
                                     addCameraSubMenu.close();
+                                    if (streamSelectMenuItem.itemEnabled) {
+                                        streamSubMenu.popup(streamSelectMenuItem, streamSelectMenuItem.width, 0);
+                                    }
+                                }
+                                onClicked: {
+                                    if (!streamSelectMenuItem.itemEnabled) return;
                                     streamSubMenu.popup(streamSelectMenuItem, streamSelectMenuItem.width, 0);
                                 }
                             }
-                            
-                            onTriggered: {
-                                streamSubMenu.popup(streamSelectMenuItem, streamSelectMenuItem.width, 0);
-                            }
                         }
 
-                        MenuItem {
+                        Rectangle {
                             id: removeCameraMenuItem
-                            text: qsTr("LNG_00473")
+                            width: 165
+                            height: 32
+                            radius: 4
                             visible: generalSettings.enableRemoveCamera
-                            enabled: model.url !== ""
-                            leftPadding: 12
-                            
-                            contentItem: RowLayout {
+                            readonly property bool itemEnabled: model.url !== ""
+                            readonly property bool hovered: removeCameraMouseArea.containsMouse
+                            color: (itemEnabled && hovered) ? "#2a3540" : "transparent"
+                            border.color: (itemEnabled && hovered) ? "#ff3333" : "transparent"
+                            border.width: 1
+
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.leftMargin: 12
+                                anchors.rightMargin: 8
                                 spacing: 8
                                 Image {
                                     Layout.preferredWidth: 13
                                     Layout.preferredHeight: 13
-                                    source: contextMenu.menuIconSvg("<polyline points='3 6 5 6 21 6'/><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'/>", removeCameraMenuItem.enabled ? (removeCameraMenuItem.hovered ? "#ff3333" : "#eeeeee") : "#555555")
+                                    source: contextMenu.menuIconSvg("<polyline points='3 6 5 6 21 6'/><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'/>", removeCameraMenuItem.itemEnabled ? (removeCameraMenuItem.hovered ? "#ff3333" : "#eeeeee") : "#788896")
                                 }
                                 Text {
                                     Layout.fillWidth: true
-                                    text: removeCameraMenuItem.text
-                                    font {
-                                        pixelSize: 11
-                                        bold: true
-                                    }
-                                    color: removeCameraMenuItem.enabled ? (removeCameraMenuItem.hovered ? "#ff3333" : "#eeeeee") : "#555555"
+                                    text: qsTr("LNG_00473")
+                                    font { pixelSize: 11; bold: true }
+                                    color: removeCameraMenuItem.itemEnabled ? (removeCameraMenuItem.hovered ? "#ff3333" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignLeft
                                     verticalAlignment: Text.AlignVCenter
                                 }
                             }
-                            
-                            background: Rectangle {
-                                implicitWidth: 165
-                                implicitHeight: 32
-                                color: removeCameraMenuItem.hovered ? "#2a3540" : "transparent"
-                                border.color: removeCameraMenuItem.hovered ? "#ff3333" : "transparent"
-                                border.width: 1
-                                radius: 4
-                            }
-                            
-                            onHoveredChanged: {
-                                if (hovered) {
+
+                            MouseArea {
+                                id: removeCameraMouseArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
                                     addCameraSubMenu.close();
                                 }
-                            }
-                            
-                            onTriggered: {
-                                removeCameraConfirmDialog.index = model.index;
-                                removeCameraConfirmDialog.open();
+                                onClicked: {
+                                    if (!removeCameraMenuItem.itemEnabled) return;
+                                    contextMenu.close();
+                                    removeCameraConfirmDialog.index = model.index;
+                                    removeCameraConfirmDialog.open();
+                                }
                             }
                         }
 
-                        MenuItem {
+                        Rectangle {
                             id: changeSettingsMenuItem
-                            text: qsTr("LNG_00472")
+                            width: 165
+                            height: 32
+                            radius: 4
                             visible: generalSettings.enableChangeViewportSettings
-                            enabled: model.url !== ""
-                            leftPadding: 12
-                            
-                            contentItem: RowLayout {
+                            readonly property bool itemEnabled: model.url !== ""
+                            readonly property bool hovered: changeSettingsMouseArea.containsMouse
+                            color: (itemEnabled && hovered) ? "#2a3540" : "transparent"
+                            border.color: (itemEnabled && hovered) ? "#00f5d4" : "transparent"
+                            border.width: 1
+
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.leftMargin: 12
+                                anchors.rightMargin: 8
                                 spacing: 8
                                 Image {
                                     Layout.preferredWidth: 13
                                     Layout.preferredHeight: 13
-                                    source: contextMenu.menuIconSvg("<circle cx='12' cy='12' r='3'/><path d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z'/>", changeSettingsMenuItem.enabled ? (changeSettingsMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                    source: contextMenu.menuIconSvg("<circle cx='12' cy='12' r='3'/><path d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z'/>", changeSettingsMenuItem.itemEnabled ? (changeSettingsMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896")
                                 }
                                 Text {
                                     Layout.fillWidth: true
-                                    text: changeSettingsMenuItem.text
-                                    font {
-                                        pixelSize: 11
-                                        bold: true
-                                    }
-                                    color: changeSettingsMenuItem.enabled ? (changeSettingsMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    text: qsTr("LNG_00472")
+                                    font { pixelSize: 11; bold: true }
+                                    color: changeSettingsMenuItem.itemEnabled ? (changeSettingsMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignLeft
                                     verticalAlignment: Text.AlignVCenter
                                 }
                             }
-                            
-                            background: Rectangle {
-                                implicitWidth: 165
-                                implicitHeight: 32
-                                color: changeSettingsMenuItem.hovered ? "#2a3540" : "transparent"
-                                border.color: changeSettingsMenuItem.hovered ? "#00f5d4" : "transparent"
-                                border.width: 1
-                                radius: 4
-                            }
-                            
-                            onHoveredChanged: {
-                                if (hovered) {
+
+                            MouseArea {
+                                id: changeSettingsMouseArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
                                     addCameraSubMenu.close();
                                 }
-                            }
-                            
-                            onTriggered: {
-                                viewportSettingsDialog.index = model.index;
-                                viewportSettingsDialog.open();
+                                onClicked: {
+                                    if (!changeSettingsMenuItem.itemEnabled) return;
+                                    contextMenu.close();
+                                    viewportSettingsDialog.index = model.index;
+                                    viewportSettingsDialog.open();
+                                }
                             }
                         }
 
-                        MenuItem {
+                        Rectangle {
+                            id: renameCameraMenuItem
+                            width: 165
+                            height: 32
+                            radius: 4
+                            visible: generalSettings.enableRenameCamera
+                            readonly property bool itemEnabled: model.url !== "" && String(model.url).indexOf("hikvision://") === 0
+                            readonly property bool hovered: renameCameraMouseArea.containsMouse
+                            color: (itemEnabled && hovered) ? "#2a3540" : "transparent"
+                            border.color: (itemEnabled && hovered) ? "#00f5d4" : "transparent"
+                            border.width: 1
+
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.leftMargin: 12
+                                anchors.rightMargin: 8
+                                spacing: 8
+                                Image {
+                                    Layout.preferredWidth: 13
+                                    Layout.preferredHeight: 13
+                                    source: contextMenu.menuIconSvg("<polygon points='16 3 21 8 8 21 3 21 3 16 16 3'/>", renameCameraMenuItem.itemEnabled ? (renameCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896")
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: qsTr("LNG_00674")
+                                    font { pixelSize: 11; bold: true }
+                                    color: renameCameraMenuItem.itemEnabled ? (renameCameraMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+                            }
+
+                            MouseArea {
+                                id: renameCameraMouseArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: {
+                                    streamSubMenu.close();
+                                    mergeSubMenu.close();
+                                    addCameraSubMenu.close();
+                                }
+                                onClicked: {
+                                    if (!renameCameraMenuItem.itemEnabled) return;
+                                    contextMenu.close();
+                                    cameraRenameDialog.openForUrl(model.url);
+                                }
+                            }
+                        }
+
+                        Rectangle {
                             id: reloadMenuItem
-                            text: qsTr("LNG_00471")
-                            enabled: model.url !== "" && (playerPool.activePlayersMap[model.index] ? !playerPool.activePlayersMap[model.index].isQuickPlayback : true)
-                            leftPadding: 12
-                            
-                            contentItem: RowLayout {
+                            width: 165
+                            height: 32
+                            radius: 4
+                            readonly property bool itemEnabled: model.url !== "" && (playerPool.activePlayersMap[model.index] ? !playerPool.activePlayersMap[model.index].isQuickPlayback : true)
+                            readonly property bool hovered: reloadMouseArea.containsMouse
+                            color: (itemEnabled && hovered) ? "#2a3540" : "transparent"
+                            border.color: (itemEnabled && hovered) ? "#00f5d4" : "transparent"
+                            border.width: 1
+
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.leftMargin: 12
+                                anchors.rightMargin: 8
                                 spacing: 8
                                 Image {
                                     Layout.preferredWidth: 13
                                     Layout.preferredHeight: 13
-                                    source: contextMenu.menuIconSvg("<polyline points='23 4 23 10 17 10'/><path d='M20.49 15a9 9 0 1 1-2.12-9.36L23 10'/>", reloadMenuItem.enabled ? (reloadMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                    source: contextMenu.menuIconSvg("<polyline points='23 4 23 10 17 10'/><path d='M20.49 15a9 9 0 1 1-2.12-9.36L23 10'/>", reloadMenuItem.itemEnabled ? (reloadMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896")
                                 }
                                 Text {
                                     Layout.fillWidth: true
-                                    text: reloadMenuItem.text
+                                    text: qsTr("LNG_00471")
                                     font { pixelSize: 11; bold: true }
-                                    color: reloadMenuItem.enabled ? (reloadMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    color: reloadMenuItem.itemEnabled ? (reloadMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignLeft
                                     verticalAlignment: Text.AlignVCenter
                                 }
                             }
-                            background: Rectangle {
-                                implicitWidth: 165
-                                implicitHeight: 32
-                                color: reloadMenuItem.hovered ? "#2a3540" : "transparent"
-                                border.color: reloadMenuItem.hovered ? "#00f5d4" : "transparent"
-                                border.width: 1
-                                radius: 4
-                            }
-                            
-                            onHoveredChanged: {
-                                if (hovered) {
+
+                            MouseArea {
+                                id: reloadMouseArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
                                     addCameraSubMenu.close();
                                 }
-                            }
-                            
-                            onTriggered: {
-                                var player = playerPool.activePlayersMap[model.index];
-                                if (player) {
-                                    player.reload();
+                                onClicked: {
+                                    if (!reloadMenuItem.itemEnabled) return;
+                                    contextMenu.close();
+                                    var player = playerPool.activePlayersMap[model.index];
+                                    if (player) {
+                                        player.reload();
+                                    }
                                 }
                             }
                         }
-                        MenuItem {
+
+                        Rectangle {
                             id: snapshotMenuItem
-                            text: qsTr("LNG_00470")
-                            enabled: model.url !== ""
-                            leftPadding: 12
-                            
-                            contentItem: RowLayout {
+                            width: 165
+                            height: 32
+                            radius: 4
+                            readonly property bool itemEnabled: model.url !== ""
+                            readonly property bool hovered: snapshotMouseArea.containsMouse
+                            color: (itemEnabled && hovered) ? "#2a3540" : "transparent"
+                            border.color: (itemEnabled && hovered) ? "#00f5d4" : "transparent"
+                            border.width: 1
+
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.leftMargin: 12
+                                anchors.rightMargin: 8
                                 spacing: 8
                                 Image {
                                     Layout.preferredWidth: 13
                                     Layout.preferredHeight: 13
-                                    source: contextMenu.menuIconSvg("<path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/><circle cx='12' cy='13' r='4'/>", snapshotMenuItem.enabled ? (snapshotMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                    source: contextMenu.menuIconSvg("<path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/><circle cx='12' cy='13' r='4'/>", snapshotMenuItem.itemEnabled ? (snapshotMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896")
                                 }
                                 Text {
                                     Layout.fillWidth: true
-                                    text: snapshotMenuItem.text
+                                    text: qsTr("LNG_00470")
                                     font { pixelSize: 11; bold: true }
-                                    color: snapshotMenuItem.enabled ? (snapshotMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    color: snapshotMenuItem.itemEnabled ? (snapshotMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignLeft
                                     verticalAlignment: Text.AlignVCenter
                                 }
                             }
-                            background: Rectangle {
-                                implicitWidth: 165
-                                implicitHeight: 32
-                                color: snapshotMenuItem.hovered ? "#2a3540" : "transparent"
-                                border.color: snapshotMenuItem.hovered ? "#00f5d4" : "transparent"
-                                border.width: 1
-                                radius: 4
-                            }
-                            
-                            onHoveredChanged: {
-                                if (hovered) {
+
+                            MouseArea {
+                                id: snapshotMouseArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
                                     addCameraSubMenu.close();
                                 }
-                            }
-                            
-                            onTriggered: {
-                                var player = playerPool.activePlayersMap[model.index];
-                                if (player) {
-                                    player.takeSnapshot(false);
+                                onClicked: {
+                                    if (!snapshotMenuItem.itemEnabled) return;
+                                    contextMenu.close();
+                                    var player = playerPool.activePlayersMap[model.index];
+                                    if (player) {
+                                        player.takeSnapshot(false);
+                                    }
                                 }
                             }
                         }
 
-
-                        MenuItem {
+                        Rectangle {
                             id: playMenuItem
-                            text: qsTr("LNG_00469")
-                            enabled: model.url !== ""
-                            leftPadding: 12
-                            
-                            contentItem: RowLayout {
+                            width: 165
+                            height: 32
+                            radius: 4
+                            readonly property bool itemEnabled: model.url !== ""
+                            readonly property bool hovered: playMouseArea.containsMouse
+                            color: (itemEnabled && hovered) ? "#2a3540" : "transparent"
+                            border.color: (itemEnabled && hovered) ? "#00f5d4" : "transparent"
+                            border.width: 1
+
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.leftMargin: 12
+                                anchors.rightMargin: 8
                                 spacing: 8
                                 Image {
                                     Layout.preferredWidth: 13
                                     Layout.preferredHeight: 13
-                                    source: contextMenu.menuIconSvg("<circle cx='12' cy='12' r='10'/><polygon points='10 8 16 12 10 16 10 8'/>", playMenuItem.enabled ? (playMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                    source: contextMenu.menuIconSvg("<circle cx='12' cy='12' r='10'/><polygon points='10 8 16 12 10 16 10 8'/>", playMenuItem.itemEnabled ? (playMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896")
                                 }
                                 Text {
                                     Layout.fillWidth: true
-                                    text: playMenuItem.text
+                                    text: qsTr("LNG_00469")
                                     font { pixelSize: 11; bold: true }
-                                    color: playMenuItem.enabled ? (playMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    color: playMenuItem.itemEnabled ? (playMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignLeft
                                     verticalAlignment: Text.AlignVCenter
                                 }
                             }
-                            background: Rectangle {
-                                implicitWidth: 165
-                                implicitHeight: 32
-                                color: playMenuItem.hovered ? "#2a3540" : "transparent"
-                                border.color: playMenuItem.hovered ? "#00f5d4" : "transparent"
-                                border.width: 1
-                                radius: 4
-                            }
-                            
-                            onHoveredChanged: {
-                                if (hovered) {
+
+                            MouseArea {
+                                id: playMouseArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: {
                                     streamSubMenu.close();
                                     mergeSubMenu.close();
                                     addCameraSubMenu.close();
                                 }
-                            }
-                            
-                            onTriggered: {
-                                var player = playerPool.activePlayersMap[model.index];
-                                if (player) {
-                                    player.openPlayback();
+                                onClicked: {
+                                    if (!playMenuItem.itemEnabled) return;
+                                    contextMenu.close();
+                                    var player = playerPool.activePlayersMap[model.index];
+                                    if (player) {
+                                        player.openPlayback();
+                                    }
                                 }
                             }
                         }
 
-                        MenuItem {
+                        Rectangle {
                             id: mergeMenuItem
+                            width: 165
+                            height: 32
+                            radius: 4
                             readonly property bool isMergedCell: viewport.columnSpan > 1 || viewport.rowSpan > 1
                             readonly property bool isSelectionMerge: !isMergedCell && d.multiselect && d.selectionContains(model.index) && d.selectionWidth() > 1 && root.mergeCells(true)
                             readonly property bool hasSubMenuOptions: !isMergedCell && !isSelectionMerge && root.hasAnyMergeOption(viewport.viewportIndex)
                             visible: generalSettings.enableMergeViewports
-                            height: visible ? implicitHeight : 0
-                            enabled: visible && (isMergedCell || isSelectionMerge || hasSubMenuOptions)
-                            leftPadding: 12
-                            text: isMergedCell
-                                  ? qsTr("LNG_00594").arg(viewport.columnSpan)
-                                  : (isSelectionMerge
-                                     ? qsTr("LNG_00593").arg(d.selectionWidth())
-                                     : qsTr("LNG_00592"))
+                            readonly property bool itemEnabled: visible && (isMergedCell || isSelectionMerge || hasSubMenuOptions)
+                            readonly property bool hovered: mergeMouseArea.containsMouse
+                            color: (itemEnabled && hovered) ? "#2a3540" : "transparent"
+                            border.color: (itemEnabled && hovered) ? "#00f5d4" : "transparent"
+                            border.width: 1
 
-                            contentItem: RowLayout {
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.leftMargin: 12
+                                anchors.rightMargin: 8
                                 spacing: 8
                                 Image {
                                     Layout.preferredWidth: 13
                                     Layout.preferredHeight: 13
-                                    source: contextMenu.menuIconSvg(mergeMenuItem.isMergedCell ? "<rect x='3' y='3' width='8' height='8' rx='1'/><rect x='13' y='3' width='8' height='8' rx='1'/><rect x='3' y='13' width='8' height='8' rx='1'/><rect x='13' y='13' width='8' height='8' rx='1'/>" : "<rect x='3' y='3' width='18' height='18' rx='2'/><polyline points='9 12 12 12 12 9'/><polyline points='15 12 12 12 12 15'/>", mergeMenuItem.enabled ? (mergeMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555")
+                                    source: contextMenu.menuIconSvg(mergeMenuItem.isMergedCell ? "<rect x='3' y='3' width='8' height='8' rx='1'/><rect x='13' y='3' width='8' height='8' rx='1'/><rect x='3' y='13' width='8' height='8' rx='1'/><rect x='13' y='13' width='8' height='8' rx='1'/>" : "<rect x='3' y='3' width='18' height='18' rx='2'/><polyline points='9 12 12 12 12 9'/><polyline points='15 12 12 12 12 15'/>", mergeMenuItem.itemEnabled ? (mergeMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896")
                                 }
                                 Text {
                                     Layout.fillWidth: true
-                                    text: mergeMenuItem.text
-                                    font {
-                                        pixelSize: 11
-                                        bold: true
-                                    }
-                                    color: mergeMenuItem.enabled ? (mergeMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    text: mergeMenuItem.isMergedCell
+                                          ? qsTr("LNG_00594").arg(viewport.columnSpan)
+                                          : (mergeMenuItem.isSelectionMerge
+                                             ? qsTr("LNG_00593").arg(d.selectionWidth())
+                                             : qsTr("LNG_00592"))
+                                    font { pixelSize: 11; bold: true }
+                                    color: mergeMenuItem.itemEnabled ? (mergeMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignLeft
                                     verticalAlignment: Text.AlignVCenter
                                 }
                                 Text {
                                     text: "▶"
                                     visible: mergeMenuItem.hasSubMenuOptions
-                                    font {
-                                        pixelSize: 9
-                                        bold: true
-                                    }
-                                    color: mergeMenuItem.enabled ? (mergeMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    font { pixelSize: 9; bold: true }
+                                    color: mergeMenuItem.itemEnabled ? (mergeMenuItem.hovered ? "#00f5d4" : "#eeeeee") : "#788896"
                                     horizontalAlignment: Text.AlignRight
                                     verticalAlignment: Text.AlignVCenter
-                                    rightPadding: 8
                                 }
                             }
 
-                            background: Rectangle {
-                                implicitWidth: 160
-                                implicitHeight: 32
-                                color: mergeMenuItem.hovered ? "#2a3540" : "transparent"
-                                border.color: mergeMenuItem.hovered ? "#00f5d4" : "transparent"
-                                border.width: 1
-                                radius: 4
-                            }
-
-                            onHoveredChanged: {
-                                if (hovered) {
+                            MouseArea {
+                                id: mergeMouseArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: {
                                     streamSubMenu.close();
                                     addCameraSubMenu.close();
-                                    if (enabled && hasSubMenuOptions) {
+                                    if (mergeMenuItem.itemEnabled && mergeMenuItem.hasSubMenuOptions) {
+                                        mergeSubMenu.popup(mergeMenuItem, mergeMenuItem.width, 0);
+                                    }
+                                }
+                                onClicked: {
+                                    if (!mergeMenuItem.itemEnabled) return;
+                                    if (mergeMenuItem.isMergedCell) {
+                                        contextMenu.close();
+                                        root.splitAt(viewport.viewportIndex);
+                                    } else if (mergeMenuItem.isSelectionMerge) {
+                                        contextMenu.close();
+                                        root.mergeCells();
+                                    } else if (mergeMenuItem.hasSubMenuOptions) {
                                         mergeSubMenu.popup(mergeMenuItem, mergeMenuItem.width, 0);
                                     }
                                 }
                             }
-
-                            onTriggered: {
-                                if (isMergedCell) {
-                                    root.splitAt(viewport.viewportIndex);
-                                } else if (isSelectionMerge) {
-                                    root.mergeCells();
-                                } else if (hasSubMenuOptions) {
-                                    mergeSubMenu.popup(mergeMenuItem, mergeMenuItem.width, 0);
-                                }
-                            }
+                        }
                         }
                     }
 
@@ -1553,19 +1624,21 @@ FocusScope {
                             model: Math.max(0, Math.min(root.size.width, root.size.height) - 2)
                             delegate: MenuItem {
                                 id: mergeOptionItem
+                                opacity: 1.0
                                 readonly property int spanSize: index + 2
                                 readonly property int anchorIdx: (contextMenu.visible || mergeSubMenu.visible) ? root.findMergeAnchor(viewport.viewportIndex, spanSize) : -1
+                                readonly property bool itemEnabled: anchorIdx >= 0
                                 text: spanSize + "×" + spanSize
-                                enabled: anchorIdx >= 0
                                 leftPadding: 12
 
                                 contentItem: Text {
+                                    opacity: 1.0
                                     text: mergeOptionItem.text
                                     font {
                                         pixelSize: 11
                                         bold: true
                                     }
-                                    color: mergeOptionItem.enabled ? (mergeOptionItem.hovered ? "#00f5d4" : "#eeeeee") : "#555555"
+                                    color: mergeOptionItem.itemEnabled ? (mergeOptionItem.hovered ? "#00f5d4" : "#eeeeee") : "#8898a6"
                                     horizontalAlignment: Text.AlignLeft
                                     verticalAlignment: Text.AlignVCenter
                                 }
@@ -1573,14 +1646,14 @@ FocusScope {
                                 background: Rectangle {
                                     implicitWidth: 110
                                     implicitHeight: 32
-                                    color: mergeOptionItem.hovered ? "#2a3540" : "transparent"
-                                    border.color: mergeOptionItem.hovered ? "#00f5d4" : "transparent"
+                                    color: (mergeOptionItem.itemEnabled && mergeOptionItem.hovered) ? "#2a3540" : "transparent"
+                                    border.color: (mergeOptionItem.itemEnabled && mergeOptionItem.hovered) ? "#00f5d4" : "transparent"
                                     border.width: 1
                                     radius: 4
                                 }
 
                                 onHoveredChanged: {
-                                    if (hovered && enabled && anchorIdx >= 0) {
+                                    if (hovered && itemEnabled && anchorIdx >= 0) {
                                         d.previewTopLeftIndex = anchorIdx;
                                         d.previewSpan = spanSize;
                                     } else if (!hovered && d.previewTopLeftIndex === anchorIdx && d.previewSpan === spanSize) {
@@ -1590,11 +1663,22 @@ FocusScope {
                                 }
 
                                 onTriggered: {
+                                    if (!itemEnabled) return;
                                     d.previewTopLeftIndex = -1;
                                     d.previewSpan = 1;
                                     if (anchorIdx >= 0) {
                                         root.mergeAt(anchorIdx, spanSize);
                                     }
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    z: 100
+                                    visible: !mergeOptionItem.itemEnabled
+                                    hoverEnabled: true
+                                    onPressed: mouse.accepted = true
+                                    onReleased: mouse.accepted = true
+                                    onClicked: mouse.accepted = true
                                 }
                             }
                             onObjectAdded: mergeSubMenu.insertItem(index, object)
@@ -1631,6 +1715,7 @@ FocusScope {
                             leftPadding: 12
                             
                             contentItem: RowLayout {
+                                opacity: 1.0
                                 spacing: 8
                                 Text {
                                     Layout.fillWidth: true
@@ -1680,6 +1765,7 @@ FocusScope {
                             leftPadding: 12
                             
                             contentItem: RowLayout {
+                                opacity: 1.0
                                 spacing: 8
                                 Text {
                                     Layout.fillWidth: true
@@ -1729,6 +1815,7 @@ FocusScope {
                             leftPadding: 12
                             
                             contentItem: RowLayout {
+                                opacity: 1.0
                                 spacing: 8
                                 Text {
                                     Layout.fillWidth: true
@@ -1819,6 +1906,7 @@ FocusScope {
                             leftPadding: 12
 
                             contentItem: RowLayout {
+                                opacity: 1.0
                                 spacing: 8
                                 Image {
                                     Layout.preferredWidth: 13
@@ -1881,7 +1969,7 @@ FocusScope {
                                         verticalAlignment: Text.AlignVCenter
                                     }
                                     Text {
-                                        text: (recorderData.cameras ? recorderData.cameras.length : 0) + " cam"
+                                        text: (recorderData.cameras ? recorderData.cameras.length : 0) + " " + qsTr("LNG_00678")
                                         font.pixelSize: 9
                                         color: "#8898a6"
                                         horizontalAlignment: Text.AlignRight
@@ -2206,5 +2294,9 @@ FocusScope {
 
     ViewportSettingsDialog {
         id: viewportSettingsDialog
+    }
+
+    CameraRenameWindow {
+        id: cameraRenameDialog
     }
 }

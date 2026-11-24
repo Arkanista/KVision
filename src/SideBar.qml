@@ -163,6 +163,16 @@ FocusScope {
 
     property var changelogData: [
         {
+            version: "v2.8.1",
+            date: "24.11.2026",
+            changes: [
+                qsTr("LNG_00679"),
+                qsTr("LNG_00680"),
+                qsTr("LNG_00681"),
+                qsTr("LNG_00682")
+            ]
+        },
+        {
             version: "v2.8.0",
             date: "23.11.2026",
             changes: [
@@ -1075,11 +1085,12 @@ FocusScope {
                         onClicked: tabsColumn.selectTab(3)
                     }
 
-                    // View / Layout Groups Page Button (below Presets)
+                    // View / Layout Groups Sub-tab Button (under Presets / Layouts)
                     Button {
                         id: btnViewGroups
                         Layout.fillWidth: true
-                        height: 40
+                        Layout.leftMargin: 14
+                        height: 34
                         hoverEnabled: true
 
                         background: Rectangle {
@@ -1097,12 +1108,12 @@ FocusScope {
 
                         contentItem: RowLayout {
                             anchors.fill: parent
-                            anchors.leftMargin: 12
-                            spacing: 12
+                            anchors.leftMargin: 10
+                            spacing: 10
 
                             Item {
-                                implicitWidth: 14
-                                implicitHeight: 14
+                                implicitWidth: 13
+                                implicitHeight: 13
 
                                 Image {
                                     id: imgViewGroups
@@ -1124,10 +1135,11 @@ FocusScope {
                                 text: qsTr("LNG_00600")
                                 color: tabsColumn.activeIndex === 4 ? "#00f5d4" : (btnViewGroups.hovered ? "white" : "#8898a6")
                                 font {
-                                    pixelSize: 12
+                                    pixelSize: 11
                                     bold: tabsColumn.activeIndex === 4
                                 }
                                 Layout.fillWidth: true
+                                elide: Text.ElideRight
                             }
                         }
 
@@ -2151,6 +2163,113 @@ FocusScope {
                         }
                     }
 
+                    // Group 3: NVR Preset List
+                    GroupBox {
+                        title: qsTr("LNG_00280")
+                        Layout.fillWidth: true
+
+                        background: Rectangle {
+                            color: "#141a21"
+                            border.color: "#2a3540"
+                            border.width: 1
+                            radius: 8
+                        }
+                        label: Text {
+                            text: parent.title
+                            color: "#00f5d4"
+                            font.bold: true
+                            font.pixelSize: 12
+                        }
+
+                        ColumnLayout {
+                            id: presetRowsCol
+                            anchors.fill: parent
+                            anchors.margins: 4
+                            spacing: 8
+
+                            RowLayout {
+                                Layout.fillWidth: true
+                                spacing: 8
+
+                                Rectangle {
+                                    implicitWidth: recBadgeTxt.implicitWidth + 12
+                                    implicitHeight: 18
+                                    radius: 4
+                                    color: "#2e2214"
+                                    border.color: "#ff7a00"
+                                    border.width: 1
+
+                                    Text {
+                                        id: recBadgeTxt
+                                        anchors.centerIn: parent
+                                        text: qsTr("LNG_00672")
+                                        color: "#ff7a00"
+                                        font.pixelSize: 10
+                                        font.bold: true
+                                    }
+                                }
+
+                                Text {
+                                    text: qsTr("LNG_00673")
+                                    color: "#8898a6"
+                                    font.pixelSize: 11
+                                    wrapMode: Text.WordWrap
+                                    Layout.fillWidth: true
+                                }
+                            }
+
+                            Repeater {
+                                model: rootSideBar.nvrPresetIndices
+                                delegate: ReorderableViewRow {
+                                    globalIndex: modelData
+                                    category: "nvrPreset"
+                                    layout: layoutsCollectionModel.get(modelData)
+                                    isCurrent: stackLayout.currentIndex === modelData
+                                    placeholderText: qsTr("LNG_00279").arg(index + 1)
+                                    showDelete: true
+                                    activateTooltip: qsTr("LNG_00277")
+                                    deleteTooltip: qsTr("LNG_00276")
+                                    dragState: viewDragState
+                                    dragParent: presetsContentWrapper
+                                    dragProxy: dragHandleProxy
+                                    rowsContainer: presetRowsCol
+                                    onActivateRequested: if (rootWindow.isLayoutIndexVisible(modelData)) stackLayout.currentIndex = modelData
+                                    onDeleteRequested: {
+                                        nvrPresetDeleteDialog2.index = modelData;
+                                        nvrPresetDeleteDialog2.open();
+                                    }
+                                }
+                            }
+
+                            Button {
+                                id: addNvrPresetBtn
+                                text: qsTr("LNG_00275")
+                                Layout.fillWidth: true
+                                implicitHeight: 32
+                                onClicked: {
+                                    var l = layoutsCollectionModel.append();
+                                    l.size = Qt.size(2, 2);
+                                    l.isNvrPreset = true;
+                                    stackLayout.currentIndex = layoutsCollectionModel.count - 1;
+                                }
+                                background: Rectangle {
+                                    color: addNvrPresetBtn.pressed ? "#cc121214" : (addNvrPresetBtn.hovered ? "#059669" : "#10b981")
+                                    radius: 6
+                                    border.color: addNvrPresetBtn.hovered ? "#34d399" : "#059669"
+                                    border.width: 1
+                                }
+                                contentItem: Text {
+                                    text: addNvrPresetBtn.text
+                                    color: "#ffffff"
+                                    font.bold: true
+                                    font.pixelSize: 11
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+                            }
+                        }
+                    }
+
                     // Group 1: General Camera Presets
                     GroupBox {
                         title: qsTr("LNG_00289")
@@ -2286,113 +2405,6 @@ FocusScope {
                                         nvrPresetDeleteDialog.index = modelData;
                                         nvrPresetDeleteDialog.open();
                                     }
-                                }
-                            }
-                        }
-                    }
-
-                    // Group 3: NVR Preset List
-                    GroupBox {
-                        title: qsTr("LNG_00280")
-                        Layout.fillWidth: true
-
-                        background: Rectangle {
-                            color: "#141a21"
-                            border.color: "#2a3540"
-                            border.width: 1
-                            radius: 8
-                        }
-                        label: Text {
-                            text: parent.title
-                            color: "#00f5d4"
-                            font.bold: true
-                            font.pixelSize: 12
-                        }
-
-                        ColumnLayout {
-                            id: presetRowsCol
-                            anchors.fill: parent
-                            anchors.margins: 4
-                            spacing: 8
-
-                            RowLayout {
-                                Layout.fillWidth: true
-                                spacing: 8
-
-                                Rectangle {
-                                    implicitWidth: recBadgeTxt.implicitWidth + 12
-                                    implicitHeight: 18
-                                    radius: 4
-                                    color: "#2e2214"
-                                    border.color: "#ff7a00"
-                                    border.width: 1
-
-                                    Text {
-                                        id: recBadgeTxt
-                                        anchors.centerIn: parent
-                                        text: qsTr("LNG_00672")
-                                        color: "#ff7a00"
-                                        font.pixelSize: 10
-                                        font.bold: true
-                                    }
-                                }
-
-                                Text {
-                                    text: qsTr("LNG_00673")
-                                    color: "#8898a6"
-                                    font.pixelSize: 11
-                                    wrapMode: Text.WordWrap
-                                    Layout.fillWidth: true
-                                }
-                            }
-
-                            Repeater {
-                                model: rootSideBar.nvrPresetIndices
-                                delegate: ReorderableViewRow {
-                                    globalIndex: modelData
-                                    category: "nvrPreset"
-                                    layout: layoutsCollectionModel.get(modelData)
-                                    isCurrent: stackLayout.currentIndex === modelData
-                                    placeholderText: qsTr("LNG_00279").arg(index + 1)
-                                    showDelete: true
-                                    activateTooltip: qsTr("LNG_00277")
-                                    deleteTooltip: qsTr("LNG_00276")
-                                    dragState: viewDragState
-                                    dragParent: presetsContentWrapper
-                                    dragProxy: dragHandleProxy
-                                    rowsContainer: presetRowsCol
-                                    onActivateRequested: if (rootWindow.isLayoutIndexVisible(modelData)) stackLayout.currentIndex = modelData
-                                    onDeleteRequested: {
-                                        nvrPresetDeleteDialog2.index = modelData;
-                                        nvrPresetDeleteDialog2.open();
-                                    }
-                                }
-                            }
-
-                            Button {
-                                id: addNvrPresetBtn
-                                text: qsTr("LNG_00275")
-                                Layout.fillWidth: true
-                                implicitHeight: 32
-                                onClicked: {
-                                    var l = layoutsCollectionModel.append();
-                                    l.size = Qt.size(2, 2);
-                                    l.isNvrPreset = true;
-                                    stackLayout.currentIndex = layoutsCollectionModel.count - 1;
-                                }
-                                background: Rectangle {
-                                    color: addNvrPresetBtn.pressed ? "#cc121214" : (addNvrPresetBtn.hovered ? "#059669" : "#10b981")
-                                    radius: 6
-                                    border.color: addNvrPresetBtn.hovered ? "#34d399" : "#059669"
-                                    border.width: 1
-                                }
-                                contentItem: Text {
-                                    text: addNvrPresetBtn.text
-                                    color: "#ffffff"
-                                    font.bold: true
-                                    font.pixelSize: 11
-                                    horizontalAlignment: Text.AlignHCenter
-                                    verticalAlignment: Text.AlignVCenter
                                 }
                             }
                         }
@@ -3164,6 +3176,17 @@ FocusScope {
                                 onToggled: {
                                     setPersistedSetting(generalSettings, "", "enableRemoveCamera", checked);
                                     checked = Qt.binding(function() { return generalSettings.enableRemoveCamera; });
+                                }
+                                Layout.fillWidth: true
+                            }
+
+                            CheckBox {
+                                text: qsTr("LNG_00675")
+                                checked: generalSettings.enableRenameCamera
+                                enabled: generalSettings.enableContextMenu
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "enableRenameCamera", checked);
+                                    checked = Qt.binding(function() { return generalSettings.enableRenameCamera; });
                                 }
                                 Layout.fillWidth: true
                             }

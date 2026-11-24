@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.1] - 2026-11-24
+
+### Minor Enhancements
+* **Rename Cameras Directly from Live View:** Added a *Rename* option to the camera right-click menu (for Hikvision cameras) with a clean popup dialog, plus a toggle in *Settings → User Interface → Context Menu Settings*.
+* **Clearer Disabled Menu Options:** Improved the viewport right-click menu so unavailable options stay clearly readable in a dimmed gray shade instead of blending into the background, and unified the hover highlight color.
+* **Improved Layouts Menu Organization:** Moved *Layout Groups* into a sub-tab under *Layouts* and placed *NVR Views Layouts (grid views)* at the top of the *Layouts* page for quicker access.
+* **Translated Camera Count Label:** Localized the camera count label in the *Add camera* submenu across all supported languages.
+
 ## [2.8.0] - 2026-11-23
 
 ### New Features & Improvements

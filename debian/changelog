@@ -1,3 +1,9 @@
+kvision (2.8.1-1) unstable; urgency=medium
+
+  * Minor Enhancements: add camera Rename option in viewport context menu, improve disabled menu item readability, reorganize Layouts and Layout Groups tabs, and localize Add camera count label.
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Tue, 24 Nov 2026 11:45:00 +0100
+
 kvision (2.8.0-1) unstable; urgency=medium
 
   * Add Quick Camera Search (Ctrl+F / Ctrl+S), custom layout badge colors, User Interface settings sub-tab with configurable viewport badge font size, archive top bar transparency sync, and context menu icons.

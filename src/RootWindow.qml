@@ -223,6 +223,7 @@ ApplicationWindow {
         property bool enableContextMenu: true
         property bool enableRemoveCamera: true
         property bool enableChangeViewportSettings: true
+        property bool enableRenameCamera: true
         property bool enableStreamSelection: true
         property bool enableMergeViewports: true
         property bool enableAddCamera: true
@@ -776,6 +777,10 @@ ApplicationWindow {
             if (generalSettings.enableChangeViewportSettings !== diskEnableChangeViewport) {
                 generalSettings.enableChangeViewportSettings = diskEnableChangeViewport;
             }
+            var diskEnableRenameCamera = Context.readSetting("", "enableRenameCamera", true);
+            if (generalSettings.enableRenameCamera !== diskEnableRenameCamera) {
+                generalSettings.enableRenameCamera = diskEnableRenameCamera;
+            }
             var diskEnableStreamSel = Context.readSetting("", "enableStreamSelection", true);
             if (generalSettings.enableStreamSelection !== diskEnableStreamSel) {
                 generalSettings.enableStreamSelection = diskEnableStreamSel;
@@ -1185,6 +1190,7 @@ ApplicationWindow {
     }
 
     property var cameraSearchWindowInstance: null
+    property var renameWindowsByCamera: ({})
     property string highlightedCameraUrl: ""
     property var highlightedLayoutIndices: ([])
 
@@ -1228,6 +1234,63 @@ ApplicationWindow {
             keepVisibleTimer.restart();
         }
         searchHighlightTimer.restart();
+    }
+
+    Component {
+        id: cameraRenameWindowComponent
+        CameraRenameWindow {}
+    }
+
+    function openCameraRenameWindow(cameraUrl) {
+        var u = String(cameraUrl || "").trim();
+        if (u.indexOf("hikvision://") !== 0) return null;
+        var rest = u.substring(12);
+        var slashIdx = rest.indexOf("/");
+        if (slashIdx === -1) return null;
+        var recIp = rest.substring(0, slashIdx).trim();
+        var chId = parseInt(rest.substring(slashIdx + 1));
+        if (recIp === "" || isNaN(chId)) return null;
+
+        var key = recIp + "_" + chId;
+        if (renameWindowsByCamera[key]) {
+            var existing = renameWindowsByCamera[key];
+            existing.show();
+            existing.raise();
+            existing.requestActivate();
+            return existing;
+        }
+
+        var origName = "";
+        var custName = "";
+        try {
+            var list = JSON.parse(rootWindow.hikvisionRecordersJson || "[]");
+            for (var i = 0; i < list.length; ++i) {
+                if (list[i] && list[i].ip === recIp && list[i].cameras) {
+                    for (var j = 0; j < list[i].cameras.length; ++j) {
+                        if (String(list[i].cameras[j].channelId) === String(chId)) {
+                            origName = list[i].cameras[j].name || "";
+                            custName = list[i].cameras[j].customName || "";
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        } catch (e) {}
+
+        var win = cameraRenameWindowComponent.createObject(rootWindow, {
+            "recorderIp": recIp,
+            "channelId": chId,
+            "originalName": origName,
+            "currentCustomName": custName
+        });
+        if (win) {
+            renameWindowsByCamera[key] = win;
+            win.show();
+            win.raise();
+            win.requestActivate();
+        }
+        return win;
     }
 
     Component {
@@ -2639,6 +2702,7 @@ ApplicationWindow {
         Context.writeSetting("", "enableContextMenu", generalSettings.enableContextMenu);
         Context.writeSetting("", "enableRemoveCamera", generalSettings.enableRemoveCamera);
         Context.writeSetting("", "enableChangeViewportSettings", generalSettings.enableChangeViewportSettings);
+        Context.writeSetting("", "enableRenameCamera", generalSettings.enableRenameCamera);
         Context.writeSetting("", "enableStreamSelection", generalSettings.enableStreamSelection);
         Context.writeSetting("", "enableMergeViewports", generalSettings.enableMergeViewports);
         Context.writeSetting("", "enableAddCamera", generalSettings.enableAddCamera);

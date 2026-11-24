@@ -102,6 +102,7 @@
         <file>images/github.svg</file>
         <file>src/NvrSettingsPanel.qml</file>
         <file>src/ViewGroupsPanel.qml</file>
+        <file>src/CameraRenameWindow.qml</file>
         <file>src/CameraSearchWindow.qml</file>
         <file>src/NvrCamerasWindow.qml</file>
         <file>src/PlaybackWindow.qml</file>
