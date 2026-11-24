@@ -59,6 +59,7 @@ jobs:
             release-assets/*.AppImage
             release-assets/*.AppImage.zsync
             release-assets/*.zip
+            release-assets/*.exe
             release-assets/*.pkg.tar.zst
             release-assets/*.rpm
             release-assets/*.flatpak

@@ -19,6 +19,7 @@ on:
       - "kvision.qrc"
       - "kvision.rc"
       - "qtquickcontrols2.conf"
+      - "packaging/windows/**"
       - ".github/workflows/build-windows.yml"
   pull_request:
     paths:
@@ -29,6 +30,7 @@ on:
       - "kvision.qrc"
       - "kvision.rc"
       - "qtquickcontrols2.conf"
+      - "packaging/windows/**"
       - ".github/workflows/build-windows.yml"
 
 jobs:
@@ -159,11 +161,33 @@ jobs:
           Get-ChildItem $out | Select-Object -First 40 | ForEach-Object { Write-Host $_.Name }
           Write-Host "zip: $((Get-Item KVision-windows-x64.zip).Length) bytes"
 
+      - name: Build Windows Installer (.exe)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $cmakeText = Get-Content CMakeLists.txt -Raw
+          $ver = "2.8.1"
+          if ($cmakeText -match 'project\s*\(\s*kvision\s+VERSION\s+([0-9]+\.[0-9]+\.[0-9]+)') {
+            $ver = $Matches[1]
+          }
+          $iscc = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
+          if (-not (Test-Path $iscc)) {
+            choco install innosetup -y --no-progress
+          }
+          if (-not (Test-Path $iscc)) { throw "ISCC.exe not found" }
+          $srcDir = (Resolve-Path pkg -ErrorAction Stop).Path
+          & $iscc "/DMyAppVersion=$ver" "/DSourceDir=$srcDir" "/O." "packaging\windows\kvision.iss"
+          if ($LASTEXITCODE -ne 0) { throw "ISCC failed with exit code $LASTEXITCODE" }
+          if (-not (Test-Path "KVision-windows-x64-setup.exe")) { throw "Setup exe not produced" }
+          Write-Host "setup: $((Get-Item KVision-windows-x64-setup.exe).Length) bytes"
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: KVision-windows-x64
-          path: KVision-windows-x64.zip
+          path: |
+            KVision-windows-x64.zip
+            KVision-windows-x64-setup.exe
 
       # Same tag every run, so the release keeps one stable download URL and
       # the asset is replaced in place instead of piling up builds.
@@ -179,9 +203,12 @@ jobs:
             Windows x64 build of KVision.
 
             MSVC 2022 (Visual Studio 17), Qt 5.15.2 msvc2019_64, FFmpeg 8.1
-            shared, Hikvision HCNetSDK 6.1.9.48 runtime. Unpack anywhere and run
-            `kvision.exe`; devices on the LAN are discovered on first start.
-          files: KVision-windows-x64.zip
+            shared, Hikvision HCNetSDK 6.1.9.48 runtime. Use the installer
+            (`KVision-windows-x64-setup.exe`) or unpack the portable archive
+            (`KVision-windows-x64.zip`) anywhere and run `kvision.exe`.
+          files: |
+            KVision-windows-x64.zip
+            KVision-windows-x64-setup.exe
 
       - name: Attach Windows package to version release tag
         if: (github.event_name != 'workflow_call' || inputs.publish) && startsWith(github.ref, 'refs/tags/v')
@@ -189,4 +216,6 @@ jobs:
         with:
           tag_name: ${{ github.ref_name }}
           fail_on_unmatched_files: true
-          files: KVision-windows-x64.zip
+          files: |
+            KVision-windows-x64.zip
+            KVision-windows-x64-setup.exe
