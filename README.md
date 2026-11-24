@@ -232,8 +232,8 @@ flatpak run io.github.arkanista.KVision
 #### 3. Fedora, RHEL & Rocky Linux (`.rpm`)
 | Package File (`v2.8.1`) | Compatible Distributions |
 | :--- | :--- |
-| [`kvision-2.8.1-1.fc41.x86_64.rpm`](https://github.com/Arkanista/KVision/releases/download/v2.8.1/kvision-2.8.1-1.fc41.x86_64.rpm) | **Fedora 41** |
-| [`kvision-2.8.1-1.fc42.x86_64.rpm`](https://github.com/Arkanista/KVision/releases/download/v2.8.1/kvision-2.8.1-1.fc42.x86_64.rpm) | **Fedora 42** |
+| [`kvision-2.8.1-1.fc44.x86_64.rpm`](https://github.com/Arkanista/KVision/releases/download/v2.8.1/kvision-2.8.1-1.fc44.x86_64.rpm) | **Fedora 44** |
+| [`kvision-2.8.1-1.fc45.x86_64.rpm`](https://github.com/Arkanista/KVision/releases/download/v2.8.1/kvision-2.8.1-1.fc45.x86_64.rpm) | **Fedora 45** |
 | [`kvision-2.8.1-1.el9.x86_64.rpm`](https://github.com/Arkanista/KVision/releases/download/v2.8.1/kvision-2.8.1-1.el9.x86_64.rpm) | **RHEL 9 / Rocky Linux 9 / AlmaLinux 9** |
 
 ```bash
