@@ -270,8 +270,12 @@ sudo pacman -U kvision-2.8.1-1-x86_64.pkg.tar.zst
 > [!NOTE]
 > The Arch Linux package is built automatically in CI using `archlinux:latest` (and `./tools/build_arch.sh`) with modern system libraries including FFmpeg 9 (`libavutil.so.61` / `libavformat.so.63`) on Arch Linux / CachyOS.
 
-#### 4. Windows 10 / 11 (x64 Portable ZIP)
-* **[Download KVision-windows-x64.zip (v2.8.1)](https://github.com/Arkanista/KVision/releases/download/v2.8.1/KVision-windows-x64.zip)** (compiled with MSVC 2022, Qt 5.15.2, FFmpeg 8.1 shared, and Hikvision SDK). Extract anywhere and run `kvision.exe`.
+#### 4. Windows 10 / 11 (x64 Installer & Portable ZIP)
+* **Installer (`.exe`):** **[Download KVision-windows-x64-setup.exe (v2.8.1)](https://github.com/Arkanista/KVision/releases/download/v2.8.1/KVision-windows-x64-setup.exe)** — Inno Setup wizard with Start Menu / Desktop shortcuts, per-user or system-wide install, and an uninstaller.
+* **Portable (`.zip`):** **[Download KVision-windows-x64.zip (v2.8.1)](https://github.com/Arkanista/KVision/releases/download/v2.8.1/KVision-windows-x64.zip)** — compiled with MSVC 2022, Qt 5.15.2, FFmpeg 8.1 shared, and Hikvision SDK. Extract anywhere and run `kvision.exe`.
+
+> [!NOTE]
+> The Windows builds are currently unsigned; on first launch Windows SmartScreen may show an *"Unknown publisher"* warning (*More info → Run anyway*).
 
 ### Building from Source (Arch Linux / CachyOS)
 
