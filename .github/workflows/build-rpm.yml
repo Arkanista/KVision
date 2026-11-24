@@ -41,10 +41,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - image: fedora:41
-            label: fc41
-          - image: fedora:42
-            label: fc42
+          - image: fedora:44
+            label: fc44
+          - image: fedora:45
+            label: fc45
           - image: rockylinux:9
             label: el9
     steps:
