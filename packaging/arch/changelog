@@ -4,6 +4,7 @@
   * Improved visibility of disabled options in the viewport right-click menu and unified hover highlight colors.
   * Moved Layout Groups into a sub-tab under Layouts and placed NVR Views Layouts at the top of the Layouts page.
   * Localized the camera count label in the Add camera submenu across all supported languages.
+  * Unified dialog footer bars and adaptive button widths across Rename Camera, Viewport Settings, NVR Status, and Snapshot Saved dialogs, added recorder name to Rename Camera, and made Reset preview before confirming.
 
 2.8.0
   * Added Quick Camera Search window (Ctrl+F / Ctrl+S) with live filtering, view assignment display, highlight on layout, 1x1 archive playback, and viewport assignment.

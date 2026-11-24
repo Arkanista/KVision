@@ -18,6 +18,7 @@ Dialog {
     bottomPadding: 16
 
     property string recorderIp: ""
+    property string recorderName: ""
     property int channelId: -1
     property string originalName: ""
     property string currentCustomName: ""
@@ -33,6 +34,7 @@ Dialog {
         var chId = parseInt(rest.substring(slashIdx + 1));
         if (recIp === "" || isNaN(chId)) return;
 
+        var recName = recIp;
         var origName = "";
         var custName = "";
         if (typeof rootWindow !== "undefined" && rootWindow && rootWindow.hikvisionRecordersJson) {
@@ -40,6 +42,7 @@ Dialog {
                 var list = JSON.parse(rootWindow.hikvisionRecordersJson);
                 for (var i = 0; i < list.length; ++i) {
                     if (list[i] && list[i].ip === recIp && list[i].cameras) {
+                        recName = (list[i].name && String(list[i].name).trim() !== "") ? String(list[i].name).trim() : recIp;
                         for (var j = 0; j < list[i].cameras.length; ++j) {
                             if (String(list[i].cameras[j].channelId) === String(chId)) {
                                 origName = list[i].cameras[j].name || "";
@@ -54,6 +57,7 @@ Dialog {
         }
 
         recorderIp = recIp;
+        recorderName = recName;
         channelId = chId;
         originalName = origName;
         currentCustomName = custName;
@@ -134,12 +138,15 @@ Dialog {
     }
 
     contentItem: ColumnLayout {
-        spacing: 12
+        spacing: 10
 
         Text {
-            text: qsTr("LNG_00064").arg(renameDialog.channelId)
+            text: (renameDialog.recorderName ? (renameDialog.recorderName + "  •  ") : "") + qsTr("LNG_00064").arg(renameDialog.channelId)
             color: "#cfd8dc"
             font.pixelSize: 12
+            font.bold: true
+            elide: Text.ElideRight
+            Layout.fillWidth: true
         }
 
         Text {
@@ -168,53 +175,77 @@ Dialog {
             Keys.onReturnPressed: saveBtn.clicked()
             Keys.onEnterPressed: saveBtn.clicked()
         }
+    }
+
+    footer: Rectangle {
+        implicitHeight: 48
+        color: "#0f151b"
+        border.color: "#2a3540"
+        border.width: 1
+        radius: 8
+
+        // Round only bottom corners
+        Rectangle {
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.margins: 1
+            height: 4
+            color: "#0f151b"
+        }
 
         RowLayout {
-            Layout.fillWidth: true
+            anchors.fill: parent
+            anchors.margins: 8
             spacing: 8
 
             Button {
+                id: resetBtn
                 text: qsTr("LNG_00060")
-                Layout.preferredHeight: 32
+                leftPadding: 14
+                rightPadding: 14
+                Layout.preferredHeight: 30
+                Layout.minimumWidth: 84
                 contentItem: Text {
-                    text: parent.text
+                    text: resetBtn.text
                     color: "#ff7a00"
-                    font.pixelSize: 12
                     font.bold: true
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
                 background: Rectangle {
-                    color: parent.hovered ? "#2a3540" : "#151d24"
-                    radius: 6
+                    color: resetBtn.pressed ? "#2a3540" : (resetBtn.hovered ? "#3a4550" : "#222c36")
+                    radius: 4
                     border.color: "#ff7a00"
                     border.width: 1
                 }
                 onClicked: {
-                    renameDialog.saveCustomName(null);
-                    renameDialog.accept();
+                    customNameField.text = renameDialog.originalName || "";
+                    customNameField.forceActiveFocus();
+                    customNameField.selectAll();
                 }
             }
 
             Item { Layout.fillWidth: true }
 
             Button {
+                id: cancelBtn
                 text: qsTr("LNG_00677")
-                Layout.preferredHeight: 32
-                Layout.preferredWidth: 84
+                leftPadding: 14
+                rightPadding: 14
+                Layout.minimumWidth: 84
+                Layout.preferredHeight: 30
                 contentItem: Text {
-                    text: parent.text
-                    color: "#cfd8dc"
-                    font.pixelSize: 12
+                    text: cancelBtn.text
                     font.bold: true
+                    color: cancelBtn.pressed ? "#8898a6" : "white"
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
                 background: Rectangle {
-                    color: parent.hovered ? "#2a3540" : "#151d24"
-                    radius: 6
+                    color: cancelBtn.pressed ? "#2a3540" : (cancelBtn.hovered ? "#3a4550" : "#222c36")
+                    radius: 4
                     border.color: "#2a3540"
-                    border.width: 1
                 }
                 onClicked: renameDialog.reject()
             }
@@ -222,23 +253,25 @@ Dialog {
             Button {
                 id: saveBtn
                 text: qsTr("LNG_00676")
-                Layout.preferredHeight: 32
-                Layout.preferredWidth: 84
+                leftPadding: 14
+                rightPadding: 14
+                Layout.minimumWidth: 84
+                Layout.preferredHeight: 30
                 contentItem: Text {
-                    text: parent.text
-                    color: "#121214"
-                    font.pixelSize: 12
+                    text: saveBtn.text
                     font.bold: true
+                    color: "#121214"
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
                 background: Rectangle {
-                    color: saveBtn.pressed ? "#00c4a7" : (saveBtn.hovered ? "#2effe1" : "#00f5d4")
-                    radius: 6
+                    color: saveBtn.pressed ? "#00ccb0" : (saveBtn.hovered ? "#00ffd8" : "#00f5d4")
+                    radius: 4
                 }
                 onClicked: {
                     var trimmed = customNameField.text.trim();
-                    renameDialog.saveCustomName(trimmed === "" ? null : trimmed);
+                    var shouldClear = (trimmed === "" || trimmed === renameDialog.originalName);
+                    renameDialog.saveCustomName(shouldClear ? null : trimmed);
                     renameDialog.accept();
                 }
             }

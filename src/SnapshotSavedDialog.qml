@@ -101,7 +101,9 @@ Item {
             Button {
                 id: browseBtn
                 text: qsTr("LNG_00455")
-                Layout.preferredWidth: 90
+                leftPadding: 14
+                rightPadding: 14
+                Layout.minimumWidth: 84
                 Layout.preferredHeight: 28
 
                 contentItem: Text {
@@ -126,7 +128,9 @@ Item {
             Button {
                 id: exitBtn
                 text: qsTr("LNG_00454")
-                Layout.preferredWidth: 70
+                leftPadding: 14
+                rightPadding: 14
+                Layout.minimumWidth: 76
                 Layout.preferredHeight: 28
 
                 contentItem: Text {

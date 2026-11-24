@@ -169,7 +169,8 @@ FocusScope {
                 qsTr("LNG_00679"),
                 qsTr("LNG_00680"),
                 qsTr("LNG_00681"),
-                qsTr("LNG_00682")
+                qsTr("LNG_00682"),
+                qsTr("LNG_00683")
             ]
         },
         {

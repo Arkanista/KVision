@@ -1,6 +1,6 @@
 kvision (2.8.1-1) unstable; urgency=medium
 
-  * Minor Enhancements: add camera Rename option in viewport context menu, improve disabled menu item readability, reorganize Layouts and Layout Groups tabs, and localize Add camera count label.
+  * Minor Enhancements: add camera Rename option in viewport context menu, improve disabled menu item readability, reorganize Layouts and Layout Groups tabs, localize Add camera count label, and unify dialog footer bars with adaptive button widths.
 
  -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Tue, 24 Nov 2026 11:45:00 +0100
 

@@ -287,7 +287,9 @@ Dialog {
             Button {
                 id: checkNowBtn
                 text: qsTr("LNG_00101")
-                Layout.preferredWidth: 140
+                leftPadding: 14
+                rightPadding: 14
+                Layout.minimumWidth: 120
                 Layout.preferredHeight: 30
                 enabled: !NvrStatusManager.isChecking
 
@@ -314,7 +316,9 @@ Dialog {
             Button {
                 id: closeBtn
                 text: qsTr("LNG_00100")
-                Layout.preferredWidth: 80
+                leftPadding: 14
+                rightPadding: 14
+                Layout.minimumWidth: 84
                 Layout.preferredHeight: 30
 
                 contentItem: Text {

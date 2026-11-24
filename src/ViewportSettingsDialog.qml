@@ -266,7 +266,9 @@ Dialog {
             Button {
                 id: cancelBtn
                 text: qsTr("LNG_00059")
-                Layout.preferredWidth: 80
+                leftPadding: 14
+                rightPadding: 14
+                Layout.minimumWidth: 84
                 Layout.preferredHeight: 30
 
                 contentItem: Text {
@@ -287,13 +289,15 @@ Dialog {
             Button {
                 id: confirmBtn
                 text: qsTr("LNG_00058")
-                Layout.preferredWidth: 80
+                leftPadding: 14
+                rightPadding: 14
+                Layout.minimumWidth: 84
                 Layout.preferredHeight: 30
 
                 contentItem: Text {
                     text: confirmBtn.text
                     font.bold: true
-                    color: "white"
+                    color: "#121214"
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }

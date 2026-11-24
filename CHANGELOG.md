@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 * **Clearer Disabled Menu Options:** Improved the viewport right-click menu so unavailable options stay clearly readable in a dimmed gray shade instead of blending into the background, and unified the hover highlight color.
 * **Improved Layouts Menu Organization:** Moved *Layout Groups* into a sub-tab under *Layouts* and placed *NVR Views Layouts (grid views)* at the top of the *Layouts* page for quicker access.
 * **Translated Camera Count Label:** Localized the camera count label in the *Add camera* submenu across all supported languages.
+* **Consistent Dialog Footers & Adaptive Buttons:** Unified the footer bar and button sizing across the Rename Camera, Viewport Settings, NVR Status, and Snapshot Saved dialogs so buttons automatically expand for longer translations, added the recorder name to the Rename Camera dialog, and updated Reset to preview the original name before confirming.
 
 ## [2.8.0] - 2026-11-23
 
