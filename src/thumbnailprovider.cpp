@@ -93,11 +93,8 @@ void ThumbnailFetchWorker::fetchFrame(const QString &rtspUrl, const QString &cac
         return;
     }
 
-    // Find stream info (limited duration)
-    AVDictionary *streamOpts = nullptr;
-    av_dict_set(&streamOpts, "analyzeduration", "1000000", 0);
-    ret = avformat_find_stream_info(fmtCtx, &streamOpts);
-    av_dict_free(&streamOpts);
+    // Find stream info (analyzeduration was already provided in avformat_open_input opts)
+    ret = avformat_find_stream_info(fmtCtx, nullptr);
 
     if (ret < 0) {
         qWarning() << "[ThumbnailFetch] Failed to find stream info for" << cacheKey;

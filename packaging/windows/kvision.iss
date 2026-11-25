@@ -43,9 +43,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "{#SourceDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{group}\KVision"; Filename: "{app}\kvision.exe"
+Name: "{group}\KVision"; Filename: "{app}\kvision.exe"; WorkingDir: "{app}"
 Name: "{group}\{cm:UninstallProgram,KVision}"; Filename: "{uninstallexe}"
-Name: "{autodesktop}\KVision"; Filename: "{app}\kvision.exe"; Tasks: desktopicon
+Name: "{autodesktop}\KVision"; Filename: "{app}\kvision.exe"; WorkingDir: "{app}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\kvision.exe"; Description: "{cm:LaunchProgram,KVision}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\kvision.exe"; WorkingDir: "{app}"; Description: "{cm:LaunchProgram,KVision}"; Flags: nowait postinstall skipifsilent runasoriginaluser

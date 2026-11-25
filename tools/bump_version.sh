@@ -43,5 +43,12 @@ if [ -f "README.md" ]; then
     sed -i "s/${OLD_VER//./\\.}/${NEW_VER}/g" README.md
 fi
 
-echo "[+] Updated CMakeLists.txt, PKGBUILD, kvision.spec, and README.md to ${NEW_VER}."
+if [ -f "kvision.rc" ]; then
+    sed -i "s/FILEVERSION     [0-9]*,[0-9]*,[0-9]*,[0-9]*/FILEVERSION     ${MAJ},${MIN},${PAT},0/" kvision.rc
+    sed -i "s/PRODUCTVERSION  [0-9]*,[0-9]*,[0-9]*,[0-9]*/PRODUCTVERSION  ${MAJ},${MIN},${PAT},0/" kvision.rc
+    sed -i "s/VALUE \"FileVersion\",      \"[^\"]*\"/VALUE \"FileVersion\",      \"${NEW_VER}.0\\\\0\"/" kvision.rc
+    sed -i "s/VALUE \"ProductVersion\",   \"[^\"]*\"/VALUE \"ProductVersion\",   \"${NEW_VER}\\\\0\"/" kvision.rc
+fi
+
+echo "[+] Updated CMakeLists.txt, PKGBUILD, kvision.spec, README.md, and kvision.rc to ${NEW_VER}."
 echo "[*] Remember to add release notes to CHANGELOG.md, debian/changelog, packaging/arch/changelog, and src/SideBar.qml."
