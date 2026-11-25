@@ -16,6 +16,10 @@ set(VERSION "${VER_MAJ}.${VER_MIN}.${VER_PAT}")
 
 project(kvision VERSION ${VERSION} HOMEPAGE_URL "https://github.com/arkanista/kvision" LANGUAGES C CXX)
 
+if(UNIX AND NOT ANDROID AND CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+    set(CMAKE_INSTALL_PREFIX "/usr" CACHE PATH "Install prefix" FORCE)
+endif()
+
 include(GNUInstallDirs)
 
 if(WIN32)
@@ -245,9 +249,10 @@ target_link_options(kvision PRIVATE
     "LINKER:-rpath-link,${CMAKE_SOURCE_DIR}/src/hikvision_sdk/lib"
 )
 endif()
+file(RELATIVE_PATH KVISION_REL_LIBDIR "${CMAKE_INSTALL_FULL_BINDIR}" "${CMAKE_INSTALL_FULL_LIBDIR}/kvision")
 set_target_properties(kvision PROPERTIES
     BUILD_RPATH "\$ORIGIN/../src/hikvision_sdk/lib"
-    INSTALL_RPATH "\$ORIGIN/../${CMAKE_INSTALL_LIBDIR}/kvision"
+    INSTALL_RPATH "\$ORIGIN/${KVISION_REL_LIBDIR}"
     BUILD_WITH_INSTALL_RPATH FALSE
     INSTALL_RPATH_USE_LINK_PATH FALSE
 )
@@ -300,12 +305,11 @@ endif()
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM true)
 
 if (UNIX AND NOT ANDROID)
-    set(CMAKE_INSTALL_PREFIX "/usr")
     install(TARGETS kvision DESTINATION "${CMAKE_INSTALL_BINDIR}")
-    install(FILES "images/128.png" DESTINATION "/usr/share/icons/hicolor/128x128/apps" RENAME "kvision.png")
-    install(FILES "images/256.png" DESTINATION "/usr/share/icons/hicolor/256x256/apps" RENAME "kvision.png")
-    install(FILES "images/512.png" DESTINATION "/usr/share/icons/hicolor/512x512/apps" RENAME "kvision.png")
-    install(FILES "images/512.png" DESTINATION "/usr/share/pixmaps" RENAME "kvision.png")
-    install(FILES "kvision.desktop" DESTINATION "/usr/share/applications")
+    install(FILES "images/128.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/128x128/apps" RENAME "kvision.png")
+    install(FILES "images/256.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/256x256/apps" RENAME "kvision.png")
+    install(FILES "images/512.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/512x512/apps" RENAME "kvision.png")
+    install(FILES "images/512.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/pixmaps" RENAME "kvision.png")
+    install(FILES "kvision.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications")
     install(DIRECTORY "src/hikvision_sdk/lib/" DESTINATION "${CMAKE_INSTALL_LIBDIR}/kvision")
 endif()

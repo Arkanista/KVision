@@ -51,6 +51,7 @@ if [ "${SKIP_DNF_DEPS:-0}" != "1" ]; then
 
     $SUDO dnf install -y \
         rpm-build \
+        cpio \
         gcc-c++ \
         cmake \
         pkgconf-pkg-config \
@@ -104,4 +105,25 @@ fi
 
 OUT_RPM="dist/$(basename "$BUILT_RPM")"
 mv -f "$BUILT_RPM" "$OUT_RPM"
+
+echo "[*] Verifying RPM RPATH and Hikvision SDK shared libraries..."
+VERIFY_DIR="${RPM_TOPDIR}/verify"
+rm -rf "$VERIFY_DIR"
+mkdir -p "$VERIFY_DIR"
+rpm2cpio "$OUT_RPM" | (cd "$VERIFY_DIR" && cpio -idm --quiet)
+RPATH_LINE="$(readelf -d "$VERIFY_DIR/usr/bin/kvision" | grep -E 'RPATH|RUNPATH' || true)"
+echo "$RPATH_LINE"
+if echo "$RPATH_LINE" | grep -q '\.\.//'; then
+    echo "[-] Error: Invalid doubled slash in RPM RPATH: $RPATH_LINE"
+    exit 1
+fi
+if [ -f "$VERIFY_DIR/usr/lib64/kvision/libhcnetsdk.so" ] && [ -f "$VERIFY_DIR/usr/lib64/kvision/libPlayCtrl.so" ]; then
+    echo "$RPATH_LINE" | grep -F '[$ORIGIN/../lib64/kvision]'
+elif [ -f "$VERIFY_DIR/usr/lib/kvision/libhcnetsdk.so" ] && [ -f "$VERIFY_DIR/usr/lib/kvision/libPlayCtrl.so" ]; then
+    echo "$RPATH_LINE" | grep -F '[$ORIGIN/../lib/kvision]'
+else
+    echo "[-] Error: Hikvision SDK shared libraries not found in unpacked RPM under usr/lib*/kvision."
+    exit 1
+fi
+
 echo "[+] Created package: $OUT_RPM ($(du -h "$OUT_RPM" | cut -f1))"

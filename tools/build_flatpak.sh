@@ -22,6 +22,20 @@ echo "[*] Building Flatpak for io.github.arkanista.KVision (${PKG_VERSION}, ${AR
 flatpak-builder --user --force-clean --repo="$REPO_DIR" "$BUILD_DIR" \
     packaging/flatpak/io.github.arkanista.KVision.yml
 
+echo "[*] Verifying Flatpak RPATH and Hikvision SDK shared libraries..."
+readelf -d "$BUILD_DIR/files/bin/kvision" | grep -F '[$ORIGIN/../lib/kvision]'
+test -f "$BUILD_DIR/files/lib/kvision/libhcnetsdk.so"
+test -f "$BUILD_DIR/files/lib/kvision/libPlayCtrl.so"
+LDD_OUT="$(flatpak-builder --run "$BUILD_DIR" packaging/flatpak/io.github.arkanista.KVision.yml ldd /app/bin/kvision)"
+echo "$LDD_OUT" | grep -E "libhcnetsdk\.so|libPlayCtrl\.so"
+if echo "$LDD_OUT" | grep -q "not found"; then
+    echo "[-] Error: Unresolved shared libraries in Flatpak binary:"
+    echo "$LDD_OUT" | grep "not found"
+    exit 1
+fi
+echo "$LDD_OUT" | grep -Eq "libhcnetsdk\.so => (/app/bin/\.\./|/app/)lib/kvision/libhcnetsdk\.so"
+echo "$LDD_OUT" | grep -Eq "libPlayCtrl\.so => (/app/bin/\.\./|/app/)lib/kvision/libPlayCtrl\.so"
+
 mkdir -p dist
 OUT_FLATPAK="dist/KVision-${PKG_VERSION}-${ARCH}.flatpak"
 echo "[*] Exporting single-file Flatpak bundle: ${OUT_FLATPAK}..."
