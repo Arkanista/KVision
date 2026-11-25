@@ -22,12 +22,12 @@ echo "[*] Building Flatpak for io.github.arkanista.KVision (${PKG_VERSION}, ${AR
 flatpak-builder --user --force-clean --repo="$REPO_DIR" "$BUILD_DIR" \
     packaging/flatpak/io.github.arkanista.KVision.yml
 
-echo "[*] Verifying Flatpak RPATH and Hikvision SDK shared libraries..."
+echo "[*] Verifying Flatpak RPATH, Hikvision SDK, and bundled FFmpeg 9.1..."
 readelf -d "$BUILD_DIR/files/bin/kvision" | grep -F '[$ORIGIN/../lib/kvision]'
 test -f "$BUILD_DIR/files/lib/kvision/libhcnetsdk.so"
 test -f "$BUILD_DIR/files/lib/kvision/libPlayCtrl.so"
 LDD_OUT="$(flatpak-builder --run "$BUILD_DIR" packaging/flatpak/io.github.arkanista.KVision.yml ldd /app/bin/kvision)"
-echo "$LDD_OUT" | grep -E "libhcnetsdk\.so|libPlayCtrl\.so"
+echo "$LDD_OUT" | grep -E "libhcnetsdk\.so|libPlayCtrl\.so|libavformat\.so|libavcodec\.so"
 if echo "$LDD_OUT" | grep -q "not found"; then
     echo "[-] Error: Unresolved shared libraries in Flatpak binary:"
     echo "$LDD_OUT" | grep "not found"
@@ -35,6 +35,10 @@ if echo "$LDD_OUT" | grep -q "not found"; then
 fi
 echo "$LDD_OUT" | grep -Eq "libhcnetsdk\.so => (/app/bin/\.\./|/app/)lib/kvision/libhcnetsdk\.so"
 echo "$LDD_OUT" | grep -Eq "libPlayCtrl\.so => (/app/bin/\.\./|/app/)lib/kvision/libPlayCtrl\.so"
+echo "$LDD_OUT" | grep -Eq "libavformat\.so\.63 => /app/lib/libavformat\.so\.63"
+echo "$LDD_OUT" | grep -Eq "libavcodec\.so\.63 => /app/lib/libavcodec\.so\.63"
+flatpak-builder --run "$BUILD_DIR" packaging/flatpak/io.github.arkanista.KVision.yml /app/bin/ffmpeg -hide_banner -decoders | grep -Eq '\bhevc\b'
+strings "$BUILD_DIR/files/lib/libavformat.so.63" | grep -q "SHA-256-sess"
 
 mkdir -p dist
 OUT_FLATPAK="dist/KVision-${PKG_VERSION}-${ARCH}.flatpak"

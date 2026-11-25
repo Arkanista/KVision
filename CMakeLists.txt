@@ -160,6 +160,7 @@ else()
             libswresample
         )
         include_directories(${LIBAV_INCLUDE_DIRS})
+        link_directories(${LIBAV_LIBRARY_DIRS})
     endif()
 endif()
 
