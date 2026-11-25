@@ -2648,7 +2648,6 @@ ApplicationWindow {
             property int y: -1
             property int width: -1
             property int height: -1
-            property bool visible: false
         }
 
         Component.onCompleted: {
@@ -2661,28 +2660,21 @@ ApplicationWindow {
             sidebarWindow.height = (sidebarWindowSettings.height > 0 && sidebarWindowSettings.height !== 750) ? sidebarWindowSettings.height : defaultHeight;
             sidebarWindow.x = (sidebarWindowSettings.x >= 0 && sidebarWindowSettings.x !== 100) ? sidebarWindowSettings.x : defaultX;
             sidebarWindow.y = (sidebarWindowSettings.y >= 0 && sidebarWindowSettings.y !== 100) ? sidebarWindowSettings.y : defaultY;
+            sidebarWindow.visible = false;
 
-            if (Context.isAuxiliary) {
-                sidebarWindow.visible = false;
-            } else {
-                sidebarWindow.visible = sidebarWindowSettings.visible;
-
+            if (!Context.isAuxiliary) {
                 sidebarWindow.xChanged.connect(saveGeometry);
                 sidebarWindow.yChanged.connect(saveGeometry);
                 sidebarWindow.widthChanged.connect(saveGeometry);
                 sidebarWindow.heightChanged.connect(saveGeometry);
-                sidebarWindow.visibleChanged.connect(saveGeometry);
             }
         }
-
-
 
         function saveGeometry() {
             sidebarWindowSettings.x = sidebarWindow.x;
             sidebarWindowSettings.y = sidebarWindow.y;
             sidebarWindowSettings.width = sidebarWindow.width;
             sidebarWindowSettings.height = sidebarWindow.height;
-            sidebarWindowSettings.visible = sidebarWindow.visible;
         }
 
         Loader {

@@ -1,3 +1,8 @@
+2.8.3
+  * Bug Fixes:
+  * Fixed thumbnail generation crash (frame validation, 32-byte SIMD buffer alignment, thread-safe directory cache, and atomic JPEG writes).
+  * Prevented the Panel settings window from auto-opening empty during startup before the main window finishes initializing.
+
 2.8.2
   * Bug Fixes:
   * Fixed settings persistence so options like Disable audio handling completely and Disable viewport zoom animation no longer revert when closing auxiliary windows or updating, while preserving live sync across all windows.

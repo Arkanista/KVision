@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.3] - 2026-11-25
+
+### Bug Fixes
+* **Crash Fix During Thumbnail Generation:** Fixed memory alignment, frame format validation, and multi-thread cache/file access in `ThumbnailProvider` that could cause crashes on Windows (and Linux) when generating camera thumbnails while live view is active.
+* **Clean Startup & Panel Window Fix:** Prevented the *Panel* settings window from auto-opening empty during startup before the main window finishes initializing (e.g., after an unexpected crash).
+
 ## [2.8.2] - 2026-11-24
 
 ### Bug Fixes

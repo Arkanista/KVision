@@ -11,6 +11,7 @@ extern "C" {
 #include <QDebug>
 #include <QPainter>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <QSettings>
 #include <QUrl>
@@ -36,13 +37,14 @@ void ThumbnailFetchWorker::fetchFrame(const QString &rtspUrl, const QString &cac
     AVFormatContext *fmtCtx = nullptr;
     AVCodecContext *codecCtx = nullptr;
     AVFrame *frame = nullptr;
-    AVFrame *rgbFrame = nullptr;
+    AVPacket *pkt = nullptr;
     SwsContext *swsCtx = nullptr;
-    uint8_t *rgbBuffer = nullptr;
+    uint8_t *rgbData[4] = { nullptr, nullptr, nullptr, nullptr };
+    int rgbLinesize[4] = { 0, 0, 0, 0 };
 
     auto cleanup = [&]() {
-        if (rgbBuffer) av_free(rgbBuffer);
-        if (rgbFrame) av_frame_free(&rgbFrame);
+        if (rgbData[0]) av_freep(&rgbData[0]);
+        if (pkt) av_packet_free(&pkt);
         if (frame) av_frame_free(&frame);
         if (swsCtx) sws_freeContext(swsCtx);
         if (codecCtx) avcodec_free_context(&codecCtx);
@@ -94,7 +96,7 @@ void ThumbnailFetchWorker::fetchFrame(const QString &rtspUrl, const QString &cac
     // Find stream info (limited duration)
     AVDictionary *streamOpts = nullptr;
     av_dict_set(&streamOpts, "analyzeduration", "1000000", 0);
-    ret = avformat_find_stream_info(fmtCtx, nullptr);
+    ret = avformat_find_stream_info(fmtCtx, &streamOpts);
     av_dict_free(&streamOpts);
 
     if (ret < 0) {
@@ -142,7 +144,12 @@ void ThumbnailFetchWorker::fetchFrame(const QString &rtspUrl, const QString &cac
         return;
     }
 
-    avcodec_parameters_to_context(codecCtx, codecPar);
+    if (avcodec_parameters_to_context(codecCtx, codecPar) < 0) {
+        qWarning() << "[ThumbnailFetch] Failed to copy codec parameters for" << cacheKey;
+        cleanup();
+        emit fetchFailed(cacheKey);
+        return;
+    }
     codecCtx->thread_count = 1; // Minimal threading for thumbnail
 
     ret = avcodec_open2(codecCtx, codec, nullptr);
@@ -153,31 +160,17 @@ void ThumbnailFetchWorker::fetchFrame(const QString &rtspUrl, const QString &cac
         return;
     }
 
-    // Allocate frames
+    // Allocate source frame and packet
     frame = av_frame_alloc();
-    rgbFrame = av_frame_alloc();
-    if (!frame || !rgbFrame) {
-        qWarning() << "[ThumbnailFetch] Failed to allocate frames for" << cacheKey;
+    pkt = av_packet_alloc();
+    if (!frame || !pkt) {
+        qWarning() << "[ThumbnailFetch] Failed to allocate frame/packet for" << cacheKey;
         cleanup();
         emit fetchFailed(cacheKey);
         return;
     }
 
-    // Allocate RGB buffer
-    int rgbBufSize = av_image_get_buffer_size(AV_PIX_FMT_RGB32, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, 1);
-    rgbBuffer = static_cast<uint8_t *>(av_malloc(static_cast<size_t>(rgbBufSize)));
-    if (!rgbBuffer) {
-        qWarning() << "[ThumbnailFetch] Failed to allocate RGB buffer for" << cacheKey;
-        cleanup();
-        emit fetchFailed(cacheKey);
-        return;
-    }
-
-    av_image_fill_arrays(rgbFrame->data, rgbFrame->linesize, rgbBuffer,
-                         AV_PIX_FMT_RGB32, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, 1);
-
-    // Read packets and decode until we get a frame
-    AVPacket *pkt = av_packet_alloc();
+    // Read packets and decode until we get a valid frame
     bool gotFrame = false;
     int maxPackets = 150; // Safety limit
 
@@ -189,28 +182,36 @@ void ThumbnailFetchWorker::fetchFrame(const QString &rtspUrl, const QString &cac
         if (ret < 0) break;
 
         if (pkt->stream_index == videoIdx) {
-            ret = avcodec_send_packet(codecCtx, pkt);
-            if (ret >= 0) {
-                ret = avcodec_receive_frame(codecCtx, frame);
-                if (ret == 0) {
+            int sendRet = avcodec_send_packet(codecCtx, pkt);
+            if (sendRet >= 0 || sendRet == AVERROR(EAGAIN)) {
+                int recvRet = avcodec_receive_frame(codecCtx, frame);
+                if (recvRet == 0) {
                     gotFrame = true;
                 }
             }
         }
         av_packet_unref(pkt);
     }
-    av_packet_free(&pkt);
 
-    if (!gotFrame) {
-        qWarning() << "[ThumbnailFetch] Failed to decode a frame from" << cacheKey;
+    if (!gotFrame || frame->width <= 0 || frame->height <= 0 || frame->format == AV_PIX_FMT_NONE) {
+        qWarning() << "[ThumbnailFetch] Failed to decode a valid frame from" << cacheKey;
         cleanup();
         emit fetchFailed(cacheKey);
         return;
     }
 
-    // Scale to thumbnail size
+    // Allocate 32-byte aligned destination RGB buffer for SIMD-safe sws_scale
+    if (av_image_alloc(rgbData, rgbLinesize, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, AV_PIX_FMT_RGB32, 32) < 0) {
+        qWarning() << "[ThumbnailFetch] Failed to allocate RGB buffer for" << cacheKey;
+        cleanup();
+        emit fetchFailed(cacheKey);
+        return;
+    }
+
+    // Scale using the decoded frame's actual dimensions and pixel format
+    const AVPixelFormat srcFmt = static_cast<AVPixelFormat>(frame->format);
     swsCtx = sws_getContext(
-        codecCtx->width, codecCtx->height, codecCtx->pix_fmt,
+        frame->width, frame->height, srcFmt,
         THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, AV_PIX_FMT_RGB32,
         SWS_BILINEAR, nullptr, nullptr, nullptr);
 
@@ -221,12 +222,12 @@ void ThumbnailFetchWorker::fetchFrame(const QString &rtspUrl, const QString &cac
         return;
     }
 
-    sws_scale(swsCtx, frame->data, frame->linesize, 0, codecCtx->height,
-              rgbFrame->data, rgbFrame->linesize);
+    sws_scale(swsCtx, frame->data, frame->linesize, 0, frame->height,
+              rgbData, rgbLinesize);
 
     // Create QImage from the RGB data
-    QImage thumbnail(rgbBuffer, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT,
-                     rgbFrame->linesize[0], QImage::Format_RGB32);
+    QImage thumbnail(rgbData[0], THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT,
+                     rgbLinesize[0], QImage::Format_RGB32);
     QImage result = thumbnail.copy(); // Deep copy before freeing buffer
 
     cleanup();
@@ -251,6 +252,9 @@ ThumbnailProvider::ThumbnailProvider(QObject *parent)
 
     m_workerThread.setObjectName(QStringLiteral("ThumbnailFetcher"));
     m_workerThread.start(QThread::LowPriority);
+
+    // Cache thumbnails directory on the GUI thread so QQuickPixmapReader never touches Context::config()
+    thumbnailsDir();
 }
 
 ThumbnailProvider::~ThumbnailProvider()
@@ -324,12 +328,19 @@ void ThumbnailProvider::onFrameFetched(const QString &cacheKey, const QImage &im
         m_cache[cacheKey] = image;
     }
 
-    // Also save it to the filesystem for the QML UI to load
+    // Also save it atomically to the filesystem for the QML UI to load
     QString outDir = thumbnailsDir();
     if (!outDir.isEmpty()) {
         QDir().mkpath(outDir);
         QString outPath = QDir(outDir).absoluteFilePath(cacheKey + ".jpg");
-        image.save(outPath, "JPEG");
+        QString tmpPath = outPath + ".tmp";
+        if (image.save(tmpPath, "JPEG")) {
+            QFile::remove(outPath);
+            if (!QFile::rename(tmpPath, outPath)) {
+                QFile::remove(tmpPath);
+                image.save(outPath, "JPEG");
+            }
+        }
     }
 
     emit thumbnailReady(cacheKey);
@@ -439,6 +450,11 @@ void ThumbnailProvider::generateSingleThumbnail(const QVariantMap &recorderInfo,
 
 QString ThumbnailProvider::thumbnailsDir() const
 {
+    QMutexLocker lock(&m_dirMutex);
+    if (!m_thumbnailsDir.isEmpty()) {
+        return m_thumbnailsDir;
+    }
+
     QString configPath;
     if (Context::isAuxiliary()) {
         configPath = QSettings().fileName();
@@ -450,7 +466,8 @@ QString ThumbnailProvider::thumbnailsDir() const
 
     if (!configPath.isEmpty()) {
         QDir dir(QFileInfo(configPath).absolutePath());
-        return dir.absoluteFilePath("thumbnails");
+        const_cast<ThumbnailProvider *>(this)->m_thumbnailsDir = dir.absoluteFilePath("thumbnails");
+        return m_thumbnailsDir;
     }
     return QString();
 }
@@ -582,6 +599,10 @@ ThumbnailImageProvider::ThumbnailImageProvider(ThumbnailProvider *provider)
 QImage ThumbnailImageProvider::requestImage(const QString &id, QSize *size, const QSize &requestedSize)
 {
     Q_UNUSED(requestedSize)
+
+    if (!m_provider) {
+        return QImage();
+    }
 
     QString cleanId = id;
     int queryIdx = cleanId.indexOf('?');

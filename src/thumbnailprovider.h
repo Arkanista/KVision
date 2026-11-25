@@ -7,6 +7,7 @@
 #include <QSet>
 #include <QQueue>
 #include <QMutex>
+#include <QPointer>
 #include <QThread>
 #include <QTimer>
 #include <QVariantMap>
@@ -84,6 +85,9 @@ private:
     QHash<QString, JobProgress> m_activeJobs;
     QSet<QString> m_deletedIps;
 
+    mutable QMutex m_dirMutex;
+    QString m_thumbnailsDir;
+
     mutable QMutex m_cacheMutex;
     QHash<QString, QImage> m_cache;
 
@@ -104,7 +108,7 @@ public:
     QImage requestImage(const QString &id, QSize *size, const QSize &requestedSize) override;
 
 private:
-    ThumbnailProvider *m_provider;
+    QPointer<ThumbnailProvider> m_provider;
 };
 
 #endif // THUMBNAILPROVIDER_H

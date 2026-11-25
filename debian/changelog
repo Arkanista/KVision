@@ -1,3 +1,9 @@
+kvision (2.8.3-1) unstable; urgency=medium
+
+  * Fix crash during camera thumbnail generation with live view active and prevent the Panel window from auto-opening empty during startup.
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Wed, 25 Nov 2026 10:37:00 +0100
+
 kvision (2.8.2-1) unstable; urgency=medium
 
   * Fix settings persistence so options such as Disable audio handling completely and Disable viewport zoom animation are never overwritten on exit while keeping multi-window synchronization.
