@@ -1,3 +1,11 @@
+2.8.4
+  * Bug Fixes & Stability:
+  * Archive Decoder Safety: Validated YV12 dimensions and 64-bit buffer bounds before copying decoded frames (previously padded or malformed frames could overflow the buffer) and made playback state, speed, and FPS updates thread-safe.
+  * Multi-Camera Archive Sessions: Serialized concurrent SDK logins, cached credentials (username/password) alongside IP/port, and isolated session recovery so an error in one archive window no longer disconnects other open archive windows.
+  * Download Error Detection: Stopped treating mid-transfer SDK/network errors (> 4 KB partial files) as successful MP4 exports, waited for SDK initialization before login, and zero-initialized file-search structs.
+  * Windows & Startup Fixes: Replaced Linux-only /proc window counting with cross-platform QLockFile slots so auxiliaryLimit works on Windows too, respected custom -c config files in SingleApplication, and removed the brief red "No recording" flash on multi-camera playback start.
+  * Performance & Packaging: Lazy-loaded the legacy mock player (stopping idle 25 Hz timers) and carried over the Flatpak FFmpeg 9.1 (H.265/HEVC + SHA-256 RTSP Digest) and Flatpak/RPM RPATH fixes (#16).
+
 2.8.3
   * Bug Fixes:
   * Fixed thumbnail generation crash (frame validation, 32-byte SIMD buffer alignment, thread-safe directory cache, and atomic JPEG writes).

@@ -23,6 +23,8 @@
 #include <QTextStream>
 #include <QMutex>
 #include <QMutexLocker>
+#include <QLockFile>
+#include <memory>
 
 extern "C" {
 #include <libavutil/log.h>
@@ -218,79 +220,52 @@ void registerQmlTypes()
     });
 }
 
-int countAuxiliaryProcesses()
+QString resolveConfigPathFromArgs(const QStringList &args)
 {
-    qint64 selfPid = getpid();
-    uid_t myUid = getuid();
-    QString selfExe = QFile::symLinkTarget(QString("/proc/%1/exe").arg(selfPid));
-
-    int count = 0;
-    QDir procDir("/proc");
-    QStringList entries = procDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-    for (const QString &entry : entries) {
-        bool ok = false;
-        qint64 pid = entry.toLongLong(&ok);
-        if (!ok || pid == selfPid) continue;
-
-        // Check UID
-        QFile statusFile(QString("/proc/%1/status").arg(pid));
-        uid_t procUid = -1;
-        if (statusFile.open(QIODevice::ReadOnly)) {
-            QByteArray content = statusFile.readAll();
-            statusFile.close();
-            int uidIdx = content.indexOf("Uid:");
-            if (uidIdx != -1) {
-                int lineEnd = content.indexOf('\n', uidIdx);
-                QByteArray line = content.mid(uidIdx, lineEnd - uidIdx);
-                QList<QByteArray> parts = line.split('\t');
-                for (const QByteArray &p : parts) {
-                    bool numOk = false;
-                    uint val = p.trimmed().toUInt(&numOk);
-                    if (numOk) {
-                        procUid = val;
-                        break;
-                    }
-                }
-                if (procUid == -1) {
-                    QList<QByteArray> partsSpace = line.split(' ');
-                    for (const QByteArray &p : partsSpace) {
-                        bool numOk = false;
-                        uint val = p.trimmed().toUInt(&numOk);
-                        if (numOk) {
-                            procUid = val;
-                            break;
-                        }
-                    }
-                }
-            }
+    for (int i = 1; i < args.size(); ++i) {
+        const QString &arg = args.at(i);
+        if ((arg == QLatin1String("-c") || arg == QLatin1String("--config")) && i + 1 < args.size()) {
+            return args.at(i + 1);
         }
-        if (procUid != myUid) continue;
-
-        // Check executable path
-        QString exePath = QFile::symLinkTarget(QString("/proc/%1/exe").arg(pid));
-        if (exePath.isEmpty() || exePath != selfExe) {
-            continue;
+        if (arg.startsWith(QLatin1String("--config="))) {
+            return arg.mid(9);
         }
+    }
+    return QSettings().fileName();
+}
 
-        // Check cmdline
-        QFile cmdFile(QString("/proc/%1/cmdline").arg(pid));
-        if (cmdFile.open(QIODevice::ReadOnly)) {
-            QByteArray cmdline = cmdFile.readAll();
-            cmdFile.close();
-            QList<QByteArray> args = cmdline.split('\0');
-            bool isAux = false;
-            for (const QByteArray &arg : args) {
-                if (arg == "--auxiliary") {
-                    isAux = true;
-                    break;
-                }
-            }
-            if (isAux) {
-                count++;
+std::unique_ptr<QLockFile> acquireAuxiliarySlot(int limit)
+{
+    if (limit <= 0) {
+        return nullptr;
+    }
+
+    QString userKey;
+#ifdef _WIN32
+    userKey = qEnvironmentVariable("USERNAME");
+    if (userKey.isEmpty()) {
+        userKey = QStringLiteral("winuser");
+    }
+#else
+    userKey = QString::number(static_cast<unsigned long>(getuid()));
+#endif
+    const QString appTag = QFileInfo(QCoreApplication::applicationFilePath()).fileName();
+    const QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+
+    for (int slot = 0; slot < limit; ++slot) {
+        const QString lockPath = QDir(tempDir).filePath(QStringLiteral("%1-aux-slot-%2-%3.lock").arg(appTag, userKey).arg(slot));
+        auto lockFile = std::make_unique<QLockFile>(lockPath);
+        lockFile->setStaleLockTime(0);
+        if (lockFile->tryLock(0)) {
+            return lockFile;
+        }
+        if (lockFile->error() == QLockFile::LockFailedError && lockFile->removeStaleLockFile()) {
+            if (lockFile->tryLock(0)) {
+                return lockFile;
             }
         }
     }
-    return count;
+    return nullptr;
 }
 
 int main(int argc, char *argv[])
@@ -333,7 +308,7 @@ int main(int argc, char *argv[])
     appIcon.addFile(QStringLiteral(":/images/512.png"), QSize(512, 512));
     app.setWindowIcon(appIcon);
 
-    SingleApplication singleApp;
+    SingleApplication singleApp(resolveConfigPathFromArgs(app.arguments()));
     if (singleApp.isRunning()) {
         Context::init();
         initFileLogging();
@@ -360,6 +335,7 @@ int main(int argc, char *argv[])
     qInfo() << "KVision version:" << APP_VERSION;
     Context::initLanguage();
 
+    std::unique_ptr<QLockFile> auxSlotLock;
     if (Context::isAuxiliary()) {
         QString configPath = Context::config() ? Context::config()->fileName() : QSettings().fileName();
         QSettings settings(configPath, QSettings::IniFormat);
@@ -367,12 +343,12 @@ int main(int argc, char *argv[])
         if (limit < 0) limit = 0;
         if (limit > 3) limit = 3;
 
-        int activeAuxCount = countAuxiliaryProcesses();
-        fprintf(stderr, "[Limit Check] Auxiliary process starting (PID: %lld). Active aux windows: %d, Limit: %d\n", 
-                (long long)getpid(), activeAuxCount, limit);
+        auxSlotLock = acquireAuxiliarySlot(limit);
+        fprintf(stderr, "[Limit Check] Auxiliary process starting (PID: %lld). Slot acquired: %s, Limit: %d\n",
+                (long long)getpid(), auxSlotLock ? "yes" : "no", limit);
         fflush(stderr);
 
-        if (activeAuxCount >= limit) {
+        if (!auxSlotLock) {
             fprintf(stderr, "[Limit Check] Limit reached! Loading warning popup...\n");
             fflush(stderr);
             QQmlApplicationEngine engine;

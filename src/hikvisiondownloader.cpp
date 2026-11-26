@@ -1,4 +1,5 @@
 #include "hikvisiondownloader.h"
+#include "hikvisionmanager.h"
 #include "qmlav/src/qmlavdemuxer.h"
 #include <QDebug>
 #include <QThread>
@@ -256,6 +257,13 @@ void HikvisionDownloader::startDownload(const QVariantMap &recorderInfo, int cha
     emit statusTextChanged();
 
     QThread *thread = QThread::create([this, recorderInfo, channelId, start, end, saveFilePath]() {
+        if (HikvisionManager *mgr = HikvisionManager::instance()) {
+            mgr->ensureInitialized();
+        } else {
+            static std::once_flag s_fallbackInitOnce;
+            std::call_once(s_fallbackInitOnce, []() { NET_DVR_Init(); });
+        }
+
         QString ip = recorderInfo["ip"].toString();
         int port = recorderInfo.contains("sdkPort") ? recorderInfo["sdkPort"].toInt() : recorderInfo["port"].toInt();
         if (port <= 0) port = 8000;
@@ -322,12 +330,16 @@ void HikvisionDownloader::startDownload(const QVariantMap &recorderInfo, int cha
                 if (QThread::currentThread()->isInterruptionRequested()) {
                     break;
                 }
+                std::memset(&findData, 0, sizeof(NET_DVR_FINDDATA_V50));
                 int state = NET_DVR_FindNextFile_V50(lFindHandle, &findData);
                 if (state == 1000) { // NET_DVR_FILE_SUCCESS
                     QDateTime fileStart(QDate(findData.struStartTime.wYear, findData.struStartTime.byMonth, findData.struStartTime.byDay),
                                         QTime(findData.struStartTime.byHour, findData.struStartTime.byMinute, findData.struStartTime.bySecond));
                     QDateTime fileEnd(QDate(findData.struStopTime.wYear, findData.struStopTime.byMonth, findData.struStopTime.byDay),
                                       QTime(findData.struStopTime.byHour, findData.struStopTime.byMinute, findData.struStopTime.bySecond));
+                    if (!fileStart.isValid() || !fileEnd.isValid()) {
+                        continue;
+                    }
                     
                     QDateTime intersectStart = fileStart > start ? fileStart : start;
                     QDateTime intersectEnd = fileEnd < end ? fileEnd : end;
@@ -621,10 +633,11 @@ void HikvisionDownloader::checkProgress()
     }
 
     int pos = NET_DVR_GetDownloadPos(m_lFileHandle);
-    bool stalledButComplete = (currentSize > 4096) &&
-                              ((pos >= 90 && m_stalledTicks >= 3) || (m_stalledTicks >= 5));
+    const bool sdkError = (pos < 0 || pos == 200);
+    const bool stalledNearComplete = !sdkError && (currentSize > 4096) && (pos >= 90 && pos < 100 && m_stalledTicks >= 3);
+    const bool stalledTimeout = !sdkError && (m_stalledTicks >= 30);
 
-    if (pos == 100 || pos == 200 || pos < 0 || stalledButComplete) {
+    if (pos == 100 || sdkError || stalledNearComplete || stalledTimeout) {
         m_timer->stop();
         NET_DVR_StopGetFile(m_lFileHandle);
         m_lFileHandle = -1;
@@ -639,7 +652,14 @@ void HikvisionDownloader::checkProgress()
             m_lastFileSize = finalSize;
         }
 
-        bool isSuccess = (finalSize > 0) && (pos == 100 || stalledButComplete || finalSize > 4096);
+        if (sdkError || stalledTimeout) {
+            qWarning() << "[HikDownloader] Segment download failed or timed out. pos=" << pos
+                       << "sdkErr=" << NET_DVR_GetLastError()
+                       << "stalledTicks=" << m_stalledTicks
+                       << "finalSize=" << finalSize;
+        }
+
+        const bool isSuccess = !sdkError && (finalSize > 0) && (pos == 100 || stalledNearComplete);
 
         if (isSuccess) {
             m_progress = 100;
@@ -664,7 +684,7 @@ void HikvisionDownloader::checkProgress()
             emit overallProgressChanged();
             emit downloadFinished(false, tr("LNG_00492").arg(m_currentSegmentIndex + 1));
         }
-    } else {
+    } else if (pos >= 0 && pos < 100) {
         if (m_progress != pos) {
             m_progress = pos;
             emit progressChanged();

@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.4] - 2026-11-26
+
+### Bug Fixes & Stability
+* **Archive Playback Frame Safety (YV12 Buffer & Dimensions):**
+  * *Before:* Corrupted, padded, or odd-dimension video frames from the Hikvision decoder could overflow the frame buffer and crash archive playback.
+  * *Now:* Frame dimensions are strictly validated (bounded and even) using checked 64-bit math, memory allocation failures are caught safely, and only exact YV12 plane bytes are copied — preventing archive decoder memory corruption and crashes.
+* **Reliable Multi-Camera Archive Sessions (Concurrent Login & Session Isolation):**
+  * *Before:* Opening multiple archive cameras from the same NVR at the same time could trigger duplicate logins, leak NVR user slots, and leave wrong reference counts; an error on one camera could also force-logout the shared session and disconnect sibling archive windows.
+  * *Now:* Concurrent logins to the same recorder are serialized into a single shared session, and failed sessions are retired safely without interrupting other active archive windows.
+* **Immediate Recorder Credential Updates (Username & Password Cache):**
+  * *Before:* Changing a recorder's username or password in settings kept reusing the old cached SDK session (matched only by IP and port) until KVision was restarted.
+  * *Now:* Session lookup verifies IP, port, username, and password — credential changes take effect immediately without a restart.
+* **Accurate Recording Download Error Detection & Startup Safety:**
+  * *Before:* If a recording download failed mid-way with an SDK or network error (`pos < 0` or `pos == 200`), partial files larger than 4 KB were mistakenly marked as successful and converted into truncated MP4s; downloads started immediately at launch could also race SDK initialization, and search structs were uninitialized.
+  * *Now:* SDK/network errors and mid-download stalls fail cleanly and remove incomplete temporary files (while keeping near-end NVR stall handling), downloads wait for SDK initialization, and search results are zero-initialized and date-validated.
+* **Cross-Platform Auxiliary Window Limit & Custom Config (`-c`) Single-Instance Support:**
+  * *Before:* The auxiliary window limit (`auxiliaryLimit`) relied on Linux `/proc` scanning, so it did not work on Windows and could race when opening windows rapidly; launching with `-c`/`--config` ignored `singleApplication` from that custom file.
+  * *Now:* Auxiliary window slots use atomic cross-platform `QLockFile` locks that work identically on Windows and Linux (and recover cleanly after a crash), while keeping each auxiliary window as an independent process, and single-instance checks read the custom `-c`/`--config` file.
+* **Smoother Archive Controls, FPS Counter & No Brief Red "No Recording" Flash:**
+  * *Before:* Playback state (`isPlaying`), playback speed, and FPS counters were updated across threads without atomic synchronization, and synchronous multi-camera archive playback could briefly flash a red "No recording" banner before video appeared.
+  * *Now:* Playback state, speed, and FPS updates are thread-safe (`std::atomic` with GUI-thread FPS resets), and archive status messages wait cleanly during initial seek, segment search, and active stream startup.
+* **Lower Idle CPU Usage in Live View (Legacy Mock Player Cleanup):**
+  * *Before:* Every camera tile created a hidden legacy `HikvisionPlayer` mock with a 25 Hz timer running continuously in the background (and its fallback path could invoke an invalid SDK handle or add synthetic network traffic).
+  * *Now:* The mock player is loaded lazily only when real streams are explicitly disabled, stops its timer whenever hidden, and never touches real SDK handles or network statistics.
+* **Linux Flatpak & RPM Packaging Fixes (included in `v2.8.4`):**
+  * *Before:* Flatpak and RPM packages could fail to launch (`libhcnetsdk.so` `INSTALL_RPATH` pointed to `/app/app/lib/kvision` or `/usr/usr/lib64/kvision`), and Flatpak lacked H.265 (HEVC) decoding and SHA-256 RTSP Digest authentication due to the runtime's stripped FFmpeg 7.x (#16).
+  * *Now:* `INSTALL_RPATH` resolves cleanly for all packaging prefixes, and Flatpak bundles full FFmpeg 9.1 with H.265/HEVC decoding, VAAPI hardware acceleration, and native SHA-256 RTSP Digest support.
+
 ## [2.8.3] - 2026-11-25
 
 ### Bug Fixes

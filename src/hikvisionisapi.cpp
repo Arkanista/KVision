@@ -507,7 +507,7 @@ void HikvisionISAPI::searchViaSdkFallback(const HikvisionSearchSession &session,
             qWarning() << "[ISAPI -> SDK Fallback] NET_DVR_FindFile_V40 failed with error:" << NET_DVR_GetLastError();
         }
 
-        mgr->logoutShared(cleanIp);
+        mgr->logoutShared(cleanIp, userId);
 
         if (self && m_cancelGen.load() == expectedGen) {
             QList<int> sortedDays = daysSet.values();

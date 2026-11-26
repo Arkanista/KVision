@@ -33,10 +33,24 @@ HikvisionPlayer::HikvisionPlayer(QQuickItem *parent)
     if (qgetenv("CCTV_DEBUG_MEMORY") == "1")
         qDebug() << "[MEM-TRACK] Created HikvisionPlayer. Total active:" << current;
 
-    // Start simulation timer at 25 FPS (40ms ticks)
+    // Lazy-start simulation timer only while the mock item is visible
     m_timer = new QTimer(this);
+    m_timer->setInterval(40);
     connect(m_timer, &QTimer::timeout, this, &HikvisionPlayer::onFrameTimerTick);
-    m_timer->start(40);
+}
+
+void HikvisionPlayer::itemChange(ItemChange change, const ItemChangeData &value)
+{
+    QQuickPaintedItem::itemChange(change, value);
+    if (change == ItemVisibleHasChanged && m_timer) {
+        if (value.boolValue) {
+            if (!m_timer->isActive()) {
+                m_timer->start();
+            }
+        } else if (m_timer->isActive()) {
+            m_timer->stop();
+        }
+    }
 }
 
 HikvisionPlayer::~HikvisionPlayer()
@@ -53,26 +67,20 @@ HikvisionPlayer::~HikvisionPlayer()
 void HikvisionPlayer::onFrameTimerTick()
 {
     if (!isVisible()) {
+        if (m_timer && m_timer->isActive()) {
+            m_timer->stop();
+        }
         return;
     }
 
     m_frameCounter++;
-    
-    // Simulate real-time bitrate fluctuations
+
+    // Simulate display bitrate fluctuations (synthetic preview only — never add to real network stats)
     if (m_streamType == 0) { // MAIN
-        // Fluctuate around 2.2 - 2.8 Mbps
         m_simulatedBitrate = 2200 + (std::sin(m_frameCounter * 0.1) * 300) + (std::rand() % 50);
     } else { // SUB
-        // Fluctuate around 180 - 240 kbps
         m_simulatedBitrate = 180 + (std::sin(m_frameCounter * 0.15) * 30) + (std::rand() % 10);
     }
-    
-    // Calculate bytes for this 40ms frame tick
-    // m_simulatedBitrate is in kbps (1 kbps = 1000 bits/sec)
-    // 1000 bits/sec = 125 bytes/sec
-    // 125 bytes/sec * 0.040 sec = 5 bytes per frame tick per kbps
-    int simulatedBytes = static_cast<int>(m_simulatedBitrate * 5);
-    g_networkBytesAccumulator.fetch_add(simulatedBytes, std::memory_order_relaxed);
 
     // Force repaint
     update();
@@ -89,20 +97,10 @@ void HikvisionPlayer::restartStream()
         return;
     }
 
-    // Attempt proprietary connection
-    qDebug() << "[Hikvision] Starting real-time stream for IP:" << m_recorderIp 
-             << "Channel:" << m_channelId 
+    // Offline visual mock mode when Hikvision/useRealStreams is disabled
+    qDebug() << "[Hikvision] Starting mock stream preview for IP:" << m_recorderIp
+             << "Channel:" << m_channelId
              << "Type:" << (m_streamType == 0 ? "MAIN" : "SUB");
-
-    NET_DVR_PREVIEWINFO previewInfo;
-    std::memset(&previewInfo, 0, sizeof(NET_DVR_PREVIEWINFO));
-    previewInfo.lChannel = m_channelId;
-    previewInfo.dwStreamType = static_cast<DWORD>(m_streamType);
-    previewInfo.dwLinkMode = 0; // TCP
-    previewInfo.hPlayWnd = 0;
-    previewInfo.bBlocked = FALSE;
-
-    m_playHandle = NET_DVR_RealPlay_V40(m_userId, &previewInfo, playerRealDataCallBack, nullptr);
 }
 
 void HikvisionPlayer::paint(QPainter *painter)

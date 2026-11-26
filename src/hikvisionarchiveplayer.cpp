@@ -9,9 +9,14 @@
 #include <QCoreApplication>
 #include <QThreadPool>
 #include <QRunnable>
+#include <cstdint>
 #include <iostream>
 #include <set>
 #include <QAudioDeviceInfo>
+
+namespace {
+constexpr int kMaxFrameDimension = 16384;
+}
 
 // Hikvision PlayM4 decoder constants (usually YV12)
 #define T_YV12 3
@@ -99,15 +104,25 @@ public:
         int width = m_frame->width;
         int height = m_frame->height;
 
-        if (width <= 0 || height <= 0) {
+        if (width <= 0 || height <= 0 || width > kMaxFrameDimension || height > kMaxFrameDimension ||
+            (width & 1) != 0 || (height & 1) != 0) {
+            m_frame->inUse = false;
+            m_player->m_pendingTasks--;
+            return;
+        }
+
+        const uint64_t yPlaneBytes = static_cast<uint64_t>(width) * static_cast<uint64_t>(height);
+        const uint64_t expectedYv12Size = yPlaneBytes * 3ULL / 2ULL;
+        const uint64_t expectedRgbSize = yPlaneBytes * 4ULL;
+        if (m_frame->yv12Data.size() < expectedYv12Size || m_frame->rgbData.size() < expectedRgbSize) {
             m_frame->inUse = false;
             m_player->m_pendingTasks--;
             return;
         }
 
         const unsigned char* yPlane = m_frame->yv12Data.data();
-        const unsigned char* vPlane = yPlane + width * height;
-        const unsigned char* uPlane = vPlane + (width * height) / 4;
+        const unsigned char* vPlane = yPlane + static_cast<size_t>(yPlaneBytes);
+        const unsigned char* uPlane = vPlane + static_cast<size_t>(yPlaneBytes / 4ULL);
 
         unsigned char* destData = m_frame->rgbData.data();
         int destStride = width * 4;
@@ -207,7 +222,7 @@ HikvisionArchivePlayer::HikvisionArchivePlayer(QQuickItem *parent)
         std::lock_guard<std::mutex> lock(s_activePlayersMutex);
         s_activePlayers.insert(this);
     }
-    m_currentSpeedMultiplier = 1;
+    m_currentSpeedMultiplier.store(1);
 
     m_workerThread = new QThread(this);
     m_worker = new QObject();
@@ -245,13 +260,13 @@ HikvisionArchivePlayer::~HikvisionArchivePlayer()
         s_activePlayers.erase(this);
     }
 
-    if (m_lUserID >= 0) {
+    LONG oldUserId = m_lUserID.exchange(-1);
+    if (oldUserId >= 0) {
         if (HikvisionManager::instance()) {
-            HikvisionManager::instance()->logoutShared(m_recorderIp);
+            HikvisionManager::instance()->logoutShared(m_recorderIp, oldUserId);
         } else {
-            NET_DVR_Logout(m_lUserID);
+            NET_DVR_Logout(oldUserId);
         }
-        m_lUserID = -1;
     }
 
     if (m_worker) {
@@ -280,6 +295,7 @@ void HikvisionArchivePlayer::cleanupPlayback()
         std::lock_guard<std::mutex> lock(m_stateMutex);
         playHandle = m_lPlayHandle.exchange(-1);
         port = m_nPort.exchange(-1);
+        m_isPlaying.store(false);
     }
 
     m_lastAudioStamp = 0;
@@ -348,10 +364,20 @@ void HikvisionArchivePlayer::cleanupPlayback()
     
     if (QThread::currentThread() != qApp->thread()) {
         QMetaObject::invokeMethod(this, [this]() {
+            m_fpsCounter = 0;
+            m_lastFpsTime = 0;
+            if (m_fps.exchange(0) != 0) {
+                emit fpsChanged();
+            }
             update();
             emit playingChanged();
         }, Qt::QueuedConnection);
     } else {
+        m_fpsCounter = 0;
+        m_lastFpsTime = 0;
+        if (m_fps.exchange(0) != 0) {
+            emit fpsChanged();
+        }
         update();
         emit playingChanged();
     }
@@ -359,21 +385,6 @@ void HikvisionArchivePlayer::cleanupPlayback()
     {
         std::lock_guard<std::mutex> lock(m_poolMutex);
         m_frameBufferPool.clear();
-    }
-
-    m_isPlaying = false;
-
-    if (m_fps != 0) {
-        m_fps = 0;
-        m_fpsCounter = 0;
-        m_lastFpsTime = 0;
-        if (QThread::currentThread() != qApp->thread()) {
-            QMetaObject::invokeMethod(this, [this]() {
-                emit fpsChanged();
-            }, Qt::QueuedConnection);
-        } else {
-            emit fpsChanged();
-        }
     }
 }
 
@@ -389,7 +400,7 @@ void HikvisionArchivePlayer::setRecorderIp(const QString &ip) {
             cleanupPlayback();
             if (oldUserId >= 0) {
                 if (HikvisionManager::instance()) {
-                    HikvisionManager::instance()->logoutShared(oldIp);
+                    HikvisionManager::instance()->logoutShared(oldIp, oldUserId);
                 } else {
                     NET_DVR_Logout(oldUserId);
                 }
@@ -422,7 +433,7 @@ void HikvisionArchivePlayer::setPort(int p) {
             cleanupPlayback();
             if (oldUserId >= 0) {
                 if (HikvisionManager::instance()) {
-                    HikvisionManager::instance()->logoutShared(oldIp);
+                    HikvisionManager::instance()->logoutShared(oldIp, oldUserId);
                 } else {
                     NET_DVR_Logout(oldUserId);
                 }
@@ -443,7 +454,7 @@ void HikvisionArchivePlayer::setUsername(const QString &un) {
             cleanupPlayback();
             if (oldUserId >= 0) {
                 if (HikvisionManager::instance()) {
-                    HikvisionManager::instance()->logoutShared(oldIp);
+                    HikvisionManager::instance()->logoutShared(oldIp, oldUserId);
                 } else {
                     NET_DVR_Logout(oldUserId);
                 }
@@ -464,7 +475,7 @@ void HikvisionArchivePlayer::setPassword(const QString &pw) {
             cleanupPlayback();
             if (oldUserId >= 0) {
                 if (HikvisionManager::instance()) {
-                    HikvisionManager::instance()->logoutShared(oldIp);
+                    HikvisionManager::instance()->logoutShared(oldIp, oldUserId);
                 } else {
                     NET_DVR_Logout(oldUserId);
                 }
@@ -474,14 +485,16 @@ void HikvisionArchivePlayer::setPassword(const QString &pw) {
 }
 
 qint64 HikvisionArchivePlayer::currentPlayheadMs() const { return m_currentPlayheadMs; }
-bool HikvisionArchivePlayer::isPlaying() const { return m_isPlaying; }
+bool HikvisionArchivePlayer::isPlaying() const { return m_isPlaying.load(); }
 
 bool HikvisionArchivePlayer::ensureLogin(const QString &ip, int port, const QString &user, const QString &pass)
 {
-    static bool s_sdkInit = false;
-    if (!s_sdkInit) {
-        NET_DVR_Init();
-        s_sdkInit = true;
+    HikvisionManager* mgr = HikvisionManager::instance();
+    if (mgr) {
+        mgr->ensureInitialized();
+    } else {
+        static std::once_flag s_fallbackInitOnce;
+        std::call_once(s_fallbackInitOnce, []() { NET_DVR_Init(); });
     }
 
     if (m_lUserID >= 0) return true;
@@ -493,7 +506,6 @@ bool HikvisionArchivePlayer::ensureLogin(const QString &ip, int port, const QStr
     NET_DVR_DEVICEINFO_V40 deviceInfo;
     std::memset(&deviceInfo, 0, sizeof(NET_DVR_DEVICEINFO_V40));
 
-    HikvisionManager* mgr = HikvisionManager::instance();
     if (mgr) {
         m_lUserID = mgr->loginShared(ip, port, user, pass, deviceInfo);
     } else {
@@ -601,7 +613,7 @@ void HikvisionArchivePlayer::playAtTime(const QDateTime &dateTime)
             LONG oldUserId = m_lUserID.exchange(-1);
             if (oldUserId >= 0) {
                 if (HikvisionManager::instance()) {
-                    HikvisionManager::instance()->forceLogoutShared(ip);
+                    HikvisionManager::instance()->forceLogoutShared(ip, oldUserId);
                 } else {
                     NET_DVR_Logout(oldUserId);
                 }
@@ -669,7 +681,7 @@ void HikvisionArchivePlayer::playAtTime(const QDateTime &dateTime)
         {
             std::lock_guard<std::mutex> lock(m_stateMutex);
             m_sysHeadReceived = false;
-            m_isPlaying = true;
+            m_isPlaying.store(true);
         }
         QMetaObject::invokeMethod(this, [this]() {
             emit playingChanged();
@@ -679,7 +691,7 @@ void HikvisionArchivePlayer::playAtTime(const QDateTime &dateTime)
 
 void HikvisionArchivePlayer::setPlaybackSpeed(int speedMultiplier)
 {
-    m_currentSpeedMultiplier = speedMultiplier;
+    m_currentSpeedMultiplier.store(speedMultiplier);
     if (m_lPlayHandle < 0) return;
 
     if (std::abs(speedMultiplier) == 8) {
@@ -757,19 +769,15 @@ void HikvisionArchivePlayer::pause()
             if (handle >= 0) {
                 if (port != -1) PlayM4_Pause(port, 1);
                 NET_DVR_PlayBackControl_V40(handle, NET_DVR_PLAYPAUSE, nullptr, 0, nullptr, nullptr);
-                m_isPlaying = false;
+                m_isPlaying.store(false);
                 QMetaObject::invokeMethod(this, [this]() {
-                    emit playingChanged();
-                }, Qt::QueuedConnection);
-
-                if (m_fps != 0) {
-                    m_fps = 0;
                     m_fpsCounter = 0;
                     m_lastFpsTime = 0;
-                    QMetaObject::invokeMethod(this, [this]() {
+                    if (m_fps.exchange(0) != 0) {
                         emit fpsChanged();
-                    }, Qt::QueuedConnection);
-                }
+                    }
+                    emit playingChanged();
+                }, Qt::QueuedConnection);
             }
         }, Qt::QueuedConnection);
     }
@@ -785,7 +793,7 @@ void HikvisionArchivePlayer::resume()
                 if (port != -1) PlayM4_Pause(port, 0);
                 NET_DVR_PlayBackControl_V40(handle, NET_DVR_PLAYRESTART, nullptr, 0, nullptr, nullptr);
                 NET_DVR_PlayBackControl_V40(handle, NET_DVR_PLAYNORMAL, nullptr, 0, nullptr, nullptr);
-                m_isPlaying = true;
+                m_isPlaying.store(true);
                 QMetaObject::invokeMethod(this, [this]() {
                     emit playingChanged();
                 }, Qt::QueuedConnection);
@@ -797,7 +805,7 @@ void HikvisionArchivePlayer::resume()
 void HikvisionArchivePlayer::stop()
 {
     qDebug() << "[HikArchive] stop() called from QML!";
-    m_currentSpeedMultiplier = 1;
+    m_currentSpeedMultiplier.store(1);
     QMetaObject::invokeMethod(m_worker, [this]() {
         cleanupPlayback();
     }, Qt::QueuedConnection);
@@ -874,7 +882,7 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
         activeHandle = player->m_lPlayHandle.load();
         activePort = player->m_nPort.load();
         sysHeadReceived = player->m_sysHeadReceived.load();
-        isPlaying = player->m_isPlaying;
+        isPlaying = player->m_isPlaying.load();
         activeSessionId = player->m_playbackSessionId.load();
     }
 
@@ -938,9 +946,10 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
             qDebug() << "[HikArchive] PlayM4_Play OK - decoder started!";
 
             // Restore playback speed if it's not 1x
-            if (player->m_currentSpeedMultiplier != 1) {
-                qDebug() << "[HikArchive] Restoring playback speed to:" << player->m_currentSpeedMultiplier;
-                player->setPlaybackSpeed(player->m_currentSpeedMultiplier);
+            const int targetSpeed = player->m_currentSpeedMultiplier.load();
+            if (targetSpeed != 1) {
+                qDebug() << "[HikArchive] Restoring playback speed to:" << targetSpeed;
+                player->setPlaybackSpeed(targetSpeed);
             }
             
             // Try to set separate audio callback first (may fail on Linux with Error 16)
@@ -987,7 +996,7 @@ void HikvisionArchivePlayer::PlayDataCallBack(LONG lPlayHandle, DWORD dwDataType
                 std::lock_guard<std::mutex> lock(player->m_stateMutex);
                 currentHandle = player->m_lPlayHandle.load();
                 currentPort = player->m_nPort.load();
-                currentIsPlaying = player->m_isPlaying;
+                currentIsPlaying = player->m_isPlaying.load();
                 currentSessionId = player->m_playbackSessionId.load();
             }
             if (currentHandle != activeHandle || currentPort != activePort || !currentIsPlaying || currentSessionId != activeSessionId) {
@@ -1063,9 +1072,17 @@ void HikvisionArchivePlayer::DecCallBack(long nPort, char *pBuf, long nSize, FRA
 
         int width = info->nWidth;
         int height = info->nHeight;
-        
-        if (width <= 0 || height <= 0 || nSize < width * height * 3 / 2) {
+
+        if (!pBuf || width <= 0 || height <= 0 || width > kMaxFrameDimension || height > kMaxFrameDimension ||
+            (width & 1) != 0 || (height & 1) != 0) {
             qWarning() << "[HikArchive] DecCallBack: invalid frame dimensions w=" << width << "h=" << height << "size=" << nSize;
+            return;
+        }
+
+        const uint64_t expectedYv12Size = static_cast<uint64_t>(width) * static_cast<uint64_t>(height) * 3ULL / 2ULL;
+        if (nSize <= 0 || static_cast<uint64_t>(nSize) < expectedYv12Size) {
+            qWarning() << "[HikArchive] DecCallBack: invalid frame buffer size w=" << width << "h=" << height
+                       << "size=" << nSize << "expected>=" << expectedYv12Size;
             return;
         }
 
@@ -1075,10 +1092,10 @@ void HikvisionArchivePlayer::DecCallBack(long nPort, char *pBuf, long nSize, FRA
         }
         
         std::shared_ptr<FrameBuffer> fb = player->getOrCreateFrameBuffer(width, height);
-        if (!fb) return;
+        if (!fb || fb->yv12Data.size() < expectedYv12Size) return;
 
-        // Copy raw YV12 data to the frame buffer
-        std::memcpy(fb->yv12Data.data(), pBuf, nSize);
+        // Copy strictly the packed YV12 plane bytes (never copy extra SDK trailing padding nSize > expectedYv12Size)
+        std::memcpy(fb->yv12Data.data(), pBuf, static_cast<size_t>(expectedYv12Size));
 
         player->m_pendingTasks++;
 
@@ -1226,32 +1243,43 @@ void HikvisionArchivePlayer::DecCallBack(long nPort, char *pBuf, long nSize, FRA
 
 std::shared_ptr<HikvisionArchivePlayer::FrameBuffer> HikvisionArchivePlayer::getOrCreateFrameBuffer(int width, int height)
 {
-    size_t yv12Size = static_cast<size_t>(width) * height * 3 / 2;
-    size_t rgbSize = static_cast<size_t>(width) * height * 4;
-
-    std::lock_guard<std::mutex> lock(m_poolMutex);
-    for (auto& fb : m_frameBufferPool) {
-        if (!fb->inUse.load()) {
-            if (fb->yv12Data.size() < yv12Size) {
-                fb->yv12Data.resize(yv12Size);
-            }
-            if (fb->rgbData.size() < rgbSize) {
-                fb->rgbData.resize(rgbSize);
-            }
-            fb->width = width;
-            fb->height = height;
-            fb->inUse = true;
-            return fb;
-        }
+    if (width <= 0 || height <= 0 || width > kMaxFrameDimension || height > kMaxFrameDimension ||
+        (width & 1) != 0 || (height & 1) != 0) {
+        return nullptr;
     }
-    auto fb = std::make_shared<FrameBuffer>();
-    fb->yv12Data.resize(yv12Size);
-    fb->rgbData.resize(rgbSize);
-    fb->width = width;
-    fb->height = height;
-    fb->inUse = true;
-    m_frameBufferPool.push_back(fb);
-    return fb;
+
+    const uint64_t yPlaneBytes = static_cast<uint64_t>(width) * static_cast<uint64_t>(height);
+    const size_t yv12Size = static_cast<size_t>(yPlaneBytes * 3ULL / 2ULL);
+    const size_t rgbSize = static_cast<size_t>(yPlaneBytes * 4ULL);
+
+    try {
+        std::lock_guard<std::mutex> lock(m_poolMutex);
+        for (auto& fb : m_frameBufferPool) {
+            if (!fb->inUse.load()) {
+                if (fb->yv12Data.size() < yv12Size) {
+                    fb->yv12Data.resize(yv12Size);
+                }
+                if (fb->rgbData.size() < rgbSize) {
+                    fb->rgbData.resize(rgbSize);
+                }
+                fb->width = width;
+                fb->height = height;
+                fb->inUse = true;
+                return fb;
+            }
+        }
+        auto fb = std::make_shared<FrameBuffer>();
+        fb->yv12Data.resize(yv12Size);
+        fb->rgbData.resize(rgbSize);
+        fb->width = width;
+        fb->height = height;
+        fb->inUse = true;
+        m_frameBufferPool.push_back(fb);
+        return fb;
+    } catch (const std::bad_alloc &) {
+        qWarning() << "[HikArchive] Failed to allocate frame buffer for" << width << "x" << height;
+        return nullptr;
+    }
 }
 
 void HikvisionArchivePlayer::updateImage(const QImage &img)
@@ -1277,8 +1305,8 @@ void HikvisionArchivePlayer::updateImage(const QImage &img)
     qint64 elapsedMs = nowMs - m_lastFpsTime;
     if (elapsedMs >= 1000) {
         int calculatedFps = qRound(m_fpsCounter * 1000.0 / elapsedMs);
-        if (m_fps != calculatedFps) {
-            m_fps = calculatedFps;
+        if (m_fps.load() != calculatedFps) {
+            m_fps.store(calculatedFps);
             emit fpsChanged();
         }
         m_fpsCounter = 0;

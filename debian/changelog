@@ -1,3 +1,12 @@
+kvision (2.8.4-1) unstable; urgency=medium
+
+  * Validate archive YV12 frame sizes/dimensions with checked 64-bit math and remove unsafe memcpy buffer overflow (#1/#11) while making playback state/speed/FPS updates thread-safe (#9/#11).
+  * Serialize concurrent shared SDK logins, include username/password in session cache keys, and retire failed shared sessions safely without breaking sibling archive windows (#2/#5/#6).
+  * Separate SDK/network download errors (pos < 0 / pos == 200) from completion, await SDK initialization, zero-init search structs, and validate dates (#3/#4/#10).
+  * Enforce auxiliaryLimit cross-platform (Windows & Linux) via atomic QLockFile slots, respect -c/--config in SingleApplication, eliminate brief red "No recording" flashes in multi-camera playback, lazy-load legacy HikvisionPlayer mock, and include Flatpak FFmpeg 9.1 (H.265/HEVC & SHA-256 RTSP Digest) + RPM/Flatpak RPATH fixes (#7/#8/#12/#16).
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Thu, 26 Nov 2026 17:00:00 +0100
+
 kvision (2.8.3-1) unstable; urgency=medium
 
   * Fix crash during camera thumbnail generation with live view active and prevent the Panel window from auto-opening empty during startup.

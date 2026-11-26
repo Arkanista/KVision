@@ -858,20 +858,22 @@ FocusScope {
                 }
             }
 
-            // Hikvision C++ Painted Player renders high-tech mock layout if fallback is disabled
-            HikvisionPlayer {
-                id: hikPlayer
-                visible: root.isHikvision && !hikPlayerSettings.useRealStreams && root.visible && !root.isQuickPlayback
+            // Hikvision C++ Painted Player renders mock layout only when real streams are disabled
+            Loader {
+                id: hikPlayerLoader
+                active: root.isHikvision && !hikPlayerSettings.useRealStreams && root.visible && !root.isQuickPlayback
                 x: -root.zoomX * width
                 y: -root.zoomY * height
                 width: parent.width / Math.max(0.001, root.zoomWidth)
                 height: parent.height / Math.max(0.001, root.zoomHeight)
-                recorderIp: (root.visible && root.isHikvision && !hikPlayerSettings.useRealStreams && !root.isQuickPlayback) ? root.recorderIp : ""
-                recorderPort: root.recorderPort
-                username: root.username
-                password: root.password
-                channelId: root.channelId
-                streamType: root.isSubStream ? 1 : 0
+                sourceComponent: HikvisionPlayer {
+                    recorderIp: root.recorderIp
+                    recorderPort: root.recorderPort
+                    username: root.username
+                    password: root.password
+                    channelId: root.channelId
+                    streamType: root.isSubStream ? 1 : 0
+                }
             }
 
             Component {

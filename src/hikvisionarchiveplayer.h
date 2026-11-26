@@ -59,7 +59,7 @@ public:
     bool isPlaying() const;
     int videoWidth() const;
     int videoHeight() const;
-    int fps() const { return m_fps; }
+    int fps() const { return m_fps.load(); }
 
     double volume() const { return m_volume; }
     void setVolume(double volume);
@@ -119,12 +119,12 @@ private:
     std::atomic<LONG> m_nPort{-1};
     DWORD m_realSdkChannel = 1;
 
-    bool m_isPlaying = false;
+    std::atomic<bool> m_isPlaying{false};
     qint64 m_currentPlayheadMs = 0;
     double m_volume = 1.0;
     bool m_muted = true;
     QString m_playerStatusMessage;
-    int m_currentSpeedMultiplier = 1;
+    std::atomic<int> m_currentSpeedMultiplier{1};
 
     QImage m_currentImage;
     mutable std::mutex m_imageMutex;
@@ -154,7 +154,7 @@ private:
     std::atomic<bool> m_soundPlaying{false};
 
     // FPS counter members (accessed on GUI thread in updateImage)
-    int m_fps = 0;
+    std::atomic<int> m_fps{0};
     int m_fpsCounter = 0;
     qint64 m_lastFpsTime = 0;
 

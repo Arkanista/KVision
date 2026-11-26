@@ -21,6 +21,7 @@
 #endif
 #include <algorithm>
 #include <cstring>
+#include <memory>
 
 HikvisionManager* HikvisionManager::m_instance = nullptr;
 
@@ -85,6 +86,11 @@ HikvisionManager::~HikvisionManager()
         NET_DVR_Logout(it.value().lUserID);
     }
     m_sharedSessions.clear();
+
+    for (auto it = m_retiredSharedSessions.begin(); it != m_retiredSharedSessions.end(); ++it) {
+        NET_DVR_Logout(it.key());
+    }
+    m_retiredSharedSessions.clear();
 
     if (m_initialized) {
         NET_DVR_Cleanup();
@@ -526,11 +532,18 @@ QVariantList HikvisionManager::discoverCameras(const QString &ip,
 
     bool wasLogged = false;
     bool isLoggedNow = false;
+    LONG supersededUserId = -1;
     {
         std::lock_guard<std::mutex> lock(m_sharedSessionsMutex);
         wasLogged = isLoggedInternal(cleanIp);
-        m_sessions.insert(cleanIp, {lUserID, port, deviceInfo});
+        if (m_sessions.contains(cleanIp)) {
+            supersededUserId = m_sessions.take(cleanIp).lUserID;
+        }
+        m_sessions.insert(cleanIp, {lUserID, port, username, password, deviceInfo});
         isLoggedNow = isLoggedInternal(cleanIp);
+    }
+    if (supersededUserId >= 0) {
+        NET_DVR_Logout(supersededUserId);
     }
     qDebug() << "[Hikvision] Logged in successfully to IP:" << cleanIp << "port:" << port << "UserID:" << lUserID;
     if (wasLogged != isLoggedNow) {
@@ -866,6 +879,43 @@ bool HikvisionManager::getDeviceInfo(const QString &ip, NET_DVR_DEVICEINFO_V40 &
     return false;
 }
 
+namespace {
+class LoginFlightGuard
+{
+public:
+    LoginFlightGuard(std::mutex &mutex, std::condition_variable &cond, QSet<QString> &inFlight, const QString &key)
+        : m_mutex(mutex), m_cond(cond), m_inFlight(inFlight), m_key(key)
+    {
+        m_inFlight.insert(m_key);
+    }
+
+    ~LoginFlightGuard()
+    {
+        if (m_active) {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            m_inFlight.remove(m_key);
+            m_cond.notify_all();
+        }
+    }
+
+    void releaseNow()
+    {
+        if (m_active) {
+            m_inFlight.remove(m_key);
+            m_cond.notify_all();
+            m_active = false;
+        }
+    }
+
+private:
+    std::mutex &m_mutex;
+    std::condition_variable &m_cond;
+    QSet<QString> &m_inFlight;
+    QString m_key;
+    bool m_active = true;
+};
+} // namespace
+
 LONG HikvisionManager::getSession(const QString &ip, int port, const QString &username, const QString &password)
 {
     const QString cleanIp = sanitizeHost(ip);
@@ -880,25 +930,29 @@ LONG HikvisionManager::getSession(const QString &ip, int port, const QString &us
     bool isLoggedNow = false;
     LONG staleUserId = -1;
 
-    // 1. Check if already logged in on the matching port
+    // 1. Serialize per-IP login operations and check if already logged in with matching credentials
+    std::unique_ptr<LoginFlightGuard> flightGuard;
     {
-        std::lock_guard<std::mutex> lock(m_sharedSessionsMutex);
+        std::unique_lock<std::mutex> lock(m_sharedSessionsMutex);
+        m_loginCond.wait(lock, [this, &cleanIp]() { return !m_loginInFlight.contains(cleanIp); });
+
         if (m_sessions.contains(cleanIp)) {
             const auto &existing = m_sessions.value(cleanIp);
-            if (existing.port == port) {
+            if (existing.port == port && existing.username == username && existing.password == password) {
                 return existing.lUserID;
             }
             staleUserId = m_sessions.take(cleanIp).lUserID;
         } else if (m_sharedSessions.contains(cleanIp)) {
             const auto &existingShared = m_sharedSessions.value(cleanIp);
-            if (existingShared.port == port) {
+            if (existingShared.port == port && existingShared.username == username && existingShared.password == password) {
                 return existingShared.lUserID;
             }
         }
         wasLogged = isLoggedInternal(cleanIp);
+        flightGuard = std::make_unique<LoginFlightGuard>(m_sharedSessionsMutex, m_loginCond, m_loginInFlight, cleanIp);
     }
 
-    // 2. Not logged in (or port changed), log in
+    // 2. Not logged in (or port/credentials changed), log in outside the lock
     ensureInitialized();
 
     if (staleUserId >= 0) {
@@ -931,8 +985,9 @@ LONG HikvisionManager::getSession(const QString &ip, int port, const QString &us
 
     {
         std::lock_guard<std::mutex> lock(m_sharedSessionsMutex);
-        m_sessions.insert(cleanIp, {lUserID, port, deviceInfo});
+        m_sessions.insert(cleanIp, {lUserID, port, username, password, deviceInfo});
         isLoggedNow = isLoggedInternal(cleanIp);
+        flightGuard->releaseNow();
     }
 
     qDebug() << "[Hikvision] getSession login SUCCESS for IP:" << cleanIp << "UserID:" << lUserID;
@@ -1060,20 +1115,28 @@ LONG HikvisionManager::loginShared(const QString &ip, int port, const QString &u
     LONG lUserID = -1;
     LONG staleSharedId = -1;
 
+    std::unique_ptr<LoginFlightGuard> flightGuard;
     {
-        std::lock_guard<std::mutex> lock(m_sharedSessionsMutex);
+        std::unique_lock<std::mutex> lock(m_sharedSessionsMutex);
+        m_loginCond.wait(lock, [this, &cleanIp]() { return !m_loginInFlight.contains(cleanIp); });
+
         if (m_sharedSessions.contains(cleanIp)) {
             auto &session = m_sharedSessions[cleanIp];
-            if (session.port == port) {
+            if (session.port == port && session.username == username && session.password == password) {
                 session.refCount++;
                 deviceInfo = session.deviceInfo;
                 qDebug() << "[Hikvision Shared] Reusing session for IP:" << cleanIp << "UserID:" << session.lUserID << "RefCount:" << session.refCount;
                 return session.lUserID;
             }
-            staleSharedId = session.lUserID;
+            if (session.refCount > 0) {
+                m_retiredSharedSessions[session.lUserID] += session.refCount;
+            } else if (session.lUserID >= 0) {
+                staleSharedId = session.lUserID;
+            }
             m_sharedSessions.remove(cleanIp);
         }
         wasLogged = isLoggedInternal(cleanIp);
+        flightGuard = std::make_unique<LoginFlightGuard>(m_sharedSessionsMutex, m_loginCond, m_loginInFlight, cleanIp);
     }
 
     qDebug() << "[Hikvision Shared] Creating NEW session for IP:" << cleanIp << ":" << port;
@@ -1113,12 +1176,15 @@ LONG HikvisionManager::loginShared(const QString &ip, int port, const QString &u
         SharedSession session;
         session.lUserID = lUserID;
         session.port = port;
+        session.username = username;
+        session.password = password;
         session.deviceInfo = devInfo;
         session.refCount = 1;
 
         m_sharedSessions.insert(cleanIp, session);
         deviceInfo = devInfo;
         isLoggedNow = isLoggedInternal(cleanIp);
+        flightGuard->releaseNow();
     }
 
     qDebug() << "[Hikvision Shared] Login SUCCESS for IP:" << cleanIp << "UserID:" << lUserID;
@@ -1128,7 +1194,7 @@ LONG HikvisionManager::loginShared(const QString &ip, int port, const QString &u
     return lUserID;
 }
 
-void HikvisionManager::logoutShared(const QString &ip)
+void HikvisionManager::logoutShared(const QString &ip, LONG userId)
 {
     const QString cleanIp = sanitizeHost(ip);
     bool wasLogged = false;
@@ -1138,13 +1204,21 @@ void HikvisionManager::logoutShared(const QString &ip)
     {
         std::lock_guard<std::mutex> lock(m_sharedSessionsMutex);
         wasLogged = isLoggedInternal(cleanIp);
-        if (m_sharedSessions.contains(cleanIp)) {
+        if (userId >= 0 && m_retiredSharedSessions.contains(userId)) {
+            int remaining = --m_retiredSharedSessions[userId];
+            if (remaining <= 0) {
+                m_retiredSharedSessions.remove(userId);
+                lUserIDToLogout = userId;
+            }
+        } else if (m_sharedSessions.contains(cleanIp)) {
             auto &session = m_sharedSessions[cleanIp];
-            session.refCount--;
-            qDebug() << "[Hikvision Shared] Decremented refCount for IP:" << cleanIp << "New RefCount:" << session.refCount;
-            if (session.refCount <= 0) {
-                lUserIDToLogout = session.lUserID;
-                m_sharedSessions.remove(cleanIp);
+            if (userId < 0 || session.lUserID == userId) {
+                session.refCount--;
+                qDebug() << "[Hikvision Shared] Decremented refCount for IP:" << cleanIp << "New RefCount:" << session.refCount;
+                if (session.refCount <= 0) {
+                    lUserIDToLogout = session.lUserID;
+                    m_sharedSessions.remove(cleanIp);
+                }
             }
         }
         isLoggedNow = isLoggedInternal(cleanIp);
@@ -1161,7 +1235,7 @@ void HikvisionManager::logoutShared(const QString &ip)
     }
 }
 
-void HikvisionManager::forceLogoutShared(const QString &ip)
+void HikvisionManager::forceLogoutShared(const QString &ip, LONG userId)
 {
     const QString cleanIp = sanitizeHost(ip);
     bool wasLogged = false;
@@ -1171,11 +1245,26 @@ void HikvisionManager::forceLogoutShared(const QString &ip)
     {
         std::lock_guard<std::mutex> lock(m_sharedSessionsMutex);
         wasLogged = isLoggedInternal(cleanIp);
-        if (m_sharedSessions.contains(cleanIp)) {
+        if (userId >= 0 && m_retiredSharedSessions.contains(userId)) {
+            int remaining = --m_retiredSharedSessions[userId];
+            if (remaining <= 0) {
+                m_retiredSharedSessions.remove(userId);
+                lUserIDToLogout = userId;
+            }
+        } else if (m_sharedSessions.contains(cleanIp)) {
             auto &session = m_sharedSessions[cleanIp];
-            lUserIDToLogout = session.lUserID;
-            m_sharedSessions.remove(cleanIp);
-            qDebug() << "[Hikvision Shared] Force logout requested. Removing session for IP:" << cleanIp << "UserID:" << lUserIDToLogout;
+            if (userId < 0 || session.lUserID == userId) {
+                const LONG sid = session.lUserID;
+                const int remaining = (userId >= 0) ? (session.refCount - 1) : 0;
+                m_sharedSessions.remove(cleanIp);
+                if (remaining > 0) {
+                    m_retiredSharedSessions[sid] += remaining;
+                    qDebug() << "[Hikvision Shared] Retired shared session for IP:" << cleanIp << "UserID:" << sid << "Remaining refs:" << remaining;
+                } else {
+                    lUserIDToLogout = sid;
+                    qDebug() << "[Hikvision Shared] Force logout requested. Removing session for IP:" << cleanIp << "UserID:" << lUserIDToLogout;
+                }
+            }
         }
         isLoggedNow = isLoggedInternal(cleanIp);
     }

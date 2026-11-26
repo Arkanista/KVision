@@ -852,11 +852,6 @@ Window {
     function checkInitialSeek(recorderIp, channelId, segments) {
         var seekKey = recorderIp + "_" + channelId;
         if (pendingInitialSeek[seekKey] === true) {
-            // Remove from pending initial seek
-            var tempSeek = Object.assign({}, pendingInitialSeek);
-            delete tempSeek[seekKey];
-            pendingInitialSeek = tempSeek;
-
             if (segments && segments.length > 0) {
                 var maxEndTime = 0;
                 for (var sIdx = 0; sIdx < segments.length; sIdx++) {
@@ -884,11 +879,21 @@ Window {
                     if (playbackWindow.recorderInfo && recorderIp === playbackWindow.recorderInfo.ip && channelId === playbackWindow.channelId) {
                         timeline.segments = segments;
                     }
+
+                    // Clear pending initial seek AFTER playheadTimeMs/currentDate update so playerStatusMessage never evaluates against stale pre-seek time
+                    var tempSeekDone = Object.assign({}, pendingInitialSeek);
+                    delete tempSeekDone[seekKey];
+                    pendingInitialSeek = tempSeekDone;
                     
                     playAtTime(currentDate, playheadTimeMs - currentDate.getTime());
                     return;
                 }
             }
+
+            // Clear pending initial seek before fallback playback
+            var tempSeek = Object.assign({}, pendingInitialSeek);
+            delete tempSeek[seekKey];
+            pendingInitialSeek = tempSeek;
 
             // Fallback: if no segments or maxEndTime is 0, play at the current playhead time
             var fallbackDate = new Date(playheadTimeMs);
@@ -1917,13 +1922,18 @@ Window {
                                               if (playbackWindow.pendingInitialSeek[seekKey] === true) {
                                                   return qsTr("LNG_00161");
                                               }
+                                              if (playerItem.isPlaying) {
+                                                  return qsTr("LNG_00159");
+                                              }
                                               var cacheKey = recorderIp + "_" + channelId + "_" + getDateKey(currentDate);
-                                              if (rootWindow.playbackSegmentsCache[cacheKey] === undefined) {
+                                              if (playbackWindow.activePlayersFetching[cacheKey] === true ||
+                                                  rootWindow.playbackSegmentsCache[cacheKey] === undefined) {
                                                   return qsTr("LNG_00160");
                                               }
                                               var segments = rootWindow.playbackSegmentsCache[cacheKey] || [];
                                               for (var i = 0; i < segments.length; i++) {
-                                                  if (playheadTimeMs >= segments[i].startTime && playheadTimeMs <= segments[i].endTime) {
+                                                  if (playheadTimeMs >= (segments[i].startTime - 5000) &&
+                                                      playheadTimeMs <= (segments[i].endTime + 5000)) {
                                                       return qsTr("LNG_00159");
                                                   }
                                               }

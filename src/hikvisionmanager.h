@@ -53,16 +53,19 @@ public:
     struct SharedSession {
         LONG lUserID = -1;
         int port = 8000;
+        QString username;
+        QString password;
         NET_DVR_DEVICEINFO_V40 deviceInfo;
         int refCount = 0;
     };
 
     LONG loginShared(const QString &ip, int port, const QString &username, const QString &password, NET_DVR_DEVICEINFO_V40 &deviceInfo);
-    void logoutShared(const QString &ip);
-    void forceLogoutShared(const QString &ip);
+    void logoutShared(const QString &ip, LONG userId = -1);
+    void forceLogoutShared(const QString &ip, LONG userId = -1);
 
     LONG getSession(const QString &ip, int port, const QString &username, const QString &password);
     bool getDeviceInfo(const QString &ip, NET_DVR_DEVICEINFO_V40 &deviceInfo);
+    void ensureInitialized() const;
 
 signals:
     void sessionStatusChanged(const QString &ip, bool loggedIn);
@@ -74,6 +77,8 @@ private:
     struct SessionInfo {
         LONG lUserID = -1;
         int port = 8000;
+        QString username;
+        QString password;
         NET_DVR_DEVICEINFO_V40 deviceInfo;
     };
 
@@ -82,7 +87,10 @@ private:
     static HikvisionManager* m_instance;
     QHash<QString, SessionInfo> m_sessions; // Maps clean IP to SessionInfo
     QHash<QString, SharedSession> m_sharedSessions;
+    QHash<LONG, int> m_retiredSharedSessions;
+    QSet<QString> m_loginInFlight;
     std::mutex m_sharedSessionsMutex;
+    std::condition_variable m_loginCond;
     bool m_initialized;
 
     struct PtzCommand {
@@ -104,7 +112,6 @@ private:
     bool m_ptzWorkerStop = false;
 
     void ptzWorkerLoop();
-    void ensureInitialized() const;
 
     mutable std::mutex m_initMutex;
     mutable std::condition_variable m_initCond;

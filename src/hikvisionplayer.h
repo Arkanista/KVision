@@ -58,6 +58,9 @@ signals:
 private slots:
     void onFrameTimerTick();
 
+protected:
+    void itemChange(ItemChange change, const ItemChangeData &value) override;
+
 private:
     void restartStream();
 

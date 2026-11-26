@@ -18,7 +18,7 @@ class SingleApplication : public QObject
     Q_OBJECT
 
 public:
-    explicit SingleApplication(QObject *parent = nullptr)
+    explicit SingleApplication(const QString &configPath = QString(), QObject *parent = nullptr)
         : QObject(parent),
 #ifdef Q_OS_UNIX
           m_socketName(QFileInfo(QCoreApplication::applicationFilePath()).fileName() + "-kvision-socket-" + QString::number(getuid()))
@@ -27,7 +27,8 @@ public:
 #endif
     {
         // Read configuration to check if single application mode is enabled
-        QSettings settings(QSettings().fileName(), QSettings::IniFormat);
+        const QString effectiveConfigPath = configPath.isEmpty() ? QSettings().fileName() : configPath;
+        QSettings settings(effectiveConfigPath, QSettings::IniFormat);
         bool singleAppEnabled = settings.value("singleApplication", true).toBool();
 
         if (!singleAppEnabled || QCoreApplication::arguments().contains("--auxiliary")) {
