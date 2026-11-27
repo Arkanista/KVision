@@ -49,6 +49,26 @@ jobs:
           path: release-assets
           merge-multiple: true
 
+      - name: Generate version.json
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+
+          tag = os.environ["TAG_NAME"]
+          payload = {
+              "version": tag[1:] if tag.startswith("v") else tag,
+              "tag": tag,
+              "publishedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "releaseUrl": f"https://github.com/Arkanista/KVision/releases/tag/{tag}",
+          }
+          with open("release-assets/version.json", "w", encoding="utf-8") as f:
+              json.dump(payload, f, indent=2)
+              f.write("\n")
+          PY
+
       - name: Create or update GitHub Release with all assets
         uses: softprops/action-gh-release@v2
         with:
@@ -63,3 +83,4 @@ jobs:
             release-assets/*.pkg.tar.zst
             release-assets/*.rpm
             release-assets/*.flatpak
+            release-assets/version.json

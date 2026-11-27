@@ -150,7 +150,7 @@ This document contains a complete technical index of all C++ classes, QML compon
 ```
 RootWindow.qml (Primary UI Window) / AuxiliaryWindow.qml (Multi-Monitor Auxiliary Window)
 ├── ToolBar (Dynamic multi-row Flow top dock with QtQuick.Shapes background, Layout/Views selector, Mute, Fullscreen, Playback trigger, Add NVR, EventFilter auto-hide)
-├── SideBar.qml (Collapsible left panel using StyledScrollBar.qml across settings tabs)
+├── OptionsPanel.qml (Settings utility window content using StyledScrollBar.qml across settings tabs)
 │   ├── NVR TreeView / ListView (NVR entries & channel items)
 │   ├── Channel status badges (Online/Offline indicator)
 │   └── Drag-and-drop triggers for dragging camera to grid tiles

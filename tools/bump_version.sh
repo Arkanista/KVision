@@ -51,4 +51,4 @@ if [ -f "kvision.rc" ]; then
 fi
 
 echo "[+] Updated CMakeLists.txt, PKGBUILD, kvision.spec, README.md, and kvision.rc to ${NEW_VER}."
-echo "[*] Remember to add release notes to CHANGELOG.md, debian/changelog, packaging/arch/changelog, and src/SideBar.qml."
+echo "[*] Remember to add release notes to CHANGELOG.md, debian/changelog, packaging/arch/changelog, and src/OptionsPanel.qml."

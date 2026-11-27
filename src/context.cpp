@@ -52,7 +52,8 @@ void Context::init()
     QCommandLineOption debugMemoryOption("debug-memory", "Enable object tracking in logs for memory leak debugging.");
     QCommandLineOption firstRunOption("first-run", "Force first-run assistant to launch.");
     QCommandLineOption simulateErrorOption("simulate-error", "Simulate an error for testing purposes.");
-    QCommandLineOption mockNewVersionOption("mock-new-version", "Simulate a new version for testing purposes.");
+    QCommandLineOption mockNewVersionOption(QStringList{"mock-new-version", "test-update"}, "Simulate an available new version notification (offline UI test).");
+    QCommandLineOption mockCurrentVersionOption("mock-current-version", "Override current app version to test real online update checking (e.g. 2.8.0).", "version");
 
     parseCommandLineOptions({configOption,
                              presetOption,
@@ -65,11 +66,15 @@ void Context::init()
                              debugMemoryOption,
                              firstRunOption,
                              simulateErrorOption,
-                             mockNewVersionOption});
+                             mockNewVersionOption,
+                             mockCurrentVersionOption});
 
     m_isAuxiliary = m_commandLineParser.isSet(auxiliaryOption);
     m_enableLogs = m_commandLineParser.isSet(verboseOption);
     m_mockNewVersion = m_commandLineParser.isSet(mockNewVersionOption);
+    m_mockCurrentVersion = m_commandLineParser.isSet(mockCurrentVersionOption)
+                               ? m_commandLineParser.value(mockCurrentVersionOption).trimmed()
+                               : QString();
 
     if (m_isAuxiliary && m_commandLineParser.isSet(auxiliaryIdOption)) {
         m_auxiliaryId = m_commandLineParser.value(auxiliaryIdOption).toInt();
@@ -528,6 +533,56 @@ bool Context::isValidPlatformPath(const QString &path) const
     return true;
 }
 
+bool Context::isUsableDirectoryPath(const QString &path) const
+{
+    QString cleaned = urlToLocalFile(path);
+    if (!isValidPlatformPath(cleaned))
+        return false;
+
+    cleaned = QDir::cleanPath(cleaned);
+    const QString currentHome = QDir::cleanPath(QDir::fromNativeSeparators(QDir::homePath()));
+
+#ifdef _WIN32
+    if (cleaned.length() < 3 || cleaned[1] != QLatin1Char(':'))
+        return false;
+    const QString driveRoot = cleaned.left(2) + QLatin1Char('/');
+    if (!QFileInfo::exists(driveRoot))
+        return false;
+    if (cleaned.mid(2).startsWith(QStringLiteral("/Users/"), Qt::CaseInsensitive)) {
+        if (cleaned.compare(currentHome, Qt::CaseInsensitive) != 0 &&
+            !cleaned.startsWith(currentHome + QLatin1Char('/'), Qt::CaseInsensitive)) {
+            return false;
+        }
+    }
+#else
+    if (cleaned == QStringLiteral("/home") ||
+        cleaned.startsWith(QStringLiteral("/home/")) ||
+        cleaned.startsWith(QStringLiteral("/Users/"))) {
+        if (cleaned != currentHome && !cleaned.startsWith(currentHome + QLatin1Char('/'))) {
+            return false;
+        }
+    }
+#endif
+
+    QString probe = cleaned;
+    while (!probe.isEmpty()) {
+        QFileInfo fi(probe);
+        if (fi.exists()) {
+            return fi.isDir() && fi.isWritable();
+        }
+        QDir parentDir(probe);
+        if (!parentDir.cdUp()) {
+            break;
+        }
+        QString nextProbe = QDir::cleanPath(parentDir.absolutePath());
+        if (nextProbe == probe) {
+            break;
+        }
+        probe = nextProbe;
+    }
+    return false;
+}
+
 QString Context::sanitizePlatformPath(const QString &path, const QString &fallbackPath) const
 {
     QString cleaned = urlToLocalFile(path);
@@ -643,7 +698,40 @@ bool Context::exportSettings(const QString &targetFilePath)
     return (dst.status() == QSettings::NoError) && QFileInfo::exists(dstPath);
 }
 
-bool Context::importSettings(const QString &sourceFilePath)
+QVariantMap Context::peekImportConfigPaths(const QString &sourceFilePath) const
+{
+    QVariantMap result;
+    result.insert(QStringLiteral("valid"), false);
+
+    const QString srcPath = urlToLocalFile(sourceFilePath);
+    if (srcPath.isEmpty() || !QFileInfo::exists(srcPath))
+        return result;
+
+    QSettings src(srcPath, QSettings::IniFormat);
+    src.sync();
+    if (src.status() != QSettings::NoError || src.allKeys().isEmpty())
+        return result;
+
+    const QString rawSnapshot = src.value(QStringLiteral("snapshotPath")).toString().trimmed();
+    const QString rawVideo = src.value(QStringLiteral("videoPath")).toString().trimmed();
+    const bool snapshotUsable = isUsableDirectoryPath(rawSnapshot);
+    const bool videoUsable = isUsableDirectoryPath(rawVideo);
+
+    result.insert(QStringLiteral("valid"), true);
+    result.insert(QStringLiteral("importedSnapshotPath"), rawSnapshot);
+    result.insert(QStringLiteral("importedVideoPath"), rawVideo);
+    result.insert(QStringLiteral("importedSnapshotUsable"), snapshotUsable);
+    result.insert(QStringLiteral("importedVideoUsable"), videoUsable);
+    result.insert(QStringLiteral("suggestedSnapshotPath"),
+                  snapshotUsable ? QDir::cleanPath(urlToLocalFile(rawSnapshot)) : defaultPicturesPath());
+    result.insert(QStringLiteral("suggestedVideoPath"),
+                  videoUsable ? QDir::cleanPath(urlToLocalFile(rawVideo)) : defaultMoviesPath());
+    return result;
+}
+
+bool Context::importSettings(const QString &sourceFilePath,
+                             const QString &overrideSnapshotPath,
+                             const QString &overrideVideoPath)
 {
     QString srcPath = urlToLocalFile(sourceFilePath);
     if (srcPath.isEmpty() || !QFileInfo::exists(srcPath))
@@ -669,24 +757,41 @@ bool Context::importSettings(const QString &sourceFilePath)
         QFile::copy(dstPath, backupPath);
     }
 
+    auto resolveFinalPath = [this](const QString &overridePath, const QString &filePathVal, const QString &fallbackPath) -> QString {
+        QString candidate;
+        const QString cleanOverride = urlToLocalFile(overridePath.trimmed());
+        if (!cleanOverride.isEmpty() && isValidPlatformPath(cleanOverride)) {
+            candidate = QDir::cleanPath(cleanOverride);
+        } else if (isUsableDirectoryPath(filePathVal)) {
+            candidate = QDir::cleanPath(urlToLocalFile(filePathVal));
+        } else {
+            candidate = fallbackPath;
+        }
+        if (!QDir().mkpath(candidate)) {
+            candidate = fallbackPath;
+            QDir().mkpath(candidate);
+        }
+        return candidate;
+    };
+
+    const QString finalSnapshotPath = resolveFinalPath(
+        overrideSnapshotPath, src.value(QStringLiteral("snapshotPath")).toString(), defaultPicturesPath());
+    const QString finalVideoPath = resolveFinalPath(
+        overrideVideoPath, src.value(QStringLiteral("videoPath")).toString(), defaultMoviesPath());
+
     QSettings dst(dstPath, QSettings::IniFormat);
     for (const QString &key : keys) {
-        // Preserve the currently open SidebarWindow geometry/visibility
+        // Preserve the currently open optionsWindow (legacy SidebarWindow QSettings category) geometry/visibility
         if (key.startsWith(QStringLiteral("SidebarWindow/"))) {
             continue;
         }
-        QVariant val = src.value(key);
-        if (key == QStringLiteral("snapshotPath")) {
-            QString sanitized = sanitizePlatformPath(val.toString(), defaultPicturesPath());
-            QDir().mkpath(sanitized);
-            val = sanitized;
-        } else if (key == QStringLiteral("videoPath")) {
-            QString sanitized = sanitizePlatformPath(val.toString(), defaultMoviesPath());
-            QDir().mkpath(sanitized);
-            val = sanitized;
+        if (key == QStringLiteral("snapshotPath") || key == QStringLiteral("videoPath")) {
+            continue;
         }
-        dst.setValue(key, val);
+        dst.setValue(key, src.value(key));
     }
+    dst.setValue(QStringLiteral("snapshotPath"), finalSnapshotPath);
+    dst.setValue(QStringLiteral("videoPath"), finalVideoPath);
     dst.sync();
 
     if (dst.status() != QSettings::NoError)

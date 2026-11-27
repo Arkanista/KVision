@@ -17,8 +17,9 @@ Window {
     y: rootWindow.y + (rootWindow.height - height) / 2
 
     Settings {
-        id: sideBarSettings
+        id: optionsPanelSettings
         fileName: Context.config.fileName
+        // Legacy QSettings category kept for backwards compatibility with existing user configs
         category: "SideBar"
         property string windowDivision
     }
@@ -121,9 +122,9 @@ Window {
                         ListElement { size: "9x9" }
 
                         Component.onCompleted: {
-                            fromJSValue(sideBarSettings.windowDivision);
+                            fromJSValue(optionsPanelSettings.windowDivision);
                             divisionModel.dataChanged.connect(() => {
-                                sideBarSettings.windowDivision = JSON.stringify(toJSValue());
+                                optionsPanelSettings.windowDivision = JSON.stringify(toJSValue());
                             });
                         }
 

@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.5] - 2026-11-27
+
+### Enhancements & Refactoring
+* **Improved Update Notifications & CI Version Manifest:**
+  * Publishing a tag release now generates and attaches a static `version.json` asset after all binary packages are built, eliminating GitHub REST API rate limits (60 req/h) and preventing premature update banners.
+  * Update checks now run in the main window (`RootWindow`), check every 12 hours for 24/7 sessions (skipping auxiliary windows), keep the GitHub Releases API as a legacy fallback, and add settings to check manually, toggle auto-checks, or mute the pulsing glow (live-synced across windows), plus `--test-update` and `--mock-current-version <ver>` CLI test switches.
+* **Top-Bar & Edge Visual Polish:**
+  * Added a green pulsing glow on the top-bar Options button and a subtle protruding green top-edge indicator when the top bar auto-hides (`RootWindow`).
+  * Replaced the exclamation mark on the NVR error top-edge indicator with a larger, higher-contrast flat white SVG warning triangle.
+  * Redesigned the top-bar Archive button with a unified dark pill style and a clean video-history playback SVG icon.
+* **Storage Path Confirmation on Configuration Import:**
+  * Importing a `.conf`/`.ini` configuration now opens a modal dialog to review, browse, or reset snapshot and video folders, automatically detecting incompatible paths from another OS, user account, or missing drive.
+* **`OptionsPanel` Refactoring:**
+  * Renamed the historical `SideBar.qml` module to `OptionsPanel.qml`, removed unused legacy `SideBarItem.qml`, migrated translation contexts across all 23 languages, and updated the Options tooltip while keeping `[SideBar]` and `[SidebarWindow]` `QSettings` categories backwards-compatible.
+* **NixOS / Nix Flakes Support (#17) & KVision VMS Branding:**
+  * Added verified Nix Flake packaging (`x86_64-linux`) and refreshed user-facing application display branding to **KVision VMS**.
+
 ## [2.8.4] - 2026-11-26
 
 ### Bug Fixes & Stability

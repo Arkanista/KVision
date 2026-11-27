@@ -78,7 +78,7 @@ KVision employs a multi-process architecture to support multi-monitor installati
 ### Process Roles:
 1. **Primary Instance**:
    * Initializes [`SingleApplication`](file:///home/robert/cctv/kvision/src/singleapplication.h), binding to a Unix domain socket `kvision-kvision-socket-<UID>`.
-   * Hosts main controls, NVR camera tree (`SideBar.qml`), and primary video viewport matrix.
+   * Hosts main controls, NVR camera tree (`OptionsPanel.qml`), and primary video viewport matrix.
    * On shutdown or crash, cleans stale socket descriptors.
 2. **Auxiliary Windows (`--auxiliary <id>`)**:
    * Spawned via `Context::startAuxiliaryProcess()`.

@@ -214,6 +214,160 @@ ApplicationWindow {
         }
     }
 
+    property bool hasNewVersion: false
+    readonly property bool showUpdateGlow: rootWindow.hasNewVersion && !generalSettings.muteUpdateGlow
+    property string newVersionString: ""
+    property string newVersionUrl: "https://github.com/Arkanista/KVision/releases/latest"
+    property bool isCheckingUpdates: false
+    property string updateCheckStatus: ""
+
+    function parseVersion(vStr) {
+        var clean = String(vStr || "").trim().replace(/^v/i, "");
+        var match = clean.match(/^(\d+(?:\.\d+)*)(?:-(\d+))?/);
+        if (!match) {
+            return { base: [0], rel: 0 };
+        }
+        var baseParts = match[1].split(".").map(Number);
+        var rel = match[2] ? Number(match[2]) : 0;
+        return { base: baseParts, rel: rel };
+    }
+
+    function compareVersions(v1, v2) {
+        var parsed1 = parseVersion(v1);
+        var parsed2 = parseVersion(v2);
+        var len = Math.max(parsed1.base.length, parsed2.base.length);
+        for (var i = 0; i < len; ++i) {
+            var p1 = parsed1.base[i] || 0;
+            var p2 = parsed2.base[i] || 0;
+            if (p1 !== p2) {
+                return p1 - p2;
+            }
+        }
+        return parsed1.rel - parsed2.rel;
+    }
+
+    function effectiveCurrentVersion() {
+        var mocked = String(Context.mockCurrentVersion || "").trim();
+        return mocked !== "" ? mocked : String(Qt.application.version || "0.0.0");
+    }
+
+    function applyUpdateCheckResult(latestVersion, releaseUrl) {
+        var latest = String(latestVersion || "").trim();
+        if (latest === "") {
+            return false;
+        }
+        var current = effectiveCurrentVersion();
+        var cmp = compareVersions(latest, current);
+        if (Context.mockCurrentVersion !== "" || Context.enableLogs) {
+            console.log("[Update] Comparing remote version", latest, "vs current", current, "-> diff:", cmp);
+        }
+        if (cmp > 0) {
+            hasNewVersion = true;
+            newVersionString = latest;
+            var url = String(releaseUrl || "").trim();
+            newVersionUrl = url !== "" ? url : "https://github.com/Arkanista/KVision/releases/latest";
+            updateCheckStatus = "available";
+        } else {
+            hasNewVersion = false;
+            newVersionString = "";
+            newVersionUrl = "https://github.com/Arkanista/KVision/releases/latest";
+            updateCheckStatus = "up_to_date";
+        }
+        isCheckingUpdates = false;
+        return true;
+    }
+
+    // Legacy fallback to GitHub Releases REST API — keep for ~3 releases for backwards compatibility
+    function checkForUpdatesLegacy(isManual) {
+        if (Context.mockCurrentVersion !== "" || Context.enableLogs) {
+            console.log("[Update] Falling back to legacy GitHub Releases API check...");
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://api.github.com/repos/Arkanista/KVision/releases/latest", true);
+        xhr.setRequestHeader("Accept", "application/vnd.github+json");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    try {
+                        var response = JSON.parse(xhr.responseText);
+                        if (!applyUpdateCheckResult(response.tag_name, response.html_url)) {
+                            updateCheckStatus = "error";
+                            isCheckingUpdates = false;
+                        }
+                    } catch (e) {
+                        console.error("[Update] Failed to parse legacy GitHub API update response:", e);
+                        updateCheckStatus = "error";
+                        isCheckingUpdates = false;
+                    }
+                } else {
+                    if (Context.mockCurrentVersion !== "" || Context.enableLogs || isManual) {
+                        console.log("[Update] Legacy GitHub API check failed with HTTP status:", xhr.status);
+                    }
+                    updateCheckStatus = "error";
+                    isCheckingUpdates = false;
+                }
+            }
+        };
+        xhr.send();
+    }
+
+    function checkForUpdates(isManual) {
+        if (Context.mockNewVersion) {
+            hasNewVersion = true;
+            newVersionString = "v9.9.9 (MOCK)";
+            newVersionUrl = "https://github.com/Arkanista/KVision/releases/latest";
+            updateCheckStatus = "available";
+            isCheckingUpdates = false;
+            return;
+        }
+        if (!isManual && !Context.mockCurrentVersion && (Context.isAuxiliary || !generalSettings.checkForUpdatesEnabled)) {
+            return;
+        }
+        if (isCheckingUpdates) {
+            return;
+        }
+        isCheckingUpdates = true;
+        updateCheckStatus = "checking";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://github.com/Arkanista/KVision/releases/latest/download/version.json", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    try {
+                        var response = JSON.parse(xhr.responseText);
+                        var latestVersion = response.tag || response.version || "";
+                        if (applyUpdateCheckResult(latestVersion, response.releaseUrl)) {
+                            return;
+                        }
+                    } catch (e) {
+                        console.warn("[Update] Failed to parse version.json, trying legacy API fallback:", e);
+                    }
+                } else if (Context.mockCurrentVersion !== "" || Context.enableLogs) {
+                    console.log("[Update] version.json returned HTTP", xhr.status, "- trying legacy API fallback");
+                }
+                checkForUpdatesLegacy(isManual);
+            }
+        };
+        xhr.send();
+    }
+
+    Timer {
+        id: updateCheckStartupTimer
+        interval: 2000
+        repeat: false
+        running: !Context.mockNewVersion && (!Context.isAuxiliary || Context.mockCurrentVersion !== "")
+        onTriggered: rootWindow.checkForUpdates(false)
+    }
+
+    Timer {
+        id: updateCheckPeriodicTimer
+        interval: 12 * 60 * 60 * 1000 // 12 hours
+        repeat: true
+        running: !Context.isAuxiliary && generalSettings.checkForUpdatesEnabled
+        onTriggered: rootWindow.checkForUpdates(false)
+    }
+
     QtObject {
         id: generalSettings
 
@@ -234,6 +388,8 @@ ApplicationWindow {
         property int playbackOffsetSeconds: 120
         property int playbackTimelineHours: 2
         property bool enableDiagnosticLogs: false
+        property bool checkForUpdatesEnabled: true
+        property bool muteUpdateGlow: false
 
         Component.onCompleted: rootWindow.loadGeneralSettings()
     }
@@ -312,6 +468,14 @@ ApplicationWindow {
         var diskEnableDiagnosticLogs = Context.readSetting("", "enableDiagnosticLogs", false);
         if (generalSettings.enableDiagnosticLogs !== diskEnableDiagnosticLogs) {
             generalSettings.enableDiagnosticLogs = diskEnableDiagnosticLogs;
+        }
+        var diskCheckForUpdatesEnabled = Context.readSetting("", "checkForUpdatesEnabled", true);
+        if (generalSettings.checkForUpdatesEnabled !== diskCheckForUpdatesEnabled) {
+            generalSettings.checkForUpdatesEnabled = diskCheckForUpdatesEnabled;
+        }
+        var diskMuteUpdateGlow = Context.readSetting("", "muteUpdateGlow", false);
+        if (generalSettings.muteUpdateGlow !== diskMuteUpdateGlow) {
+            generalSettings.muteUpdateGlow = diskMuteUpdateGlow;
         }
     }
 
@@ -826,7 +990,7 @@ ApplicationWindow {
 
         fileName: Context.config.fileName
         category: Context.isAuxiliary ? "AuxiliaryWindow_" + Context.auxiliaryId : "RootWindow"
-        property int width: 1280 + 48 // SideBar compact width
+        property int width: 1280 + 48 // Default window width
         property int height: 720
         property bool fullScreen
 
@@ -1892,39 +2056,118 @@ ApplicationWindow {
                 Layout.preferredWidth: 30
                 Layout.preferredHeight: 30
                 Layout.alignment: Qt.AlignVCenter
+                z: rootWindow.showUpdateGlow ? 2 : 0
 
-                contentItem: Image {
-                    anchors.centerIn: parent
-                    width: 16
-                    height: 16
-                    sourceSize.width: 16
-                    sourceSize.height: 16
-                    fillMode: Image.PreserveAspectFit
-                    source: {
-                        var colorStr = optionsButton.hovered ? "%23ff9e00" : "%23ff7a00";
-                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='3'></circle><path d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z'></path></svg>";
+                contentItem: Item {
+                    anchors.fill: parent
+
+                    // Outer green pulsing glow wave when a new version is available
+                    Rectangle {
+                        id: optionsUpdateGlowOuter
+                        anchors.centerIn: parent
+                        width: 30
+                        height: 30
+                        radius: 15
+                        color: "#22c55e"
+                        opacity: 0.0
+                        visible: rootWindow.showUpdateGlow
+
+                        SequentialAnimation on scale {
+                            running: rootWindow.showUpdateGlow
+                            loops: Animation.Infinite
+                            PropertyAnimation { from: 1.0; to: 2.1; duration: 900; easing.type: Easing.OutQuad }
+                            PropertyAnimation { from: 2.1; to: 1.0; duration: 900; easing.type: Easing.InQuad }
+                        }
+
+                        SequentialAnimation on opacity {
+                            running: rootWindow.showUpdateGlow
+                            loops: Animation.Infinite
+                            PropertyAnimation { from: 0.75; to: 0.0; duration: 900; easing.type: Easing.OutQuad }
+                            PropertyAnimation { from: 0.0; to: 0.75; duration: 900; easing.type: Easing.InQuad }
+                        }
+                    }
+
+                    // Inner bright emerald halo
+                    Rectangle {
+                        id: optionsUpdateGlowInner
+                        anchors.centerIn: parent
+                        width: 30
+                        height: 30
+                        radius: 15
+                        color: "#4ade80"
+                        opacity: 0.0
+                        visible: rootWindow.showUpdateGlow
+
+                        SequentialAnimation on scale {
+                            running: rootWindow.showUpdateGlow
+                            loops: Animation.Infinite
+                            PropertyAnimation { from: 1.0; to: 1.45; duration: 700; easing.type: Easing.OutQuad }
+                            PropertyAnimation { from: 1.45; to: 1.0; duration: 700; easing.type: Easing.InQuad }
+                        }
+
+                        SequentialAnimation on opacity {
+                            running: rootWindow.showUpdateGlow
+                            loops: Animation.Infinite
+                            PropertyAnimation { from: 0.55; to: 0.12; duration: 700; easing.type: Easing.OutQuad }
+                            PropertyAnimation { from: 0.12; to: 0.55; duration: 700; easing.type: Easing.InQuad }
+                        }
+                    }
+
+                    Image {
+                        id: optionsGearIcon
+                        anchors.centerIn: parent
+                        width: 16
+                        height: 16
+                        sourceSize.width: 32
+                        sourceSize.height: 32
+                        fillMode: Image.PreserveAspectFit
+                        source: {
+                            var colorStr = rootWindow.showUpdateGlow
+                                ? (optionsButton.hovered ? "%2386efac" : "%234ade80")
+                                : (optionsButton.hovered ? "%23ff9e00" : "%23ff7a00");
+                            return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='3'></circle><path d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z'></path></svg>";
+                        }
+
+                        SequentialAnimation on opacity {
+                            id: optionsGearPulseAnim
+                            running: rootWindow.showUpdateGlow
+                            loops: Animation.Infinite
+                            onRunningChanged: {
+                                if (!running) {
+                                    optionsGearIcon.opacity = 1.0;
+                                }
+                            }
+                            PropertyAnimation { from: 1.0; to: 0.55; duration: 700; easing.type: Easing.InOutQuad }
+                            PropertyAnimation { from: 0.55; to: 1.0; duration: 700; easing.type: Easing.InOutQuad }
+                        }
                     }
                 }
 
                 background: Rectangle {
-                    color: optionsButton.pressed ? "#cc121214" : (optionsButton.hovered ? "#3a4550" : "#1c242c")
+                    color: rootWindow.showUpdateGlow
+                        ? (optionsButton.pressed ? "#0c2e1c" : (optionsButton.hovered ? "#154a2e" : "#0f3622"))
+                        : (optionsButton.pressed ? "#cc121214" : (optionsButton.hovered ? "#3a4550" : "#1c242c"))
                     radius: 15
-                    border.color: optionsButton.hovered ? "#ff9e00" : "#2a3540"
-                    border.width: 1
+                    border.color: rootWindow.showUpdateGlow
+                        ? (optionsButton.hovered ? "#86efac" : "#22c55e")
+                        : (optionsButton.hovered ? "#ff9e00" : "#2a3540")
+                    border.width: rootWindow.showUpdateGlow ? 1.5 : 1
                 }
 
                 onClicked: {
-                    sidebarWindow.visible = !sidebarWindow.visible;
-                    if (sidebarWindow.visible) {
-                        sidebarWindow.raise();
-                        sidebarWindow.requestActivate();
+                    optionsWindow.visible = !optionsWindow.visible;
+                    if (optionsWindow.visible) {
+                        optionsWindow.raise();
+                        optionsWindow.requestActivate();
                     }
                 }
 
                 ToolTip.delay: Compact.toolTipDelay
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: optionsButton.hovered
-                ToolTip.text: qsTr("LNG_00015")
+                ToolTip.text: rootWindow.hasNewVersion
+                    ? (qsTr("LNG_00015") + "\n" + qsTr("LNG_00309").arg(rootWindow.newVersionString))
+                    : qsTr("LNG_00015")
             }
 
             Button {
@@ -1973,19 +2216,19 @@ ApplicationWindow {
                     anchors.centerIn: parent
                     width: 16
                     height: 16
-                    sourceSize.width: 16
-                    sourceSize.height: 16
+                    sourceSize.width: 32
+                    sourceSize.height: 32
                     fillMode: Image.PreserveAspectFit
                     source: {
-                        var colorStr = "%23121214";
-                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><ellipse cx='12' cy='5' rx='9' ry='3'></ellipse><path d='M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5'></path><path d='M3 12c0 1.66 4 3 9 3s9-1.34 9-3'></path></svg>";
+                        var colorStr = archiveButton.hovered ? "%235efce8" : "%2300f5d4";
+                        return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='" + colorStr + "' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 12a9 9 0 1 0 3-6.7L3 8'/><path d='M3 3v5h5'/><polygon points='10,8.5 16,12 10,15.5' fill='" + colorStr + "' stroke='" + colorStr + "' stroke-width='1.2' stroke-linejoin='round'/></svg>";
                     }
                 }
 
                 background: Rectangle {
-                    color: archiveButton.pressed ? "#00ccb0" : (archiveButton.hovered ? "#00ffd8" : "#00f5d4")
+                    color: archiveButton.pressed ? "#cc121214" : (archiveButton.hovered ? "#3a4550" : "#1c242c")
                     radius: 15
-                    border.color: archiveButton.pressed ? "#00ccb0" : (archiveButton.hovered ? "#00ffd8" : "#00f5d4")
+                    border.color: archiveButton.hovered ? "#00f5d4" : "#2a3540"
                     border.width: 1
                 }
 
@@ -2417,8 +2660,8 @@ ApplicationWindow {
     // Protruding error indicator at the top edge of the window when top bar is hidden
     Rectangle {
         id: topEdgeErrorIndicator
-        width: 48
-        height: 24
+        width: 54
+        height: 28
         x: topToolBar.x + 12 + nvrStatusButton.x + nvrStatusButton.width / 2 - width / 2
         anchors.top: parent.top
         color: "transparent"
@@ -2432,21 +2675,20 @@ ApplicationWindow {
 
         Rectangle {
             id: indicatorCircle
-            width: 48
-            height: 48
-            radius: 24
-            color: "#dc2626"
-            border.color: "#ef4444"
-            border.width: 1.5
+            width: 54
+            height: 54
+            radius: 27
+            color: errorEdgeMouseArea.containsMouse ? "#ef4444" : "#dc2626"
+            border.width: 0
             anchors.horizontalCenter: parent.horizontalCenter
-            y: -28 // Leaves exactly 20px visible inside the screen
+            y: -28 // Leaves 26px cleanly visible below the top edge
 
             // Dual pulsing glows
             Rectangle {
                 id: indicatorGlow1
-                width: 48
-                height: 48
-                radius: 24
+                width: 54
+                height: 54
+                radius: 27
                 color: "#ef4444"
                 anchors.centerIn: parent
                 z: -1
@@ -2468,9 +2710,9 @@ ApplicationWindow {
 
             Rectangle {
                 id: indicatorGlow2
-                width: 48
-                height: 48
-                radius: 24
+                width: 54
+                height: 54
+                radius: 27
                 color: "#ef4444"
                 anchors.centerIn: parent
                 z: -2
@@ -2490,18 +2732,22 @@ ApplicationWindow {
                 }
             }
 
-            Text {
+            Image {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 2
-                text: "!"
-                color: "white"
-                font.bold: true
-                font.pixelSize: 13
+                anchors.bottomMargin: 4
+                width: 19
+                height: 19
+                sourceSize.width: 38
+                sourceSize.height: 38
+                fillMode: Image.PreserveAspectFit
+                source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z' fill='%23ffffff'/><rect x='11' y='8.5' width='2' height='6' rx='1' fill='%23dc2626'/><circle cx='12' cy='17.2' r='1.2' fill='%23dc2626'/></svg>"
             }
 
             MouseArea {
+                id: errorEdgeMouseArea
                 anchors.fill: parent
+                enabled: topToolBar.y < -12
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
                 onClicked: {
@@ -2512,6 +2758,126 @@ ApplicationWindow {
                 ToolTip.timeout: Compact.toolTipTimeout
                 ToolTip.visible: containsMouse
                 ToolTip.text: qsTr("LNG_00211")
+            }
+        }
+    }
+
+    // Gentle protruding green update indicator at the top edge under the Options button when top bar is hidden
+    Rectangle {
+        id: topEdgeUpdateIndicator
+        width: 54
+        height: 28
+        x: topToolBar.x + 12 + optionsButton.x + optionsButton.width / 2 - width / 2
+        anchors.top: parent.top
+        color: "transparent"
+        z: 100000
+
+        visible: rootWindow.showUpdateGlow
+        opacity: (topToolBar.y < -12) ? 1.0 : 0.0
+        Behavior on opacity {
+            NumberAnimation { duration: 200 }
+        }
+
+        Rectangle {
+            id: updateIndicatorCircle
+            width: 54
+            height: 54
+            radius: 27
+            color: updateEdgeMouseArea.containsMouse ? "#22c55e" : "#16a34a"
+            border.width: 0
+            anchors.horizontalCenter: parent.horizontalCenter
+            y: -28 // Leaves 26px cleanly visible below the top edge
+
+            // Gentle dual green pulsing glows
+            Rectangle {
+                id: updateIndicatorGlow1
+                width: 54
+                height: 54
+                radius: 27
+                color: "#22c55e"
+                anchors.centerIn: parent
+                z: -1
+
+                SequentialAnimation on scale {
+                    running: topEdgeUpdateIndicator.visible && (topToolBar.y < -12)
+                    loops: Animation.Infinite
+                    PropertyAnimation { from: 1.0; to: 2.0; duration: 1100; easing.type: Easing.OutQuad }
+                    PropertyAnimation { from: 2.0; to: 1.0; duration: 1100; easing.type: Easing.InQuad }
+                }
+
+                SequentialAnimation on opacity {
+                    running: topEdgeUpdateIndicator.visible && (topToolBar.y < -12)
+                    loops: Animation.Infinite
+                    PropertyAnimation { from: 0.65; to: 0.0; duration: 1100; easing.type: Easing.OutQuad }
+                    PropertyAnimation { from: 0.0; to: 0.65; duration: 1100; easing.type: Easing.InQuad }
+                }
+            }
+
+            Rectangle {
+                id: updateIndicatorGlow2
+                width: 54
+                height: 54
+                radius: 27
+                color: "#4ade80"
+                anchors.centerIn: parent
+                z: -2
+
+                SequentialAnimation on scale {
+                    running: topEdgeUpdateIndicator.visible && (topToolBar.y < -12)
+                    loops: Animation.Infinite
+                    PropertyAnimation { from: 1.0; to: 1.45; duration: 850; easing.type: Easing.OutQuad }
+                    PropertyAnimation { from: 1.45; to: 1.0; duration: 850; easing.type: Easing.InQuad }
+                }
+
+                SequentialAnimation on opacity {
+                    running: topEdgeUpdateIndicator.visible && (topToolBar.y < -12)
+                    loops: Animation.Infinite
+                    PropertyAnimation { from: 0.5; to: 0.1; duration: 850; easing.type: Easing.OutQuad }
+                    PropertyAnimation { from: 0.1; to: 0.5; duration: 850; easing.type: Easing.InQuad }
+                }
+            }
+
+            Image {
+                id: updateEdgeIcon
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 4
+                width: 18
+                height: 18
+                sourceSize.width: 36
+                sourceSize.height: 36
+                fillMode: Image.PreserveAspectFit
+                source: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 4v12'/><polyline points='7 11 12 16 17 11'/><line x1='5' y1='20' x2='19' y2='20'/></svg>"
+
+                SequentialAnimation on opacity {
+                    running: topEdgeUpdateIndicator.visible && (topToolBar.y < -12)
+                    loops: Animation.Infinite
+                    onRunningChanged: {
+                        if (!running) {
+                            updateEdgeIcon.opacity = 1.0;
+                        }
+                    }
+                    PropertyAnimation { from: 1.0; to: 0.5; duration: 850; easing.type: Easing.InOutQuad }
+                    PropertyAnimation { from: 0.5; to: 1.0; duration: 850; easing.type: Easing.InOutQuad }
+                }
+            }
+
+            MouseArea {
+                id: updateEdgeMouseArea
+                anchors.fill: parent
+                enabled: topToolBar.y < -12
+                hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
+                onClicked: {
+                    optionsWindow.visible = true;
+                    optionsWindow.raise();
+                    optionsWindow.requestActivate();
+                }
+
+                ToolTip.delay: Compact.toolTipDelay
+                ToolTip.timeout: Compact.toolTipTimeout
+                ToolTip.visible: containsMouse
+                ToolTip.text: qsTr("LNG_00309").arg(rootWindow.newVersionString)
             }
         }
     }
@@ -2608,9 +2974,9 @@ ApplicationWindow {
         }
     }
 
-    // Separate utility Window for options (SideBar contents)
+    // Separate utility Window for options (OptionsPanel contents)
     Window {
-        id: sidebarWindow
+        id: optionsWindow
         title: qsTr("LNG_00210")
         width: Math.round(rootWindow.width * 0.85)
         height: Math.round(rootWindow.height * 0.85)
@@ -2618,31 +2984,32 @@ ApplicationWindow {
         color: "#0f151b"
 
         onVisibleChanged: {
-            if (sideBarLoader.item) {
+            if (optionsPanelLoader.item) {
                 try {
-                    sideBarLoader.item.resetPathChangesCheckbox();
+                    optionsPanelLoader.item.resetPathChangesCheckbox();
                 } catch(e) {}
             }
             if (visible) {
-                if (sideBarLoader.source == "" && !Context.config.kioskMode) {
-                    sideBarLoader.source = "SideBar.qml";
+                if (optionsPanelLoader.source == "" && !Context.config.kioskMode) {
+                    optionsPanelLoader.source = "OptionsPanel.qml";
                 }
                 var defaultWidth = Math.round(rootWindow.width * 0.85);
                 var defaultHeight = Math.round(rootWindow.height * 0.85);
-                if (sidebarWindow.width === 320 || sidebarWindow.width <= 0) {
-                    sidebarWindow.width = defaultWidth;
+                if (optionsWindow.width === 320 || optionsWindow.width <= 0) {
+                    optionsWindow.width = defaultWidth;
                 }
-                if (sidebarWindow.height === 750 || sidebarWindow.height <= 0) {
-                    sidebarWindow.height = defaultHeight;
+                if (optionsWindow.height === 750 || optionsWindow.height <= 0) {
+                    optionsWindow.height = defaultHeight;
                 }
-                sidebarWindow.x = Math.round(rootWindow.x + (rootWindow.width - sidebarWindow.width) / 2);
-                sidebarWindow.y = Math.round(rootWindow.y + (rootWindow.height - sidebarWindow.height) / 2);
+                optionsWindow.x = Math.round(rootWindow.x + (rootWindow.width - optionsWindow.width) / 2);
+                optionsWindow.y = Math.round(rootWindow.y + (rootWindow.height - optionsWindow.height) / 2);
             }
         }
 
         Settings {
-            id: sidebarWindowSettings
+            id: optionsWindowSettings
             fileName: Context.config.fileName
+            // Legacy QSettings category kept for backwards compatibility with existing user configs
             category: "SidebarWindow"
             property int x: -1
             property int y: -1
@@ -2656,29 +3023,29 @@ ApplicationWindow {
             var defaultX = Math.round(rootWindow.x + (rootWindow.width - defaultWidth) / 2);
             var defaultY = Math.round(rootWindow.y + (rootWindow.height - defaultHeight) / 2);
 
-            sidebarWindow.width = (sidebarWindowSettings.width > 0 && sidebarWindowSettings.width !== 320) ? sidebarWindowSettings.width : defaultWidth;
-            sidebarWindow.height = (sidebarWindowSettings.height > 0 && sidebarWindowSettings.height !== 750) ? sidebarWindowSettings.height : defaultHeight;
-            sidebarWindow.x = (sidebarWindowSettings.x >= 0 && sidebarWindowSettings.x !== 100) ? sidebarWindowSettings.x : defaultX;
-            sidebarWindow.y = (sidebarWindowSettings.y >= 0 && sidebarWindowSettings.y !== 100) ? sidebarWindowSettings.y : defaultY;
-            sidebarWindow.visible = false;
+            optionsWindow.width = (optionsWindowSettings.width > 0 && optionsWindowSettings.width !== 320) ? optionsWindowSettings.width : defaultWidth;
+            optionsWindow.height = (optionsWindowSettings.height > 0 && optionsWindowSettings.height !== 750) ? optionsWindowSettings.height : defaultHeight;
+            optionsWindow.x = (optionsWindowSettings.x >= 0 && optionsWindowSettings.x !== 100) ? optionsWindowSettings.x : defaultX;
+            optionsWindow.y = (optionsWindowSettings.y >= 0 && optionsWindowSettings.y !== 100) ? optionsWindowSettings.y : defaultY;
+            optionsWindow.visible = false;
 
             if (!Context.isAuxiliary) {
-                sidebarWindow.xChanged.connect(saveGeometry);
-                sidebarWindow.yChanged.connect(saveGeometry);
-                sidebarWindow.widthChanged.connect(saveGeometry);
-                sidebarWindow.heightChanged.connect(saveGeometry);
+                optionsWindow.xChanged.connect(saveGeometry);
+                optionsWindow.yChanged.connect(saveGeometry);
+                optionsWindow.widthChanged.connect(saveGeometry);
+                optionsWindow.heightChanged.connect(saveGeometry);
             }
         }
 
         function saveGeometry() {
-            sidebarWindowSettings.x = sidebarWindow.x;
-            sidebarWindowSettings.y = sidebarWindow.y;
-            sidebarWindowSettings.width = sidebarWindow.width;
-            sidebarWindowSettings.height = sidebarWindow.height;
+            optionsWindowSettings.x = optionsWindow.x;
+            optionsWindowSettings.y = optionsWindow.y;
+            optionsWindowSettings.width = optionsWindow.width;
+            optionsWindowSettings.height = optionsWindow.height;
         }
 
         Loader {
-            id: sideBarLoader
+            id: optionsPanelLoader
             anchors.fill: parent
         }
     }
@@ -2717,6 +3084,8 @@ ApplicationWindow {
         Context.writeSetting("", "playbackOffsetSeconds", generalSettings.playbackOffsetSeconds);
         Context.writeSetting("", "playbackTimelineHours", generalSettings.playbackTimelineHours);
         Context.writeSetting("", "enableDiagnosticLogs", generalSettings.enableDiagnosticLogs);
+        Context.writeSetting("", "checkForUpdatesEnabled", generalSettings.checkForUpdatesEnabled);
+        Context.writeSetting("", "muteUpdateGlow", generalSettings.muteUpdateGlow);
         Context.writeSetting("", "language", Context.getLanguage());
 
         Context.writeSetting("Hikvision", "recordersJson", rootWindow.hikvisionRecordersJson);
@@ -2770,6 +3139,10 @@ ApplicationWindow {
 
         if (Context.isFirstRun && !Context.isAuxiliary) {
             firstRunHelpTimer.start();
+        }
+
+        if (Context.mockNewVersion) {
+            rootWindow.checkForUpdates(false);
         }
     }
 

@@ -22,6 +22,7 @@ class Context : public QObject
     Q_PROPERTY(int auxiliaryId READ auxiliaryId CONSTANT)
     Q_PROPERTY(bool isFirstRun READ isFirstRun CONSTANT)
     Q_PROPERTY(bool mockNewVersion READ mockNewVersion CONSTANT)
+    Q_PROPERTY(QString mockCurrentVersion READ mockCurrentVersion CONSTANT)
 
 public:
     explicit Context(QObject *parent = nullptr);
@@ -37,6 +38,7 @@ public:
     static bool enableLogs() { return m_enableLogs; }
     static bool isFirstRun() { return m_isFirstRun; }
     static bool mockNewVersion() { return m_mockNewVersion; }
+    static QString mockCurrentVersion() { return m_mockCurrentVersion; }
 
     Q_INVOKABLE void setLanguage(const QString &lang);
     Q_INVOKABLE QString getLanguage() const;
@@ -52,6 +54,7 @@ public:
     Q_INVOKABLE QString urlToLocalFile(const QString &urlOrPath) const;
     Q_INVOKABLE bool openLocalFolder(const QString &fileOrDirPath) const;
     Q_INVOKABLE bool isValidPlatformPath(const QString &path) const;
+    Q_INVOKABLE bool isUsableDirectoryPath(const QString &path) const;
     Q_INVOKABLE QString sanitizePlatformPath(const QString &path, const QString &fallbackPath) const;
     Q_INVOKABLE QString defaultPicturesPath() const;
     Q_INVOKABLE QString defaultMoviesPath() const;
@@ -59,8 +62,11 @@ public:
     Q_INVOKABLE QString selectFolder(const QString &title, const QString &initialPath) const;
     Q_INVOKABLE QString selectExportConfigFile(const QString &title, const QString &initialDir) const;
     Q_INVOKABLE QString selectImportConfigFile(const QString &title, const QString &initialDir) const;
+    Q_INVOKABLE QVariantMap peekImportConfigPaths(const QString &sourceFilePath) const;
     Q_INVOKABLE bool exportSettings(const QString &targetFilePath);
-    Q_INVOKABLE bool importSettings(const QString &sourceFilePath);
+    Q_INVOKABLE bool importSettings(const QString &sourceFilePath,
+                                    const QString &overrideSnapshotPath = QString(),
+                                    const QString &overrideVideoPath = QString());
     Q_INVOKABLE QString readLocalFile(const QString &filePath) const;
     Q_INVOKABLE QVariant readSetting(const QString &category, const QString &key, const QVariant &defaultValue = QVariant()) const;
     Q_INVOKABLE void writeSetting(const QString &category, const QString &key, const QVariant &value);
@@ -81,6 +87,7 @@ private:
     inline static bool m_enableLogs = false;
     inline static bool m_isFirstRun = false;
     inline static bool m_mockNewVersion = false;
+    inline static QString m_mockCurrentVersion;
     inline static bool m_configNotifyPending = false;
     inline static QList<QProcess*> m_childProcesses;
     inline static QMap<QProcess*, int> m_childIds; // Track active child process IDs

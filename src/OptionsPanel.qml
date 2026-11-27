@@ -12,19 +12,11 @@ import Qt.labs.platform 1.1 as Platform
 import QtQuick.Dialogs 1.3 as QuickDialogs
 
 FocusScope {
-    id: rootSideBar
-
-    enum State {
-        Compact,
-        Popup,
-        Expanded
-    }
+    id: rootOptionsPanel
 
     anchors.fill: parent
     implicitWidth: 800
     implicitHeight: 600
-
-    property int state: SideBar.Expanded
     property int currentViewportIndex: Utils.currentLayout() ? Utils.currentLayout().focusIndex : -1
 
     function findRecorderForViewportUrl(urlStr) {
@@ -74,64 +66,9 @@ FocusScope {
     property var nvrIndices: []
     property var nvrPresetIndices: []
 
-    property bool hasNewVersion: false
-    property string newVersionString: ""
-
-    function parseVersion(vStr) {
-        var clean = vStr.replace(/^v/, "");
-        var match = clean.match(/^(\d+(?:\.\d+)*)(?:-(\d+))?/);
-        if (!match) {
-            return { base: [0], rel: 0 };
-        }
-        var baseParts = match[1].split(".").map(Number);
-        var rel = match[2] ? Number(match[2]) : 0;
-        return { base: baseParts, rel: rel };
-    }
-
-    function compareVersions(v1, v2) {
-        var parsed1 = parseVersion(v1);
-        var parsed2 = parseVersion(v2);
-        var len = Math.max(parsed1.base.length, parsed2.base.length);
-        for (var i = 0; i < len; ++i) {
-            var p1 = parsed1.base[i] || 0;
-            var p2 = parsed2.base[i] || 0;
-            if (p1 !== p2) {
-                return p1 - p2;
-            }
-        }
-        return parsed1.rel - parsed2.rel;
-    }
-
-    function checkForUpdates() {
-        if (Context.mockNewVersion) {
-            hasNewVersion = true;
-            newVersionString = "v9.9.9 (MOCK)";
-            return;
-        }
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://api.github.com/repos/Arkanista/KVision/releases/latest", true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    try {
-                        var response = JSON.parse(xhr.responseText);
-                        var latestVersion = response.tag_name;
-                        var currentVersion = Qt.application.version;
-                        
-                        if (compareVersions(latestVersion, currentVersion) > 0) {
-                            hasNewVersion = true;
-                            newVersionString = latestVersion;
-                        } else {
-                            hasNewVersion = false;
-                        }
-                    } catch (e) {
-                        console.error("Failed to parse update check response:", e);
-                    }
-                }
-            }
-        }
-        xhr.send();
-    }
+    readonly property bool hasNewVersion: (typeof rootWindow !== "undefined" && rootWindow) ? rootWindow.hasNewVersion : false
+    readonly property string newVersionString: (typeof rootWindow !== "undefined" && rootWindow) ? rootWindow.newVersionString : ""
+    readonly property string newVersionUrl: (typeof rootWindow !== "undefined" && rootWindow && rootWindow.newVersionUrl) ? rootWindow.newVersionUrl : "https://github.com/Arkanista/KVision/releases/latest"
 
     function updateIndices() {
         var regs = [];
@@ -158,10 +95,20 @@ FocusScope {
         layoutsCollectionModel.changed.connect(updateIndices);
         updateIndices();
         resetPathChangesCheckbox();
-        checkForUpdates();
     }
 
     property var changelogData: [
+        {
+            version: "v2.8.5",
+            date: "27.11.2026",
+            changes: [
+                qsTr("LNG_00712"),
+                qsTr("LNG_00713"),
+                qsTr("LNG_00714"),
+                qsTr("LNG_00715"),
+                qsTr("LNG_00716")
+            ]
+        },
         {
             version: "v2.8.4",
             date: "26.11.2026",
@@ -743,11 +690,11 @@ FocusScope {
     ]
 
     Settings {
-        id: sideBarSettings
+        id: optionsPanelSettings
         fileName: Context.config.fileName
+        // Legacy QSettings category kept for backwards compatibility with existing user configs
         category: "SideBar"
         property string windowDivision
-        property string itemsState
     }
 
     function setPersistedSetting(settingsObj, category, key, value) {
@@ -870,7 +817,7 @@ FocusScope {
                     function selectTab(index) {
                         activeIndex = index;
                         pagesStack.currentIndex = index;
-                        rootSideBar.resetPathChangesCheckbox();
+                        rootOptionsPanel.resetPathChangesCheckbox();
                         if (index === 2 && nvrSettingsPanel && typeof nvrSettingsPanel.refreshRecorders === "function") {
                             nvrSettingsPanel.refreshRecorders();
                         }
@@ -924,7 +871,7 @@ FocusScope {
                             }
 
                             Text {
-                                text: qsTr("LNG_00316").arg(rootSideBar.currentViewportIndex >= 0 ? qsTr("LNG_00315").arg(rootSideBar.currentViewportIndex + 1) : "")
+                                text: qsTr("LNG_00316").arg(rootOptionsPanel.currentViewportIndex >= 0 ? qsTr("LNG_00315").arg(rootOptionsPanel.currentViewportIndex + 1) : "")
                                 color: tabsColumn.activeIndex === 0 ? "#00f5d4" : (btnViewport.hovered ? "white" : "#8898a6")
                                 font {
                                     pixelSize: 12
@@ -1423,11 +1370,11 @@ FocusScope {
                     id: updateArea
                     Layout.fillWidth: true
                     implicitHeight: updateLayout.implicitHeight
-                    visible: rootSideBar.hasNewVersion
+                    visible: rootOptionsPanel.hasNewVersion
                     cursorShape: Qt.PointingHandCursor
                     hoverEnabled: true
                     onClicked: {
-                        Qt.openUrlExternally("https://github.com/Arkanista/KVision/releases/latest")
+                        Qt.openUrlExternally(rootOptionsPanel.newVersionUrl)
                     }
 
                     ColumnLayout {
@@ -1486,7 +1433,7 @@ FocusScope {
                         }
 
                         Text {
-                            text: qsTr("LNG_00309").arg(rootSideBar.newVersionString)
+                            text: qsTr("LNG_00309").arg(rootOptionsPanel.newVersionString)
                             color: updateArea.containsMouse ? "#55efc4" : "#2ecc71"
                             font.pixelSize: 11
                             font.bold: true
@@ -1518,7 +1465,7 @@ FocusScope {
             currentIndex: 3
 
             onCurrentIndexChanged: {
-                rootSideBar.resetPathChangesCheckbox();
+                rootOptionsPanel.resetPathChangesCheckbox();
                 if (currentIndex === 2 && nvrSettingsPanel && typeof nvrSettingsPanel.refreshRecorders === "function") {
                     nvrSettingsPanel.refreshRecorders();
                 }
@@ -1559,14 +1506,14 @@ FocusScope {
                             pixelSize: 13
                             italic: true
                         }
-                        visible: rootSideBar.currentViewportIndex < 0
+                        visible: rootOptionsPanel.currentViewportIndex < 0
                         Layout.fillWidth: true
                     }
 
                     ColumnLayout {
                         Layout.fillWidth: true
                         spacing: 16
-                        visible: rootSideBar.currentViewportIndex >= 0
+                        visible: rootOptionsPanel.currentViewportIndex >= 0
 
                         Switch {
                             id: configUnlockSwitch
@@ -1598,28 +1545,28 @@ FocusScope {
                                 spacing: 12
 
                                 TextField {
-                                    text: (rootSideBar.currentViewportIndex >= 0 && Utils.currentModel()) ? Utils.currentModel().get(rootSideBar.currentViewportIndex).url : ""
+                                    text: (rootOptionsPanel.currentViewportIndex >= 0 && Utils.currentModel()) ? Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).url : ""
                                     placeholderText: qsTr("LNG_00304")
                                     selectByMouse: true
                                     enabled: configUnlockSwitch.checked && (Utils.currentModel() ? (!Utils.currentModel().isNvr && !Utils.currentModel().isNvrPreset) : true)
                                     Layout.fillWidth: true
                                     onEditingFinished: {
-                                        if (rootSideBar.currentViewportIndex >= 0) {
-                                            Utils.currentModel().get(rootSideBar.currentViewportIndex).url = text;
-                                            Utils.currentModel().get(rootSideBar.currentViewportIndex).streamMode = 0;
+                                        if (rootOptionsPanel.currentViewportIndex >= 0) {
+                                            Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).url = text;
+                                            Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).streamMode = 0;
                                         }
                                     }
                                 }
 
                                 TextField {
-                                    text: (rootSideBar.currentViewportIndex >= 0 && Utils.currentModel()) ? Utils.currentModel().get(rootSideBar.currentViewportIndex).secondaryUrl : ""
+                                    text: (rootOptionsPanel.currentViewportIndex >= 0 && Utils.currentModel()) ? Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).secondaryUrl : ""
                                     placeholderText: qsTr("LNG_00303")
                                     selectByMouse: true
                                     enabled: configUnlockSwitch.checked && (Utils.currentModel() ? (!Utils.currentModel().isNvr && !Utils.currentModel().isNvrPreset) : true)
                                     Layout.fillWidth: true
                                     onEditingFinished: {
-                                        if (rootSideBar.currentViewportIndex >= 0) {
-                                            Utils.currentModel().get(rootSideBar.currentViewportIndex).secondaryUrl = text;
+                                        if (rootOptionsPanel.currentViewportIndex >= 0) {
+                                            Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).secondaryUrl = text;
                                         }
                                     }
                                 }
@@ -1650,8 +1597,8 @@ FocusScope {
                                 Button {
                                     id: muteViewportBtn
                                     text: qsTr("LNG_00301")
-                                    enabled: configUnlockSwitch.checked && (rootSideBar.currentViewportIndex >= 0 && Utils.currentLayout() ? Utils.currentLayout().get(rootSideBar.currentViewportIndex).hasAudio : false)
-                                    highlighted: !(rootSideBar.currentViewportIndex >= 0 && Utils.currentModel() && Utils.currentModel().get(rootSideBar.currentViewportIndex).volume > 0 || !viewportSettings.noUnmuteWhenFullScreen && Utils.currentLayout() && Utils.currentLayout().fullScreenIndex >= 0)
+                                    enabled: configUnlockSwitch.checked && (rootOptionsPanel.currentViewportIndex >= 0 && Utils.currentLayout() ? Utils.currentLayout().get(rootOptionsPanel.currentViewportIndex).hasAudio : false)
+                                    highlighted: !(rootOptionsPanel.currentViewportIndex >= 0 && Utils.currentModel() && Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).volume > 0 || !viewportSettings.noUnmuteWhenFullScreen && Utils.currentLayout() && Utils.currentLayout().fullScreenIndex >= 0)
                                     Layout.fillWidth: true
                                     background: Rectangle {
                                         radius: 6
@@ -1662,11 +1609,11 @@ FocusScope {
                                         border.width: muteViewportBtn.visualFocus ? 2 : 0
                                     }
                                     onClicked: {
-                                        if (rootSideBar.currentViewportIndex >= 0) {
-                                            if (Utils.currentModel().get(rootSideBar.currentViewportIndex).volume > 0) {
-                                                Utils.currentModel().get(rootSideBar.currentViewportIndex).volume = 0;
+                                        if (rootOptionsPanel.currentViewportIndex >= 0) {
+                                            if (Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).volume > 0) {
+                                                Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).volume = 0;
                                             } else {
-                                                Utils.currentModel().get(rootSideBar.currentViewportIndex).volume = 1;
+                                                Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).volume = 1;
                                             }
                                         }
                                     }
@@ -1686,40 +1633,40 @@ FocusScope {
                                         id: sideBarViewportAvOptionsField
                                         property bool isRemoteVp: {
                                             var _dep = typeof rootWindow !== "undefined" && rootWindow ? rootWindow.hikvisionRecordersJson : "";
-                                            if (rootSideBar.currentViewportIndex >= 0 && Utils.currentModel()) {
-                                                var vpObj = Utils.currentModel().get(rootSideBar.currentViewportIndex);
+                                            if (rootOptionsPanel.currentViewportIndex >= 0 && Utils.currentModel()) {
+                                                var vpObj = Utils.currentModel().get(rootOptionsPanel.currentViewportIndex);
                                                 if (vpObj) {
-                                                    return rootSideBar.isViewportUrlRemoteRecorder(vpObj.url);
+                                                    return rootOptionsPanel.isViewportUrlRemoteRecorder(vpObj.url);
                                                 }
                                             }
                                             return false;
                                         }
-                                        text: (rootSideBar.currentViewportIndex >= 0 && Utils.currentModel() && Utils.currentModel().get(rootSideBar.currentViewportIndex)) ? getOptionsString(Utils.currentModel().get(rootSideBar.currentViewportIndex).avFormatOptions, Utils.currentModel().get(rootSideBar.currentViewportIndex).url, typeof rootWindow !== "undefined" && rootWindow ? rootWindow.hikvisionRecordersJson : "") : ""
+                                        text: (rootOptionsPanel.currentViewportIndex >= 0 && Utils.currentModel() && Utils.currentModel().get(rootOptionsPanel.currentViewportIndex)) ? getOptionsString(Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).avFormatOptions, Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).url, typeof rootWindow !== "undefined" && rootWindow ? rootWindow.hikvisionRecordersJson : "") : ""
                                         selectByMouse: true
                                         enabled: configUnlockSwitch.checked && !isRemoteVp
                                         Layout.fillWidth: true
                                         onEditingFinished: {
                                             if (isRemoteVp) return;
-                                            if (rootSideBar.currentViewportIndex >= 0) {
+                                            if (rootOptionsPanel.currentViewportIndex >= 0) {
                                                 var options = Utils.parseOptions(text);
                                                 var defaultAVFormatOptions = layoutsCollectionSettings.toJSValue("defaultAVFormatOptions");
 
                                                 if (Object.keys(options).length == Object.keys(defaultAVFormatOptions).length) {
                                                     for (var key in options) {
                                                         if (defaultAVFormatOptions[key] === undefined || String(defaultAVFormatOptions[key]) !== String(options[key])) {
-                                                            Utils.currentModel().get(rootSideBar.currentViewportIndex).avFormatOptions = options;
+                                                            Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).avFormatOptions = options;
                                                             return;
                                                         }
                                                     }
-                                                    Utils.currentModel().get(rootSideBar.currentViewportIndex).avFormatOptions = {};
+                                                    Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).avFormatOptions = {};
                                                 } else {
-                                                    Utils.currentModel().get(rootSideBar.currentViewportIndex).avFormatOptions = options;
+                                                    Utils.currentModel().get(rootOptionsPanel.currentViewportIndex).avFormatOptions = options;
                                                 }
                                             }
                                         }
 
                                         function getOptionsString(options, url, _recordersDep) {
-                                            var rec = rootSideBar.findRecorderForViewportUrl(url);
+                                            var rec = rootOptionsPanel.findRecorderForViewportUrl(url);
                                             if (rec && rec.remoteRecorder) {
                                                 var wanTransport = (rec.rtspTransport === "tcp" || rec.rtspTransport === "udp") ? rec.rtspTransport : "tcp";
                                                 return Utils.stringifyOptions({
@@ -1832,9 +1779,9 @@ FocusScope {
                                 ListElement { size: "9x9" }
 
                                 Component.onCompleted: {
-                                    fromJSValue(sideBarSettings.windowDivision);
+                                    fromJSValue(optionsPanelSettings.windowDivision);
                                     divisionModel.dataChanged.connect(() => {
-                                        sideBarSettings.windowDivision = JSON.stringify(toJSValue());
+                                        optionsPanelSettings.windowDivision = JSON.stringify(toJSValue());
                                     });
                                 }
 
@@ -2249,7 +2196,7 @@ FocusScope {
                             }
 
                             Repeater {
-                                model: rootSideBar.nvrPresetIndices
+                                model: rootOptionsPanel.nvrPresetIndices
                                 delegate: ReorderableViewRow {
                                     globalIndex: modelData
                                     category: "nvrPreset"
@@ -2333,14 +2280,14 @@ FocusScope {
                             }
 
                             Repeater {
-                                model: rootSideBar.regularIndices
+                                model: rootOptionsPanel.regularIndices
                                 delegate: ReorderableViewRow {
                                     globalIndex: modelData
                                     category: "regular"
                                     layout: layoutsCollectionModel.get(modelData)
                                     isCurrent: stackLayout.currentIndex === modelData
                                     placeholderText: qsTr("LNG_00288").arg(index + 1)
-                                    showDelete: rootSideBar.regularIndices.length > 1
+                                    showDelete: rootOptionsPanel.regularIndices.length > 1
                                     activateTooltip: qsTr("LNG_00287")
                                     deleteTooltip: qsTr("LNG_00286")
                                     dragState: viewDragState
@@ -2385,7 +2332,7 @@ FocusScope {
                     // Group 2: NVR Views (Only when NVR layouts configured)
                     GroupBox {
                         title: qsTr("LNG_00284")
-                        visible: rootSideBar.nvrIndices.length > 0
+                        visible: rootOptionsPanel.nvrIndices.length > 0
                         Layout.fillWidth: true
 
                         background: Rectangle {
@@ -2416,7 +2363,7 @@ FocusScope {
                             }
 
                             Repeater {
-                                model: rootSideBar.nvrIndices
+                                model: rootOptionsPanel.nvrIndices
                                 delegate: ReorderableViewRow {
                                     globalIndex: modelData
                                     category: "nvr"
@@ -2615,6 +2562,90 @@ FocusScope {
                                 }
 
                                 Item {
+                                    Layout.fillWidth: true
+                                }
+                            }
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                height: 1
+                                color: "#2a3540"
+                            }
+
+                            CheckBox {
+                                text: qsTr("LNG_00695")
+                                checked: generalSettings.checkForUpdatesEnabled
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "checkForUpdatesEnabled", checked);
+                                    checked = Qt.binding(function() { return generalSettings.checkForUpdatesEnabled; });
+                                }
+                                Layout.fillWidth: true
+                            }
+
+                            CheckBox {
+                                text: qsTr("LNG_00700")
+                                checked: generalSettings.muteUpdateGlow
+                                onToggled: {
+                                    setPersistedSetting(generalSettings, "", "muteUpdateGlow", checked);
+                                    checked = Qt.binding(function() { return generalSettings.muteUpdateGlow; });
+                                }
+                                Layout.fillWidth: true
+                            }
+
+                            RowLayout {
+                                Layout.fillWidth: true
+                                spacing: 12
+
+                                Button {
+                                    id: manualUpdateCheckButton
+                                    text: qsTr("LNG_00696")
+                                    enabled: !(typeof rootWindow !== "undefined" && rootWindow && rootWindow.isCheckingUpdates)
+                                    Layout.preferredHeight: 30
+                                    leftPadding: 14
+                                    rightPadding: 14
+
+                                    contentItem: Text {
+                                        text: manualUpdateCheckButton.text
+                                        color: manualUpdateCheckButton.enabled ? "white" : "#8898a6"
+                                        font.pixelSize: 12
+                                        font.bold: true
+                                        horizontalAlignment: Text.AlignHCenter
+                                        verticalAlignment: Text.AlignVCenter
+                                    }
+
+                                    background: Rectangle {
+                                        color: !manualUpdateCheckButton.enabled ? "#141a21" : (manualUpdateCheckButton.pressed ? "#121214" : (manualUpdateCheckButton.hovered ? "#3a4550" : "#1c242c"))
+                                        radius: 6
+                                        border.color: manualUpdateCheckButton.hovered && manualUpdateCheckButton.enabled ? "#00f5d4" : "#2a3540"
+                                        border.width: 1
+                                    }
+
+                                    onClicked: {
+                                        if (typeof rootWindow !== "undefined" && rootWindow) {
+                                            rootWindow.checkForUpdates(true);
+                                        }
+                                    }
+                                }
+
+                                Text {
+                                    readonly property string status: (typeof rootWindow !== "undefined" && rootWindow) ? rootWindow.updateCheckStatus : ""
+                                    visible: status !== ""
+                                    text: {
+                                        if (status === "checking") return qsTr("LNG_00697");
+                                        if (status === "available") return qsTr("LNG_00309").arg(rootOptionsPanel.newVersionString);
+                                        if (status === "up_to_date") return qsTr("LNG_00698");
+                                        if (status === "error") return qsTr("LNG_00699");
+                                        return "";
+                                    }
+                                    color: {
+                                        if (status === "available") return "#2ecc71";
+                                        if (status === "up_to_date") return "#00f5d4";
+                                        if (status === "error") return "#f59e0b";
+                                        return "#8898a6";
+                                    }
+                                    font.pixelSize: 12
+                                    font.bold: status === "available"
+                                    wrapMode: Text.WordWrap
                                     Layout.fillWidth: true
                                 }
                             }
@@ -3114,7 +3145,7 @@ FocusScope {
                                                 var layoutModel = layoutsCollectionModel.get(i);
                                                 for (var j = 0; j < layoutModel.count; ++j) {
                                                     var item = layoutModel.get(j);
-                                                    if (rootSideBar.isViewportUrlRemoteRecorder(item.url)) {
+                                                    if (rootOptionsPanel.isViewportUrlRemoteRecorder(item.url)) {
                                                         item.avFormatOptions = {};
                                                     } else if (!item.ignoreGlobalAVFormatOptions) {
                                                         item.avFormatOptions = opts;
@@ -3771,7 +3802,7 @@ FocusScope {
                                 }
 
                                 ComboBox {
-                                    id: sidebarLanguageCombo
+                                    id: optionsLanguageCombo
                                     Layout.fillWidth: true
                                     model: [
                                         { text: qsTr("LNG_00251"), value: "system" },
@@ -3804,13 +3835,13 @@ FocusScope {
                                     background: Rectangle {
                                         implicitHeight: 32
                                         color: "#151d24"
-                                        border.color: sidebarLanguageCombo.activeFocus ? "#ff7a00" : "#3a4550"
+                                        border.color: optionsLanguageCombo.activeFocus ? "#ff7a00" : "#3a4550"
                                         border.width: 1
                                         radius: 6
                                     }
 
                                     contentItem: Text {
-                                        text: sidebarLanguageCombo.displayText
+                                        text: optionsLanguageCombo.displayText
                                         color: "#eeeeee"
                                         font {
                                             pixelSize: 11
@@ -3822,20 +3853,20 @@ FocusScope {
                                     }
 
                                     indicator: Image {
-                                        x: sidebarLanguageCombo.width - width - 10
-                                        y: sidebarLanguageCombo.topPadding + (sidebarLanguageCombo.availableHeight - height) / 2
+                                        x: optionsLanguageCombo.width - width - 10
+                                        y: optionsLanguageCombo.topPadding + (optionsLanguageCombo.availableHeight - height) / 2
                                         width: 12
                                         height: 14
                                         sourceSize.width: 12
                                         sourceSize.height: 14
                                         source: {
-                                            var c = (sidebarLanguageCombo.hovered || sidebarLanguageCombo.popup.visible) ? "%2300f5d4" : "%23b8c7d4";
+                                            var c = (optionsLanguageCombo.hovered || optionsLanguageCombo.popup.visible) ? "%2300f5d4" : "%23b8c7d4";
                                             return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + c + "' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='7 9 12 4 17 9'/><polyline points='7 15 12 20 17 15'/></svg>";
                                         }
                                     }
 
                                     delegate: ItemDelegate {
-                                        width: sidebarLanguageCombo.width
+                                        width: optionsLanguageCombo.width
                                         height: 32
                                         contentItem: Text {
                                             text: modelData.text
@@ -3856,16 +3887,16 @@ FocusScope {
                                     }
 
                                     popup: Popup {
-                                        y: sidebarLanguageCombo.height + 2
-                                        width: sidebarLanguageCombo.width
-                                        implicitHeight: Math.min(320, sidebarLanguageCombo.popup.visible ? contentItem.implicitHeight : 0)
+                                        y: optionsLanguageCombo.height + 2
+                                        width: optionsLanguageCombo.width
+                                        implicitHeight: Math.min(320, optionsLanguageCombo.popup.visible ? contentItem.implicitHeight : 0)
                                         padding: 4
 
                                         contentItem: ListView {
                                             clip: true
                                             implicitHeight: contentHeight
-                                            model: sidebarLanguageCombo.popup.visible ? sidebarLanguageCombo.delegateModel : null
-                                            currentIndex: sidebarLanguageCombo.highlightedIndex
+                                            model: optionsLanguageCombo.popup.visible ? optionsLanguageCombo.delegateModel : null
+                                            currentIndex: optionsLanguageCombo.highlightedIndex
 
                                             ScrollIndicator.vertical: ScrollIndicator { }
                                         }
@@ -3897,9 +3928,9 @@ FocusScope {
                                         target: Context
                                         function onLanguageChanged() {
                                             var lang = Context.getLanguage();
-                                            for (var i = 0; i < sidebarLanguageCombo.model.length; ++i) {
-                                                if (sidebarLanguageCombo.model[i].value === lang) {
-                                                    sidebarLanguageCombo.currentIndex = i;
+                                            for (var i = 0; i < optionsLanguageCombo.model.length; ++i) {
+                                                if (optionsLanguageCombo.model[i].value === lang) {
+                                                    optionsLanguageCombo.currentIndex = i;
                                                     break;
                                                 }
                                             }
@@ -4075,11 +4106,20 @@ FocusScope {
                                 onClicked: {
                                     var sourcePath = Context.selectImportConfigFile(qsTr("LNG_00558"), Context.configDirPath());
                                     if (sourcePath && sourcePath !== "") {
-                                        var ok = Context.importSettings(sourcePath);
-                                        pageImportExportScrollView.statusSuccess = ok;
-                                        pageImportExportScrollView.statusMessage = ok
-                                            ? qsTr("LNG_00562").arg(sourcePath)
-                                            : qsTr("LNG_00563");
+                                        var info = Context.peekImportConfigPaths(sourcePath);
+                                        if (!info || !info.valid) {
+                                            pageImportExportScrollView.statusSuccess = false;
+                                            pageImportExportScrollView.statusMessage = qsTr("LNG_00563");
+                                            return;
+                                        }
+                                        importPathsDialog.sourcePath = sourcePath;
+                                        importPathsDialog.fileSnapshotPath = info.importedSnapshotPath || "";
+                                        importPathsDialog.fileVideoPath = info.importedVideoPath || "";
+                                        importPathsDialog.fileSnapshotUsable = !!info.importedSnapshotUsable;
+                                        importPathsDialog.fileVideoUsable = !!info.importedVideoUsable;
+                                        importPathsDialog.selectedSnapshotPath = info.suggestedSnapshotPath || Context.defaultPicturesPath();
+                                        importPathsDialog.selectedVideoPath = info.suggestedVideoPath || Context.defaultMoviesPath();
+                                        importPathsDialog.open();
                                     }
                                 }
                             }
@@ -4175,7 +4215,7 @@ FocusScope {
 
                     // Repeater rendering each version entry beautifully
                     Repeater {
-                        model: rootSideBar.changelogData
+                        model: rootOptionsPanel.changelogData
                         delegate: ColumnLayout {
                             Layout.fillWidth: true
                             spacing: 10
@@ -4289,6 +4329,372 @@ FocusScope {
         }
         property int index: -1
         onAccepted: layoutsCollectionModel.remove(index)
+    }
+
+    Dialog {
+        id: importPathsDialog
+        modal: true
+        parent: Overlay.overlay
+        anchors.centerIn: parent
+        width: Math.min(560, Overlay.overlay ? Overlay.overlay.width - 40 : 560)
+        title: qsTr("LNG_00701")
+
+        leftPadding: 16
+        rightPadding: 16
+        topPadding: 16
+        bottomPadding: 16
+
+        property string sourcePath: ""
+        property string fileSnapshotPath: ""
+        property string fileVideoPath: ""
+        property bool fileSnapshotUsable: true
+        property bool fileVideoUsable: true
+        property string selectedSnapshotPath: ""
+        property string selectedVideoPath: ""
+
+        onOpened: {
+            importSnapshotPathField.text = selectedSnapshotPath;
+            importVideoPathField.text = selectedVideoPath;
+        }
+
+        function setStoragePaths(snapPath, vidPath) {
+            selectedSnapshotPath = snapPath;
+            selectedVideoPath = vidPath;
+            importSnapshotPathField.text = snapPath;
+            importVideoPathField.text = vidPath;
+        }
+
+        background: Rectangle {
+            color: "#1c242c"
+            border.color: "#2a3540"
+            border.width: 1
+            radius: 8
+        }
+
+        header: Rectangle {
+            color: "#0f151b"
+            height: 44
+            implicitHeight: 44
+            radius: 8
+
+            Rectangle {
+                anchors.bottom: parent.bottom
+                width: parent.width
+                height: 4
+                color: "#0f151b"
+            }
+
+            Rectangle {
+                anchors.bottom: parent.bottom
+                width: parent.width
+                height: 1
+                color: "#2a3540"
+            }
+
+            Text {
+                anchors.fill: parent
+                anchors.leftMargin: 16
+                anchors.rightMargin: 16
+                text: importPathsDialog.title
+                color: "#00f5d4"
+                font.bold: true
+                font.pixelSize: 13
+                verticalAlignment: Text.AlignVCenter
+                elide: Text.ElideRight
+            }
+        }
+
+        contentItem: ColumnLayout {
+            spacing: 12
+
+            Text {
+                text: qsTr("LNG_00702")
+                color: "#cccccc"
+                font.pixelSize: 12
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+            }
+
+            ColumnLayout {
+                Layout.fillWidth: true
+                spacing: 4
+
+                Label {
+                    text: qsTr("LNG_00703")
+                    color: "white"
+                    font.pixelSize: 12
+                    font.bold: true
+                }
+
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: 8
+
+                    TextField {
+                        id: importSnapshotPathField
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 32
+                        selectByMouse: true
+                        color: "#eeeeee"
+                        font.pixelSize: 11
+                        background: Rectangle {
+                            color: "#0f151b"
+                            radius: 4
+                            border.color: importSnapshotPathField.activeFocus ? "#00f5d4" : "#2a3540"
+                            border.width: 1
+                        }
+                        onTextChanged: importPathsDialog.selectedSnapshotPath = text
+                    }
+
+                    Button {
+                        id: importBrowseSnapshotBtn
+                        text: qsTr("LNG_00705")
+                        Layout.preferredHeight: 32
+                        leftPadding: 12
+                        rightPadding: 12
+
+                        contentItem: Text {
+                            text: importBrowseSnapshotBtn.text
+                            font.pixelSize: 11
+                            font.bold: true
+                            color: "white"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                        background: Rectangle {
+                            color: importBrowseSnapshotBtn.pressed ? "#2a3540" : (importBrowseSnapshotBtn.hovered ? "#3a4550" : "#222c36")
+                            radius: 6
+                            border.color: importBrowseSnapshotBtn.hovered ? "#00f5d4" : "#2a3540"
+                            border.width: 1
+                        }
+                        onClicked: {
+                            var initial = importSnapshotPathField.text;
+                            if (!Context.dirExists(initial)) {
+                                initial = Context.homePath();
+                            }
+                            var selected = Context.selectFolder(qsTr("LNG_00237"), initial);
+                            if (selected && selected !== "") {
+                                importSnapshotPathField.text = selected;
+                            }
+                        }
+                    }
+                }
+
+                Text {
+                    visible: importPathsDialog.fileSnapshotPath !== "" &&
+                             (!importPathsDialog.fileSnapshotUsable || importPathsDialog.fileSnapshotPath !== importSnapshotPathField.text)
+                    text: importPathsDialog.fileSnapshotUsable
+                        ? qsTr("LNG_00709").arg(importPathsDialog.fileSnapshotPath)
+                        : qsTr("LNG_00708").arg(importPathsDialog.fileSnapshotPath)
+                    color: importPathsDialog.fileSnapshotUsable ? "#8898a6" : "#f59e0b"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                }
+            }
+
+            ColumnLayout {
+                Layout.fillWidth: true
+                spacing: 4
+
+                Label {
+                    text: qsTr("LNG_00704")
+                    color: "white"
+                    font.pixelSize: 12
+                    font.bold: true
+                }
+
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: 8
+
+                    TextField {
+                        id: importVideoPathField
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 32
+                        selectByMouse: true
+                        color: "#eeeeee"
+                        font.pixelSize: 11
+                        background: Rectangle {
+                            color: "#0f151b"
+                            radius: 4
+                            border.color: importVideoPathField.activeFocus ? "#00f5d4" : "#2a3540"
+                            border.width: 1
+                        }
+                        onTextChanged: importPathsDialog.selectedVideoPath = text
+                    }
+
+                    Button {
+                        id: importBrowseVideoBtn
+                        text: qsTr("LNG_00705")
+                        Layout.preferredHeight: 32
+                        leftPadding: 12
+                        rightPadding: 12
+
+                        contentItem: Text {
+                            text: importBrowseVideoBtn.text
+                            font.pixelSize: 11
+                            font.bold: true
+                            color: "white"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                        background: Rectangle {
+                            color: importBrowseVideoBtn.pressed ? "#2a3540" : (importBrowseVideoBtn.hovered ? "#3a4550" : "#222c36")
+                            radius: 6
+                            border.color: importBrowseVideoBtn.hovered ? "#00f5d4" : "#2a3540"
+                            border.width: 1
+                        }
+                        onClicked: {
+                            var initial = importVideoPathField.text;
+                            if (!Context.dirExists(initial)) {
+                                initial = Context.homePath();
+                            }
+                            var selected = Context.selectFolder(qsTr("LNG_00235"), initial);
+                            if (selected && selected !== "") {
+                                importVideoPathField.text = selected;
+                            }
+                        }
+                    }
+                }
+
+                Text {
+                    visible: importPathsDialog.fileVideoPath !== "" &&
+                             (!importPathsDialog.fileVideoUsable || importPathsDialog.fileVideoPath !== importVideoPathField.text)
+                    text: importPathsDialog.fileVideoUsable
+                        ? qsTr("LNG_00709").arg(importPathsDialog.fileVideoPath)
+                        : qsTr("LNG_00708").arg(importPathsDialog.fileVideoPath)
+                    color: importPathsDialog.fileVideoUsable ? "#8898a6" : "#f59e0b"
+                    font.pixelSize: 10
+                    wrapMode: Text.WordWrap
+                    Layout.fillWidth: true
+                }
+            }
+
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: 8
+
+                Button {
+                    id: importKeepCurrentBtn
+                    text: qsTr("LNG_00706")
+                    Layout.preferredHeight: 28
+                    leftPadding: 10
+                    rightPadding: 10
+
+                    contentItem: Text {
+                        text: importKeepCurrentBtn.text
+                        font.pixelSize: 11
+                        color: "#eeeeee"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                    background: Rectangle {
+                        color: importKeepCurrentBtn.pressed ? "#2a3540" : (importKeepCurrentBtn.hovered ? "#3a4550" : "#141a21")
+                        radius: 6
+                        border.color: importKeepCurrentBtn.hovered ? "#00f5d4" : "#2a3540"
+                        border.width: 1
+                    }
+                    onClicked: importPathsDialog.setStoragePaths(generalSettings.snapshotPath, generalSettings.videoPath)
+                }
+
+                Button {
+                    id: importSystemDefaultsBtn
+                    text: qsTr("LNG_00707")
+                    Layout.preferredHeight: 28
+                    leftPadding: 10
+                    rightPadding: 10
+
+                    contentItem: Text {
+                        text: importSystemDefaultsBtn.text
+                        font.pixelSize: 11
+                        color: "#eeeeee"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                    background: Rectangle {
+                        color: importSystemDefaultsBtn.pressed ? "#2a3540" : (importSystemDefaultsBtn.hovered ? "#3a4550" : "#141a21")
+                        radius: 6
+                        border.color: importSystemDefaultsBtn.hovered ? "#00f5d4" : "#2a3540"
+                        border.width: 1
+                    }
+                    onClicked: importPathsDialog.setStoragePaths(Context.defaultPicturesPath(), Context.defaultMoviesPath())
+                }
+
+                Item { Layout.fillWidth: true }
+            }
+        }
+
+        footer: Rectangle {
+            implicitHeight: 50
+            color: "#0f151b"
+            border.color: "#2a3540"
+            border.width: 1
+            radius: 8
+
+            Rectangle {
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.margins: 1
+                height: 4
+                color: "#0f151b"
+            }
+
+            RowLayout {
+                anchors.fill: parent
+                anchors.margins: 10
+                spacing: 8
+
+                Item { Layout.fillWidth: true }
+
+                Button {
+                    id: importCancelBtn
+                    text: qsTr("LNG_00711")
+                    Layout.preferredHeight: 30
+                    leftPadding: 14
+                    rightPadding: 14
+
+                    contentItem: Text {
+                        text: importCancelBtn.text
+                        font.bold: true
+                        font.pixelSize: 12
+                        color: importCancelBtn.pressed ? "#8898a6" : "white"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                    background: Rectangle {
+                        color: importCancelBtn.pressed ? "#2a3540" : (importCancelBtn.hovered ? "#3a4550" : "#1c242c")
+                        radius: 6
+                        border.color: "#2a3540"
+                        border.width: 1
+                    }
+                    onClicked: importPathsDialog.close()
+                }
+
+                CctvButton {
+                    id: importConfirmBtn
+                    text: qsTr("LNG_00710")
+                    isCeladon: true
+                    cornerRadius: 6
+                    Layout.preferredHeight: 30
+                    leftPadding: 16
+                    rightPadding: 16
+                    onClicked: {
+                        var ok = Context.importSettings(
+                            importPathsDialog.sourcePath,
+                            importSnapshotPathField.text,
+                            importVideoPathField.text
+                        );
+                        pageImportExportScrollView.statusSuccess = ok;
+                        pageImportExportScrollView.statusMessage = ok
+                            ? qsTr("LNG_00562").arg(importPathsDialog.sourcePath)
+                            : qsTr("LNG_00563");
+                        importPathsDialog.close();
+                    }
+                }
+            }
+        }
     }
 
     Connections {

@@ -28,7 +28,7 @@ Window {
     property var layoutsModel
     property var generalSettings
     property var layoutsCollectionSettings
-    property var sidebarWindow
+    property var optionsWindow
     property var toolsWindow
 
     property int initialLayoutIndex: -1
@@ -363,11 +363,11 @@ Window {
                     }
 
                     onClicked: {
-                        if (sidebarWindow) {
-                            sidebarWindow.visible = !sidebarWindow.visible;
-                            if (sidebarWindow.visible) {
-                                sidebarWindow.raise();
-                                sidebarWindow.requestActivate();
+                        if (optionsWindow) {
+                            optionsWindow.visible = !optionsWindow.visible;
+                            if (optionsWindow.visible) {
+                                optionsWindow.raise();
+                                optionsWindow.requestActivate();
                             }
                         }
                     }

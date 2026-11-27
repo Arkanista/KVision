@@ -1,3 +1,9 @@
+2.8.5
+  * Update Notifications & Version Manifest: Switched update checks to a static version.json release asset (with legacy GitHub API fallback), 12-hour periodic checks, auto-check/manual-check/mute-glow settings, and --test-update / --mock-current-version CLI flags.
+  * Top-Bar Visual Polish: Added green pulsing Options & top-edge update indicators, enlarged the flat SVG warning triangle on the NVR error siren, and redesigned the Archive icon.
+  * Config Import Storage Modal: Added a modal dialog during config import to confirm or pick snapshot and video folders with cross-OS, cross-user, and writable-drive checks.
+  * OptionsPanel Refactoring & NixOS Flake (#17): Renamed SideBar.qml to OptionsPanel.qml across QML and all 23 translation catalogs (preserving QSettings compatibility) and included verified Nix Flake support and KVision VMS branding.
+
 2.8.4
   * Bug Fixes & Stability:
   * Archive Decoder Safety: Validated YV12 dimensions and 64-bit buffer bounds before copying decoded frames (previously padded or malformed frames could overflow the buffer) and made playback state, speed, and FPS updates thread-safe.

@@ -1,3 +1,12 @@
+kvision (2.8.5-1) unstable; urgency=medium
+
+  * Improve update checking via static version.json release asset (keeping GitHub API legacy fallback), 12-hour periodic checks in the main window, auto-check / manual-check / mute-glow settings synced across windows, and --test-update / --mock-current-version CLI switches.
+  * Add green pulsing glow on the Options button and top edge on update availability, enlarge the flat SVG warning triangle on the NVR error indicator, and redesign the top-bar Archive button icon.
+  * Add modal storage-path confirmation dialog during configuration import with cross-platform and cross-user writable path validation.
+  * Refactor SideBar.qml to OptionsPanel.qml across QML, resources, and translations while keeping existing QSettings categories compatible, and include verified Nix Flakes support (#17) and KVision VMS branding.
+
+ -- Arkanista <68946052+Arkanista@users.noreply.github.com>  Fri, 27 Nov 2026 11:00:00 +0100
+
 kvision (2.8.4-1) unstable; urgency=medium
 
   * Validate archive YV12 frame sizes/dimensions with checked 64-bit math and remove unsafe memcpy buffer overflow (#1/#11) while making playback state/speed/FPS updates thread-safe (#9/#11).
