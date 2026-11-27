@@ -79,6 +79,7 @@ jobs:
 
           echo "[*] Checking Qt/FFmpeg wrapper environment..."
           WRAPPER_STRINGS="$(strings ./result/bin/kvision)"
+          echo "$WRAPPER_STRINGS" | grep -E "QT_PLUGIN_PATH|QML2_IMPORT_PATH|ffmpeg" || true
           echo "$WRAPPER_STRINGS" | grep -q "QT_PLUGIN_PATH"
           echo "$WRAPPER_STRINGS" | grep -q "QML2_IMPORT_PATH"
           echo "$WRAPPER_STRINGS" | grep -q "ffmpeg"

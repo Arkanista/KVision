@@ -102,14 +102,8 @@ stdenv.mkDerivation {
   preFixup = ''
     addAutoPatchelfSearchPath "$out/lib/kvision"
     addAutoPatchelfSearchPath "$out/lib/kvision/HCNetSDKCom"
+    qtWrapperArgs+=(--prefix PATH : "${lib.makeBinPath [ ffmpeg ]}")
   '';
-
-  qtWrapperArgs = [
-    "--prefix"
-    "PATH"
-    ":"
-    "${lib.makeBinPath [ ffmpeg ]}"
-  ];
 
   meta = with lib; {
     description = "KVision VMS - Cross-platform NVR and IP camera viewing application for Hikvision NVR/DVR and RTSP streams";
