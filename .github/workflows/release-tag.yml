@@ -43,6 +43,9 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Download all release artifacts
         uses: actions/download-artifact@v4
         with:
@@ -69,10 +72,24 @@ jobs:
               f.write("\n")
           PY
 
+      - name: Generate release notes
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+          REPO_NAME: ${{ github.repository }}
+        run: |
+          python3 tools/generate_release_notes.py \
+            --tag "$TAG_NAME" \
+            --repo "$REPO_NAME" \
+            --changelog CHANGELOG.md \
+            --assets-dir release-assets \
+            --output release-notes.md
+
       - name: Create or update GitHub Release with all assets
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
+          name: KVision VMS ${{ github.ref_name }}
+          body_path: release-notes.md
           fail_on_unmatched_files: true
           files: |
             release-assets/*.deb
