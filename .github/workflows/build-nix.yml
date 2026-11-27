@@ -78,7 +78,8 @@ jobs:
           done
 
           echo "[*] Checking Qt/FFmpeg wrapper environment..."
-          grep -q "QT_PLUGIN_PATH" ./result/bin/kvision
-          grep -q "QML2_IMPORT_PATH" ./result/bin/kvision
-          grep -q "ffmpeg" ./result/bin/kvision
+          WRAPPER_STRINGS="$(strings ./result/bin/kvision)"
+          echo "$WRAPPER_STRINGS" | grep -q "QT_PLUGIN_PATH"
+          echo "$WRAPPER_STRINGS" | grep -q "QML2_IMPORT_PATH"
+          echo "$WRAPPER_STRINGS" | grep -q "ffmpeg"
           echo "[+] All Nix package verification checks passed."
