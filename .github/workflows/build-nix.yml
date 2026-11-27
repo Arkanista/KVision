@@ -54,8 +54,9 @@ jobs:
           test -x ./result/bin/.kvision-wrapped
           QT_QPA_PLATFORM=offscreen ./result/bin/kvision --version
 
-          echo "[*] Checking ldd on wrapped binary..."
-          LDD_BIN="$(ldd ./result/bin/.kvision-wrapped)"
+          NIX_INTERP="$(readelf -l ./result/bin/.kvision-wrapped | awk '/interpreter:/ {gsub(/\]/, "", $NF); print $NF}')"
+          echo "[*] Checking dynamic linkage using Nix interpreter: $NIX_INTERP"
+          LDD_BIN="$(LD_TRACE_LOADED_OBJECTS=1 "$NIX_INTERP" ./result/bin/.kvision-wrapped)"
           echo "$LDD_BIN" | grep -E "libhcnetsdk\.so|libPlayCtrl\.so|libavformat\.so|libQt5Core\.so"
           if echo "$LDD_BIN" | grep -q "not found"; then
             echo "[-] Error: Missing shared library dependencies in .kvision-wrapped:"
@@ -65,12 +66,13 @@ jobs:
           echo "$LDD_BIN" | grep -q "/lib/kvision/libhcnetsdk.so"
           echo "$LDD_BIN" | grep -q "/lib/kvision/libPlayCtrl.so"
 
-          echo "[*] Checking ldd on bundled Hikvision SDK libraries..."
+          echo "[*] Checking bundled Hikvision SDK libraries with Nix dynamic linker..."
           for so in ./result/lib/kvision/*.so* ./result/lib/kvision/HCNetSDKCom/*.so*; do
             [ -f "$so" ] || continue
-            if ldd "$so" | grep -q "not found"; then
+            LDD_SO="$(LD_TRACE_LOADED_OBJECTS=1 "$NIX_INTERP" "$so")"
+            if echo "$LDD_SO" | grep -q "not found"; then
               echo "[-] Error: Unresolved dependency in $so:"
-              ldd "$so" | grep "not found"
+              echo "$LDD_SO" | grep "not found"
               exit 1
             fi
           done
