@@ -17,7 +17,7 @@
         </message>
         <message>
             <source>LNG_00003</source>
-            <translation>KVision</translation>
+            <translation>KVision VMS</translation>
         </message>
         <message>
             <source>LNG_00002</source>
@@ -2293,7 +2293,7 @@
         </message>
         <message>
             <source>LNG_00003</source>
-            <translation>KVision</translation>
+            <translation>KVision VMS</translation>
         </message>
         <message>
             <source>LNG_00219</source>
@@ -3920,7 +3920,7 @@
         </message>
         <message>
             <source>LNG_00003</source>
-            <translation>KVision</translation>
+            <translation>KVision VMS</translation>
         </message>
         <message>
             <source>LNG_00319</source>
@@ -4470,7 +4470,7 @@
         </message>
         <message>
             <source>LNG_00003</source>
-            <translation>KVision</translation>
+            <translation>KVision VMS</translation>
         </message>
         <message>
             <source>LNG_00453</source>

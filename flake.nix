@@ -1,5 +1,5 @@
 {
-  description = "KVision - Cross-platform NVR and IP camera viewing application";
+  description = "KVision VMS - Cross-platform NVR and IP camera viewing application";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

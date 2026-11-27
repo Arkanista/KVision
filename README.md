@@ -1,4 +1,4 @@
-# KVision
+# KVision VMS
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Donate-yellow.svg?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/arkanis)
@@ -21,9 +21,9 @@
 
 ---
 
-## About KVision
+## About KVision VMS
 
-**KVision** is a high-performance VMS (Video Management System) class desktop application designed for simultaneous viewing of live video feeds (RTSP/ONVIF) and deep integration with Hikvision NVR/DVR video recorders (both Live view and synchronized Playback archives).
+**KVision VMS** is a high-performance VMS (Video Management System) class desktop application designed for simultaneous viewing of live video feeds (RTSP/ONVIF) and deep integration with Hikvision NVR/DVR video recorders (both Live view and synchronized Playback archives).
 
 It is designed for Linux users who need a robust, lightweight, and smooth alternative to bloated proprietary software.
 

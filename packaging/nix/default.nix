@@ -85,8 +85,8 @@ stdenv.mkDerivation {
   ];
 
   NIX_LDFLAGS = toString [
-    "-Wl,--allow-shlib-undefined"
-    "-Wl,-rpath-link,${lib.makeLibraryPath [ freetype xorg.libX11 libGL libuuid bzip2 zlib ]}"
+    "--allow-shlib-undefined"
+    "-rpath-link ${lib.makeLibraryPath [ freetype xorg.libX11 libGL libuuid bzip2 zlib ]}"
   ];
 
   cmakeFlags = [
@@ -109,7 +109,7 @@ stdenv.mkDerivation {
   ];
 
   meta = with lib; {
-    description = "Cross-platform NVR and IP camera viewing application for Hikvision NVR/DVR and RTSP streams";
+    description = "KVision VMS - Cross-platform NVR and IP camera viewing application for Hikvision NVR/DVR and RTSP streams";
     homepage = "https://github.com/Arkanista/KVision";
     license = licenses.gpl3Plus;
     platforms = [ "x86_64-linux" ];

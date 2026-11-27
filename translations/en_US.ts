@@ -6,7 +6,7 @@
         <message>
             <location filename="../src/AuxiliaryLimitWarning.qml" line="16" />
             <source>LNG_00003</source>
-            <translation>KVision</translation>
+            <translation>KVision VMS</translation>
         </message>
         <message>
             <location filename="../src/AuxiliaryLimitWarning.qml" line="64" />
@@ -24,7 +24,7 @@
         <message>
             <location filename="../src/AuxiliaryWindow.qml" line="14" />
             <source>LNG_00018</source>
-            <translation>KVision - Auxiliary Window</translation>
+            <translation>KVision VMS - Auxiliary Window</translation>
         </message>
         <message>
             <location filename="../src/AuxiliaryWindow.qml" line="141" />
@@ -1444,12 +1444,12 @@
         <message>
             <location filename="../src/RootWindow.qml" line="18" />
             <source>LNG_00018</source>
-            <translation>KVision - Auxiliary Window</translation>
+            <translation>KVision VMS - Auxiliary Window</translation>
         </message>
         <message>
             <location filename="../src/RootWindow.qml" line="18" />
             <source>LNG_00003</source>
-            <translation>KVision</translation>
+            <translation>KVision VMS</translation>
         </message>
         <message>
             <location filename="../src/RootWindow.qml" line="489" />
@@ -2519,7 +2519,7 @@
         <message>
             <location filename="../src/SideBar.qml" line="558" />
             <source>LNG_00003</source>
-            <translation>KVision</translation>
+            <translation>KVision VMS</translation>
         </message>
         <message>
             <location filename="../src/SideBar.qml" line="569" />
@@ -3063,7 +3063,7 @@
         <message>
             <location filename="../src/SingleInstanceWarning.qml" line="16" />
             <source>LNG_00003</source>
-            <translation>KVision</translation>
+            <translation>KVision VMS</translation>
         </message>
         <message>
             <location filename="../src/SingleInstanceWarning.qml" line="64" />

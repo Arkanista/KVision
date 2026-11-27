@@ -8,9 +8,9 @@
 
 [Setup]
 AppId={{7B6E8E5A-3A2C-4F1D-9B7A-8C4E2D1F9A01}
-AppName=KVision
+AppName=KVision VMS
 AppVersion={#MyAppVersion}
-AppVerName=KVision {#MyAppVersion}
+AppVerName=KVision VMS {#MyAppVersion}
 AppPublisher=Arkanista
 AppPublisherURL=https://github.com/Arkanista/KVision
 AppSupportURL=https://github.com/Arkanista/KVision/issues
@@ -24,7 +24,7 @@ ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 SetupIconFile=..\..\images\kvision.ico
 UninstallDisplayIcon={app}\kvision.exe
-UninstallDisplayName=KVision
+UninstallDisplayName=KVision VMS
 Compression=lzma2/normal
 SolidCompression=yes
 WizardStyle=modern
@@ -43,9 +43,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "{#SourceDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{group}\KVision"; Filename: "{app}\kvision.exe"; WorkingDir: "{app}"
-Name: "{group}\{cm:UninstallProgram,KVision}"; Filename: "{uninstallexe}"
-Name: "{autodesktop}\KVision"; Filename: "{app}\kvision.exe"; WorkingDir: "{app}"; Tasks: desktopicon
+Name: "{group}\KVision VMS"; Filename: "{app}\kvision.exe"; WorkingDir: "{app}"
+Name: "{group}\{cm:UninstallProgram,KVision VMS}"; Filename: "{uninstallexe}"
+Name: "{autodesktop}\KVision VMS"; Filename: "{app}\kvision.exe"; WorkingDir: "{app}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\kvision.exe"; WorkingDir: "{app}"; Description: "{cm:LaunchProgram,KVision}"; Flags: nowait postinstall skipifsilent runasoriginaluser
+Filename: "{app}\kvision.exe"; WorkingDir: "{app}"; Description: "{cm:LaunchProgram,KVision VMS}"; Flags: nowait postinstall skipifsilent runasoriginaluser

@@ -1,13 +1,13 @@
 [Desktop Entry]
 Type=Application
-Name=KVision
-GenericName=Video streams viewer
+Name=KVision VMS
+GenericName=CCTV & NVR Video Management System
 GenericName[ru]=Просмотрщик video streams
-Comment=Viewer and mounter video streams
+Comment=Cross-platform CCTV & Hikvision NVR/DVR Video Management System
 Comment[ru]=Просмотрщик и компоновщик видеопотоков
 Icon=kvision
 Exec=kvision
 Terminal=false
 Categories=Qt;AudioVideo;Video;Viewer;
-Keywords=cctv;viewer;live streaming;kvision;
+Keywords=cctv;vms;nvr;dvr;hikvision;viewer;live streaming;kvision;
 StartupWMClass=kvision

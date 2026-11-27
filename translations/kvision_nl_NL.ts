@@ -92,7 +92,7 @@
         </message>
         <message>
             <source>LNG_00018</source>
-            <translation>KVision - Hulpvenster</translation>
+            <translation>KVision VMS - Hulpvenster</translation>
         </message>
         <message>
             <source>LNG_00017</source>
@@ -2289,7 +2289,7 @@
         </message>
         <message>
             <source>LNG_00018</source>
-            <translation>KVision - Hulpvenster</translation>
+            <translation>KVision VMS - Hulpvenster</translation>
         </message>
         <message>
             <source>LNG_00003</source>
