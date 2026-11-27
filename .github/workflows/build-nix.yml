@@ -1,0 +1,82 @@
+name: Nix Flake Package
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - "flake.nix"
+      - "flake.lock"
+      - "packaging/nix/**"
+      - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.desktop"
+      - "src/**"
+      - "images/**"
+      - "translations/**"
+      - ".github/workflows/build-nix.yml"
+  pull_request:
+    paths:
+      - "flake.nix"
+      - "flake.lock"
+      - "packaging/nix/**"
+      - "CMakeLists.txt"
+      - "kvision.qrc"
+      - "kvision.desktop"
+      - "src/**"
+      - "images/**"
+      - "translations/**"
+      - ".github/workflows/build-nix.yml"
+
+jobs:
+  build-nix:
+    name: Nix Flake (x86_64-linux)
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Restore / save Nix store cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Validate Nix flake outputs
+        run: nix flake show --no-write-lock-file
+
+      - name: Build KVision with Nix
+        run: nix build --no-write-lock-file .#default --print-build-logs
+
+      - name: Verify wrapped binary, RPATH, and bundled SDK libraries
+        run: |
+          test -x ./result/bin/kvision
+          test -x ./result/bin/.kvision-wrapped
+          QT_QPA_PLATFORM=offscreen ./result/bin/kvision --version
+
+          echo "[*] Checking ldd on wrapped binary..."
+          LDD_BIN="$(ldd ./result/bin/.kvision-wrapped)"
+          echo "$LDD_BIN" | grep -E "libhcnetsdk\.so|libPlayCtrl\.so|libavformat\.so|libQt5Core\.so"
+          if echo "$LDD_BIN" | grep -q "not found"; then
+            echo "[-] Error: Missing shared library dependencies in .kvision-wrapped:"
+            echo "$LDD_BIN" | grep "not found"
+            exit 1
+          fi
+          echo "$LDD_BIN" | grep -q "/lib/kvision/libhcnetsdk.so"
+          echo "$LDD_BIN" | grep -q "/lib/kvision/libPlayCtrl.so"
+
+          echo "[*] Checking ldd on bundled Hikvision SDK libraries..."
+          for so in ./result/lib/kvision/*.so* ./result/lib/kvision/HCNetSDKCom/*.so*; do
+            [ -f "$so" ] || continue
+            if ldd "$so" | grep -q "not found"; then
+              echo "[-] Error: Unresolved dependency in $so:"
+              ldd "$so" | grep "not found"
+              exit 1
+            fi
+          done
+
+          echo "[*] Checking Qt/FFmpeg wrapper environment..."
+          grep -q "QT_PLUGIN_PATH" ./result/bin/kvision
+          grep -q "QML2_IMPORT_PATH" ./result/bin/kvision
+          grep -q "ffmpeg" ./result/bin/kvision
+          echo "[+] All Nix package verification checks passed."
