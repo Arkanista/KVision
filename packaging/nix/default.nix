@@ -20,7 +20,7 @@
 , gtest
 , bzip2
 , freetype
-, util-linux
+, libuuid
 , zlib
 }:
 
@@ -80,8 +80,13 @@ stdenv.mkDerivation {
     stdenv.cc.cc.lib
     bzip2
     freetype
-    util-linux
+    libuuid
     zlib
+  ];
+
+  NIX_LDFLAGS = toString [
+    "-Wl,--allow-shlib-undefined"
+    "-Wl,-rpath-link,${lib.makeLibraryPath [ freetype xorg.libX11 libGL libuuid bzip2 zlib ]}"
   ];
 
   cmakeFlags = [
