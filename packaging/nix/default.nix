@@ -103,6 +103,13 @@ stdenv.mkDerivation {
     addAutoPatchelfSearchPath "$out/lib/kvision"
     addAutoPatchelfSearchPath "$out/lib/kvision/HCNetSDKCom"
     qtWrapperArgs+=(--prefix PATH : "${lib.makeBinPath [ ffmpeg ]}")
+    for pkg in ${lib.concatMapStringsSep " " (p: "${p} ${lib.getBin p} ${lib.getLib p}") [ qtdeclarative qtquickcontrols qtquickcontrols2 qtgraphicaleffects qtmultimedia qtwayland ]}; do
+      for qmldir in "$pkg"/lib/qt-*/qml; do
+        if [ -d "$qmldir" ]; then
+          qtWrapperArgs+=(--prefix QML2_IMPORT_PATH : "$qmldir")
+        fi
+      done
+    done
   '';
 
   meta = with lib; {
